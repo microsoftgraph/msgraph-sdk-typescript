@@ -1,5 +1,4 @@
-import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFromDiscriminatorValue';
-import {UserIdentity} from './index';
+import {GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeMember1, UserIdentity} from './index';
 import {PrintJobProcessingState} from './printJobProcessingState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -15,14 +14,14 @@ export class ArchivedPrintJob implements AdditionalDataHolder, Parsable {
     /** The number of copies that were printed. Read-only. */
     private _copiesPrinted?: number | undefined;
     /** The user who created the print job. Read-only. */
-    private _createdBy?: UserIdentity | undefined;
+    private _createdBy?: UserIdentity | GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeMember1 | undefined;
     /** The dateTimeOffset when the job was created. Read-only. */
     private _createdDateTime?: Date | undefined;
     /** The archived print job's GUID. Read-only. */
     private _id?: string | undefined;
     /** The printer ID that the job was queued for. Read-only. */
     private _printerId?: string | undefined;
-    /** The print job's final processing state. Read-only. */
+    /** The processingState property */
     private _processingState?: PrintJobProcessingState | undefined;
     /**
      * Gets the acquiredByPrinter property value. True if the job was acquired by a printer; false otherwise. Read-only.
@@ -102,7 +101,7 @@ export class ArchivedPrintJob implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the createdBy property value. The user who created the print job. Read-only.
-     * @returns a userIdentity
+     * @returns a getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime
      */
     public get createdBy() {
         return this._createdBy;
@@ -111,7 +110,7 @@ export class ArchivedPrintJob implements AdditionalDataHolder, Parsable {
      * Sets the createdBy property value. The user who created the print job. Read-only.
      * @param value Value to set for the createdBy property.
      */
-    public set createdBy(value: UserIdentity | undefined) {
+    public set createdBy(value: UserIdentity | GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeMember1 | undefined) {
         this._createdBy = value;
     };
     /**
@@ -174,14 +173,14 @@ export class ArchivedPrintJob implements AdditionalDataHolder, Parsable {
         this._printerId = value;
     };
     /**
-     * Gets the processingState property value. The print job's final processing state. Read-only.
+     * Gets the processingState property value. The processingState property
      * @returns a printJobProcessingState
      */
     public get processingState() {
         return this._processingState;
     };
     /**
-     * Sets the processingState property value. The print job's final processing state. Read-only.
+     * Sets the processingState property value. The processingState property
      * @param value Value to set for the processingState property.
      */
     public set processingState(value: PrintJobProcessingState | undefined) {

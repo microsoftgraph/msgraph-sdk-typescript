@@ -1,8 +1,8 @@
-import {Entity} from './index';
+import {AdminMember1, Entity} from './index';
 import {LongRunningOperationStatus} from './longRunningOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class LongRunningOperation extends Entity implements Parsable {
     /** The createdDateTime property */
     private _createdDateTime?: Date | undefined;
@@ -11,7 +11,7 @@ export class LongRunningOperation extends Entity implements Parsable {
     /** The resourceLocation property */
     private _resourceLocation?: string | undefined;
     /** The status property */
-    private _status?: LongRunningOperationStatus | undefined;
+    private _status?: LongRunningOperationStatus | AdminMember1 | undefined;
     /** The statusDetail property */
     private _statusDetail?: string | undefined;
     /**
@@ -19,6 +19,7 @@ export class LongRunningOperation extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.longRunningOperation";
     };
     /**
      * Gets the createdDateTime property value. The createdDateTime property
@@ -43,7 +44,7 @@ export class LongRunningOperation extends Entity implements Parsable {
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "lastActionDateTime": n => { this.lastActionDateTime = n.getDateValue(); },
             "resourceLocation": n => { this.resourceLocation = n.getStringValue(); },
-            "status": n => { this.status = n.getEnumValue<LongRunningOperationStatus>(LongRunningOperationStatus); },
+            "status": n => { this.status = n.getObjectValue<LongRunningOperationStatus>(createLongRunningOperationStatusFromDiscriminatorValue); },
             "statusDetail": n => { this.statusDetail = n.getStringValue(); },
         };
     };
@@ -85,12 +86,12 @@ export class LongRunningOperation extends Entity implements Parsable {
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
         writer.writeStringValue("resourceLocation", this.resourceLocation);
-        writer.writeEnumValue<LongRunningOperationStatus>("status", this.status);
+        writer.writeObjectValue<LongRunningOperationStatus>("status", this.status);
         writer.writeStringValue("statusDetail", this.statusDetail);
     };
     /**
      * Gets the status property value. The status property
-     * @returns a longRunningOperationStatus
+     * @returns a admin
      */
     public get status() {
         return this._status;
@@ -99,7 +100,7 @@ export class LongRunningOperation extends Entity implements Parsable {
      * Sets the status property value. The status property
      * @param value Value to set for the status property.
      */
-    public set status(value: LongRunningOperationStatus | undefined) {
+    public set status(value: LongRunningOperationStatus | AdminMember1 | undefined) {
         this._status = value;
     };
     /**

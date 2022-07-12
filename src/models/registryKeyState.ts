@@ -1,3 +1,4 @@
+import {AdminMember1} from './index';
 import {RegistryHive} from './registryHive';
 import {RegistryOperation} from './registryOperation';
 import {RegistryValueType} from './registryValueType';
@@ -7,7 +8,7 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** A Windows registry hive : HKEY_CURRENT_CONFIG HKEY_CURRENT_USER HKEY_LOCAL_MACHINE/SAM HKEY_LOCAL_MACHINE/Security HKEY_LOCAL_MACHINE/Software HKEY_LOCAL_MACHINE/System HKEY_USERS/.Default. Possible values are: unknown, currentConfig, currentUser, localMachineSam, localMachineSecurity, localMachineSoftware, localMachineSystem, usersDefault. */
-    private _hive?: RegistryHive | undefined;
+    private _hive?: RegistryHive | AdminMember1 | undefined;
     /** Current (i.e. changed) registry key (excludes HIVE). */
     private _key?: string | undefined;
     /** Previous (i.e. before changed) registry key (excludes HIVE). */
@@ -17,7 +18,7 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
     /** Previous (i.e. before changed) registry key value name. */
     private _oldValueName?: string | undefined;
     /** Operation that changed the registry key name and/or value. Possible values are: unknown, create, modify, delete. */
-    private _operation?: RegistryOperation | undefined;
+    private _operation?: RegistryOperation | AdminMember1 | undefined;
     /** Process ID (PID) of the process that modified the registry key (process details will appear in the alert 'processes' collection). */
     private _processId?: number | undefined;
     /** Current (i.e. changed) registry key value data (contents). */
@@ -25,7 +26,7 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
     /** Current (i.e. changed) registry key value name */
     private _valueName?: string | undefined;
     /** Registry key value type REG_BINARY REG_DWORD REG_DWORD_LITTLE_ENDIAN REG_DWORD_BIG_ENDIANREG_EXPAND_SZ REG_LINK REG_MULTI_SZ REG_NONE REG_QWORD REG_QWORD_LITTLE_ENDIAN REG_SZ Possible values are: unknown, binary, dword, dwordLittleEndian, dwordBigEndian, expandSz, link, multiSz, none, qword, qwordlittleEndian, sz. */
-    private _valueType?: RegistryValueType | undefined;
+    private _valueType?: RegistryValueType | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -52,21 +53,21 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "hive": n => { this.hive = n.getEnumValue<RegistryHive>(RegistryHive); },
+            "hive": n => { this.hive = n.getObjectValue<RegistryHive>(createRegistryHiveFromDiscriminatorValue); },
             "key": n => { this.key = n.getStringValue(); },
             "oldKey": n => { this.oldKey = n.getStringValue(); },
             "oldValueData": n => { this.oldValueData = n.getStringValue(); },
             "oldValueName": n => { this.oldValueName = n.getStringValue(); },
-            "operation": n => { this.operation = n.getEnumValue<RegistryOperation>(RegistryOperation); },
+            "operation": n => { this.operation = n.getObjectValue<RegistryOperation>(createRegistryOperationFromDiscriminatorValue); },
             "processId": n => { this.processId = n.getNumberValue(); },
             "valueData": n => { this.valueData = n.getStringValue(); },
             "valueName": n => { this.valueName = n.getStringValue(); },
-            "valueType": n => { this.valueType = n.getEnumValue<RegistryValueType>(RegistryValueType); },
+            "valueType": n => { this.valueType = n.getObjectValue<RegistryValueType>(createRegistryValueTypeFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the hive property value. A Windows registry hive : HKEY_CURRENT_CONFIG HKEY_CURRENT_USER HKEY_LOCAL_MACHINE/SAM HKEY_LOCAL_MACHINE/Security HKEY_LOCAL_MACHINE/Software HKEY_LOCAL_MACHINE/System HKEY_USERS/.Default. Possible values are: unknown, currentConfig, currentUser, localMachineSam, localMachineSecurity, localMachineSoftware, localMachineSystem, usersDefault.
-     * @returns a registryHive
+     * @returns a admin
      */
     public get hive() {
         return this._hive;
@@ -75,7 +76,7 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
      * Sets the hive property value. A Windows registry hive : HKEY_CURRENT_CONFIG HKEY_CURRENT_USER HKEY_LOCAL_MACHINE/SAM HKEY_LOCAL_MACHINE/Security HKEY_LOCAL_MACHINE/Software HKEY_LOCAL_MACHINE/System HKEY_USERS/.Default. Possible values are: unknown, currentConfig, currentUser, localMachineSam, localMachineSecurity, localMachineSoftware, localMachineSystem, usersDefault.
      * @param value Value to set for the hive property.
      */
-    public set hive(value: RegistryHive | undefined) {
+    public set hive(value: RegistryHive | AdminMember1 | undefined) {
         this._hive = value;
     };
     /**
@@ -136,7 +137,7 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the operation property value. Operation that changed the registry key name and/or value. Possible values are: unknown, create, modify, delete.
-     * @returns a registryOperation
+     * @returns a admin
      */
     public get operation() {
         return this._operation;
@@ -145,7 +146,7 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
      * Sets the operation property value. Operation that changed the registry key name and/or value. Possible values are: unknown, create, modify, delete.
      * @param value Value to set for the operation property.
      */
-    public set operation(value: RegistryOperation | undefined) {
+    public set operation(value: RegistryOperation | AdminMember1 | undefined) {
         this._operation = value;
     };
     /**
@@ -168,16 +169,16 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeEnumValue<RegistryHive>("hive", this.hive);
+        writer.writeObjectValue<RegistryHive>("hive", this.hive);
         writer.writeStringValue("key", this.key);
         writer.writeStringValue("oldKey", this.oldKey);
         writer.writeStringValue("oldValueData", this.oldValueData);
         writer.writeStringValue("oldValueName", this.oldValueName);
-        writer.writeEnumValue<RegistryOperation>("operation", this.operation);
+        writer.writeObjectValue<RegistryOperation>("operation", this.operation);
         writer.writeNumberValue("processId", this.processId);
         writer.writeStringValue("valueData", this.valueData);
         writer.writeStringValue("valueName", this.valueName);
-        writer.writeEnumValue<RegistryValueType>("valueType", this.valueType);
+        writer.writeObjectValue<RegistryValueType>("valueType", this.valueType);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -210,7 +211,7 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the valueType property value. Registry key value type REG_BINARY REG_DWORD REG_DWORD_LITTLE_ENDIAN REG_DWORD_BIG_ENDIANREG_EXPAND_SZ REG_LINK REG_MULTI_SZ REG_NONE REG_QWORD REG_QWORD_LITTLE_ENDIAN REG_SZ Possible values are: unknown, binary, dword, dwordLittleEndian, dwordBigEndian, expandSz, link, multiSz, none, qword, qwordlittleEndian, sz.
-     * @returns a registryValueType
+     * @returns a admin
      */
     public get valueType() {
         return this._valueType;
@@ -219,7 +220,7 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
      * Sets the valueType property value. Registry key value type REG_BINARY REG_DWORD REG_DWORD_LITTLE_ENDIAN REG_DWORD_BIG_ENDIANREG_EXPAND_SZ REG_LINK REG_MULTI_SZ REG_NONE REG_QWORD REG_QWORD_LITTLE_ENDIAN REG_SZ Possible values are: unknown, binary, dword, dwordLittleEndian, dwordBigEndian, expandSz, link, multiSz, none, qword, qwordlittleEndian, sz.
      * @param value Value to set for the valueType property.
      */
-    public set valueType(value: RegistryValueType | undefined) {
+    public set valueType(value: RegistryValueType | AdminMember1 | undefined) {
         this._valueType = value;
     };
 }

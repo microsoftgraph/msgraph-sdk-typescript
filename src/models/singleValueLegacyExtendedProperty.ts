@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class SingleValueLegacyExtendedProperty extends Entity implements Parsable {
     /** A property value. */
     private _value?: string | undefined;

@@ -1,31 +1,26 @@
 import {Entity, KeyValue} from '../';
-import {createKeyValueFromDiscriminatorValue} from '../createKeyValueFromDiscriminatorValue';
-import {createLocalizedDescriptionFromDiscriminatorValue} from './createLocalizedDescriptionFromDiscriminatorValue';
-import {createLocalizedLabelFromDiscriminatorValue} from './createLocalizedLabelFromDiscriminatorValue';
 import {createRelationFromDiscriminatorValue} from './createRelationFromDiscriminatorValue';
-import {createSetFromDiscriminatorValue} from './createSetFromDiscriminatorValue';
 import {createTermFromDiscriminatorValue} from './createTermFromDiscriminatorValue';
-import {LocalizedDescription, LocalizedLabel, Relation, Set} from './index';
+import {AdminMember1, LocalizedDescription, LocalizedLabel, Relation, Set} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Term extends Entity implements Parsable {
     /** Children of current term. */
     private _children?: Term[] | undefined;
     /** Date and time of term creation. Read-only. */
     private _createdDateTime?: Date | undefined;
     /** Description about term that is dependent on the languageTag. */
-    private _descriptions?: LocalizedDescription[] | undefined;
+    private _descriptions?: LocalizedDescription | AdminMember1[] | undefined;
     /** Label metadata for a term. */
-    private _labels?: LocalizedLabel[] | undefined;
+    private _labels?: LocalizedLabel | AdminMember1[] | undefined;
     /** Last date and time of term modification. Read-only. */
     private _lastModifiedDateTime?: Date | undefined;
     /** Collection of properties on the term. */
-    private _properties?: KeyValue[] | undefined;
+    private _properties?: KeyValue | AdminMember1[] | undefined;
     /** To indicate which terms are related to the current term as either pinned or reused. */
     private _relations?: Relation[] | undefined;
     /** The [set] in which the term is created. */
-    private _set?: Set | undefined;
+    private _set?: Set | AdminMember1 | undefined;
     /**
      * Gets the children property value. Children of current term.
      * @returns a term
@@ -62,7 +57,7 @@ export class Term extends Entity implements Parsable {
     };
     /**
      * Gets the descriptions property value. Description about term that is dependent on the languageTag.
-     * @returns a localizedDescription
+     * @returns a admin
      */
     public get descriptions() {
         return this._descriptions;
@@ -71,7 +66,7 @@ export class Term extends Entity implements Parsable {
      * Sets the descriptions property value. Description about term that is dependent on the languageTag.
      * @param value Value to set for the descriptions property.
      */
-    public set descriptions(value: LocalizedDescription[] | undefined) {
+    public set descriptions(value: LocalizedDescription | AdminMember1[] | undefined) {
         this._descriptions = value;
     };
     /**
@@ -82,17 +77,17 @@ export class Term extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "children": n => { this.children = n.getCollectionOfObjectValues<Term>(createTermFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
-            "descriptions": n => { this.descriptions = n.getCollectionOfObjectValues<LocalizedDescription>(createLocalizedDescriptionFromDiscriminatorValue); },
-            "labels": n => { this.labels = n.getCollectionOfObjectValues<LocalizedLabel>(createLocalizedLabelFromDiscriminatorValue); },
+            "descriptions": n => { this.descriptions = n.getObjectValue<LocalizedDescription>(createLocalizedDescriptionFromDiscriminatorValue); },
+            "labels": n => { this.labels = n.getObjectValue<LocalizedLabel>(createLocalizedLabelFromDiscriminatorValue); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
-            "properties": n => { this.properties = n.getCollectionOfObjectValues<KeyValue>(createKeyValueFromDiscriminatorValue); },
+            "properties": n => { this.properties = n.getObjectValue<KeyValue>(createKeyValueFromDiscriminatorValue); },
             "relations": n => { this.relations = n.getCollectionOfObjectValues<Relation>(createRelationFromDiscriminatorValue); },
             "set": n => { this.set = n.getObjectValue<Set>(createSetFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the labels property value. Label metadata for a term.
-     * @returns a localizedLabel
+     * @returns a admin
      */
     public get labels() {
         return this._labels;
@@ -101,7 +96,7 @@ export class Term extends Entity implements Parsable {
      * Sets the labels property value. Label metadata for a term.
      * @param value Value to set for the labels property.
      */
-    public set labels(value: LocalizedLabel[] | undefined) {
+    public set labels(value: LocalizedLabel | AdminMember1[] | undefined) {
         this._labels = value;
     };
     /**
@@ -120,7 +115,7 @@ export class Term extends Entity implements Parsable {
     };
     /**
      * Gets the properties property value. Collection of properties on the term.
-     * @returns a keyValue
+     * @returns a admin
      */
     public get properties() {
         return this._properties;
@@ -129,7 +124,7 @@ export class Term extends Entity implements Parsable {
      * Sets the properties property value. Collection of properties on the term.
      * @param value Value to set for the properties property.
      */
-    public set properties(value: KeyValue[] | undefined) {
+    public set properties(value: KeyValue | AdminMember1[] | undefined) {
         this._properties = value;
     };
     /**
@@ -155,16 +150,16 @@ export class Term extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<Term>("children", this.children);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
-        writer.writeCollectionOfObjectValues<LocalizedDescription>("descriptions", this.descriptions);
-        writer.writeCollectionOfObjectValues<LocalizedLabel>("labels", this.labels);
+        writer.writeObjectValue<LocalizedDescription>("descriptions", this.descriptions);
+        writer.writeObjectValue<LocalizedLabel>("labels", this.labels);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-        writer.writeCollectionOfObjectValues<KeyValue>("properties", this.properties);
+        writer.writeObjectValue<KeyValue>("properties", this.properties);
         writer.writeCollectionOfObjectValues<Relation>("relations", this.relations);
         writer.writeObjectValue<Set>("set", this.set);
     };
     /**
      * Gets the set property value. The [set] in which the term is created.
-     * @returns a set
+     * @returns a admin
      */
     public get set() {
         return this._set;
@@ -173,7 +168,7 @@ export class Term extends Entity implements Parsable {
      * Sets the set property value. The [set] in which the term is created.
      * @param value Value to set for the set property.
      */
-    public set set(value: Set | undefined) {
+    public set set(value: Set | AdminMember1 | undefined) {
         this._set = value;
     };
 }

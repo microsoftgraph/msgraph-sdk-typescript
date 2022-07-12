@@ -1,5 +1,4 @@
-import {createResultInfoFromDiscriminatorValue} from './createResultInfoFromDiscriminatorValue';
-import {Entity, ResultInfo} from './index';
+import {CommunicationsMember1, Entity, ResultInfo} from './index';
 import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -8,8 +7,8 @@ export class CommsOperation extends Entity implements Parsable {
     /** Unique Client Context string. Max limit is 256 chars. */
     private _clientContext?: string | undefined;
     /** The result information. Read-only. */
-    private _resultInfo?: ResultInfo | undefined;
-    /** Possible values are: notStarted, running, completed, failed. Read-only. */
+    private _resultInfo?: ResultInfo | CommunicationsMember1 | undefined;
+    /** The status property */
     private _status?: OperationStatus | undefined;
     /**
      * Gets the clientContext property value. Unique Client Context string. Max limit is 256 chars.
@@ -30,6 +29,7 @@ export class CommsOperation extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.commsOperation";
     };
     /**
      * The deserialization information for the current model
@@ -44,7 +44,7 @@ export class CommsOperation extends Entity implements Parsable {
     };
     /**
      * Gets the resultInfo property value. The result information. Read-only.
-     * @returns a resultInfo
+     * @returns a communications
      */
     public get resultInfo() {
         return this._resultInfo;
@@ -53,7 +53,7 @@ export class CommsOperation extends Entity implements Parsable {
      * Sets the resultInfo property value. The result information. Read-only.
      * @param value Value to set for the resultInfo property.
      */
-    public set resultInfo(value: ResultInfo | undefined) {
+    public set resultInfo(value: ResultInfo | CommunicationsMember1 | undefined) {
         this._resultInfo = value;
     };
     /**
@@ -68,14 +68,14 @@ export class CommsOperation extends Entity implements Parsable {
         writer.writeEnumValue<OperationStatus>("status", this.status);
     };
     /**
-     * Gets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
+     * Gets the status property value. The status property
      * @returns a operationStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
+     * Sets the status property value. The status property
      * @param value Value to set for the status property.
      */
     public set status(value: OperationStatus | undefined) {

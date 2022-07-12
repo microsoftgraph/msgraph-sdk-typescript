@@ -1,18 +1,16 @@
-import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
-import {createWorkbookFilterFromDiscriminatorValue} from './createWorkbookFilterFromDiscriminatorValue';
-import {Entity, Json, WorkbookFilter} from './index';
+import {AdminMember1, Entity, Json, WorkbookFilter} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookTableColumn extends Entity implements Parsable {
     /** Retrieve the filter applied to the column. Read-only. */
-    private _filter?: WorkbookFilter | undefined;
+    private _filter?: WorkbookFilter | AdminMember1 | undefined;
     /** Returns the index number of the column within the columns collection of the table. Zero-indexed. Read-only. */
     private _index?: number | undefined;
     /** Returns the name of the table column. */
     private _name?: string | undefined;
     /** Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string. */
-    private _values?: Json | undefined;
+    private _values?: Json | AdminMember1 | undefined;
     /**
      * Instantiates a new workbookTableColumn and sets the default values.
      */
@@ -21,7 +19,7 @@ export class WorkbookTableColumn extends Entity implements Parsable {
     };
     /**
      * Gets the filter property value. Retrieve the filter applied to the column. Read-only.
-     * @returns a workbookFilter
+     * @returns a admin
      */
     public get filter() {
         return this._filter;
@@ -30,7 +28,7 @@ export class WorkbookTableColumn extends Entity implements Parsable {
      * Sets the filter property value. Retrieve the filter applied to the column. Read-only.
      * @param value Value to set for the filter property.
      */
-    public set filter(value: WorkbookFilter | undefined) {
+    public set filter(value: WorkbookFilter | AdminMember1 | undefined) {
         this._filter = value;
     };
     /**
@@ -87,7 +85,7 @@ export class WorkbookTableColumn extends Entity implements Parsable {
     };
     /**
      * Gets the values property value. Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.
-     * @returns a Json
+     * @returns a admin
      */
     public get values() {
         return this._values;
@@ -96,7 +94,7 @@ export class WorkbookTableColumn extends Entity implements Parsable {
      * Sets the values property value. Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.
      * @param value Value to set for the values property.
      */
-    public set values(value: Json | undefined) {
+    public set values(value: Json | AdminMember1 | undefined) {
         this._values = value;
     };
 }

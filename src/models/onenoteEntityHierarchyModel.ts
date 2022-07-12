@@ -1,26 +1,25 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {IdentitySet, OnenoteEntitySchemaObjectModel} from './index';
+import {AdminMember1, IdentitySet, OnenoteEntitySchemaObjectModel} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel implements Parsable {
     /** Identity of the user, device, and application which created the item. Read-only. */
-    private _createdBy?: IdentitySet | undefined;
+    private _createdBy?: IdentitySet | AdminMember1 | undefined;
     /** The name of the notebook. */
     private _displayName?: string | undefined;
     /** Identity of the user, device, and application which created the item. Read-only. */
-    private _lastModifiedBy?: IdentitySet | undefined;
+    private _lastModifiedBy?: IdentitySet | AdminMember1 | undefined;
     /** The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _lastModifiedDateTime?: Date | undefined;
     /**
-     * Instantiates a new onenoteEntityHierarchyModel and sets the default values.
+     * Instantiates a new OnenoteEntityHierarchyModel and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.onenoteEntityHierarchyModel";
     };
     /**
      * Gets the createdBy property value. Identity of the user, device, and application which created the item. Read-only.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get createdBy() {
         return this._createdBy;
@@ -29,7 +28,7 @@ export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel 
      * Sets the createdBy property value. Identity of the user, device, and application which created the item. Read-only.
      * @param value Value to set for the createdBy property.
      */
-    public set createdBy(value: IdentitySet | undefined) {
+    public set createdBy(value: IdentitySet | AdminMember1 | undefined) {
         this._createdBy = value;
     };
     /**
@@ -60,7 +59,7 @@ export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel 
     };
     /**
      * Gets the lastModifiedBy property value. Identity of the user, device, and application which created the item. Read-only.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get lastModifiedBy() {
         return this._lastModifiedBy;
@@ -69,7 +68,7 @@ export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel 
      * Sets the lastModifiedBy property value. Identity of the user, device, and application which created the item. Read-only.
      * @param value Value to set for the lastModifiedBy property.
      */
-    public set lastModifiedBy(value: IdentitySet | undefined) {
+    public set lastModifiedBy(value: IdentitySet | AdminMember1 | undefined) {
         this._lastModifiedBy = value;
     };
     /**

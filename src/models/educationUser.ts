@@ -2,23 +2,15 @@ import {createAssignedLicenseFromDiscriminatorValue} from './createAssignedLicen
 import {createAssignedPlanFromDiscriminatorValue} from './createAssignedPlanFromDiscriminatorValue';
 import {createEducationAssignmentFromDiscriminatorValue} from './createEducationAssignmentFromDiscriminatorValue';
 import {createEducationClassFromDiscriminatorValue} from './createEducationClassFromDiscriminatorValue';
-import {createEducationOnPremisesInfoFromDiscriminatorValue} from './createEducationOnPremisesInfoFromDiscriminatorValue';
 import {createEducationRubricFromDiscriminatorValue} from './createEducationRubricFromDiscriminatorValue';
 import {createEducationSchoolFromDiscriminatorValue} from './createEducationSchoolFromDiscriminatorValue';
-import {createEducationStudentFromDiscriminatorValue} from './createEducationStudentFromDiscriminatorValue';
-import {createEducationTeacherFromDiscriminatorValue} from './createEducationTeacherFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createPasswordProfileFromDiscriminatorValue} from './createPasswordProfileFromDiscriminatorValue';
-import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddressFromDiscriminatorValue';
 import {createProvisionedPlanFromDiscriminatorValue} from './createProvisionedPlanFromDiscriminatorValue';
-import {createRelatedContactFromDiscriminatorValue} from './createRelatedContactFromDiscriminatorValue';
-import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorValue';
 import {EducationExternalSource} from './educationExternalSource';
 import {EducationUserRole} from './educationUserRole';
-import {AssignedLicense, AssignedPlan, EducationAssignment, EducationClass, EducationOnPremisesInfo, EducationRubric, EducationSchool, EducationStudent, EducationTeacher, Entity, IdentitySet, PasswordProfile, PhysicalAddress, ProvisionedPlan, RelatedContact, User} from './index';
+import {AdminMember1, AssignedLicense, AssignedPlan, EducationAssignment, EducationClass, EducationOnPremisesInfo, EducationRubric, EducationSchool, EducationStudent, EducationTeacher, Entity, IdentitySet, PasswordProfile, PhysicalAddress, ProvisionedPlan, RelatedContact, User} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the admin singleton. */
 export class EducationUser extends Entity implements Parsable {
     /** True if the account is enabled; otherwise, false. This property is required when a user is created. Supports /$filter. */
     private _accountEnabled?: boolean | undefined;
@@ -33,13 +25,13 @@ export class EducationUser extends Entity implements Parsable {
     /** Classes to which the user belongs. Nullable. */
     private _classes?: EducationClass[] | undefined;
     /** Entity who created the user. */
-    private _createdBy?: IdentitySet | undefined;
+    private _createdBy?: IdentitySet | AdminMember1 | undefined;
     /** The name for the department in which the user works. Supports /$filter. */
     private _department?: string | undefined;
     /** The name displayed in the address book for the user. Supports $filter and $orderby. */
     private _displayName?: string | undefined;
     /** The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual. */
-    private _externalSource?: EducationExternalSource | undefined;
+    private _externalSource?: EducationExternalSource | AdminMember1 | undefined;
     /** The name of the external source this resources was generated from. */
     private _externalSourceDetail?: string | undefined;
     /** The given name (first name) of the user. Supports /$filter. */
@@ -47,7 +39,7 @@ export class EducationUser extends Entity implements Parsable {
     /** The SMTP address for the user; for example, 'jeff@contoso.onmicrosoft.com'. Read-Only. Supports /$filter. */
     private _mail?: string | undefined;
     /** Mail address of user. Note: type and postOfficeBox are not supported for educationUser resources. */
-    private _mailingAddress?: PhysicalAddress | undefined;
+    private _mailingAddress?: PhysicalAddress | AdminMember1 | undefined;
     /** The mail alias for the user. This property must be specified when a user is created. Supports /$filter. */
     private _mailNickname?: string | undefined;
     /** The middle name of user. */
@@ -57,23 +49,23 @@ export class EducationUser extends Entity implements Parsable {
     /** The officeLocation property */
     private _officeLocation?: string | undefined;
     /** Additional information used to associate the AAD user with it's Active Directory counterpart. */
-    private _onPremisesInfo?: EducationOnPremisesInfo | undefined;
+    private _onPremisesInfo?: EducationOnPremisesInfo | AdminMember1 | undefined;
     /** Specifies password policies for the user. See standard [user] resource for additional details. */
     private _passwordPolicies?: string | undefined;
     /** Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. See standard [user] resource for additional details. */
-    private _passwordProfile?: PasswordProfile | undefined;
+    private _passwordProfile?: PasswordProfile | AdminMember1 | undefined;
     /** The preferred language for the user. Should follow ISO 639-1 Code; for example, 'en-US'. */
     private _preferredLanguage?: string | undefined;
-    /** Default role for a user. The user's role might be different in an individual class. Possible values are: student, teacher, faculty. Supports /$filter. */
+    /** The primaryRole property */
     private _primaryRole?: EducationUserRole | undefined;
     /** The plans that are provisioned for the user. Read-only. Not nullable. */
     private _provisionedPlans?: ProvisionedPlan[] | undefined;
     /** The refreshTokensValidFromDateTime property */
     private _refreshTokensValidFromDateTime?: Date | undefined;
     /** Related records related to the user. Possible relationships are parent, relative, aide, doctor, guardian, child, other, unknownFutureValue */
-    private _relatedContacts?: RelatedContact[] | undefined;
+    private _relatedContacts?: RelatedContact | AdminMember1[] | undefined;
     /** Address where user lives. Note: type and postOfficeBox are not supported for educationUser resources. */
-    private _residenceAddress?: PhysicalAddress | undefined;
+    private _residenceAddress?: PhysicalAddress | AdminMember1 | undefined;
     /** When set, the grading rubric attached to the assignment. */
     private _rubrics?: EducationRubric[] | undefined;
     /** Schools to which the user belongs. Nullable. */
@@ -81,17 +73,17 @@ export class EducationUser extends Entity implements Parsable {
     /** True if the Outlook Global Address List should contain this user; otherwise, false. If not set, this will be treated as true. For users invited through the invitation manager, this property will be set to false. */
     private _showInAddressList?: boolean | undefined;
     /** If the primary role is student, this block will contain student specific data. */
-    private _student?: EducationStudent | undefined;
+    private _student?: EducationStudent | AdminMember1 | undefined;
     /** The user's surname (family name or last name). Supports /$filter. */
     private _surname?: string | undefined;
     /** Classes for which the user is a teacher. */
     private _taughtClasses?: EducationClass[] | undefined;
     /** If the primary role is teacher, this block will contain teacher specific data. */
-    private _teacher?: EducationTeacher | undefined;
+    private _teacher?: EducationTeacher | AdminMember1 | undefined;
     /** A two-letter country code ([ISO 3166 Alpha-2]). Required for users who will be assigned licenses. Not nullable. Supports /$filter. */
     private _usageLocation?: string | undefined;
     /** The directory user that corresponds to this user. */
-    private _user?: User | undefined;
+    private _user?: User | AdminMember1 | undefined;
     /** The user principal name (UPN) for the user. Supports $filter and $orderby. See standard [user] resource for additional details. */
     private _userPrincipalName?: string | undefined;
     /** A string value that can be used to classify user types in your directory, such as 'Member' and 'Guest'. Supports /$filter. */
@@ -188,7 +180,7 @@ export class EducationUser extends Entity implements Parsable {
     };
     /**
      * Gets the createdBy property value. Entity who created the user.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get createdBy() {
         return this._createdBy;
@@ -197,7 +189,7 @@ export class EducationUser extends Entity implements Parsable {
      * Sets the createdBy property value. Entity who created the user.
      * @param value Value to set for the createdBy property.
      */
-    public set createdBy(value: IdentitySet | undefined) {
+    public set createdBy(value: IdentitySet | AdminMember1 | undefined) {
         this._createdBy = value;
     };
     /**
@@ -230,7 +222,7 @@ export class EducationUser extends Entity implements Parsable {
     };
     /**
      * Gets the externalSource property value. The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual.
-     * @returns a educationExternalSource
+     * @returns a admin
      */
     public get externalSource() {
         return this._externalSource;
@@ -239,7 +231,7 @@ export class EducationUser extends Entity implements Parsable {
      * Sets the externalSource property value. The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual.
      * @param value Value to set for the externalSource property.
      */
-    public set externalSource(value: EducationExternalSource | undefined) {
+    public set externalSource(value: EducationExternalSource | AdminMember1 | undefined) {
         this._externalSource = value;
     };
     /**
@@ -271,7 +263,7 @@ export class EducationUser extends Entity implements Parsable {
             "createdBy": n => { this.createdBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "department": n => { this.department = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
-            "externalSource": n => { this.externalSource = n.getEnumValue<EducationExternalSource>(EducationExternalSource); },
+            "externalSource": n => { this.externalSource = n.getObjectValue<EducationExternalSource>(createEducationExternalSourceFromDiscriminatorValue); },
             "externalSourceDetail": n => { this.externalSourceDetail = n.getStringValue(); },
             "givenName": n => { this.givenName = n.getStringValue(); },
             "mail": n => { this.mail = n.getStringValue(); },
@@ -287,7 +279,7 @@ export class EducationUser extends Entity implements Parsable {
             "primaryRole": n => { this.primaryRole = n.getEnumValue<EducationUserRole>(EducationUserRole); },
             "provisionedPlans": n => { this.provisionedPlans = n.getCollectionOfObjectValues<ProvisionedPlan>(createProvisionedPlanFromDiscriminatorValue); },
             "refreshTokensValidFromDateTime": n => { this.refreshTokensValidFromDateTime = n.getDateValue(); },
-            "relatedContacts": n => { this.relatedContacts = n.getCollectionOfObjectValues<RelatedContact>(createRelatedContactFromDiscriminatorValue); },
+            "relatedContacts": n => { this.relatedContacts = n.getObjectValue<RelatedContact>(createRelatedContactFromDiscriminatorValue); },
             "residenceAddress": n => { this.residenceAddress = n.getObjectValue<PhysicalAddress>(createPhysicalAddressFromDiscriminatorValue); },
             "rubrics": n => { this.rubrics = n.getCollectionOfObjectValues<EducationRubric>(createEducationRubricFromDiscriminatorValue); },
             "schools": n => { this.schools = n.getCollectionOfObjectValues<EducationSchool>(createEducationSchoolFromDiscriminatorValue); },
@@ -332,7 +324,7 @@ export class EducationUser extends Entity implements Parsable {
     };
     /**
      * Gets the mailingAddress property value. Mail address of user. Note: type and postOfficeBox are not supported for educationUser resources.
-     * @returns a physicalAddress
+     * @returns a admin
      */
     public get mailingAddress() {
         return this._mailingAddress;
@@ -341,7 +333,7 @@ export class EducationUser extends Entity implements Parsable {
      * Sets the mailingAddress property value. Mail address of user. Note: type and postOfficeBox are not supported for educationUser resources.
      * @param value Value to set for the mailingAddress property.
      */
-    public set mailingAddress(value: PhysicalAddress | undefined) {
+    public set mailingAddress(value: PhysicalAddress | AdminMember1 | undefined) {
         this._mailingAddress = value;
     };
     /**
@@ -402,7 +394,7 @@ export class EducationUser extends Entity implements Parsable {
     };
     /**
      * Gets the onPremisesInfo property value. Additional information used to associate the AAD user with it's Active Directory counterpart.
-     * @returns a educationOnPremisesInfo
+     * @returns a admin
      */
     public get onPremisesInfo() {
         return this._onPremisesInfo;
@@ -411,7 +403,7 @@ export class EducationUser extends Entity implements Parsable {
      * Sets the onPremisesInfo property value. Additional information used to associate the AAD user with it's Active Directory counterpart.
      * @param value Value to set for the onPremisesInfo property.
      */
-    public set onPremisesInfo(value: EducationOnPremisesInfo | undefined) {
+    public set onPremisesInfo(value: EducationOnPremisesInfo | AdminMember1 | undefined) {
         this._onPremisesInfo = value;
     };
     /**
@@ -430,7 +422,7 @@ export class EducationUser extends Entity implements Parsable {
     };
     /**
      * Gets the passwordProfile property value. Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. See standard [user] resource for additional details.
-     * @returns a passwordProfile
+     * @returns a admin
      */
     public get passwordProfile() {
         return this._passwordProfile;
@@ -439,7 +431,7 @@ export class EducationUser extends Entity implements Parsable {
      * Sets the passwordProfile property value. Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. See standard [user] resource for additional details.
      * @param value Value to set for the passwordProfile property.
      */
-    public set passwordProfile(value: PasswordProfile | undefined) {
+    public set passwordProfile(value: PasswordProfile | AdminMember1 | undefined) {
         this._passwordProfile = value;
     };
     /**
@@ -457,14 +449,14 @@ export class EducationUser extends Entity implements Parsable {
         this._preferredLanguage = value;
     };
     /**
-     * Gets the primaryRole property value. Default role for a user. The user's role might be different in an individual class. Possible values are: student, teacher, faculty. Supports /$filter.
+     * Gets the primaryRole property value. The primaryRole property
      * @returns a educationUserRole
      */
     public get primaryRole() {
         return this._primaryRole;
     };
     /**
-     * Sets the primaryRole property value. Default role for a user. The user's role might be different in an individual class. Possible values are: student, teacher, faculty. Supports /$filter.
+     * Sets the primaryRole property value. The primaryRole property
      * @param value Value to set for the primaryRole property.
      */
     public set primaryRole(value: EducationUserRole | undefined) {
@@ -500,7 +492,7 @@ export class EducationUser extends Entity implements Parsable {
     };
     /**
      * Gets the relatedContacts property value. Related records related to the user. Possible relationships are parent, relative, aide, doctor, guardian, child, other, unknownFutureValue
-     * @returns a relatedContact
+     * @returns a admin
      */
     public get relatedContacts() {
         return this._relatedContacts;
@@ -509,12 +501,12 @@ export class EducationUser extends Entity implements Parsable {
      * Sets the relatedContacts property value. Related records related to the user. Possible relationships are parent, relative, aide, doctor, guardian, child, other, unknownFutureValue
      * @param value Value to set for the relatedContacts property.
      */
-    public set relatedContacts(value: RelatedContact[] | undefined) {
+    public set relatedContacts(value: RelatedContact | AdminMember1[] | undefined) {
         this._relatedContacts = value;
     };
     /**
      * Gets the residenceAddress property value. Address where user lives. Note: type and postOfficeBox are not supported for educationUser resources.
-     * @returns a physicalAddress
+     * @returns a admin
      */
     public get residenceAddress() {
         return this._residenceAddress;
@@ -523,7 +515,7 @@ export class EducationUser extends Entity implements Parsable {
      * Sets the residenceAddress property value. Address where user lives. Note: type and postOfficeBox are not supported for educationUser resources.
      * @param value Value to set for the residenceAddress property.
      */
-    public set residenceAddress(value: PhysicalAddress | undefined) {
+    public set residenceAddress(value: PhysicalAddress | AdminMember1 | undefined) {
         this._residenceAddress = value;
     };
     /**
@@ -570,7 +562,7 @@ export class EducationUser extends Entity implements Parsable {
         writer.writeObjectValue<IdentitySet>("createdBy", this.createdBy);
         writer.writeStringValue("department", this.department);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeEnumValue<EducationExternalSource>("externalSource", this.externalSource);
+        writer.writeObjectValue<EducationExternalSource>("externalSource", this.externalSource);
         writer.writeStringValue("externalSourceDetail", this.externalSourceDetail);
         writer.writeStringValue("givenName", this.givenName);
         writer.writeStringValue("mail", this.mail);
@@ -586,7 +578,7 @@ export class EducationUser extends Entity implements Parsable {
         writer.writeEnumValue<EducationUserRole>("primaryRole", this.primaryRole);
         writer.writeCollectionOfObjectValues<ProvisionedPlan>("provisionedPlans", this.provisionedPlans);
         writer.writeDateValue("refreshTokensValidFromDateTime", this.refreshTokensValidFromDateTime);
-        writer.writeCollectionOfObjectValues<RelatedContact>("relatedContacts", this.relatedContacts);
+        writer.writeObjectValue<RelatedContact>("relatedContacts", this.relatedContacts);
         writer.writeObjectValue<PhysicalAddress>("residenceAddress", this.residenceAddress);
         writer.writeCollectionOfObjectValues<EducationRubric>("rubrics", this.rubrics);
         writer.writeCollectionOfObjectValues<EducationSchool>("schools", this.schools);
@@ -616,7 +608,7 @@ export class EducationUser extends Entity implements Parsable {
     };
     /**
      * Gets the student property value. If the primary role is student, this block will contain student specific data.
-     * @returns a educationStudent
+     * @returns a admin
      */
     public get student() {
         return this._student;
@@ -625,7 +617,7 @@ export class EducationUser extends Entity implements Parsable {
      * Sets the student property value. If the primary role is student, this block will contain student specific data.
      * @param value Value to set for the student property.
      */
-    public set student(value: EducationStudent | undefined) {
+    public set student(value: EducationStudent | AdminMember1 | undefined) {
         this._student = value;
     };
     /**
@@ -658,7 +650,7 @@ export class EducationUser extends Entity implements Parsable {
     };
     /**
      * Gets the teacher property value. If the primary role is teacher, this block will contain teacher specific data.
-     * @returns a educationTeacher
+     * @returns a admin
      */
     public get teacher() {
         return this._teacher;
@@ -667,7 +659,7 @@ export class EducationUser extends Entity implements Parsable {
      * Sets the teacher property value. If the primary role is teacher, this block will contain teacher specific data.
      * @param value Value to set for the teacher property.
      */
-    public set teacher(value: EducationTeacher | undefined) {
+    public set teacher(value: EducationTeacher | AdminMember1 | undefined) {
         this._teacher = value;
     };
     /**
@@ -686,7 +678,7 @@ export class EducationUser extends Entity implements Parsable {
     };
     /**
      * Gets the user property value. The directory user that corresponds to this user.
-     * @returns a user
+     * @returns a admin
      */
     public get user() {
         return this._user;
@@ -695,7 +687,7 @@ export class EducationUser extends Entity implements Parsable {
      * Sets the user property value. The directory user that corresponds to this user.
      * @param value Value to set for the user property.
      */
-    public set user(value: User | undefined) {
+    public set user(value: User | AdminMember1 | undefined) {
         this._user = value;
     };
     /**

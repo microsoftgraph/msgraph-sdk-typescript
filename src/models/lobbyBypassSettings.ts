@@ -1,3 +1,4 @@
+import {AdminMember1} from './index';
 import {LobbyBypassScope} from './lobbyBypassScope';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -7,7 +8,7 @@ export class LobbyBypassSettings implements AdditionalDataHolder, Parsable {
     /** Specifies whether or not to always let dial-in callers bypass the lobby. Optional. */
     private _isDialInBypassEnabled?: boolean | undefined;
     /** Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional. */
-    private _scope?: LobbyBypassScope | undefined;
+    private _scope?: LobbyBypassScope | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -35,7 +36,7 @@ export class LobbyBypassSettings implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "isDialInBypassEnabled": n => { this.isDialInBypassEnabled = n.getBooleanValue(); },
-            "scope": n => { this.scope = n.getEnumValue<LobbyBypassScope>(LobbyBypassScope); },
+            "scope": n => { this.scope = n.getObjectValue<LobbyBypassScope>(createLobbyBypassScopeFromDiscriminatorValue); },
         };
     };
     /**
@@ -54,7 +55,7 @@ export class LobbyBypassSettings implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the scope property value. Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
-     * @returns a lobbyBypassScope
+     * @returns a admin
      */
     public get scope() {
         return this._scope;
@@ -63,7 +64,7 @@ export class LobbyBypassSettings implements AdditionalDataHolder, Parsable {
      * Sets the scope property value. Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
      * @param value Value to set for the scope property.
      */
-    public set scope(value: LobbyBypassScope | undefined) {
+    public set scope(value: LobbyBypassScope | AdminMember1 | undefined) {
         this._scope = value;
     };
     /**
@@ -73,7 +74,7 @@ export class LobbyBypassSettings implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("isDialInBypassEnabled", this.isDialInBypassEnabled);
-        writer.writeEnumValue<LobbyBypassScope>("scope", this.scope);
+        writer.writeObjectValue<LobbyBypassScope>("scope", this.scope);
         writer.writeAdditionalData(this.additionalData);
     };
 }

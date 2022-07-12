@@ -1,5 +1,5 @@
 import {ManagedAppDiagnosticStatus} from '../../models/';
-import {createManagedAppDiagnosticStatusFromDiscriminatorValue} from '../../models/createManagedAppDiagnosticStatusFromDiscriminatorValue';
+import {GetManagedAppDiagnosticStatusesMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getManagedAppDiagnosticStatuses method. */
@@ -7,7 +7,7 @@ export class GetManagedAppDiagnosticStatusesResponse implements AdditionalDataHo
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The value property */
-    private _value?: ManagedAppDiagnosticStatus[] | undefined;
+    private _value?: ManagedAppDiagnosticStatus | GetManagedAppDiagnosticStatusesMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,7 +34,7 @@ export class GetManagedAppDiagnosticStatusesResponse implements AdditionalDataHo
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": n => { this.value = n.getCollectionOfObjectValues<ManagedAppDiagnosticStatus>(createManagedAppDiagnosticStatusFromDiscriminatorValue); },
+            "value": n => { this.value = n.getObjectValue<ManagedAppDiagnosticStatus>(createManagedAppDiagnosticStatusFromDiscriminatorValue); },
         };
     };
     /**
@@ -43,12 +43,12 @@ export class GetManagedAppDiagnosticStatusesResponse implements AdditionalDataHo
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatus>("value", this.value);
+        writer.writeObjectValue<ManagedAppDiagnosticStatus>("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the value property value. The value property
-     * @returns a managedAppDiagnosticStatus
+     * @returns a getManagedAppDiagnosticStatuses
      */
     public get value() {
         return this._value;
@@ -57,7 +57,7 @@ export class GetManagedAppDiagnosticStatusesResponse implements AdditionalDataHo
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public set value(value: ManagedAppDiagnosticStatus[] | undefined) {
+    public set value(value: ManagedAppDiagnosticStatus | GetManagedAppDiagnosticStatusesMember1[] | undefined) {
         this._value = value;
     };
 }

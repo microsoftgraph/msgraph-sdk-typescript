@@ -1,28 +1,23 @@
 import {createAttachmentFromDiscriminatorValue} from './createAttachmentFromDiscriminatorValue';
 import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscriminatorValue';
-import {createFollowupFlagFromDiscriminatorValue} from './createFollowupFlagFromDiscriminatorValue';
-import {createInternetMessageHeaderFromDiscriminatorValue} from './createInternetMessageHeaderFromDiscriminatorValue';
-import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
 import {createMultiValueLegacyExtendedPropertyFromDiscriminatorValue} from './createMultiValueLegacyExtendedPropertyFromDiscriminatorValue';
-import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscriminatorValue';
 import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './createSingleValueLegacyExtendedPropertyFromDiscriminatorValue';
 import {Importance} from './importance';
-import {Attachment, Extension, FollowupFlag, InternetMessageHeader, ItemBody, MultiValueLegacyExtendedProperty, OutlookItem, Recipient, SingleValueLegacyExtendedProperty} from './index';
+import {AdminMember1, Attachment, Extension, FollowupFlag, InternetMessageHeader, ItemBody, MultiValueLegacyExtendedProperty, OutlookItem, Recipient, SingleValueLegacyExtendedProperty} from './index';
 import {InferenceClassificationType} from './inferenceClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Message extends OutlookItem implements Parsable {
     /** The fileAttachment and itemAttachment attachments for the message. */
     private _attachments?: Attachment[] | undefined;
     /** The Bcc: recipients for the message. */
-    private _bccRecipients?: Recipient[] | undefined;
+    private _bccRecipients?: Recipient | AdminMember1[] | undefined;
     /** The body of the message. It can be in HTML or text format. Find out about safe HTML in a message body. */
-    private _body?: ItemBody | undefined;
+    private _body?: ItemBody | AdminMember1 | undefined;
     /** The first 255 characters of the message body. It is in text format. If the message contains instances of mention, this property would contain a concatenation of these mentions as well. */
     private _bodyPreview?: string | undefined;
     /** The Cc: recipients for the message. */
-    private _ccRecipients?: Recipient[] | undefined;
+    private _ccRecipients?: Recipient | AdminMember1[] | undefined;
     /** The ID of the conversation the email belongs to. */
     private _conversationId?: string | undefined;
     /** Indicates the position of the message within the conversation. */
@@ -30,17 +25,17 @@ export class Message extends OutlookItem implements Parsable {
     /** The collection of open extensions defined for the message. Nullable. */
     private _extensions?: Extension[] | undefined;
     /** The flag value that indicates the status, start date, due date, or completion date for the message. */
-    private _flag?: FollowupFlag | undefined;
+    private _flag?: FollowupFlag | AdminMember1 | undefined;
     /** The owner of the mailbox from which the message is sent. In most cases, this value is the same as the sender property, except for sharing or delegation scenarios. The value must correspond to the actual mailbox used. Find out more about setting the from and sender properties of a message. */
-    private _from?: Recipient | undefined;
+    private _from?: Recipient | AdminMember1 | undefined;
     /** Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>. */
     private _hasAttachments?: boolean | undefined;
     /** The importance property */
-    private _importance?: Importance | undefined;
+    private _importance?: Importance | AdminMember1 | undefined;
     /** The inferenceClassification property */
-    private _inferenceClassification?: InferenceClassificationType | undefined;
+    private _inferenceClassification?: InferenceClassificationType | AdminMember1 | undefined;
     /** The internetMessageHeaders property */
-    private _internetMessageHeaders?: InternetMessageHeader[] | undefined;
+    private _internetMessageHeaders?: InternetMessageHeader | AdminMember1[] | undefined;
     /** The internetMessageId property */
     private _internetMessageId?: string | undefined;
     /** The isDeliveryReceiptRequested property */
@@ -58,9 +53,9 @@ export class Message extends OutlookItem implements Parsable {
     /** The receivedDateTime property */
     private _receivedDateTime?: Date | undefined;
     /** The replyTo property */
-    private _replyTo?: Recipient[] | undefined;
+    private _replyTo?: Recipient | AdminMember1[] | undefined;
     /** The sender property */
-    private _sender?: Recipient | undefined;
+    private _sender?: Recipient | AdminMember1 | undefined;
     /** The sentDateTime property */
     private _sentDateTime?: Date | undefined;
     /** The collection of single-value extended properties defined for the message. Nullable. */
@@ -68,9 +63,9 @@ export class Message extends OutlookItem implements Parsable {
     /** The subject property */
     private _subject?: string | undefined;
     /** The toRecipients property */
-    private _toRecipients?: Recipient[] | undefined;
+    private _toRecipients?: Recipient | AdminMember1[] | undefined;
     /** The uniqueBody property */
-    private _uniqueBody?: ItemBody | undefined;
+    private _uniqueBody?: ItemBody | AdminMember1 | undefined;
     /** The webLink property */
     private _webLink?: string | undefined;
     /**
@@ -89,7 +84,7 @@ export class Message extends OutlookItem implements Parsable {
     };
     /**
      * Gets the bccRecipients property value. The Bcc: recipients for the message.
-     * @returns a recipient
+     * @returns a admin
      */
     public get bccRecipients() {
         return this._bccRecipients;
@@ -98,12 +93,12 @@ export class Message extends OutlookItem implements Parsable {
      * Sets the bccRecipients property value. The Bcc: recipients for the message.
      * @param value Value to set for the bccRecipients property.
      */
-    public set bccRecipients(value: Recipient[] | undefined) {
+    public set bccRecipients(value: Recipient | AdminMember1[] | undefined) {
         this._bccRecipients = value;
     };
     /**
      * Gets the body property value. The body of the message. It can be in HTML or text format. Find out about safe HTML in a message body.
-     * @returns a itemBody
+     * @returns a admin
      */
     public get body() {
         return this._body;
@@ -112,7 +107,7 @@ export class Message extends OutlookItem implements Parsable {
      * Sets the body property value. The body of the message. It can be in HTML or text format. Find out about safe HTML in a message body.
      * @param value Value to set for the body property.
      */
-    public set body(value: ItemBody | undefined) {
+    public set body(value: ItemBody | AdminMember1 | undefined) {
         this._body = value;
     };
     /**
@@ -131,7 +126,7 @@ export class Message extends OutlookItem implements Parsable {
     };
     /**
      * Gets the ccRecipients property value. The Cc: recipients for the message.
-     * @returns a recipient
+     * @returns a admin
      */
     public get ccRecipients() {
         return this._ccRecipients;
@@ -140,14 +135,15 @@ export class Message extends OutlookItem implements Parsable {
      * Sets the ccRecipients property value. The Cc: recipients for the message.
      * @param value Value to set for the ccRecipients property.
      */
-    public set ccRecipients(value: Recipient[] | undefined) {
+    public set ccRecipients(value: Recipient | AdminMember1[] | undefined) {
         this._ccRecipients = value;
     };
     /**
-     * Instantiates a new message and sets the default values.
+     * Instantiates a new Message and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.message";
     };
     /**
      * Gets the conversationId property value. The ID of the conversation the email belongs to.
@@ -193,7 +189,7 @@ export class Message extends OutlookItem implements Parsable {
     };
     /**
      * Gets the flag property value. The flag value that indicates the status, start date, due date, or completion date for the message.
-     * @returns a followupFlag
+     * @returns a admin
      */
     public get flag() {
         return this._flag;
@@ -202,12 +198,12 @@ export class Message extends OutlookItem implements Parsable {
      * Sets the flag property value. The flag value that indicates the status, start date, due date, or completion date for the message.
      * @param value Value to set for the flag property.
      */
-    public set flag(value: FollowupFlag | undefined) {
+    public set flag(value: FollowupFlag | AdminMember1 | undefined) {
         this._flag = value;
     };
     /**
      * Gets the from property value. The owner of the mailbox from which the message is sent. In most cases, this value is the same as the sender property, except for sharing or delegation scenarios. The value must correspond to the actual mailbox used. Find out more about setting the from and sender properties of a message.
-     * @returns a recipient
+     * @returns a admin
      */
     public get from() {
         return this._from;
@@ -216,7 +212,7 @@ export class Message extends OutlookItem implements Parsable {
      * Sets the from property value. The owner of the mailbox from which the message is sent. In most cases, this value is the same as the sender property, except for sharing or delegation scenarios. The value must correspond to the actual mailbox used. Find out more about setting the from and sender properties of a message.
      * @param value Value to set for the from property.
      */
-    public set from(value: Recipient | undefined) {
+    public set from(value: Recipient | AdminMember1 | undefined) {
         this._from = value;
     };
     /**
@@ -226,19 +222,19 @@ export class Message extends OutlookItem implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "attachments": n => { this.attachments = n.getCollectionOfObjectValues<Attachment>(createAttachmentFromDiscriminatorValue); },
-            "bccRecipients": n => { this.bccRecipients = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
+            "bccRecipients": n => { this.bccRecipients = n.getObjectValue<Recipient>(createRecipientFromDiscriminatorValue); },
             "body": n => { this.body = n.getObjectValue<ItemBody>(createItemBodyFromDiscriminatorValue); },
             "bodyPreview": n => { this.bodyPreview = n.getStringValue(); },
-            "ccRecipients": n => { this.ccRecipients = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
+            "ccRecipients": n => { this.ccRecipients = n.getObjectValue<Recipient>(createRecipientFromDiscriminatorValue); },
             "conversationId": n => { this.conversationId = n.getStringValue(); },
             "conversationIndex": n => { this.conversationIndex = n.getStringValue(); },
             "extensions": n => { this.extensions = n.getCollectionOfObjectValues<Extension>(createExtensionFromDiscriminatorValue); },
             "flag": n => { this.flag = n.getObjectValue<FollowupFlag>(createFollowupFlagFromDiscriminatorValue); },
             "from": n => { this.from = n.getObjectValue<Recipient>(createRecipientFromDiscriminatorValue); },
             "hasAttachments": n => { this.hasAttachments = n.getBooleanValue(); },
-            "importance": n => { this.importance = n.getEnumValue<Importance>(Importance); },
-            "inferenceClassification": n => { this.inferenceClassification = n.getEnumValue<InferenceClassificationType>(InferenceClassificationType); },
-            "internetMessageHeaders": n => { this.internetMessageHeaders = n.getCollectionOfObjectValues<InternetMessageHeader>(createInternetMessageHeaderFromDiscriminatorValue); },
+            "importance": n => { this.importance = n.getObjectValue<Importance>(createImportanceFromDiscriminatorValue); },
+            "inferenceClassification": n => { this.inferenceClassification = n.getObjectValue<InferenceClassificationType>(createInferenceClassificationTypeFromDiscriminatorValue); },
+            "internetMessageHeaders": n => { this.internetMessageHeaders = n.getObjectValue<InternetMessageHeader>(createInternetMessageHeaderFromDiscriminatorValue); },
             "internetMessageId": n => { this.internetMessageId = n.getStringValue(); },
             "isDeliveryReceiptRequested": n => { this.isDeliveryReceiptRequested = n.getBooleanValue(); },
             "isDraft": n => { this.isDraft = n.getBooleanValue(); },
@@ -247,12 +243,12 @@ export class Message extends OutlookItem implements Parsable {
             "multiValueExtendedProperties": n => { this.multiValueExtendedProperties = n.getCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(createMultiValueLegacyExtendedPropertyFromDiscriminatorValue); },
             "parentFolderId": n => { this.parentFolderId = n.getStringValue(); },
             "receivedDateTime": n => { this.receivedDateTime = n.getDateValue(); },
-            "replyTo": n => { this.replyTo = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
+            "replyTo": n => { this.replyTo = n.getObjectValue<Recipient>(createRecipientFromDiscriminatorValue); },
             "sender": n => { this.sender = n.getObjectValue<Recipient>(createRecipientFromDiscriminatorValue); },
             "sentDateTime": n => { this.sentDateTime = n.getDateValue(); },
             "singleValueExtendedProperties": n => { this.singleValueExtendedProperties = n.getCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(createSingleValueLegacyExtendedPropertyFromDiscriminatorValue); },
             "subject": n => { this.subject = n.getStringValue(); },
-            "toRecipients": n => { this.toRecipients = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
+            "toRecipients": n => { this.toRecipients = n.getObjectValue<Recipient>(createRecipientFromDiscriminatorValue); },
             "uniqueBody": n => { this.uniqueBody = n.getObjectValue<ItemBody>(createItemBodyFromDiscriminatorValue); },
             "webLink": n => { this.webLink = n.getStringValue(); },
         };
@@ -273,7 +269,7 @@ export class Message extends OutlookItem implements Parsable {
     };
     /**
      * Gets the importance property value. The importance property
-     * @returns a importance
+     * @returns a admin
      */
     public get importance() {
         return this._importance;
@@ -282,12 +278,12 @@ export class Message extends OutlookItem implements Parsable {
      * Sets the importance property value. The importance property
      * @param value Value to set for the importance property.
      */
-    public set importance(value: Importance | undefined) {
+    public set importance(value: Importance | AdminMember1 | undefined) {
         this._importance = value;
     };
     /**
      * Gets the inferenceClassification property value. The inferenceClassification property
-     * @returns a inferenceClassificationType
+     * @returns a admin
      */
     public get inferenceClassification() {
         return this._inferenceClassification;
@@ -296,12 +292,12 @@ export class Message extends OutlookItem implements Parsable {
      * Sets the inferenceClassification property value. The inferenceClassification property
      * @param value Value to set for the inferenceClassification property.
      */
-    public set inferenceClassification(value: InferenceClassificationType | undefined) {
+    public set inferenceClassification(value: InferenceClassificationType | AdminMember1 | undefined) {
         this._inferenceClassification = value;
     };
     /**
      * Gets the internetMessageHeaders property value. The internetMessageHeaders property
-     * @returns a internetMessageHeader
+     * @returns a admin
      */
     public get internetMessageHeaders() {
         return this._internetMessageHeaders;
@@ -310,7 +306,7 @@ export class Message extends OutlookItem implements Parsable {
      * Sets the internetMessageHeaders property value. The internetMessageHeaders property
      * @param value Value to set for the internetMessageHeaders property.
      */
-    public set internetMessageHeaders(value: InternetMessageHeader[] | undefined) {
+    public set internetMessageHeaders(value: InternetMessageHeader | AdminMember1[] | undefined) {
         this._internetMessageHeaders = value;
     };
     /**
@@ -427,7 +423,7 @@ export class Message extends OutlookItem implements Parsable {
     };
     /**
      * Gets the replyTo property value. The replyTo property
-     * @returns a recipient
+     * @returns a admin
      */
     public get replyTo() {
         return this._replyTo;
@@ -436,12 +432,12 @@ export class Message extends OutlookItem implements Parsable {
      * Sets the replyTo property value. The replyTo property
      * @param value Value to set for the replyTo property.
      */
-    public set replyTo(value: Recipient[] | undefined) {
+    public set replyTo(value: Recipient | AdminMember1[] | undefined) {
         this._replyTo = value;
     };
     /**
      * Gets the sender property value. The sender property
-     * @returns a recipient
+     * @returns a admin
      */
     public get sender() {
         return this._sender;
@@ -450,7 +446,7 @@ export class Message extends OutlookItem implements Parsable {
      * Sets the sender property value. The sender property
      * @param value Value to set for the sender property.
      */
-    public set sender(value: Recipient | undefined) {
+    public set sender(value: Recipient | AdminMember1 | undefined) {
         this._sender = value;
     };
     /**
@@ -475,19 +471,19 @@ export class Message extends OutlookItem implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<Attachment>("attachments", this.attachments);
-        writer.writeCollectionOfObjectValues<Recipient>("bccRecipients", this.bccRecipients);
+        writer.writeObjectValue<Recipient>("bccRecipients", this.bccRecipients);
         writer.writeObjectValue<ItemBody>("body", this.body);
         writer.writeStringValue("bodyPreview", this.bodyPreview);
-        writer.writeCollectionOfObjectValues<Recipient>("ccRecipients", this.ccRecipients);
+        writer.writeObjectValue<Recipient>("ccRecipients", this.ccRecipients);
         writer.writeStringValue("conversationId", this.conversationId);
         writer.writeStringValue("conversationIndex", this.conversationIndex);
         writer.writeCollectionOfObjectValues<Extension>("extensions", this.extensions);
         writer.writeObjectValue<FollowupFlag>("flag", this.flag);
         writer.writeObjectValue<Recipient>("from", this.from);
         writer.writeBooleanValue("hasAttachments", this.hasAttachments);
-        writer.writeEnumValue<Importance>("importance", this.importance);
-        writer.writeEnumValue<InferenceClassificationType>("inferenceClassification", this.inferenceClassification);
-        writer.writeCollectionOfObjectValues<InternetMessageHeader>("internetMessageHeaders", this.internetMessageHeaders);
+        writer.writeObjectValue<Importance>("importance", this.importance);
+        writer.writeObjectValue<InferenceClassificationType>("inferenceClassification", this.inferenceClassification);
+        writer.writeObjectValue<InternetMessageHeader>("internetMessageHeaders", this.internetMessageHeaders);
         writer.writeStringValue("internetMessageId", this.internetMessageId);
         writer.writeBooleanValue("isDeliveryReceiptRequested", this.isDeliveryReceiptRequested);
         writer.writeBooleanValue("isDraft", this.isDraft);
@@ -496,12 +492,12 @@ export class Message extends OutlookItem implements Parsable {
         writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", this.multiValueExtendedProperties);
         writer.writeStringValue("parentFolderId", this.parentFolderId);
         writer.writeDateValue("receivedDateTime", this.receivedDateTime);
-        writer.writeCollectionOfObjectValues<Recipient>("replyTo", this.replyTo);
+        writer.writeObjectValue<Recipient>("replyTo", this.replyTo);
         writer.writeObjectValue<Recipient>("sender", this.sender);
         writer.writeDateValue("sentDateTime", this.sentDateTime);
         writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", this.singleValueExtendedProperties);
         writer.writeStringValue("subject", this.subject);
-        writer.writeCollectionOfObjectValues<Recipient>("toRecipients", this.toRecipients);
+        writer.writeObjectValue<Recipient>("toRecipients", this.toRecipients);
         writer.writeObjectValue<ItemBody>("uniqueBody", this.uniqueBody);
         writer.writeStringValue("webLink", this.webLink);
     };
@@ -535,7 +531,7 @@ export class Message extends OutlookItem implements Parsable {
     };
     /**
      * Gets the toRecipients property value. The toRecipients property
-     * @returns a recipient
+     * @returns a admin
      */
     public get toRecipients() {
         return this._toRecipients;
@@ -544,12 +540,12 @@ export class Message extends OutlookItem implements Parsable {
      * Sets the toRecipients property value. The toRecipients property
      * @param value Value to set for the toRecipients property.
      */
-    public set toRecipients(value: Recipient[] | undefined) {
+    public set toRecipients(value: Recipient | AdminMember1[] | undefined) {
         this._toRecipients = value;
     };
     /**
      * Gets the uniqueBody property value. The uniqueBody property
-     * @returns a itemBody
+     * @returns a admin
      */
     public get uniqueBody() {
         return this._uniqueBody;
@@ -558,7 +554,7 @@ export class Message extends OutlookItem implements Parsable {
      * Sets the uniqueBody property value. The uniqueBody property
      * @param value Value to set for the uniqueBody property.
      */
-    public set uniqueBody(value: ItemBody | undefined) {
+    public set uniqueBody(value: ItemBody | AdminMember1 | undefined) {
         this._uniqueBody = value;
     };
     /**

@@ -1,11 +1,12 @@
 import {FileHashType} from './fileHashType';
+import {AdminMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class FileHash implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** File hash type. Possible values are: unknown, sha1, sha256, md5, authenticodeHash256, lsHash, ctph, peSha1, peSha256. */
-    private _hashType?: FileHashType | undefined;
+    private _hashType?: FileHashType | AdminMember1 | undefined;
     /** Value of the file hash. */
     private _hashValue?: string | undefined;
     /**
@@ -34,13 +35,13 @@ export class FileHash implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "hashType": n => { this.hashType = n.getEnumValue<FileHashType>(FileHashType); },
+            "hashType": n => { this.hashType = n.getObjectValue<FileHashType>(createFileHashTypeFromDiscriminatorValue); },
             "hashValue": n => { this.hashValue = n.getStringValue(); },
         };
     };
     /**
      * Gets the hashType property value. File hash type. Possible values are: unknown, sha1, sha256, md5, authenticodeHash256, lsHash, ctph, peSha1, peSha256.
-     * @returns a fileHashType
+     * @returns a admin
      */
     public get hashType() {
         return this._hashType;
@@ -49,7 +50,7 @@ export class FileHash implements AdditionalDataHolder, Parsable {
      * Sets the hashType property value. File hash type. Possible values are: unknown, sha1, sha256, md5, authenticodeHash256, lsHash, ctph, peSha1, peSha256.
      * @param value Value to set for the hashType property.
      */
-    public set hashType(value: FileHashType | undefined) {
+    public set hashType(value: FileHashType | AdminMember1 | undefined) {
         this._hashType = value;
     };
     /**
@@ -72,7 +73,7 @@ export class FileHash implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeEnumValue<FileHashType>("hashType", this.hashType);
+        writer.writeObjectValue<FileHashType>("hashType", this.hashType);
         writer.writeStringValue("hashValue", this.hashValue);
         writer.writeAdditionalData(this.additionalData);
     };

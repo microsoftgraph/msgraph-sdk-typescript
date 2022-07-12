@@ -1,18 +1,15 @@
-import {createAlterationResponseFromDiscriminatorValue} from './createAlterationResponseFromDiscriminatorValue';
-import {createResultTemplateDictionaryFromDiscriminatorValue} from './createResultTemplateDictionaryFromDiscriminatorValue';
-import {createSearchHitsContainerFromDiscriminatorValue} from './createSearchHitsContainerFromDiscriminatorValue';
-import {AlterationResponse, ResultTemplateDictionary, SearchHitsContainer} from './index';
+import {AlterationResponse, QueryMember1, ResultTemplateDictionary, SearchHitsContainer} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchResponse implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** A collection of search results. */
-    private _hitsContainers?: SearchHitsContainer[] | undefined;
+    private _hitsContainers?: SearchHitsContainer | QueryMember1[] | undefined;
     /** Provides details of query alteration response for spelling correction. */
-    private _queryAlterationResponse?: AlterationResponse | undefined;
+    private _queryAlterationResponse?: AlterationResponse | QueryMember1 | undefined;
     /** A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates. */
-    private _resultTemplates?: ResultTemplateDictionary | undefined;
+    private _resultTemplates?: ResultTemplateDictionary | QueryMember1 | undefined;
     /** Contains the search terms sent in the initial search query. */
     private _searchTerms?: string[] | undefined;
     /**
@@ -41,7 +38,7 @@ export class SearchResponse implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "hitsContainers": n => { this.hitsContainers = n.getCollectionOfObjectValues<SearchHitsContainer>(createSearchHitsContainerFromDiscriminatorValue); },
+            "hitsContainers": n => { this.hitsContainers = n.getObjectValue<SearchHitsContainer>(createSearchHitsContainerFromDiscriminatorValue); },
             "queryAlterationResponse": n => { this.queryAlterationResponse = n.getObjectValue<AlterationResponse>(createAlterationResponseFromDiscriminatorValue); },
             "resultTemplates": n => { this.resultTemplates = n.getObjectValue<ResultTemplateDictionary>(createResultTemplateDictionaryFromDiscriminatorValue); },
             "searchTerms": n => { this.searchTerms = n.getCollectionOfPrimitiveValues<string>(); },
@@ -49,7 +46,7 @@ export class SearchResponse implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the hitsContainers property value. A collection of search results.
-     * @returns a searchHitsContainer
+     * @returns a query
      */
     public get hitsContainers() {
         return this._hitsContainers;
@@ -58,12 +55,12 @@ export class SearchResponse implements AdditionalDataHolder, Parsable {
      * Sets the hitsContainers property value. A collection of search results.
      * @param value Value to set for the hitsContainers property.
      */
-    public set hitsContainers(value: SearchHitsContainer[] | undefined) {
+    public set hitsContainers(value: SearchHitsContainer | QueryMember1[] | undefined) {
         this._hitsContainers = value;
     };
     /**
      * Gets the queryAlterationResponse property value. Provides details of query alteration response for spelling correction.
-     * @returns a alterationResponse
+     * @returns a query
      */
     public get queryAlterationResponse() {
         return this._queryAlterationResponse;
@@ -72,12 +69,12 @@ export class SearchResponse implements AdditionalDataHolder, Parsable {
      * Sets the queryAlterationResponse property value. Provides details of query alteration response for spelling correction.
      * @param value Value to set for the queryAlterationResponse property.
      */
-    public set queryAlterationResponse(value: AlterationResponse | undefined) {
+    public set queryAlterationResponse(value: AlterationResponse | QueryMember1 | undefined) {
         this._queryAlterationResponse = value;
     };
     /**
      * Gets the resultTemplates property value. A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates.
-     * @returns a resultTemplateDictionary
+     * @returns a query
      */
     public get resultTemplates() {
         return this._resultTemplates;
@@ -86,7 +83,7 @@ export class SearchResponse implements AdditionalDataHolder, Parsable {
      * Sets the resultTemplates property value. A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates.
      * @param value Value to set for the resultTemplates property.
      */
-    public set resultTemplates(value: ResultTemplateDictionary | undefined) {
+    public set resultTemplates(value: ResultTemplateDictionary | QueryMember1 | undefined) {
         this._resultTemplates = value;
     };
     /**
@@ -109,7 +106,7 @@ export class SearchResponse implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<SearchHitsContainer>("hitsContainers", this.hitsContainers);
+        writer.writeObjectValue<SearchHitsContainer>("hitsContainers", this.hitsContainers);
         writer.writeObjectValue<AlterationResponse>("queryAlterationResponse", this.queryAlterationResponse);
         writer.writeObjectValue<ResultTemplateDictionary>("resultTemplates", this.resultTemplates);
         writer.writeCollectionOfPrimitiveValues<string>("searchTerms", this.searchTerms);

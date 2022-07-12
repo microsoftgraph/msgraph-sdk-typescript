@@ -7,11 +7,10 @@ import {createSwapShiftsChangeRequestFromDiscriminatorValue} from './createSwapS
 import {createTimeOffFromDiscriminatorValue} from './createTimeOffFromDiscriminatorValue';
 import {createTimeOffReasonFromDiscriminatorValue} from './createTimeOffReasonFromDiscriminatorValue';
 import {createTimeOffRequestFromDiscriminatorValue} from './createTimeOffRequestFromDiscriminatorValue';
-import {Entity, OfferShiftRequest, OpenShift, OpenShiftChangeRequest, SchedulingGroup, Shift, SwapShiftsChangeRequest, TimeOff, TimeOffReason, TimeOffRequest} from './index';
+import {AdminMember1, Entity, OfferShiftRequest, OpenShift, OpenShiftChangeRequest, SchedulingGroup, Shift, SwapShiftsChangeRequest, TimeOff, TimeOffReason, TimeOffRequest} from './index';
 import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Schedule extends Entity implements Parsable {
     /** Indicates whether the schedule is enabled for the team. Required. */
     private _enabled?: boolean | undefined;
@@ -26,7 +25,7 @@ export class Schedule extends Entity implements Parsable {
     /** Indicates whether open shifts are enabled for the schedule. */
     private _openShiftsEnabled?: boolean | undefined;
     /** The status of the schedule provisioning. The possible values are notStarted, running, completed, failed. */
-    private _provisionStatus?: OperationStatus | undefined;
+    private _provisionStatus?: OperationStatus | AdminMember1 | undefined;
     /** Additional information about why schedule provisioning failed. */
     private _provisionStatusCode?: string | undefined;
     /** The logical grouping of users in the schedule (usually by role). */
@@ -83,7 +82,7 @@ export class Schedule extends Entity implements Parsable {
             "openShiftChangeRequests": n => { this.openShiftChangeRequests = n.getCollectionOfObjectValues<OpenShiftChangeRequest>(createOpenShiftChangeRequestFromDiscriminatorValue); },
             "openShifts": n => { this.openShifts = n.getCollectionOfObjectValues<OpenShift>(createOpenShiftFromDiscriminatorValue); },
             "openShiftsEnabled": n => { this.openShiftsEnabled = n.getBooleanValue(); },
-            "provisionStatus": n => { this.provisionStatus = n.getEnumValue<OperationStatus>(OperationStatus); },
+            "provisionStatus": n => { this.provisionStatus = n.getObjectValue<OperationStatus>(createOperationStatusFromDiscriminatorValue); },
             "provisionStatusCode": n => { this.provisionStatusCode = n.getStringValue(); },
             "schedulingGroups": n => { this.schedulingGroups = n.getCollectionOfObjectValues<SchedulingGroup>(createSchedulingGroupFromDiscriminatorValue); },
             "shifts": n => { this.shifts = n.getCollectionOfObjectValues<Shift>(createShiftFromDiscriminatorValue); },
@@ -170,7 +169,7 @@ export class Schedule extends Entity implements Parsable {
     };
     /**
      * Gets the provisionStatus property value. The status of the schedule provisioning. The possible values are notStarted, running, completed, failed.
-     * @returns a operationStatus
+     * @returns a admin
      */
     public get provisionStatus() {
         return this._provisionStatus;
@@ -179,7 +178,7 @@ export class Schedule extends Entity implements Parsable {
      * Sets the provisionStatus property value. The status of the schedule provisioning. The possible values are notStarted, running, completed, failed.
      * @param value Value to set for the provisionStatus property.
      */
-    public set provisionStatus(value: OperationStatus | undefined) {
+    public set provisionStatus(value: OperationStatus | AdminMember1 | undefined) {
         this._provisionStatus = value;
     };
     /**
@@ -223,7 +222,7 @@ export class Schedule extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<OpenShiftChangeRequest>("openShiftChangeRequests", this.openShiftChangeRequests);
         writer.writeCollectionOfObjectValues<OpenShift>("openShifts", this.openShifts);
         writer.writeBooleanValue("openShiftsEnabled", this.openShiftsEnabled);
-        writer.writeEnumValue<OperationStatus>("provisionStatus", this.provisionStatus);
+        writer.writeObjectValue<OperationStatus>("provisionStatus", this.provisionStatus);
         writer.writeStringValue("provisionStatusCode", this.provisionStatusCode);
         writer.writeCollectionOfObjectValues<SchedulingGroup>("schedulingGroups", this.schedulingGroups);
         writer.writeCollectionOfObjectValues<Shift>("shifts", this.shifts);

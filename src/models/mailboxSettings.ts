@@ -1,8 +1,5 @@
-import {createAutomaticRepliesSettingFromDiscriminatorValue} from './createAutomaticRepliesSettingFromDiscriminatorValue';
-import {createLocaleInfoFromDiscriminatorValue} from './createLocaleInfoFromDiscriminatorValue';
-import {createWorkingHoursFromDiscriminatorValue} from './createWorkingHoursFromDiscriminatorValue';
 import {DelegateMeetingMessageDeliveryOptions} from './delegateMeetingMessageDeliveryOptions';
-import {AutomaticRepliesSetting, LocaleInfo, WorkingHours} from './index';
+import {AdminMember1, AutomaticRepliesSetting, LocaleInfo, WorkingHours} from './index';
 import {UserPurpose} from './userPurpose';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -12,21 +9,21 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
     /** Folder ID of an archive folder for the user. Read only. */
     private _archiveFolder?: string | undefined;
     /** Configuration settings to automatically notify the sender of an incoming email with a message from the signed-in user. */
-    private _automaticRepliesSetting?: AutomaticRepliesSetting | undefined;
+    private _automaticRepliesSetting?: AutomaticRepliesSetting | AdminMember1 | undefined;
     /** The date format for the user's mailbox. */
     private _dateFormat?: string | undefined;
     /** If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly. */
-    private _delegateMeetingMessageDeliveryOptions?: DelegateMeetingMessageDeliveryOptions | undefined;
+    private _delegateMeetingMessageDeliveryOptions?: DelegateMeetingMessageDeliveryOptions | AdminMember1 | undefined;
     /** The locale information for the user, including the preferred language and country/region. */
-    private _language?: LocaleInfo | undefined;
+    private _language?: LocaleInfo | AdminMember1 | undefined;
     /** The time format for the user's mailbox. */
     private _timeFormat?: string | undefined;
     /** The default time zone for the user's mailbox. */
     private _timeZone?: string | undefined;
     /** The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only. */
-    private _userPurpose?: UserPurpose | undefined;
+    private _userPurpose?: UserPurpose | AdminMember1 | undefined;
     /** The days of the week and hours in a specific time zone that the user works. */
-    private _workingHours?: WorkingHours | undefined;
+    private _workingHours?: WorkingHours | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -57,7 +54,7 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the automaticRepliesSetting property value. Configuration settings to automatically notify the sender of an incoming email with a message from the signed-in user.
-     * @returns a automaticRepliesSetting
+     * @returns a admin
      */
     public get automaticRepliesSetting() {
         return this._automaticRepliesSetting;
@@ -66,7 +63,7 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
      * Sets the automaticRepliesSetting property value. Configuration settings to automatically notify the sender of an incoming email with a message from the signed-in user.
      * @param value Value to set for the automaticRepliesSetting property.
      */
-    public set automaticRepliesSetting(value: AutomaticRepliesSetting | undefined) {
+    public set automaticRepliesSetting(value: AutomaticRepliesSetting | AdminMember1 | undefined) {
         this._automaticRepliesSetting = value;
     };
     /**
@@ -91,7 +88,7 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.
-     * @returns a delegateMeetingMessageDeliveryOptions
+     * @returns a admin
      */
     public get delegateMeetingMessageDeliveryOptions() {
         return this._delegateMeetingMessageDeliveryOptions;
@@ -100,7 +97,7 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
      * Sets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.
      * @param value Value to set for the delegateMeetingMessageDeliveryOptions property.
      */
-    public set delegateMeetingMessageDeliveryOptions(value: DelegateMeetingMessageDeliveryOptions | undefined) {
+    public set delegateMeetingMessageDeliveryOptions(value: DelegateMeetingMessageDeliveryOptions | AdminMember1 | undefined) {
         this._delegateMeetingMessageDeliveryOptions = value;
     };
     /**
@@ -112,17 +109,17 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
             "archiveFolder": n => { this.archiveFolder = n.getStringValue(); },
             "automaticRepliesSetting": n => { this.automaticRepliesSetting = n.getObjectValue<AutomaticRepliesSetting>(createAutomaticRepliesSettingFromDiscriminatorValue); },
             "dateFormat": n => { this.dateFormat = n.getStringValue(); },
-            "delegateMeetingMessageDeliveryOptions": n => { this.delegateMeetingMessageDeliveryOptions = n.getEnumValue<DelegateMeetingMessageDeliveryOptions>(DelegateMeetingMessageDeliveryOptions); },
+            "delegateMeetingMessageDeliveryOptions": n => { this.delegateMeetingMessageDeliveryOptions = n.getObjectValue<DelegateMeetingMessageDeliveryOptions>(createDelegateMeetingMessageDeliveryOptionsFromDiscriminatorValue); },
             "language": n => { this.language = n.getObjectValue<LocaleInfo>(createLocaleInfoFromDiscriminatorValue); },
             "timeFormat": n => { this.timeFormat = n.getStringValue(); },
             "timeZone": n => { this.timeZone = n.getStringValue(); },
-            "userPurpose": n => { this.userPurpose = n.getEnumValue<UserPurpose>(UserPurpose); },
+            "userPurpose": n => { this.userPurpose = n.getObjectValue<UserPurpose>(createUserPurposeFromDiscriminatorValue); },
             "workingHours": n => { this.workingHours = n.getObjectValue<WorkingHours>(createWorkingHoursFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the language property value. The locale information for the user, including the preferred language and country/region.
-     * @returns a localeInfo
+     * @returns a admin
      */
     public get language() {
         return this._language;
@@ -131,7 +128,7 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
      * Sets the language property value. The locale information for the user, including the preferred language and country/region.
      * @param value Value to set for the language property.
      */
-    public set language(value: LocaleInfo | undefined) {
+    public set language(value: LocaleInfo | AdminMember1 | undefined) {
         this._language = value;
     };
     /**
@@ -143,11 +140,11 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("archiveFolder", this.archiveFolder);
         writer.writeObjectValue<AutomaticRepliesSetting>("automaticRepliesSetting", this.automaticRepliesSetting);
         writer.writeStringValue("dateFormat", this.dateFormat);
-        writer.writeEnumValue<DelegateMeetingMessageDeliveryOptions>("delegateMeetingMessageDeliveryOptions", this.delegateMeetingMessageDeliveryOptions);
+        writer.writeObjectValue<DelegateMeetingMessageDeliveryOptions>("delegateMeetingMessageDeliveryOptions", this.delegateMeetingMessageDeliveryOptions);
         writer.writeObjectValue<LocaleInfo>("language", this.language);
         writer.writeStringValue("timeFormat", this.timeFormat);
         writer.writeStringValue("timeZone", this.timeZone);
-        writer.writeEnumValue<UserPurpose>("userPurpose", this.userPurpose);
+        writer.writeObjectValue<UserPurpose>("userPurpose", this.userPurpose);
         writer.writeObjectValue<WorkingHours>("workingHours", this.workingHours);
         writer.writeAdditionalData(this.additionalData);
     };
@@ -181,7 +178,7 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the userPurpose property value. The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only.
-     * @returns a userPurpose
+     * @returns a admin
      */
     public get userPurpose() {
         return this._userPurpose;
@@ -190,12 +187,12 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
      * Sets the userPurpose property value. The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only.
      * @param value Value to set for the userPurpose property.
      */
-    public set userPurpose(value: UserPurpose | undefined) {
+    public set userPurpose(value: UserPurpose | AdminMember1 | undefined) {
         this._userPurpose = value;
     };
     /**
      * Gets the workingHours property value. The days of the week and hours in a specific time zone that the user works.
-     * @returns a workingHours
+     * @returns a admin
      */
     public get workingHours() {
         return this._workingHours;
@@ -204,7 +201,7 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
      * Sets the workingHours property value. The days of the week and hours in a specific time zone that the user works.
      * @param value Value to set for the workingHours property.
      */
-    public set workingHours(value: WorkingHours | undefined) {
+    public set workingHours(value: WorkingHours | AdminMember1 | undefined) {
         this._workingHours = value;
     };
 }

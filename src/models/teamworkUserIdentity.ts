@@ -1,13 +1,12 @@
-import {Identity} from './index';
+import {AdminMember1, Identity} from './index';
 import {TeamworkUserIdentityType} from './teamworkUserIdentityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
 export class TeamworkUserIdentity extends Identity implements Parsable {
     /** Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser. */
-    private _userIdentityType?: TeamworkUserIdentityType | undefined;
+    private _userIdentityType?: TeamworkUserIdentityType | AdminMember1 | undefined;
     /**
-     * Instantiates a new teamworkUserIdentity and sets the default values.
+     * Instantiates a new TeamworkUserIdentity and sets the default values.
      */
     public constructor() {
         super();
@@ -18,7 +17,7 @@ export class TeamworkUserIdentity extends Identity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "userIdentityType": n => { this.userIdentityType = n.getEnumValue<TeamworkUserIdentityType>(TeamworkUserIdentityType); },
+            "userIdentityType": n => { this.userIdentityType = n.getObjectValue<TeamworkUserIdentityType>(createTeamworkUserIdentityTypeFromDiscriminatorValue); },
         };
     };
     /**
@@ -28,11 +27,11 @@ export class TeamworkUserIdentity extends Identity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeEnumValue<TeamworkUserIdentityType>("userIdentityType", this.userIdentityType);
+        writer.writeObjectValue<TeamworkUserIdentityType>("userIdentityType", this.userIdentityType);
     };
     /**
      * Gets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser.
-     * @returns a teamworkUserIdentityType
+     * @returns a admin
      */
     public get userIdentityType() {
         return this._userIdentityType;
@@ -41,7 +40,7 @@ export class TeamworkUserIdentity extends Identity implements Parsable {
      * Sets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser.
      * @param value Value to set for the userIdentityType property.
      */
-    public set userIdentityType(value: TeamworkUserIdentityType | undefined) {
+    public set userIdentityType(value: TeamworkUserIdentityType | AdminMember1 | undefined) {
         this._userIdentityType = value;
     };
 }

@@ -1,22 +1,20 @@
-import {createDetailsInfoFromDiscriminatorValue} from './createDetailsInfoFromDiscriminatorValue';
-import {DetailsInfo, Identity} from './index';
+import {AdminMember1, DetailsInfo, Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
 export class ProvisionedIdentity extends Identity implements Parsable {
     /** Details of the identity. */
-    private _details?: DetailsInfo | undefined;
+    private _details?: DetailsInfo | AdminMember1 | undefined;
     /** Type of identity that has been provisioned, such as 'user' or 'group'. */
     private _identityType?: string | undefined;
     /**
-     * Instantiates a new provisionedIdentity and sets the default values.
+     * Instantiates a new ProvisionedIdentity and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
      * Gets the details property value. Details of the identity.
-     * @returns a detailsInfo
+     * @returns a admin
      */
     public get details() {
         return this._details;
@@ -25,7 +23,7 @@ export class ProvisionedIdentity extends Identity implements Parsable {
      * Sets the details property value. Details of the identity.
      * @param value Value to set for the details property.
      */
-    public set details(value: DetailsInfo | undefined) {
+    public set details(value: DetailsInfo | AdminMember1 | undefined) {
         this._details = value;
     };
     /**

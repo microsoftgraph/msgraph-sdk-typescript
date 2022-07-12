@@ -1,12 +1,11 @@
-import {createHashesFromDiscriminatorValue} from './createHashesFromDiscriminatorValue';
-import {Hashes} from './index';
+import {AdminMember1, Hashes} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class File implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Hashes of the file's binary content, if available. Read-only. */
-    private _hashes?: Hashes | undefined;
+    private _hashes?: Hashes | AdminMember1 | undefined;
     /** The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only. */
     private _mimeType?: string | undefined;
     /** The processingMetadata property */
@@ -44,7 +43,7 @@ export class File implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the hashes property value. Hashes of the file's binary content, if available. Read-only.
-     * @returns a hashes
+     * @returns a admin
      */
     public get hashes() {
         return this._hashes;
@@ -53,7 +52,7 @@ export class File implements AdditionalDataHolder, Parsable {
      * Sets the hashes property value. Hashes of the file's binary content, if available. Read-only.
      * @param value Value to set for the hashes property.
      */
-    public set hashes(value: Hashes | undefined) {
+    public set hashes(value: Hashes | AdminMember1 | undefined) {
         this._hashes = value;
     };
     /**

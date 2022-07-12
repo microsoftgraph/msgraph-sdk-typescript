@@ -1,7 +1,7 @@
 import {createEducationClassFromDiscriminatorValue} from './createEducationClassFromDiscriminatorValue';
 import {createEducationSchoolFromDiscriminatorValue} from './createEducationSchoolFromDiscriminatorValue';
 import {createEducationUserFromDiscriminatorValue} from './createEducationUserFromDiscriminatorValue';
-import {EducationClass, EducationSchool, EducationUser} from './index';
+import {EducationClass, EducationMember1, EducationSchool, EducationUser} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationRoot implements AdditionalDataHolder, Parsable {
@@ -10,7 +10,7 @@ export class EducationRoot implements AdditionalDataHolder, Parsable {
     /** The classes property */
     private _classes?: EducationClass[] | undefined;
     /** The me property */
-    private _me?: EducationUser | undefined;
+    private _me?: EducationUser | EducationMember1 | undefined;
     /** The schools property */
     private _schools?: EducationSchool[] | undefined;
     /** The users property */
@@ -63,7 +63,7 @@ export class EducationRoot implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the me property value. The me property
-     * @returns a educationUser
+     * @returns a education
      */
     public get me() {
         return this._me;
@@ -72,7 +72,7 @@ export class EducationRoot implements AdditionalDataHolder, Parsable {
      * Sets the me property value. The me property
      * @param value Value to set for the me property.
      */
-    public set me(value: EducationUser | undefined) {
+    public set me(value: EducationUser | EducationMember1 | undefined) {
         this._me = value;
     };
     /**

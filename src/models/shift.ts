@@ -1,26 +1,24 @@
-import {createShiftItemFromDiscriminatorValue} from './createShiftItemFromDiscriminatorValue';
-import {ChangeTrackedEntity, ShiftItem} from './index';
+import {AdminMember1, ChangeTrackedEntity, ShiftItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Shift extends ChangeTrackedEntity implements Parsable {
     /** The draft version of this shift that is viewable by managers. Required. */
-    private _draftShift?: ShiftItem | undefined;
+    private _draftShift?: ShiftItem | AdminMember1 | undefined;
     /** ID of the scheduling group the shift is part of. Required. */
     private _schedulingGroupId?: string | undefined;
     /** The shared version of this shift that is viewable by both employees and managers. Required. */
-    private _sharedShift?: ShiftItem | undefined;
+    private _sharedShift?: ShiftItem | AdminMember1 | undefined;
     /** ID of the user assigned to the shift. Required. */
     private _userId?: string | undefined;
     /**
-     * Instantiates a new shift and sets the default values.
+     * Instantiates a new Shift and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
      * Gets the draftShift property value. The draft version of this shift that is viewable by managers. Required.
-     * @returns a shiftItem
+     * @returns a admin
      */
     public get draftShift() {
         return this._draftShift;
@@ -29,7 +27,7 @@ export class Shift extends ChangeTrackedEntity implements Parsable {
      * Sets the draftShift property value. The draft version of this shift that is viewable by managers. Required.
      * @param value Value to set for the draftShift property.
      */
-    public set draftShift(value: ShiftItem | undefined) {
+    public set draftShift(value: ShiftItem | AdminMember1 | undefined) {
         this._draftShift = value;
     };
     /**
@@ -72,7 +70,7 @@ export class Shift extends ChangeTrackedEntity implements Parsable {
     };
     /**
      * Gets the sharedShift property value. The shared version of this shift that is viewable by both employees and managers. Required.
-     * @returns a shiftItem
+     * @returns a admin
      */
     public get sharedShift() {
         return this._sharedShift;
@@ -81,7 +79,7 @@ export class Shift extends ChangeTrackedEntity implements Parsable {
      * Sets the sharedShift property value. The shared version of this shift that is viewable by both employees and managers. Required.
      * @param value Value to set for the sharedShift property.
      */
-    public set sharedShift(value: ShiftItem | undefined) {
+    public set sharedShift(value: ShiftItem | AdminMember1 | undefined) {
         this._sharedShift = value;
     };
     /**

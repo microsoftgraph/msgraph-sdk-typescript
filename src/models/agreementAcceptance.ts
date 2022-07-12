@@ -1,5 +1,5 @@
 import {AgreementAcceptanceState} from './agreementAcceptanceState';
-import {Entity} from './index';
+import {AgreementsMember1, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of agreement entities. */
@@ -21,7 +21,7 @@ export class AgreementAcceptance extends Entity implements Parsable {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _recordedDateTime?: Date | undefined;
     /** Possible values are: accepted, declined. Supports $filter (eq). */
-    private _state?: AgreementAcceptanceState | undefined;
+    private _state?: AgreementAcceptanceState | AgreementsMember1 | undefined;
     /** Display name of the user when the acceptance was recorded. */
     private _userDisplayName?: string | undefined;
     /** Email of the user when the acceptance was recorded. */
@@ -148,7 +148,7 @@ export class AgreementAcceptance extends Entity implements Parsable {
             "deviceOSVersion": n => { this.deviceOSVersion = n.getStringValue(); },
             "expirationDateTime": n => { this.expirationDateTime = n.getDateValue(); },
             "recordedDateTime": n => { this.recordedDateTime = n.getDateValue(); },
-            "state": n => { this.state = n.getEnumValue<AgreementAcceptanceState>(AgreementAcceptanceState); },
+            "state": n => { this.state = n.getObjectValue<AgreementAcceptanceState>(createAgreementAcceptanceStateFromDiscriminatorValue); },
             "userDisplayName": n => { this.userDisplayName = n.getStringValue(); },
             "userEmail": n => { this.userEmail = n.getStringValue(); },
             "userId": n => { this.userId = n.getStringValue(); },
@@ -184,7 +184,7 @@ export class AgreementAcceptance extends Entity implements Parsable {
         writer.writeStringValue("deviceOSVersion", this.deviceOSVersion);
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         writer.writeDateValue("recordedDateTime", this.recordedDateTime);
-        writer.writeEnumValue<AgreementAcceptanceState>("state", this.state);
+        writer.writeObjectValue<AgreementAcceptanceState>("state", this.state);
         writer.writeStringValue("userDisplayName", this.userDisplayName);
         writer.writeStringValue("userEmail", this.userEmail);
         writer.writeStringValue("userId", this.userId);
@@ -192,7 +192,7 @@ export class AgreementAcceptance extends Entity implements Parsable {
     };
     /**
      * Gets the state property value. Possible values are: accepted, declined. Supports $filter (eq).
-     * @returns a agreementAcceptanceState
+     * @returns a agreements
      */
     public get state() {
         return this._state;
@@ -201,7 +201,7 @@ export class AgreementAcceptance extends Entity implements Parsable {
      * Sets the state property value. Possible values are: accepted, declined. Supports $filter (eq).
      * @param value Value to set for the state property.
      */
-    public set state(value: AgreementAcceptanceState | undefined) {
+    public set state(value: AgreementAcceptanceState | AgreementsMember1 | undefined) {
         this._state = value;
     };
     /**

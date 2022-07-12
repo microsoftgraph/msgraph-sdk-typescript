@@ -1,5 +1,4 @@
-import {createEntitlementManagementScheduleFromDiscriminatorValue} from './createEntitlementManagementScheduleFromDiscriminatorValue';
-import {EntitlementManagementSchedule} from './index';
+import {EntitlementManagementSchedule, GetApplicablePolicyRequirementsMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder, Parsable {
@@ -18,7 +17,7 @@ export class AccessPackageAssignmentRequestRequirements implements AdditionalDat
     /** The identifier of the policy that these requirements are associated with. This identifier can be used when creating a new assignment request. */
     private _policyId?: string | undefined;
     /** Schedule restrictions enforced, if any. */
-    private _schedule?: EntitlementManagementSchedule | undefined;
+    private _schedule?: EntitlementManagementSchedule | GetApplicablePolicyRequirementsMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -140,7 +139,7 @@ export class AccessPackageAssignmentRequestRequirements implements AdditionalDat
     };
     /**
      * Gets the schedule property value. Schedule restrictions enforced, if any.
-     * @returns a entitlementManagementSchedule
+     * @returns a getApplicablePolicyRequirements
      */
     public get schedule() {
         return this._schedule;
@@ -149,7 +148,7 @@ export class AccessPackageAssignmentRequestRequirements implements AdditionalDat
      * Sets the schedule property value. Schedule restrictions enforced, if any.
      * @param value Value to set for the schedule property.
      */
-    public set schedule(value: EntitlementManagementSchedule | undefined) {
+    public set schedule(value: EntitlementManagementSchedule | GetApplicablePolicyRequirementsMember1 | undefined) {
         this._schedule = value;
     };
     /**

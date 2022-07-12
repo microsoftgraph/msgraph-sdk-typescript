@@ -1,5 +1,5 @@
 import {ActionResultPart} from '../../../../../models/';
-import {createActionResultPartFromDiscriminatorValue} from '../../../../../models/createActionResultPartFromDiscriminatorValue';
+import {AddMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the add method. */
@@ -7,7 +7,7 @@ export class AddResponse implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The value property */
-    private _value?: ActionResultPart[] | undefined;
+    private _value?: ActionResultPart | AddMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,7 +34,7 @@ export class AddResponse implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": n => { this.value = n.getCollectionOfObjectValues<ActionResultPart>(createActionResultPartFromDiscriminatorValue); },
+            "value": n => { this.value = n.getObjectValue<ActionResultPart>(createActionResultPartFromDiscriminatorValue); },
         };
     };
     /**
@@ -43,12 +43,12 @@ export class AddResponse implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<ActionResultPart>("value", this.value);
+        writer.writeObjectValue<ActionResultPart>("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the value property value. The value property
-     * @returns a actionResultPart
+     * @returns a add
      */
     public get value() {
         return this._value;
@@ -57,7 +57,7 @@ export class AddResponse implements AdditionalDataHolder, Parsable {
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public set value(value: ActionResultPart[] | undefined) {
+    public set value(value: ActionResultPart | AddMember1[] | undefined) {
         this._value = value;
     };
 }

@@ -1,17 +1,14 @@
-import {createPlannerCategoryDescriptionsFromDiscriminatorValue} from './createPlannerCategoryDescriptionsFromDiscriminatorValue';
-import {createPlannerUserIdsFromDiscriminatorValue} from './createPlannerUserIdsFromDiscriminatorValue';
-import {Entity, PlannerCategoryDescriptions, PlannerUserIds} from './index';
+import {AdminMember1, Entity, PlannerCategoryDescriptions, PlannerUserIds} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class PlannerPlanDetails extends Entity implements Parsable {
     /** An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan */
-    private _categoryDescriptions?: PlannerCategoryDescriptions | undefined;
+    private _categoryDescriptions?: PlannerCategoryDescriptions | AdminMember1 | undefined;
     /** The set of user IDs that this plan is shared with. If you are using Microsoft 365 groups, use the groups API to manage group membership to share the group's plan. You can also add existing members of the group to this collection, although it is not required in order for them to access the plan owned by the group. */
-    private _sharedWith?: PlannerUserIds | undefined;
+    private _sharedWith?: PlannerUserIds | AdminMember1 | undefined;
     /**
      * Gets the categoryDescriptions property value. An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan
-     * @returns a plannerCategoryDescriptions
+     * @returns a admin
      */
     public get categoryDescriptions() {
         return this._categoryDescriptions;
@@ -20,7 +17,7 @@ export class PlannerPlanDetails extends Entity implements Parsable {
      * Sets the categoryDescriptions property value. An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan
      * @param value Value to set for the categoryDescriptions property.
      */
-    public set categoryDescriptions(value: PlannerCategoryDescriptions | undefined) {
+    public set categoryDescriptions(value: PlannerCategoryDescriptions | AdminMember1 | undefined) {
         this._categoryDescriptions = value;
     };
     /**
@@ -51,7 +48,7 @@ export class PlannerPlanDetails extends Entity implements Parsable {
     };
     /**
      * Gets the sharedWith property value. The set of user IDs that this plan is shared with. If you are using Microsoft 365 groups, use the groups API to manage group membership to share the group's plan. You can also add existing members of the group to this collection, although it is not required in order for them to access the plan owned by the group.
-     * @returns a plannerUserIds
+     * @returns a admin
      */
     public get sharedWith() {
         return this._sharedWith;
@@ -60,7 +57,7 @@ export class PlannerPlanDetails extends Entity implements Parsable {
      * Sets the sharedWith property value. The set of user IDs that this plan is shared with. If you are using Microsoft 365 groups, use the groups API to manage group membership to share the group's plan. You can also add existing members of the group to this collection, although it is not required in order for them to access the plan owned by the group.
      * @param value Value to set for the sharedWith property.
      */
-    public set sharedWith(value: PlannerUserIds | undefined) {
+    public set sharedWith(value: PlannerUserIds | AdminMember1 | undefined) {
         this._sharedWith = value;
     };
 }

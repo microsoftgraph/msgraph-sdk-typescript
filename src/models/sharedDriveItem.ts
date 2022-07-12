@@ -1,39 +1,33 @@
 import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createListFromDiscriminatorValue} from './createListFromDiscriminatorValue';
-import {createListItemFromDiscriminatorValue} from './createListItemFromDiscriminatorValue';
-import {createPermissionFromDiscriminatorValue} from './createPermissionFromDiscriminatorValue';
-import {createSiteFromDiscriminatorValue} from './createSiteFromDiscriminatorValue';
-import {BaseItem, DriveItem, IdentitySet, List, ListItem, Permission, Site} from './index';
+import {AdminMember1, BaseItem, DriveItem, IdentitySet, List, ListItem, Permission, Site} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of sharedDriveItem entities. */
 export class SharedDriveItem extends BaseItem implements Parsable {
     /** Used to access the underlying driveItem */
-    private _driveItem?: DriveItem | undefined;
+    private _driveItem?: DriveItem | AdminMember1 | undefined;
     /** All driveItems contained in the sharing root. This collection cannot be enumerated. */
     private _items?: DriveItem[] | undefined;
     /** Used to access the underlying list */
-    private _list?: List | undefined;
+    private _list?: List | AdminMember1 | undefined;
     /** Used to access the underlying listItem */
-    private _listItem?: ListItem | undefined;
+    private _listItem?: ListItem | AdminMember1 | undefined;
     /** Information about the owner of the shared item being referenced. */
-    private _owner?: IdentitySet | undefined;
+    private _owner?: IdentitySet | AdminMember1 | undefined;
     /** Used to access the permission representing the underlying sharing link */
-    private _permission?: Permission | undefined;
+    private _permission?: Permission | AdminMember1 | undefined;
     /** Used to access the underlying driveItem. Deprecated -- use driveItem instead. */
-    private _root?: DriveItem | undefined;
+    private _root?: DriveItem | AdminMember1 | undefined;
     /** Used to access the underlying site */
-    private _site?: Site | undefined;
+    private _site?: Site | AdminMember1 | undefined;
     /**
-     * Instantiates a new sharedDriveItem and sets the default values.
+     * Instantiates a new SharedDriveItem and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
      * Gets the driveItem property value. Used to access the underlying driveItem
-     * @returns a driveItem
+     * @returns a admin
      */
     public get driveItem() {
         return this._driveItem;
@@ -42,7 +36,7 @@ export class SharedDriveItem extends BaseItem implements Parsable {
      * Sets the driveItem property value. Used to access the underlying driveItem
      * @param value Value to set for the driveItem property.
      */
-    public set driveItem(value: DriveItem | undefined) {
+    public set driveItem(value: DriveItem | AdminMember1 | undefined) {
         this._driveItem = value;
     };
     /**
@@ -77,7 +71,7 @@ export class SharedDriveItem extends BaseItem implements Parsable {
     };
     /**
      * Gets the list property value. Used to access the underlying list
-     * @returns a list
+     * @returns a admin
      */
     public get list() {
         return this._list;
@@ -86,12 +80,12 @@ export class SharedDriveItem extends BaseItem implements Parsable {
      * Sets the list property value. Used to access the underlying list
      * @param value Value to set for the list property.
      */
-    public set list(value: List | undefined) {
+    public set list(value: List | AdminMember1 | undefined) {
         this._list = value;
     };
     /**
      * Gets the listItem property value. Used to access the underlying listItem
-     * @returns a listItem
+     * @returns a admin
      */
     public get listItem() {
         return this._listItem;
@@ -100,12 +94,12 @@ export class SharedDriveItem extends BaseItem implements Parsable {
      * Sets the listItem property value. Used to access the underlying listItem
      * @param value Value to set for the listItem property.
      */
-    public set listItem(value: ListItem | undefined) {
+    public set listItem(value: ListItem | AdminMember1 | undefined) {
         this._listItem = value;
     };
     /**
      * Gets the owner property value. Information about the owner of the shared item being referenced.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get owner() {
         return this._owner;
@@ -114,12 +108,12 @@ export class SharedDriveItem extends BaseItem implements Parsable {
      * Sets the owner property value. Information about the owner of the shared item being referenced.
      * @param value Value to set for the owner property.
      */
-    public set owner(value: IdentitySet | undefined) {
+    public set owner(value: IdentitySet | AdminMember1 | undefined) {
         this._owner = value;
     };
     /**
      * Gets the permission property value. Used to access the permission representing the underlying sharing link
-     * @returns a permission
+     * @returns a admin
      */
     public get permission() {
         return this._permission;
@@ -128,12 +122,12 @@ export class SharedDriveItem extends BaseItem implements Parsable {
      * Sets the permission property value. Used to access the permission representing the underlying sharing link
      * @param value Value to set for the permission property.
      */
-    public set permission(value: Permission | undefined) {
+    public set permission(value: Permission | AdminMember1 | undefined) {
         this._permission = value;
     };
     /**
      * Gets the root property value. Used to access the underlying driveItem. Deprecated -- use driveItem instead.
-     * @returns a driveItem
+     * @returns a admin
      */
     public get root() {
         return this._root;
@@ -142,7 +136,7 @@ export class SharedDriveItem extends BaseItem implements Parsable {
      * Sets the root property value. Used to access the underlying driveItem. Deprecated -- use driveItem instead.
      * @param value Value to set for the root property.
      */
-    public set root(value: DriveItem | undefined) {
+    public set root(value: DriveItem | AdminMember1 | undefined) {
         this._root = value;
     };
     /**
@@ -163,7 +157,7 @@ export class SharedDriveItem extends BaseItem implements Parsable {
     };
     /**
      * Gets the site property value. Used to access the underlying site
-     * @returns a site
+     * @returns a admin
      */
     public get site() {
         return this._site;
@@ -172,7 +166,7 @@ export class SharedDriveItem extends BaseItem implements Parsable {
      * Sets the site property value. Used to access the underlying site
      * @param value Value to set for the site property.
      */
-    public set site(value: Site | undefined) {
+    public set site(value: Site | AdminMember1 | undefined) {
         this._site = value;
     };
 }

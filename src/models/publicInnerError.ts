@@ -1,5 +1,4 @@
-import {createPublicErrorDetailFromDiscriminatorValue} from './createPublicErrorDetailFromDiscriminatorValue';
-import {PublicErrorDetail} from './index';
+import {AdminMember1, PublicErrorDetail} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PublicInnerError implements AdditionalDataHolder, Parsable {
@@ -8,7 +7,7 @@ export class PublicInnerError implements AdditionalDataHolder, Parsable {
     /** The error code. */
     private _code?: string | undefined;
     /** A collection of error details. */
-    private _details?: PublicErrorDetail[] | undefined;
+    private _details?: PublicErrorDetail | AdminMember1[] | undefined;
     /** The error message. */
     private _message?: string | undefined;
     /** The target of the error. */
@@ -49,7 +48,7 @@ export class PublicInnerError implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the details property value. A collection of error details.
-     * @returns a publicErrorDetail
+     * @returns a admin
      */
     public get details() {
         return this._details;
@@ -58,7 +57,7 @@ export class PublicInnerError implements AdditionalDataHolder, Parsable {
      * Sets the details property value. A collection of error details.
      * @param value Value to set for the details property.
      */
-    public set details(value: PublicErrorDetail[] | undefined) {
+    public set details(value: PublicErrorDetail | AdminMember1[] | undefined) {
         this._details = value;
     };
     /**
@@ -68,7 +67,7 @@ export class PublicInnerError implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "code": n => { this.code = n.getStringValue(); },
-            "details": n => { this.details = n.getCollectionOfObjectValues<PublicErrorDetail>(createPublicErrorDetailFromDiscriminatorValue); },
+            "details": n => { this.details = n.getObjectValue<PublicErrorDetail>(createPublicErrorDetailFromDiscriminatorValue); },
             "message": n => { this.message = n.getStringValue(); },
             "target": n => { this.target = n.getStringValue(); },
         };
@@ -94,7 +93,7 @@ export class PublicInnerError implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("code", this.code);
-        writer.writeCollectionOfObjectValues<PublicErrorDetail>("details", this.details);
+        writer.writeObjectValue<PublicErrorDetail>("details", this.details);
         writer.writeStringValue("message", this.message);
         writer.writeStringValue("target", this.target);
         writer.writeAdditionalData(this.additionalData);

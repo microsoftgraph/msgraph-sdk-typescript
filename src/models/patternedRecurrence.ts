@@ -1,15 +1,13 @@
-import {createRecurrencePatternFromDiscriminatorValue} from './createRecurrencePatternFromDiscriminatorValue';
-import {createRecurrenceRangeFromDiscriminatorValue} from './createRecurrenceRangeFromDiscriminatorValue';
-import {RecurrencePattern, RecurrenceRange} from './index';
+import {AdminMember1, RecurrencePattern, RecurrenceRange} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PatternedRecurrence implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The frequency of an event. Do not specify for a one-time access review.  For access reviews: Do not specify this property for a one-time access review.   Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported. */
-    private _pattern?: RecurrencePattern | undefined;
+    private _pattern?: RecurrencePattern | AdminMember1 | undefined;
     /** The duration of an event. */
-    private _range?: RecurrenceRange | undefined;
+    private _range?: RecurrenceRange | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -42,7 +40,7 @@ export class PatternedRecurrence implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the pattern property value. The frequency of an event. Do not specify for a one-time access review.  For access reviews: Do not specify this property for a one-time access review.   Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported.
-     * @returns a recurrencePattern
+     * @returns a admin
      */
     public get pattern() {
         return this._pattern;
@@ -51,12 +49,12 @@ export class PatternedRecurrence implements AdditionalDataHolder, Parsable {
      * Sets the pattern property value. The frequency of an event. Do not specify for a one-time access review.  For access reviews: Do not specify this property for a one-time access review.   Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported.
      * @param value Value to set for the pattern property.
      */
-    public set pattern(value: RecurrencePattern | undefined) {
+    public set pattern(value: RecurrencePattern | AdminMember1 | undefined) {
         this._pattern = value;
     };
     /**
      * Gets the range property value. The duration of an event.
-     * @returns a recurrenceRange
+     * @returns a admin
      */
     public get range() {
         return this._range;
@@ -65,7 +63,7 @@ export class PatternedRecurrence implements AdditionalDataHolder, Parsable {
      * Sets the range property value. The duration of an event.
      * @param value Value to set for the range property.
      */
-    public set range(value: RecurrenceRange | undefined) {
+    public set range(value: RecurrenceRange | AdminMember1 | undefined) {
         this._range = value;
     };
     /**

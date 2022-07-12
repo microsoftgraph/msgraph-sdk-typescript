@@ -1,15 +1,12 @@
-import {createAccessReviewInstanceDecisionItemResourceFromDiscriminatorValue} from './createAccessReviewInstanceDecisionItemResourceFromDiscriminatorValue';
-import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFromDiscriminatorValue';
-import {AccessReviewInstanceDecisionItemResource, Entity, Identity, UserIdentity} from './index';
+import {AccessReviewInstanceDecisionItemResource, AdminMember1, Entity, Identity, UserIdentity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the admin singleton. */
 export class AccessReviewInstanceDecisionItem extends Entity implements Parsable {
     /** The identifier of the accessReviewInstance parent. Supports $select. Read-only. */
     private _accessReviewId?: string | undefined;
     /** The identifier of the user who applied the decision. Read-only. */
-    private _appliedBy?: UserIdentity | undefined;
+    private _appliedBy?: UserIdentity | AdminMember1 | undefined;
     /** The timestamp when the approval decision was applied. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $select. Read-only. */
     private _appliedDateTime?: Date | undefined;
     /** The result of applying the decision. Possible values: New, AppliedSuccessfully, AppliedWithUnknownFailure, AppliedSuccessfullyButObjectNotFound and ApplyNotSupported. Supports $select, $orderby, and $filter (eq only). Read-only. */
@@ -19,17 +16,17 @@ export class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     /** Justification left by the reviewer when they made the decision. */
     private _justification?: string | undefined;
     /** Every decision item in an access review represents a principal's access to a resource. This property represents details of the principal. For example, if a decision item represents access of User 'Bob' to Group 'Sales' - The principal is 'Bob' and the resource is 'Sales'. Principals can be of two types - userIdentity and servicePrincipalIdentity. Supports $select. Read-only. */
-    private _principal?: Identity | undefined;
+    private _principal?: Identity | AdminMember1 | undefined;
     /** Link to the principal object. For example: https://graph.microsoft.com/v1.0/users/a6c7aecb-cbfd-4763-87ef-e91b4bd509d9. Read-only. */
     private _principalLink?: string | undefined;
     /** A system-generated recommendation for the approval decision based off last interactive sign-in to tenant. Recommend approve if sign-in is within thirty days of start of review. Recommend deny if sign-in is greater than thirty days of start of review. Recommendation not available otherwise. Possible values: Approve, Deny, or NoInfoAvailable. Supports $select, $orderby, and $filter (eq only). Read-only. */
     private _recommendation?: string | undefined;
     /** Every decision item in an access review represents a principal's access to a resource. This property represents details of the resource. For example, if a decision item represents access of User 'Bob' to Group 'Sales' - The principal is Bob and the resource is 'Sales'. Resources can be of multiple types. See accessReviewInstanceDecisionItemResource. Read-only. */
-    private _resource?: AccessReviewInstanceDecisionItemResource | undefined;
+    private _resource?: AccessReviewInstanceDecisionItemResource | AdminMember1 | undefined;
     /** A link to the resource. For example, https://graph.microsoft.com/v1.0/servicePrincipals/c86300f3-8695-4320-9f6e-32a2555f5ff8. Supports $select. Read-only. */
     private _resourceLink?: string | undefined;
     /** The identifier of the reviewer. Supports $select. Read-only. */
-    private _reviewedBy?: UserIdentity | undefined;
+    private _reviewedBy?: UserIdentity | AdminMember1 | undefined;
     /** The timestamp when the review decision occurred. Supports $select. Read-only. */
     private _reviewedDateTime?: Date | undefined;
     /**
@@ -48,7 +45,7 @@ export class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     };
     /**
      * Gets the appliedBy property value. The identifier of the user who applied the decision. Read-only.
-     * @returns a userIdentity
+     * @returns a admin
      */
     public get appliedBy() {
         return this._appliedBy;
@@ -57,7 +54,7 @@ export class AccessReviewInstanceDecisionItem extends Entity implements Parsable
      * Sets the appliedBy property value. The identifier of the user who applied the decision. Read-only.
      * @param value Value to set for the appliedBy property.
      */
-    public set appliedBy(value: UserIdentity | undefined) {
+    public set appliedBy(value: UserIdentity | AdminMember1 | undefined) {
         this._appliedBy = value;
     };
     /**
@@ -145,7 +142,7 @@ export class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     };
     /**
      * Gets the principal property value. Every decision item in an access review represents a principal's access to a resource. This property represents details of the principal. For example, if a decision item represents access of User 'Bob' to Group 'Sales' - The principal is 'Bob' and the resource is 'Sales'. Principals can be of two types - userIdentity and servicePrincipalIdentity. Supports $select. Read-only.
-     * @returns a identity
+     * @returns a admin
      */
     public get principal() {
         return this._principal;
@@ -154,7 +151,7 @@ export class AccessReviewInstanceDecisionItem extends Entity implements Parsable
      * Sets the principal property value. Every decision item in an access review represents a principal's access to a resource. This property represents details of the principal. For example, if a decision item represents access of User 'Bob' to Group 'Sales' - The principal is 'Bob' and the resource is 'Sales'. Principals can be of two types - userIdentity and servicePrincipalIdentity. Supports $select. Read-only.
      * @param value Value to set for the principal property.
      */
-    public set principal(value: Identity | undefined) {
+    public set principal(value: Identity | AdminMember1 | undefined) {
         this._principal = value;
     };
     /**
@@ -187,7 +184,7 @@ export class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     };
     /**
      * Gets the resource property value. Every decision item in an access review represents a principal's access to a resource. This property represents details of the resource. For example, if a decision item represents access of User 'Bob' to Group 'Sales' - The principal is Bob and the resource is 'Sales'. Resources can be of multiple types. See accessReviewInstanceDecisionItemResource. Read-only.
-     * @returns a accessReviewInstanceDecisionItemResource
+     * @returns a admin
      */
     public get resource() {
         return this._resource;
@@ -196,7 +193,7 @@ export class AccessReviewInstanceDecisionItem extends Entity implements Parsable
      * Sets the resource property value. Every decision item in an access review represents a principal's access to a resource. This property represents details of the resource. For example, if a decision item represents access of User 'Bob' to Group 'Sales' - The principal is Bob and the resource is 'Sales'. Resources can be of multiple types. See accessReviewInstanceDecisionItemResource. Read-only.
      * @param value Value to set for the resource property.
      */
-    public set resource(value: AccessReviewInstanceDecisionItemResource | undefined) {
+    public set resource(value: AccessReviewInstanceDecisionItemResource | AdminMember1 | undefined) {
         this._resource = value;
     };
     /**
@@ -215,7 +212,7 @@ export class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     };
     /**
      * Gets the reviewedBy property value. The identifier of the reviewer. Supports $select. Read-only.
-     * @returns a userIdentity
+     * @returns a admin
      */
     public get reviewedBy() {
         return this._reviewedBy;
@@ -224,7 +221,7 @@ export class AccessReviewInstanceDecisionItem extends Entity implements Parsable
      * Sets the reviewedBy property value. The identifier of the reviewer. Supports $select. Read-only.
      * @param value Value to set for the reviewedBy property.
      */
-    public set reviewedBy(value: UserIdentity | undefined) {
+    public set reviewedBy(value: UserIdentity | AdminMember1 | undefined) {
         this._reviewedBy = value;
     };
     /**

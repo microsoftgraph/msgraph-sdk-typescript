@@ -1,18 +1,18 @@
 import {AnswerInputType} from './answerInputType';
-import {Entity} from './index';
+import {AdminMember1, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Represents a custom question of the business. */
 export class BookingCustomQuestion extends Entity implements Parsable {
     /** The expected answer type. The possible values are: text, radioButton, unknownFutureValue. */
-    private _answerInputType?: AnswerInputType | undefined;
+    private _answerInputType?: AnswerInputType | AdminMember1 | undefined;
     /** List of possible answer values. */
     private _answerOptions?: string[] | undefined;
     /** Display name of this entity. */
     private _displayName?: string | undefined;
     /**
      * Gets the answerInputType property value. The expected answer type. The possible values are: text, radioButton, unknownFutureValue.
-     * @returns a answerInputType
+     * @returns a admin
      */
     public get answerInputType() {
         return this._answerInputType;
@@ -21,7 +21,7 @@ export class BookingCustomQuestion extends Entity implements Parsable {
      * Sets the answerInputType property value. The expected answer type. The possible values are: text, radioButton, unknownFutureValue.
      * @param value Value to set for the answerInputType property.
      */
-    public set answerInputType(value: AnswerInputType | undefined) {
+    public set answerInputType(value: AnswerInputType | AdminMember1 | undefined) {
         this._answerInputType = value;
     };
     /**
@@ -64,7 +64,7 @@ export class BookingCustomQuestion extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "answerInputType": n => { this.answerInputType = n.getEnumValue<AnswerInputType>(AnswerInputType); },
+            "answerInputType": n => { this.answerInputType = n.getObjectValue<AnswerInputType>(createAnswerInputTypeFromDiscriminatorValue); },
             "answerOptions": n => { this.answerOptions = n.getCollectionOfPrimitiveValues<string>(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
         };
@@ -76,7 +76,7 @@ export class BookingCustomQuestion extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeEnumValue<AnswerInputType>("answerInputType", this.answerInputType);
+        writer.writeObjectValue<AnswerInputType>("answerInputType", this.answerInputType);
         writer.writeCollectionOfPrimitiveValues<string>("answerOptions", this.answerOptions);
         writer.writeStringValue("displayName", this.displayName);
     };

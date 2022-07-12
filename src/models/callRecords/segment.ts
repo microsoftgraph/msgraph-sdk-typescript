@@ -1,27 +1,24 @@
 import {Entity} from '../';
-import {createEndpointFromDiscriminatorValue} from './createEndpointFromDiscriminatorValue';
-import {createFailureInfoFromDiscriminatorValue} from './createFailureInfoFromDiscriminatorValue';
-import {createMediaFromDiscriminatorValue} from './createMediaFromDiscriminatorValue';
-import {Endpoint, FailureInfo, Media} from './index';
+import {CommunicationsMember1, Endpoint, FailureInfo, Media} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class Segment extends Entity implements Parsable {
     /** Endpoint that answered this segment. */
-    private _callee?: Endpoint | undefined;
+    private _callee?: Endpoint | CommunicationsMember1 | undefined;
     /** Endpoint that initiated this segment. */
-    private _caller?: Endpoint | undefined;
+    private _caller?: Endpoint | CommunicationsMember1 | undefined;
     /** UTC time when the segment ended. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _endDateTime?: Date | undefined;
     /** Failure information associated with the segment if it failed. */
-    private _failureInfo?: FailureInfo | undefined;
+    private _failureInfo?: FailureInfo | CommunicationsMember1 | undefined;
     /** Media associated with this segment. */
-    private _media?: Media[] | undefined;
+    private _media?: Media | CommunicationsMember1[] | undefined;
     /** UTC time when the segment started. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _startDateTime?: Date | undefined;
     /**
      * Gets the callee property value. Endpoint that answered this segment.
-     * @returns a endpoint
+     * @returns a communications
      */
     public get callee() {
         return this._callee;
@@ -30,12 +27,12 @@ export class Segment extends Entity implements Parsable {
      * Sets the callee property value. Endpoint that answered this segment.
      * @param value Value to set for the callee property.
      */
-    public set callee(value: Endpoint | undefined) {
+    public set callee(value: Endpoint | CommunicationsMember1 | undefined) {
         this._callee = value;
     };
     /**
      * Gets the caller property value. Endpoint that initiated this segment.
-     * @returns a endpoint
+     * @returns a communications
      */
     public get caller() {
         return this._caller;
@@ -44,7 +41,7 @@ export class Segment extends Entity implements Parsable {
      * Sets the caller property value. Endpoint that initiated this segment.
      * @param value Value to set for the caller property.
      */
-    public set caller(value: Endpoint | undefined) {
+    public set caller(value: Endpoint | CommunicationsMember1 | undefined) {
         this._caller = value;
     };
     /**
@@ -69,7 +66,7 @@ export class Segment extends Entity implements Parsable {
     };
     /**
      * Gets the failureInfo property value. Failure information associated with the segment if it failed.
-     * @returns a failureInfo
+     * @returns a communications
      */
     public get failureInfo() {
         return this._failureInfo;
@@ -78,7 +75,7 @@ export class Segment extends Entity implements Parsable {
      * Sets the failureInfo property value. Failure information associated with the segment if it failed.
      * @param value Value to set for the failureInfo property.
      */
-    public set failureInfo(value: FailureInfo | undefined) {
+    public set failureInfo(value: FailureInfo | CommunicationsMember1 | undefined) {
         this._failureInfo = value;
     };
     /**
@@ -91,13 +88,13 @@ export class Segment extends Entity implements Parsable {
             "caller": n => { this.caller = n.getObjectValue<Endpoint>(createEndpointFromDiscriminatorValue); },
             "endDateTime": n => { this.endDateTime = n.getDateValue(); },
             "failureInfo": n => { this.failureInfo = n.getObjectValue<FailureInfo>(createFailureInfoFromDiscriminatorValue); },
-            "media": n => { this.media = n.getCollectionOfObjectValues<Media>(createMediaFromDiscriminatorValue); },
+            "media": n => { this.media = n.getObjectValue<Media>(createMediaFromDiscriminatorValue); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
         };
     };
     /**
      * Gets the media property value. Media associated with this segment.
-     * @returns a media
+     * @returns a communications
      */
     public get media() {
         return this._media;
@@ -106,7 +103,7 @@ export class Segment extends Entity implements Parsable {
      * Sets the media property value. Media associated with this segment.
      * @param value Value to set for the media property.
      */
-    public set media(value: Media[] | undefined) {
+    public set media(value: Media | CommunicationsMember1[] | undefined) {
         this._media = value;
     };
     /**
@@ -120,7 +117,7 @@ export class Segment extends Entity implements Parsable {
         writer.writeObjectValue<Endpoint>("caller", this.caller);
         writer.writeDateValue("endDateTime", this.endDateTime);
         writer.writeObjectValue<FailureInfo>("failureInfo", this.failureInfo);
-        writer.writeCollectionOfObjectValues<Media>("media", this.media);
+        writer.writeObjectValue<Media>("media", this.media);
         writer.writeDateValue("startDateTime", this.startDateTime);
     };
     /**

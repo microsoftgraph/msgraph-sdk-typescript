@@ -1,15 +1,8 @@
-import {createInitiatorFromDiscriminatorValue} from './createInitiatorFromDiscriminatorValue';
-import {createModifiedPropertyFromDiscriminatorValue} from './createModifiedPropertyFromDiscriminatorValue';
-import {createProvisionedIdentityFromDiscriminatorValue} from './createProvisionedIdentityFromDiscriminatorValue';
-import {createProvisioningServicePrincipalFromDiscriminatorValue} from './createProvisioningServicePrincipalFromDiscriminatorValue';
-import {createProvisioningStatusInfoFromDiscriminatorValue} from './createProvisioningStatusInfoFromDiscriminatorValue';
-import {createProvisioningStepFromDiscriminatorValue} from './createProvisioningStepFromDiscriminatorValue';
-import {createProvisioningSystemFromDiscriminatorValue} from './createProvisioningSystemFromDiscriminatorValue';
-import {Entity, Initiator, ModifiedProperty, ProvisionedIdentity, ProvisioningServicePrincipal, ProvisioningStatusInfo, ProvisioningStep, ProvisioningSystem} from './index';
+import {AdminMember1, Entity, Initiator, ModifiedProperty, ProvisionedIdentity, ProvisioningServicePrincipal, ProvisioningStatusInfo, ProvisioningStep, ProvisioningSystem} from './index';
 import {ProvisioningAction} from './provisioningAction';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the admin singleton. */
 export class ProvisioningObjectSummary extends Entity implements Parsable {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _activityDateTime?: Date | undefined;
@@ -20,27 +13,27 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
     /** Indicates how long this provisioning action took to finish. Measured in milliseconds. */
     private _durationInMilliseconds?: number | undefined;
     /** Details of who initiated this provisioning. */
-    private _initiatedBy?: Initiator | undefined;
+    private _initiatedBy?: Initiator | AdminMember1 | undefined;
     /** The unique ID for the whole provisioning job. */
     private _jobId?: string | undefined;
     /** Details of each property that was modified in this provisioning action on this object. */
-    private _modifiedProperties?: ModifiedProperty[] | undefined;
+    private _modifiedProperties?: ModifiedProperty | AdminMember1[] | undefined;
     /** Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Azure AD activity list. */
-    private _provisioningAction?: ProvisioningAction | undefined;
+    private _provisioningAction?: ProvisioningAction | AdminMember1 | undefined;
     /** Details of provisioning status. */
-    private _provisioningStatusInfo?: ProvisioningStatusInfo | undefined;
+    private _provisioningStatusInfo?: ProvisioningStatusInfo | AdminMember1 | undefined;
     /** Details of each step in provisioning. */
-    private _provisioningSteps?: ProvisioningStep[] | undefined;
+    private _provisioningSteps?: ProvisioningStep | AdminMember1[] | undefined;
     /** Represents the service principal used for provisioning. */
-    private _servicePrincipal?: ProvisioningServicePrincipal | undefined;
+    private _servicePrincipal?: ProvisioningServicePrincipal | AdminMember1 | undefined;
     /** Details of source object being provisioned. */
-    private _sourceIdentity?: ProvisionedIdentity | undefined;
+    private _sourceIdentity?: ProvisionedIdentity | AdminMember1 | undefined;
     /** Details of source system of the object being provisioned. */
-    private _sourceSystem?: ProvisioningSystem | undefined;
+    private _sourceSystem?: ProvisioningSystem | AdminMember1 | undefined;
     /** Details of target object being provisioned. */
-    private _targetIdentity?: ProvisionedIdentity | undefined;
+    private _targetIdentity?: ProvisionedIdentity | AdminMember1 | undefined;
     /** Details of target system of the object being provisioned. */
-    private _targetSystem?: ProvisioningSystem | undefined;
+    private _targetSystem?: ProvisioningSystem | AdminMember1 | undefined;
     /** Unique Azure AD tenant ID. */
     private _tenantId?: string | undefined;
     /**
@@ -117,10 +110,10 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
             "durationInMilliseconds": n => { this.durationInMilliseconds = n.getNumberValue(); },
             "initiatedBy": n => { this.initiatedBy = n.getObjectValue<Initiator>(createInitiatorFromDiscriminatorValue); },
             "jobId": n => { this.jobId = n.getStringValue(); },
-            "modifiedProperties": n => { this.modifiedProperties = n.getCollectionOfObjectValues<ModifiedProperty>(createModifiedPropertyFromDiscriminatorValue); },
-            "provisioningAction": n => { this.provisioningAction = n.getEnumValue<ProvisioningAction>(ProvisioningAction); },
+            "modifiedProperties": n => { this.modifiedProperties = n.getObjectValue<ModifiedProperty>(createModifiedPropertyFromDiscriminatorValue); },
+            "provisioningAction": n => { this.provisioningAction = n.getObjectValue<ProvisioningAction>(createProvisioningActionFromDiscriminatorValue); },
             "provisioningStatusInfo": n => { this.provisioningStatusInfo = n.getObjectValue<ProvisioningStatusInfo>(createProvisioningStatusInfoFromDiscriminatorValue); },
-            "provisioningSteps": n => { this.provisioningSteps = n.getCollectionOfObjectValues<ProvisioningStep>(createProvisioningStepFromDiscriminatorValue); },
+            "provisioningSteps": n => { this.provisioningSteps = n.getObjectValue<ProvisioningStep>(createProvisioningStepFromDiscriminatorValue); },
             "servicePrincipal": n => { this.servicePrincipal = n.getObjectValue<ProvisioningServicePrincipal>(createProvisioningServicePrincipalFromDiscriminatorValue); },
             "sourceIdentity": n => { this.sourceIdentity = n.getObjectValue<ProvisionedIdentity>(createProvisionedIdentityFromDiscriminatorValue); },
             "sourceSystem": n => { this.sourceSystem = n.getObjectValue<ProvisioningSystem>(createProvisioningSystemFromDiscriminatorValue); },
@@ -131,7 +124,7 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
     };
     /**
      * Gets the initiatedBy property value. Details of who initiated this provisioning.
-     * @returns a initiator
+     * @returns a admin
      */
     public get initiatedBy() {
         return this._initiatedBy;
@@ -140,7 +133,7 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
      * Sets the initiatedBy property value. Details of who initiated this provisioning.
      * @param value Value to set for the initiatedBy property.
      */
-    public set initiatedBy(value: Initiator | undefined) {
+    public set initiatedBy(value: Initiator | AdminMember1 | undefined) {
         this._initiatedBy = value;
     };
     /**
@@ -159,7 +152,7 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
     };
     /**
      * Gets the modifiedProperties property value. Details of each property that was modified in this provisioning action on this object.
-     * @returns a modifiedProperty
+     * @returns a admin
      */
     public get modifiedProperties() {
         return this._modifiedProperties;
@@ -168,12 +161,12 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
      * Sets the modifiedProperties property value. Details of each property that was modified in this provisioning action on this object.
      * @param value Value to set for the modifiedProperties property.
      */
-    public set modifiedProperties(value: ModifiedProperty[] | undefined) {
+    public set modifiedProperties(value: ModifiedProperty | AdminMember1[] | undefined) {
         this._modifiedProperties = value;
     };
     /**
      * Gets the provisioningAction property value. Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Azure AD activity list.
-     * @returns a provisioningAction
+     * @returns a admin
      */
     public get provisioningAction() {
         return this._provisioningAction;
@@ -182,12 +175,12 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
      * Sets the provisioningAction property value. Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Azure AD activity list.
      * @param value Value to set for the provisioningAction property.
      */
-    public set provisioningAction(value: ProvisioningAction | undefined) {
+    public set provisioningAction(value: ProvisioningAction | AdminMember1 | undefined) {
         this._provisioningAction = value;
     };
     /**
      * Gets the provisioningStatusInfo property value. Details of provisioning status.
-     * @returns a provisioningStatusInfo
+     * @returns a admin
      */
     public get provisioningStatusInfo() {
         return this._provisioningStatusInfo;
@@ -196,12 +189,12 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
      * Sets the provisioningStatusInfo property value. Details of provisioning status.
      * @param value Value to set for the provisioningStatusInfo property.
      */
-    public set provisioningStatusInfo(value: ProvisioningStatusInfo | undefined) {
+    public set provisioningStatusInfo(value: ProvisioningStatusInfo | AdminMember1 | undefined) {
         this._provisioningStatusInfo = value;
     };
     /**
      * Gets the provisioningSteps property value. Details of each step in provisioning.
-     * @returns a provisioningStep
+     * @returns a admin
      */
     public get provisioningSteps() {
         return this._provisioningSteps;
@@ -210,7 +203,7 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
      * Sets the provisioningSteps property value. Details of each step in provisioning.
      * @param value Value to set for the provisioningSteps property.
      */
-    public set provisioningSteps(value: ProvisioningStep[] | undefined) {
+    public set provisioningSteps(value: ProvisioningStep | AdminMember1[] | undefined) {
         this._provisioningSteps = value;
     };
     /**
@@ -226,10 +219,10 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
         writer.writeNumberValue("durationInMilliseconds", this.durationInMilliseconds);
         writer.writeObjectValue<Initiator>("initiatedBy", this.initiatedBy);
         writer.writeStringValue("jobId", this.jobId);
-        writer.writeCollectionOfObjectValues<ModifiedProperty>("modifiedProperties", this.modifiedProperties);
-        writer.writeEnumValue<ProvisioningAction>("provisioningAction", this.provisioningAction);
+        writer.writeObjectValue<ModifiedProperty>("modifiedProperties", this.modifiedProperties);
+        writer.writeObjectValue<ProvisioningAction>("provisioningAction", this.provisioningAction);
         writer.writeObjectValue<ProvisioningStatusInfo>("provisioningStatusInfo", this.provisioningStatusInfo);
-        writer.writeCollectionOfObjectValues<ProvisioningStep>("provisioningSteps", this.provisioningSteps);
+        writer.writeObjectValue<ProvisioningStep>("provisioningSteps", this.provisioningSteps);
         writer.writeObjectValue<ProvisioningServicePrincipal>("servicePrincipal", this.servicePrincipal);
         writer.writeObjectValue<ProvisionedIdentity>("sourceIdentity", this.sourceIdentity);
         writer.writeObjectValue<ProvisioningSystem>("sourceSystem", this.sourceSystem);
@@ -239,7 +232,7 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
     };
     /**
      * Gets the servicePrincipal property value. Represents the service principal used for provisioning.
-     * @returns a provisioningServicePrincipal
+     * @returns a admin
      */
     public get servicePrincipal() {
         return this._servicePrincipal;
@@ -248,12 +241,12 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
      * Sets the servicePrincipal property value. Represents the service principal used for provisioning.
      * @param value Value to set for the servicePrincipal property.
      */
-    public set servicePrincipal(value: ProvisioningServicePrincipal | undefined) {
+    public set servicePrincipal(value: ProvisioningServicePrincipal | AdminMember1 | undefined) {
         this._servicePrincipal = value;
     };
     /**
      * Gets the sourceIdentity property value. Details of source object being provisioned.
-     * @returns a provisionedIdentity
+     * @returns a admin
      */
     public get sourceIdentity() {
         return this._sourceIdentity;
@@ -262,12 +255,12 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
      * Sets the sourceIdentity property value. Details of source object being provisioned.
      * @param value Value to set for the sourceIdentity property.
      */
-    public set sourceIdentity(value: ProvisionedIdentity | undefined) {
+    public set sourceIdentity(value: ProvisionedIdentity | AdminMember1 | undefined) {
         this._sourceIdentity = value;
     };
     /**
      * Gets the sourceSystem property value. Details of source system of the object being provisioned.
-     * @returns a provisioningSystem
+     * @returns a admin
      */
     public get sourceSystem() {
         return this._sourceSystem;
@@ -276,12 +269,12 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
      * Sets the sourceSystem property value. Details of source system of the object being provisioned.
      * @param value Value to set for the sourceSystem property.
      */
-    public set sourceSystem(value: ProvisioningSystem | undefined) {
+    public set sourceSystem(value: ProvisioningSystem | AdminMember1 | undefined) {
         this._sourceSystem = value;
     };
     /**
      * Gets the targetIdentity property value. Details of target object being provisioned.
-     * @returns a provisionedIdentity
+     * @returns a admin
      */
     public get targetIdentity() {
         return this._targetIdentity;
@@ -290,12 +283,12 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
      * Sets the targetIdentity property value. Details of target object being provisioned.
      * @param value Value to set for the targetIdentity property.
      */
-    public set targetIdentity(value: ProvisionedIdentity | undefined) {
+    public set targetIdentity(value: ProvisionedIdentity | AdminMember1 | undefined) {
         this._targetIdentity = value;
     };
     /**
      * Gets the targetSystem property value. Details of target system of the object being provisioned.
-     * @returns a provisioningSystem
+     * @returns a admin
      */
     public get targetSystem() {
         return this._targetSystem;
@@ -304,7 +297,7 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
      * Sets the targetSystem property value. Details of target system of the object being provisioned.
      * @param value Value to set for the targetSystem property.
      */
-    public set targetSystem(value: ProvisioningSystem | undefined) {
+    public set targetSystem(value: ProvisioningSystem | AdminMember1 | undefined) {
         this._targetSystem = value;
     };
     /**

@@ -1,7 +1,8 @@
 import {OnenoteOperation} from '../../../../../../models/';
-import {createOnenoteOperationFromDiscriminatorValue} from '../../../../../../models/createOnenoteOperationFromDiscriminatorValue';
+import {ODataError} from '../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CopyNotebookRequestBuilderPostRequestConfiguration} from './copyNotebookRequestBuilderPostRequestConfiguration';
-import {CopyNotebookPostRequestBody} from './index';
+import {CopyNotebookPostRequestBody, CopyNotebookResponseMember1} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the copyNotebook method. */
@@ -37,6 +38,7 @@ export class CopyNotebookRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -49,13 +51,17 @@ export class CopyNotebookRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of OnenoteOperation
+     * @returns a Promise of CopyNotebookResponse
      */
-    public post(body: CopyNotebookPostRequestBody | undefined, requestConfiguration?: CopyNotebookRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteOperation | undefined> {
+    public post(body: CopyNotebookPostRequestBody | undefined, requestConfiguration?: CopyNotebookRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteOperation | CopyNotebookResponseMember1 | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<OnenoteOperation>(requestInfo, createOnenoteOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<OnenoteOperation | CopyNotebookResponseMember1>(requestInfo, createOnenoteOperation | CopyNotebookResponseMember1FromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

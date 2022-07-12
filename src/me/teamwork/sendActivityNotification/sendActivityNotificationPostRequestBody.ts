@@ -1,7 +1,5 @@
 import {ItemBody, KeyValuePair, TeamworkActivityTopic} from '../../../models/';
-import {createItemBodyFromDiscriminatorValue} from '../../../models/createItemBodyFromDiscriminatorValue';
-import {createKeyValuePairFromDiscriminatorValue} from '../../../models/createKeyValuePairFromDiscriminatorValue';
-import {createTeamworkActivityTopicFromDiscriminatorValue} from '../../../models/createTeamworkActivityTopicFromDiscriminatorValue';
+import {SendActivityNotificationMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the sendActivityNotification method. */
@@ -13,11 +11,11 @@ export class SendActivityNotificationPostRequestBody implements AdditionalDataHo
     /** The chainId property */
     private _chainId?: number | undefined;
     /** The previewText property */
-    private _previewText?: ItemBody | undefined;
+    private _previewText?: ItemBody | SendActivityNotificationMember1 | undefined;
     /** The templateParameters property */
-    private _templateParameters?: KeyValuePair[] | undefined;
+    private _templateParameters?: KeyValuePair | SendActivityNotificationMember1[] | undefined;
     /** The topic property */
-    private _topic?: TeamworkActivityTopic | undefined;
+    private _topic?: TeamworkActivityTopic | SendActivityNotificationMember1 | undefined;
     /**
      * Gets the activityType property value. The activityType property
      * @returns a string
@@ -75,13 +73,13 @@ export class SendActivityNotificationPostRequestBody implements AdditionalDataHo
             "activityType": n => { this.activityType = n.getStringValue(); },
             "chainId": n => { this.chainId = n.getNumberValue(); },
             "previewText": n => { this.previewText = n.getObjectValue<ItemBody>(createItemBodyFromDiscriminatorValue); },
-            "templateParameters": n => { this.templateParameters = n.getCollectionOfObjectValues<KeyValuePair>(createKeyValuePairFromDiscriminatorValue); },
+            "templateParameters": n => { this.templateParameters = n.getObjectValue<KeyValuePair>(createKeyValuePairFromDiscriminatorValue); },
             "topic": n => { this.topic = n.getObjectValue<TeamworkActivityTopic>(createTeamworkActivityTopicFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the previewText property value. The previewText property
-     * @returns a itemBody
+     * @returns a sendActivityNotification
      */
     public get previewText() {
         return this._previewText;
@@ -90,7 +88,7 @@ export class SendActivityNotificationPostRequestBody implements AdditionalDataHo
      * Sets the previewText property value. The previewText property
      * @param value Value to set for the previewText property.
      */
-    public set previewText(value: ItemBody | undefined) {
+    public set previewText(value: ItemBody | SendActivityNotificationMember1 | undefined) {
         this._previewText = value;
     };
     /**
@@ -102,13 +100,13 @@ export class SendActivityNotificationPostRequestBody implements AdditionalDataHo
         writer.writeStringValue("activityType", this.activityType);
         writer.writeNumberValue("chainId", this.chainId);
         writer.writeObjectValue<ItemBody>("previewText", this.previewText);
-        writer.writeCollectionOfObjectValues<KeyValuePair>("templateParameters", this.templateParameters);
+        writer.writeObjectValue<KeyValuePair>("templateParameters", this.templateParameters);
         writer.writeObjectValue<TeamworkActivityTopic>("topic", this.topic);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the templateParameters property value. The templateParameters property
-     * @returns a keyValuePair
+     * @returns a sendActivityNotification
      */
     public get templateParameters() {
         return this._templateParameters;
@@ -117,12 +115,12 @@ export class SendActivityNotificationPostRequestBody implements AdditionalDataHo
      * Sets the templateParameters property value. The templateParameters property
      * @param value Value to set for the templateParameters property.
      */
-    public set templateParameters(value: KeyValuePair[] | undefined) {
+    public set templateParameters(value: KeyValuePair | SendActivityNotificationMember1[] | undefined) {
         this._templateParameters = value;
     };
     /**
      * Gets the topic property value. The topic property
-     * @returns a teamworkActivityTopic
+     * @returns a sendActivityNotification
      */
     public get topic() {
         return this._topic;
@@ -131,7 +129,7 @@ export class SendActivityNotificationPostRequestBody implements AdditionalDataHo
      * Sets the topic property value. The topic property
      * @param value Value to set for the topic property.
      */
-    public set topic(value: TeamworkActivityTopic | undefined) {
+    public set topic(value: TeamworkActivityTopic | SendActivityNotificationMember1 | undefined) {
         this._topic = value;
     };
 }

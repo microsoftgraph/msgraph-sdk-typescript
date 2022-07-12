@@ -1,6 +1,6 @@
 import {IncomingCallOptions, MediaConfig} from '../../../../models/';
-import {createIncomingCallOptionsFromDiscriminatorValue} from '../../../../models/createIncomingCallOptionsFromDiscriminatorValue';
 import {createMediaConfigFromDiscriminatorValue} from '../../../../models/createMediaConfigFromDiscriminatorValue';
+import {AnswerMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the answer method. */
@@ -12,7 +12,7 @@ export class AnswerPostRequestBody implements AdditionalDataHolder, Parsable {
     /** The callbackUri property */
     private _callbackUri?: string | undefined;
     /** The callOptions property */
-    private _callOptions?: IncomingCallOptions | undefined;
+    private _callOptions?: IncomingCallOptions | AnswerMember1 | undefined;
     /** The mediaConfig property */
     private _mediaConfig?: MediaConfig | undefined;
     /** The participantCapacity property */
@@ -61,7 +61,7 @@ export class AnswerPostRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the callOptions property value. The callOptions property
-     * @returns a incomingCallOptions
+     * @returns a answer
      */
     public get callOptions() {
         return this._callOptions;
@@ -70,7 +70,7 @@ export class AnswerPostRequestBody implements AdditionalDataHolder, Parsable {
      * Sets the callOptions property value. The callOptions property
      * @param value Value to set for the callOptions property.
      */
-    public set callOptions(value: IncomingCallOptions | undefined) {
+    public set callOptions(value: IncomingCallOptions | AnswerMember1 | undefined) {
         this._callOptions = value;
     };
     /**

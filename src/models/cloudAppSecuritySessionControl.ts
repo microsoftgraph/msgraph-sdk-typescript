@@ -1,14 +1,13 @@
 import {CloudAppSecuritySessionControlType} from './cloudAppSecuritySessionControlType';
-import {ConditionalAccessSessionControl} from './index';
+import {AdminMember1, ConditionalAccessSessionControl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class CloudAppSecuritySessionControl extends ConditionalAccessSessionControl implements Parsable {
     /** Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps. */
-    private _cloudAppSecurityType?: CloudAppSecuritySessionControlType | undefined;
+    private _cloudAppSecurityType?: CloudAppSecuritySessionControlType | AdminMember1 | undefined;
     /**
      * Gets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps.
-     * @returns a cloudAppSecuritySessionControlType
+     * @returns a admin
      */
     public get cloudAppSecurityType() {
         return this._cloudAppSecurityType;
@@ -17,11 +16,11 @@ export class CloudAppSecuritySessionControl extends ConditionalAccessSessionCont
      * Sets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps.
      * @param value Value to set for the cloudAppSecurityType property.
      */
-    public set cloudAppSecurityType(value: CloudAppSecuritySessionControlType | undefined) {
+    public set cloudAppSecurityType(value: CloudAppSecuritySessionControlType | AdminMember1 | undefined) {
         this._cloudAppSecurityType = value;
     };
     /**
-     * Instantiates a new cloudAppSecuritySessionControl and sets the default values.
+     * Instantiates a new CloudAppSecuritySessionControl and sets the default values.
      */
     public constructor() {
         super();
@@ -32,7 +31,7 @@ export class CloudAppSecuritySessionControl extends ConditionalAccessSessionCont
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "cloudAppSecurityType": n => { this.cloudAppSecurityType = n.getEnumValue<CloudAppSecuritySessionControlType>(CloudAppSecuritySessionControlType); },
+            "cloudAppSecurityType": n => { this.cloudAppSecurityType = n.getObjectValue<CloudAppSecuritySessionControlType>(createCloudAppSecuritySessionControlTypeFromDiscriminatorValue); },
         };
     };
     /**
@@ -42,6 +41,6 @@ export class CloudAppSecuritySessionControl extends ConditionalAccessSessionCont
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeEnumValue<CloudAppSecuritySessionControlType>("cloudAppSecurityType", this.cloudAppSecurityType);
+        writer.writeObjectValue<CloudAppSecuritySessionControlType>("cloudAppSecurityType", this.cloudAppSecurityType);
     };
 }

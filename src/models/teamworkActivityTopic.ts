@@ -1,3 +1,4 @@
+import {SendActivityNotificationMember1} from './index';
 import {TeamworkActivityTopicSource} from './teamworkActivityTopicSource';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -5,7 +6,7 @@ export class TeamworkActivityTopic implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Type of source. Possible values are: entityUrl, text. For supported Microsoft Graph URLs, use entityUrl. For custom text, use text. */
-    private _source?: TeamworkActivityTopicSource | undefined;
+    private _source?: TeamworkActivityTopicSource | SendActivityNotificationMember1 | undefined;
     /** The topic value. If the value of the source property is entityUrl, this must be a Microsoft Graph URL. If the vaule is text, this must be a plain text value. */
     private _value?: string | undefined;
     /** The link the user clicks when they select the notification. Optional when source is entityUrl; required when source is text. */
@@ -36,7 +37,7 @@ export class TeamworkActivityTopic implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "source": n => { this.source = n.getEnumValue<TeamworkActivityTopicSource>(TeamworkActivityTopicSource); },
+            "source": n => { this.source = n.getObjectValue<TeamworkActivityTopicSource>(createTeamworkActivityTopicSourceFromDiscriminatorValue); },
             "value": n => { this.value = n.getStringValue(); },
             "webUrl": n => { this.webUrl = n.getStringValue(); },
         };
@@ -47,14 +48,14 @@ export class TeamworkActivityTopic implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeEnumValue<TeamworkActivityTopicSource>("source", this.source);
+        writer.writeObjectValue<TeamworkActivityTopicSource>("source", this.source);
         writer.writeStringValue("value", this.value);
         writer.writeStringValue("webUrl", this.webUrl);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the source property value. Type of source. Possible values are: entityUrl, text. For supported Microsoft Graph URLs, use entityUrl. For custom text, use text.
-     * @returns a teamworkActivityTopicSource
+     * @returns a sendActivityNotification
      */
     public get source() {
         return this._source;
@@ -63,7 +64,7 @@ export class TeamworkActivityTopic implements AdditionalDataHolder, Parsable {
      * Sets the source property value. Type of source. Possible values are: entityUrl, text. For supported Microsoft Graph URLs, use entityUrl. For custom text, use text.
      * @param value Value to set for the source property.
      */
-    public set source(value: TeamworkActivityTopicSource | undefined) {
+    public set source(value: TeamworkActivityTopicSource | SendActivityNotificationMember1 | undefined) {
         this._source = value;
     };
     /**

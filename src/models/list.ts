@@ -1,16 +1,11 @@
 import {createColumnDefinitionFromDiscriminatorValue} from './createColumnDefinitionFromDiscriminatorValue';
 import {createContentTypeFromDiscriminatorValue} from './createContentTypeFromDiscriminatorValue';
-import {createDriveFromDiscriminatorValue} from './createDriveFromDiscriminatorValue';
-import {createListInfoFromDiscriminatorValue} from './createListInfoFromDiscriminatorValue';
 import {createListItemFromDiscriminatorValue} from './createListItemFromDiscriminatorValue';
 import {createRichLongRunningOperationFromDiscriminatorValue} from './createRichLongRunningOperationFromDiscriminatorValue';
-import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFromDiscriminatorValue';
 import {createSubscriptionFromDiscriminatorValue} from './createSubscriptionFromDiscriminatorValue';
-import {createSystemFacetFromDiscriminatorValue} from './createSystemFacetFromDiscriminatorValue';
-import {BaseItem, ColumnDefinition, ContentType, Drive, ListInfo, ListItem, RichLongRunningOperation, SharepointIds, Subscription, SystemFacet} from './index';
+import {AdminMember1, BaseItem, ColumnDefinition, ContentType, Drive, ListInfo, ListItem, RichLongRunningOperation, SharepointIds, Subscription, SystemFacet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class List extends BaseItem implements Parsable {
     /** The collection of field definitions for this list. */
     private _columns?: ColumnDefinition[] | undefined;
@@ -19,19 +14,19 @@ export class List extends BaseItem implements Parsable {
     /** The displayable title of the list. */
     private _displayName?: string | undefined;
     /** Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem]. */
-    private _drive?: Drive | undefined;
+    private _drive?: Drive | AdminMember1 | undefined;
     /** All items contained in the list. */
     private _items?: ListItem[] | undefined;
     /** Provides additional details about the list. */
-    private _list?: ListInfo | undefined;
+    private _list?: ListInfo | AdminMember1 | undefined;
     /** The collection of long running operations for the list. */
     private _operations?: RichLongRunningOperation[] | undefined;
     /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
-    private _sharepointIds?: SharepointIds | undefined;
+    private _sharepointIds?: SharepointIds | AdminMember1 | undefined;
     /** The set of subscriptions on the list. */
     private _subscriptions?: Subscription[] | undefined;
     /** If present, indicates that this is a system-managed list. Read-only. */
-    private _system?: SystemFacet | undefined;
+    private _system?: SystemFacet | AdminMember1 | undefined;
     /**
      * Gets the columns property value. The collection of field definitions for this list.
      * @returns a columnDefinition
@@ -82,7 +77,7 @@ export class List extends BaseItem implements Parsable {
     };
     /**
      * Gets the drive property value. Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem].
-     * @returns a drive
+     * @returns a admin
      */
     public get drive() {
         return this._drive;
@@ -91,7 +86,7 @@ export class List extends BaseItem implements Parsable {
      * Sets the drive property value. Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem].
      * @param value Value to set for the drive property.
      */
-    public set drive(value: Drive | undefined) {
+    public set drive(value: Drive | AdminMember1 | undefined) {
         this._drive = value;
     };
     /**
@@ -128,7 +123,7 @@ export class List extends BaseItem implements Parsable {
     };
     /**
      * Gets the list property value. Provides additional details about the list.
-     * @returns a listInfo
+     * @returns a admin
      */
     public get list() {
         return this._list;
@@ -137,7 +132,7 @@ export class List extends BaseItem implements Parsable {
      * Sets the list property value. Provides additional details about the list.
      * @param value Value to set for the list property.
      */
-    public set list(value: ListInfo | undefined) {
+    public set list(value: ListInfo | AdminMember1 | undefined) {
         this._list = value;
     };
     /**
@@ -174,7 +169,7 @@ export class List extends BaseItem implements Parsable {
     };
     /**
      * Gets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
-     * @returns a sharepointIds
+     * @returns a admin
      */
     public get sharepointIds() {
         return this._sharepointIds;
@@ -183,7 +178,7 @@ export class List extends BaseItem implements Parsable {
      * Sets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
      * @param value Value to set for the sharepointIds property.
      */
-    public set sharepointIds(value: SharepointIds | undefined) {
+    public set sharepointIds(value: SharepointIds | AdminMember1 | undefined) {
         this._sharepointIds = value;
     };
     /**
@@ -202,7 +197,7 @@ export class List extends BaseItem implements Parsable {
     };
     /**
      * Gets the system property value. If present, indicates that this is a system-managed list. Read-only.
-     * @returns a systemFacet
+     * @returns a admin
      */
     public get system() {
         return this._system;
@@ -211,7 +206,7 @@ export class List extends BaseItem implements Parsable {
      * Sets the system property value. If present, indicates that this is a system-managed list. Read-only.
      * @param value Value to set for the system property.
      */
-    public set system(value: SystemFacet | undefined) {
+    public set system(value: SystemFacet | AdminMember1 | undefined) {
         this._system = value;
     };
 }

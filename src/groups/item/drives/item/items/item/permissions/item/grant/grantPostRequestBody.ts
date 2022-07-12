@@ -1,5 +1,5 @@
 import {DriveRecipient} from '../../../../../../../../../models/';
-import {createDriveRecipientFromDiscriminatorValue} from '../../../../../../../../../models/createDriveRecipientFromDiscriminatorValue';
+import {GrantMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the grant method. */
@@ -7,7 +7,7 @@ export class GrantPostRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The recipients property */
-    private _recipients?: DriveRecipient[] | undefined;
+    private _recipients?: DriveRecipient | GrantMember1[] | undefined;
     /** The roles property */
     private _roles?: string[] | undefined;
     /**
@@ -36,13 +36,13 @@ export class GrantPostRequestBody implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "recipients": n => { this.recipients = n.getCollectionOfObjectValues<DriveRecipient>(createDriveRecipientFromDiscriminatorValue); },
+            "recipients": n => { this.recipients = n.getObjectValue<DriveRecipient>(createDriveRecipientFromDiscriminatorValue); },
             "roles": n => { this.roles = n.getCollectionOfPrimitiveValues<string>(); },
         };
     };
     /**
      * Gets the recipients property value. The recipients property
-     * @returns a driveRecipient
+     * @returns a grant
      */
     public get recipients() {
         return this._recipients;
@@ -51,7 +51,7 @@ export class GrantPostRequestBody implements AdditionalDataHolder, Parsable {
      * Sets the recipients property value. The recipients property
      * @param value Value to set for the recipients property.
      */
-    public set recipients(value: DriveRecipient[] | undefined) {
+    public set recipients(value: DriveRecipient | GrantMember1[] | undefined) {
         this._recipients = value;
     };
     /**
@@ -74,7 +74,7 @@ export class GrantPostRequestBody implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", this.recipients);
+        writer.writeObjectValue<DriveRecipient>("recipients", this.recipients);
         writer.writeCollectionOfPrimitiveValues<string>("roles", this.roles);
         writer.writeAdditionalData(this.additionalData);
     };

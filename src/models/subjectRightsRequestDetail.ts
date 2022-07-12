@@ -1,5 +1,4 @@
-import {createKeyValuePairFromDiscriminatorValue} from './createKeyValuePairFromDiscriminatorValue';
-import {KeyValuePair} from './index';
+import {AdminMember1, KeyValuePair} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SubjectRightsRequestDetail implements AdditionalDataHolder, Parsable {
@@ -8,13 +7,13 @@ export class SubjectRightsRequestDetail implements AdditionalDataHolder, Parsabl
     /** Count of items that are excluded from the request. */
     private _excludedItemCount?: number | undefined;
     /** Count of items per insight. */
-    private _insightCounts?: KeyValuePair[] | undefined;
+    private _insightCounts?: KeyValuePair | AdminMember1[] | undefined;
     /** Count of items found. */
     private _itemCount?: number | undefined;
     /** Count of item that need review. */
     private _itemNeedReview?: number | undefined;
     /** Count of items per product, such as Exchange, SharePoint, OneDrive, and Teams. */
-    private _productItemCounts?: KeyValuePair[] | undefined;
+    private _productItemCounts?: KeyValuePair | AdminMember1[] | undefined;
     /** Count of items signed off by the administrator. */
     private _signedOffItemCount?: number | undefined;
     /** Total item size in bytes. */
@@ -60,17 +59,17 @@ export class SubjectRightsRequestDetail implements AdditionalDataHolder, Parsabl
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "excludedItemCount": n => { this.excludedItemCount = n.getNumberValue(); },
-            "insightCounts": n => { this.insightCounts = n.getCollectionOfObjectValues<KeyValuePair>(createKeyValuePairFromDiscriminatorValue); },
+            "insightCounts": n => { this.insightCounts = n.getObjectValue<KeyValuePair>(createKeyValuePairFromDiscriminatorValue); },
             "itemCount": n => { this.itemCount = n.getNumberValue(); },
             "itemNeedReview": n => { this.itemNeedReview = n.getNumberValue(); },
-            "productItemCounts": n => { this.productItemCounts = n.getCollectionOfObjectValues<KeyValuePair>(createKeyValuePairFromDiscriminatorValue); },
+            "productItemCounts": n => { this.productItemCounts = n.getObjectValue<KeyValuePair>(createKeyValuePairFromDiscriminatorValue); },
             "signedOffItemCount": n => { this.signedOffItemCount = n.getNumberValue(); },
             "totalItemSize": n => { this.totalItemSize = n.getNumberValue(); },
         };
     };
     /**
      * Gets the insightCounts property value. Count of items per insight.
-     * @returns a keyValuePair
+     * @returns a admin
      */
     public get insightCounts() {
         return this._insightCounts;
@@ -79,7 +78,7 @@ export class SubjectRightsRequestDetail implements AdditionalDataHolder, Parsabl
      * Sets the insightCounts property value. Count of items per insight.
      * @param value Value to set for the insightCounts property.
      */
-    public set insightCounts(value: KeyValuePair[] | undefined) {
+    public set insightCounts(value: KeyValuePair | AdminMember1[] | undefined) {
         this._insightCounts = value;
     };
     /**
@@ -112,7 +111,7 @@ export class SubjectRightsRequestDetail implements AdditionalDataHolder, Parsabl
     };
     /**
      * Gets the productItemCounts property value. Count of items per product, such as Exchange, SharePoint, OneDrive, and Teams.
-     * @returns a keyValuePair
+     * @returns a admin
      */
     public get productItemCounts() {
         return this._productItemCounts;
@@ -121,7 +120,7 @@ export class SubjectRightsRequestDetail implements AdditionalDataHolder, Parsabl
      * Sets the productItemCounts property value. Count of items per product, such as Exchange, SharePoint, OneDrive, and Teams.
      * @param value Value to set for the productItemCounts property.
      */
-    public set productItemCounts(value: KeyValuePair[] | undefined) {
+    public set productItemCounts(value: KeyValuePair | AdminMember1[] | undefined) {
         this._productItemCounts = value;
     };
     /**
@@ -131,10 +130,10 @@ export class SubjectRightsRequestDetail implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeNumberValue("excludedItemCount", this.excludedItemCount);
-        writer.writeCollectionOfObjectValues<KeyValuePair>("insightCounts", this.insightCounts);
+        writer.writeObjectValue<KeyValuePair>("insightCounts", this.insightCounts);
         writer.writeNumberValue("itemCount", this.itemCount);
         writer.writeNumberValue("itemNeedReview", this.itemNeedReview);
-        writer.writeCollectionOfObjectValues<KeyValuePair>("productItemCounts", this.productItemCounts);
+        writer.writeObjectValue<KeyValuePair>("productItemCounts", this.productItemCounts);
         writer.writeNumberValue("signedOffItemCount", this.signedOffItemCount);
         writer.writeNumberValue("totalItemSize", this.totalItemSize);
         writer.writeAdditionalData(this.additionalData);

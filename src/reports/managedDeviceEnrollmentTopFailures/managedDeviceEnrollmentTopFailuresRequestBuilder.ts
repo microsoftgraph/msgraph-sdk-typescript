@@ -1,5 +1,7 @@
 import {Report} from '../../models/';
-import {createReportFromDiscriminatorValue} from '../../models/createReportFromDiscriminatorValue';
+import {ODataError} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ManagedDeviceEnrollmentTopFailuresResponseMember1} from './index';
 import {ManagedDeviceEnrollmentTopFailuresRequestBuilderGetRequestConfiguration} from './managedDeviceEnrollmentTopFailuresRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -34,6 +36,7 @@ export class ManagedDeviceEnrollmentTopFailuresRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -44,12 +47,16 @@ export class ManagedDeviceEnrollmentTopFailuresRequestBuilder {
      * Invoke function managedDeviceEnrollmentTopFailures
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of Report
+     * @returns a Promise of ManagedDeviceEnrollmentTopFailuresResponse
      */
-    public get(requestConfiguration?: ManagedDeviceEnrollmentTopFailuresRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Report | undefined> {
+    public get(requestConfiguration?: ManagedDeviceEnrollmentTopFailuresRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Report | ManagedDeviceEnrollmentTopFailuresResponseMember1 | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<Report>(requestInfo, createReportFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<Report | ManagedDeviceEnrollmentTopFailuresResponseMember1>(requestInfo, createReport | ManagedDeviceEnrollmentTopFailuresResponseMember1FromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,17 +1,15 @@
-import {createInsightIdentityFromDiscriminatorValue} from './createInsightIdentityFromDiscriminatorValue';
-import {createResourceReferenceFromDiscriminatorValue} from './createResourceReferenceFromDiscriminatorValue';
-import {InsightIdentity, ResourceReference} from './index';
+import {AdminMember1, InsightIdentity, ResourceReference} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SharingDetail implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The user who shared the document. */
-    private _sharedBy?: InsightIdentity | undefined;
+    private _sharedBy?: InsightIdentity | AdminMember1 | undefined;
     /** The date and time the file was last shared. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _sharedDateTime?: Date | undefined;
     /** The sharingReference property */
-    private _sharingReference?: ResourceReference | undefined;
+    private _sharingReference?: ResourceReference | AdminMember1 | undefined;
     /** The subject with which the document was shared. */
     private _sharingSubject?: string | undefined;
     /** Determines the way the document was shared, can be by a 'Link', 'Attachment', 'Group', 'Site'. */
@@ -64,7 +62,7 @@ export class SharingDetail implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the sharedBy property value. The user who shared the document.
-     * @returns a insightIdentity
+     * @returns a admin
      */
     public get sharedBy() {
         return this._sharedBy;
@@ -73,7 +71,7 @@ export class SharingDetail implements AdditionalDataHolder, Parsable {
      * Sets the sharedBy property value. The user who shared the document.
      * @param value Value to set for the sharedBy property.
      */
-    public set sharedBy(value: InsightIdentity | undefined) {
+    public set sharedBy(value: InsightIdentity | AdminMember1 | undefined) {
         this._sharedBy = value;
     };
     /**
@@ -92,7 +90,7 @@ export class SharingDetail implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the sharingReference property value. The sharingReference property
-     * @returns a resourceReference
+     * @returns a admin
      */
     public get sharingReference() {
         return this._sharingReference;
@@ -101,7 +99,7 @@ export class SharingDetail implements AdditionalDataHolder, Parsable {
      * Sets the sharingReference property value. The sharingReference property
      * @param value Value to set for the sharingReference property.
      */
-    public set sharingReference(value: ResourceReference | undefined) {
+    public set sharingReference(value: ResourceReference | AdminMember1 | undefined) {
         this._sharingReference = value;
     };
     /**

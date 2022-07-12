@@ -1,11 +1,12 @@
 import {AttachmentType} from './attachmentType';
+import {CreateUploadSessionMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AttachmentItem implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The type of attachment. Possible values are: file, item, reference. Required. */
-    private _attachmentType?: AttachmentType | undefined;
+    private _attachmentType?: AttachmentType | CreateUploadSessionMember1 | undefined;
     /** The CID or Content-Id of the attachment for referencing in case of in-line attachments using <img src='cid:contentId'> tag in HTML messages. Optional. */
     private _contentId?: string | undefined;
     /** The nature of the data in the attachment. Optional. */
@@ -32,7 +33,7 @@ export class AttachmentItem implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the attachmentType property value. The type of attachment. Possible values are: file, item, reference. Required.
-     * @returns a attachmentType
+     * @returns a createUploadSession
      */
     public get attachmentType() {
         return this._attachmentType;
@@ -41,7 +42,7 @@ export class AttachmentItem implements AdditionalDataHolder, Parsable {
      * Sets the attachmentType property value. The type of attachment. Possible values are: file, item, reference. Required.
      * @param value Value to set for the attachmentType property.
      */
-    public set attachmentType(value: AttachmentType | undefined) {
+    public set attachmentType(value: AttachmentType | CreateUploadSessionMember1 | undefined) {
         this._attachmentType = value;
     };
     /**
@@ -84,7 +85,7 @@ export class AttachmentItem implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "attachmentType": n => { this.attachmentType = n.getEnumValue<AttachmentType>(AttachmentType); },
+            "attachmentType": n => { this.attachmentType = n.getObjectValue<AttachmentType>(createAttachmentTypeFromDiscriminatorValue); },
             "contentId": n => { this.contentId = n.getStringValue(); },
             "contentType": n => { this.contentType = n.getStringValue(); },
             "isInline": n => { this.isInline = n.getBooleanValue(); },
@@ -126,7 +127,7 @@ export class AttachmentItem implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeEnumValue<AttachmentType>("attachmentType", this.attachmentType);
+        writer.writeObjectValue<AttachmentType>("attachmentType", this.attachmentType);
         writer.writeStringValue("contentId", this.contentId);
         writer.writeStringValue("contentType", this.contentType);
         writer.writeBooleanValue("isInline", this.isInline);

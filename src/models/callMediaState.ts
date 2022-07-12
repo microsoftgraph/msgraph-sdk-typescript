@@ -1,3 +1,4 @@
+import {CommunicationsMember1} from './index';
 import {MediaState} from './mediaState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -5,7 +6,7 @@ export class CallMediaState implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The audio media state. Possible values are: active, inactive, unknownFutureValue. */
-    private _audio?: MediaState | undefined;
+    private _audio?: MediaState | CommunicationsMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -22,7 +23,7 @@ export class CallMediaState implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the audio property value. The audio media state. Possible values are: active, inactive, unknownFutureValue.
-     * @returns a mediaState
+     * @returns a communications
      */
     public get audio() {
         return this._audio;
@@ -31,7 +32,7 @@ export class CallMediaState implements AdditionalDataHolder, Parsable {
      * Sets the audio property value. The audio media state. Possible values are: active, inactive, unknownFutureValue.
      * @param value Value to set for the audio property.
      */
-    public set audio(value: MediaState | undefined) {
+    public set audio(value: MediaState | CommunicationsMember1 | undefined) {
         this._audio = value;
     };
     /**
@@ -46,7 +47,7 @@ export class CallMediaState implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "audio": n => { this.audio = n.getEnumValue<MediaState>(MediaState); },
+            "audio": n => { this.audio = n.getObjectValue<MediaState>(createMediaStateFromDiscriminatorValue); },
         };
     };
     /**
@@ -55,7 +56,7 @@ export class CallMediaState implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeEnumValue<MediaState>("audio", this.audio);
+        writer.writeObjectValue<MediaState>("audio", this.audio);
         writer.writeAdditionalData(this.additionalData);
     };
 }

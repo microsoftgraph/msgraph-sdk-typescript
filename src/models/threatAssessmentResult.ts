@@ -1,15 +1,15 @@
-import {Entity} from './index';
+import {AdminMember1, Entity} from './index';
 import {ThreatAssessmentResultType} from './threatAssessmentResultType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the informationProtection singleton. */
+/** Provides operations to manage the admin singleton. */
 export class ThreatAssessmentResult extends Entity implements Parsable {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _createdDateTime?: Date | undefined;
     /** The result message for each threat assessment. */
     private _message?: string | undefined;
     /** The threat assessment result type. Possible values are: checkPolicy (only for mail assessment), rescan. */
-    private _resultType?: ThreatAssessmentResultType | undefined;
+    private _resultType?: ThreatAssessmentResultType | AdminMember1 | undefined;
     /**
      * Instantiates a new threatAssessmentResult and sets the default values.
      */
@@ -38,7 +38,7 @@ export class ThreatAssessmentResult extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "message": n => { this.message = n.getStringValue(); },
-            "resultType": n => { this.resultType = n.getEnumValue<ThreatAssessmentResultType>(ThreatAssessmentResultType); },
+            "resultType": n => { this.resultType = n.getObjectValue<ThreatAssessmentResultType>(createThreatAssessmentResultTypeFromDiscriminatorValue); },
         };
     };
     /**
@@ -57,7 +57,7 @@ export class ThreatAssessmentResult extends Entity implements Parsable {
     };
     /**
      * Gets the resultType property value. The threat assessment result type. Possible values are: checkPolicy (only for mail assessment), rescan.
-     * @returns a threatAssessmentResultType
+     * @returns a admin
      */
     public get resultType() {
         return this._resultType;
@@ -66,7 +66,7 @@ export class ThreatAssessmentResult extends Entity implements Parsable {
      * Sets the resultType property value. The threat assessment result type. Possible values are: checkPolicy (only for mail assessment), rescan.
      * @param value Value to set for the resultType property.
      */
-    public set resultType(value: ThreatAssessmentResultType | undefined) {
+    public set resultType(value: ThreatAssessmentResultType | AdminMember1 | undefined) {
         this._resultType = value;
     };
     /**
@@ -78,6 +78,6 @@ export class ThreatAssessmentResult extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeStringValue("message", this.message);
-        writer.writeEnumValue<ThreatAssessmentResultType>("resultType", this.resultType);
+        writer.writeObjectValue<ThreatAssessmentResultType>("resultType", this.resultType);
     };
 }

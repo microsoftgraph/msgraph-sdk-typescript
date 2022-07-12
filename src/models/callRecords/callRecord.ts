@@ -1,8 +1,6 @@
 import {Entity, IdentitySet} from '../';
-import {createIdentitySetFromDiscriminatorValue} from '../createIdentitySetFromDiscriminatorValue';
-import {CallType} from './callType';
 import {createSessionFromDiscriminatorValue} from './createSessionFromDiscriminatorValue';
-import {Session} from './index';
+import {CommunicationsMember1, Session} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
@@ -16,15 +14,13 @@ export class CallRecord extends Entity implements Parsable {
     /** List of all the modalities used in the call. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue. */
     private _modalities?: string[] | undefined;
     /** The organizing party's identity. */
-    private _organizer?: IdentitySet | undefined;
+    private _organizer?: IdentitySet | CommunicationsMember1 | undefined;
     /** List of distinct identities involved in the call. */
-    private _participants?: IdentitySet[] | undefined;
+    private _participants?: IdentitySet | CommunicationsMember1[] | undefined;
     /** List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable. */
     private _sessions?: Session[] | undefined;
     /** UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _startDateTime?: Date | undefined;
-    /** Indicates the type of the call. Possible values are: unknown, groupCall, peerToPeer, unknownFutureValue. */
-    private _type?: CallType | undefined;
     /** Monotonically increasing version of the call record. Higher version call records with the same ID includes additional data compared to the lower version. */
     private _version?: number | undefined;
     /**
@@ -58,10 +54,9 @@ export class CallRecord extends Entity implements Parsable {
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "modalities": n => { this.modalities = n.getCollectionOfPrimitiveValues<string>(); },
             "organizer": n => { this.organizer = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
-            "participants": n => { this.participants = n.getCollectionOfObjectValues<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
+            "participants": n => { this.participants = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "sessions": n => { this.sessions = n.getCollectionOfObjectValues<Session>(createSessionFromDiscriminatorValue); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
-            "type": n => { this.type = n.getEnumValue<CallType>(CallType); },
             "version": n => { this.version = n.getNumberValue(); },
         };
     };
@@ -109,7 +104,7 @@ export class CallRecord extends Entity implements Parsable {
     };
     /**
      * Gets the organizer property value. The organizing party's identity.
-     * @returns a identitySet
+     * @returns a communications
      */
     public get organizer() {
         return this._organizer;
@@ -118,12 +113,12 @@ export class CallRecord extends Entity implements Parsable {
      * Sets the organizer property value. The organizing party's identity.
      * @param value Value to set for the organizer property.
      */
-    public set organizer(value: IdentitySet | undefined) {
+    public set organizer(value: IdentitySet | CommunicationsMember1 | undefined) {
         this._organizer = value;
     };
     /**
      * Gets the participants property value. List of distinct identities involved in the call.
-     * @returns a identitySet
+     * @returns a communications
      */
     public get participants() {
         return this._participants;
@@ -132,7 +127,7 @@ export class CallRecord extends Entity implements Parsable {
      * Sets the participants property value. List of distinct identities involved in the call.
      * @param value Value to set for the participants property.
      */
-    public set participants(value: IdentitySet[] | undefined) {
+    public set participants(value: IdentitySet | CommunicationsMember1[] | undefined) {
         this._participants = value;
     };
     /**
@@ -147,10 +142,9 @@ export class CallRecord extends Entity implements Parsable {
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeCollectionOfPrimitiveValues<string>("modalities", this.modalities);
         writer.writeObjectValue<IdentitySet>("organizer", this.organizer);
-        writer.writeCollectionOfObjectValues<IdentitySet>("participants", this.participants);
+        writer.writeObjectValue<IdentitySet>("participants", this.participants);
         writer.writeCollectionOfObjectValues<Session>("sessions", this.sessions);
         writer.writeDateValue("startDateTime", this.startDateTime);
-        writer.writeEnumValue<CallType>("type", this.type);
         writer.writeNumberValue("version", this.version);
     };
     /**
@@ -180,20 +174,6 @@ export class CallRecord extends Entity implements Parsable {
      */
     public set startDateTime(value: Date | undefined) {
         this._startDateTime = value;
-    };
-    /**
-     * Gets the type property value. Indicates the type of the call. Possible values are: unknown, groupCall, peerToPeer, unknownFutureValue.
-     * @returns a callType
-     */
-    public get type() {
-        return this._type;
-    };
-    /**
-     * Sets the type property value. Indicates the type of the call. Possible values are: unknown, groupCall, peerToPeer, unknownFutureValue.
-     * @param value Value to set for the type property.
-     */
-    public set type(value: CallType | undefined) {
-        this._type = value;
     };
     /**
      * Gets the version property value. Monotonically increasing version of the call record. Higher version call records with the same ID includes additional data compared to the lower version.

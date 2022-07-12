@@ -1,12 +1,10 @@
 import {AccessReviewHistoryStatus} from './accessReviewHistoryStatus';
 import {createAccessReviewHistoryInstanceFromDiscriminatorValue} from './createAccessReviewHistoryInstanceFromDiscriminatorValue';
-import {createAccessReviewHistoryScheduleSettingsFromDiscriminatorValue} from './createAccessReviewHistoryScheduleSettingsFromDiscriminatorValue';
 import {createAccessReviewScopeFromDiscriminatorValue} from './createAccessReviewScopeFromDiscriminatorValue';
 import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFromDiscriminatorValue';
-import {AccessReviewHistoryInstance, AccessReviewHistoryScheduleSettings, AccessReviewScope, Entity, UserIdentity} from './index';
+import {AccessReviewHistoryInstance, AccessReviewHistoryScheduleSettings, AccessReviewScope, AdminMember1, Entity, UserIdentity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewHistoryDefinition extends Entity implements Parsable {
     /** The createdBy property */
     private _createdBy?: UserIdentity | undefined;
@@ -23,13 +21,13 @@ export class AccessReviewHistoryDefinition extends Entity implements Parsable {
     /** A timestamp. Reviews starting on or before this date will be included in the fetched history data. Only required if scheduleSettings is not defined. */
     private _reviewHistoryPeriodStartDateTime?: Date | undefined;
     /** The settings for a recurring access review history definition series. Only required if reviewHistoryPeriodStartDateTime or reviewHistoryPeriodEndDateTime are not defined. Not supported yet. */
-    private _scheduleSettings?: AccessReviewHistoryScheduleSettings | undefined;
+    private _scheduleSettings?: AccessReviewHistoryScheduleSettings | AdminMember1 | undefined;
     /** Used to scope what reviews are included in the fetched history data. Fetches reviews whose scope matches with this provided scope. Required. */
     private _scopes?: AccessReviewScope[] | undefined;
     /** Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. */
-    private _status?: AccessReviewHistoryStatus | undefined;
+    private _status?: AccessReviewHistoryStatus | AdminMember1 | undefined;
     /**
-     * Instantiates a new accessReviewHistoryDefinition and sets the default values.
+     * Instantiates a new AccessReviewHistoryDefinition and sets the default values.
      */
     public constructor() {
         super();
@@ -105,7 +103,7 @@ export class AccessReviewHistoryDefinition extends Entity implements Parsable {
             "reviewHistoryPeriodStartDateTime": n => { this.reviewHistoryPeriodStartDateTime = n.getDateValue(); },
             "scheduleSettings": n => { this.scheduleSettings = n.getObjectValue<AccessReviewHistoryScheduleSettings>(createAccessReviewHistoryScheduleSettingsFromDiscriminatorValue); },
             "scopes": n => { this.scopes = n.getCollectionOfObjectValues<AccessReviewScope>(createAccessReviewScopeFromDiscriminatorValue); },
-            "status": n => { this.status = n.getEnumValue<AccessReviewHistoryStatus>(AccessReviewHistoryStatus); },
+            "status": n => { this.status = n.getObjectValue<AccessReviewHistoryStatus>(createAccessReviewHistoryStatusFromDiscriminatorValue); },
         };
     };
     /**
@@ -152,7 +150,7 @@ export class AccessReviewHistoryDefinition extends Entity implements Parsable {
     };
     /**
      * Gets the scheduleSettings property value. The settings for a recurring access review history definition series. Only required if reviewHistoryPeriodStartDateTime or reviewHistoryPeriodEndDateTime are not defined. Not supported yet.
-     * @returns a accessReviewHistoryScheduleSettings
+     * @returns a admin
      */
     public get scheduleSettings() {
         return this._scheduleSettings;
@@ -161,7 +159,7 @@ export class AccessReviewHistoryDefinition extends Entity implements Parsable {
      * Sets the scheduleSettings property value. The settings for a recurring access review history definition series. Only required if reviewHistoryPeriodStartDateTime or reviewHistoryPeriodEndDateTime are not defined. Not supported yet.
      * @param value Value to set for the scheduleSettings property.
      */
-    public set scheduleSettings(value: AccessReviewHistoryScheduleSettings | undefined) {
+    public set scheduleSettings(value: AccessReviewHistoryScheduleSettings | AdminMember1 | undefined) {
         this._scheduleSettings = value;
     };
     /**
@@ -194,11 +192,11 @@ export class AccessReviewHistoryDefinition extends Entity implements Parsable {
         writer.writeDateValue("reviewHistoryPeriodStartDateTime", this.reviewHistoryPeriodStartDateTime);
         writer.writeObjectValue<AccessReviewHistoryScheduleSettings>("scheduleSettings", this.scheduleSettings);
         writer.writeCollectionOfObjectValues<AccessReviewScope>("scopes", this.scopes);
-        writer.writeEnumValue<AccessReviewHistoryStatus>("status", this.status);
+        writer.writeObjectValue<AccessReviewHistoryStatus>("status", this.status);
     };
     /**
      * Gets the status property value. Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue.
-     * @returns a accessReviewHistoryStatus
+     * @returns a admin
      */
     public get status() {
         return this._status;
@@ -207,7 +205,7 @@ export class AccessReviewHistoryDefinition extends Entity implements Parsable {
      * Sets the status property value. Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue.
      * @param value Value to set for the status property.
      */
-    public set status(value: AccessReviewHistoryStatus | undefined) {
+    public set status(value: AccessReviewHistoryStatus | AdminMember1 | undefined) {
         this._status = value;
     };
 }

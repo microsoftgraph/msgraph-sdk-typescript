@@ -1,18 +1,17 @@
 import {createItemActivityStatFromDiscriminatorValue} from './createItemActivityStatFromDiscriminatorValue';
-import {Entity, ItemActivityStat} from './index';
+import {AdminMember1, Entity, ItemActivityStat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class ItemAnalytics extends Entity implements Parsable {
     /** The allTime property */
-    private _allTime?: ItemActivityStat | undefined;
+    private _allTime?: ItemActivityStat | AdminMember1 | undefined;
     /** The itemActivityStats property */
     private _itemActivityStats?: ItemActivityStat[] | undefined;
     /** The lastSevenDays property */
-    private _lastSevenDays?: ItemActivityStat | undefined;
+    private _lastSevenDays?: ItemActivityStat | AdminMember1 | undefined;
     /**
      * Gets the allTime property value. The allTime property
-     * @returns a itemActivityStat
+     * @returns a admin
      */
     public get allTime() {
         return this._allTime;
@@ -21,7 +20,7 @@ export class ItemAnalytics extends Entity implements Parsable {
      * Sets the allTime property value. The allTime property
      * @param value Value to set for the allTime property.
      */
-    public set allTime(value: ItemActivityStat | undefined) {
+    public set allTime(value: ItemActivityStat | AdminMember1 | undefined) {
         this._allTime = value;
     };
     /**
@@ -57,7 +56,7 @@ export class ItemAnalytics extends Entity implements Parsable {
     };
     /**
      * Gets the lastSevenDays property value. The lastSevenDays property
-     * @returns a itemActivityStat
+     * @returns a admin
      */
     public get lastSevenDays() {
         return this._lastSevenDays;
@@ -66,7 +65,7 @@ export class ItemAnalytics extends Entity implements Parsable {
      * Sets the lastSevenDays property value. The lastSevenDays property
      * @param value Value to set for the lastSevenDays property.
      */
-    public set lastSevenDays(value: ItemActivityStat | undefined) {
+    public set lastSevenDays(value: ItemActivityStat | AdminMember1 | undefined) {
         this._lastSevenDays = value;
     };
     /**

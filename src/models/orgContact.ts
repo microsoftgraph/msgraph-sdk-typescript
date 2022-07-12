@@ -1,14 +1,10 @@
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
-import {createOnPremisesProvisioningErrorFromDiscriminatorValue} from './createOnPremisesProvisioningErrorFromDiscriminatorValue';
-import {createPhoneFromDiscriminatorValue} from './createPhoneFromDiscriminatorValue';
-import {createPhysicalOfficeAddressFromDiscriminatorValue} from './createPhysicalOfficeAddressFromDiscriminatorValue';
-import {DirectoryObject, OnPremisesProvisioningError, Phone, PhysicalOfficeAddress} from './index';
+import {AdminMember1, DirectoryObject, OnPremisesProvisioningError, Phone, PhysicalOfficeAddress} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of orgContact entities. */
 export class OrgContact extends DirectoryObject implements Parsable {
     /** Postal addresses for this organizational contact. For now a contact can only have one physical address. */
-    private _addresses?: PhysicalOfficeAddress[] | undefined;
+    private _addresses?: PhysicalOfficeAddress | AdminMember1[] | undefined;
     /** Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     private _companyName?: string | undefined;
     /** The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
@@ -26,17 +22,17 @@ export class OrgContact extends DirectoryObject implements Parsable {
     /** Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     private _mailNickname?: string | undefined;
     /** The user or contact that is this contact's manager. Read-only. Supports $expand. */
-    private _manager?: DirectoryObject | undefined;
+    private _manager?: DirectoryObject | AdminMember1 | undefined;
     /** Groups that this contact is a member of. Read-only. Nullable. Supports $expand. */
     private _memberOf?: DirectoryObject[] | undefined;
     /** Date and time when this organizational contact was last synchronized from on-premises AD. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, not, ge, le, in). */
     private _onPremisesLastSyncDateTime?: Date | undefined;
     /** List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not). */
-    private _onPremisesProvisioningErrors?: OnPremisesProvisioningError[] | undefined;
+    private _onPremisesProvisioningErrors?: OnPremisesProvisioningError | AdminMember1[] | undefined;
     /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq on null values). */
     private _onPremisesSyncEnabled?: boolean | undefined;
     /** List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. Supports $filter (eq, ne, not, in). */
-    private _phones?: Phone[] | undefined;
+    private _phones?: Phone | AdminMember1[] | undefined;
     /** For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections). */
     private _proxyAddresses?: string[] | undefined;
     /** Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values) */
@@ -45,7 +41,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
     private _transitiveMemberOf?: DirectoryObject[] | undefined;
     /**
      * Gets the addresses property value. Postal addresses for this organizational contact. For now a contact can only have one physical address.
-     * @returns a physicalOfficeAddress
+     * @returns a admin
      */
     public get addresses() {
         return this._addresses;
@@ -54,7 +50,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
      * Sets the addresses property value. Postal addresses for this organizational contact. For now a contact can only have one physical address.
      * @param value Value to set for the addresses property.
      */
-    public set addresses(value: PhysicalOfficeAddress[] | undefined) {
+    public set addresses(value: PhysicalOfficeAddress | AdminMember1[] | undefined) {
         this._addresses = value;
     };
     /**
@@ -72,7 +68,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
         this._companyName = value;
     };
     /**
-     * Instantiates a new orgContact and sets the default values.
+     * Instantiates a new OrgContact and sets the default values.
      */
     public constructor() {
         super();
@@ -125,7 +121,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "addresses": n => { this.addresses = n.getCollectionOfObjectValues<PhysicalOfficeAddress>(createPhysicalOfficeAddressFromDiscriminatorValue); },
+            "addresses": n => { this.addresses = n.getObjectValue<PhysicalOfficeAddress>(createPhysicalOfficeAddressFromDiscriminatorValue); },
             "companyName": n => { this.companyName = n.getStringValue(); },
             "department": n => { this.department = n.getStringValue(); },
             "directReports": n => { this.directReports = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
@@ -137,9 +133,9 @@ export class OrgContact extends DirectoryObject implements Parsable {
             "manager": n => { this.manager = n.getObjectValue<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
             "memberOf": n => { this.memberOf = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
             "onPremisesLastSyncDateTime": n => { this.onPremisesLastSyncDateTime = n.getDateValue(); },
-            "onPremisesProvisioningErrors": n => { this.onPremisesProvisioningErrors = n.getCollectionOfObjectValues<OnPremisesProvisioningError>(createOnPremisesProvisioningErrorFromDiscriminatorValue); },
+            "onPremisesProvisioningErrors": n => { this.onPremisesProvisioningErrors = n.getObjectValue<OnPremisesProvisioningError>(createOnPremisesProvisioningErrorFromDiscriminatorValue); },
             "onPremisesSyncEnabled": n => { this.onPremisesSyncEnabled = n.getBooleanValue(); },
-            "phones": n => { this.phones = n.getCollectionOfObjectValues<Phone>(createPhoneFromDiscriminatorValue); },
+            "phones": n => { this.phones = n.getObjectValue<Phone>(createPhoneFromDiscriminatorValue); },
             "proxyAddresses": n => { this.proxyAddresses = n.getCollectionOfPrimitiveValues<string>(); },
             "surname": n => { this.surname = n.getStringValue(); },
             "transitiveMemberOf": n => { this.transitiveMemberOf = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
@@ -203,7 +199,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the manager property value. The user or contact that is this contact's manager. Read-only. Supports $expand.
-     * @returns a directoryObject
+     * @returns a admin
      */
     public get manager() {
         return this._manager;
@@ -212,7 +208,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
      * Sets the manager property value. The user or contact that is this contact's manager. Read-only. Supports $expand.
      * @param value Value to set for the manager property.
      */
-    public set manager(value: DirectoryObject | undefined) {
+    public set manager(value: DirectoryObject | AdminMember1 | undefined) {
         this._manager = value;
     };
     /**
@@ -245,7 +241,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the onPremisesProvisioningErrors property value. List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not).
-     * @returns a onPremisesProvisioningError
+     * @returns a admin
      */
     public get onPremisesProvisioningErrors() {
         return this._onPremisesProvisioningErrors;
@@ -254,7 +250,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
      * Sets the onPremisesProvisioningErrors property value. List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not).
      * @param value Value to set for the onPremisesProvisioningErrors property.
      */
-    public set onPremisesProvisioningErrors(value: OnPremisesProvisioningError[] | undefined) {
+    public set onPremisesProvisioningErrors(value: OnPremisesProvisioningError | AdminMember1[] | undefined) {
         this._onPremisesProvisioningErrors = value;
     };
     /**
@@ -273,7 +269,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the phones property value. List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. Supports $filter (eq, ne, not, in).
-     * @returns a phone
+     * @returns a admin
      */
     public get phones() {
         return this._phones;
@@ -282,7 +278,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
      * Sets the phones property value. List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. Supports $filter (eq, ne, not, in).
      * @param value Value to set for the phones property.
      */
-    public set phones(value: Phone[] | undefined) {
+    public set phones(value: Phone | AdminMember1[] | undefined) {
         this._phones = value;
     };
     /**
@@ -306,7 +302,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfObjectValues<PhysicalOfficeAddress>("addresses", this.addresses);
+        writer.writeObjectValue<PhysicalOfficeAddress>("addresses", this.addresses);
         writer.writeStringValue("companyName", this.companyName);
         writer.writeStringValue("department", this.department);
         writer.writeCollectionOfObjectValues<DirectoryObject>("directReports", this.directReports);
@@ -318,9 +314,9 @@ export class OrgContact extends DirectoryObject implements Parsable {
         writer.writeObjectValue<DirectoryObject>("manager", this.manager);
         writer.writeCollectionOfObjectValues<DirectoryObject>("memberOf", this.memberOf);
         writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
-        writer.writeCollectionOfObjectValues<OnPremisesProvisioningError>("onPremisesProvisioningErrors", this.onPremisesProvisioningErrors);
+        writer.writeObjectValue<OnPremisesProvisioningError>("onPremisesProvisioningErrors", this.onPremisesProvisioningErrors);
         writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);
-        writer.writeCollectionOfObjectValues<Phone>("phones", this.phones);
+        writer.writeObjectValue<Phone>("phones", this.phones);
         writer.writeCollectionOfPrimitiveValues<string>("proxyAddresses", this.proxyAddresses);
         writer.writeStringValue("surname", this.surname);
         writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", this.transitiveMemberOf);

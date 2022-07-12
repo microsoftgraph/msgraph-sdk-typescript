@@ -1,16 +1,17 @@
-import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {Identity} from './index';
+import {AdminMember1, Identity} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentitySet implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The Identity of the Application. This property is read-only. */
-    private _application?: Identity | undefined;
-    /** The Identity of the Device. This property is read-only. */
-    private _device?: Identity | undefined;
-    /** The Identity of the User. This property is read-only. */
-    private _user?: Identity | undefined;
+    /** Optional. The application associated with this action. */
+    private _application?: Identity | AdminMember1 | undefined;
+    /** Optional. The device associated with this action. */
+    private _device?: Identity | AdminMember1 | undefined;
+    /** The type property */
+    private _type?: string | undefined;
+    /** Optional. The user associated with this action. */
+    private _user?: Identity | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -26,17 +27,17 @@ export class IdentitySet implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the application property value. The Identity of the Application. This property is read-only.
-     * @returns a identity
+     * Gets the application property value. Optional. The application associated with this action.
+     * @returns a admin
      */
     public get application() {
         return this._application;
     };
     /**
-     * Sets the application property value. The Identity of the Application. This property is read-only.
+     * Sets the application property value. Optional. The application associated with this action.
      * @param value Value to set for the application property.
      */
-    public set application(value: Identity | undefined) {
+    public set application(value: Identity | AdminMember1 | undefined) {
         this._application = value;
     };
     /**
@@ -44,19 +45,20 @@ export class IdentitySet implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.type = "#microsoft.graph.identitySet";
     };
     /**
-     * Gets the device property value. The Identity of the Device. This property is read-only.
-     * @returns a identity
+     * Gets the device property value. Optional. The device associated with this action.
+     * @returns a admin
      */
     public get device() {
         return this._device;
     };
     /**
-     * Sets the device property value. The Identity of the Device. This property is read-only.
+     * Sets the device property value. Optional. The device associated with this action.
      * @param value Value to set for the device property.
      */
-    public set device(value: Identity | undefined) {
+    public set device(value: Identity | AdminMember1 | undefined) {
         this._device = value;
     };
     /**
@@ -67,8 +69,23 @@ export class IdentitySet implements AdditionalDataHolder, Parsable {
         return {
             "application": n => { this.application = n.getObjectValue<Identity>(createIdentityFromDiscriminatorValue); },
             "device": n => { this.device = n.getObjectValue<Identity>(createIdentityFromDiscriminatorValue); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "user": n => { this.user = n.getObjectValue<Identity>(createIdentityFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -78,21 +95,22 @@ export class IdentitySet implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<Identity>("application", this.application);
         writer.writeObjectValue<Identity>("device", this.device);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeObjectValue<Identity>("user", this.user);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the user property value. The Identity of the User. This property is read-only.
-     * @returns a identity
+     * Gets the user property value. Optional. The user associated with this action.
+     * @returns a admin
      */
     public get user() {
         return this._user;
     };
     /**
-     * Sets the user property value. The Identity of the User. This property is read-only.
+     * Sets the user property value. Optional. The user associated with this action.
      * @param value Value to set for the user property.
      */
-    public set user(value: Identity | undefined) {
+    public set user(value: Identity | AdminMember1 | undefined) {
         this._user = value;
     };
 }

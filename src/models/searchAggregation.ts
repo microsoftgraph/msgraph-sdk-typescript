@@ -1,12 +1,11 @@
-import {createSearchBucketFromDiscriminatorValue} from './createSearchBucketFromDiscriminatorValue';
-import {SearchBucket} from './index';
+import {QueryMember1, SearchBucket} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchAggregation implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Defines the actual buckets of the computed aggregation. */
-    private _buckets?: SearchBucket[] | undefined;
+    private _buckets?: SearchBucket | QueryMember1[] | undefined;
     /** Defines on which field the aggregation was computed on. */
     private _field?: string | undefined;
     /**
@@ -25,7 +24,7 @@ export class SearchAggregation implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the buckets property value. Defines the actual buckets of the computed aggregation.
-     * @returns a searchBucket
+     * @returns a query
      */
     public get buckets() {
         return this._buckets;
@@ -34,7 +33,7 @@ export class SearchAggregation implements AdditionalDataHolder, Parsable {
      * Sets the buckets property value. Defines the actual buckets of the computed aggregation.
      * @param value Value to set for the buckets property.
      */
-    public set buckets(value: SearchBucket[] | undefined) {
+    public set buckets(value: SearchBucket | QueryMember1[] | undefined) {
         this._buckets = value;
     };
     /**
@@ -63,7 +62,7 @@ export class SearchAggregation implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "buckets": n => { this.buckets = n.getCollectionOfObjectValues<SearchBucket>(createSearchBucketFromDiscriminatorValue); },
+            "buckets": n => { this.buckets = n.getObjectValue<SearchBucket>(createSearchBucketFromDiscriminatorValue); },
             "field": n => { this.field = n.getStringValue(); },
         };
     };
@@ -73,7 +72,7 @@ export class SearchAggregation implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<SearchBucket>("buckets", this.buckets);
+        writer.writeObjectValue<SearchBucket>("buckets", this.buckets);
         writer.writeStringValue("field", this.field);
         writer.writeAdditionalData(this.additionalData);
     };

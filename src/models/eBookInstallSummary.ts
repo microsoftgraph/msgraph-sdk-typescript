@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains properties for the installation summary of a book for a device. */
 export class EBookInstallSummary extends Entity implements Parsable {
     /** Number of Devices that have failed to install this book. */
     private _failedDeviceCount?: number | undefined;

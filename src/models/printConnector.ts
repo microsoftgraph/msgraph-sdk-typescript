@@ -1,8 +1,6 @@
-import {createPrinterLocationFromDiscriminatorValue} from './createPrinterLocationFromDiscriminatorValue';
-import {Entity, PrinterLocation} from './index';
+import {AdminMember1, Entity, PrinterLocation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
 export class PrintConnector extends Entity implements Parsable {
     /** The connector's version. */
     private _appVersion?: string | undefined;
@@ -11,7 +9,7 @@ export class PrintConnector extends Entity implements Parsable {
     /** The connector machine's hostname. */
     private _fullyQualifiedDomainName?: string | undefined;
     /** The physical and/or organizational location of the connector. */
-    private _location?: PrinterLocation | undefined;
+    private _location?: PrinterLocation | AdminMember1 | undefined;
     /** The connector machine's operating system version. */
     private _operatingSystem?: string | undefined;
     /** The DateTimeOffset when the connector was registered. */
@@ -31,7 +29,7 @@ export class PrintConnector extends Entity implements Parsable {
         this._appVersion = value;
     };
     /**
-     * Instantiates a new printConnector and sets the default values.
+     * Instantiates a new PrintConnector and sets the default values.
      */
     public constructor() {
         super();
@@ -80,7 +78,7 @@ export class PrintConnector extends Entity implements Parsable {
     };
     /**
      * Gets the location property value. The physical and/or organizational location of the connector.
-     * @returns a printerLocation
+     * @returns a admin
      */
     public get location() {
         return this._location;
@@ -89,7 +87,7 @@ export class PrintConnector extends Entity implements Parsable {
      * Sets the location property value. The physical and/or organizational location of the connector.
      * @param value Value to set for the location property.
      */
-    public set location(value: PrinterLocation | undefined) {
+    public set location(value: PrinterLocation | AdminMember1 | undefined) {
         this._location = value;
     };
     /**

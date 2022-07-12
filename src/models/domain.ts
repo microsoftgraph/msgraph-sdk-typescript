@@ -1,11 +1,9 @@
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {createDomainDnsRecordFromDiscriminatorValue} from './createDomainDnsRecordFromDiscriminatorValue';
-import {createDomainStateFromDiscriminatorValue} from './createDomainStateFromDiscriminatorValue';
 import {createInternalDomainFederationFromDiscriminatorValue} from './createInternalDomainFederationFromDiscriminatorValue';
-import {DirectoryObject, DomainDnsRecord, DomainState, Entity, InternalDomainFederation} from './index';
+import {AdminMember1, DirectoryObject, DomainDnsRecord, DomainState, Entity, InternalDomainFederation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of domain entities. */
 export class Domain extends Entity implements Parsable {
     /** Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable. */
     private _authenticationType?: string | undefined;
@@ -36,7 +34,7 @@ export class Domain extends Entity implements Parsable {
     /** DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand. */
     private _serviceConfigurationRecords?: DomainDnsRecord[] | undefined;
     /** Status of asynchronous operations scheduled for the domain. */
-    private _state?: DomainState | undefined;
+    private _state?: DomainState | AdminMember1 | undefined;
     /** The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable. */
     private _supportedServices?: string[] | undefined;
     /** DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable. Supports $expand. */
@@ -70,7 +68,7 @@ export class Domain extends Entity implements Parsable {
         this._availabilityStatus = value;
     };
     /**
-     * Instantiates a new domain and sets the default values.
+     * Instantiates a new Domain and sets the default values.
      */
     public constructor() {
         super();
@@ -295,7 +293,7 @@ export class Domain extends Entity implements Parsable {
     };
     /**
      * Gets the state property value. Status of asynchronous operations scheduled for the domain.
-     * @returns a domainState
+     * @returns a admin
      */
     public get state() {
         return this._state;
@@ -304,7 +302,7 @@ export class Domain extends Entity implements Parsable {
      * Sets the state property value. Status of asynchronous operations scheduled for the domain.
      * @param value Value to set for the state property.
      */
-    public set state(value: DomainState | undefined) {
+    public set state(value: DomainState | AdminMember1 | undefined) {
         this._state = value;
     };
     /**

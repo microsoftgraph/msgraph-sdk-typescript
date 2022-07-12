@@ -1,10 +1,10 @@
 import {Entity} from '../';
 import {createSetFromDiscriminatorValue} from './createSetFromDiscriminatorValue';
-import {Set} from './index';
+import {AdminMember1, Set} from './index';
 import {TermGroupScope} from './termGroupScope';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class Group extends Entity implements Parsable {
     /** Date and time of the group creation. Read-only. */
     private _createdDateTime?: Date | undefined;
@@ -15,7 +15,7 @@ export class Group extends Entity implements Parsable {
     /** ID of the parent site of this group. */
     private _parentSiteId?: string | undefined;
     /** Returns the type of the group. Possible values are global, system, and siteCollection. */
-    private _scope?: TermGroupScope | undefined;
+    private _scope?: TermGroupScope | AdminMember1 | undefined;
     /** All sets under the group in a term [store]. */
     private _sets?: Set[] | undefined;
     /**
@@ -76,7 +76,7 @@ export class Group extends Entity implements Parsable {
             "description": n => { this.description = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "parentSiteId": n => { this.parentSiteId = n.getStringValue(); },
-            "scope": n => { this.scope = n.getEnumValue<TermGroupScope>(TermGroupScope); },
+            "scope": n => { this.scope = n.getObjectValue<TermGroupScope>(createTermGroupScopeFromDiscriminatorValue); },
             "sets": n => { this.sets = n.getCollectionOfObjectValues<Set>(createSetFromDiscriminatorValue); },
         };
     };
@@ -96,7 +96,7 @@ export class Group extends Entity implements Parsable {
     };
     /**
      * Gets the scope property value. Returns the type of the group. Possible values are global, system, and siteCollection.
-     * @returns a termGroupScope
+     * @returns a admin
      */
     public get scope() {
         return this._scope;
@@ -105,7 +105,7 @@ export class Group extends Entity implements Parsable {
      * Sets the scope property value. Returns the type of the group. Possible values are global, system, and siteCollection.
      * @param value Value to set for the scope property.
      */
-    public set scope(value: TermGroupScope | undefined) {
+    public set scope(value: TermGroupScope | AdminMember1 | undefined) {
         this._scope = value;
     };
     /**
@@ -119,7 +119,7 @@ export class Group extends Entity implements Parsable {
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("parentSiteId", this.parentSiteId);
-        writer.writeEnumValue<TermGroupScope>("scope", this.scope);
+        writer.writeObjectValue<TermGroupScope>("scope", this.scope);
         writer.writeCollectionOfObjectValues<Set>("sets", this.sets);
     };
     /**

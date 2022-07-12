@@ -1,12 +1,9 @@
 import {BookingPriceType} from './bookingPriceType';
 import {createBookingCustomerInformationBaseFromDiscriminatorValue} from './createBookingCustomerInformationBaseFromDiscriminatorValue';
-import {createBookingReminderFromDiscriminatorValue} from './createBookingReminderFromDiscriminatorValue';
 import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
-import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
-import {BookingCustomerInformationBase, BookingReminder, DateTimeTimeZone, Entity, Location} from './index';
+import {AdminMember1, BookingCustomerInformationBase, BookingReminder, DateTimeTimeZone, Entity, Location} from './index';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Represents a booked appointment of a service by a customer in a business. */
 export class BookingAppointment extends Entity implements Parsable {
     /** Additional information that is sent to the customer when an appointment is confirmed. */
     private _additionalInformation?: string | undefined;
@@ -34,16 +31,16 @@ export class BookingAppointment extends Entity implements Parsable {
     private _preBuffer?: Duration | undefined;
     /** The regular price for an appointment for the specified bookingService. */
     private _price?: number | undefined;
-    /** A setting to provide flexibility for the pricing structure of services. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue. */
+    /** Represents the type of pricing of a booking service. */
     private _priceType?: BookingPriceType | undefined;
     /** The collection of customer reminders sent for this appointment. The value of this property is available only when reading this bookingAppointment by its ID. */
-    private _reminders?: BookingReminder[] | undefined;
+    private _reminders?: BookingReminder | AdminMember1[] | undefined;
     /** An additional tracking ID for the appointment, if the appointment has been created directly by the customer on the scheduling page, as opposed to by a staff member on the behalf of the customer. */
     private _selfServiceAppointmentId?: string | undefined;
     /** The ID of the bookingService associated with this appointment. */
     private _serviceId?: string | undefined;
     /** The location where the service is delivered. */
-    private _serviceLocation?: Location | undefined;
+    private _serviceLocation?: Location | AdminMember1 | undefined;
     /** The name of the bookingService associated with this appointment.This property is optional when creating a new appointment. If not specified, it is computed from the service associated with the appointment by the serviceId property. */
     private _serviceName?: string | undefined;
     /** Notes from a bookingStaffMember. The value of this property is available only when reading this bookingAppointment by its ID. */
@@ -69,7 +66,7 @@ export class BookingAppointment extends Entity implements Parsable {
         this._additionalInformation = value;
     };
     /**
-     * Instantiates a new bookingAppointment and sets the default values.
+     * Instantiates a new BookingAppointment and sets the default values.
      */
     public constructor() {
         super();
@@ -164,7 +161,7 @@ export class BookingAppointment extends Entity implements Parsable {
             "preBuffer": n => { this.preBuffer = n.getDurationValue(); },
             "price": n => { this.price = n.getNumberValue(); },
             "priceType": n => { this.priceType = n.getEnumValue<BookingPriceType>(BookingPriceType); },
-            "reminders": n => { this.reminders = n.getCollectionOfObjectValues<BookingReminder>(createBookingReminderFromDiscriminatorValue); },
+            "reminders": n => { this.reminders = n.getObjectValue<BookingReminder>(createBookingReminderFromDiscriminatorValue); },
             "selfServiceAppointmentId": n => { this.selfServiceAppointmentId = n.getStringValue(); },
             "serviceId": n => { this.serviceId = n.getStringValue(); },
             "serviceLocation": n => { this.serviceLocation = n.getObjectValue<Location>(createLocationFromDiscriminatorValue); },
@@ -274,14 +271,14 @@ export class BookingAppointment extends Entity implements Parsable {
         this._price = value;
     };
     /**
-     * Gets the priceType property value. A setting to provide flexibility for the pricing structure of services. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue.
+     * Gets the priceType property value. Represents the type of pricing of a booking service.
      * @returns a bookingPriceType
      */
     public get priceType() {
         return this._priceType;
     };
     /**
-     * Sets the priceType property value. A setting to provide flexibility for the pricing structure of services. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue.
+     * Sets the priceType property value. Represents the type of pricing of a booking service.
      * @param value Value to set for the priceType property.
      */
     public set priceType(value: BookingPriceType | undefined) {
@@ -289,7 +286,7 @@ export class BookingAppointment extends Entity implements Parsable {
     };
     /**
      * Gets the reminders property value. The collection of customer reminders sent for this appointment. The value of this property is available only when reading this bookingAppointment by its ID.
-     * @returns a bookingReminder
+     * @returns a admin
      */
     public get reminders() {
         return this._reminders;
@@ -298,7 +295,7 @@ export class BookingAppointment extends Entity implements Parsable {
      * Sets the reminders property value. The collection of customer reminders sent for this appointment. The value of this property is available only when reading this bookingAppointment by its ID.
      * @param value Value to set for the reminders property.
      */
-    public set reminders(value: BookingReminder[] | undefined) {
+    public set reminders(value: BookingReminder | AdminMember1[] | undefined) {
         this._reminders = value;
     };
     /**
@@ -336,7 +333,7 @@ export class BookingAppointment extends Entity implements Parsable {
         writer.writeDurationValue("preBuffer", this.preBuffer);
         writer.writeNumberValue("price", this.price);
         writer.writeEnumValue<BookingPriceType>("priceType", this.priceType);
-        writer.writeCollectionOfObjectValues<BookingReminder>("reminders", this.reminders);
+        writer.writeObjectValue<BookingReminder>("reminders", this.reminders);
         writer.writeStringValue("selfServiceAppointmentId", this.selfServiceAppointmentId);
         writer.writeStringValue("serviceId", this.serviceId);
         writer.writeObjectValue<Location>("serviceLocation", this.serviceLocation);
@@ -362,7 +359,7 @@ export class BookingAppointment extends Entity implements Parsable {
     };
     /**
      * Gets the serviceLocation property value. The location where the service is delivered.
-     * @returns a location
+     * @returns a admin
      */
     public get serviceLocation() {
         return this._serviceLocation;
@@ -371,7 +368,7 @@ export class BookingAppointment extends Entity implements Parsable {
      * Sets the serviceLocation property value. The location where the service is delivered.
      * @param value Value to set for the serviceLocation property.
      */
-    public set serviceLocation(value: Location | undefined) {
+    public set serviceLocation(value: Location | AdminMember1 | undefined) {
         this._serviceLocation = value;
     };
     /**

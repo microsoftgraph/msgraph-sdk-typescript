@@ -1,13 +1,12 @@
 import {createManagedAppOperationFromDiscriminatorValue} from './createManagedAppOperationFromDiscriminatorValue';
 import {createManagedAppPolicyFromDiscriminatorValue} from './createManagedAppPolicyFromDiscriminatorValue';
-import {createMobileAppIdentifierFromDiscriminatorValue} from './createMobileAppIdentifierFromDiscriminatorValue';
-import {Entity, ManagedAppOperation, ManagedAppPolicy, MobileAppIdentifier} from './index';
+import {AdminMember1, Entity, ManagedAppOperation, ManagedAppPolicy, MobileAppIdentifier} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The ManagedAppEntity is the base entity type for all other entity types under app management workflow. */
 export class ManagedAppRegistration extends Entity implements Parsable {
     /** The app package Identifier */
-    private _appIdentifier?: MobileAppIdentifier | undefined;
+    private _appIdentifier?: MobileAppIdentifier | AdminMember1 | undefined;
     /** App version */
     private _applicationVersion?: string | undefined;
     /** Zero or more policys already applied on the registered app when it last synchronized with managment service. */
@@ -38,7 +37,7 @@ export class ManagedAppRegistration extends Entity implements Parsable {
     private _version?: string | undefined;
     /**
      * Gets the appIdentifier property value. The app package Identifier
-     * @returns a mobileAppIdentifier
+     * @returns a admin
      */
     public get appIdentifier() {
         return this._appIdentifier;
@@ -47,7 +46,7 @@ export class ManagedAppRegistration extends Entity implements Parsable {
      * Sets the appIdentifier property value. The app package Identifier
      * @param value Value to set for the appIdentifier property.
      */
-    public set appIdentifier(value: MobileAppIdentifier | undefined) {
+    public set appIdentifier(value: MobileAppIdentifier | AdminMember1 | undefined) {
         this._appIdentifier = value;
     };
     /**
@@ -83,6 +82,7 @@ export class ManagedAppRegistration extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.managedAppRegistration";
     };
     /**
      * Gets the createdDateTime property value. Date and time of creation

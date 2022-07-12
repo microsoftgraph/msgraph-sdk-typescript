@@ -10,6 +10,8 @@ export class ScheduleEntity implements AdditionalDataHolder, Parsable {
     private _startDateTime?: Date | undefined;
     /** The theme property */
     private _theme?: ScheduleEntityTheme | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -29,6 +31,7 @@ export class ScheduleEntity implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.type = "#microsoft.graph.scheduleEntity";
     };
     /**
      * Gets the endDateTime property value. The endDateTime property
@@ -53,7 +56,22 @@ export class ScheduleEntity implements AdditionalDataHolder, Parsable {
             "endDateTime": n => { this.endDateTime = n.getDateValue(); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
             "theme": n => { this.theme = n.getEnumValue<ScheduleEntityTheme>(ScheduleEntityTheme); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
     };
     /**
      * Serializes information the current object
@@ -64,6 +82,7 @@ export class ScheduleEntity implements AdditionalDataHolder, Parsable {
         writer.writeDateValue("endDateTime", this.endDateTime);
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeEnumValue<ScheduleEntityTheme>("theme", this.theme);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

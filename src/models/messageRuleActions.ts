@@ -1,6 +1,5 @@
-import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscriminatorValue';
 import {Importance} from './importance';
-import {Recipient} from './index';
+import {AdminMember1, Recipient} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MessageRuleActions implements AdditionalDataHolder, Parsable {
@@ -13,19 +12,19 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
     /** Indicates whether a message should be moved to the Deleted Items folder. */
     private _delete?: boolean | undefined;
     /** The email addresses of the recipients to which a message should be forwarded as an attachment. */
-    private _forwardAsAttachmentTo?: Recipient[] | undefined;
+    private _forwardAsAttachmentTo?: Recipient | AdminMember1[] | undefined;
     /** The email addresses of the recipients to which a message should be forwarded. */
-    private _forwardTo?: Recipient[] | undefined;
+    private _forwardTo?: Recipient | AdminMember1[] | undefined;
     /** Indicates whether a message should be marked as read. */
     private _markAsRead?: boolean | undefined;
     /** Sets the importance of the message, which can be: low, normal, high. */
-    private _markImportance?: Importance | undefined;
+    private _markImportance?: Importance | AdminMember1 | undefined;
     /** The ID of the folder that a message will be moved to. */
     private _moveToFolder?: string | undefined;
     /** Indicates whether a message should be permanently deleted and not saved to the Deleted Items folder. */
     private _permanentDelete?: boolean | undefined;
     /** The email address to which a message should be redirected. */
-    private _redirectTo?: Recipient[] | undefined;
+    private _redirectTo?: Recipient | AdminMember1[] | undefined;
     /** Indicates whether subsequent rules should be evaluated. */
     private _stopProcessingRules?: boolean | undefined;
     /**
@@ -92,7 +91,7 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the forwardAsAttachmentTo property value. The email addresses of the recipients to which a message should be forwarded as an attachment.
-     * @returns a recipient
+     * @returns a admin
      */
     public get forwardAsAttachmentTo() {
         return this._forwardAsAttachmentTo;
@@ -101,12 +100,12 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
      * Sets the forwardAsAttachmentTo property value. The email addresses of the recipients to which a message should be forwarded as an attachment.
      * @param value Value to set for the forwardAsAttachmentTo property.
      */
-    public set forwardAsAttachmentTo(value: Recipient[] | undefined) {
+    public set forwardAsAttachmentTo(value: Recipient | AdminMember1[] | undefined) {
         this._forwardAsAttachmentTo = value;
     };
     /**
      * Gets the forwardTo property value. The email addresses of the recipients to which a message should be forwarded.
-     * @returns a recipient
+     * @returns a admin
      */
     public get forwardTo() {
         return this._forwardTo;
@@ -115,7 +114,7 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
      * Sets the forwardTo property value. The email addresses of the recipients to which a message should be forwarded.
      * @param value Value to set for the forwardTo property.
      */
-    public set forwardTo(value: Recipient[] | undefined) {
+    public set forwardTo(value: Recipient | AdminMember1[] | undefined) {
         this._forwardTo = value;
     };
     /**
@@ -127,13 +126,13 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
             "assignCategories": n => { this.assignCategories = n.getCollectionOfPrimitiveValues<string>(); },
             "copyToFolder": n => { this.copyToFolder = n.getStringValue(); },
             "delete": n => { this.delete = n.getBooleanValue(); },
-            "forwardAsAttachmentTo": n => { this.forwardAsAttachmentTo = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
-            "forwardTo": n => { this.forwardTo = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
+            "forwardAsAttachmentTo": n => { this.forwardAsAttachmentTo = n.getObjectValue<Recipient>(createRecipientFromDiscriminatorValue); },
+            "forwardTo": n => { this.forwardTo = n.getObjectValue<Recipient>(createRecipientFromDiscriminatorValue); },
             "markAsRead": n => { this.markAsRead = n.getBooleanValue(); },
-            "markImportance": n => { this.markImportance = n.getEnumValue<Importance>(Importance); },
+            "markImportance": n => { this.markImportance = n.getObjectValue<Importance>(createImportanceFromDiscriminatorValue); },
             "moveToFolder": n => { this.moveToFolder = n.getStringValue(); },
             "permanentDelete": n => { this.permanentDelete = n.getBooleanValue(); },
-            "redirectTo": n => { this.redirectTo = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
+            "redirectTo": n => { this.redirectTo = n.getObjectValue<Recipient>(createRecipientFromDiscriminatorValue); },
             "stopProcessingRules": n => { this.stopProcessingRules = n.getBooleanValue(); },
         };
     };
@@ -153,7 +152,7 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the markImportance property value. Sets the importance of the message, which can be: low, normal, high.
-     * @returns a importance
+     * @returns a admin
      */
     public get markImportance() {
         return this._markImportance;
@@ -162,7 +161,7 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
      * Sets the markImportance property value. Sets the importance of the message, which can be: low, normal, high.
      * @param value Value to set for the markImportance property.
      */
-    public set markImportance(value: Importance | undefined) {
+    public set markImportance(value: Importance | AdminMember1 | undefined) {
         this._markImportance = value;
     };
     /**
@@ -195,7 +194,7 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the redirectTo property value. The email address to which a message should be redirected.
-     * @returns a recipient
+     * @returns a admin
      */
     public get redirectTo() {
         return this._redirectTo;
@@ -204,7 +203,7 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
      * Sets the redirectTo property value. The email address to which a message should be redirected.
      * @param value Value to set for the redirectTo property.
      */
-    public set redirectTo(value: Recipient[] | undefined) {
+    public set redirectTo(value: Recipient | AdminMember1[] | undefined) {
         this._redirectTo = value;
     };
     /**
@@ -216,13 +215,13 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("assignCategories", this.assignCategories);
         writer.writeStringValue("copyToFolder", this.copyToFolder);
         writer.writeBooleanValue("delete", this.delete);
-        writer.writeCollectionOfObjectValues<Recipient>("forwardAsAttachmentTo", this.forwardAsAttachmentTo);
-        writer.writeCollectionOfObjectValues<Recipient>("forwardTo", this.forwardTo);
+        writer.writeObjectValue<Recipient>("forwardAsAttachmentTo", this.forwardAsAttachmentTo);
+        writer.writeObjectValue<Recipient>("forwardTo", this.forwardTo);
         writer.writeBooleanValue("markAsRead", this.markAsRead);
-        writer.writeEnumValue<Importance>("markImportance", this.markImportance);
+        writer.writeObjectValue<Importance>("markImportance", this.markImportance);
         writer.writeStringValue("moveToFolder", this.moveToFolder);
         writer.writeBooleanValue("permanentDelete", this.permanentDelete);
-        writer.writeCollectionOfObjectValues<Recipient>("redirectTo", this.redirectTo);
+        writer.writeObjectValue<Recipient>("redirectTo", this.redirectTo);
         writer.writeBooleanValue("stopProcessingRules", this.stopProcessingRules);
         writer.writeAdditionalData(this.additionalData);
     };

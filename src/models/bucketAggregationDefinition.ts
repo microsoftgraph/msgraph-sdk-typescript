@@ -1,6 +1,5 @@
 import {BucketAggregationSortProperty} from './bucketAggregationSortProperty';
-import {createBucketAggregationRangeFromDiscriminatorValue} from './createBucketAggregationRangeFromDiscriminatorValue';
-import {BucketAggregationRange} from './index';
+import {BucketAggregationRange, QueryMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BucketAggregationDefinition implements AdditionalDataHolder, Parsable {
@@ -13,8 +12,8 @@ export class BucketAggregationDefinition implements AdditionalDataHolder, Parsab
     /** A filter to define a matching criteria. The key should start with the specified prefix to be returned in the response. Optional. */
     private _prefixFilter?: string | undefined;
     /** Specifies the manual ranges to compute the aggregations. This is only valid for non-string refiners of date or numeric type. Optional. */
-    private _ranges?: BucketAggregationRange[] | undefined;
-    /** The possible values are count to sort by the number of matches in the aggregation, keyAsStringto sort alphabeticaly based on the key in the aggregation, keyAsNumber for numerical sorting based on the key in the aggregation. Required. */
+    private _ranges?: BucketAggregationRange | QueryMember1[] | undefined;
+    /** The sortBy property */
     private _sortBy?: BucketAggregationSortProperty | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -45,7 +44,7 @@ export class BucketAggregationDefinition implements AdditionalDataHolder, Parsab
             "isDescending": n => { this.isDescending = n.getBooleanValue(); },
             "minimumCount": n => { this.minimumCount = n.getNumberValue(); },
             "prefixFilter": n => { this.prefixFilter = n.getStringValue(); },
-            "ranges": n => { this.ranges = n.getCollectionOfObjectValues<BucketAggregationRange>(createBucketAggregationRangeFromDiscriminatorValue); },
+            "ranges": n => { this.ranges = n.getObjectValue<BucketAggregationRange>(createBucketAggregationRangeFromDiscriminatorValue); },
             "sortBy": n => { this.sortBy = n.getEnumValue<BucketAggregationSortProperty>(BucketAggregationSortProperty); },
         };
     };
@@ -93,7 +92,7 @@ export class BucketAggregationDefinition implements AdditionalDataHolder, Parsab
     };
     /**
      * Gets the ranges property value. Specifies the manual ranges to compute the aggregations. This is only valid for non-string refiners of date or numeric type. Optional.
-     * @returns a bucketAggregationRange
+     * @returns a query
      */
     public get ranges() {
         return this._ranges;
@@ -102,7 +101,7 @@ export class BucketAggregationDefinition implements AdditionalDataHolder, Parsab
      * Sets the ranges property value. Specifies the manual ranges to compute the aggregations. This is only valid for non-string refiners of date or numeric type. Optional.
      * @param value Value to set for the ranges property.
      */
-    public set ranges(value: BucketAggregationRange[] | undefined) {
+    public set ranges(value: BucketAggregationRange | QueryMember1[] | undefined) {
         this._ranges = value;
     };
     /**
@@ -114,19 +113,19 @@ export class BucketAggregationDefinition implements AdditionalDataHolder, Parsab
         writer.writeBooleanValue("isDescending", this.isDescending);
         writer.writeNumberValue("minimumCount", this.minimumCount);
         writer.writeStringValue("prefixFilter", this.prefixFilter);
-        writer.writeCollectionOfObjectValues<BucketAggregationRange>("ranges", this.ranges);
+        writer.writeObjectValue<BucketAggregationRange>("ranges", this.ranges);
         writer.writeEnumValue<BucketAggregationSortProperty>("sortBy", this.sortBy);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the sortBy property value. The possible values are count to sort by the number of matches in the aggregation, keyAsStringto sort alphabeticaly based on the key in the aggregation, keyAsNumber for numerical sorting based on the key in the aggregation. Required.
+     * Gets the sortBy property value. The sortBy property
      * @returns a bucketAggregationSortProperty
      */
     public get sortBy() {
         return this._sortBy;
     };
     /**
-     * Sets the sortBy property value. The possible values are count to sort by the number of matches in the aggregation, keyAsStringto sort alphabeticaly based on the key in the aggregation, keyAsNumber for numerical sorting based on the key in the aggregation. Required.
+     * Sets the sortBy property value. The sortBy property
      * @param value Value to set for the sortBy property.
      */
     public set sortBy(value: BucketAggregationSortProperty | undefined) {

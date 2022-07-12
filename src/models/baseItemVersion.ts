@@ -1,21 +1,20 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createPublicationFacetFromDiscriminatorValue} from './createPublicationFacetFromDiscriminatorValue';
-import {Entity, IdentitySet, PublicationFacet} from './index';
+import {AdminMember1, Entity, IdentitySet, PublicationFacet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class BaseItemVersion extends Entity implements Parsable {
     /** Identity of the user which last modified the version. Read-only. */
-    private _lastModifiedBy?: IdentitySet | undefined;
+    private _lastModifiedBy?: IdentitySet | AdminMember1 | undefined;
     /** Date and time the version was last modified. Read-only. */
     private _lastModifiedDateTime?: Date | undefined;
     /** Indicates the publication status of this particular version. Read-only. */
-    private _publication?: PublicationFacet | undefined;
+    private _publication?: PublicationFacet | AdminMember1 | undefined;
     /**
      * Instantiates a new baseItemVersion and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.baseItemVersion";
     };
     /**
      * The deserialization information for the current model
@@ -30,7 +29,7 @@ export class BaseItemVersion extends Entity implements Parsable {
     };
     /**
      * Gets the lastModifiedBy property value. Identity of the user which last modified the version. Read-only.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get lastModifiedBy() {
         return this._lastModifiedBy;
@@ -39,7 +38,7 @@ export class BaseItemVersion extends Entity implements Parsable {
      * Sets the lastModifiedBy property value. Identity of the user which last modified the version. Read-only.
      * @param value Value to set for the lastModifiedBy property.
      */
-    public set lastModifiedBy(value: IdentitySet | undefined) {
+    public set lastModifiedBy(value: IdentitySet | AdminMember1 | undefined) {
         this._lastModifiedBy = value;
     };
     /**
@@ -58,7 +57,7 @@ export class BaseItemVersion extends Entity implements Parsable {
     };
     /**
      * Gets the publication property value. Indicates the publication status of this particular version. Read-only.
-     * @returns a publicationFacet
+     * @returns a admin
      */
     public get publication() {
         return this._publication;
@@ -67,7 +66,7 @@ export class BaseItemVersion extends Entity implements Parsable {
      * Sets the publication property value. Indicates the publication status of this particular version. Read-only.
      * @param value Value to set for the publication property.
      */
-    public set publication(value: PublicationFacet | undefined) {
+    public set publication(value: PublicationFacet | AdminMember1 | undefined) {
         this._publication = value;
     };
     /**

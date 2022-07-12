@@ -1,5 +1,5 @@
 import {ArchivedPrintJob} from '../../models/';
-import {createArchivedPrintJobFromDiscriminatorValue} from '../../models/createArchivedPrintJobFromDiscriminatorValue';
+import {GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getGroupArchivedPrintJobs method. */
@@ -7,7 +7,7 @@ export class GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTim
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The value property */
-    private _value?: ArchivedPrintJob[] | undefined;
+    private _value?: ArchivedPrintJob | GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,7 +34,7 @@ export class GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTim
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": n => { this.value = n.getCollectionOfObjectValues<ArchivedPrintJob>(createArchivedPrintJobFromDiscriminatorValue); },
+            "value": n => { this.value = n.getObjectValue<ArchivedPrintJob>(createArchivedPrintJobFromDiscriminatorValue); },
         };
     };
     /**
@@ -43,12 +43,12 @@ export class GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTim
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<ArchivedPrintJob>("value", this.value);
+        writer.writeObjectValue<ArchivedPrintJob>("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the value property value. The value property
-     * @returns a archivedPrintJob
+     * @returns a getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime
      */
     public get value() {
         return this._value;
@@ -57,7 +57,7 @@ export class GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTim
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public set value(value: ArchivedPrintJob[] | undefined) {
+    public set value(value: ArchivedPrintJob | GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeMember1[] | undefined) {
         this._value = value;
     };
 }

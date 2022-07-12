@@ -1,18 +1,15 @@
-import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {createSharePointIdentityFromDiscriminatorValue} from './createSharePointIdentityFromDiscriminatorValue';
-import {Identity, IdentitySet, SharePointIdentity} from './index';
+import {AdminMember1, Identity, IdentitySet, SharePointIdentity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class SharePointIdentitySet extends IdentitySet implements Parsable {
     /** The group associated with this action. Optional. */
-    private _group?: Identity | undefined;
+    private _group?: Identity | AdminMember1 | undefined;
     /** The SharePoint group associated with this action. Optional. */
-    private _siteGroup?: SharePointIdentity | undefined;
+    private _siteGroup?: SharePointIdentity | AdminMember1 | undefined;
     /** The SharePoint user associated with this action. Optional. */
-    private _siteUser?: SharePointIdentity | undefined;
+    private _siteUser?: SharePointIdentity | AdminMember1 | undefined;
     /**
-     * Instantiates a new sharePointIdentitySet and sets the default values.
+     * Instantiates a new SharePointIdentitySet and sets the default values.
      */
     public constructor() {
         super();
@@ -30,7 +27,7 @@ export class SharePointIdentitySet extends IdentitySet implements Parsable {
     };
     /**
      * Gets the group property value. The group associated with this action. Optional.
-     * @returns a identity
+     * @returns a admin
      */
     public get group() {
         return this._group;
@@ -39,7 +36,7 @@ export class SharePointIdentitySet extends IdentitySet implements Parsable {
      * Sets the group property value. The group associated with this action. Optional.
      * @param value Value to set for the group property.
      */
-    public set group(value: Identity | undefined) {
+    public set group(value: Identity | AdminMember1 | undefined) {
         this._group = value;
     };
     /**
@@ -55,7 +52,7 @@ export class SharePointIdentitySet extends IdentitySet implements Parsable {
     };
     /**
      * Gets the siteGroup property value. The SharePoint group associated with this action. Optional.
-     * @returns a sharePointIdentity
+     * @returns a admin
      */
     public get siteGroup() {
         return this._siteGroup;
@@ -64,12 +61,12 @@ export class SharePointIdentitySet extends IdentitySet implements Parsable {
      * Sets the siteGroup property value. The SharePoint group associated with this action. Optional.
      * @param value Value to set for the siteGroup property.
      */
-    public set siteGroup(value: SharePointIdentity | undefined) {
+    public set siteGroup(value: SharePointIdentity | AdminMember1 | undefined) {
         this._siteGroup = value;
     };
     /**
      * Gets the siteUser property value. The SharePoint user associated with this action. Optional.
-     * @returns a sharePointIdentity
+     * @returns a admin
      */
     public get siteUser() {
         return this._siteUser;
@@ -78,7 +75,7 @@ export class SharePointIdentitySet extends IdentitySet implements Parsable {
      * Sets the siteUser property value. The SharePoint user associated with this action. Optional.
      * @param value Value to set for the siteUser property.
      */
-    public set siteUser(value: SharePointIdentity | undefined) {
+    public set siteUser(value: SharePointIdentity | AdminMember1 | undefined) {
         this._siteUser = value;
     };
 }

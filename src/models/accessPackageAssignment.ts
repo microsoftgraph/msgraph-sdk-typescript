@@ -1,30 +1,25 @@
 import {AccessPackageAssignmentState} from './accessPackageAssignmentState';
-import {createAccessPackageAssignmentPolicyFromDiscriminatorValue} from './createAccessPackageAssignmentPolicyFromDiscriminatorValue';
-import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
-import {createAccessPackageSubjectFromDiscriminatorValue} from './createAccessPackageSubjectFromDiscriminatorValue';
-import {createEntitlementManagementScheduleFromDiscriminatorValue} from './createEntitlementManagementScheduleFromDiscriminatorValue';
-import {AccessPackage, AccessPackageAssignmentPolicy, AccessPackageSubject, EntitlementManagementSchedule, Entity} from './index';
+import {AccessPackage, AccessPackageAssignmentPolicy, AccessPackageSubject, AdminMember1, EntitlementManagementSchedule, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageAssignment extends Entity implements Parsable {
     /** Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters. */
-    private _accessPackage?: AccessPackage | undefined;
+    private _accessPackage?: AccessPackage | AdminMember1 | undefined;
     /** Read-only. Supports $filter (eq) on the id property and $expand query parameters. */
-    private _assignmentPolicy?: AccessPackageAssignmentPolicy | undefined;
+    private _assignmentPolicy?: AccessPackageAssignmentPolicy | AdminMember1 | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _expiredDateTime?: Date | undefined;
     /** When the access assignment is to be in place. Read-only. */
-    private _schedule?: EntitlementManagementSchedule | undefined;
+    private _schedule?: EntitlementManagementSchedule | AdminMember1 | undefined;
     /** The state of the access package assignment. The possible values are: delivering, partiallyDelivered, delivered, expired, deliveryFailed, unknownFutureValue. Read-only. Supports $filter (eq). */
-    private _state?: AccessPackageAssignmentState | undefined;
+    private _state?: AccessPackageAssignmentState | AdminMember1 | undefined;
     /** More information about the assignment lifecycle.  Possible values include Delivering, Delivered, NearExpiry1DayNotificationTriggered, or ExpiredNotificationTriggered.  Read-only. */
     private _status?: string | undefined;
     /** The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId. */
-    private _target?: AccessPackageSubject | undefined;
+    private _target?: AccessPackageSubject | AdminMember1 | undefined;
     /**
      * Gets the accessPackage property value. Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
-     * @returns a accessPackage
+     * @returns a admin
      */
     public get accessPackage() {
         return this._accessPackage;
@@ -33,12 +28,12 @@ export class AccessPackageAssignment extends Entity implements Parsable {
      * Sets the accessPackage property value. Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
      * @param value Value to set for the accessPackage property.
      */
-    public set accessPackage(value: AccessPackage | undefined) {
+    public set accessPackage(value: AccessPackage | AdminMember1 | undefined) {
         this._accessPackage = value;
     };
     /**
      * Gets the assignmentPolicy property value. Read-only. Supports $filter (eq) on the id property and $expand query parameters.
-     * @returns a accessPackageAssignmentPolicy
+     * @returns a admin
      */
     public get assignmentPolicy() {
         return this._assignmentPolicy;
@@ -47,7 +42,7 @@ export class AccessPackageAssignment extends Entity implements Parsable {
      * Sets the assignmentPolicy property value. Read-only. Supports $filter (eq) on the id property and $expand query parameters.
      * @param value Value to set for the assignmentPolicy property.
      */
-    public set assignmentPolicy(value: AccessPackageAssignmentPolicy | undefined) {
+    public set assignmentPolicy(value: AccessPackageAssignmentPolicy | AdminMember1 | undefined) {
         this._assignmentPolicy = value;
     };
     /**
@@ -80,14 +75,14 @@ export class AccessPackageAssignment extends Entity implements Parsable {
             "assignmentPolicy": n => { this.assignmentPolicy = n.getObjectValue<AccessPackageAssignmentPolicy>(createAccessPackageAssignmentPolicyFromDiscriminatorValue); },
             "expiredDateTime": n => { this.expiredDateTime = n.getDateValue(); },
             "schedule": n => { this.schedule = n.getObjectValue<EntitlementManagementSchedule>(createEntitlementManagementScheduleFromDiscriminatorValue); },
-            "state": n => { this.state = n.getEnumValue<AccessPackageAssignmentState>(AccessPackageAssignmentState); },
+            "state": n => { this.state = n.getObjectValue<AccessPackageAssignmentState>(createAccessPackageAssignmentStateFromDiscriminatorValue); },
             "status": n => { this.status = n.getStringValue(); },
             "target": n => { this.target = n.getObjectValue<AccessPackageSubject>(createAccessPackageSubjectFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the schedule property value. When the access assignment is to be in place. Read-only.
-     * @returns a entitlementManagementSchedule
+     * @returns a admin
      */
     public get schedule() {
         return this._schedule;
@@ -96,7 +91,7 @@ export class AccessPackageAssignment extends Entity implements Parsable {
      * Sets the schedule property value. When the access assignment is to be in place. Read-only.
      * @param value Value to set for the schedule property.
      */
-    public set schedule(value: EntitlementManagementSchedule | undefined) {
+    public set schedule(value: EntitlementManagementSchedule | AdminMember1 | undefined) {
         this._schedule = value;
     };
     /**
@@ -110,13 +105,13 @@ export class AccessPackageAssignment extends Entity implements Parsable {
         writer.writeObjectValue<AccessPackageAssignmentPolicy>("assignmentPolicy", this.assignmentPolicy);
         writer.writeDateValue("expiredDateTime", this.expiredDateTime);
         writer.writeObjectValue<EntitlementManagementSchedule>("schedule", this.schedule);
-        writer.writeEnumValue<AccessPackageAssignmentState>("state", this.state);
+        writer.writeObjectValue<AccessPackageAssignmentState>("state", this.state);
         writer.writeStringValue("status", this.status);
         writer.writeObjectValue<AccessPackageSubject>("target", this.target);
     };
     /**
      * Gets the state property value. The state of the access package assignment. The possible values are: delivering, partiallyDelivered, delivered, expired, deliveryFailed, unknownFutureValue. Read-only. Supports $filter (eq).
-     * @returns a accessPackageAssignmentState
+     * @returns a admin
      */
     public get state() {
         return this._state;
@@ -125,7 +120,7 @@ export class AccessPackageAssignment extends Entity implements Parsable {
      * Sets the state property value. The state of the access package assignment. The possible values are: delivering, partiallyDelivered, delivered, expired, deliveryFailed, unknownFutureValue. Read-only. Supports $filter (eq).
      * @param value Value to set for the state property.
      */
-    public set state(value: AccessPackageAssignmentState | undefined) {
+    public set state(value: AccessPackageAssignmentState | AdminMember1 | undefined) {
         this._state = value;
     };
     /**
@@ -144,7 +139,7 @@ export class AccessPackageAssignment extends Entity implements Parsable {
     };
     /**
      * Gets the target property value. The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
-     * @returns a accessPackageSubject
+     * @returns a admin
      */
     public get target() {
         return this._target;
@@ -153,7 +148,7 @@ export class AccessPackageAssignment extends Entity implements Parsable {
      * Sets the target property value. The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
      * @param value Value to set for the target property.
      */
-    public set target(value: AccessPackageSubject | undefined) {
+    public set target(value: AccessPackageSubject | AdminMember1 | undefined) {
         this._target = value;
     };
 }

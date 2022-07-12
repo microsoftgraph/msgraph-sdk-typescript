@@ -1,5 +1,4 @@
-import {createRootFromDiscriminatorValue} from './createRootFromDiscriminatorValue';
-import {Root} from './index';
+import {AdminMember1, Root} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SiteCollection implements AdditionalDataHolder, Parsable {
@@ -10,7 +9,7 @@ export class SiteCollection implements AdditionalDataHolder, Parsable {
     /** The hostname for the site collection. Read-only. */
     private _hostname?: string | undefined;
     /** If present, indicates that this is a root site collection in SharePoint. Read-only. */
-    private _root?: Root | undefined;
+    private _root?: Root | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -72,7 +71,7 @@ export class SiteCollection implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the root property value. If present, indicates that this is a root site collection in SharePoint. Read-only.
-     * @returns a root
+     * @returns a admin
      */
     public get root() {
         return this._root;
@@ -81,7 +80,7 @@ export class SiteCollection implements AdditionalDataHolder, Parsable {
      * Sets the root property value. If present, indicates that this is a root site collection in SharePoint. Read-only.
      * @param value Value to set for the root property.
      */
-    public set root(value: Root | undefined) {
+    public set root(value: Root | AdminMember1 | undefined) {
         this._root = value;
     };
     /**

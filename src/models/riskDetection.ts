@@ -1,6 +1,5 @@
 import {ActivityType} from './activityType';
-import {createSignInLocationFromDiscriminatorValue} from './createSignInLocationFromDiscriminatorValue';
-import {Entity, SignInLocation} from './index';
+import {AdminMember1, Entity, SignInLocation} from './index';
 import {RiskDetail} from './riskDetail';
 import {RiskDetectionTimingType} from './riskDetectionTimingType';
 import {RiskLevel} from './riskLevel';
@@ -8,10 +7,9 @@ import {RiskState} from './riskState';
 import {TokenIssuerType} from './tokenIssuerType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityProtectionRoot singleton. */
 export class RiskDetection extends Entity implements Parsable {
     /** Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue. */
-    private _activity?: ActivityType | undefined;
+    private _activity?: ActivityType | AdminMember1 | undefined;
     /** Date and time that the risky activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _activityDateTime?: Date | undefined;
     /** Additional information associated with the risk detection in JSON format. */
@@ -21,27 +19,27 @@ export class RiskDetection extends Entity implements Parsable {
     /** Date and time that the risk was detected. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _detectedDateTime?: Date | undefined;
     /** Timing of the detected risk (real-time/offline). The possible values are notDefined, realtime, nearRealtime, offline, unknownFutureValue. */
-    private _detectionTimingType?: RiskDetectionTimingType | undefined;
+    private _detectionTimingType?: RiskDetectionTimingType | AdminMember1 | undefined;
     /** Provides the IP address of the client from where the risk occurred. */
     private _ipAddress?: string | undefined;
     /** Date and time that the risk detection was last updated. */
     private _lastUpdatedDateTime?: Date | undefined;
     /** Location of the sign-in. */
-    private _location?: SignInLocation | undefined;
+    private _location?: SignInLocation | AdminMember1 | undefined;
     /** Request ID of the sign-in associated with the risk detection. This property is null if the risk detection is not associated with a sign-in. */
     private _requestId?: string | undefined;
     /** Details of the detected risk. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. */
-    private _riskDetail?: RiskDetail | undefined;
+    private _riskDetail?: RiskDetail | AdminMember1 | undefined;
     /** The type of risk event detected. The possible values are unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence, generic,adminConfirmedUserCompromised, mcasImpossibleTravel, mcasSuspiciousInboxManipulationRules, investigationsThreatIntelligenceSigninLinked, maliciousIPAddressValidCredentialsBlockedIP, and unknownFutureValue.  For more information about each value, see riskEventType values. */
     private _riskEventType?: string | undefined;
     /** Level of the detected risk. The possible values are low, medium, high, hidden, none, unknownFutureValue. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. */
-    private _riskLevel?: RiskLevel | undefined;
+    private _riskLevel?: RiskLevel | AdminMember1 | undefined;
     /** The state of a detected risky user or sign-in. The possible values are none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, and unknownFutureValue. */
-    private _riskState?: RiskState | undefined;
+    private _riskState?: RiskState | AdminMember1 | undefined;
     /** Source of the risk detection. For example, activeDirectory. */
     private _source?: string | undefined;
     /** Indicates the type of token issuer for the detected sign-in risk. The possible values are AzureAD, ADFederationServices, and unknownFutureValue. */
-    private _tokenIssuerType?: TokenIssuerType | undefined;
+    private _tokenIssuerType?: TokenIssuerType | AdminMember1 | undefined;
     /** Name of the user. */
     private _userDisplayName?: string | undefined;
     /** Unique ID of the user.  The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
@@ -50,7 +48,7 @@ export class RiskDetection extends Entity implements Parsable {
     private _userPrincipalName?: string | undefined;
     /**
      * Gets the activity property value. Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue.
-     * @returns a activityType
+     * @returns a admin
      */
     public get activity() {
         return this._activity;
@@ -59,7 +57,7 @@ export class RiskDetection extends Entity implements Parsable {
      * Sets the activity property value. Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue.
      * @param value Value to set for the activity property.
      */
-    public set activity(value: ActivityType | undefined) {
+    public set activity(value: ActivityType | AdminMember1 | undefined) {
         this._activity = value;
     };
     /**
@@ -91,7 +89,7 @@ export class RiskDetection extends Entity implements Parsable {
         this._additionalInfo = value;
     };
     /**
-     * Instantiates a new riskDetection and sets the default values.
+     * Instantiates a new RiskDetection and sets the default values.
      */
     public constructor() {
         super();
@@ -126,7 +124,7 @@ export class RiskDetection extends Entity implements Parsable {
     };
     /**
      * Gets the detectionTimingType property value. Timing of the detected risk (real-time/offline). The possible values are notDefined, realtime, nearRealtime, offline, unknownFutureValue.
-     * @returns a riskDetectionTimingType
+     * @returns a admin
      */
     public get detectionTimingType() {
         return this._detectionTimingType;
@@ -135,7 +133,7 @@ export class RiskDetection extends Entity implements Parsable {
      * Sets the detectionTimingType property value. Timing of the detected risk (real-time/offline). The possible values are notDefined, realtime, nearRealtime, offline, unknownFutureValue.
      * @param value Value to set for the detectionTimingType property.
      */
-    public set detectionTimingType(value: RiskDetectionTimingType | undefined) {
+    public set detectionTimingType(value: RiskDetectionTimingType | AdminMember1 | undefined) {
         this._detectionTimingType = value;
     };
     /**
@@ -144,22 +142,22 @@ export class RiskDetection extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "activity": n => { this.activity = n.getEnumValue<ActivityType>(ActivityType); },
+            "activity": n => { this.activity = n.getObjectValue<ActivityType>(createActivityTypeFromDiscriminatorValue); },
             "activityDateTime": n => { this.activityDateTime = n.getDateValue(); },
             "additionalInfo": n => { this.additionalInfo = n.getStringValue(); },
             "correlationId": n => { this.correlationId = n.getStringValue(); },
             "detectedDateTime": n => { this.detectedDateTime = n.getDateValue(); },
-            "detectionTimingType": n => { this.detectionTimingType = n.getEnumValue<RiskDetectionTimingType>(RiskDetectionTimingType); },
+            "detectionTimingType": n => { this.detectionTimingType = n.getObjectValue<RiskDetectionTimingType>(createRiskDetectionTimingTypeFromDiscriminatorValue); },
             "ipAddress": n => { this.ipAddress = n.getStringValue(); },
             "lastUpdatedDateTime": n => { this.lastUpdatedDateTime = n.getDateValue(); },
             "location": n => { this.location = n.getObjectValue<SignInLocation>(createSignInLocationFromDiscriminatorValue); },
             "requestId": n => { this.requestId = n.getStringValue(); },
-            "riskDetail": n => { this.riskDetail = n.getEnumValue<RiskDetail>(RiskDetail); },
+            "riskDetail": n => { this.riskDetail = n.getObjectValue<RiskDetail>(createRiskDetailFromDiscriminatorValue); },
             "riskEventType": n => { this.riskEventType = n.getStringValue(); },
-            "riskLevel": n => { this.riskLevel = n.getEnumValue<RiskLevel>(RiskLevel); },
-            "riskState": n => { this.riskState = n.getEnumValue<RiskState>(RiskState); },
+            "riskLevel": n => { this.riskLevel = n.getObjectValue<RiskLevel>(createRiskLevelFromDiscriminatorValue); },
+            "riskState": n => { this.riskState = n.getObjectValue<RiskState>(createRiskStateFromDiscriminatorValue); },
             "source": n => { this.source = n.getStringValue(); },
-            "tokenIssuerType": n => { this.tokenIssuerType = n.getEnumValue<TokenIssuerType>(TokenIssuerType); },
+            "tokenIssuerType": n => { this.tokenIssuerType = n.getObjectValue<TokenIssuerType>(createTokenIssuerTypeFromDiscriminatorValue); },
             "userDisplayName": n => { this.userDisplayName = n.getStringValue(); },
             "userId": n => { this.userId = n.getStringValue(); },
             "userPrincipalName": n => { this.userPrincipalName = n.getStringValue(); },
@@ -195,7 +193,7 @@ export class RiskDetection extends Entity implements Parsable {
     };
     /**
      * Gets the location property value. Location of the sign-in.
-     * @returns a signInLocation
+     * @returns a admin
      */
     public get location() {
         return this._location;
@@ -204,7 +202,7 @@ export class RiskDetection extends Entity implements Parsable {
      * Sets the location property value. Location of the sign-in.
      * @param value Value to set for the location property.
      */
-    public set location(value: SignInLocation | undefined) {
+    public set location(value: SignInLocation | AdminMember1 | undefined) {
         this._location = value;
     };
     /**
@@ -223,7 +221,7 @@ export class RiskDetection extends Entity implements Parsable {
     };
     /**
      * Gets the riskDetail property value. Details of the detected risk. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden.
-     * @returns a riskDetail
+     * @returns a admin
      */
     public get riskDetail() {
         return this._riskDetail;
@@ -232,7 +230,7 @@ export class RiskDetection extends Entity implements Parsable {
      * Sets the riskDetail property value. Details of the detected risk. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden.
      * @param value Value to set for the riskDetail property.
      */
-    public set riskDetail(value: RiskDetail | undefined) {
+    public set riskDetail(value: RiskDetail | AdminMember1 | undefined) {
         this._riskDetail = value;
     };
     /**
@@ -251,7 +249,7 @@ export class RiskDetection extends Entity implements Parsable {
     };
     /**
      * Gets the riskLevel property value. Level of the detected risk. The possible values are low, medium, high, hidden, none, unknownFutureValue. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden.
-     * @returns a riskLevel
+     * @returns a admin
      */
     public get riskLevel() {
         return this._riskLevel;
@@ -260,12 +258,12 @@ export class RiskDetection extends Entity implements Parsable {
      * Sets the riskLevel property value. Level of the detected risk. The possible values are low, medium, high, hidden, none, unknownFutureValue. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden.
      * @param value Value to set for the riskLevel property.
      */
-    public set riskLevel(value: RiskLevel | undefined) {
+    public set riskLevel(value: RiskLevel | AdminMember1 | undefined) {
         this._riskLevel = value;
     };
     /**
      * Gets the riskState property value. The state of a detected risky user or sign-in. The possible values are none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, and unknownFutureValue.
-     * @returns a riskState
+     * @returns a admin
      */
     public get riskState() {
         return this._riskState;
@@ -274,7 +272,7 @@ export class RiskDetection extends Entity implements Parsable {
      * Sets the riskState property value. The state of a detected risky user or sign-in. The possible values are none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, and unknownFutureValue.
      * @param value Value to set for the riskState property.
      */
-    public set riskState(value: RiskState | undefined) {
+    public set riskState(value: RiskState | AdminMember1 | undefined) {
         this._riskState = value;
     };
     /**
@@ -284,22 +282,22 @@ export class RiskDetection extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeEnumValue<ActivityType>("activity", this.activity);
+        writer.writeObjectValue<ActivityType>("activity", this.activity);
         writer.writeDateValue("activityDateTime", this.activityDateTime);
         writer.writeStringValue("additionalInfo", this.additionalInfo);
         writer.writeStringValue("correlationId", this.correlationId);
         writer.writeDateValue("detectedDateTime", this.detectedDateTime);
-        writer.writeEnumValue<RiskDetectionTimingType>("detectionTimingType", this.detectionTimingType);
+        writer.writeObjectValue<RiskDetectionTimingType>("detectionTimingType", this.detectionTimingType);
         writer.writeStringValue("ipAddress", this.ipAddress);
         writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         writer.writeObjectValue<SignInLocation>("location", this.location);
         writer.writeStringValue("requestId", this.requestId);
-        writer.writeEnumValue<RiskDetail>("riskDetail", this.riskDetail);
+        writer.writeObjectValue<RiskDetail>("riskDetail", this.riskDetail);
         writer.writeStringValue("riskEventType", this.riskEventType);
-        writer.writeEnumValue<RiskLevel>("riskLevel", this.riskLevel);
-        writer.writeEnumValue<RiskState>("riskState", this.riskState);
+        writer.writeObjectValue<RiskLevel>("riskLevel", this.riskLevel);
+        writer.writeObjectValue<RiskState>("riskState", this.riskState);
         writer.writeStringValue("source", this.source);
-        writer.writeEnumValue<TokenIssuerType>("tokenIssuerType", this.tokenIssuerType);
+        writer.writeObjectValue<TokenIssuerType>("tokenIssuerType", this.tokenIssuerType);
         writer.writeStringValue("userDisplayName", this.userDisplayName);
         writer.writeStringValue("userId", this.userId);
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
@@ -320,7 +318,7 @@ export class RiskDetection extends Entity implements Parsable {
     };
     /**
      * Gets the tokenIssuerType property value. Indicates the type of token issuer for the detected sign-in risk. The possible values are AzureAD, ADFederationServices, and unknownFutureValue.
-     * @returns a tokenIssuerType
+     * @returns a admin
      */
     public get tokenIssuerType() {
         return this._tokenIssuerType;
@@ -329,7 +327,7 @@ export class RiskDetection extends Entity implements Parsable {
      * Sets the tokenIssuerType property value. Indicates the type of token issuer for the detected sign-in risk. The possible values are AzureAD, ADFederationServices, and unknownFutureValue.
      * @param value Value to set for the tokenIssuerType property.
      */
-    public set tokenIssuerType(value: TokenIssuerType | undefined) {
+    public set tokenIssuerType(value: TokenIssuerType | AdminMember1 | undefined) {
         this._tokenIssuerType = value;
     };
     /**

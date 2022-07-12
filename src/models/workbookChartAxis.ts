@@ -1,28 +1,23 @@
-import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
-import {createWorkbookChartAxisFormatFromDiscriminatorValue} from './createWorkbookChartAxisFormatFromDiscriminatorValue';
-import {createWorkbookChartAxisTitleFromDiscriminatorValue} from './createWorkbookChartAxisTitleFromDiscriminatorValue';
-import {createWorkbookChartGridlinesFromDiscriminatorValue} from './createWorkbookChartGridlinesFromDiscriminatorValue';
-import {Entity, Json, WorkbookChartAxisFormat, WorkbookChartAxisTitle, WorkbookChartGridlines} from './index';
+import {AdminMember1, Entity, Json, WorkbookChartAxisFormat, WorkbookChartAxisTitle, WorkbookChartGridlines} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartAxis extends Entity implements Parsable {
     /** Represents the formatting of a chart object, which includes line and font formatting. Read-only. */
-    private _format?: WorkbookChartAxisFormat | undefined;
+    private _format?: WorkbookChartAxisFormat | AdminMember1 | undefined;
     /** Returns a gridlines object that represents the major gridlines for the specified axis. Read-only. */
-    private _majorGridlines?: WorkbookChartGridlines | undefined;
+    private _majorGridlines?: WorkbookChartGridlines | AdminMember1 | undefined;
     /** Represents the interval between two major tick marks. Can be set to a numeric value or an empty string.  The returned value is always a number. */
-    private _majorUnit?: Json | undefined;
+    private _majorUnit?: Json | AdminMember1 | undefined;
     /** Represents the maximum value on the value axis.  Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number. */
-    private _maximum?: Json | undefined;
+    private _maximum?: Json | AdminMember1 | undefined;
     /** Represents the minimum value on the value axis. Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number. */
-    private _minimum?: Json | undefined;
+    private _minimum?: Json | AdminMember1 | undefined;
     /** Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only. */
-    private _minorGridlines?: WorkbookChartGridlines | undefined;
+    private _minorGridlines?: WorkbookChartGridlines | AdminMember1 | undefined;
     /** Represents the interval between two minor tick marks. 'Can be set to a numeric value or an empty string (for automatic axis values). The returned value is always a number. */
-    private _minorUnit?: Json | undefined;
+    private _minorUnit?: Json | AdminMember1 | undefined;
     /** Represents the axis title. Read-only. */
-    private _title?: WorkbookChartAxisTitle | undefined;
+    private _title?: WorkbookChartAxisTitle | AdminMember1 | undefined;
     /**
      * Instantiates a new workbookChartAxis and sets the default values.
      */
@@ -31,7 +26,7 @@ export class WorkbookChartAxis extends Entity implements Parsable {
     };
     /**
      * Gets the format property value. Represents the formatting of a chart object, which includes line and font formatting. Read-only.
-     * @returns a workbookChartAxisFormat
+     * @returns a admin
      */
     public get format() {
         return this._format;
@@ -40,7 +35,7 @@ export class WorkbookChartAxis extends Entity implements Parsable {
      * Sets the format property value. Represents the formatting of a chart object, which includes line and font formatting. Read-only.
      * @param value Value to set for the format property.
      */
-    public set format(value: WorkbookChartAxisFormat | undefined) {
+    public set format(value: WorkbookChartAxisFormat | AdminMember1 | undefined) {
         this._format = value;
     };
     /**
@@ -61,7 +56,7 @@ export class WorkbookChartAxis extends Entity implements Parsable {
     };
     /**
      * Gets the majorGridlines property value. Returns a gridlines object that represents the major gridlines for the specified axis. Read-only.
-     * @returns a workbookChartGridlines
+     * @returns a admin
      */
     public get majorGridlines() {
         return this._majorGridlines;
@@ -70,12 +65,12 @@ export class WorkbookChartAxis extends Entity implements Parsable {
      * Sets the majorGridlines property value. Returns a gridlines object that represents the major gridlines for the specified axis. Read-only.
      * @param value Value to set for the majorGridlines property.
      */
-    public set majorGridlines(value: WorkbookChartGridlines | undefined) {
+    public set majorGridlines(value: WorkbookChartGridlines | AdminMember1 | undefined) {
         this._majorGridlines = value;
     };
     /**
      * Gets the majorUnit property value. Represents the interval between two major tick marks. Can be set to a numeric value or an empty string.  The returned value is always a number.
-     * @returns a Json
+     * @returns a admin
      */
     public get majorUnit() {
         return this._majorUnit;
@@ -84,12 +79,12 @@ export class WorkbookChartAxis extends Entity implements Parsable {
      * Sets the majorUnit property value. Represents the interval between two major tick marks. Can be set to a numeric value or an empty string.  The returned value is always a number.
      * @param value Value to set for the majorUnit property.
      */
-    public set majorUnit(value: Json | undefined) {
+    public set majorUnit(value: Json | AdminMember1 | undefined) {
         this._majorUnit = value;
     };
     /**
      * Gets the maximum property value. Represents the maximum value on the value axis.  Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.
-     * @returns a Json
+     * @returns a admin
      */
     public get maximum() {
         return this._maximum;
@@ -98,12 +93,12 @@ export class WorkbookChartAxis extends Entity implements Parsable {
      * Sets the maximum property value. Represents the maximum value on the value axis.  Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.
      * @param value Value to set for the maximum property.
      */
-    public set maximum(value: Json | undefined) {
+    public set maximum(value: Json | AdminMember1 | undefined) {
         this._maximum = value;
     };
     /**
      * Gets the minimum property value. Represents the minimum value on the value axis. Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.
-     * @returns a Json
+     * @returns a admin
      */
     public get minimum() {
         return this._minimum;
@@ -112,12 +107,12 @@ export class WorkbookChartAxis extends Entity implements Parsable {
      * Sets the minimum property value. Represents the minimum value on the value axis. Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.
      * @param value Value to set for the minimum property.
      */
-    public set minimum(value: Json | undefined) {
+    public set minimum(value: Json | AdminMember1 | undefined) {
         this._minimum = value;
     };
     /**
      * Gets the minorGridlines property value. Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only.
-     * @returns a workbookChartGridlines
+     * @returns a admin
      */
     public get minorGridlines() {
         return this._minorGridlines;
@@ -126,12 +121,12 @@ export class WorkbookChartAxis extends Entity implements Parsable {
      * Sets the minorGridlines property value. Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only.
      * @param value Value to set for the minorGridlines property.
      */
-    public set minorGridlines(value: WorkbookChartGridlines | undefined) {
+    public set minorGridlines(value: WorkbookChartGridlines | AdminMember1 | undefined) {
         this._minorGridlines = value;
     };
     /**
      * Gets the minorUnit property value. Represents the interval between two minor tick marks. 'Can be set to a numeric value or an empty string (for automatic axis values). The returned value is always a number.
-     * @returns a Json
+     * @returns a admin
      */
     public get minorUnit() {
         return this._minorUnit;
@@ -140,7 +135,7 @@ export class WorkbookChartAxis extends Entity implements Parsable {
      * Sets the minorUnit property value. Represents the interval between two minor tick marks. 'Can be set to a numeric value or an empty string (for automatic axis values). The returned value is always a number.
      * @param value Value to set for the minorUnit property.
      */
-    public set minorUnit(value: Json | undefined) {
+    public set minorUnit(value: Json | AdminMember1 | undefined) {
         this._minorUnit = value;
     };
     /**
@@ -161,7 +156,7 @@ export class WorkbookChartAxis extends Entity implements Parsable {
     };
     /**
      * Gets the title property value. Represents the axis title. Read-only.
-     * @returns a workbookChartAxisTitle
+     * @returns a admin
      */
     public get title() {
         return this._title;
@@ -170,7 +165,7 @@ export class WorkbookChartAxis extends Entity implements Parsable {
      * Sets the title property value. Represents the axis title. Read-only.
      * @param value Value to set for the title property.
      */
-    public set title(value: WorkbookChartAxisTitle | undefined) {
+    public set title(value: WorkbookChartAxisTitle | AdminMember1 | undefined) {
         this._title = value;
     };
 }

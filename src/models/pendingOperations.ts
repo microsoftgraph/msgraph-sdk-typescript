@@ -1,12 +1,11 @@
-import {createPendingContentUpdateFromDiscriminatorValue} from './createPendingContentUpdateFromDiscriminatorValue';
-import {PendingContentUpdate} from './index';
+import {AdminMember1, PendingContentUpdate} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PendingOperations implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** A property that indicates that an operation that might update the binary content of a file is pending completion. */
-    private _pendingContentUpdate?: PendingContentUpdate | undefined;
+    private _pendingContentUpdate?: PendingContentUpdate | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -38,7 +37,7 @@ export class PendingOperations implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the pendingContentUpdate property value. A property that indicates that an operation that might update the binary content of a file is pending completion.
-     * @returns a pendingContentUpdate
+     * @returns a admin
      */
     public get pendingContentUpdate() {
         return this._pendingContentUpdate;
@@ -47,7 +46,7 @@ export class PendingOperations implements AdditionalDataHolder, Parsable {
      * Sets the pendingContentUpdate property value. A property that indicates that an operation that might update the binary content of a file is pending completion.
      * @param value Value to set for the pendingContentUpdate property.
      */
-    public set pendingContentUpdate(value: PendingContentUpdate | undefined) {
+    public set pendingContentUpdate(value: PendingContentUpdate | AdminMember1 | undefined) {
         this._pendingContentUpdate = value;
     };
     /**

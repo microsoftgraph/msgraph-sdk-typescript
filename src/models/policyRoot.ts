@@ -1,43 +1,39 @@
 import {createActivityBasedTimeoutPolicyFromDiscriminatorValue} from './createActivityBasedTimeoutPolicyFromDiscriminatorValue';
-import {createAdminConsentRequestPolicyFromDiscriminatorValue} from './createAdminConsentRequestPolicyFromDiscriminatorValue';
-import {createAuthenticationFlowsPolicyFromDiscriminatorValue} from './createAuthenticationFlowsPolicyFromDiscriminatorValue';
-import {createAuthenticationMethodsPolicyFromDiscriminatorValue} from './createAuthenticationMethodsPolicyFromDiscriminatorValue';
-import {createAuthorizationPolicyFromDiscriminatorValue} from './createAuthorizationPolicyFromDiscriminatorValue';
 import {createClaimsMappingPolicyFromDiscriminatorValue} from './createClaimsMappingPolicyFromDiscriminatorValue';
 import {createConditionalAccessPolicyFromDiscriminatorValue} from './createConditionalAccessPolicyFromDiscriminatorValue';
 import {createFeatureRolloutPolicyFromDiscriminatorValue} from './createFeatureRolloutPolicyFromDiscriminatorValue';
 import {createHomeRealmDiscoveryPolicyFromDiscriminatorValue} from './createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
-import {createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue} from './createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue';
 import {createPermissionGrantPolicyFromDiscriminatorValue} from './createPermissionGrantPolicyFromDiscriminatorValue';
 import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssuancePolicyFromDiscriminatorValue';
 import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
 import {createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue} from './createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue';
 import {createUnifiedRoleManagementPolicyFromDiscriminatorValue} from './createUnifiedRoleManagementPolicyFromDiscriminatorValue';
-import {ActivityBasedTimeoutPolicy, AdminConsentRequestPolicy, AuthenticationFlowsPolicy, AuthenticationMethodsPolicy, AuthorizationPolicy, ClaimsMappingPolicy, ConditionalAccessPolicy, Entity, FeatureRolloutPolicy, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, PermissionGrantPolicy, TokenIssuancePolicy, TokenLifetimePolicy, UnifiedRoleManagementPolicy, UnifiedRoleManagementPolicyAssignment} from './index';
+import {ActivityBasedTimeoutPolicy, AdminConsentRequestPolicy, AdminMember1, AuthenticationFlowsPolicy, AuthenticationMethodsPolicy, AuthorizationPolicy, ClaimsMappingPolicy, ConditionalAccessPolicy, CrossTenantAccessPolicy, Entity, FeatureRolloutPolicy, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, PermissionGrantPolicy, TokenIssuancePolicy, TokenLifetimePolicy, UnifiedRoleManagementPolicy, UnifiedRoleManagementPolicyAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
 export class PolicyRoot extends Entity implements Parsable {
     /** The policy that controls the idle time out for web sessions for applications. */
     private _activityBasedTimeoutPolicies?: ActivityBasedTimeoutPolicy[] | undefined;
     /** The policy by which consent requests are created and managed for the entire tenant. */
-    private _adminConsentRequestPolicy?: AdminConsentRequestPolicy | undefined;
+    private _adminConsentRequestPolicy?: AdminConsentRequestPolicy | AdminMember1 | undefined;
     /** The policy configuration of the self-service sign-up experience of external users. */
-    private _authenticationFlowsPolicy?: AuthenticationFlowsPolicy | undefined;
+    private _authenticationFlowsPolicy?: AuthenticationFlowsPolicy | AdminMember1 | undefined;
     /** The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD). */
-    private _authenticationMethodsPolicy?: AuthenticationMethodsPolicy | undefined;
+    private _authenticationMethodsPolicy?: AuthenticationMethodsPolicy | AdminMember1 | undefined;
     /** The policy that controls Azure AD authorization settings. */
-    private _authorizationPolicy?: AuthorizationPolicy | undefined;
+    private _authorizationPolicy?: AuthorizationPolicy | AdminMember1 | undefined;
     /** The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application. */
     private _claimsMappingPolicies?: ClaimsMappingPolicy[] | undefined;
     /** The custom rules that define an access scenario. */
     private _conditionalAccessPolicies?: ConditionalAccessPolicy[] | undefined;
+    /** The custom rules that define an access scenario when interacting with external Azure AD tenants. */
+    private _crossTenantAccessPolicy?: CrossTenantAccessPolicy | AdminMember1 | undefined;
     /** The feature rollout policy associated with a directory object. */
     private _featureRolloutPolicies?: FeatureRolloutPolicy[] | undefined;
     /** The policy to control Azure AD authentication behavior for federated users. */
     private _homeRealmDiscoveryPolicies?: HomeRealmDiscoveryPolicy[] | undefined;
     /** The policy that represents the security defaults that protect against common attacks. */
-    private _identitySecurityDefaultsEnforcementPolicy?: IdentitySecurityDefaultsEnforcementPolicy | undefined;
+    private _identitySecurityDefaultsEnforcementPolicy?: IdentitySecurityDefaultsEnforcementPolicy | AdminMember1 | undefined;
     /** The policy that specifies the conditions under which consent can be granted. */
     private _permissionGrantPolicies?: PermissionGrantPolicy[] | undefined;
     /** Represents the role management policies. */
@@ -64,7 +60,7 @@ export class PolicyRoot extends Entity implements Parsable {
     };
     /**
      * Gets the adminConsentRequestPolicy property value. The policy by which consent requests are created and managed for the entire tenant.
-     * @returns a adminConsentRequestPolicy
+     * @returns a admin
      */
     public get adminConsentRequestPolicy() {
         return this._adminConsentRequestPolicy;
@@ -73,12 +69,12 @@ export class PolicyRoot extends Entity implements Parsable {
      * Sets the adminConsentRequestPolicy property value. The policy by which consent requests are created and managed for the entire tenant.
      * @param value Value to set for the adminConsentRequestPolicy property.
      */
-    public set adminConsentRequestPolicy(value: AdminConsentRequestPolicy | undefined) {
+    public set adminConsentRequestPolicy(value: AdminConsentRequestPolicy | AdminMember1 | undefined) {
         this._adminConsentRequestPolicy = value;
     };
     /**
      * Gets the authenticationFlowsPolicy property value. The policy configuration of the self-service sign-up experience of external users.
-     * @returns a authenticationFlowsPolicy
+     * @returns a admin
      */
     public get authenticationFlowsPolicy() {
         return this._authenticationFlowsPolicy;
@@ -87,12 +83,12 @@ export class PolicyRoot extends Entity implements Parsable {
      * Sets the authenticationFlowsPolicy property value. The policy configuration of the self-service sign-up experience of external users.
      * @param value Value to set for the authenticationFlowsPolicy property.
      */
-    public set authenticationFlowsPolicy(value: AuthenticationFlowsPolicy | undefined) {
+    public set authenticationFlowsPolicy(value: AuthenticationFlowsPolicy | AdminMember1 | undefined) {
         this._authenticationFlowsPolicy = value;
     };
     /**
      * Gets the authenticationMethodsPolicy property value. The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).
-     * @returns a authenticationMethodsPolicy
+     * @returns a admin
      */
     public get authenticationMethodsPolicy() {
         return this._authenticationMethodsPolicy;
@@ -101,12 +97,12 @@ export class PolicyRoot extends Entity implements Parsable {
      * Sets the authenticationMethodsPolicy property value. The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).
      * @param value Value to set for the authenticationMethodsPolicy property.
      */
-    public set authenticationMethodsPolicy(value: AuthenticationMethodsPolicy | undefined) {
+    public set authenticationMethodsPolicy(value: AuthenticationMethodsPolicy | AdminMember1 | undefined) {
         this._authenticationMethodsPolicy = value;
     };
     /**
      * Gets the authorizationPolicy property value. The policy that controls Azure AD authorization settings.
-     * @returns a authorizationPolicy
+     * @returns a admin
      */
     public get authorizationPolicy() {
         return this._authorizationPolicy;
@@ -115,7 +111,7 @@ export class PolicyRoot extends Entity implements Parsable {
      * Sets the authorizationPolicy property value. The policy that controls Azure AD authorization settings.
      * @param value Value to set for the authorizationPolicy property.
      */
-    public set authorizationPolicy(value: AuthorizationPolicy | undefined) {
+    public set authorizationPolicy(value: AuthorizationPolicy | AdminMember1 | undefined) {
         this._authorizationPolicy = value;
     };
     /**
@@ -147,10 +143,24 @@ export class PolicyRoot extends Entity implements Parsable {
         this._conditionalAccessPolicies = value;
     };
     /**
-     * Instantiates a new policyRoot and sets the default values.
+     * Instantiates a new PolicyRoot and sets the default values.
      */
     public constructor() {
         super();
+    };
+    /**
+     * Gets the crossTenantAccessPolicy property value. The custom rules that define an access scenario when interacting with external Azure AD tenants.
+     * @returns a admin
+     */
+    public get crossTenantAccessPolicy() {
+        return this._crossTenantAccessPolicy;
+    };
+    /**
+     * Sets the crossTenantAccessPolicy property value. The custom rules that define an access scenario when interacting with external Azure AD tenants.
+     * @param value Value to set for the crossTenantAccessPolicy property.
+     */
+    public set crossTenantAccessPolicy(value: CrossTenantAccessPolicy | AdminMember1 | undefined) {
+        this._crossTenantAccessPolicy = value;
     };
     /**
      * Gets the featureRolloutPolicies property value. The feature rollout policy associated with a directory object.
@@ -179,6 +189,7 @@ export class PolicyRoot extends Entity implements Parsable {
             "authorizationPolicy": n => { this.authorizationPolicy = n.getObjectValue<AuthorizationPolicy>(createAuthorizationPolicyFromDiscriminatorValue); },
             "claimsMappingPolicies": n => { this.claimsMappingPolicies = n.getCollectionOfObjectValues<ClaimsMappingPolicy>(createClaimsMappingPolicyFromDiscriminatorValue); },
             "conditionalAccessPolicies": n => { this.conditionalAccessPolicies = n.getCollectionOfObjectValues<ConditionalAccessPolicy>(createConditionalAccessPolicyFromDiscriminatorValue); },
+            "crossTenantAccessPolicy": n => { this.crossTenantAccessPolicy = n.getObjectValue<CrossTenantAccessPolicy>(createCrossTenantAccessPolicyFromDiscriminatorValue); },
             "featureRolloutPolicies": n => { this.featureRolloutPolicies = n.getCollectionOfObjectValues<FeatureRolloutPolicy>(createFeatureRolloutPolicyFromDiscriminatorValue); },
             "homeRealmDiscoveryPolicies": n => { this.homeRealmDiscoveryPolicies = n.getCollectionOfObjectValues<HomeRealmDiscoveryPolicy>(createHomeRealmDiscoveryPolicyFromDiscriminatorValue); },
             "identitySecurityDefaultsEnforcementPolicy": n => { this.identitySecurityDefaultsEnforcementPolicy = n.getObjectValue<IdentitySecurityDefaultsEnforcementPolicy>(createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue); },
@@ -205,7 +216,7 @@ export class PolicyRoot extends Entity implements Parsable {
     };
     /**
      * Gets the identitySecurityDefaultsEnforcementPolicy property value. The policy that represents the security defaults that protect against common attacks.
-     * @returns a identitySecurityDefaultsEnforcementPolicy
+     * @returns a admin
      */
     public get identitySecurityDefaultsEnforcementPolicy() {
         return this._identitySecurityDefaultsEnforcementPolicy;
@@ -214,7 +225,7 @@ export class PolicyRoot extends Entity implements Parsable {
      * Sets the identitySecurityDefaultsEnforcementPolicy property value. The policy that represents the security defaults that protect against common attacks.
      * @param value Value to set for the identitySecurityDefaultsEnforcementPolicy property.
      */
-    public set identitySecurityDefaultsEnforcementPolicy(value: IdentitySecurityDefaultsEnforcementPolicy | undefined) {
+    public set identitySecurityDefaultsEnforcementPolicy(value: IdentitySecurityDefaultsEnforcementPolicy | AdminMember1 | undefined) {
         this._identitySecurityDefaultsEnforcementPolicy = value;
     };
     /**
@@ -273,6 +284,7 @@ export class PolicyRoot extends Entity implements Parsable {
         writer.writeObjectValue<AuthorizationPolicy>("authorizationPolicy", this.authorizationPolicy);
         writer.writeCollectionOfObjectValues<ClaimsMappingPolicy>("claimsMappingPolicies", this.claimsMappingPolicies);
         writer.writeCollectionOfObjectValues<ConditionalAccessPolicy>("conditionalAccessPolicies", this.conditionalAccessPolicies);
+        writer.writeObjectValue<CrossTenantAccessPolicy>("crossTenantAccessPolicy", this.crossTenantAccessPolicy);
         writer.writeCollectionOfObjectValues<FeatureRolloutPolicy>("featureRolloutPolicies", this.featureRolloutPolicies);
         writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", this.homeRealmDiscoveryPolicies);
         writer.writeObjectValue<IdentitySecurityDefaultsEnforcementPolicy>("identitySecurityDefaultsEnforcementPolicy", this.identitySecurityDefaultsEnforcementPolicy);

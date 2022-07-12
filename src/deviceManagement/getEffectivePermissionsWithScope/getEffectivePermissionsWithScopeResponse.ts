@@ -1,5 +1,5 @@
 import {RolePermission} from '../../models/';
-import {createRolePermissionFromDiscriminatorValue} from '../../models/createRolePermissionFromDiscriminatorValue';
+import {GetEffectivePermissionsWithScopeMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getEffectivePermissions method. */
@@ -7,7 +7,7 @@ export class GetEffectivePermissionsWithScopeResponse implements AdditionalDataH
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The value property */
-    private _value?: RolePermission[] | undefined;
+    private _value?: RolePermission | GetEffectivePermissionsWithScopeMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,7 +34,7 @@ export class GetEffectivePermissionsWithScopeResponse implements AdditionalDataH
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": n => { this.value = n.getCollectionOfObjectValues<RolePermission>(createRolePermissionFromDiscriminatorValue); },
+            "value": n => { this.value = n.getObjectValue<RolePermission>(createRolePermissionFromDiscriminatorValue); },
         };
     };
     /**
@@ -43,12 +43,12 @@ export class GetEffectivePermissionsWithScopeResponse implements AdditionalDataH
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<RolePermission>("value", this.value);
+        writer.writeObjectValue<RolePermission>("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the value property value. The value property
-     * @returns a rolePermission
+     * @returns a getEffectivePermissionsWithScope
      */
     public get value() {
         return this._value;
@@ -57,7 +57,7 @@ export class GetEffectivePermissionsWithScopeResponse implements AdditionalDataH
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public set value(value: RolePermission[] | undefined) {
+    public set value(value: RolePermission | GetEffectivePermissionsWithScopeMember1[] | undefined) {
         this._value = value;
     };
 }

@@ -1,6 +1,4 @@
-import {createMimeContentFromDiscriminatorValue} from './createMimeContentFromDiscriminatorValue';
-import {createRgbColorFromDiscriminatorValue} from './createRgbColorFromDiscriminatorValue';
-import {MimeContent, RgbColor} from './index';
+import {AdminMember1, MimeContent, RgbColor} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal. */
@@ -16,11 +14,11 @@ export class IntuneBrand implements AdditionalDataHolder, Parsable {
     /** Phone number of the person/organization responsible for IT support. */
     private _contactITPhoneNumber?: string | undefined;
     /** Logo image displayed in Company Portal apps which have a dark background behind the logo. */
-    private _darkBackgroundLogo?: MimeContent | undefined;
+    private _darkBackgroundLogo?: MimeContent | AdminMember1 | undefined;
     /** Company/organization name that is displayed to end users. */
     private _displayName?: string | undefined;
     /** Logo image displayed in Company Portal apps which have a light background behind the logo. */
-    private _lightBackgroundLogo?: MimeContent | undefined;
+    private _lightBackgroundLogo?: MimeContent | AdminMember1 | undefined;
     /** Display name of the company/organization’s IT helpdesk site. */
     private _onlineSupportSiteName?: string | undefined;
     /** URL to the company/organization’s IT helpdesk site. */
@@ -34,7 +32,7 @@ export class IntuneBrand implements AdditionalDataHolder, Parsable {
     /** Boolean that represents whether the administrator-supplied display name will be shown next to the logo image. */
     private _showNameNextToLogo?: boolean | undefined;
     /** Primary theme color used in the Company Portal applications and web portal. */
-    private _themeColor?: RgbColor | undefined;
+    private _themeColor?: RgbColor | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -113,7 +111,7 @@ export class IntuneBrand implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the darkBackgroundLogo property value. Logo image displayed in Company Portal apps which have a dark background behind the logo.
-     * @returns a mimeContent
+     * @returns a admin
      */
     public get darkBackgroundLogo() {
         return this._darkBackgroundLogo;
@@ -122,7 +120,7 @@ export class IntuneBrand implements AdditionalDataHolder, Parsable {
      * Sets the darkBackgroundLogo property value. Logo image displayed in Company Portal apps which have a dark background behind the logo.
      * @param value Value to set for the darkBackgroundLogo property.
      */
-    public set darkBackgroundLogo(value: MimeContent | undefined) {
+    public set darkBackgroundLogo(value: MimeContent | AdminMember1 | undefined) {
         this._darkBackgroundLogo = value;
     };
     /**
@@ -163,7 +161,7 @@ export class IntuneBrand implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the lightBackgroundLogo property value. Logo image displayed in Company Portal apps which have a light background behind the logo.
-     * @returns a mimeContent
+     * @returns a admin
      */
     public get lightBackgroundLogo() {
         return this._lightBackgroundLogo;
@@ -172,7 +170,7 @@ export class IntuneBrand implements AdditionalDataHolder, Parsable {
      * Sets the lightBackgroundLogo property value. Logo image displayed in Company Portal apps which have a light background behind the logo.
      * @param value Value to set for the lightBackgroundLogo property.
      */
-    public set lightBackgroundLogo(value: MimeContent | undefined) {
+    public set lightBackgroundLogo(value: MimeContent | AdminMember1 | undefined) {
         this._lightBackgroundLogo = value;
     };
     /**
@@ -283,7 +281,7 @@ export class IntuneBrand implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the themeColor property value. Primary theme color used in the Company Portal applications and web portal.
-     * @returns a rgbColor
+     * @returns a admin
      */
     public get themeColor() {
         return this._themeColor;
@@ -292,7 +290,7 @@ export class IntuneBrand implements AdditionalDataHolder, Parsable {
      * Sets the themeColor property value. Primary theme color used in the Company Portal applications and web portal.
      * @param value Value to set for the themeColor property.
      */
-    public set themeColor(value: RgbColor | undefined) {
+    public set themeColor(value: RgbColor | AdminMember1 | undefined) {
         this._themeColor = value;
     };
 }

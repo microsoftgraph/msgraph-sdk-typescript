@@ -5,37 +5,35 @@ import {createAccessPackageCatalogFromDiscriminatorValue} from './createAccessPa
 import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
 import {createApprovalFromDiscriminatorValue} from './createApprovalFromDiscriminatorValue';
 import {createConnectedOrganizationFromDiscriminatorValue} from './createConnectedOrganizationFromDiscriminatorValue';
-import {createEntitlementManagementSettingsFromDiscriminatorValue} from './createEntitlementManagementSettingsFromDiscriminatorValue';
-import {AccessPackage, AccessPackageAssignment, AccessPackageAssignmentPolicy, AccessPackageAssignmentRequest, AccessPackageCatalog, Approval, ConnectedOrganization, EntitlementManagementSettings, Entity} from './index';
+import {AccessPackage, AccessPackageAssignment, AccessPackageAssignmentPolicy, AccessPackageAssignmentRequest, AccessPackageCatalog, AdminMember1, Approval, ConnectedOrganization, EntitlementManagementSettings, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class EntitlementManagement extends Entity implements Parsable {
-    /** Approval stages for assignment requests. */
+    /** Approval stages for decisions associated with access package assignment requests. */
     private _accessPackageAssignmentApprovals?: Approval[] | undefined;
     /** Represents access package objects. */
     private _accessPackages?: AccessPackage[] | undefined;
-    /** Access package assignment policies. */
+    /** Access package assignment policies govern which subjects can request or be assigned an access package via an access package assignment. */
     private _assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
-    /** Represents access package assignment requests created by or on behalf of a user. */
+    /** Access package assignment requests created by or on behalf of a subject. */
     private _assignmentRequests?: AccessPackageAssignmentRequest[] | undefined;
-    /** Represents the grant of an access package to a subject (user or group). */
+    /** The assignment of an access package to a subject for a period of time. */
     private _assignments?: AccessPackageAssignment[] | undefined;
-    /** Represents a collection of access packages. */
+    /** A container for access packages. */
     private _catalogs?: AccessPackageCatalog[] | undefined;
     /** Represents references to a directory or domain of another organization whose users can request access. */
     private _connectedOrganizations?: ConnectedOrganization[] | undefined;
     /** Represents the settings that control the behavior of Azure AD entitlement management. */
-    private _settings?: EntitlementManagementSettings | undefined;
+    private _settings?: EntitlementManagementSettings | AdminMember1 | undefined;
     /**
-     * Gets the accessPackageAssignmentApprovals property value. Approval stages for assignment requests.
+     * Gets the accessPackageAssignmentApprovals property value. Approval stages for decisions associated with access package assignment requests.
      * @returns a approval
      */
     public get accessPackageAssignmentApprovals() {
         return this._accessPackageAssignmentApprovals;
     };
     /**
-     * Sets the accessPackageAssignmentApprovals property value. Approval stages for assignment requests.
+     * Sets the accessPackageAssignmentApprovals property value. Approval stages for decisions associated with access package assignment requests.
      * @param value Value to set for the accessPackageAssignmentApprovals property.
      */
     public set accessPackageAssignmentApprovals(value: Approval[] | undefined) {
@@ -56,56 +54,56 @@ export class EntitlementManagement extends Entity implements Parsable {
         this._accessPackages = value;
     };
     /**
-     * Gets the assignmentPolicies property value. Access package assignment policies.
+     * Gets the assignmentPolicies property value. Access package assignment policies govern which subjects can request or be assigned an access package via an access package assignment.
      * @returns a accessPackageAssignmentPolicy
      */
     public get assignmentPolicies() {
         return this._assignmentPolicies;
     };
     /**
-     * Sets the assignmentPolicies property value. Access package assignment policies.
+     * Sets the assignmentPolicies property value. Access package assignment policies govern which subjects can request or be assigned an access package via an access package assignment.
      * @param value Value to set for the assignmentPolicies property.
      */
     public set assignmentPolicies(value: AccessPackageAssignmentPolicy[] | undefined) {
         this._assignmentPolicies = value;
     };
     /**
-     * Gets the assignmentRequests property value. Represents access package assignment requests created by or on behalf of a user.
+     * Gets the assignmentRequests property value. Access package assignment requests created by or on behalf of a subject.
      * @returns a accessPackageAssignmentRequest
      */
     public get assignmentRequests() {
         return this._assignmentRequests;
     };
     /**
-     * Sets the assignmentRequests property value. Represents access package assignment requests created by or on behalf of a user.
+     * Sets the assignmentRequests property value. Access package assignment requests created by or on behalf of a subject.
      * @param value Value to set for the assignmentRequests property.
      */
     public set assignmentRequests(value: AccessPackageAssignmentRequest[] | undefined) {
         this._assignmentRequests = value;
     };
     /**
-     * Gets the assignments property value. Represents the grant of an access package to a subject (user or group).
+     * Gets the assignments property value. The assignment of an access package to a subject for a period of time.
      * @returns a accessPackageAssignment
      */
     public get assignments() {
         return this._assignments;
     };
     /**
-     * Sets the assignments property value. Represents the grant of an access package to a subject (user or group).
+     * Sets the assignments property value. The assignment of an access package to a subject for a period of time.
      * @param value Value to set for the assignments property.
      */
     public set assignments(value: AccessPackageAssignment[] | undefined) {
         this._assignments = value;
     };
     /**
-     * Gets the catalogs property value. Represents a collection of access packages.
+     * Gets the catalogs property value. A container for access packages.
      * @returns a accessPackageCatalog
      */
     public get catalogs() {
         return this._catalogs;
     };
     /**
-     * Sets the catalogs property value. Represents a collection of access packages.
+     * Sets the catalogs property value. A container for access packages.
      * @param value Value to set for the catalogs property.
      */
     public set catalogs(value: AccessPackageCatalog[] | undefined) {
@@ -126,7 +124,7 @@ export class EntitlementManagement extends Entity implements Parsable {
         this._connectedOrganizations = value;
     };
     /**
-     * Instantiates a new entitlementManagement and sets the default values.
+     * Instantiates a new EntitlementManagement and sets the default values.
      */
     public constructor() {
         super();
@@ -165,7 +163,7 @@ export class EntitlementManagement extends Entity implements Parsable {
     };
     /**
      * Gets the settings property value. Represents the settings that control the behavior of Azure AD entitlement management.
-     * @returns a entitlementManagementSettings
+     * @returns a admin
      */
     public get settings() {
         return this._settings;
@@ -174,7 +172,7 @@ export class EntitlementManagement extends Entity implements Parsable {
      * Sets the settings property value. Represents the settings that control the behavior of Azure AD entitlement management.
      * @param value Value to set for the settings property.
      */
-    public set settings(value: EntitlementManagementSettings | undefined) {
+    public set settings(value: EntitlementManagementSettings | AdminMember1 | undefined) {
         this._settings = value;
     };
 }

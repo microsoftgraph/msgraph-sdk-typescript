@@ -1,15 +1,11 @@
 import {ConditionalAccessSessionControl} from './index';
-import {SigninFrequencyType} from './signinFrequencyType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class SignInFrequencySessionControl extends ConditionalAccessSessionControl implements Parsable {
-    /** Possible values are: days, hours. */
-    private _type?: SigninFrequencyType | undefined;
     /** The number of days or hours. */
     private _value?: number | undefined;
     /**
-     * Instantiates a new signInFrequencySessionControl and sets the default values.
+     * Instantiates a new SignInFrequencySessionControl and sets the default values.
      */
     public constructor() {
         super();
@@ -20,7 +16,6 @@ export class SignInFrequencySessionControl extends ConditionalAccessSessionContr
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "type": n => { this.type = n.getEnumValue<SigninFrequencyType>(SigninFrequencyType); },
             "value": n => { this.value = n.getNumberValue(); },
         };
     };
@@ -31,22 +26,7 @@ export class SignInFrequencySessionControl extends ConditionalAccessSessionContr
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeEnumValue<SigninFrequencyType>("type", this.type);
         writer.writeNumberValue("value", this.value);
-    };
-    /**
-     * Gets the type property value. Possible values are: days, hours.
-     * @returns a signinFrequencyType
-     */
-    public get type() {
-        return this._type;
-    };
-    /**
-     * Sets the type property value. Possible values are: days, hours.
-     * @param value Value to set for the type property.
-     */
-    public set type(value: SigninFrequencyType | undefined) {
-        this._type = value;
     };
     /**
      * Gets the value property value. The number of days or hours.

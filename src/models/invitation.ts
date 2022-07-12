@@ -1,18 +1,15 @@
-import {createInvitedUserMessageInfoFromDiscriminatorValue} from './createInvitedUserMessageInfoFromDiscriminatorValue';
-import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorValue';
-import {Entity, InvitedUserMessageInfo, User} from './index';
+import {AdminMember1, Entity, InvitedUserMessageInfo, User} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of invitation entities. */
 export class Invitation extends Entity implements Parsable {
     /** The user created as part of the invitation creation. Read-Only */
-    private _invitedUser?: User | undefined;
+    private _invitedUser?: User | AdminMember1 | undefined;
     /** The display name of the user being invited. */
     private _invitedUserDisplayName?: string | undefined;
     /** The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)At sign (@)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&)Asterisk (*)Parentheses (( ))Hyphen (-)Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (` */
     private _invitedUserEmailAddress?: string | undefined;
     /** Additional configuration for the message being sent to the invited user, including customizing message text, language and cc recipient list. */
-    private _invitedUserMessageInfo?: InvitedUserMessageInfo | undefined;
+    private _invitedUserMessageInfo?: InvitedUserMessageInfo | AdminMember1 | undefined;
     /** The userType of the user being invited. By default, this is Guest. You can invite as Member if you're are company administrator. The default is false. */
     private _invitedUserType?: string | undefined;
     /** The URL the user can use to redeem their invitation. Read-only. */
@@ -24,7 +21,7 @@ export class Invitation extends Entity implements Parsable {
     /** The status of the invitation. Possible values: PendingAcceptance, Completed, InProgress, and Error */
     private _status?: string | undefined;
     /**
-     * Instantiates a new invitation and sets the default values.
+     * Instantiates a new Invitation and sets the default values.
      */
     public constructor() {
         super();
@@ -48,7 +45,7 @@ export class Invitation extends Entity implements Parsable {
     };
     /**
      * Gets the invitedUser property value. The user created as part of the invitation creation. Read-Only
-     * @returns a user
+     * @returns a admin
      */
     public get invitedUser() {
         return this._invitedUser;
@@ -57,7 +54,7 @@ export class Invitation extends Entity implements Parsable {
      * Sets the invitedUser property value. The user created as part of the invitation creation. Read-Only
      * @param value Value to set for the invitedUser property.
      */
-    public set invitedUser(value: User | undefined) {
+    public set invitedUser(value: User | AdminMember1 | undefined) {
         this._invitedUser = value;
     };
     /**
@@ -90,7 +87,7 @@ export class Invitation extends Entity implements Parsable {
     };
     /**
      * Gets the invitedUserMessageInfo property value. Additional configuration for the message being sent to the invited user, including customizing message text, language and cc recipient list.
-     * @returns a invitedUserMessageInfo
+     * @returns a admin
      */
     public get invitedUserMessageInfo() {
         return this._invitedUserMessageInfo;
@@ -99,7 +96,7 @@ export class Invitation extends Entity implements Parsable {
      * Sets the invitedUserMessageInfo property value. Additional configuration for the message being sent to the invited user, including customizing message text, language and cc recipient list.
      * @param value Value to set for the invitedUserMessageInfo property.
      */
-    public set invitedUserMessageInfo(value: InvitedUserMessageInfo | undefined) {
+    public set invitedUserMessageInfo(value: InvitedUserMessageInfo | AdminMember1 | undefined) {
         this._invitedUserMessageInfo = value;
     };
     /**

@@ -1,33 +1,26 @@
-import {createEducationAssignmentDefaultsFromDiscriminatorValue} from './createEducationAssignmentDefaultsFromDiscriminatorValue';
 import {createEducationAssignmentFromDiscriminatorValue} from './createEducationAssignmentFromDiscriminatorValue';
-import {createEducationAssignmentSettingsFromDiscriminatorValue} from './createEducationAssignmentSettingsFromDiscriminatorValue';
 import {createEducationCategoryFromDiscriminatorValue} from './createEducationCategoryFromDiscriminatorValue';
-import {createEducationCourseFromDiscriminatorValue} from './createEducationCourseFromDiscriminatorValue';
 import {createEducationSchoolFromDiscriminatorValue} from './createEducationSchoolFromDiscriminatorValue';
-import {createEducationTermFromDiscriminatorValue} from './createEducationTermFromDiscriminatorValue';
 import {createEducationUserFromDiscriminatorValue} from './createEducationUserFromDiscriminatorValue';
-import {createGroupFromDiscriminatorValue} from './createGroupFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {EducationExternalSource} from './educationExternalSource';
-import {EducationAssignment, EducationAssignmentDefaults, EducationAssignmentSettings, EducationCategory, EducationCourse, EducationSchool, EducationTerm, EducationUser, Entity, Group, IdentitySet} from './index';
+import {AdminMember1, EducationAssignment, EducationAssignmentDefaults, EducationAssignmentSettings, EducationCategory, EducationCourse, EducationSchool, EducationTerm, EducationUser, Entity, Group, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
 export class EducationClass extends Entity implements Parsable {
     /** All categories associated with this class. Nullable. */
     private _assignmentCategories?: EducationCategory[] | undefined;
     /** Specifies class-level defaults respected by new assignments created in the class. */
-    private _assignmentDefaults?: EducationAssignmentDefaults | undefined;
+    private _assignmentDefaults?: EducationAssignmentDefaults | AdminMember1 | undefined;
     /** All assignments associated with this class. Nullable. */
     private _assignments?: EducationAssignment[] | undefined;
     /** Specifies class-level assignments settings. */
-    private _assignmentSettings?: EducationAssignmentSettings | undefined;
+    private _assignmentSettings?: EducationAssignmentSettings | AdminMember1 | undefined;
     /** Class code used by the school to identify the class. */
     private _classCode?: string | undefined;
     /** Course information for the class. */
-    private _course?: EducationCourse | undefined;
+    private _course?: EducationCourse | AdminMember1 | undefined;
     /** Entity who created the class. */
-    private _createdBy?: IdentitySet | undefined;
+    private _createdBy?: IdentitySet | AdminMember1 | undefined;
     /** Description of the class. */
     private _description?: string | undefined;
     /** Name of the class. */
@@ -37,13 +30,13 @@ export class EducationClass extends Entity implements Parsable {
     /** Name of the class in the syncing system. */
     private _externalName?: string | undefined;
     /** The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual. */
-    private _externalSource?: EducationExternalSource | undefined;
+    private _externalSource?: EducationExternalSource | AdminMember1 | undefined;
     /** The name of the external source this resources was generated from. */
     private _externalSourceDetail?: string | undefined;
     /** Grade level of the class. */
     private _grade?: string | undefined;
     /** The underlying Microsoft 365 group object. */
-    private _group?: Group | undefined;
+    private _group?: Group | AdminMember1 | undefined;
     /** Mail name for sending email to all members, if this is enabled. */
     private _mailNickname?: string | undefined;
     /** All users in the class. Nullable. */
@@ -53,7 +46,7 @@ export class EducationClass extends Entity implements Parsable {
     /** All teachers in the class. Nullable. */
     private _teachers?: EducationUser[] | undefined;
     /** Term for the class. */
-    private _term?: EducationTerm | undefined;
+    private _term?: EducationTerm | AdminMember1 | undefined;
     /**
      * Gets the assignmentCategories property value. All categories associated with this class. Nullable.
      * @returns a educationCategory
@@ -70,7 +63,7 @@ export class EducationClass extends Entity implements Parsable {
     };
     /**
      * Gets the assignmentDefaults property value. Specifies class-level defaults respected by new assignments created in the class.
-     * @returns a educationAssignmentDefaults
+     * @returns a admin
      */
     public get assignmentDefaults() {
         return this._assignmentDefaults;
@@ -79,7 +72,7 @@ export class EducationClass extends Entity implements Parsable {
      * Sets the assignmentDefaults property value. Specifies class-level defaults respected by new assignments created in the class.
      * @param value Value to set for the assignmentDefaults property.
      */
-    public set assignmentDefaults(value: EducationAssignmentDefaults | undefined) {
+    public set assignmentDefaults(value: EducationAssignmentDefaults | AdminMember1 | undefined) {
         this._assignmentDefaults = value;
     };
     /**
@@ -98,7 +91,7 @@ export class EducationClass extends Entity implements Parsable {
     };
     /**
      * Gets the assignmentSettings property value. Specifies class-level assignments settings.
-     * @returns a educationAssignmentSettings
+     * @returns a admin
      */
     public get assignmentSettings() {
         return this._assignmentSettings;
@@ -107,7 +100,7 @@ export class EducationClass extends Entity implements Parsable {
      * Sets the assignmentSettings property value. Specifies class-level assignments settings.
      * @param value Value to set for the assignmentSettings property.
      */
-    public set assignmentSettings(value: EducationAssignmentSettings | undefined) {
+    public set assignmentSettings(value: EducationAssignmentSettings | AdminMember1 | undefined) {
         this._assignmentSettings = value;
     };
     /**
@@ -125,14 +118,14 @@ export class EducationClass extends Entity implements Parsable {
         this._classCode = value;
     };
     /**
-     * Instantiates a new educationClass and sets the default values.
+     * Instantiates a new EducationClass and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
      * Gets the course property value. Course information for the class.
-     * @returns a educationCourse
+     * @returns a admin
      */
     public get course() {
         return this._course;
@@ -141,12 +134,12 @@ export class EducationClass extends Entity implements Parsable {
      * Sets the course property value. Course information for the class.
      * @param value Value to set for the course property.
      */
-    public set course(value: EducationCourse | undefined) {
+    public set course(value: EducationCourse | AdminMember1 | undefined) {
         this._course = value;
     };
     /**
      * Gets the createdBy property value. Entity who created the class.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get createdBy() {
         return this._createdBy;
@@ -155,7 +148,7 @@ export class EducationClass extends Entity implements Parsable {
      * Sets the createdBy property value. Entity who created the class.
      * @param value Value to set for the createdBy property.
      */
-    public set createdBy(value: IdentitySet | undefined) {
+    public set createdBy(value: IdentitySet | AdminMember1 | undefined) {
         this._createdBy = value;
     };
     /**
@@ -216,7 +209,7 @@ export class EducationClass extends Entity implements Parsable {
     };
     /**
      * Gets the externalSource property value. The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual.
-     * @returns a educationExternalSource
+     * @returns a admin
      */
     public get externalSource() {
         return this._externalSource;
@@ -225,7 +218,7 @@ export class EducationClass extends Entity implements Parsable {
      * Sets the externalSource property value. The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual.
      * @param value Value to set for the externalSource property.
      */
-    public set externalSource(value: EducationExternalSource | undefined) {
+    public set externalSource(value: EducationExternalSource | AdminMember1 | undefined) {
         this._externalSource = value;
     };
     /**
@@ -259,7 +252,7 @@ export class EducationClass extends Entity implements Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "externalId": n => { this.externalId = n.getStringValue(); },
             "externalName": n => { this.externalName = n.getStringValue(); },
-            "externalSource": n => { this.externalSource = n.getEnumValue<EducationExternalSource>(EducationExternalSource); },
+            "externalSource": n => { this.externalSource = n.getObjectValue<EducationExternalSource>(createEducationExternalSourceFromDiscriminatorValue); },
             "externalSourceDetail": n => { this.externalSourceDetail = n.getStringValue(); },
             "grade": n => { this.grade = n.getStringValue(); },
             "group": n => { this.group = n.getObjectValue<Group>(createGroupFromDiscriminatorValue); },
@@ -286,7 +279,7 @@ export class EducationClass extends Entity implements Parsable {
     };
     /**
      * Gets the group property value. The underlying Microsoft 365 group object.
-     * @returns a group
+     * @returns a admin
      */
     public get group() {
         return this._group;
@@ -295,7 +288,7 @@ export class EducationClass extends Entity implements Parsable {
      * Sets the group property value. The underlying Microsoft 365 group object.
      * @param value Value to set for the group property.
      */
-    public set group(value: Group | undefined) {
+    public set group(value: Group | AdminMember1 | undefined) {
         this._group = value;
     };
     /**
@@ -358,7 +351,7 @@ export class EducationClass extends Entity implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("externalId", this.externalId);
         writer.writeStringValue("externalName", this.externalName);
-        writer.writeEnumValue<EducationExternalSource>("externalSource", this.externalSource);
+        writer.writeObjectValue<EducationExternalSource>("externalSource", this.externalSource);
         writer.writeStringValue("externalSourceDetail", this.externalSourceDetail);
         writer.writeStringValue("grade", this.grade);
         writer.writeObjectValue<Group>("group", this.group);
@@ -384,7 +377,7 @@ export class EducationClass extends Entity implements Parsable {
     };
     /**
      * Gets the term property value. Term for the class.
-     * @returns a educationTerm
+     * @returns a admin
      */
     public get term() {
         return this._term;
@@ -393,7 +386,7 @@ export class EducationClass extends Entity implements Parsable {
      * Sets the term property value. Term for the class.
      * @param value Value to set for the term property.
      */
-    public set term(value: EducationTerm | undefined) {
+    public set term(value: EducationTerm | AdminMember1 | undefined) {
         this._term = value;
     };
 }

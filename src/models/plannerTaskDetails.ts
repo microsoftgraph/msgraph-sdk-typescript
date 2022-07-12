@@ -1,22 +1,19 @@
-import {createPlannerChecklistItemsFromDiscriminatorValue} from './createPlannerChecklistItemsFromDiscriminatorValue';
-import {createPlannerExternalReferencesFromDiscriminatorValue} from './createPlannerExternalReferencesFromDiscriminatorValue';
-import {Entity, PlannerChecklistItems, PlannerExternalReferences} from './index';
+import {AdminMember1, Entity, PlannerChecklistItems, PlannerExternalReferences} from './index';
 import {PlannerPreviewType} from './plannerPreviewType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class PlannerTaskDetails extends Entity implements Parsable {
     /** The collection of checklist items on the task. */
-    private _checklist?: PlannerChecklistItems | undefined;
+    private _checklist?: PlannerChecklistItems | AdminMember1 | undefined;
     /** Description of the task. */
     private _description?: string | undefined;
     /** This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task. */
-    private _previewType?: PlannerPreviewType | undefined;
+    private _previewType?: PlannerPreviewType | AdminMember1 | undefined;
     /** The collection of references on the task. */
-    private _references?: PlannerExternalReferences | undefined;
+    private _references?: PlannerExternalReferences | AdminMember1 | undefined;
     /**
      * Gets the checklist property value. The collection of checklist items on the task.
-     * @returns a plannerChecklistItems
+     * @returns a admin
      */
     public get checklist() {
         return this._checklist;
@@ -25,7 +22,7 @@ export class PlannerTaskDetails extends Entity implements Parsable {
      * Sets the checklist property value. The collection of checklist items on the task.
      * @param value Value to set for the checklist property.
      */
-    public set checklist(value: PlannerChecklistItems | undefined) {
+    public set checklist(value: PlannerChecklistItems | AdminMember1 | undefined) {
         this._checklist = value;
     };
     /**
@@ -56,13 +53,13 @@ export class PlannerTaskDetails extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "checklist": n => { this.checklist = n.getObjectValue<PlannerChecklistItems>(createPlannerChecklistItemsFromDiscriminatorValue); },
             "description": n => { this.description = n.getStringValue(); },
-            "previewType": n => { this.previewType = n.getEnumValue<PlannerPreviewType>(PlannerPreviewType); },
+            "previewType": n => { this.previewType = n.getObjectValue<PlannerPreviewType>(createPlannerPreviewTypeFromDiscriminatorValue); },
             "references": n => { this.references = n.getObjectValue<PlannerExternalReferences>(createPlannerExternalReferencesFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
-     * @returns a plannerPreviewType
+     * @returns a admin
      */
     public get previewType() {
         return this._previewType;
@@ -71,12 +68,12 @@ export class PlannerTaskDetails extends Entity implements Parsable {
      * Sets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
      * @param value Value to set for the previewType property.
      */
-    public set previewType(value: PlannerPreviewType | undefined) {
+    public set previewType(value: PlannerPreviewType | AdminMember1 | undefined) {
         this._previewType = value;
     };
     /**
      * Gets the references property value. The collection of references on the task.
-     * @returns a plannerExternalReferences
+     * @returns a admin
      */
     public get references() {
         return this._references;
@@ -85,7 +82,7 @@ export class PlannerTaskDetails extends Entity implements Parsable {
      * Sets the references property value. The collection of references on the task.
      * @param value Value to set for the references property.
      */
-    public set references(value: PlannerExternalReferences | undefined) {
+    public set references(value: PlannerExternalReferences | AdminMember1 | undefined) {
         this._references = value;
     };
     /**
@@ -97,7 +94,7 @@ export class PlannerTaskDetails extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<PlannerChecklistItems>("checklist", this.checklist);
         writer.writeStringValue("description", this.description);
-        writer.writeEnumValue<PlannerPreviewType>("previewType", this.previewType);
+        writer.writeObjectValue<PlannerPreviewType>("previewType", this.previewType);
         writer.writeObjectValue<PlannerExternalReferences>("references", this.references);
     };
 }

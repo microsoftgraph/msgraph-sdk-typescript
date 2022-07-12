@@ -1,5 +1,4 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {IdentitySet} from './index';
+import {AdminMember1, IdentitySet} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SharingInvitation implements AdditionalDataHolder, Parsable {
@@ -8,7 +7,7 @@ export class SharingInvitation implements AdditionalDataHolder, Parsable {
     /** The email address provided for the recipient of the sharing invitation. Read-only. */
     private _email?: string | undefined;
     /** Provides information about who sent the invitation that created this permission, if that information is available. Read-only. */
-    private _invitedBy?: IdentitySet | undefined;
+    private _invitedBy?: IdentitySet | AdminMember1 | undefined;
     /** The redeemedBy property */
     private _redeemedBy?: string | undefined;
     /** If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only. */
@@ -61,7 +60,7 @@ export class SharingInvitation implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the invitedBy property value. Provides information about who sent the invitation that created this permission, if that information is available. Read-only.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get invitedBy() {
         return this._invitedBy;
@@ -70,7 +69,7 @@ export class SharingInvitation implements AdditionalDataHolder, Parsable {
      * Sets the invitedBy property value. Provides information about who sent the invitation that created this permission, if that information is available. Read-only.
      * @param value Value to set for the invitedBy property.
      */
-    public set invitedBy(value: IdentitySet | undefined) {
+    public set invitedBy(value: IdentitySet | AdminMember1 | undefined) {
         this._invitedBy = value;
     };
     /**

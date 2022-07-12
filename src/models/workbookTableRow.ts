@@ -1,13 +1,12 @@
-import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
-import {Entity, Json} from './index';
+import {AdminMember1, Entity, Json} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookTableRow extends Entity implements Parsable {
     /** Returns the index number of the row within the rows collection of the table. Zero-indexed. Read-only. */
     private _index?: number | undefined;
     /** Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string. */
-    private _values?: Json | undefined;
+    private _values?: Json | AdminMember1 | undefined;
     /**
      * Instantiates a new workbookTableRow and sets the default values.
      */
@@ -50,7 +49,7 @@ export class WorkbookTableRow extends Entity implements Parsable {
     };
     /**
      * Gets the values property value. Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.
-     * @returns a Json
+     * @returns a admin
      */
     public get values() {
         return this._values;
@@ -59,7 +58,7 @@ export class WorkbookTableRow extends Entity implements Parsable {
      * Sets the values property value. Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.
      * @param value Value to set for the values property.
      */
-    public set values(value: Json | undefined) {
+    public set values(value: Json | AdminMember1 | undefined) {
         this._values = value;
     };
 }

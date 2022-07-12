@@ -1,5 +1,4 @@
-import {createRecentNotebookLinksFromDiscriminatorValue} from './createRecentNotebookLinksFromDiscriminatorValue';
-import {RecentNotebookLinks} from './index';
+import {GetRecentNotebooksWithIncludePersonalNotebooksMember1, RecentNotebookLinks} from './index';
 import {OnenoteSourceService} from './onenoteSourceService';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -11,9 +10,9 @@ export class RecentNotebook implements AdditionalDataHolder, Parsable {
     /** The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _lastAccessedTime?: Date | undefined;
     /** Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote client, if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web. */
-    private _links?: RecentNotebookLinks | undefined;
+    private _links?: RecentNotebookLinks | GetRecentNotebooksWithIncludePersonalNotebooksMember1 | undefined;
     /** The backend store where the Notebook resides, either OneDriveForBusiness or OneDrive. */
-    private _sourceService?: OnenoteSourceService | undefined;
+    private _sourceService?: OnenoteSourceService | GetRecentNotebooksWithIncludePersonalNotebooksMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -57,7 +56,7 @@ export class RecentNotebook implements AdditionalDataHolder, Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "lastAccessedTime": n => { this.lastAccessedTime = n.getDateValue(); },
             "links": n => { this.links = n.getObjectValue<RecentNotebookLinks>(createRecentNotebookLinksFromDiscriminatorValue); },
-            "sourceService": n => { this.sourceService = n.getEnumValue<OnenoteSourceService>(OnenoteSourceService); },
+            "sourceService": n => { this.sourceService = n.getObjectValue<OnenoteSourceService>(createOnenoteSourceServiceFromDiscriminatorValue); },
         };
     };
     /**
@@ -76,7 +75,7 @@ export class RecentNotebook implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the links property value. Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote client, if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web.
-     * @returns a recentNotebookLinks
+     * @returns a getRecentNotebooksWithIncludePersonalNotebooks
      */
     public get links() {
         return this._links;
@@ -85,7 +84,7 @@ export class RecentNotebook implements AdditionalDataHolder, Parsable {
      * Sets the links property value. Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote client, if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web.
      * @param value Value to set for the links property.
      */
-    public set links(value: RecentNotebookLinks | undefined) {
+    public set links(value: RecentNotebookLinks | GetRecentNotebooksWithIncludePersonalNotebooksMember1 | undefined) {
         this._links = value;
     };
     /**
@@ -97,12 +96,12 @@ export class RecentNotebook implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("lastAccessedTime", this.lastAccessedTime);
         writer.writeObjectValue<RecentNotebookLinks>("links", this.links);
-        writer.writeEnumValue<OnenoteSourceService>("sourceService", this.sourceService);
+        writer.writeObjectValue<OnenoteSourceService>("sourceService", this.sourceService);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the sourceService property value. The backend store where the Notebook resides, either OneDriveForBusiness or OneDrive.
-     * @returns a onenoteSourceService
+     * @returns a getRecentNotebooksWithIncludePersonalNotebooks
      */
     public get sourceService() {
         return this._sourceService;
@@ -111,7 +110,7 @@ export class RecentNotebook implements AdditionalDataHolder, Parsable {
      * Sets the sourceService property value. The backend store where the Notebook resides, either OneDriveForBusiness or OneDrive.
      * @param value Value to set for the sourceService property.
      */
-    public set sourceService(value: OnenoteSourceService | undefined) {
+    public set sourceService(value: OnenoteSourceService | GetRecentNotebooksWithIncludePersonalNotebooksMember1 | undefined) {
         this._sourceService = value;
     };
 }

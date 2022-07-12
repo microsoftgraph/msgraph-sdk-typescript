@@ -1,7 +1,4 @@
 import {createAppRoleAssignmentFromDiscriminatorValue} from './createAppRoleAssignmentFromDiscriminatorValue';
-import {createAssignedLabelFromDiscriminatorValue} from './createAssignedLabelFromDiscriminatorValue';
-import {createAssignedLicenseFromDiscriminatorValue} from './createAssignedLicenseFromDiscriminatorValue';
-import {createCalendarFromDiscriminatorValue} from './createCalendarFromDiscriminatorValue';
 import {createConversationFromDiscriminatorValue} from './createConversationFromDiscriminatorValue';
 import {createConversationThreadFromDiscriminatorValue} from './createConversationThreadFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
@@ -10,18 +7,12 @@ import {createEventFromDiscriminatorValue} from './createEventFromDiscriminatorV
 import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscriminatorValue';
 import {createGroupLifecyclePolicyFromDiscriminatorValue} from './createGroupLifecyclePolicyFromDiscriminatorValue';
 import {createGroupSettingFromDiscriminatorValue} from './createGroupSettingFromDiscriminatorValue';
-import {createLicenseProcessingStateFromDiscriminatorValue} from './createLicenseProcessingStateFromDiscriminatorValue';
-import {createOnenoteFromDiscriminatorValue} from './createOnenoteFromDiscriminatorValue';
-import {createOnPremisesProvisioningErrorFromDiscriminatorValue} from './createOnPremisesProvisioningErrorFromDiscriminatorValue';
-import {createPlannerGroupFromDiscriminatorValue} from './createPlannerGroupFromDiscriminatorValue';
 import {createProfilePhotoFromDiscriminatorValue} from './createProfilePhotoFromDiscriminatorValue';
 import {createResourceSpecificPermissionGrantFromDiscriminatorValue} from './createResourceSpecificPermissionGrantFromDiscriminatorValue';
 import {createSiteFromDiscriminatorValue} from './createSiteFromDiscriminatorValue';
-import {createTeamFromDiscriminatorValue} from './createTeamFromDiscriminatorValue';
-import {AppRoleAssignment, AssignedLabel, AssignedLicense, Calendar, Conversation, ConversationThread, DirectoryObject, Drive, Event, Extension, GroupLifecyclePolicy, GroupSetting, LicenseProcessingState, Onenote, OnPremisesProvisioningError, PlannerGroup, ProfilePhoto, ResourceSpecificPermissionGrant, Site, Team} from './index';
+import {AdminMember1, AppRoleAssignment, AssignedLabel, AssignedLicense, Calendar, Conversation, ConversationThread, DirectoryObject, Drive, Event, Extension, GroupLifecyclePolicy, GroupSetting, LicenseProcessingState, Onenote, OnPremisesProvisioningError, PlannerGroup, ProfilePhoto, ResourceSpecificPermissionGrant, Site, Team} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Group extends DirectoryObject implements Parsable {
     /** The list of users or groups that are allowed to create post's or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post. */
     private _acceptedSenders?: DirectoryObject[] | undefined;
@@ -30,13 +21,13 @@ export class Group extends DirectoryObject implements Parsable {
     /** Represents the app roles a group has been granted for an application. Supports $expand. */
     private _appRoleAssignments?: AppRoleAssignment[] | undefined;
     /** The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select. */
-    private _assignedLabels?: AssignedLabel[] | undefined;
+    private _assignedLabels?: AssignedLabel | AdminMember1[] | undefined;
     /** The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq). Read-only. */
-    private _assignedLicenses?: AssignedLicense[] | undefined;
+    private _assignedLicenses?: AssignedLicense | AdminMember1[] | undefined;
     /** Indicates if new members added to the group will be auto-subscribed to receive email notifications. You can set this property in a PATCH request for the group; do not set it in the initial POST request that creates the group. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}). */
     private _autoSubscribeNewMembers?: boolean | undefined;
     /** The group's calendar. Read-only. */
-    private _calendar?: Calendar | undefined;
+    private _calendar?: Calendar | AdminMember1 | undefined;
     /** The calendar view for the calendar. Read-only. */
     private _calendarView?: Event[] | undefined;
     /** Describes a classification for the group (such as low, medium or high business impact). Valid values for this property are defined by creating a ClassificationList setting value, based on the template definition.Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith). */
@@ -46,13 +37,13 @@ export class Group extends DirectoryObject implements Parsable {
     /** Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only. */
     private _createdDateTime?: Date | undefined;
     /** The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only. */
-    private _createdOnBehalfOf?: DirectoryObject | undefined;
+    private _createdOnBehalfOf?: DirectoryObject | AdminMember1 | undefined;
     /** An optional description for the group. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search. */
     private _description?: string | undefined;
-    /** The display name for the group. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
+    /** The display name for the group. Required. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
     private _displayName?: string | undefined;
     /** The group's default drive. Read-only. */
-    private _drive?: Drive | undefined;
+    private _drive?: Drive | AdminMember1 | undefined;
     /** The group's drives. Read-only. */
     private _drives?: Drive[] | undefined;
     /** The group's events. */
@@ -71,14 +62,14 @@ export class Group extends DirectoryObject implements Parsable {
     private _hideFromAddressLists?: boolean | undefined;
     /** true if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web, false otherwise. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}). */
     private _hideFromOutlookClients?: boolean | undefined;
-    /** When a group is associated with a team, this property determines whether the team is in read-only mode. */
+    /** When a group is associated with a team, this property determines whether the team is in read-only mode. To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs. */
     private _isArchived?: boolean | undefined;
     /** Indicates whether this group can be assigned to an Azure Active Directory role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global administrator and Privileged role administrator roles can set this property. The caller must be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsReturned by default. Supports $filter (eq, ne, not). */
     private _isAssignableToRole?: boolean | undefined;
     /** Indicates whether the signed-in user is subscribed to receive email conversations. Default value is true. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}). */
     private _isSubscribedByMail?: boolean | undefined;
     /** Indicates status of the group license assignment to all members of the group. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete. Returned only on $select. Read-only. */
-    private _licenseProcessingState?: LicenseProcessingState | undefined;
+    private _licenseProcessingState?: LicenseProcessingState | AdminMember1 | undefined;
     /** The SMTP address for the group, for example, 'serviceadmins@contoso.onmicrosoft.com'. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     private _mail?: string | undefined;
     /** Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not, and eq on null values). */
@@ -87,7 +78,7 @@ export class Group extends DirectoryObject implements Parsable {
     private _mailNickname?: string | undefined;
     /** Groups and administrative units that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand. */
     private _memberOf?: DirectoryObject[] | undefined;
-    /** Members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName). */
+    /** Direct members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName). */
     private _members?: DirectoryObject[] | undefined;
     /** The rule that determines members for this group if the group is a dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of the membership rule, see Membership Rules syntax. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith). */
     private _membershipRule?: string | undefined;
@@ -95,8 +86,8 @@ export class Group extends DirectoryObject implements Parsable {
     private _membershipRuleProcessingState?: string | undefined;
     /** A list of group members with license errors from this group-based license assignment. Read-only. */
     private _membersWithLicenseErrors?: DirectoryObject[] | undefined;
-    /** Read-only. */
-    private _onenote?: Onenote | undefined;
+    /** The onenote property */
+    private _onenote?: Onenote | AdminMember1 | undefined;
     /** Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only. */
     private _onPremisesDomainName?: string | undefined;
     /** Indicates the last time at which the group was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in). */
@@ -104,7 +95,7 @@ export class Group extends DirectoryObject implements Parsable {
     /** Contains the on-premises netBios name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only. */
     private _onPremisesNetBiosName?: string | undefined;
     /** Errors when using Microsoft synchronization product during provisioning. Returned by default. Supports $filter (eq, not). */
-    private _onPremisesProvisioningErrors?: OnPremisesProvisioningError[] | undefined;
+    private _onPremisesProvisioningErrors?: OnPremisesProvisioningError | AdminMember1[] | undefined;
     /** Contains the on-premises SAM account name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith). Read-only. */
     private _onPremisesSamAccountName?: string | undefined;
     /** Contains the on-premises security identifier (SID) for the group that was synchronized from on-premises to the cloud. Returned by default. Supports $filter (eq including on null values). Read-only. */
@@ -116,11 +107,11 @@ export class Group extends DirectoryObject implements Parsable {
     /** The permissions that have been granted for a group to a specific application. Supports $expand. */
     private _permissionGrants?: ResourceSpecificPermissionGrant[] | undefined;
     /** The group's profile photo. */
-    private _photo?: ProfilePhoto | undefined;
+    private _photo?: ProfilePhoto | AdminMember1 | undefined;
     /** The profile photos owned by the group. Read-only. Nullable. */
     private _photos?: ProfilePhoto[] | undefined;
     /** Selective Planner services available to the group. Read-only. Nullable. */
-    private _planner?: PlannerGroup | undefined;
+    private _planner?: PlannerGroup | AdminMember1 | undefined;
     /** The preferred data location for the Microsoft 365 group. By default, the group inherits the group creator's preferred data location. To set this property, the calling user must be assigned one of the following Azure AD roles:  Global Administrator  User Account Administrator Directory Writer  Exchange Administrator  SharePoint Administrator  For more information about this property, see OneDrive Online Multi-Geo. Nullable. Returned by default. */
     private _preferredDataLocation?: string | undefined;
     /** The preferred language for a Microsoft 365 group. Should follow ISO 639-1 Code; for example en-US. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
@@ -140,18 +131,18 @@ export class Group extends DirectoryObject implements Parsable {
     /** The list of SharePoint sites in this group. Access the default site with /sites/root. */
     private _sites?: Site[] | undefined;
     /** The team associated with this group. */
-    private _team?: Team | undefined;
+    private _team?: Team | AdminMember1 | undefined;
     /** Specifies a Microsoft 365 group's color theme. Possible values are Teal, Purple, Green, Blue, Pink, Orange or Red. Returned by default. */
     private _theme?: string | undefined;
     /** The group's conversation threads. Nullable. */
     private _threads?: ConversationThread[] | undefined;
-    /** The transitiveMemberOf property */
+    /** The groups that a group is a member of, either directly and through nested membership. Nullable. */
     private _transitiveMemberOf?: DirectoryObject[] | undefined;
-    /** The transitiveMembers property */
+    /** The direct and transitive members of a group. Nullable. */
     private _transitiveMembers?: DirectoryObject[] | undefined;
     /** Count of conversations that have received new posts since the signed-in user last visited the group. This property is the same as unseenConversationsCount.Returned only on $select. Supported only on the Get group API (GET /groups/{ID}). */
     private _unseenCount?: number | undefined;
-    /** Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or Hiddenmembership. Hiddenmembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable. */
+    /** Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable. */
     private _visibility?: string | undefined;
     /**
      * Gets the acceptedSenders property value. The list of users or groups that are allowed to create post's or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post.
@@ -197,7 +188,7 @@ export class Group extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the assignedLabels property value. The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select.
-     * @returns a assignedLabel
+     * @returns a admin
      */
     public get assignedLabels() {
         return this._assignedLabels;
@@ -206,12 +197,12 @@ export class Group extends DirectoryObject implements Parsable {
      * Sets the assignedLabels property value. The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select.
      * @param value Value to set for the assignedLabels property.
      */
-    public set assignedLabels(value: AssignedLabel[] | undefined) {
+    public set assignedLabels(value: AssignedLabel | AdminMember1[] | undefined) {
         this._assignedLabels = value;
     };
     /**
      * Gets the assignedLicenses property value. The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq). Read-only.
-     * @returns a assignedLicense
+     * @returns a admin
      */
     public get assignedLicenses() {
         return this._assignedLicenses;
@@ -220,7 +211,7 @@ export class Group extends DirectoryObject implements Parsable {
      * Sets the assignedLicenses property value. The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq). Read-only.
      * @param value Value to set for the assignedLicenses property.
      */
-    public set assignedLicenses(value: AssignedLicense[] | undefined) {
+    public set assignedLicenses(value: AssignedLicense | AdminMember1[] | undefined) {
         this._assignedLicenses = value;
     };
     /**
@@ -239,7 +230,7 @@ export class Group extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the calendar property value. The group's calendar. Read-only.
-     * @returns a calendar
+     * @returns a admin
      */
     public get calendar() {
         return this._calendar;
@@ -248,7 +239,7 @@ export class Group extends DirectoryObject implements Parsable {
      * Sets the calendar property value. The group's calendar. Read-only.
      * @param value Value to set for the calendar property.
      */
-    public set calendar(value: Calendar | undefined) {
+    public set calendar(value: Calendar | AdminMember1 | undefined) {
         this._calendar = value;
     };
     /**
@@ -315,7 +306,7 @@ export class Group extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the createdOnBehalfOf property value. The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
-     * @returns a directoryObject
+     * @returns a admin
      */
     public get createdOnBehalfOf() {
         return this._createdOnBehalfOf;
@@ -324,7 +315,7 @@ export class Group extends DirectoryObject implements Parsable {
      * Sets the createdOnBehalfOf property value. The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
      * @param value Value to set for the createdOnBehalfOf property.
      */
-    public set createdOnBehalfOf(value: DirectoryObject | undefined) {
+    public set createdOnBehalfOf(value: DirectoryObject | AdminMember1 | undefined) {
         this._createdOnBehalfOf = value;
     };
     /**
@@ -342,14 +333,14 @@ export class Group extends DirectoryObject implements Parsable {
         this._description = value;
     };
     /**
-     * Gets the displayName property value. The display name for the group. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * Gets the displayName property value. The display name for the group. Required. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The display name for the group. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * Sets the displayName property value. The display name for the group. Required. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -357,7 +348,7 @@ export class Group extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the drive property value. The group's default drive. Read-only.
-     * @returns a drive
+     * @returns a admin
      */
     public get drive() {
         return this._drive;
@@ -366,7 +357,7 @@ export class Group extends DirectoryObject implements Parsable {
      * Sets the drive property value. The group's default drive. Read-only.
      * @param value Value to set for the drive property.
      */
-    public set drive(value: Drive | undefined) {
+    public set drive(value: Drive | AdminMember1 | undefined) {
         this._drive = value;
     };
     /**
@@ -434,8 +425,8 @@ export class Group extends DirectoryObject implements Parsable {
             "acceptedSenders": n => { this.acceptedSenders = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
             "allowExternalSenders": n => { this.allowExternalSenders = n.getBooleanValue(); },
             "appRoleAssignments": n => { this.appRoleAssignments = n.getCollectionOfObjectValues<AppRoleAssignment>(createAppRoleAssignmentFromDiscriminatorValue); },
-            "assignedLabels": n => { this.assignedLabels = n.getCollectionOfObjectValues<AssignedLabel>(createAssignedLabelFromDiscriminatorValue); },
-            "assignedLicenses": n => { this.assignedLicenses = n.getCollectionOfObjectValues<AssignedLicense>(createAssignedLicenseFromDiscriminatorValue); },
+            "assignedLabels": n => { this.assignedLabels = n.getObjectValue<AssignedLabel>(createAssignedLabelFromDiscriminatorValue); },
+            "assignedLicenses": n => { this.assignedLicenses = n.getObjectValue<AssignedLicense>(createAssignedLicenseFromDiscriminatorValue); },
             "autoSubscribeNewMembers": n => { this.autoSubscribeNewMembers = n.getBooleanValue(); },
             "calendar": n => { this.calendar = n.getObjectValue<Calendar>(createCalendarFromDiscriminatorValue); },
             "calendarView": n => { this.calendarView = n.getCollectionOfObjectValues<Event>(createEventFromDiscriminatorValue); },
@@ -471,7 +462,7 @@ export class Group extends DirectoryObject implements Parsable {
             "onPremisesDomainName": n => { this.onPremisesDomainName = n.getStringValue(); },
             "onPremisesLastSyncDateTime": n => { this.onPremisesLastSyncDateTime = n.getDateValue(); },
             "onPremisesNetBiosName": n => { this.onPremisesNetBiosName = n.getStringValue(); },
-            "onPremisesProvisioningErrors": n => { this.onPremisesProvisioningErrors = n.getCollectionOfObjectValues<OnPremisesProvisioningError>(createOnPremisesProvisioningErrorFromDiscriminatorValue); },
+            "onPremisesProvisioningErrors": n => { this.onPremisesProvisioningErrors = n.getObjectValue<OnPremisesProvisioningError>(createOnPremisesProvisioningErrorFromDiscriminatorValue); },
             "onPremisesSamAccountName": n => { this.onPremisesSamAccountName = n.getStringValue(); },
             "onPremisesSecurityIdentifier": n => { this.onPremisesSecurityIdentifier = n.getStringValue(); },
             "onPremisesSyncEnabled": n => { this.onPremisesSyncEnabled = n.getBooleanValue(); },
@@ -569,14 +560,14 @@ export class Group extends DirectoryObject implements Parsable {
         this._hideFromOutlookClients = value;
     };
     /**
-     * Gets the isArchived property value. When a group is associated with a team, this property determines whether the team is in read-only mode.
+     * Gets the isArchived property value. When a group is associated with a team, this property determines whether the team is in read-only mode. To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs.
      * @returns a boolean
      */
     public get isArchived() {
         return this._isArchived;
     };
     /**
-     * Sets the isArchived property value. When a group is associated with a team, this property determines whether the team is in read-only mode.
+     * Sets the isArchived property value. When a group is associated with a team, this property determines whether the team is in read-only mode. To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs.
      * @param value Value to set for the isArchived property.
      */
     public set isArchived(value: boolean | undefined) {
@@ -612,7 +603,7 @@ export class Group extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the licenseProcessingState property value. Indicates status of the group license assignment to all members of the group. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete. Returned only on $select. Read-only.
-     * @returns a licenseProcessingState
+     * @returns a admin
      */
     public get licenseProcessingState() {
         return this._licenseProcessingState;
@@ -621,7 +612,7 @@ export class Group extends DirectoryObject implements Parsable {
      * Sets the licenseProcessingState property value. Indicates status of the group license assignment to all members of the group. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete. Returned only on $select. Read-only.
      * @param value Value to set for the licenseProcessingState property.
      */
-    public set licenseProcessingState(value: LicenseProcessingState | undefined) {
+    public set licenseProcessingState(value: LicenseProcessingState | AdminMember1 | undefined) {
         this._licenseProcessingState = value;
     };
     /**
@@ -681,14 +672,14 @@ export class Group extends DirectoryObject implements Parsable {
         this._memberOf = value;
     };
     /**
-     * Gets the members property value. Members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
+     * Gets the members property value. Direct members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
      * @returns a directoryObject
      */
     public get members() {
         return this._members;
     };
     /**
-     * Sets the members property value. Members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
+     * Sets the members property value. Direct members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
      * @param value Value to set for the members property.
      */
     public set members(value: DirectoryObject[] | undefined) {
@@ -737,17 +728,17 @@ export class Group extends DirectoryObject implements Parsable {
         this._membersWithLicenseErrors = value;
     };
     /**
-     * Gets the onenote property value. Read-only.
-     * @returns a onenote
+     * Gets the onenote property value. The onenote property
+     * @returns a admin
      */
     public get onenote() {
         return this._onenote;
     };
     /**
-     * Sets the onenote property value. Read-only.
+     * Sets the onenote property value. The onenote property
      * @param value Value to set for the onenote property.
      */
-    public set onenote(value: Onenote | undefined) {
+    public set onenote(value: Onenote | AdminMember1 | undefined) {
         this._onenote = value;
     };
     /**
@@ -794,7 +785,7 @@ export class Group extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the onPremisesProvisioningErrors property value. Errors when using Microsoft synchronization product during provisioning. Returned by default. Supports $filter (eq, not).
-     * @returns a onPremisesProvisioningError
+     * @returns a admin
      */
     public get onPremisesProvisioningErrors() {
         return this._onPremisesProvisioningErrors;
@@ -803,7 +794,7 @@ export class Group extends DirectoryObject implements Parsable {
      * Sets the onPremisesProvisioningErrors property value. Errors when using Microsoft synchronization product during provisioning. Returned by default. Supports $filter (eq, not).
      * @param value Value to set for the onPremisesProvisioningErrors property.
      */
-    public set onPremisesProvisioningErrors(value: OnPremisesProvisioningError[] | undefined) {
+    public set onPremisesProvisioningErrors(value: OnPremisesProvisioningError | AdminMember1[] | undefined) {
         this._onPremisesProvisioningErrors = value;
     };
     /**
@@ -878,7 +869,7 @@ export class Group extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the photo property value. The group's profile photo.
-     * @returns a profilePhoto
+     * @returns a admin
      */
     public get photo() {
         return this._photo;
@@ -887,7 +878,7 @@ export class Group extends DirectoryObject implements Parsable {
      * Sets the photo property value. The group's profile photo.
      * @param value Value to set for the photo property.
      */
-    public set photo(value: ProfilePhoto | undefined) {
+    public set photo(value: ProfilePhoto | AdminMember1 | undefined) {
         this._photo = value;
     };
     /**
@@ -906,7 +897,7 @@ export class Group extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the planner property value. Selective Planner services available to the group. Read-only. Nullable.
-     * @returns a plannerGroup
+     * @returns a admin
      */
     public get planner() {
         return this._planner;
@@ -915,7 +906,7 @@ export class Group extends DirectoryObject implements Parsable {
      * Sets the planner property value. Selective Planner services available to the group. Read-only. Nullable.
      * @param value Value to set for the planner property.
      */
-    public set planner(value: PlannerGroup | undefined) {
+    public set planner(value: PlannerGroup | AdminMember1 | undefined) {
         this._planner = value;
     };
     /**
@@ -1026,8 +1017,8 @@ export class Group extends DirectoryObject implements Parsable {
         writer.writeCollectionOfObjectValues<DirectoryObject>("acceptedSenders", this.acceptedSenders);
         writer.writeBooleanValue("allowExternalSenders", this.allowExternalSenders);
         writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignments", this.appRoleAssignments);
-        writer.writeCollectionOfObjectValues<AssignedLabel>("assignedLabels", this.assignedLabels);
-        writer.writeCollectionOfObjectValues<AssignedLicense>("assignedLicenses", this.assignedLicenses);
+        writer.writeObjectValue<AssignedLabel>("assignedLabels", this.assignedLabels);
+        writer.writeObjectValue<AssignedLicense>("assignedLicenses", this.assignedLicenses);
         writer.writeBooleanValue("autoSubscribeNewMembers", this.autoSubscribeNewMembers);
         writer.writeObjectValue<Calendar>("calendar", this.calendar);
         writer.writeCollectionOfObjectValues<Event>("calendarView", this.calendarView);
@@ -1063,7 +1054,7 @@ export class Group extends DirectoryObject implements Parsable {
         writer.writeStringValue("onPremisesDomainName", this.onPremisesDomainName);
         writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
         writer.writeStringValue("onPremisesNetBiosName", this.onPremisesNetBiosName);
-        writer.writeCollectionOfObjectValues<OnPremisesProvisioningError>("onPremisesProvisioningErrors", this.onPremisesProvisioningErrors);
+        writer.writeObjectValue<OnPremisesProvisioningError>("onPremisesProvisioningErrors", this.onPremisesProvisioningErrors);
         writer.writeStringValue("onPremisesSamAccountName", this.onPremisesSamAccountName);
         writer.writeStringValue("onPremisesSecurityIdentifier", this.onPremisesSecurityIdentifier);
         writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);
@@ -1119,7 +1110,7 @@ export class Group extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the team property value. The team associated with this group.
-     * @returns a team
+     * @returns a admin
      */
     public get team() {
         return this._team;
@@ -1128,7 +1119,7 @@ export class Group extends DirectoryObject implements Parsable {
      * Sets the team property value. The team associated with this group.
      * @param value Value to set for the team property.
      */
-    public set team(value: Team | undefined) {
+    public set team(value: Team | AdminMember1 | undefined) {
         this._team = value;
     };
     /**
@@ -1160,28 +1151,28 @@ export class Group extends DirectoryObject implements Parsable {
         this._threads = value;
     };
     /**
-     * Gets the transitiveMemberOf property value. The transitiveMemberOf property
+     * Gets the transitiveMemberOf property value. The groups that a group is a member of, either directly and through nested membership. Nullable.
      * @returns a directoryObject
      */
     public get transitiveMemberOf() {
         return this._transitiveMemberOf;
     };
     /**
-     * Sets the transitiveMemberOf property value. The transitiveMemberOf property
+     * Sets the transitiveMemberOf property value. The groups that a group is a member of, either directly and through nested membership. Nullable.
      * @param value Value to set for the transitiveMemberOf property.
      */
     public set transitiveMemberOf(value: DirectoryObject[] | undefined) {
         this._transitiveMemberOf = value;
     };
     /**
-     * Gets the transitiveMembers property value. The transitiveMembers property
+     * Gets the transitiveMembers property value. The direct and transitive members of a group. Nullable.
      * @returns a directoryObject
      */
     public get transitiveMembers() {
         return this._transitiveMembers;
     };
     /**
-     * Sets the transitiveMembers property value. The transitiveMembers property
+     * Sets the transitiveMembers property value. The direct and transitive members of a group. Nullable.
      * @param value Value to set for the transitiveMembers property.
      */
     public set transitiveMembers(value: DirectoryObject[] | undefined) {
@@ -1202,14 +1193,14 @@ export class Group extends DirectoryObject implements Parsable {
         this._unseenCount = value;
     };
     /**
-     * Gets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or Hiddenmembership. Hiddenmembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
+     * Gets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
      * @returns a string
      */
     public get visibility() {
         return this._visibility;
     };
     /**
-     * Sets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or Hiddenmembership. Hiddenmembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
+     * Sets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
      * @param value Value to set for the visibility property.
      */
     public set visibility(value: string | undefined) {

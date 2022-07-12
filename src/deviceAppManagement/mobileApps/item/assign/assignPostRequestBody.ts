@@ -1,5 +1,5 @@
 import {MobileAppAssignment} from '../../../../models/';
-import {createMobileAppAssignmentFromDiscriminatorValue} from '../../../../models/createMobileAppAssignmentFromDiscriminatorValue';
+import {AssignMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the assign method. */
@@ -7,7 +7,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The mobileAppAssignments property */
-    private _mobileAppAssignments?: MobileAppAssignment[] | undefined;
+    private _mobileAppAssignments?: MobileAppAssignment | AssignMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,12 +34,12 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "mobileAppAssignments": n => { this.mobileAppAssignments = n.getCollectionOfObjectValues<MobileAppAssignment>(createMobileAppAssignmentFromDiscriminatorValue); },
+            "mobileAppAssignments": n => { this.mobileAppAssignments = n.getObjectValue<MobileAppAssignment>(createMobileAppAssignmentFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the mobileAppAssignments property value. The mobileAppAssignments property
-     * @returns a mobileAppAssignment
+     * @returns a assign
      */
     public get mobileAppAssignments() {
         return this._mobileAppAssignments;
@@ -48,7 +48,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
      * Sets the mobileAppAssignments property value. The mobileAppAssignments property
      * @param value Value to set for the mobileAppAssignments property.
      */
-    public set mobileAppAssignments(value: MobileAppAssignment[] | undefined) {
+    public set mobileAppAssignments(value: MobileAppAssignment | AssignMember1[] | undefined) {
         this._mobileAppAssignments = value;
     };
     /**
@@ -57,7 +57,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<MobileAppAssignment>("mobileAppAssignments", this.mobileAppAssignments);
+        writer.writeObjectValue<MobileAppAssignment>("mobileAppAssignments", this.mobileAppAssignments);
         writer.writeAdditionalData(this.additionalData);
     };
 }

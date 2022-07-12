@@ -1,14 +1,13 @@
-import {createMeetingParticipantInfoFromDiscriminatorValue} from './createMeetingParticipantInfoFromDiscriminatorValue';
-import {MeetingParticipantInfo} from './index';
+import {AdminMember1, MeetingParticipantInfo} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MeetingParticipants implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Information of the meeting attendees. */
-    private _attendees?: MeetingParticipantInfo[] | undefined;
+    private _attendees?: MeetingParticipantInfo | AdminMember1[] | undefined;
     /** Information of the meeting organizer. */
-    private _organizer?: MeetingParticipantInfo | undefined;
+    private _organizer?: MeetingParticipantInfo | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -25,7 +24,7 @@ export class MeetingParticipants implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the attendees property value. Information of the meeting attendees.
-     * @returns a meetingParticipantInfo
+     * @returns a admin
      */
     public get attendees() {
         return this._attendees;
@@ -34,7 +33,7 @@ export class MeetingParticipants implements AdditionalDataHolder, Parsable {
      * Sets the attendees property value. Information of the meeting attendees.
      * @param value Value to set for the attendees property.
      */
-    public set attendees(value: MeetingParticipantInfo[] | undefined) {
+    public set attendees(value: MeetingParticipantInfo | AdminMember1[] | undefined) {
         this._attendees = value;
     };
     /**
@@ -49,13 +48,13 @@ export class MeetingParticipants implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "attendees": n => { this.attendees = n.getCollectionOfObjectValues<MeetingParticipantInfo>(createMeetingParticipantInfoFromDiscriminatorValue); },
+            "attendees": n => { this.attendees = n.getObjectValue<MeetingParticipantInfo>(createMeetingParticipantInfoFromDiscriminatorValue); },
             "organizer": n => { this.organizer = n.getObjectValue<MeetingParticipantInfo>(createMeetingParticipantInfoFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the organizer property value. Information of the meeting organizer.
-     * @returns a meetingParticipantInfo
+     * @returns a admin
      */
     public get organizer() {
         return this._organizer;
@@ -64,7 +63,7 @@ export class MeetingParticipants implements AdditionalDataHolder, Parsable {
      * Sets the organizer property value. Information of the meeting organizer.
      * @param value Value to set for the organizer property.
      */
-    public set organizer(value: MeetingParticipantInfo | undefined) {
+    public set organizer(value: MeetingParticipantInfo | AdminMember1 | undefined) {
         this._organizer = value;
     };
     /**
@@ -73,7 +72,7 @@ export class MeetingParticipants implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<MeetingParticipantInfo>("attendees", this.attendees);
+        writer.writeObjectValue<MeetingParticipantInfo>("attendees", this.attendees);
         writer.writeObjectValue<MeetingParticipantInfo>("organizer", this.organizer);
         writer.writeAdditionalData(this.additionalData);
     };

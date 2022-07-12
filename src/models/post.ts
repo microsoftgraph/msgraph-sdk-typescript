@@ -1,19 +1,16 @@
 import {createAttachmentFromDiscriminatorValue} from './createAttachmentFromDiscriminatorValue';
 import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscriminatorValue';
-import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
 import {createMultiValueLegacyExtendedPropertyFromDiscriminatorValue} from './createMultiValueLegacyExtendedPropertyFromDiscriminatorValue';
-import {createPostFromDiscriminatorValue} from './createPostFromDiscriminatorValue';
 import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscriminatorValue';
 import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './createSingleValueLegacyExtendedPropertyFromDiscriminatorValue';
-import {Attachment, Extension, ItemBody, MultiValueLegacyExtendedProperty, OutlookItem, Recipient, SingleValueLegacyExtendedProperty} from './index';
+import {AdminMember1, Attachment, Extension, ItemBody, MultiValueLegacyExtendedProperty, OutlookItem, Recipient, SingleValueLegacyExtendedProperty} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Post extends OutlookItem implements Parsable {
     /** The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand. */
     private _attachments?: Attachment[] | undefined;
     /** The contents of the post. This is a default property. This property can be null. */
-    private _body?: ItemBody | undefined;
+    private _body?: ItemBody | AdminMember1 | undefined;
     /** Unique ID of the conversation. Read-only. */
     private _conversationId?: string | undefined;
     /** Unique ID of the conversation thread. Read-only. */
@@ -25,7 +22,7 @@ export class Post extends OutlookItem implements Parsable {
     /** Indicates whether the post has at least one attachment. This is a default property. */
     private _hasAttachments?: boolean | undefined;
     /** The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand. */
-    private _inReplyTo?: Post | undefined;
+    private _inReplyTo?: Post | AdminMember1 | undefined;
     /** The collection of multi-value extended properties defined for the post. Read-only. Nullable. */
     private _multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
     /** Conversation participants that were added to the thread as part of this post. */
@@ -33,7 +30,7 @@ export class Post extends OutlookItem implements Parsable {
     /** Specifies when the post was received. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _receivedDateTime?: Date | undefined;
     /** Contains the address of the sender. The value of Sender is assumed to be the address of the authenticated user in the case when Sender is not specified. This is a default property. */
-    private _sender?: Recipient | undefined;
+    private _sender?: Recipient | AdminMember1 | undefined;
     /** The collection of single-value extended properties defined for the post. Read-only. Nullable. */
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
     /**
@@ -52,7 +49,7 @@ export class Post extends OutlookItem implements Parsable {
     };
     /**
      * Gets the body property value. The contents of the post. This is a default property. This property can be null.
-     * @returns a itemBody
+     * @returns a admin
      */
     public get body() {
         return this._body;
@@ -61,11 +58,11 @@ export class Post extends OutlookItem implements Parsable {
      * Sets the body property value. The contents of the post. This is a default property. This property can be null.
      * @param value Value to set for the body property.
      */
-    public set body(value: ItemBody | undefined) {
+    public set body(value: ItemBody | AdminMember1 | undefined) {
         this._body = value;
     };
     /**
-     * Instantiates a new post and sets the default values.
+     * Instantiates a new Post and sets the default values.
      */
     public constructor() {
         super();
@@ -163,7 +160,7 @@ export class Post extends OutlookItem implements Parsable {
     };
     /**
      * Gets the inReplyTo property value. The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
-     * @returns a post
+     * @returns a admin
      */
     public get inReplyTo() {
         return this._inReplyTo;
@@ -172,7 +169,7 @@ export class Post extends OutlookItem implements Parsable {
      * Sets the inReplyTo property value. The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
      * @param value Value to set for the inReplyTo property.
      */
-    public set inReplyTo(value: Post | undefined) {
+    public set inReplyTo(value: Post | AdminMember1 | undefined) {
         this._inReplyTo = value;
     };
     /**
@@ -219,7 +216,7 @@ export class Post extends OutlookItem implements Parsable {
     };
     /**
      * Gets the sender property value. Contains the address of the sender. The value of Sender is assumed to be the address of the authenticated user in the case when Sender is not specified. This is a default property.
-     * @returns a recipient
+     * @returns a admin
      */
     public get sender() {
         return this._sender;
@@ -228,7 +225,7 @@ export class Post extends OutlookItem implements Parsable {
      * Sets the sender property value. Contains the address of the sender. The value of Sender is assumed to be the address of the authenticated user in the case when Sender is not specified. This is a default property.
      * @param value Value to set for the sender property.
      */
-    public set sender(value: Recipient | undefined) {
+    public set sender(value: Recipient | AdminMember1 | undefined) {
         this._sender = value;
     };
     /**

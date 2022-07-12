@@ -1,6 +1,6 @@
 import {InvitationParticipantInfo, ParticipantInfo} from '../../../../models/';
 import {createInvitationParticipantInfoFromDiscriminatorValue} from '../../../../models/createInvitationParticipantInfoFromDiscriminatorValue';
-import {createParticipantInfoFromDiscriminatorValue} from '../../../../models/createParticipantInfoFromDiscriminatorValue';
+import {TransferMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the transfer method. */
@@ -8,7 +8,7 @@ export class TransferPostRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The transferee property */
-    private _transferee?: ParticipantInfo | undefined;
+    private _transferee?: ParticipantInfo | TransferMember1 | undefined;
     /** The transferTarget property */
     private _transferTarget?: InvitationParticipantInfo | undefined;
     /**
@@ -53,7 +53,7 @@ export class TransferPostRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the transferee property value. The transferee property
-     * @returns a participantInfo
+     * @returns a transfer
      */
     public get transferee() {
         return this._transferee;
@@ -62,7 +62,7 @@ export class TransferPostRequestBody implements AdditionalDataHolder, Parsable {
      * Sets the transferee property value. The transferee property
      * @param value Value to set for the transferee property.
      */
-    public set transferee(value: ParticipantInfo | undefined) {
+    public set transferee(value: ParticipantInfo | TransferMember1 | undefined) {
         this._transferee = value;
     };
     /**

@@ -1,5 +1,5 @@
 import {createTeamsAppDefinitionFromDiscriminatorValue} from './createTeamsAppDefinitionFromDiscriminatorValue';
-import {Entity, TeamsAppDefinition} from './index';
+import {AppCatalogsMember1, Entity, TeamsAppDefinition} from './index';
 import {TeamsAppDistributionMethod} from './teamsAppDistributionMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -10,7 +10,7 @@ export class TeamsApp extends Entity implements Parsable {
     /** The name of the catalog app provided by the app developer in the Microsoft Teams zip app package. */
     private _displayName?: string | undefined;
     /** The method of distribution for the app. Read-only. */
-    private _distributionMethod?: TeamsAppDistributionMethod | undefined;
+    private _distributionMethod?: TeamsAppDistributionMethod | AppCatalogsMember1 | undefined;
     /** The ID of the catalog provided by the app developer in the Microsoft Teams zip app package. */
     private _externalId?: string | undefined;
     /**
@@ -49,7 +49,7 @@ export class TeamsApp extends Entity implements Parsable {
     };
     /**
      * Gets the distributionMethod property value. The method of distribution for the app. Read-only.
-     * @returns a teamsAppDistributionMethod
+     * @returns a appCatalogs
      */
     public get distributionMethod() {
         return this._distributionMethod;
@@ -58,7 +58,7 @@ export class TeamsApp extends Entity implements Parsable {
      * Sets the distributionMethod property value. The method of distribution for the app. Read-only.
      * @param value Value to set for the distributionMethod property.
      */
-    public set distributionMethod(value: TeamsAppDistributionMethod | undefined) {
+    public set distributionMethod(value: TeamsAppDistributionMethod | AppCatalogsMember1 | undefined) {
         this._distributionMethod = value;
     };
     /**
@@ -83,7 +83,7 @@ export class TeamsApp extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "appDefinitions": n => { this.appDefinitions = n.getCollectionOfObjectValues<TeamsAppDefinition>(createTeamsAppDefinitionFromDiscriminatorValue); },
             "displayName": n => { this.displayName = n.getStringValue(); },
-            "distributionMethod": n => { this.distributionMethod = n.getEnumValue<TeamsAppDistributionMethod>(TeamsAppDistributionMethod); },
+            "distributionMethod": n => { this.distributionMethod = n.getObjectValue<TeamsAppDistributionMethod>(createTeamsAppDistributionMethodFromDiscriminatorValue); },
             "externalId": n => { this.externalId = n.getStringValue(); },
         };
     };
@@ -96,7 +96,7 @@ export class TeamsApp extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<TeamsAppDefinition>("appDefinitions", this.appDefinitions);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeEnumValue<TeamsAppDistributionMethod>("distributionMethod", this.distributionMethod);
+        writer.writeObjectValue<TeamsAppDistributionMethod>("distributionMethod", this.distributionMethod);
         writer.writeStringValue("externalId", this.externalId);
     };
 }

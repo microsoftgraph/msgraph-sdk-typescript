@@ -1,12 +1,11 @@
-import {createOnenotePagePreviewLinksFromDiscriminatorValue} from './createOnenotePagePreviewLinksFromDiscriminatorValue';
-import {OnenotePagePreviewLinks} from './index';
+import {OnenotePagePreviewLinks, PreviewMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenotePagePreview implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The links property */
-    private _links?: OnenotePagePreviewLinks | undefined;
+    private _links?: OnenotePagePreviewLinks | PreviewMember1 | undefined;
     /** The previewText property */
     private _previewText?: string | undefined;
     /**
@@ -24,7 +23,7 @@ export class OnenotePagePreview implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Instantiates a new OnenotePagePreview and sets the default values.
+     * Instantiates a new onenotePagePreview and sets the default values.
      */
     public constructor() {
         this._additionalData = {};
@@ -41,7 +40,7 @@ export class OnenotePagePreview implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the links property value. The links property
-     * @returns a onenotePagePreviewLinks
+     * @returns a preview
      */
     public get links() {
         return this._links;
@@ -50,7 +49,7 @@ export class OnenotePagePreview implements AdditionalDataHolder, Parsable {
      * Sets the links property value. The links property
      * @param value Value to set for the links property.
      */
-    public set links(value: OnenotePagePreviewLinks | undefined) {
+    public set links(value: OnenotePagePreviewLinks | PreviewMember1 | undefined) {
         this._links = value;
     };
     /**

@@ -1,12 +1,11 @@
-import {createAlbumFromDiscriminatorValue} from './createAlbumFromDiscriminatorValue';
-import {Album} from './index';
+import {AdminMember1, Album} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Bundle implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** If the bundle is an [album][], then the album property is included */
-    private _album?: Album | undefined;
+    private _album?: Album | AdminMember1 | undefined;
     /** Number of children contained immediately within this container. */
     private _childCount?: number | undefined;
     /**
@@ -25,7 +24,7 @@ export class Bundle implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the album property value. If the bundle is an [album][], then the album property is included
-     * @returns a album
+     * @returns a admin
      */
     public get album() {
         return this._album;
@@ -34,7 +33,7 @@ export class Bundle implements AdditionalDataHolder, Parsable {
      * Sets the album property value. If the bundle is an [album][], then the album property is included
      * @param value Value to set for the album property.
      */
-    public set album(value: Album | undefined) {
+    public set album(value: Album | AdminMember1 | undefined) {
         this._album = value;
     };
     /**

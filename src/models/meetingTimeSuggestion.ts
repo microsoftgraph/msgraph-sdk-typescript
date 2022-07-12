@@ -1,25 +1,22 @@
-import {createAttendeeAvailabilityFromDiscriminatorValue} from './createAttendeeAvailabilityFromDiscriminatorValue';
-import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
-import {createTimeSlotFromDiscriminatorValue} from './createTimeSlotFromDiscriminatorValue';
 import {FreeBusyStatus} from './freeBusyStatus';
-import {AttendeeAvailability, Location, TimeSlot} from './index';
+import {AttendeeAvailability, FindMeetingTimesMember1, Location, TimeSlot} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** An array that shows the availability status of each attendee for this meeting suggestion. */
-    private _attendeeAvailability?: AttendeeAvailability[] | undefined;
+    private _attendeeAvailability?: AttendeeAvailability | FindMeetingTimesMember1[] | undefined;
     /** A percentage that represents the likelhood of all the attendees attending. */
     private _confidence?: number | undefined;
     /** An array that specifies the name and geographic location of each meeting location for this meeting suggestion. */
-    private _locations?: Location[] | undefined;
+    private _locations?: Location | FindMeetingTimesMember1[] | undefined;
     /** A time period suggested for the meeting. */
-    private _meetingTimeSlot?: TimeSlot | undefined;
+    private _meetingTimeSlot?: TimeSlot | FindMeetingTimesMember1 | undefined;
     /** Order of meeting time suggestions sorted by their computed confidence value from high to low, then by chronology if there are suggestions with the same confidence. */
     private _order?: number | undefined;
     /** Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown. */
-    private _organizerAvailability?: FreeBusyStatus | undefined;
+    private _organizerAvailability?: FreeBusyStatus | FindMeetingTimesMember1 | undefined;
     /** Reason for suggesting the meeting time. */
     private _suggestionReason?: string | undefined;
     /**
@@ -38,7 +35,7 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the attendeeAvailability property value. An array that shows the availability status of each attendee for this meeting suggestion.
-     * @returns a attendeeAvailability
+     * @returns a findMeetingTimes
      */
     public get attendeeAvailability() {
         return this._attendeeAvailability;
@@ -47,7 +44,7 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
      * Sets the attendeeAvailability property value. An array that shows the availability status of each attendee for this meeting suggestion.
      * @param value Value to set for the attendeeAvailability property.
      */
-    public set attendeeAvailability(value: AttendeeAvailability[] | undefined) {
+    public set attendeeAvailability(value: AttendeeAvailability | FindMeetingTimesMember1[] | undefined) {
         this._attendeeAvailability = value;
     };
     /**
@@ -76,18 +73,18 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "attendeeAvailability": n => { this.attendeeAvailability = n.getCollectionOfObjectValues<AttendeeAvailability>(createAttendeeAvailabilityFromDiscriminatorValue); },
+            "attendeeAvailability": n => { this.attendeeAvailability = n.getObjectValue<AttendeeAvailability>(createAttendeeAvailabilityFromDiscriminatorValue); },
             "confidence": n => { this.confidence = n.getNumberValue(); },
-            "locations": n => { this.locations = n.getCollectionOfObjectValues<Location>(createLocationFromDiscriminatorValue); },
+            "locations": n => { this.locations = n.getObjectValue<Location>(createLocationFromDiscriminatorValue); },
             "meetingTimeSlot": n => { this.meetingTimeSlot = n.getObjectValue<TimeSlot>(createTimeSlotFromDiscriminatorValue); },
             "order": n => { this.order = n.getNumberValue(); },
-            "organizerAvailability": n => { this.organizerAvailability = n.getEnumValue<FreeBusyStatus>(FreeBusyStatus); },
+            "organizerAvailability": n => { this.organizerAvailability = n.getObjectValue<FreeBusyStatus>(createFreeBusyStatusFromDiscriminatorValue); },
             "suggestionReason": n => { this.suggestionReason = n.getStringValue(); },
         };
     };
     /**
      * Gets the locations property value. An array that specifies the name and geographic location of each meeting location for this meeting suggestion.
-     * @returns a location
+     * @returns a findMeetingTimes
      */
     public get locations() {
         return this._locations;
@@ -96,12 +93,12 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
      * Sets the locations property value. An array that specifies the name and geographic location of each meeting location for this meeting suggestion.
      * @param value Value to set for the locations property.
      */
-    public set locations(value: Location[] | undefined) {
+    public set locations(value: Location | FindMeetingTimesMember1[] | undefined) {
         this._locations = value;
     };
     /**
      * Gets the meetingTimeSlot property value. A time period suggested for the meeting.
-     * @returns a timeSlot
+     * @returns a findMeetingTimes
      */
     public get meetingTimeSlot() {
         return this._meetingTimeSlot;
@@ -110,7 +107,7 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
      * Sets the meetingTimeSlot property value. A time period suggested for the meeting.
      * @param value Value to set for the meetingTimeSlot property.
      */
-    public set meetingTimeSlot(value: TimeSlot | undefined) {
+    public set meetingTimeSlot(value: TimeSlot | FindMeetingTimesMember1 | undefined) {
         this._meetingTimeSlot = value;
     };
     /**
@@ -129,7 +126,7 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
-     * @returns a freeBusyStatus
+     * @returns a findMeetingTimes
      */
     public get organizerAvailability() {
         return this._organizerAvailability;
@@ -138,7 +135,7 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
      * Sets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @param value Value to set for the organizerAvailability property.
      */
-    public set organizerAvailability(value: FreeBusyStatus | undefined) {
+    public set organizerAvailability(value: FreeBusyStatus | FindMeetingTimesMember1 | undefined) {
         this._organizerAvailability = value;
     };
     /**
@@ -147,12 +144,12 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<AttendeeAvailability>("attendeeAvailability", this.attendeeAvailability);
+        writer.writeObjectValue<AttendeeAvailability>("attendeeAvailability", this.attendeeAvailability);
         writer.writeNumberValue("confidence", this.confidence);
-        writer.writeCollectionOfObjectValues<Location>("locations", this.locations);
+        writer.writeObjectValue<Location>("locations", this.locations);
         writer.writeObjectValue<TimeSlot>("meetingTimeSlot", this.meetingTimeSlot);
         writer.writeNumberValue("order", this.order);
-        writer.writeEnumValue<FreeBusyStatus>("organizerAvailability", this.organizerAvailability);
+        writer.writeObjectValue<FreeBusyStatus>("organizerAvailability", this.organizerAvailability);
         writer.writeStringValue("suggestionReason", this.suggestionReason);
         writer.writeAdditionalData(this.additionalData);
     };

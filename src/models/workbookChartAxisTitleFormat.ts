@@ -1,11 +1,9 @@
-import {createWorkbookChartFontFromDiscriminatorValue} from './createWorkbookChartFontFromDiscriminatorValue';
-import {Entity, WorkbookChartFont} from './index';
+import {AdminMember1, Entity, WorkbookChartFont} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartAxisTitleFormat extends Entity implements Parsable {
     /** Represents the font attributes, such as font name, font size, color, etc. of chart axis title object. Read-only. */
-    private _font?: WorkbookChartFont | undefined;
+    private _font?: WorkbookChartFont | AdminMember1 | undefined;
     /**
      * Instantiates a new workbookChartAxisTitleFormat and sets the default values.
      */
@@ -14,7 +12,7 @@ export class WorkbookChartAxisTitleFormat extends Entity implements Parsable {
     };
     /**
      * Gets the font property value. Represents the font attributes, such as font name, font size, color, etc. of chart axis title object. Read-only.
-     * @returns a workbookChartFont
+     * @returns a admin
      */
     public get font() {
         return this._font;
@@ -23,7 +21,7 @@ export class WorkbookChartAxisTitleFormat extends Entity implements Parsable {
      * Sets the font property value. Represents the font attributes, such as font name, font size, color, etc. of chart axis title object. Read-only.
      * @param value Value to set for the font property.
      */
-    public set font(value: WorkbookChartFont | undefined) {
+    public set font(value: WorkbookChartFont | AdminMember1 | undefined) {
         this._font = value;
     };
     /**

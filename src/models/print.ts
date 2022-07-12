@@ -3,9 +3,8 @@ import {createPrinterFromDiscriminatorValue} from './createPrinterFromDiscrimina
 import {createPrinterShareFromDiscriminatorValue} from './createPrinterShareFromDiscriminatorValue';
 import {createPrintOperationFromDiscriminatorValue} from './createPrintOperationFromDiscriminatorValue';
 import {createPrintServiceFromDiscriminatorValue} from './createPrintServiceFromDiscriminatorValue';
-import {createPrintSettingsFromDiscriminatorValue} from './createPrintSettingsFromDiscriminatorValue';
 import {createPrintTaskDefinitionFromDiscriminatorValue} from './createPrintTaskDefinitionFromDiscriminatorValue';
-import {PrintConnector, Printer, PrinterShare, PrintOperation, PrintService, PrintSettings, PrintTaskDefinition} from './index';
+import {PrintConnector, Printer, PrinterShare, PrintMember1, PrintOperation, PrintService, PrintSettings, PrintTaskDefinition} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Print implements AdditionalDataHolder, Parsable {
@@ -20,7 +19,7 @@ export class Print implements AdditionalDataHolder, Parsable {
     /** The list of available Universal Print service endpoints. */
     private _services?: PrintService[] | undefined;
     /** Tenant-wide settings for the Universal Print service. */
-    private _settings?: PrintSettings | undefined;
+    private _settings?: PrintSettings | PrintMember1 | undefined;
     /** The list of printer shares registered in the tenant. */
     private _shares?: PrinterShare[] | undefined;
     /** List of abstract definition for a task that can be triggered when various events occur within Universal Print. */
@@ -133,7 +132,7 @@ export class Print implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the settings property value. Tenant-wide settings for the Universal Print service.
-     * @returns a printSettings
+     * @returns a print
      */
     public get settings() {
         return this._settings;
@@ -142,7 +141,7 @@ export class Print implements AdditionalDataHolder, Parsable {
      * Sets the settings property value. Tenant-wide settings for the Universal Print service.
      * @param value Value to set for the settings property.
      */
-    public set settings(value: PrintSettings | undefined) {
+    public set settings(value: PrintSettings | PrintMember1 | undefined) {
         this._settings = value;
     };
     /**

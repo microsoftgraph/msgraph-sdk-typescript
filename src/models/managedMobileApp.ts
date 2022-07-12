@@ -1,11 +1,10 @@
-import {createMobileAppIdentifierFromDiscriminatorValue} from './createMobileAppIdentifierFromDiscriminatorValue';
-import {Entity, MobileAppIdentifier} from './index';
+import {AdminMember1, Entity, MobileAppIdentifier} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The identifier for the deployment an app. */
 export class ManagedMobileApp extends Entity implements Parsable {
     /** The identifier for an app with it's operating system type. */
-    private _mobileAppIdentifier?: MobileAppIdentifier | undefined;
+    private _mobileAppIdentifier?: MobileAppIdentifier | AdminMember1 | undefined;
     /** Version of the entity. */
     private _version?: string | undefined;
     /**
@@ -26,7 +25,7 @@ export class ManagedMobileApp extends Entity implements Parsable {
     };
     /**
      * Gets the mobileAppIdentifier property value. The identifier for an app with it's operating system type.
-     * @returns a mobileAppIdentifier
+     * @returns a admin
      */
     public get mobileAppIdentifier() {
         return this._mobileAppIdentifier;
@@ -35,7 +34,7 @@ export class ManagedMobileApp extends Entity implements Parsable {
      * Sets the mobileAppIdentifier property value. The identifier for an app with it's operating system type.
      * @param value Value to set for the mobileAppIdentifier property.
      */
-    public set mobileAppIdentifier(value: MobileAppIdentifier | undefined) {
+    public set mobileAppIdentifier(value: MobileAppIdentifier | AdminMember1 | undefined) {
         this._mobileAppIdentifier = value;
     };
     /**

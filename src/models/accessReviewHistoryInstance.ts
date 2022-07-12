@@ -1,8 +1,8 @@
 import {AccessReviewHistoryStatus} from './accessReviewHistoryStatus';
-import {Entity} from './index';
+import {AdminMember1, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the admin singleton. */
 export class AccessReviewHistoryInstance extends Entity implements Parsable {
     /** Uri which can be used to retrieve review history data. This URI will be active for 24 hours after being generated. Required. */
     private _downloadUri?: string | undefined;
@@ -17,7 +17,7 @@ export class AccessReviewHistoryInstance extends Entity implements Parsable {
     /** Timestamp when the instance's history data is scheduled to be generated. */
     private _runDateTime?: Date | undefined;
     /** Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. Once the status has been marked as done, a link can be generated to retrieve the instance's data by calling generateDownloadUri method. */
-    private _status?: AccessReviewHistoryStatus | undefined;
+    private _status?: AccessReviewHistoryStatus | AdminMember1 | undefined;
     /**
      * Instantiates a new accessReviewHistoryInstance and sets the default values.
      */
@@ -78,7 +78,7 @@ export class AccessReviewHistoryInstance extends Entity implements Parsable {
             "reviewHistoryPeriodEndDateTime": n => { this.reviewHistoryPeriodEndDateTime = n.getDateValue(); },
             "reviewHistoryPeriodStartDateTime": n => { this.reviewHistoryPeriodStartDateTime = n.getDateValue(); },
             "runDateTime": n => { this.runDateTime = n.getDateValue(); },
-            "status": n => { this.status = n.getEnumValue<AccessReviewHistoryStatus>(AccessReviewHistoryStatus); },
+            "status": n => { this.status = n.getObjectValue<AccessReviewHistoryStatus>(createAccessReviewHistoryStatusFromDiscriminatorValue); },
         };
     };
     /**
@@ -136,11 +136,11 @@ export class AccessReviewHistoryInstance extends Entity implements Parsable {
         writer.writeDateValue("reviewHistoryPeriodEndDateTime", this.reviewHistoryPeriodEndDateTime);
         writer.writeDateValue("reviewHistoryPeriodStartDateTime", this.reviewHistoryPeriodStartDateTime);
         writer.writeDateValue("runDateTime", this.runDateTime);
-        writer.writeEnumValue<AccessReviewHistoryStatus>("status", this.status);
+        writer.writeObjectValue<AccessReviewHistoryStatus>("status", this.status);
     };
     /**
      * Gets the status property value. Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. Once the status has been marked as done, a link can be generated to retrieve the instance's data by calling generateDownloadUri method.
-     * @returns a accessReviewHistoryStatus
+     * @returns a admin
      */
     public get status() {
         return this._status;
@@ -149,7 +149,7 @@ export class AccessReviewHistoryInstance extends Entity implements Parsable {
      * Sets the status property value. Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. Once the status has been marked as done, a link can be generated to retrieve the instance's data by calling generateDownloadUri method.
      * @param value Value to set for the status property.
      */
-    public set status(value: AccessReviewHistoryStatus | undefined) {
+    public set status(value: AccessReviewHistoryStatus | AdminMember1 | undefined) {
         this._status = value;
     };
 }

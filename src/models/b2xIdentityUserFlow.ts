@@ -1,15 +1,13 @@
 import {createIdentityProviderBaseFromDiscriminatorValue} from './createIdentityProviderBaseFromDiscriminatorValue';
 import {createIdentityProviderFromDiscriminatorValue} from './createIdentityProviderFromDiscriminatorValue';
 import {createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue} from './createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue';
-import {createUserFlowApiConnectorConfigurationFromDiscriminatorValue} from './createUserFlowApiConnectorConfigurationFromDiscriminatorValue';
 import {createUserFlowLanguageConfigurationFromDiscriminatorValue} from './createUserFlowLanguageConfigurationFromDiscriminatorValue';
-import {IdentityProvider, IdentityProviderBase, IdentityUserFlow, IdentityUserFlowAttributeAssignment, UserFlowApiConnectorConfiguration, UserFlowLanguageConfiguration} from './index';
+import {AdminMember1, IdentityProvider, IdentityProviderBase, IdentityUserFlow, IdentityUserFlowAttributeAssignment, UserFlowApiConnectorConfiguration, UserFlowLanguageConfiguration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable {
     /** Configuration for enabling an API connector for use as part of the self-service sign up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration. */
-    private _apiConnectorConfiguration?: UserFlowApiConnectorConfiguration | undefined;
+    private _apiConnectorConfiguration?: UserFlowApiConnectorConfiguration | AdminMember1 | undefined;
     /** The identity providers included in the user flow. */
     private _identityProviders?: IdentityProvider[] | undefined;
     /** The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows. */
@@ -20,7 +18,7 @@ export class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable {
     private _userFlowIdentityProviders?: IdentityProviderBase[] | undefined;
     /**
      * Gets the apiConnectorConfiguration property value. Configuration for enabling an API connector for use as part of the self-service sign up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
-     * @returns a userFlowApiConnectorConfiguration
+     * @returns a admin
      */
     public get apiConnectorConfiguration() {
         return this._apiConnectorConfiguration;
@@ -29,11 +27,11 @@ export class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable {
      * Sets the apiConnectorConfiguration property value. Configuration for enabling an API connector for use as part of the self-service sign up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
      * @param value Value to set for the apiConnectorConfiguration property.
      */
-    public set apiConnectorConfiguration(value: UserFlowApiConnectorConfiguration | undefined) {
+    public set apiConnectorConfiguration(value: UserFlowApiConnectorConfiguration | AdminMember1 | undefined) {
         this._apiConnectorConfiguration = value;
     };
     /**
-     * Instantiates a new b2xIdentityUserFlow and sets the default values.
+     * Instantiates a new B2xIdentityUserFlow and sets the default values.
      */
     public constructor() {
         super();

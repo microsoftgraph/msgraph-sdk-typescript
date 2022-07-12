@@ -1,11 +1,9 @@
 import {createWorkbookTableColumnFromDiscriminatorValue} from './createWorkbookTableColumnFromDiscriminatorValue';
 import {createWorkbookTableRowFromDiscriminatorValue} from './createWorkbookTableRowFromDiscriminatorValue';
-import {createWorkbookTableSortFromDiscriminatorValue} from './createWorkbookTableSortFromDiscriminatorValue';
-import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWorksheetFromDiscriminatorValue';
-import {Entity, WorkbookTableColumn, WorkbookTableRow, WorkbookTableSort, WorkbookWorksheet} from './index';
+import {AdminMember1, Entity, WorkbookTableColumn, WorkbookTableRow, WorkbookTableSort, WorkbookWorksheet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookTable extends Entity implements Parsable {
     /** Represents a collection of all the columns in the table. Read-only. */
     private _columns?: WorkbookTableColumn[] | undefined;
@@ -30,11 +28,11 @@ export class WorkbookTable extends Entity implements Parsable {
     /** Indicates whether the total row is visible or not. This value can be set to show or remove the total row. */
     private _showTotals?: boolean | undefined;
     /** Represents the sorting for the table. Read-only. */
-    private _sort?: WorkbookTableSort | undefined;
+    private _sort?: WorkbookTableSort | AdminMember1 | undefined;
     /** Constant value that represents the Table style. Possible values are: TableStyleLight1 thru TableStyleLight21, TableStyleMedium1 thru TableStyleMedium28, TableStyleStyleDark1 thru TableStyleStyleDark11. A custom user-defined style present in the workbook can also be specified. */
     private _style?: string | undefined;
     /** The worksheet containing the current table. Read-only. */
-    private _worksheet?: WorkbookWorksheet | undefined;
+    private _worksheet?: WorkbookWorksheet | AdminMember1 | undefined;
     /**
      * Gets the columns property value. Represents a collection of all the columns in the table. Read-only.
      * @returns a workbookTableColumn
@@ -241,7 +239,7 @@ export class WorkbookTable extends Entity implements Parsable {
     };
     /**
      * Gets the sort property value. Represents the sorting for the table. Read-only.
-     * @returns a workbookTableSort
+     * @returns a admin
      */
     public get sort() {
         return this._sort;
@@ -250,7 +248,7 @@ export class WorkbookTable extends Entity implements Parsable {
      * Sets the sort property value. Represents the sorting for the table. Read-only.
      * @param value Value to set for the sort property.
      */
-    public set sort(value: WorkbookTableSort | undefined) {
+    public set sort(value: WorkbookTableSort | AdminMember1 | undefined) {
         this._sort = value;
     };
     /**
@@ -269,7 +267,7 @@ export class WorkbookTable extends Entity implements Parsable {
     };
     /**
      * Gets the worksheet property value. The worksheet containing the current table. Read-only.
-     * @returns a workbookWorksheet
+     * @returns a admin
      */
     public get worksheet() {
         return this._worksheet;
@@ -278,7 +276,7 @@ export class WorkbookTable extends Entity implements Parsable {
      * Sets the worksheet property value. The worksheet containing the current table. Read-only.
      * @param value Value to set for the worksheet property.
      */
-    public set worksheet(value: WorkbookWorksheet | undefined) {
+    public set worksheet(value: WorkbookWorksheet | AdminMember1 | undefined) {
         this._worksheet = value;
     };
 }

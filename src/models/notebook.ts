@@ -1,18 +1,16 @@
-import {createNotebookLinksFromDiscriminatorValue} from './createNotebookLinksFromDiscriminatorValue';
 import {createOnenoteSectionFromDiscriminatorValue} from './createOnenoteSectionFromDiscriminatorValue';
 import {createSectionGroupFromDiscriminatorValue} from './createSectionGroupFromDiscriminatorValue';
-import {NotebookLinks, OnenoteEntityHierarchyModel, OnenoteSection, SectionGroup} from './index';
+import {AdminMember1, NotebookLinks, OnenoteEntityHierarchyModel, OnenoteSection, SectionGroup} from './index';
 import {OnenoteUserRole} from './onenoteUserRole';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Notebook extends OnenoteEntityHierarchyModel implements Parsable {
     /** Indicates whether this is the user's default notebook. Read-only. */
     private _isDefault?: boolean | undefined;
     /** Indicates whether the notebook is shared. If true, the contents of the notebook can be seen by people other than the owner. Read-only. */
     private _isShared?: boolean | undefined;
     /** Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote native client if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web. */
-    private _links?: NotebookLinks | undefined;
+    private _links?: NotebookLinks | AdminMember1 | undefined;
     /** The section groups in the notebook. Read-only. Nullable. */
     private _sectionGroups?: SectionGroup[] | undefined;
     /** The URL for the sectionGroups navigation property, which returns all the section groups in the notebook. Read-only. */
@@ -22,9 +20,9 @@ export class Notebook extends OnenoteEntityHierarchyModel implements Parsable {
     /** The URL for the sections navigation property, which returns all the sections in the notebook. Read-only. */
     private _sectionsUrl?: string | undefined;
     /** Possible values are: Owner, Contributor, Reader, None. Owner represents owner-level access to the notebook. Contributor represents read/write access to the notebook. Reader represents read-only access to the notebook. Read-only. */
-    private _userRole?: OnenoteUserRole | undefined;
+    private _userRole?: OnenoteUserRole | AdminMember1 | undefined;
     /**
-     * Instantiates a new notebook and sets the default values.
+     * Instantiates a new Notebook and sets the default values.
      */
     public constructor() {
         super();
@@ -42,7 +40,7 @@ export class Notebook extends OnenoteEntityHierarchyModel implements Parsable {
             "sectionGroupsUrl": n => { this.sectionGroupsUrl = n.getStringValue(); },
             "sections": n => { this.sections = n.getCollectionOfObjectValues<OnenoteSection>(createOnenoteSectionFromDiscriminatorValue); },
             "sectionsUrl": n => { this.sectionsUrl = n.getStringValue(); },
-            "userRole": n => { this.userRole = n.getEnumValue<OnenoteUserRole>(OnenoteUserRole); },
+            "userRole": n => { this.userRole = n.getObjectValue<OnenoteUserRole>(createOnenoteUserRoleFromDiscriminatorValue); },
         };
     };
     /**
@@ -75,7 +73,7 @@ export class Notebook extends OnenoteEntityHierarchyModel implements Parsable {
     };
     /**
      * Gets the links property value. Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote native client if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web.
-     * @returns a notebookLinks
+     * @returns a admin
      */
     public get links() {
         return this._links;
@@ -84,7 +82,7 @@ export class Notebook extends OnenoteEntityHierarchyModel implements Parsable {
      * Sets the links property value. Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote native client if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web.
      * @param value Value to set for the links property.
      */
-    public set links(value: NotebookLinks | undefined) {
+    public set links(value: NotebookLinks | AdminMember1 | undefined) {
         this._links = value;
     };
     /**
@@ -157,11 +155,11 @@ export class Notebook extends OnenoteEntityHierarchyModel implements Parsable {
         writer.writeStringValue("sectionGroupsUrl", this.sectionGroupsUrl);
         writer.writeCollectionOfObjectValues<OnenoteSection>("sections", this.sections);
         writer.writeStringValue("sectionsUrl", this.sectionsUrl);
-        writer.writeEnumValue<OnenoteUserRole>("userRole", this.userRole);
+        writer.writeObjectValue<OnenoteUserRole>("userRole", this.userRole);
     };
     /**
      * Gets the userRole property value. Possible values are: Owner, Contributor, Reader, None. Owner represents owner-level access to the notebook. Contributor represents read/write access to the notebook. Reader represents read-only access to the notebook. Read-only.
-     * @returns a onenoteUserRole
+     * @returns a admin
      */
     public get userRole() {
         return this._userRole;
@@ -170,7 +168,7 @@ export class Notebook extends OnenoteEntityHierarchyModel implements Parsable {
      * Sets the userRole property value. Possible values are: Owner, Contributor, Reader, None. Owner represents owner-level access to the notebook. Contributor represents read/write access to the notebook. Reader represents read-only access to the notebook. Read-only.
      * @param value Value to set for the userRole property.
      */
-    public set userRole(value: OnenoteUserRole | undefined) {
+    public set userRole(value: OnenoteUserRole | AdminMember1 | undefined) {
         this._userRole = value;
     };
 }

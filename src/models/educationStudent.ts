@@ -1,4 +1,5 @@
 import {EducationGender} from './educationGender';
+import {AdminMember1} from './index';
 import {AdditionalDataHolder, DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationStudent implements AdditionalDataHolder, Parsable {
@@ -9,7 +10,7 @@ export class EducationStudent implements AdditionalDataHolder, Parsable {
     /** ID of the student in the source system. */
     private _externalId?: string | undefined;
     /** Possible values are: female, male, other. */
-    private _gender?: EducationGender | undefined;
+    private _gender?: EducationGender | AdminMember1 | undefined;
     /** Current grade level of the student. */
     private _grade?: string | undefined;
     /** Year the student is graduating from the school. */
@@ -66,7 +67,7 @@ export class EducationStudent implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the gender property value. Possible values are: female, male, other.
-     * @returns a educationGender
+     * @returns a admin
      */
     public get gender() {
         return this._gender;
@@ -75,7 +76,7 @@ export class EducationStudent implements AdditionalDataHolder, Parsable {
      * Sets the gender property value. Possible values are: female, male, other.
      * @param value Value to set for the gender property.
      */
-    public set gender(value: EducationGender | undefined) {
+    public set gender(value: EducationGender | AdminMember1 | undefined) {
         this._gender = value;
     };
     /**
@@ -86,7 +87,7 @@ export class EducationStudent implements AdditionalDataHolder, Parsable {
         return {
             "birthDate": n => { this.birthDate = n.getDateOnlyValue(); },
             "externalId": n => { this.externalId = n.getStringValue(); },
-            "gender": n => { this.gender = n.getEnumValue<EducationGender>(EducationGender); },
+            "gender": n => { this.gender = n.getObjectValue<EducationGender>(createEducationGenderFromDiscriminatorValue); },
             "grade": n => { this.grade = n.getStringValue(); },
             "graduationYear": n => { this.graduationYear = n.getStringValue(); },
             "studentNumber": n => { this.studentNumber = n.getStringValue(); },
@@ -128,7 +129,7 @@ export class EducationStudent implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeDateOnlyValue("birthDate", this.birthDate);
         writer.writeStringValue("externalId", this.externalId);
-        writer.writeEnumValue<EducationGender>("gender", this.gender);
+        writer.writeObjectValue<EducationGender>("gender", this.gender);
         writer.writeStringValue("grade", this.grade);
         writer.writeStringValue("graduationYear", this.graduationYear);
         writer.writeStringValue("studentNumber", this.studentNumber);

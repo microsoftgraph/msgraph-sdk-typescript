@@ -1,20 +1,18 @@
-import {createTeamworkConversationIdentityFromDiscriminatorValue} from './createTeamworkConversationIdentityFromDiscriminatorValue';
-import {IdentitySet, TeamworkConversationIdentity} from './index';
+import {AdminMember1, IdentitySet, TeamworkConversationIdentity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
 export class ChatMessageMentionedIdentitySet extends IdentitySet implements Parsable {
     /** If present, represents a conversation (for example, team or channel) @mentioned in a message. */
-    private _conversation?: TeamworkConversationIdentity | undefined;
+    private _conversation?: TeamworkConversationIdentity | AdminMember1 | undefined;
     /**
-     * Instantiates a new chatMessageMentionedIdentitySet and sets the default values.
+     * Instantiates a new ChatMessageMentionedIdentitySet and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
      * Gets the conversation property value. If present, represents a conversation (for example, team or channel) @mentioned in a message.
-     * @returns a teamworkConversationIdentity
+     * @returns a admin
      */
     public get conversation() {
         return this._conversation;
@@ -23,7 +21,7 @@ export class ChatMessageMentionedIdentitySet extends IdentitySet implements Pars
      * Sets the conversation property value. If present, represents a conversation (for example, team or channel) @mentioned in a message.
      * @param value Value to set for the conversation property.
      */
-    public set conversation(value: TeamworkConversationIdentity | undefined) {
+    public set conversation(value: TeamworkConversationIdentity | AdminMember1 | undefined) {
         this._conversation = value;
     };
     /**

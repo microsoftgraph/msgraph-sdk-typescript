@@ -1,11 +1,9 @@
-import {createWorkbookFilterCriteriaFromDiscriminatorValue} from './createWorkbookFilterCriteriaFromDiscriminatorValue';
-import {Entity, WorkbookFilterCriteria} from './index';
+import {AdminMember1, Entity, WorkbookFilterCriteria} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookFilter extends Entity implements Parsable {
     /** The currently applied filter on the given column. Read-only. */
-    private _criteria?: WorkbookFilterCriteria | undefined;
+    private _criteria?: WorkbookFilterCriteria | AdminMember1 | undefined;
     /**
      * Instantiates a new workbookFilter and sets the default values.
      */
@@ -14,7 +12,7 @@ export class WorkbookFilter extends Entity implements Parsable {
     };
     /**
      * Gets the criteria property value. The currently applied filter on the given column. Read-only.
-     * @returns a workbookFilterCriteria
+     * @returns a admin
      */
     public get criteria() {
         return this._criteria;
@@ -23,7 +21,7 @@ export class WorkbookFilter extends Entity implements Parsable {
      * Sets the criteria property value. The currently applied filter on the given column. Read-only.
      * @param value Value to set for the criteria property.
      */
-    public set criteria(value: WorkbookFilterCriteria | undefined) {
+    public set criteria(value: WorkbookFilterCriteria | AdminMember1 | undefined) {
         this._criteria = value;
     };
     /**

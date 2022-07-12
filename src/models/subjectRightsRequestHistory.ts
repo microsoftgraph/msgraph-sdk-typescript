@@ -1,5 +1,4 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {IdentitySet} from './index';
+import {AdminMember1, IdentitySet} from './index';
 import {SubjectRightsRequestStage} from './subjectRightsRequestStage';
 import {SubjectRightsRequestStageStatus} from './subjectRightsRequestStageStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -8,13 +7,13 @@ export class SubjectRightsRequestHistory implements AdditionalDataHolder, Parsab
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Identity of the user who changed the  subject rights request. */
-    private _changedBy?: IdentitySet | undefined;
+    private _changedBy?: IdentitySet | AdminMember1 | undefined;
     /** Data and time when the entity was changed. */
     private _eventDateTime?: Date | undefined;
     /** The stage when the entity was changed. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue. */
-    private _stage?: SubjectRightsRequestStage | undefined;
+    private _stage?: SubjectRightsRequestStage | AdminMember1 | undefined;
     /** The status of the stage when the entity was changed. Possible values are: notStarted, current, completed, failed, unknownFutureValue. */
-    private _stageStatus?: SubjectRightsRequestStageStatus | undefined;
+    private _stageStatus?: SubjectRightsRequestStageStatus | AdminMember1 | undefined;
     /** Type of history. */
     private _type?: string | undefined;
     /**
@@ -33,7 +32,7 @@ export class SubjectRightsRequestHistory implements AdditionalDataHolder, Parsab
     };
     /**
      * Gets the changedBy property value. Identity of the user who changed the  subject rights request.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get changedBy() {
         return this._changedBy;
@@ -42,7 +41,7 @@ export class SubjectRightsRequestHistory implements AdditionalDataHolder, Parsab
      * Sets the changedBy property value. Identity of the user who changed the  subject rights request.
      * @param value Value to set for the changedBy property.
      */
-    public set changedBy(value: IdentitySet | undefined) {
+    public set changedBy(value: IdentitySet | AdminMember1 | undefined) {
         this._changedBy = value;
     };
     /**
@@ -73,8 +72,8 @@ export class SubjectRightsRequestHistory implements AdditionalDataHolder, Parsab
         return {
             "changedBy": n => { this.changedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "eventDateTime": n => { this.eventDateTime = n.getDateValue(); },
-            "stage": n => { this.stage = n.getEnumValue<SubjectRightsRequestStage>(SubjectRightsRequestStage); },
-            "stageStatus": n => { this.stageStatus = n.getEnumValue<SubjectRightsRequestStageStatus>(SubjectRightsRequestStageStatus); },
+            "stage": n => { this.stage = n.getObjectValue<SubjectRightsRequestStage>(createSubjectRightsRequestStageFromDiscriminatorValue); },
+            "stageStatus": n => { this.stageStatus = n.getObjectValue<SubjectRightsRequestStageStatus>(createSubjectRightsRequestStageStatusFromDiscriminatorValue); },
             "type": n => { this.type = n.getStringValue(); },
         };
     };
@@ -86,14 +85,14 @@ export class SubjectRightsRequestHistory implements AdditionalDataHolder, Parsab
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<IdentitySet>("changedBy", this.changedBy);
         writer.writeDateValue("eventDateTime", this.eventDateTime);
-        writer.writeEnumValue<SubjectRightsRequestStage>("stage", this.stage);
-        writer.writeEnumValue<SubjectRightsRequestStageStatus>("stageStatus", this.stageStatus);
+        writer.writeObjectValue<SubjectRightsRequestStage>("stage", this.stage);
+        writer.writeObjectValue<SubjectRightsRequestStageStatus>("stageStatus", this.stageStatus);
         writer.writeStringValue("type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the stage property value. The stage when the entity was changed. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue.
-     * @returns a subjectRightsRequestStage
+     * @returns a admin
      */
     public get stage() {
         return this._stage;
@@ -102,12 +101,12 @@ export class SubjectRightsRequestHistory implements AdditionalDataHolder, Parsab
      * Sets the stage property value. The stage when the entity was changed. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue.
      * @param value Value to set for the stage property.
      */
-    public set stage(value: SubjectRightsRequestStage | undefined) {
+    public set stage(value: SubjectRightsRequestStage | AdminMember1 | undefined) {
         this._stage = value;
     };
     /**
      * Gets the stageStatus property value. The status of the stage when the entity was changed. Possible values are: notStarted, current, completed, failed, unknownFutureValue.
-     * @returns a subjectRightsRequestStageStatus
+     * @returns a admin
      */
     public get stageStatus() {
         return this._stageStatus;
@@ -116,7 +115,7 @@ export class SubjectRightsRequestHistory implements AdditionalDataHolder, Parsab
      * Sets the stageStatus property value. The status of the stage when the entity was changed. Possible values are: notStarted, current, completed, failed, unknownFutureValue.
      * @param value Value to set for the stageStatus property.
      */
-    public set stageStatus(value: SubjectRightsRequestStageStatus | undefined) {
+    public set stageStatus(value: SubjectRightsRequestStageStatus | AdminMember1 | undefined) {
         this._stageStatus = value;
     };
     /**

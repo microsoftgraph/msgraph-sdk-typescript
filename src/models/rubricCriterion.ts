@@ -1,12 +1,11 @@
-import {createEducationItemBodyFromDiscriminatorValue} from './createEducationItemBodyFromDiscriminatorValue';
-import {EducationItemBody} from './index';
+import {AdminMember1, EducationItemBody} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RubricCriterion implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The description of this criterion. */
-    private _description?: EducationItemBody | undefined;
+    private _description?: EducationItemBody | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -29,7 +28,7 @@ export class RubricCriterion implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the description property value. The description of this criterion.
-     * @returns a educationItemBody
+     * @returns a admin
      */
     public get description() {
         return this._description;
@@ -38,7 +37,7 @@ export class RubricCriterion implements AdditionalDataHolder, Parsable {
      * Sets the description property value. The description of this criterion.
      * @param value Value to set for the description property.
      */
-    public set description(value: EducationItemBody | undefined) {
+    public set description(value: EducationItemBody | AdminMember1 | undefined) {
         this._description = value;
     };
     /**

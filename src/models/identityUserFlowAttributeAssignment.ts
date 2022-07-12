@@ -1,10 +1,8 @@
-import {createIdentityUserFlowAttributeFromDiscriminatorValue} from './createIdentityUserFlowAttributeFromDiscriminatorValue';
-import {createUserAttributeValuesItemFromDiscriminatorValue} from './createUserAttributeValuesItemFromDiscriminatorValue';
 import {IdentityUserFlowAttributeInputType} from './identityUserFlowAttributeInputType';
-import {Entity, IdentityUserFlowAttribute, UserAttributeValuesItem} from './index';
+import {AdminMember1, Entity, IdentityUserFlowAttribute, UserAttributeValuesItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the admin singleton. */
 export class IdentityUserFlowAttributeAssignment extends Entity implements Parsable {
     /** The display name of the identityUserFlowAttribute within a user flow. */
     private _displayName?: string | undefined;
@@ -13,10 +11,10 @@ export class IdentityUserFlowAttributeAssignment extends Entity implements Parsa
     /** Determines whether the identityUserFlowAttribute requires verification. This is only used for verifying the user's phone number or email address. */
     private _requiresVerification?: boolean | undefined;
     /** The user attribute that you want to add to your user flow. */
-    private _userAttribute?: IdentityUserFlowAttribute | undefined;
+    private _userAttribute?: IdentityUserFlowAttribute | AdminMember1 | undefined;
     /** The input options for the user flow attribute. Only applicable when the userInputType is radioSingleSelect, dropdownSingleSelect, or checkboxMultiSelect. */
-    private _userAttributeValues?: UserAttributeValuesItem[] | undefined;
-    /** The input type of the user flow attribute. Possible values are: textBox, dateTimeDropdown, radioSingleSelect, dropdownSingleSelect, emailBox, checkboxMultiSelect. */
+    private _userAttributeValues?: UserAttributeValuesItem | AdminMember1[] | undefined;
+    /** The userInputType property */
     private _userInputType?: IdentityUserFlowAttributeInputType | undefined;
     /**
      * Instantiates a new identityUserFlowAttributeAssignment and sets the default values.
@@ -48,7 +46,7 @@ export class IdentityUserFlowAttributeAssignment extends Entity implements Parsa
             "isOptional": n => { this.isOptional = n.getBooleanValue(); },
             "requiresVerification": n => { this.requiresVerification = n.getBooleanValue(); },
             "userAttribute": n => { this.userAttribute = n.getObjectValue<IdentityUserFlowAttribute>(createIdentityUserFlowAttributeFromDiscriminatorValue); },
-            "userAttributeValues": n => { this.userAttributeValues = n.getCollectionOfObjectValues<UserAttributeValuesItem>(createUserAttributeValuesItemFromDiscriminatorValue); },
+            "userAttributeValues": n => { this.userAttributeValues = n.getObjectValue<UserAttributeValuesItem>(createUserAttributeValuesItemFromDiscriminatorValue); },
             "userInputType": n => { this.userInputType = n.getEnumValue<IdentityUserFlowAttributeInputType>(IdentityUserFlowAttributeInputType); },
         };
     };
@@ -91,12 +89,12 @@ export class IdentityUserFlowAttributeAssignment extends Entity implements Parsa
         writer.writeBooleanValue("isOptional", this.isOptional);
         writer.writeBooleanValue("requiresVerification", this.requiresVerification);
         writer.writeObjectValue<IdentityUserFlowAttribute>("userAttribute", this.userAttribute);
-        writer.writeCollectionOfObjectValues<UserAttributeValuesItem>("userAttributeValues", this.userAttributeValues);
+        writer.writeObjectValue<UserAttributeValuesItem>("userAttributeValues", this.userAttributeValues);
         writer.writeEnumValue<IdentityUserFlowAttributeInputType>("userInputType", this.userInputType);
     };
     /**
      * Gets the userAttribute property value. The user attribute that you want to add to your user flow.
-     * @returns a identityUserFlowAttribute
+     * @returns a admin
      */
     public get userAttribute() {
         return this._userAttribute;
@@ -105,12 +103,12 @@ export class IdentityUserFlowAttributeAssignment extends Entity implements Parsa
      * Sets the userAttribute property value. The user attribute that you want to add to your user flow.
      * @param value Value to set for the userAttribute property.
      */
-    public set userAttribute(value: IdentityUserFlowAttribute | undefined) {
+    public set userAttribute(value: IdentityUserFlowAttribute | AdminMember1 | undefined) {
         this._userAttribute = value;
     };
     /**
      * Gets the userAttributeValues property value. The input options for the user flow attribute. Only applicable when the userInputType is radioSingleSelect, dropdownSingleSelect, or checkboxMultiSelect.
-     * @returns a userAttributeValuesItem
+     * @returns a admin
      */
     public get userAttributeValues() {
         return this._userAttributeValues;
@@ -119,18 +117,18 @@ export class IdentityUserFlowAttributeAssignment extends Entity implements Parsa
      * Sets the userAttributeValues property value. The input options for the user flow attribute. Only applicable when the userInputType is radioSingleSelect, dropdownSingleSelect, or checkboxMultiSelect.
      * @param value Value to set for the userAttributeValues property.
      */
-    public set userAttributeValues(value: UserAttributeValuesItem[] | undefined) {
+    public set userAttributeValues(value: UserAttributeValuesItem | AdminMember1[] | undefined) {
         this._userAttributeValues = value;
     };
     /**
-     * Gets the userInputType property value. The input type of the user flow attribute. Possible values are: textBox, dateTimeDropdown, radioSingleSelect, dropdownSingleSelect, emailBox, checkboxMultiSelect.
+     * Gets the userInputType property value. The userInputType property
      * @returns a identityUserFlowAttributeInputType
      */
     public get userInputType() {
         return this._userInputType;
     };
     /**
-     * Sets the userInputType property value. The input type of the user flow attribute. Possible values are: textBox, dateTimeDropdown, radioSingleSelect, dropdownSingleSelect, emailBox, checkboxMultiSelect.
+     * Sets the userInputType property value. The userInputType property
      * @param value Value to set for the userInputType property.
      */
     public set userInputType(value: IdentityUserFlowAttributeInputType | undefined) {

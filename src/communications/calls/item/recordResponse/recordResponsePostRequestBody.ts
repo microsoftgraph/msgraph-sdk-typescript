@@ -1,5 +1,5 @@
 import {Prompt} from '../../../../models/';
-import {createPromptFromDiscriminatorValue} from '../../../../models/createPromptFromDiscriminatorValue';
+import {RecordResponseMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the recordResponse method. */
@@ -19,7 +19,7 @@ export class RecordResponsePostRequestBody implements AdditionalDataHolder, Pars
     /** The playBeep property */
     private _playBeep?: boolean | undefined;
     /** The prompts property */
-    private _prompts?: Prompt[] | undefined;
+    private _prompts?: Prompt | RecordResponseMember1[] | undefined;
     /** The stopTones property */
     private _stopTones?: string[] | undefined;
     /**
@@ -82,7 +82,7 @@ export class RecordResponsePostRequestBody implements AdditionalDataHolder, Pars
             "maxRecordDurationInSeconds": n => { this.maxRecordDurationInSeconds = n.getNumberValue(); },
             "maxSilenceTimeoutInSeconds": n => { this.maxSilenceTimeoutInSeconds = n.getNumberValue(); },
             "playBeep": n => { this.playBeep = n.getBooleanValue(); },
-            "prompts": n => { this.prompts = n.getCollectionOfObjectValues<Prompt>(createPromptFromDiscriminatorValue); },
+            "prompts": n => { this.prompts = n.getObjectValue<Prompt>(createPromptFromDiscriminatorValue); },
             "stopTones": n => { this.stopTones = n.getCollectionOfPrimitiveValues<string>(); },
         };
     };
@@ -144,7 +144,7 @@ export class RecordResponsePostRequestBody implements AdditionalDataHolder, Pars
     };
     /**
      * Gets the prompts property value. The prompts property
-     * @returns a prompt
+     * @returns a recordResponse
      */
     public get prompts() {
         return this._prompts;
@@ -153,7 +153,7 @@ export class RecordResponsePostRequestBody implements AdditionalDataHolder, Pars
      * Sets the prompts property value. The prompts property
      * @param value Value to set for the prompts property.
      */
-    public set prompts(value: Prompt[] | undefined) {
+    public set prompts(value: Prompt | RecordResponseMember1[] | undefined) {
         this._prompts = value;
     };
     /**
@@ -168,7 +168,7 @@ export class RecordResponsePostRequestBody implements AdditionalDataHolder, Pars
         writer.writeNumberValue("maxRecordDurationInSeconds", this.maxRecordDurationInSeconds);
         writer.writeNumberValue("maxSilenceTimeoutInSeconds", this.maxSilenceTimeoutInSeconds);
         writer.writeBooleanValue("playBeep", this.playBeep);
-        writer.writeCollectionOfObjectValues<Prompt>("prompts", this.prompts);
+        writer.writeObjectValue<Prompt>("prompts", this.prompts);
         writer.writeCollectionOfPrimitiveValues<string>("stopTones", this.stopTones);
         writer.writeAdditionalData(this.additionalData);
     };

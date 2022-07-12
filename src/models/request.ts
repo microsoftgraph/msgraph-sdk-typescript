@@ -1,15 +1,14 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {Entity, IdentitySet} from './index';
+import {AdminMember1, Entity, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the admin singleton. */
 export class Request extends Entity implements Parsable {
     /** The identifier of the approval of the request. */
     private _approvalId?: string | undefined;
     /** The request completion date time. */
     private _completedDateTime?: Date | undefined;
-    /** The user who created this request. */
-    private _createdBy?: IdentitySet | undefined;
+    /** The principal that created the request. */
+    private _createdBy?: IdentitySet | AdminMember1 | undefined;
     /** The request creation date time. */
     private _createdDateTime?: Date | undefined;
     /** Free text field to define any custom data for the request. Not used. */
@@ -49,19 +48,20 @@ export class Request extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.request";
     };
     /**
-     * Gets the createdBy property value. The user who created this request.
-     * @returns a identitySet
+     * Gets the createdBy property value. The principal that created the request.
+     * @returns a admin
      */
     public get createdBy() {
         return this._createdBy;
     };
     /**
-     * Sets the createdBy property value. The user who created this request.
+     * Sets the createdBy property value. The principal that created the request.
      * @param value Value to set for the createdBy property.
      */
-    public set createdBy(value: IdentitySet | undefined) {
+    public set createdBy(value: IdentitySet | AdminMember1 | undefined) {
         this._createdBy = value;
     };
     /**

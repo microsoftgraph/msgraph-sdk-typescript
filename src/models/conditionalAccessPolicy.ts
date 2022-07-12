@@ -1,11 +1,9 @@
 import {ConditionalAccessPolicyState} from './conditionalAccessPolicyState';
 import {createConditionalAccessConditionSetFromDiscriminatorValue} from './createConditionalAccessConditionSetFromDiscriminatorValue';
-import {createConditionalAccessGrantControlsFromDiscriminatorValue} from './createConditionalAccessGrantControlsFromDiscriminatorValue';
-import {createConditionalAccessSessionControlsFromDiscriminatorValue} from './createConditionalAccessSessionControlsFromDiscriminatorValue';
-import {ConditionalAccessConditionSet, ConditionalAccessGrantControls, ConditionalAccessSessionControls, Entity} from './index';
+import {AdminMember1, ConditionalAccessConditionSet, ConditionalAccessGrantControls, ConditionalAccessSessionControls, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the admin singleton. */
 export class ConditionalAccessPolicy extends Entity implements Parsable {
     /** The conditions property */
     private _conditions?: ConditionalAccessConditionSet | undefined;
@@ -16,12 +14,12 @@ export class ConditionalAccessPolicy extends Entity implements Parsable {
     /** Specifies a display name for the conditionalAccessPolicy object. */
     private _displayName?: string | undefined;
     /** Specifies the grant controls that must be fulfilled to pass the policy. */
-    private _grantControls?: ConditionalAccessGrantControls | undefined;
+    private _grantControls?: ConditionalAccessGrantControls | AdminMember1 | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly. */
     private _modifiedDateTime?: Date | undefined;
     /** Specifies the session controls that are enforced after sign-in. */
-    private _sessionControls?: ConditionalAccessSessionControls | undefined;
-    /** Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. */
+    private _sessionControls?: ConditionalAccessSessionControls | AdminMember1 | undefined;
+    /** The state property */
     private _state?: ConditionalAccessPolicyState | undefined;
     /**
      * Gets the conditions property value. The conditions property
@@ -103,7 +101,7 @@ export class ConditionalAccessPolicy extends Entity implements Parsable {
     };
     /**
      * Gets the grantControls property value. Specifies the grant controls that must be fulfilled to pass the policy.
-     * @returns a conditionalAccessGrantControls
+     * @returns a admin
      */
     public get grantControls() {
         return this._grantControls;
@@ -112,7 +110,7 @@ export class ConditionalAccessPolicy extends Entity implements Parsable {
      * Sets the grantControls property value. Specifies the grant controls that must be fulfilled to pass the policy.
      * @param value Value to set for the grantControls property.
      */
-    public set grantControls(value: ConditionalAccessGrantControls | undefined) {
+    public set grantControls(value: ConditionalAccessGrantControls | AdminMember1 | undefined) {
         this._grantControls = value;
     };
     /**
@@ -147,7 +145,7 @@ export class ConditionalAccessPolicy extends Entity implements Parsable {
     };
     /**
      * Gets the sessionControls property value. Specifies the session controls that are enforced after sign-in.
-     * @returns a conditionalAccessSessionControls
+     * @returns a admin
      */
     public get sessionControls() {
         return this._sessionControls;
@@ -156,18 +154,18 @@ export class ConditionalAccessPolicy extends Entity implements Parsable {
      * Sets the sessionControls property value. Specifies the session controls that are enforced after sign-in.
      * @param value Value to set for the sessionControls property.
      */
-    public set sessionControls(value: ConditionalAccessSessionControls | undefined) {
+    public set sessionControls(value: ConditionalAccessSessionControls | AdminMember1 | undefined) {
         this._sessionControls = value;
     };
     /**
-     * Gets the state property value. Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required.
+     * Gets the state property value. The state property
      * @returns a conditionalAccessPolicyState
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required.
+     * Sets the state property value. The state property
      * @param value Value to set for the state property.
      */
     public set state(value: ConditionalAccessPolicyState | undefined) {

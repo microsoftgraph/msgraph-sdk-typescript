@@ -1,20 +1,21 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {IdentitySet} from './index';
+import {AdminMember1, IdentitySet} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationResource implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Who created the resource. */
-    private _createdBy?: IdentitySet | undefined;
+    private _createdBy?: IdentitySet | AdminMember1 | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _createdDateTime?: Date | undefined;
     /** Display name of resource. */
     private _displayName?: string | undefined;
     /** Who was the last user to modify the resource. */
-    private _lastModifiedBy?: IdentitySet | undefined;
+    private _lastModifiedBy?: IdentitySet | AdminMember1 | undefined;
     /** Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _lastModifiedDateTime?: Date | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,10 +35,11 @@ export class EducationResource implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.type = "#microsoft.graph.educationResource";
     };
     /**
      * Gets the createdBy property value. Who created the resource.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get createdBy() {
         return this._createdBy;
@@ -46,7 +48,7 @@ export class EducationResource implements AdditionalDataHolder, Parsable {
      * Sets the createdBy property value. Who created the resource.
      * @param value Value to set for the createdBy property.
      */
-    public set createdBy(value: IdentitySet | undefined) {
+    public set createdBy(value: IdentitySet | AdminMember1 | undefined) {
         this._createdBy = value;
     };
     /**
@@ -88,11 +90,12 @@ export class EducationResource implements AdditionalDataHolder, Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "lastModifiedBy": n => { this.lastModifiedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
      * Gets the lastModifiedBy property value. Who was the last user to modify the resource.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get lastModifiedBy() {
         return this._lastModifiedBy;
@@ -101,7 +104,7 @@ export class EducationResource implements AdditionalDataHolder, Parsable {
      * Sets the lastModifiedBy property value. Who was the last user to modify the resource.
      * @param value Value to set for the lastModifiedBy property.
      */
-    public set lastModifiedBy(value: IdentitySet | undefined) {
+    public set lastModifiedBy(value: IdentitySet | AdminMember1 | undefined) {
         this._lastModifiedBy = value;
     };
     /**
@@ -119,6 +122,20 @@ export class EducationResource implements AdditionalDataHolder, Parsable {
         this._lastModifiedDateTime = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -129,6 +146,7 @@ export class EducationResource implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeObjectValue<IdentitySet>("lastModifiedBy", this.lastModifiedBy);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
 }

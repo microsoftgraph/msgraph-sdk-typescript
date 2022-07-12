@@ -1,11 +1,10 @@
-import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from './createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue';
-import {DeviceAndAppManagementAssignmentTarget, Entity} from './index';
+import {AdminMember1, DeviceAndAppManagementAssignmentTarget, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** A termsAndConditionsAssignment entity represents the assignment of a given Terms and Conditions (T&C) policy to a given group. Users in the group will be required to accept the terms in order to have devices enrolled into Intune. */
 export class TermsAndConditionsAssignment extends Entity implements Parsable {
     /** Assignment target that the T&C policy is assigned to. */
-    private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    private _target?: DeviceAndAppManagementAssignmentTarget | AdminMember1 | undefined;
     /**
      * Instantiates a new termsAndConditionsAssignment and sets the default values.
      */
@@ -32,7 +31,7 @@ export class TermsAndConditionsAssignment extends Entity implements Parsable {
     };
     /**
      * Gets the target property value. Assignment target that the T&C policy is assigned to.
-     * @returns a deviceAndAppManagementAssignmentTarget
+     * @returns a admin
      */
     public get target() {
         return this._target;
@@ -41,7 +40,7 @@ export class TermsAndConditionsAssignment extends Entity implements Parsable {
      * Sets the target property value. Assignment target that the T&C policy is assigned to.
      * @param value Value to set for the target property.
      */
-    public set target(value: DeviceAndAppManagementAssignmentTarget | undefined) {
+    public set target(value: DeviceAndAppManagementAssignmentTarget | AdminMember1 | undefined) {
         this._target = value;
     };
 }

@@ -1,22 +1,19 @@
-import {createAccessActionFromDiscriminatorValue} from './createAccessActionFromDiscriminatorValue';
-import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {AccessAction, DriveItem, Entity, IdentitySet} from './index';
+import {AccessAction, AdminMember1, DriveItem, Entity, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class ItemActivity extends Entity implements Parsable {
     /** An item was accessed. */
-    private _access?: AccessAction | undefined;
+    private _access?: AccessAction | AdminMember1 | undefined;
     /** Details about when the activity took place. Read-only. */
     private _activityDateTime?: Date | undefined;
     /** Identity of who performed the action. Read-only. */
-    private _actor?: IdentitySet | undefined;
+    private _actor?: IdentitySet | AdminMember1 | undefined;
     /** Exposes the driveItem that was the target of this activity. */
-    private _driveItem?: DriveItem | undefined;
+    private _driveItem?: DriveItem | AdminMember1 | undefined;
     /**
      * Gets the access property value. An item was accessed.
-     * @returns a accessAction
+     * @returns a admin
      */
     public get access() {
         return this._access;
@@ -25,7 +22,7 @@ export class ItemActivity extends Entity implements Parsable {
      * Sets the access property value. An item was accessed.
      * @param value Value to set for the access property.
      */
-    public set access(value: AccessAction | undefined) {
+    public set access(value: AccessAction | AdminMember1 | undefined) {
         this._access = value;
     };
     /**
@@ -44,7 +41,7 @@ export class ItemActivity extends Entity implements Parsable {
     };
     /**
      * Gets the actor property value. Identity of who performed the action. Read-only.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get actor() {
         return this._actor;
@@ -53,7 +50,7 @@ export class ItemActivity extends Entity implements Parsable {
      * Sets the actor property value. Identity of who performed the action. Read-only.
      * @param value Value to set for the actor property.
      */
-    public set actor(value: IdentitySet | undefined) {
+    public set actor(value: IdentitySet | AdminMember1 | undefined) {
         this._actor = value;
     };
     /**
@@ -64,7 +61,7 @@ export class ItemActivity extends Entity implements Parsable {
     };
     /**
      * Gets the driveItem property value. Exposes the driveItem that was the target of this activity.
-     * @returns a driveItem
+     * @returns a admin
      */
     public get driveItem() {
         return this._driveItem;
@@ -73,7 +70,7 @@ export class ItemActivity extends Entity implements Parsable {
      * Sets the driveItem property value. Exposes the driveItem that was the target of this activity.
      * @param value Value to set for the driveItem property.
      */
-    public set driveItem(value: DriveItem | undefined) {
+    public set driveItem(value: DriveItem | AdminMember1 | undefined) {
         this._driveItem = value;
     };
     /**

@@ -1,16 +1,14 @@
-import {createApprovalFromDiscriminatorValue} from './createApprovalFromDiscriminatorValue';
-import {Approval, Request} from './index';
+import {AdminMember1, Approval, Request} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class UserConsentRequest extends Request implements Parsable {
     /** Approval decisions associated with a request. */
-    private _approval?: Approval | undefined;
+    private _approval?: Approval | AdminMember1 | undefined;
     /** The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby. */
     private _reason?: string | undefined;
     /**
      * Gets the approval property value. Approval decisions associated with a request.
-     * @returns a approval
+     * @returns a admin
      */
     public get approval() {
         return this._approval;
@@ -19,11 +17,11 @@ export class UserConsentRequest extends Request implements Parsable {
      * Sets the approval property value. Approval decisions associated with a request.
      * @param value Value to set for the approval property.
      */
-    public set approval(value: Approval | undefined) {
+    public set approval(value: Approval | AdminMember1 | undefined) {
         this._approval = value;
     };
     /**
-     * Instantiates a new userConsentRequest and sets the default values.
+     * Instantiates a new UserConsentRequest and sets the default values.
      */
     public constructor() {
         super();

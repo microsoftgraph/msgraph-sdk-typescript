@@ -1,19 +1,15 @@
 import {createColumnDefinitionFromDiscriminatorValue} from './createColumnDefinitionFromDiscriminatorValue';
 import {createColumnLinkFromDiscriminatorValue} from './createColumnLinkFromDiscriminatorValue';
 import {createContentTypeFromDiscriminatorValue} from './createContentTypeFromDiscriminatorValue';
-import {createContentTypeOrderFromDiscriminatorValue} from './createContentTypeOrderFromDiscriminatorValue';
-import {createDocumentSetContentFromDiscriminatorValue} from './createDocumentSetContentFromDiscriminatorValue';
-import {createDocumentSetFromDiscriminatorValue} from './createDocumentSetFromDiscriminatorValue';
-import {createItemReferenceFromDiscriminatorValue} from './createItemReferenceFromDiscriminatorValue';
-import {ColumnDefinition, ColumnLink, ContentTypeOrder, DocumentSet, DocumentSetContent, Entity, ItemReference} from './index';
+import {AdminMember1, ColumnDefinition, ColumnLink, ContentTypeOrder, DocumentSet, DocumentSetContent, Entity, ItemReference} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class ContentType extends Entity implements Parsable {
     /** List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites. */
     private _associatedHubsUrls?: string[] | undefined;
     /** Parent contentType from which this content type is derived. */
-    private _base?: ContentType | undefined;
+    private _base?: ContentType | AdminMember1 | undefined;
     /** The collection of content types that are ancestors of this content type. */
     private _baseTypes?: ContentType[] | undefined;
     /** The collection of columns that are required by this content type */
@@ -25,21 +21,21 @@ export class ContentType extends Entity implements Parsable {
     /** The descriptive text for the item. */
     private _description?: string | undefined;
     /** Document Set metadata. */
-    private _documentSet?: DocumentSet | undefined;
+    private _documentSet?: DocumentSet | AdminMember1 | undefined;
     /** Document template metadata. To make sure that documents have consistent content across a site and its subsites, you can associate a Word, Excel, or PowerPoint template with a site content type. */
-    private _documentTemplate?: DocumentSetContent | undefined;
+    private _documentTemplate?: DocumentSetContent | AdminMember1 | undefined;
     /** The name of the group this content type belongs to. Helps organize related content types. */
     private _group?: string | undefined;
     /** Indicates whether the content type is hidden in the list's 'New' menu. */
     private _hidden?: boolean | undefined;
     /** If this content type is inherited from another scope (like a site), provides a reference to the item where the content type is defined. */
-    private _inheritedFrom?: ItemReference | undefined;
+    private _inheritedFrom?: ItemReference | AdminMember1 | undefined;
     /** Specifies if a content type is a built-in content type. */
     private _isBuiltIn?: boolean | undefined;
     /** The name of the content type. */
     private _name?: string | undefined;
     /** Specifies the order in which the content type appears in the selection UI. */
-    private _order?: ContentTypeOrder | undefined;
+    private _order?: ContentTypeOrder | AdminMember1 | undefined;
     /** The unique identifier of the content type. */
     private _parentId?: string | undefined;
     /** If true, any changes made to the content type will be pushed to inherited content types and lists that implement the content type. */
@@ -64,7 +60,7 @@ export class ContentType extends Entity implements Parsable {
     };
     /**
      * Gets the base property value. Parent contentType from which this content type is derived.
-     * @returns a contentType
+     * @returns a admin
      */
     public get base() {
         return this._base;
@@ -73,7 +69,7 @@ export class ContentType extends Entity implements Parsable {
      * Sets the base property value. Parent contentType from which this content type is derived.
      * @param value Value to set for the base property.
      */
-    public set base(value: ContentType | undefined) {
+    public set base(value: ContentType | AdminMember1 | undefined) {
         this._base = value;
     };
     /**
@@ -154,7 +150,7 @@ export class ContentType extends Entity implements Parsable {
     };
     /**
      * Gets the documentSet property value. Document Set metadata.
-     * @returns a documentSet
+     * @returns a admin
      */
     public get documentSet() {
         return this._documentSet;
@@ -163,12 +159,12 @@ export class ContentType extends Entity implements Parsable {
      * Sets the documentSet property value. Document Set metadata.
      * @param value Value to set for the documentSet property.
      */
-    public set documentSet(value: DocumentSet | undefined) {
+    public set documentSet(value: DocumentSet | AdminMember1 | undefined) {
         this._documentSet = value;
     };
     /**
      * Gets the documentTemplate property value. Document template metadata. To make sure that documents have consistent content across a site and its subsites, you can associate a Word, Excel, or PowerPoint template with a site content type.
-     * @returns a documentSetContent
+     * @returns a admin
      */
     public get documentTemplate() {
         return this._documentTemplate;
@@ -177,7 +173,7 @@ export class ContentType extends Entity implements Parsable {
      * Sets the documentTemplate property value. Document template metadata. To make sure that documents have consistent content across a site and its subsites, you can associate a Word, Excel, or PowerPoint template with a site content type.
      * @param value Value to set for the documentTemplate property.
      */
-    public set documentTemplate(value: DocumentSetContent | undefined) {
+    public set documentTemplate(value: DocumentSetContent | AdminMember1 | undefined) {
         this._documentTemplate = value;
     };
     /**
@@ -237,7 +233,7 @@ export class ContentType extends Entity implements Parsable {
     };
     /**
      * Gets the inheritedFrom property value. If this content type is inherited from another scope (like a site), provides a reference to the item where the content type is defined.
-     * @returns a itemReference
+     * @returns a admin
      */
     public get inheritedFrom() {
         return this._inheritedFrom;
@@ -246,7 +242,7 @@ export class ContentType extends Entity implements Parsable {
      * Sets the inheritedFrom property value. If this content type is inherited from another scope (like a site), provides a reference to the item where the content type is defined.
      * @param value Value to set for the inheritedFrom property.
      */
-    public set inheritedFrom(value: ItemReference | undefined) {
+    public set inheritedFrom(value: ItemReference | AdminMember1 | undefined) {
         this._inheritedFrom = value;
     };
     /**
@@ -279,7 +275,7 @@ export class ContentType extends Entity implements Parsable {
     };
     /**
      * Gets the order property value. Specifies the order in which the content type appears in the selection UI.
-     * @returns a contentTypeOrder
+     * @returns a admin
      */
     public get order() {
         return this._order;
@@ -288,7 +284,7 @@ export class ContentType extends Entity implements Parsable {
      * Sets the order property value. Specifies the order in which the content type appears in the selection UI.
      * @param value Value to set for the order property.
      */
-    public set order(value: ContentTypeOrder | undefined) {
+    public set order(value: ContentTypeOrder | AdminMember1 | undefined) {
         this._order = value;
     };
     /**

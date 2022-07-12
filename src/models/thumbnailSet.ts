@@ -1,17 +1,16 @@
-import {createThumbnailFromDiscriminatorValue} from './createThumbnailFromDiscriminatorValue';
-import {Entity, Thumbnail} from './index';
+import {AdminMember1, Entity, Thumbnail} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class ThumbnailSet extends Entity implements Parsable {
     /** A 1920x1920 scaled thumbnail. */
-    private _large?: Thumbnail | undefined;
+    private _large?: Thumbnail | AdminMember1 | undefined;
     /** A 176x176 scaled thumbnail. */
-    private _medium?: Thumbnail | undefined;
+    private _medium?: Thumbnail | AdminMember1 | undefined;
     /** A 48x48 cropped thumbnail. */
-    private _small?: Thumbnail | undefined;
+    private _small?: Thumbnail | AdminMember1 | undefined;
     /** A custom thumbnail image or the original image used to generate other thumbnails. */
-    private _source?: Thumbnail | undefined;
+    private _source?: Thumbnail | AdminMember1 | undefined;
     /**
      * Instantiates a new thumbnailSet and sets the default values.
      */
@@ -32,7 +31,7 @@ export class ThumbnailSet extends Entity implements Parsable {
     };
     /**
      * Gets the large property value. A 1920x1920 scaled thumbnail.
-     * @returns a thumbnail
+     * @returns a admin
      */
     public get large() {
         return this._large;
@@ -41,12 +40,12 @@ export class ThumbnailSet extends Entity implements Parsable {
      * Sets the large property value. A 1920x1920 scaled thumbnail.
      * @param value Value to set for the large property.
      */
-    public set large(value: Thumbnail | undefined) {
+    public set large(value: Thumbnail | AdminMember1 | undefined) {
         this._large = value;
     };
     /**
      * Gets the medium property value. A 176x176 scaled thumbnail.
-     * @returns a thumbnail
+     * @returns a admin
      */
     public get medium() {
         return this._medium;
@@ -55,7 +54,7 @@ export class ThumbnailSet extends Entity implements Parsable {
      * Sets the medium property value. A 176x176 scaled thumbnail.
      * @param value Value to set for the medium property.
      */
-    public set medium(value: Thumbnail | undefined) {
+    public set medium(value: Thumbnail | AdminMember1 | undefined) {
         this._medium = value;
     };
     /**
@@ -72,7 +71,7 @@ export class ThumbnailSet extends Entity implements Parsable {
     };
     /**
      * Gets the small property value. A 48x48 cropped thumbnail.
-     * @returns a thumbnail
+     * @returns a admin
      */
     public get small() {
         return this._small;
@@ -81,12 +80,12 @@ export class ThumbnailSet extends Entity implements Parsable {
      * Sets the small property value. A 48x48 cropped thumbnail.
      * @param value Value to set for the small property.
      */
-    public set small(value: Thumbnail | undefined) {
+    public set small(value: Thumbnail | AdminMember1 | undefined) {
         this._small = value;
     };
     /**
      * Gets the source property value. A custom thumbnail image or the original image used to generate other thumbnails.
-     * @returns a thumbnail
+     * @returns a admin
      */
     public get source() {
         return this._source;
@@ -95,7 +94,7 @@ export class ThumbnailSet extends Entity implements Parsable {
      * Sets the source property value. A custom thumbnail image or the original image used to generate other thumbnails.
      * @param value Value to set for the source property.
      */
-    public set source(value: Thumbnail | undefined) {
+    public set source(value: Thumbnail | AdminMember1 | undefined) {
         this._source = value;
     };
 }

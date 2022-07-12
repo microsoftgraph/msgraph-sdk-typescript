@@ -1,5 +1,4 @@
-import {createMeetingTimeSuggestionFromDiscriminatorValue} from './createMeetingTimeSuggestionFromDiscriminatorValue';
-import {MeetingTimeSuggestion} from './index';
+import {FindMeetingTimesMember1, MeetingTimeSuggestion} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MeetingTimeSuggestionsResult implements AdditionalDataHolder, Parsable {
@@ -8,7 +7,7 @@ export class MeetingTimeSuggestionsResult implements AdditionalDataHolder, Parsa
     /** A reason for not returning any meeting suggestions. Possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions. */
     private _emptySuggestionsReason?: string | undefined;
     /** An array of meeting suggestions. */
-    private _meetingTimeSuggestions?: MeetingTimeSuggestion[] | undefined;
+    private _meetingTimeSuggestions?: MeetingTimeSuggestion | FindMeetingTimesMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -24,7 +23,7 @@ export class MeetingTimeSuggestionsResult implements AdditionalDataHolder, Parsa
         this._additionalData = value;
     };
     /**
-     * Instantiates a new MeetingTimeSuggestionsResult and sets the default values.
+     * Instantiates a new meetingTimeSuggestionsResult and sets the default values.
      */
     public constructor() {
         this._additionalData = {};
@@ -50,12 +49,12 @@ export class MeetingTimeSuggestionsResult implements AdditionalDataHolder, Parsa
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "emptySuggestionsReason": n => { this.emptySuggestionsReason = n.getStringValue(); },
-            "meetingTimeSuggestions": n => { this.meetingTimeSuggestions = n.getCollectionOfObjectValues<MeetingTimeSuggestion>(createMeetingTimeSuggestionFromDiscriminatorValue); },
+            "meetingTimeSuggestions": n => { this.meetingTimeSuggestions = n.getObjectValue<MeetingTimeSuggestion>(createMeetingTimeSuggestionFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the meetingTimeSuggestions property value. An array of meeting suggestions.
-     * @returns a meetingTimeSuggestion
+     * @returns a findMeetingTimes
      */
     public get meetingTimeSuggestions() {
         return this._meetingTimeSuggestions;
@@ -64,7 +63,7 @@ export class MeetingTimeSuggestionsResult implements AdditionalDataHolder, Parsa
      * Sets the meetingTimeSuggestions property value. An array of meeting suggestions.
      * @param value Value to set for the meetingTimeSuggestions property.
      */
-    public set meetingTimeSuggestions(value: MeetingTimeSuggestion[] | undefined) {
+    public set meetingTimeSuggestions(value: MeetingTimeSuggestion | FindMeetingTimesMember1[] | undefined) {
         this._meetingTimeSuggestions = value;
     };
     /**
@@ -74,7 +73,7 @@ export class MeetingTimeSuggestionsResult implements AdditionalDataHolder, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("emptySuggestionsReason", this.emptySuggestionsReason);
-        writer.writeCollectionOfObjectValues<MeetingTimeSuggestion>("meetingTimeSuggestions", this.meetingTimeSuggestions);
+        writer.writeObjectValue<MeetingTimeSuggestion>("meetingTimeSuggestions", this.meetingTimeSuggestions);
         writer.writeAdditionalData(this.additionalData);
     };
 }

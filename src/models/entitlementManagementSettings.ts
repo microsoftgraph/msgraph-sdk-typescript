@@ -1,13 +1,12 @@
 import {AccessPackageExternalUserLifecycleAction} from './accessPackageExternalUserLifecycleAction';
-import {Entity} from './index';
+import {AdminMember1, Entity} from './index';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class EntitlementManagementSettings extends Entity implements Parsable {
     /** If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted. */
     private _durationUntilExternalUserDeletedAfterBlocked?: Duration | undefined;
     /** One of None, BlockSignIn, or BlockSignInAndDelete. */
-    private _externalUserLifecycleAction?: AccessPackageExternalUserLifecycleAction | undefined;
+    private _externalUserLifecycleAction?: AccessPackageExternalUserLifecycleAction | AdminMember1 | undefined;
     /**
      * Instantiates a new entitlementManagementSettings and sets the default values.
      */
@@ -30,7 +29,7 @@ export class EntitlementManagementSettings extends Entity implements Parsable {
     };
     /**
      * Gets the externalUserLifecycleAction property value. One of None, BlockSignIn, or BlockSignInAndDelete.
-     * @returns a accessPackageExternalUserLifecycleAction
+     * @returns a admin
      */
     public get externalUserLifecycleAction() {
         return this._externalUserLifecycleAction;
@@ -39,7 +38,7 @@ export class EntitlementManagementSettings extends Entity implements Parsable {
      * Sets the externalUserLifecycleAction property value. One of None, BlockSignIn, or BlockSignInAndDelete.
      * @param value Value to set for the externalUserLifecycleAction property.
      */
-    public set externalUserLifecycleAction(value: AccessPackageExternalUserLifecycleAction | undefined) {
+    public set externalUserLifecycleAction(value: AccessPackageExternalUserLifecycleAction | AdminMember1 | undefined) {
         this._externalUserLifecycleAction = value;
     };
     /**
@@ -49,7 +48,7 @@ export class EntitlementManagementSettings extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "durationUntilExternalUserDeletedAfterBlocked": n => { this.durationUntilExternalUserDeletedAfterBlocked = n.getDurationValue(); },
-            "externalUserLifecycleAction": n => { this.externalUserLifecycleAction = n.getEnumValue<AccessPackageExternalUserLifecycleAction>(AccessPackageExternalUserLifecycleAction); },
+            "externalUserLifecycleAction": n => { this.externalUserLifecycleAction = n.getObjectValue<AccessPackageExternalUserLifecycleAction>(createAccessPackageExternalUserLifecycleActionFromDiscriminatorValue); },
         };
     };
     /**
@@ -60,6 +59,6 @@ export class EntitlementManagementSettings extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeDurationValue("durationUntilExternalUserDeletedAfterBlocked", this.durationUntilExternalUserDeletedAfterBlocked);
-        writer.writeEnumValue<AccessPackageExternalUserLifecycleAction>("externalUserLifecycleAction", this.externalUserLifecycleAction);
+        writer.writeObjectValue<AccessPackageExternalUserLifecycleAction>("externalUserLifecycleAction", this.externalUserLifecycleAction);
     };
 }

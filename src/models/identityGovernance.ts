@@ -1,24 +1,20 @@
-import {createAccessReviewSetFromDiscriminatorValue} from './createAccessReviewSetFromDiscriminatorValue';
-import {createAppConsentApprovalRouteFromDiscriminatorValue} from './createAppConsentApprovalRouteFromDiscriminatorValue';
-import {createEntitlementManagementFromDiscriminatorValue} from './createEntitlementManagementFromDiscriminatorValue';
-import {createTermsOfUseContainerFromDiscriminatorValue} from './createTermsOfUseContainerFromDiscriminatorValue';
-import {AccessReviewSet, AppConsentApprovalRoute, EntitlementManagement, TermsOfUseContainer} from './index';
+import {AccessReviewSet, AppConsentApprovalRoute, EntitlementManagement, IdentityGovernanceMember1, TermsOfUseContainer} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityGovernance implements AdditionalDataHolder, Parsable {
     /** The accessReviews property */
-    private _accessReviews?: AccessReviewSet | undefined;
+    private _accessReviews?: AccessReviewSet | IdentityGovernanceMember1 | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The appConsent property */
-    private _appConsent?: AppConsentApprovalRoute | undefined;
+    private _appConsent?: AppConsentApprovalRoute | IdentityGovernanceMember1 | undefined;
     /** The entitlementManagement property */
-    private _entitlementManagement?: EntitlementManagement | undefined;
+    private _entitlementManagement?: EntitlementManagement | IdentityGovernanceMember1 | undefined;
     /** The termsOfUse property */
-    private _termsOfUse?: TermsOfUseContainer | undefined;
+    private _termsOfUse?: TermsOfUseContainer | IdentityGovernanceMember1 | undefined;
     /**
      * Gets the accessReviews property value. The accessReviews property
-     * @returns a accessReviewSet
+     * @returns a identityGovernance
      */
     public get accessReviews() {
         return this._accessReviews;
@@ -27,7 +23,7 @@ export class IdentityGovernance implements AdditionalDataHolder, Parsable {
      * Sets the accessReviews property value. The accessReviews property
      * @param value Value to set for the accessReviews property.
      */
-    public set accessReviews(value: AccessReviewSet | undefined) {
+    public set accessReviews(value: AccessReviewSet | IdentityGovernanceMember1 | undefined) {
         this._accessReviews = value;
     };
     /**
@@ -46,7 +42,7 @@ export class IdentityGovernance implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the appConsent property value. The appConsent property
-     * @returns a appConsentApprovalRoute
+     * @returns a identityGovernance
      */
     public get appConsent() {
         return this._appConsent;
@@ -55,7 +51,7 @@ export class IdentityGovernance implements AdditionalDataHolder, Parsable {
      * Sets the appConsent property value. The appConsent property
      * @param value Value to set for the appConsent property.
      */
-    public set appConsent(value: AppConsentApprovalRoute | undefined) {
+    public set appConsent(value: AppConsentApprovalRoute | IdentityGovernanceMember1 | undefined) {
         this._appConsent = value;
     };
     /**
@@ -66,7 +62,7 @@ export class IdentityGovernance implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the entitlementManagement property value. The entitlementManagement property
-     * @returns a entitlementManagement
+     * @returns a identityGovernance
      */
     public get entitlementManagement() {
         return this._entitlementManagement;
@@ -75,7 +71,7 @@ export class IdentityGovernance implements AdditionalDataHolder, Parsable {
      * Sets the entitlementManagement property value. The entitlementManagement property
      * @param value Value to set for the entitlementManagement property.
      */
-    public set entitlementManagement(value: EntitlementManagement | undefined) {
+    public set entitlementManagement(value: EntitlementManagement | IdentityGovernanceMember1 | undefined) {
         this._entitlementManagement = value;
     };
     /**
@@ -104,7 +100,7 @@ export class IdentityGovernance implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the termsOfUse property value. The termsOfUse property
-     * @returns a termsOfUseContainer
+     * @returns a identityGovernance
      */
     public get termsOfUse() {
         return this._termsOfUse;
@@ -113,7 +109,7 @@ export class IdentityGovernance implements AdditionalDataHolder, Parsable {
      * Sets the termsOfUse property value. The termsOfUse property
      * @param value Value to set for the termsOfUse property.
      */
-    public set termsOfUse(value: TermsOfUseContainer | undefined) {
+    public set termsOfUse(value: TermsOfUseContainer | IdentityGovernanceMember1 | undefined) {
         this._termsOfUse = value;
     };
 }

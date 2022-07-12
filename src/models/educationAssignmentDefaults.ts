@@ -1,21 +1,20 @@
 import {EducationAddedStudentAction} from './educationAddedStudentAction';
 import {EducationAddToCalendarOptions} from './educationAddToCalendarOptions';
-import {Entity} from './index';
+import {AdminMember1, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
 export class EducationAssignmentDefaults extends Entity implements Parsable {
     /** Class-level default behavior for handling students who are added after the assignment is published. Possible values are: none, assignIfOpen. */
-    private _addedStudentAction?: EducationAddedStudentAction | undefined;
+    private _addedStudentAction?: EducationAddedStudentAction | AdminMember1 | undefined;
     /** Optional field to control adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none. */
-    private _addToCalendarAction?: EducationAddToCalendarOptions | undefined;
+    private _addToCalendarAction?: EducationAddToCalendarOptions | AdminMember1 | undefined;
     /** Class-level default value for due time field. Default value is 23:59:00. */
     private _dueTime?: TimeOnly | undefined;
     /** Default Teams channel to which notifications will be sent. Default value is null. */
     private _notificationChannelUrl?: string | undefined;
     /**
      * Gets the addedStudentAction property value. Class-level default behavior for handling students who are added after the assignment is published. Possible values are: none, assignIfOpen.
-     * @returns a educationAddedStudentAction
+     * @returns a admin
      */
     public get addedStudentAction() {
         return this._addedStudentAction;
@@ -24,12 +23,12 @@ export class EducationAssignmentDefaults extends Entity implements Parsable {
      * Sets the addedStudentAction property value. Class-level default behavior for handling students who are added after the assignment is published. Possible values are: none, assignIfOpen.
      * @param value Value to set for the addedStudentAction property.
      */
-    public set addedStudentAction(value: EducationAddedStudentAction | undefined) {
+    public set addedStudentAction(value: EducationAddedStudentAction | AdminMember1 | undefined) {
         this._addedStudentAction = value;
     };
     /**
      * Gets the addToCalendarAction property value. Optional field to control adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.
-     * @returns a educationAddToCalendarOptions
+     * @returns a admin
      */
     public get addToCalendarAction() {
         return this._addToCalendarAction;
@@ -38,11 +37,11 @@ export class EducationAssignmentDefaults extends Entity implements Parsable {
      * Sets the addToCalendarAction property value. Optional field to control adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.
      * @param value Value to set for the addToCalendarAction property.
      */
-    public set addToCalendarAction(value: EducationAddToCalendarOptions | undefined) {
+    public set addToCalendarAction(value: EducationAddToCalendarOptions | AdminMember1 | undefined) {
         this._addToCalendarAction = value;
     };
     /**
-     * Instantiates a new educationAssignmentDefaults and sets the default values.
+     * Instantiates a new EducationAssignmentDefaults and sets the default values.
      */
     public constructor() {
         super();
@@ -67,8 +66,8 @@ export class EducationAssignmentDefaults extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "addedStudentAction": n => { this.addedStudentAction = n.getEnumValue<EducationAddedStudentAction>(EducationAddedStudentAction); },
-            "addToCalendarAction": n => { this.addToCalendarAction = n.getEnumValue<EducationAddToCalendarOptions>(EducationAddToCalendarOptions); },
+            "addedStudentAction": n => { this.addedStudentAction = n.getObjectValue<EducationAddedStudentAction>(createEducationAddedStudentActionFromDiscriminatorValue); },
+            "addToCalendarAction": n => { this.addToCalendarAction = n.getObjectValue<EducationAddToCalendarOptions>(createEducationAddToCalendarOptionsFromDiscriminatorValue); },
             "dueTime": n => { this.dueTime = n.getTimeOnlyValue(); },
             "notificationChannelUrl": n => { this.notificationChannelUrl = n.getStringValue(); },
         };
@@ -94,8 +93,8 @@ export class EducationAssignmentDefaults extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeEnumValue<EducationAddedStudentAction>("addedStudentAction", this.addedStudentAction);
-        writer.writeEnumValue<EducationAddToCalendarOptions>("addToCalendarAction", this.addToCalendarAction);
+        writer.writeObjectValue<EducationAddedStudentAction>("addedStudentAction", this.addedStudentAction);
+        writer.writeObjectValue<EducationAddToCalendarOptions>("addToCalendarAction", this.addToCalendarAction);
         writer.writeTimeOnlyValue("dueTime", this.dueTime);
         writer.writeStringValue("notificationChannelUrl", this.notificationChannelUrl);
     };

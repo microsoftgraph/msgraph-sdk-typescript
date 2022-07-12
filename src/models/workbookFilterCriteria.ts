@@ -1,6 +1,4 @@
-import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
-import {createWorkbookIconFromDiscriminatorValue} from './createWorkbookIconFromDiscriminatorValue';
-import {Json, WorkbookIcon} from './index';
+import {AdminMember1, Json, WorkbookIcon} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
@@ -17,11 +15,11 @@ export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
     /** The filterOn property */
     private _filterOn?: string | undefined;
     /** The icon property */
-    private _icon?: WorkbookIcon | undefined;
+    private _icon?: WorkbookIcon | AdminMember1 | undefined;
     /** The operator property */
     private _operator?: string | undefined;
     /** The values property */
-    private _values?: Json | undefined;
+    private _values?: Json | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -130,7 +128,7 @@ export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the icon property value. The icon property
-     * @returns a workbookIcon
+     * @returns a admin
      */
     public get icon() {
         return this._icon;
@@ -139,7 +137,7 @@ export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
      * Sets the icon property value. The icon property
      * @param value Value to set for the icon property.
      */
-    public set icon(value: WorkbookIcon | undefined) {
+    public set icon(value: WorkbookIcon | AdminMember1 | undefined) {
         this._icon = value;
     };
     /**
@@ -174,7 +172,7 @@ export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the values property value. The values property
-     * @returns a Json
+     * @returns a admin
      */
     public get values() {
         return this._values;
@@ -183,7 +181,7 @@ export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
      * Sets the values property value. The values property
      * @param value Value to set for the values property.
      */
-    public set values(value: Json | undefined) {
+    public set values(value: Json | AdminMember1 | undefined) {
         this._values = value;
     };
 }

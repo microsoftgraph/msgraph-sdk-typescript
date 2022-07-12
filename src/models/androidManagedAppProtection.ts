@@ -1,9 +1,7 @@
-import {createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue} from './createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue';
 import {createManagedMobileAppFromDiscriminatorValue} from './createManagedMobileAppFromDiscriminatorValue';
-import {ManagedAppPolicyDeploymentSummary, ManagedMobileApp, TargetedManagedAppProtection} from './index';
+import {AdminMember1, ManagedAppPolicyDeploymentSummary, ManagedMobileApp, TargetedManagedAppProtection} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an Android device */
 export class AndroidManagedAppProtection extends TargetedManagedAppProtection implements Parsable {
     /** List of apps to which the policy is deployed. */
     private _apps?: ManagedMobileApp[] | undefined;
@@ -14,7 +12,7 @@ export class AndroidManagedAppProtection extends TargetedManagedAppProtection im
     /** Count of apps to which the current policy is deployed. */
     private _deployedAppCount?: number | undefined;
     /** Navigation property to deployment summary of the configuration. */
-    private _deploymentSummary?: ManagedAppPolicyDeploymentSummary | undefined;
+    private _deploymentSummary?: ManagedAppPolicyDeploymentSummary | AdminMember1 | undefined;
     /** When this setting is enabled, app level encryption is disabled if device level encryption is enabled */
     private _disableAppEncryptionIfDeviceEncryptionIsEnabled?: boolean | undefined;
     /** Indicates whether application data for managed apps should be encrypted */
@@ -40,7 +38,7 @@ export class AndroidManagedAppProtection extends TargetedManagedAppProtection im
         this._apps = value;
     };
     /**
-     * Instantiates a new androidManagedAppProtection and sets the default values.
+     * Instantiates a new AndroidManagedAppProtection and sets the default values.
      */
     public constructor() {
         super();
@@ -89,7 +87,7 @@ export class AndroidManagedAppProtection extends TargetedManagedAppProtection im
     };
     /**
      * Gets the deploymentSummary property value. Navigation property to deployment summary of the configuration.
-     * @returns a managedAppPolicyDeploymentSummary
+     * @returns a admin
      */
     public get deploymentSummary() {
         return this._deploymentSummary;
@@ -98,7 +96,7 @@ export class AndroidManagedAppProtection extends TargetedManagedAppProtection im
      * Sets the deploymentSummary property value. Navigation property to deployment summary of the configuration.
      * @param value Value to set for the deploymentSummary property.
      */
-    public set deploymentSummary(value: ManagedAppPolicyDeploymentSummary | undefined) {
+    public set deploymentSummary(value: ManagedAppPolicyDeploymentSummary | AdminMember1 | undefined) {
         this._deploymentSummary = value;
     };
     /**

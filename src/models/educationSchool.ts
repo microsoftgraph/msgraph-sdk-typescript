@@ -1,21 +1,17 @@
-import {createAdministrativeUnitFromDiscriminatorValue} from './createAdministrativeUnitFromDiscriminatorValue';
 import {createEducationClassFromDiscriminatorValue} from './createEducationClassFromDiscriminatorValue';
 import {createEducationUserFromDiscriminatorValue} from './createEducationUserFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddressFromDiscriminatorValue';
-import {AdministrativeUnit, EducationClass, EducationOrganization, EducationUser, IdentitySet, PhysicalAddress} from './index';
+import {AdministrativeUnit, AdminMember1, EducationClass, EducationOrganization, EducationUser, IdentitySet, PhysicalAddress} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
 export class EducationSchool extends EducationOrganization implements Parsable {
     /** Address of the school. */
-    private _address?: PhysicalAddress | undefined;
+    private _address?: PhysicalAddress | AdminMember1 | undefined;
     /** The underlying administrativeUnit for this school. */
-    private _administrativeUnit?: AdministrativeUnit | undefined;
+    private _administrativeUnit?: AdministrativeUnit | AdminMember1 | undefined;
     /** Classes taught at the school. Nullable. */
     private _classes?: EducationClass[] | undefined;
     /** Entity who created the school. */
-    private _createdBy?: IdentitySet | undefined;
+    private _createdBy?: IdentitySet | AdminMember1 | undefined;
     /** ID of school in syncing system. */
     private _externalId?: string | undefined;
     /** ID of principal in syncing system. */
@@ -38,7 +34,7 @@ export class EducationSchool extends EducationOrganization implements Parsable {
     private _users?: EducationUser[] | undefined;
     /**
      * Gets the address property value. Address of the school.
-     * @returns a physicalAddress
+     * @returns a admin
      */
     public get address() {
         return this._address;
@@ -47,12 +43,12 @@ export class EducationSchool extends EducationOrganization implements Parsable {
      * Sets the address property value. Address of the school.
      * @param value Value to set for the address property.
      */
-    public set address(value: PhysicalAddress | undefined) {
+    public set address(value: PhysicalAddress | AdminMember1 | undefined) {
         this._address = value;
     };
     /**
      * Gets the administrativeUnit property value. The underlying administrativeUnit for this school.
-     * @returns a administrativeUnit
+     * @returns a admin
      */
     public get administrativeUnit() {
         return this._administrativeUnit;
@@ -61,7 +57,7 @@ export class EducationSchool extends EducationOrganization implements Parsable {
      * Sets the administrativeUnit property value. The underlying administrativeUnit for this school.
      * @param value Value to set for the administrativeUnit property.
      */
-    public set administrativeUnit(value: AdministrativeUnit | undefined) {
+    public set administrativeUnit(value: AdministrativeUnit | AdminMember1 | undefined) {
         this._administrativeUnit = value;
     };
     /**
@@ -79,14 +75,14 @@ export class EducationSchool extends EducationOrganization implements Parsable {
         this._classes = value;
     };
     /**
-     * Instantiates a new educationSchool and sets the default values.
+     * Instantiates a new EducationSchool and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
      * Gets the createdBy property value. Entity who created the school.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get createdBy() {
         return this._createdBy;
@@ -95,7 +91,7 @@ export class EducationSchool extends EducationOrganization implements Parsable {
      * Sets the createdBy property value. Entity who created the school.
      * @param value Value to set for the createdBy property.
      */
-    public set createdBy(value: IdentitySet | undefined) {
+    public set createdBy(value: IdentitySet | AdminMember1 | undefined) {
         this._createdBy = value;
     };
     /**

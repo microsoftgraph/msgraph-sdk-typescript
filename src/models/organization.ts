@@ -1,20 +1,17 @@
 import {createAssignedPlanFromDiscriminatorValue} from './createAssignedPlanFromDiscriminatorValue';
 import {createCertificateBasedAuthConfigurationFromDiscriminatorValue} from './createCertificateBasedAuthConfigurationFromDiscriminatorValue';
 import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscriminatorValue';
-import {createOrganizationalBrandingFromDiscriminatorValue} from './createOrganizationalBrandingFromDiscriminatorValue';
-import {createPrivacyProfileFromDiscriminatorValue} from './createPrivacyProfileFromDiscriminatorValue';
 import {createProvisionedPlanFromDiscriminatorValue} from './createProvisionedPlanFromDiscriminatorValue';
 import {createVerifiedDomainFromDiscriminatorValue} from './createVerifiedDomainFromDiscriminatorValue';
-import {AssignedPlan, CertificateBasedAuthConfiguration, DirectoryObject, Extension, OrganizationalBranding, PrivacyProfile, ProvisionedPlan, VerifiedDomain} from './index';
+import {AdminMember1, AssignedPlan, CertificateBasedAuthConfiguration, DirectoryObject, Extension, OrganizationalBranding, PrivacyProfile, ProvisionedPlan, VerifiedDomain} from './index';
 import {MdmAuthority} from './mdmAuthority';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of organization entities. */
 export class Organization extends DirectoryObject implements Parsable {
     /** The collection of service plans associated with the tenant. Not nullable. */
     private _assignedPlans?: AssignedPlan[] | undefined;
     /** Resource to manage the default branding for the organization. Nullable. */
-    private _branding?: OrganizationalBranding | undefined;
+    private _branding?: OrganizationalBranding | AdminMember1 | undefined;
     /** Telephone number for the organization. Although this is a string collection, only one number can be set for this property. */
     private _businessPhones?: string[] | undefined;
     /** Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection. */
@@ -33,7 +30,7 @@ export class Organization extends DirectoryObject implements Parsable {
     private _extensions?: Extension[] | undefined;
     /** Not nullable. */
     private _marketingNotificationEmails?: string[] | undefined;
-    /** Mobile device management authority. Possible values are: unknown, intune, sccm, office365. */
+    /** Mobile device management authority. */
     private _mobileDeviceManagementAuthority?: MdmAuthority | undefined;
     /** The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _onPremisesLastSyncDateTime?: Date | undefined;
@@ -44,7 +41,7 @@ export class Organization extends DirectoryObject implements Parsable {
     /** The preferred language for the organization. Should follow ISO 639-1 Code; for example en. */
     private _preferredLanguage?: string | undefined;
     /** The privacy profile of an organization. */
-    private _privacyProfile?: PrivacyProfile | undefined;
+    private _privacyProfile?: PrivacyProfile | AdminMember1 | undefined;
     /** Not nullable. */
     private _provisionedPlans?: ProvisionedPlan[] | undefined;
     /** The securityComplianceNotificationMails property */
@@ -77,7 +74,7 @@ export class Organization extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the branding property value. Resource to manage the default branding for the organization. Nullable.
-     * @returns a organizationalBranding
+     * @returns a admin
      */
     public get branding() {
         return this._branding;
@@ -86,7 +83,7 @@ export class Organization extends DirectoryObject implements Parsable {
      * Sets the branding property value. Resource to manage the default branding for the organization. Nullable.
      * @param value Value to set for the branding property.
      */
-    public set branding(value: OrganizationalBranding | undefined) {
+    public set branding(value: OrganizationalBranding | AdminMember1 | undefined) {
         this._branding = value;
     };
     /**
@@ -132,7 +129,7 @@ export class Organization extends DirectoryObject implements Parsable {
         this._city = value;
     };
     /**
-     * Instantiates a new organization and sets the default values.
+     * Instantiates a new Organization and sets the default values.
      */
     public constructor() {
         super();
@@ -255,14 +252,14 @@ export class Organization extends DirectoryObject implements Parsable {
         this._marketingNotificationEmails = value;
     };
     /**
-     * Gets the mobileDeviceManagementAuthority property value. Mobile device management authority. Possible values are: unknown, intune, sccm, office365.
+     * Gets the mobileDeviceManagementAuthority property value. Mobile device management authority.
      * @returns a mdmAuthority
      */
     public get mobileDeviceManagementAuthority() {
         return this._mobileDeviceManagementAuthority;
     };
     /**
-     * Sets the mobileDeviceManagementAuthority property value. Mobile device management authority. Possible values are: unknown, intune, sccm, office365.
+     * Sets the mobileDeviceManagementAuthority property value. Mobile device management authority.
      * @param value Value to set for the mobileDeviceManagementAuthority property.
      */
     public set mobileDeviceManagementAuthority(value: MdmAuthority | undefined) {
@@ -326,7 +323,7 @@ export class Organization extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the privacyProfile property value. The privacy profile of an organization.
-     * @returns a privacyProfile
+     * @returns a admin
      */
     public get privacyProfile() {
         return this._privacyProfile;
@@ -335,7 +332,7 @@ export class Organization extends DirectoryObject implements Parsable {
      * Sets the privacyProfile property value. The privacy profile of an organization.
      * @param value Value to set for the privacyProfile property.
      */
-    public set privacyProfile(value: PrivacyProfile | undefined) {
+    public set privacyProfile(value: PrivacyProfile | AdminMember1 | undefined) {
         this._privacyProfile = value;
     };
     /**

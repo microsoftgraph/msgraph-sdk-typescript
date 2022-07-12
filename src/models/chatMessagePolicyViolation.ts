@@ -1,23 +1,22 @@
 import {ChatMessagePolicyViolationDlpActionTypes} from './chatMessagePolicyViolationDlpActionTypes';
 import {ChatMessagePolicyViolationUserActionTypes} from './chatMessagePolicyViolationUserActionTypes';
 import {ChatMessagePolicyViolationVerdictDetailsTypes} from './chatMessagePolicyViolationVerdictDetailsTypes';
-import {createChatMessagePolicyViolationPolicyTipFromDiscriminatorValue} from './createChatMessagePolicyViolationPolicyTipFromDiscriminatorValue';
-import {ChatMessagePolicyViolationPolicyTip} from './index';
+import {AdminMember1, ChatMessagePolicyViolationPolicyTip} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ChatMessagePolicyViolation implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The action taken by the DLP provider on the message with sensitive content. Supported values are: NoneNotifySender -- Inform the sender of the violation but allow readers to read the message.BlockAccess -- Block readers from reading the message.BlockAccessExternal -- Block users outside the organization from reading the message, while allowing users within the organization to read the message. */
-    private _dlpAction?: ChatMessagePolicyViolationDlpActionTypes | undefined;
+    private _dlpAction?: ChatMessagePolicyViolationDlpActionTypes | AdminMember1 | undefined;
     /** Justification text provided by the sender of the message when overriding a policy violation. */
     private _justificationText?: string | undefined;
     /** Information to display to the message sender about why the message was flagged as a violation. */
-    private _policyTip?: ChatMessagePolicyViolationPolicyTip | undefined;
+    private _policyTip?: ChatMessagePolicyViolationPolicyTip | AdminMember1 | undefined;
     /** Indicates the action taken by the user on a message blocked by the DLP provider. Supported values are: NoneOverrideReportFalsePositiveWhen the DLP provider is updating the message for blocking sensitive content, userAction is not required. */
-    private _userAction?: ChatMessagePolicyViolationUserActionTypes | undefined;
+    private _userAction?: ChatMessagePolicyViolationUserActionTypes | AdminMember1 | undefined;
     /** Indicates what actions the sender may take in response to the policy violation. Supported values are: NoneAllowFalsePositiveOverride -- Allows the sender to declare the policyViolation to be an error in the DLP app and its rules, and allow readers to see the message again if the dlpAction had hidden it.AllowOverrideWithoutJustification -- Allows the sender to overriide the DLP violation and allow readers to see the message again if the dlpAction had hidden it, without needing to provide an explanation for doing so. AllowOverrideWithJustification -- Allows the sender to overriide the DLP violation and allow readers to see the message again if the dlpAction had hidden it, after providing an explanation for doing so.AllowOverrideWithoutJustification and AllowOverrideWithJustification are mutually exclusive. */
-    private _verdictDetails?: ChatMessagePolicyViolationVerdictDetailsTypes | undefined;
+    private _verdictDetails?: ChatMessagePolicyViolationVerdictDetailsTypes | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -40,7 +39,7 @@ export class ChatMessagePolicyViolation implements AdditionalDataHolder, Parsabl
     };
     /**
      * Gets the dlpAction property value. The action taken by the DLP provider on the message with sensitive content. Supported values are: NoneNotifySender -- Inform the sender of the violation but allow readers to read the message.BlockAccess -- Block readers from reading the message.BlockAccessExternal -- Block users outside the organization from reading the message, while allowing users within the organization to read the message.
-     * @returns a chatMessagePolicyViolationDlpActionTypes
+     * @returns a admin
      */
     public get dlpAction() {
         return this._dlpAction;
@@ -49,7 +48,7 @@ export class ChatMessagePolicyViolation implements AdditionalDataHolder, Parsabl
      * Sets the dlpAction property value. The action taken by the DLP provider on the message with sensitive content. Supported values are: NoneNotifySender -- Inform the sender of the violation but allow readers to read the message.BlockAccess -- Block readers from reading the message.BlockAccessExternal -- Block users outside the organization from reading the message, while allowing users within the organization to read the message.
      * @param value Value to set for the dlpAction property.
      */
-    public set dlpAction(value: ChatMessagePolicyViolationDlpActionTypes | undefined) {
+    public set dlpAction(value: ChatMessagePolicyViolationDlpActionTypes | AdminMember1 | undefined) {
         this._dlpAction = value;
     };
     /**
@@ -58,11 +57,11 @@ export class ChatMessagePolicyViolation implements AdditionalDataHolder, Parsabl
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "dlpAction": n => { this.dlpAction = n.getEnumValue<ChatMessagePolicyViolationDlpActionTypes>(ChatMessagePolicyViolationDlpActionTypes); },
+            "dlpAction": n => { this.dlpAction = n.getObjectValue<ChatMessagePolicyViolationDlpActionTypes>(createChatMessagePolicyViolationDlpActionTypesFromDiscriminatorValue); },
             "justificationText": n => { this.justificationText = n.getStringValue(); },
             "policyTip": n => { this.policyTip = n.getObjectValue<ChatMessagePolicyViolationPolicyTip>(createChatMessagePolicyViolationPolicyTipFromDiscriminatorValue); },
-            "userAction": n => { this.userAction = n.getEnumValue<ChatMessagePolicyViolationUserActionTypes>(ChatMessagePolicyViolationUserActionTypes); },
-            "verdictDetails": n => { this.verdictDetails = n.getEnumValue<ChatMessagePolicyViolationVerdictDetailsTypes>(ChatMessagePolicyViolationVerdictDetailsTypes); },
+            "userAction": n => { this.userAction = n.getObjectValue<ChatMessagePolicyViolationUserActionTypes>(createChatMessagePolicyViolationUserActionTypesFromDiscriminatorValue); },
+            "verdictDetails": n => { this.verdictDetails = n.getObjectValue<ChatMessagePolicyViolationVerdictDetailsTypes>(createChatMessagePolicyViolationVerdictDetailsTypesFromDiscriminatorValue); },
         };
     };
     /**
@@ -81,7 +80,7 @@ export class ChatMessagePolicyViolation implements AdditionalDataHolder, Parsabl
     };
     /**
      * Gets the policyTip property value. Information to display to the message sender about why the message was flagged as a violation.
-     * @returns a chatMessagePolicyViolationPolicyTip
+     * @returns a admin
      */
     public get policyTip() {
         return this._policyTip;
@@ -90,7 +89,7 @@ export class ChatMessagePolicyViolation implements AdditionalDataHolder, Parsabl
      * Sets the policyTip property value. Information to display to the message sender about why the message was flagged as a violation.
      * @param value Value to set for the policyTip property.
      */
-    public set policyTip(value: ChatMessagePolicyViolationPolicyTip | undefined) {
+    public set policyTip(value: ChatMessagePolicyViolationPolicyTip | AdminMember1 | undefined) {
         this._policyTip = value;
     };
     /**
@@ -99,16 +98,16 @@ export class ChatMessagePolicyViolation implements AdditionalDataHolder, Parsabl
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeEnumValue<ChatMessagePolicyViolationDlpActionTypes>("dlpAction", this.dlpAction);
+        writer.writeObjectValue<ChatMessagePolicyViolationDlpActionTypes>("dlpAction", this.dlpAction);
         writer.writeStringValue("justificationText", this.justificationText);
         writer.writeObjectValue<ChatMessagePolicyViolationPolicyTip>("policyTip", this.policyTip);
-        writer.writeEnumValue<ChatMessagePolicyViolationUserActionTypes>("userAction", this.userAction);
-        writer.writeEnumValue<ChatMessagePolicyViolationVerdictDetailsTypes>("verdictDetails", this.verdictDetails);
+        writer.writeObjectValue<ChatMessagePolicyViolationUserActionTypes>("userAction", this.userAction);
+        writer.writeObjectValue<ChatMessagePolicyViolationVerdictDetailsTypes>("verdictDetails", this.verdictDetails);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the userAction property value. Indicates the action taken by the user on a message blocked by the DLP provider. Supported values are: NoneOverrideReportFalsePositiveWhen the DLP provider is updating the message for blocking sensitive content, userAction is not required.
-     * @returns a chatMessagePolicyViolationUserActionTypes
+     * @returns a admin
      */
     public get userAction() {
         return this._userAction;
@@ -117,12 +116,12 @@ export class ChatMessagePolicyViolation implements AdditionalDataHolder, Parsabl
      * Sets the userAction property value. Indicates the action taken by the user on a message blocked by the DLP provider. Supported values are: NoneOverrideReportFalsePositiveWhen the DLP provider is updating the message for blocking sensitive content, userAction is not required.
      * @param value Value to set for the userAction property.
      */
-    public set userAction(value: ChatMessagePolicyViolationUserActionTypes | undefined) {
+    public set userAction(value: ChatMessagePolicyViolationUserActionTypes | AdminMember1 | undefined) {
         this._userAction = value;
     };
     /**
      * Gets the verdictDetails property value. Indicates what actions the sender may take in response to the policy violation. Supported values are: NoneAllowFalsePositiveOverride -- Allows the sender to declare the policyViolation to be an error in the DLP app and its rules, and allow readers to see the message again if the dlpAction had hidden it.AllowOverrideWithoutJustification -- Allows the sender to overriide the DLP violation and allow readers to see the message again if the dlpAction had hidden it, without needing to provide an explanation for doing so. AllowOverrideWithJustification -- Allows the sender to overriide the DLP violation and allow readers to see the message again if the dlpAction had hidden it, after providing an explanation for doing so.AllowOverrideWithoutJustification and AllowOverrideWithJustification are mutually exclusive.
-     * @returns a chatMessagePolicyViolationVerdictDetailsTypes
+     * @returns a admin
      */
     public get verdictDetails() {
         return this._verdictDetails;
@@ -131,7 +130,7 @@ export class ChatMessagePolicyViolation implements AdditionalDataHolder, Parsabl
      * Sets the verdictDetails property value. Indicates what actions the sender may take in response to the policy violation. Supported values are: NoneAllowFalsePositiveOverride -- Allows the sender to declare the policyViolation to be an error in the DLP app and its rules, and allow readers to see the message again if the dlpAction had hidden it.AllowOverrideWithoutJustification -- Allows the sender to overriide the DLP violation and allow readers to see the message again if the dlpAction had hidden it, without needing to provide an explanation for doing so. AllowOverrideWithJustification -- Allows the sender to overriide the DLP violation and allow readers to see the message again if the dlpAction had hidden it, after providing an explanation for doing so.AllowOverrideWithoutJustification and AllowOverrideWithJustification are mutually exclusive.
      * @param value Value to set for the verdictDetails property.
      */
-    public set verdictDetails(value: ChatMessagePolicyViolationVerdictDetailsTypes | undefined) {
+    public set verdictDetails(value: ChatMessagePolicyViolationVerdictDetailsTypes | AdminMember1 | undefined) {
         this._verdictDetails = value;
     };
 }

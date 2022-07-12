@@ -1,9 +1,5 @@
 import {BookingPriceType} from './bookingPriceType';
-import {createBookingQuestionAssignmentFromDiscriminatorValue} from './createBookingQuestionAssignmentFromDiscriminatorValue';
-import {createBookingReminderFromDiscriminatorValue} from './createBookingReminderFromDiscriminatorValue';
-import {createBookingSchedulingPolicyFromDiscriminatorValue} from './createBookingSchedulingPolicyFromDiscriminatorValue';
-import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
-import {BookingQuestionAssignment, BookingReminder, BookingSchedulingPolicy, Entity, Location} from './index';
+import {AdminMember1, BookingQuestionAssignment, BookingReminder, BookingSchedulingPolicy, Entity, Location} from './index';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Represents a particular service offered by a booking business. */
@@ -11,17 +7,17 @@ export class BookingService extends Entity implements Parsable {
     /** Additional information that is sent to the customer when an appointment is confirmed. */
     private _additionalInformation?: string | undefined;
     /** Contains the set of custom questions associated with a particular service. */
-    private _customQuestions?: BookingQuestionAssignment[] | undefined;
+    private _customQuestions?: BookingQuestionAssignment | AdminMember1[] | undefined;
     /** The default length of the service, represented in numbers of days, hours, minutes, and seconds. For example, P11D23H59M59.999999999999S. */
     private _defaultDuration?: Duration | undefined;
     /** The default physical location for the service. */
-    private _defaultLocation?: Location | undefined;
+    private _defaultLocation?: Location | AdminMember1 | undefined;
     /** The default monetary price for the service. */
     private _defaultPrice?: number | undefined;
-    /** The default way the service is charged. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue. */
+    /** Represents the type of pricing of a booking service. */
     private _defaultPriceType?: BookingPriceType | undefined;
     /** The default set of reminders for an appointment of this service. The value of this property is available only when reading this bookingService by its ID. */
-    private _defaultReminders?: BookingReminder[] | undefined;
+    private _defaultReminders?: BookingReminder | AdminMember1[] | undefined;
     /** A text description for the service. */
     private _description?: string | undefined;
     /** A service name. */
@@ -39,7 +35,7 @@ export class BookingService extends Entity implements Parsable {
     /** The time to buffer before an appointment for this service can start. */
     private _preBuffer?: Duration | undefined;
     /** The set of policies that determine how appointments for this type of service should be created and managed. */
-    private _schedulingPolicy?: BookingSchedulingPolicy | undefined;
+    private _schedulingPolicy?: BookingSchedulingPolicy | AdminMember1 | undefined;
     /** True indicates SMS notifications can be sent to the customers for the appointment of the service. Default value is false. */
     private _smsNotificationsEnabled?: boolean | undefined;
     /** Represents those staff members who provide this service. */
@@ -68,7 +64,7 @@ export class BookingService extends Entity implements Parsable {
     };
     /**
      * Gets the customQuestions property value. Contains the set of custom questions associated with a particular service.
-     * @returns a bookingQuestionAssignment
+     * @returns a admin
      */
     public get customQuestions() {
         return this._customQuestions;
@@ -77,7 +73,7 @@ export class BookingService extends Entity implements Parsable {
      * Sets the customQuestions property value. Contains the set of custom questions associated with a particular service.
      * @param value Value to set for the customQuestions property.
      */
-    public set customQuestions(value: BookingQuestionAssignment[] | undefined) {
+    public set customQuestions(value: BookingQuestionAssignment | AdminMember1[] | undefined) {
         this._customQuestions = value;
     };
     /**
@@ -96,7 +92,7 @@ export class BookingService extends Entity implements Parsable {
     };
     /**
      * Gets the defaultLocation property value. The default physical location for the service.
-     * @returns a location
+     * @returns a admin
      */
     public get defaultLocation() {
         return this._defaultLocation;
@@ -105,7 +101,7 @@ export class BookingService extends Entity implements Parsable {
      * Sets the defaultLocation property value. The default physical location for the service.
      * @param value Value to set for the defaultLocation property.
      */
-    public set defaultLocation(value: Location | undefined) {
+    public set defaultLocation(value: Location | AdminMember1 | undefined) {
         this._defaultLocation = value;
     };
     /**
@@ -123,14 +119,14 @@ export class BookingService extends Entity implements Parsable {
         this._defaultPrice = value;
     };
     /**
-     * Gets the defaultPriceType property value. The default way the service is charged. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue.
+     * Gets the defaultPriceType property value. Represents the type of pricing of a booking service.
      * @returns a bookingPriceType
      */
     public get defaultPriceType() {
         return this._defaultPriceType;
     };
     /**
-     * Sets the defaultPriceType property value. The default way the service is charged. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue.
+     * Sets the defaultPriceType property value. Represents the type of pricing of a booking service.
      * @param value Value to set for the defaultPriceType property.
      */
     public set defaultPriceType(value: BookingPriceType | undefined) {
@@ -138,7 +134,7 @@ export class BookingService extends Entity implements Parsable {
     };
     /**
      * Gets the defaultReminders property value. The default set of reminders for an appointment of this service. The value of this property is available only when reading this bookingService by its ID.
-     * @returns a bookingReminder
+     * @returns a admin
      */
     public get defaultReminders() {
         return this._defaultReminders;
@@ -147,7 +143,7 @@ export class BookingService extends Entity implements Parsable {
      * Sets the defaultReminders property value. The default set of reminders for an appointment of this service. The value of this property is available only when reading this bookingService by its ID.
      * @param value Value to set for the defaultReminders property.
      */
-    public set defaultReminders(value: BookingReminder[] | undefined) {
+    public set defaultReminders(value: BookingReminder | AdminMember1[] | undefined) {
         this._defaultReminders = value;
     };
     /**
@@ -185,12 +181,12 @@ export class BookingService extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "additionalInformation": n => { this.additionalInformation = n.getStringValue(); },
-            "customQuestions": n => { this.customQuestions = n.getCollectionOfObjectValues<BookingQuestionAssignment>(createBookingQuestionAssignmentFromDiscriminatorValue); },
+            "customQuestions": n => { this.customQuestions = n.getObjectValue<BookingQuestionAssignment>(createBookingQuestionAssignmentFromDiscriminatorValue); },
             "defaultDuration": n => { this.defaultDuration = n.getDurationValue(); },
             "defaultLocation": n => { this.defaultLocation = n.getObjectValue<Location>(createLocationFromDiscriminatorValue); },
             "defaultPrice": n => { this.defaultPrice = n.getNumberValue(); },
             "defaultPriceType": n => { this.defaultPriceType = n.getEnumValue<BookingPriceType>(BookingPriceType); },
-            "defaultReminders": n => { this.defaultReminders = n.getCollectionOfObjectValues<BookingReminder>(createBookingReminderFromDiscriminatorValue); },
+            "defaultReminders": n => { this.defaultReminders = n.getObjectValue<BookingReminder>(createBookingReminderFromDiscriminatorValue); },
             "description": n => { this.description = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "isHiddenFromCustomers": n => { this.isHiddenFromCustomers = n.getBooleanValue(); },
@@ -291,7 +287,7 @@ export class BookingService extends Entity implements Parsable {
     };
     /**
      * Gets the schedulingPolicy property value. The set of policies that determine how appointments for this type of service should be created and managed.
-     * @returns a bookingSchedulingPolicy
+     * @returns a admin
      */
     public get schedulingPolicy() {
         return this._schedulingPolicy;
@@ -300,7 +296,7 @@ export class BookingService extends Entity implements Parsable {
      * Sets the schedulingPolicy property value. The set of policies that determine how appointments for this type of service should be created and managed.
      * @param value Value to set for the schedulingPolicy property.
      */
-    public set schedulingPolicy(value: BookingSchedulingPolicy | undefined) {
+    public set schedulingPolicy(value: BookingSchedulingPolicy | AdminMember1 | undefined) {
         this._schedulingPolicy = value;
     };
     /**
@@ -311,12 +307,12 @@ export class BookingService extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("additionalInformation", this.additionalInformation);
-        writer.writeCollectionOfObjectValues<BookingQuestionAssignment>("customQuestions", this.customQuestions);
+        writer.writeObjectValue<BookingQuestionAssignment>("customQuestions", this.customQuestions);
         writer.writeDurationValue("defaultDuration", this.defaultDuration);
         writer.writeObjectValue<Location>("defaultLocation", this.defaultLocation);
         writer.writeNumberValue("defaultPrice", this.defaultPrice);
         writer.writeEnumValue<BookingPriceType>("defaultPriceType", this.defaultPriceType);
-        writer.writeCollectionOfObjectValues<BookingReminder>("defaultReminders", this.defaultReminders);
+        writer.writeObjectValue<BookingReminder>("defaultReminders", this.defaultReminders);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeBooleanValue("isHiddenFromCustomers", this.isHiddenFromCustomers);

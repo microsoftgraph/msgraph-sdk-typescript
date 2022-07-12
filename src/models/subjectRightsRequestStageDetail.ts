@@ -1,5 +1,4 @@
-import {createPublicErrorFromDiscriminatorValue} from './createPublicErrorFromDiscriminatorValue';
-import {PublicError} from './index';
+import {AdminMember1, PublicError} from './index';
 import {SubjectRightsRequestStage} from './subjectRightsRequestStage';
 import {SubjectRightsRequestStageStatus} from './subjectRightsRequestStageStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -8,11 +7,11 @@ export class SubjectRightsRequestStageDetail implements AdditionalDataHolder, Pa
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Describes the error, if any, for the current stage. */
-    private _error_escaped?: PublicError | undefined;
+    private _error_escaped?: PublicError | AdminMember1 | undefined;
     /** The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue. */
-    private _stage?: SubjectRightsRequestStage | undefined;
+    private _stage?: SubjectRightsRequestStage | AdminMember1 | undefined;
     /** Status of the current stage. Possible values are: notStarted, current, completed, failed, unknownFutureValue. */
-    private _status?: SubjectRightsRequestStageStatus | undefined;
+    private _status?: SubjectRightsRequestStageStatus | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -35,7 +34,7 @@ export class SubjectRightsRequestStageDetail implements AdditionalDataHolder, Pa
     };
     /**
      * Gets the error property value. Describes the error, if any, for the current stage.
-     * @returns a publicError
+     * @returns a admin
      */
     public get error_escaped() {
         return this._error_escaped;
@@ -44,7 +43,7 @@ export class SubjectRightsRequestStageDetail implements AdditionalDataHolder, Pa
      * Sets the error property value. Describes the error, if any, for the current stage.
      * @param value Value to set for the error_escaped property.
      */
-    public set error_escaped(value: PublicError | undefined) {
+    public set error_escaped(value: PublicError | AdminMember1 | undefined) {
         this._error_escaped = value;
     };
     /**
@@ -54,8 +53,8 @@ export class SubjectRightsRequestStageDetail implements AdditionalDataHolder, Pa
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "error": n => { this.error_escaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); },
-            "stage": n => { this.stage = n.getEnumValue<SubjectRightsRequestStage>(SubjectRightsRequestStage); },
-            "status": n => { this.status = n.getEnumValue<SubjectRightsRequestStageStatus>(SubjectRightsRequestStageStatus); },
+            "stage": n => { this.stage = n.getObjectValue<SubjectRightsRequestStage>(createSubjectRightsRequestStageFromDiscriminatorValue); },
+            "status": n => { this.status = n.getObjectValue<SubjectRightsRequestStageStatus>(createSubjectRightsRequestStageStatusFromDiscriminatorValue); },
         };
     };
     /**
@@ -65,13 +64,13 @@ export class SubjectRightsRequestStageDetail implements AdditionalDataHolder, Pa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<PublicError>("error", this.error_escaped);
-        writer.writeEnumValue<SubjectRightsRequestStage>("stage", this.stage);
-        writer.writeEnumValue<SubjectRightsRequestStageStatus>("status", this.status);
+        writer.writeObjectValue<SubjectRightsRequestStage>("stage", this.stage);
+        writer.writeObjectValue<SubjectRightsRequestStageStatus>("status", this.status);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the stage property value. The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue.
-     * @returns a subjectRightsRequestStage
+     * @returns a admin
      */
     public get stage() {
         return this._stage;
@@ -80,12 +79,12 @@ export class SubjectRightsRequestStageDetail implements AdditionalDataHolder, Pa
      * Sets the stage property value. The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue.
      * @param value Value to set for the stage property.
      */
-    public set stage(value: SubjectRightsRequestStage | undefined) {
+    public set stage(value: SubjectRightsRequestStage | AdminMember1 | undefined) {
         this._stage = value;
     };
     /**
      * Gets the status property value. Status of the current stage. Possible values are: notStarted, current, completed, failed, unknownFutureValue.
-     * @returns a subjectRightsRequestStageStatus
+     * @returns a admin
      */
     public get status() {
         return this._status;
@@ -94,7 +93,7 @@ export class SubjectRightsRequestStageDetail implements AdditionalDataHolder, Pa
      * Sets the status property value. Status of the current stage. Possible values are: notStarted, current, completed, failed, unknownFutureValue.
      * @param value Value to set for the status property.
      */
-    public set status(value: SubjectRightsRequestStageStatus | undefined) {
+    public set status(value: SubjectRightsRequestStageStatus | AdminMember1 | undefined) {
         this._status = value;
     };
 }

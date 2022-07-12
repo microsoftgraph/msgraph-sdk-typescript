@@ -1,21 +1,19 @@
-import {createTeamsAppFromDiscriminatorValue} from './createTeamsAppFromDiscriminatorValue';
-import {createTeamsTabConfigurationFromDiscriminatorValue} from './createTeamsTabConfigurationFromDiscriminatorValue';
-import {Entity, TeamsApp, TeamsTabConfiguration} from './index';
+import {AdminMember1, Entity, TeamsApp, TeamsTabConfiguration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
+/** Provides operations to manage the admin singleton. */
 export class TeamsTab extends Entity implements Parsable {
     /** Container for custom settings applied to a tab. The tab is considered configured only once this property is set. */
-    private _configuration?: TeamsTabConfiguration | undefined;
+    private _configuration?: TeamsTabConfiguration | AdminMember1 | undefined;
     /** Name of the tab. */
     private _displayName?: string | undefined;
     /** The application that is linked to the tab. */
-    private _teamsApp?: TeamsApp | undefined;
+    private _teamsApp?: TeamsApp | AdminMember1 | undefined;
     /** Deep link URL of the tab instance. Read only. */
     private _webUrl?: string | undefined;
     /**
      * Gets the configuration property value. Container for custom settings applied to a tab. The tab is considered configured only once this property is set.
-     * @returns a teamsTabConfiguration
+     * @returns a admin
      */
     public get configuration() {
         return this._configuration;
@@ -24,7 +22,7 @@ export class TeamsTab extends Entity implements Parsable {
      * Sets the configuration property value. Container for custom settings applied to a tab. The tab is considered configured only once this property is set.
      * @param value Value to set for the configuration property.
      */
-    public set configuration(value: TeamsTabConfiguration | undefined) {
+    public set configuration(value: TeamsTabConfiguration | AdminMember1 | undefined) {
         this._configuration = value;
     };
     /**
@@ -73,7 +71,7 @@ export class TeamsTab extends Entity implements Parsable {
     };
     /**
      * Gets the teamsApp property value. The application that is linked to the tab.
-     * @returns a teamsApp
+     * @returns a admin
      */
     public get teamsApp() {
         return this._teamsApp;
@@ -82,7 +80,7 @@ export class TeamsTab extends Entity implements Parsable {
      * Sets the teamsApp property value. The application that is linked to the tab.
      * @param value Value to set for the teamsApp property.
      */
-    public set teamsApp(value: TeamsApp | undefined) {
+    public set teamsApp(value: TeamsApp | AdminMember1 | undefined) {
         this._teamsApp = value;
     };
     /**

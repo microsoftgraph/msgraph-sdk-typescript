@@ -1,4 +1,4 @@
-import {createWorkbookOperationErrorFromDiscriminatorValue} from './createWorkbookOperationErrorFromDiscriminatorValue';
+import {AdminMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookOperationError implements AdditionalDataHolder, Parsable {
@@ -7,7 +7,7 @@ export class WorkbookOperationError implements AdditionalDataHolder, Parsable {
     /** The error code. */
     private _code?: string | undefined;
     /** The innerError property */
-    private _innerError?: WorkbookOperationError | undefined;
+    private _innerError?: WorkbookOperationError | AdminMember1 | undefined;
     /** The error message. */
     private _message?: string | undefined;
     /**
@@ -57,7 +57,7 @@ export class WorkbookOperationError implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the innerError property value. The innerError property
-     * @returns a workbookOperationError
+     * @returns a admin
      */
     public get innerError() {
         return this._innerError;
@@ -66,7 +66,7 @@ export class WorkbookOperationError implements AdditionalDataHolder, Parsable {
      * Sets the innerError property value. The innerError property
      * @param value Value to set for the innerError property.
      */
-    public set innerError(value: WorkbookOperationError | undefined) {
+    public set innerError(value: WorkbookOperationError | AdminMember1 | undefined) {
         this._innerError = value;
     };
     /**

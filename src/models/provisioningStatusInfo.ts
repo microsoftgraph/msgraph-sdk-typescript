@@ -1,5 +1,4 @@
-import {createProvisioningErrorInfoFromDiscriminatorValue} from './createProvisioningErrorInfoFromDiscriminatorValue';
-import {ProvisioningErrorInfo} from './index';
+import {AdminMember1, ProvisioningErrorInfo} from './index';
 import {ProvisioningResult} from './provisioningResult';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -7,9 +6,9 @@ export class ProvisioningStatusInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The errorInformation property */
-    private _errorInformation?: ProvisioningErrorInfo | undefined;
+    private _errorInformation?: ProvisioningErrorInfo | AdminMember1 | undefined;
     /** Possible values are: success, warning, failure, skipped, unknownFutureValue. */
-    private _status?: ProvisioningResult | undefined;
+    private _status?: ProvisioningResult | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -32,7 +31,7 @@ export class ProvisioningStatusInfo implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the errorInformation property value. The errorInformation property
-     * @returns a provisioningErrorInfo
+     * @returns a admin
      */
     public get errorInformation() {
         return this._errorInformation;
@@ -41,7 +40,7 @@ export class ProvisioningStatusInfo implements AdditionalDataHolder, Parsable {
      * Sets the errorInformation property value. The errorInformation property
      * @param value Value to set for the errorInformation property.
      */
-    public set errorInformation(value: ProvisioningErrorInfo | undefined) {
+    public set errorInformation(value: ProvisioningErrorInfo | AdminMember1 | undefined) {
         this._errorInformation = value;
     };
     /**
@@ -51,7 +50,7 @@ export class ProvisioningStatusInfo implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "errorInformation": n => { this.errorInformation = n.getObjectValue<ProvisioningErrorInfo>(createProvisioningErrorInfoFromDiscriminatorValue); },
-            "status": n => { this.status = n.getEnumValue<ProvisioningResult>(ProvisioningResult); },
+            "status": n => { this.status = n.getObjectValue<ProvisioningResult>(createProvisioningResultFromDiscriminatorValue); },
         };
     };
     /**
@@ -61,12 +60,12 @@ export class ProvisioningStatusInfo implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<ProvisioningErrorInfo>("errorInformation", this.errorInformation);
-        writer.writeEnumValue<ProvisioningResult>("status", this.status);
+        writer.writeObjectValue<ProvisioningResult>("status", this.status);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the status property value. Possible values are: success, warning, failure, skipped, unknownFutureValue.
-     * @returns a provisioningResult
+     * @returns a admin
      */
     public get status() {
         return this._status;
@@ -75,7 +74,7 @@ export class ProvisioningStatusInfo implements AdditionalDataHolder, Parsable {
      * Sets the status property value. Possible values are: success, warning, failure, skipped, unknownFutureValue.
      * @param value Value to set for the status property.
      */
-    public set status(value: ProvisioningResult | undefined) {
+    public set status(value: ProvisioningResult | AdminMember1 | undefined) {
         this._status = value;
     };
 }

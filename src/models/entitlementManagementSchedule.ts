@@ -1,15 +1,13 @@
-import {createExpirationPatternFromDiscriminatorValue} from './createExpirationPatternFromDiscriminatorValue';
-import {createPatternedRecurrenceFromDiscriminatorValue} from './createPatternedRecurrenceFromDiscriminatorValue';
-import {ExpirationPattern, PatternedRecurrence} from './index';
+import {AdminMember1, ExpirationPattern, PatternedRecurrence} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EntitlementManagementSchedule implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** When the access should expire. */
-    private _expiration?: ExpirationPattern | undefined;
+    private _expiration?: ExpirationPattern | AdminMember1 | undefined;
     /** For recurring access reviews.  Not used in access requests. */
-    private _recurrence?: PatternedRecurrence | undefined;
+    private _recurrence?: PatternedRecurrence | AdminMember1 | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _startDateTime?: Date | undefined;
     /**
@@ -34,7 +32,7 @@ export class EntitlementManagementSchedule implements AdditionalDataHolder, Pars
     };
     /**
      * Gets the expiration property value. When the access should expire.
-     * @returns a expirationPattern
+     * @returns a admin
      */
     public get expiration() {
         return this._expiration;
@@ -43,7 +41,7 @@ export class EntitlementManagementSchedule implements AdditionalDataHolder, Pars
      * Sets the expiration property value. When the access should expire.
      * @param value Value to set for the expiration property.
      */
-    public set expiration(value: ExpirationPattern | undefined) {
+    public set expiration(value: ExpirationPattern | AdminMember1 | undefined) {
         this._expiration = value;
     };
     /**
@@ -59,7 +57,7 @@ export class EntitlementManagementSchedule implements AdditionalDataHolder, Pars
     };
     /**
      * Gets the recurrence property value. For recurring access reviews.  Not used in access requests.
-     * @returns a patternedRecurrence
+     * @returns a admin
      */
     public get recurrence() {
         return this._recurrence;
@@ -68,7 +66,7 @@ export class EntitlementManagementSchedule implements AdditionalDataHolder, Pars
      * Sets the recurrence property value. For recurring access reviews.  Not used in access requests.
      * @param value Value to set for the recurrence property.
      */
-    public set recurrence(value: PatternedRecurrence | undefined) {
+    public set recurrence(value: PatternedRecurrence | AdminMember1 | undefined) {
         this._recurrence = value;
     };
     /**

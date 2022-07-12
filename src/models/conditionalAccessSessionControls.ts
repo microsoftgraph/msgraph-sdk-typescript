@@ -1,23 +1,19 @@
-import {createApplicationEnforcedRestrictionsSessionControlFromDiscriminatorValue} from './createApplicationEnforcedRestrictionsSessionControlFromDiscriminatorValue';
-import {createCloudAppSecuritySessionControlFromDiscriminatorValue} from './createCloudAppSecuritySessionControlFromDiscriminatorValue';
-import {createPersistentBrowserSessionControlFromDiscriminatorValue} from './createPersistentBrowserSessionControlFromDiscriminatorValue';
-import {createSignInFrequencySessionControlFromDiscriminatorValue} from './createSignInFrequencySessionControlFromDiscriminatorValue';
-import {ApplicationEnforcedRestrictionsSessionControl, CloudAppSecuritySessionControl, PersistentBrowserSessionControl, SignInFrequencySessionControl} from './index';
+import {AdminMember1, ApplicationEnforcedRestrictionsSessionControl, CloudAppSecuritySessionControl, PersistentBrowserSessionControl, SignInFrequencySessionControl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessSessionControls implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Session control to enforce application restrictions. Only Exchange Online and Sharepoint Online support this session control. */
-    private _applicationEnforcedRestrictions?: ApplicationEnforcedRestrictionsSessionControl | undefined;
+    private _applicationEnforcedRestrictions?: ApplicationEnforcedRestrictionsSessionControl | AdminMember1 | undefined;
     /** Session control to apply cloud app security. */
-    private _cloudAppSecurity?: CloudAppSecuritySessionControl | undefined;
+    private _cloudAppSecurity?: CloudAppSecuritySessionControl | AdminMember1 | undefined;
     /** Session control that determines whether it is acceptable for Azure AD to extend existing sessions based on information collected prior to an outage or not. */
     private _disableResilienceDefaults?: boolean | undefined;
     /** Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly. */
-    private _persistentBrowser?: PersistentBrowserSessionControl | undefined;
+    private _persistentBrowser?: PersistentBrowserSessionControl | AdminMember1 | undefined;
     /** Session control to enforce signin frequency. */
-    private _signInFrequency?: SignInFrequencySessionControl | undefined;
+    private _signInFrequency?: SignInFrequencySessionControl | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,7 +30,7 @@ export class ConditionalAccessSessionControls implements AdditionalDataHolder, P
     };
     /**
      * Gets the applicationEnforcedRestrictions property value. Session control to enforce application restrictions. Only Exchange Online and Sharepoint Online support this session control.
-     * @returns a applicationEnforcedRestrictionsSessionControl
+     * @returns a admin
      */
     public get applicationEnforcedRestrictions() {
         return this._applicationEnforcedRestrictions;
@@ -43,12 +39,12 @@ export class ConditionalAccessSessionControls implements AdditionalDataHolder, P
      * Sets the applicationEnforcedRestrictions property value. Session control to enforce application restrictions. Only Exchange Online and Sharepoint Online support this session control.
      * @param value Value to set for the applicationEnforcedRestrictions property.
      */
-    public set applicationEnforcedRestrictions(value: ApplicationEnforcedRestrictionsSessionControl | undefined) {
+    public set applicationEnforcedRestrictions(value: ApplicationEnforcedRestrictionsSessionControl | AdminMember1 | undefined) {
         this._applicationEnforcedRestrictions = value;
     };
     /**
      * Gets the cloudAppSecurity property value. Session control to apply cloud app security.
-     * @returns a cloudAppSecuritySessionControl
+     * @returns a admin
      */
     public get cloudAppSecurity() {
         return this._cloudAppSecurity;
@@ -57,7 +53,7 @@ export class ConditionalAccessSessionControls implements AdditionalDataHolder, P
      * Sets the cloudAppSecurity property value. Session control to apply cloud app security.
      * @param value Value to set for the cloudAppSecurity property.
      */
-    public set cloudAppSecurity(value: CloudAppSecuritySessionControl | undefined) {
+    public set cloudAppSecurity(value: CloudAppSecuritySessionControl | AdminMember1 | undefined) {
         this._cloudAppSecurity = value;
     };
     /**
@@ -95,7 +91,7 @@ export class ConditionalAccessSessionControls implements AdditionalDataHolder, P
     };
     /**
      * Gets the persistentBrowser property value. Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly.
-     * @returns a persistentBrowserSessionControl
+     * @returns a admin
      */
     public get persistentBrowser() {
         return this._persistentBrowser;
@@ -104,7 +100,7 @@ export class ConditionalAccessSessionControls implements AdditionalDataHolder, P
      * Sets the persistentBrowser property value. Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly.
      * @param value Value to set for the persistentBrowser property.
      */
-    public set persistentBrowser(value: PersistentBrowserSessionControl | undefined) {
+    public set persistentBrowser(value: PersistentBrowserSessionControl | AdminMember1 | undefined) {
         this._persistentBrowser = value;
     };
     /**
@@ -122,7 +118,7 @@ export class ConditionalAccessSessionControls implements AdditionalDataHolder, P
     };
     /**
      * Gets the signInFrequency property value. Session control to enforce signin frequency.
-     * @returns a signInFrequencySessionControl
+     * @returns a admin
      */
     public get signInFrequency() {
         return this._signInFrequency;
@@ -131,7 +127,7 @@ export class ConditionalAccessSessionControls implements AdditionalDataHolder, P
      * Sets the signInFrequency property value. Session control to enforce signin frequency.
      * @param value Value to set for the signInFrequency property.
      */
-    public set signInFrequency(value: SignInFrequencySessionControl | undefined) {
+    public set signInFrequency(value: SignInFrequencySessionControl | AdminMember1 | undefined) {
         this._signInFrequency = value;
     };
 }

@@ -1,7 +1,5 @@
-import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscriminatorValue';
-import {createSizeRangeFromDiscriminatorValue} from './createSizeRangeFromDiscriminatorValue';
 import {Importance} from './importance';
-import {Recipient, SizeRange} from './index';
+import {AdminMember1, Recipient, SizeRange} from './index';
 import {MessageActionFlag} from './messageActionFlag';
 import {Sensitivity} from './sensitivity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -16,13 +14,13 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
     /** Represents the categories that an incoming message should be labeled with in order for the condition or exception to apply. */
     private _categories?: string[] | undefined;
     /** Represents the specific sender email addresses of an incoming message in order for the condition or exception to apply. */
-    private _fromAddresses?: Recipient[] | undefined;
+    private _fromAddresses?: Recipient | AdminMember1[] | undefined;
     /** Indicates whether an incoming message must have attachments in order for the condition or exception to apply. */
     private _hasAttachments?: boolean | undefined;
     /** Represents the strings that appear in the headers of an incoming message in order for the condition or exception to apply. */
     private _headerContains?: string[] | undefined;
     /** The importance that is stamped on an incoming message in order for the condition or exception to apply: low, normal, high. */
-    private _importance?: Importance | undefined;
+    private _importance?: Importance | AdminMember1 | undefined;
     /** Indicates whether an incoming message must be an approval request in order for the condition or exception to apply. */
     private _isApprovalRequest?: boolean | undefined;
     /** Indicates whether an incoming message must be automatically forwarded in order for the condition or exception to apply. */
@@ -46,7 +44,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
     /** Indicates whether an incoming message must be a voice mail in order for the condition or exception to apply. */
     private _isVoicemail?: boolean | undefined;
     /** Represents the flag-for-action value that appears on an incoming message in order for the condition or exception to apply. The possible values are: any, call, doNotForward, followUp, fyi, forward, noResponseNecessary, read, reply, replyToAll, review. */
-    private _messageActionFlag?: MessageActionFlag | undefined;
+    private _messageActionFlag?: MessageActionFlag | AdminMember1 | undefined;
     /** Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply. */
     private _notSentToMe?: boolean | undefined;
     /** Represents the strings that appear in either the toRecipients or ccRecipients properties of an incoming message in order for the condition or exception to apply. */
@@ -54,13 +52,13 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
     /** Represents the strings that appear in the from property of an incoming message in order for the condition or exception to apply. */
     private _senderContains?: string[] | undefined;
     /** Represents the sensitivity level that must be stamped on an incoming message in order for the condition or exception to apply. The possible values are: normal, personal, private, confidential. */
-    private _sensitivity?: Sensitivity | undefined;
+    private _sensitivity?: Sensitivity | AdminMember1 | undefined;
     /** Indicates whether the owner of the mailbox must be in the ccRecipients property of an incoming message in order for the condition or exception to apply. */
     private _sentCcMe?: boolean | undefined;
     /** Indicates whether the owner of the mailbox must be the only recipient in an incoming message in order for the condition or exception to apply. */
     private _sentOnlyToMe?: boolean | undefined;
     /** Represents the email addresses that an incoming message must have been sent to in order for the condition or exception to apply. */
-    private _sentToAddresses?: Recipient[] | undefined;
+    private _sentToAddresses?: Recipient | AdminMember1[] | undefined;
     /** Indicates whether the owner of the mailbox must be in the toRecipients property of an incoming message in order for the condition or exception to apply. */
     private _sentToMe?: boolean | undefined;
     /** Indicates whether the owner of the mailbox must be in either a toRecipients or ccRecipients property of an incoming message in order for the condition or exception to apply. */
@@ -68,7 +66,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
     /** Represents the strings that appear in the subject of an incoming message in order for the condition or exception to apply. */
     private _subjectContains?: string[] | undefined;
     /** Represents the minimum and maximum sizes (in kilobytes) that an incoming message must fall in between in order for the condition or exception to apply. */
-    private _withinSizeRange?: SizeRange | undefined;
+    private _withinSizeRange?: SizeRange | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -133,7 +131,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the fromAddresses property value. Represents the specific sender email addresses of an incoming message in order for the condition or exception to apply.
-     * @returns a recipient
+     * @returns a admin
      */
     public get fromAddresses() {
         return this._fromAddresses;
@@ -142,7 +140,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
      * Sets the fromAddresses property value. Represents the specific sender email addresses of an incoming message in order for the condition or exception to apply.
      * @param value Value to set for the fromAddresses property.
      */
-    public set fromAddresses(value: Recipient[] | undefined) {
+    public set fromAddresses(value: Recipient | AdminMember1[] | undefined) {
         this._fromAddresses = value;
     };
     /**
@@ -154,10 +152,10 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
             "bodyContains": n => { this.bodyContains = n.getCollectionOfPrimitiveValues<string>(); },
             "bodyOrSubjectContains": n => { this.bodyOrSubjectContains = n.getCollectionOfPrimitiveValues<string>(); },
             "categories": n => { this.categories = n.getCollectionOfPrimitiveValues<string>(); },
-            "fromAddresses": n => { this.fromAddresses = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
+            "fromAddresses": n => { this.fromAddresses = n.getObjectValue<Recipient>(createRecipientFromDiscriminatorValue); },
             "hasAttachments": n => { this.hasAttachments = n.getBooleanValue(); },
             "headerContains": n => { this.headerContains = n.getCollectionOfPrimitiveValues<string>(); },
-            "importance": n => { this.importance = n.getEnumValue<Importance>(Importance); },
+            "importance": n => { this.importance = n.getObjectValue<Importance>(createImportanceFromDiscriminatorValue); },
             "isApprovalRequest": n => { this.isApprovalRequest = n.getBooleanValue(); },
             "isAutomaticForward": n => { this.isAutomaticForward = n.getBooleanValue(); },
             "isAutomaticReply": n => { this.isAutomaticReply = n.getBooleanValue(); },
@@ -169,14 +167,14 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
             "isReadReceipt": n => { this.isReadReceipt = n.getBooleanValue(); },
             "isSigned": n => { this.isSigned = n.getBooleanValue(); },
             "isVoicemail": n => { this.isVoicemail = n.getBooleanValue(); },
-            "messageActionFlag": n => { this.messageActionFlag = n.getEnumValue<MessageActionFlag>(MessageActionFlag); },
+            "messageActionFlag": n => { this.messageActionFlag = n.getObjectValue<MessageActionFlag>(createMessageActionFlagFromDiscriminatorValue); },
             "notSentToMe": n => { this.notSentToMe = n.getBooleanValue(); },
             "recipientContains": n => { this.recipientContains = n.getCollectionOfPrimitiveValues<string>(); },
             "senderContains": n => { this.senderContains = n.getCollectionOfPrimitiveValues<string>(); },
-            "sensitivity": n => { this.sensitivity = n.getEnumValue<Sensitivity>(Sensitivity); },
+            "sensitivity": n => { this.sensitivity = n.getObjectValue<Sensitivity>(createSensitivityFromDiscriminatorValue); },
             "sentCcMe": n => { this.sentCcMe = n.getBooleanValue(); },
             "sentOnlyToMe": n => { this.sentOnlyToMe = n.getBooleanValue(); },
-            "sentToAddresses": n => { this.sentToAddresses = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
+            "sentToAddresses": n => { this.sentToAddresses = n.getObjectValue<Recipient>(createRecipientFromDiscriminatorValue); },
             "sentToMe": n => { this.sentToMe = n.getBooleanValue(); },
             "sentToOrCcMe": n => { this.sentToOrCcMe = n.getBooleanValue(); },
             "subjectContains": n => { this.subjectContains = n.getCollectionOfPrimitiveValues<string>(); },
@@ -213,7 +211,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the importance property value. The importance that is stamped on an incoming message in order for the condition or exception to apply: low, normal, high.
-     * @returns a importance
+     * @returns a admin
      */
     public get importance() {
         return this._importance;
@@ -222,7 +220,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
      * Sets the importance property value. The importance that is stamped on an incoming message in order for the condition or exception to apply: low, normal, high.
      * @param value Value to set for the importance property.
      */
-    public set importance(value: Importance | undefined) {
+    public set importance(value: Importance | AdminMember1 | undefined) {
         this._importance = value;
     };
     /**
@@ -381,7 +379,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the messageActionFlag property value. Represents the flag-for-action value that appears on an incoming message in order for the condition or exception to apply. The possible values are: any, call, doNotForward, followUp, fyi, forward, noResponseNecessary, read, reply, replyToAll, review.
-     * @returns a messageActionFlag
+     * @returns a admin
      */
     public get messageActionFlag() {
         return this._messageActionFlag;
@@ -390,7 +388,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
      * Sets the messageActionFlag property value. Represents the flag-for-action value that appears on an incoming message in order for the condition or exception to apply. The possible values are: any, call, doNotForward, followUp, fyi, forward, noResponseNecessary, read, reply, replyToAll, review.
      * @param value Value to set for the messageActionFlag property.
      */
-    public set messageActionFlag(value: MessageActionFlag | undefined) {
+    public set messageActionFlag(value: MessageActionFlag | AdminMember1 | undefined) {
         this._messageActionFlag = value;
     };
     /**
@@ -437,7 +435,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the sensitivity property value. Represents the sensitivity level that must be stamped on an incoming message in order for the condition or exception to apply. The possible values are: normal, personal, private, confidential.
-     * @returns a sensitivity
+     * @returns a admin
      */
     public get sensitivity() {
         return this._sensitivity;
@@ -446,7 +444,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
      * Sets the sensitivity property value. Represents the sensitivity level that must be stamped on an incoming message in order for the condition or exception to apply. The possible values are: normal, personal, private, confidential.
      * @param value Value to set for the sensitivity property.
      */
-    public set sensitivity(value: Sensitivity | undefined) {
+    public set sensitivity(value: Sensitivity | AdminMember1 | undefined) {
         this._sensitivity = value;
     };
     /**
@@ -479,7 +477,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the sentToAddresses property value. Represents the email addresses that an incoming message must have been sent to in order for the condition or exception to apply.
-     * @returns a recipient
+     * @returns a admin
      */
     public get sentToAddresses() {
         return this._sentToAddresses;
@@ -488,7 +486,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
      * Sets the sentToAddresses property value. Represents the email addresses that an incoming message must have been sent to in order for the condition or exception to apply.
      * @param value Value to set for the sentToAddresses property.
      */
-    public set sentToAddresses(value: Recipient[] | undefined) {
+    public set sentToAddresses(value: Recipient | AdminMember1[] | undefined) {
         this._sentToAddresses = value;
     };
     /**
@@ -528,10 +526,10 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("bodyContains", this.bodyContains);
         writer.writeCollectionOfPrimitiveValues<string>("bodyOrSubjectContains", this.bodyOrSubjectContains);
         writer.writeCollectionOfPrimitiveValues<string>("categories", this.categories);
-        writer.writeCollectionOfObjectValues<Recipient>("fromAddresses", this.fromAddresses);
+        writer.writeObjectValue<Recipient>("fromAddresses", this.fromAddresses);
         writer.writeBooleanValue("hasAttachments", this.hasAttachments);
         writer.writeCollectionOfPrimitiveValues<string>("headerContains", this.headerContains);
-        writer.writeEnumValue<Importance>("importance", this.importance);
+        writer.writeObjectValue<Importance>("importance", this.importance);
         writer.writeBooleanValue("isApprovalRequest", this.isApprovalRequest);
         writer.writeBooleanValue("isAutomaticForward", this.isAutomaticForward);
         writer.writeBooleanValue("isAutomaticReply", this.isAutomaticReply);
@@ -543,14 +541,14 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isReadReceipt", this.isReadReceipt);
         writer.writeBooleanValue("isSigned", this.isSigned);
         writer.writeBooleanValue("isVoicemail", this.isVoicemail);
-        writer.writeEnumValue<MessageActionFlag>("messageActionFlag", this.messageActionFlag);
+        writer.writeObjectValue<MessageActionFlag>("messageActionFlag", this.messageActionFlag);
         writer.writeBooleanValue("notSentToMe", this.notSentToMe);
         writer.writeCollectionOfPrimitiveValues<string>("recipientContains", this.recipientContains);
         writer.writeCollectionOfPrimitiveValues<string>("senderContains", this.senderContains);
-        writer.writeEnumValue<Sensitivity>("sensitivity", this.sensitivity);
+        writer.writeObjectValue<Sensitivity>("sensitivity", this.sensitivity);
         writer.writeBooleanValue("sentCcMe", this.sentCcMe);
         writer.writeBooleanValue("sentOnlyToMe", this.sentOnlyToMe);
-        writer.writeCollectionOfObjectValues<Recipient>("sentToAddresses", this.sentToAddresses);
+        writer.writeObjectValue<Recipient>("sentToAddresses", this.sentToAddresses);
         writer.writeBooleanValue("sentToMe", this.sentToMe);
         writer.writeBooleanValue("sentToOrCcMe", this.sentToOrCcMe);
         writer.writeCollectionOfPrimitiveValues<string>("subjectContains", this.subjectContains);
@@ -573,7 +571,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the withinSizeRange property value. Represents the minimum and maximum sizes (in kilobytes) that an incoming message must fall in between in order for the condition or exception to apply.
-     * @returns a sizeRange
+     * @returns a admin
      */
     public get withinSizeRange() {
         return this._withinSizeRange;
@@ -582,7 +580,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
      * Sets the withinSizeRange property value. Represents the minimum and maximum sizes (in kilobytes) that an incoming message must fall in between in order for the condition or exception to apply.
      * @param value Value to set for the withinSizeRange property.
      */
-    public set withinSizeRange(value: SizeRange | undefined) {
+    public set withinSizeRange(value: SizeRange | AdminMember1 | undefined) {
         this._withinSizeRange = value;
     };
 }

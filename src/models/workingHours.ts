@@ -1,5 +1,4 @@
-import {createTimeZoneBaseFromDiscriminatorValue} from './createTimeZoneBaseFromDiscriminatorValue';
-import {TimeZoneBase} from './index';
+import {AdminMember1, TimeZoneBase} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export class WorkingHours implements AdditionalDataHolder, Parsable {
@@ -12,7 +11,7 @@ export class WorkingHours implements AdditionalDataHolder, Parsable {
     /** The time of the day that the user starts working. */
     private _startTime?: TimeOnly | undefined;
     /** The time zone to which the working hours apply. */
-    private _timeZone?: TimeZoneBase | undefined;
+    private _timeZone?: TimeZoneBase | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -101,7 +100,7 @@ export class WorkingHours implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the timeZone property value. The time zone to which the working hours apply.
-     * @returns a timeZoneBase
+     * @returns a admin
      */
     public get timeZone() {
         return this._timeZone;
@@ -110,7 +109,7 @@ export class WorkingHours implements AdditionalDataHolder, Parsable {
      * Sets the timeZone property value. The time zone to which the working hours apply.
      * @param value Value to set for the timeZone property.
      */
-    public set timeZone(value: TimeZoneBase | undefined) {
+    public set timeZone(value: TimeZoneBase | AdminMember1 | undefined) {
         this._timeZone = value;
     };
 }

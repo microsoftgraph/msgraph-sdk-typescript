@@ -1,4 +1,5 @@
 import {GiphyRatingType} from './giphyRatingType';
+import {AdminMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamFunSettings implements AdditionalDataHolder, Parsable {
@@ -11,7 +12,7 @@ export class TeamFunSettings implements AdditionalDataHolder, Parsable {
     /** If set to true, enables users to include stickers and memes. */
     private _allowStickersAndMemes?: boolean | undefined;
     /** Giphy content rating. Possible values are: moderate, strict. */
-    private _giphyContentRating?: GiphyRatingType | undefined;
+    private _giphyContentRating?: GiphyRatingType | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -83,12 +84,12 @@ export class TeamFunSettings implements AdditionalDataHolder, Parsable {
             "allowCustomMemes": n => { this.allowCustomMemes = n.getBooleanValue(); },
             "allowGiphy": n => { this.allowGiphy = n.getBooleanValue(); },
             "allowStickersAndMemes": n => { this.allowStickersAndMemes = n.getBooleanValue(); },
-            "giphyContentRating": n => { this.giphyContentRating = n.getEnumValue<GiphyRatingType>(GiphyRatingType); },
+            "giphyContentRating": n => { this.giphyContentRating = n.getObjectValue<GiphyRatingType>(createGiphyRatingTypeFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the giphyContentRating property value. Giphy content rating. Possible values are: moderate, strict.
-     * @returns a giphyRatingType
+     * @returns a admin
      */
     public get giphyContentRating() {
         return this._giphyContentRating;
@@ -97,7 +98,7 @@ export class TeamFunSettings implements AdditionalDataHolder, Parsable {
      * Sets the giphyContentRating property value. Giphy content rating. Possible values are: moderate, strict.
      * @param value Value to set for the giphyContentRating property.
      */
-    public set giphyContentRating(value: GiphyRatingType | undefined) {
+    public set giphyContentRating(value: GiphyRatingType | AdminMember1 | undefined) {
         this._giphyContentRating = value;
     };
     /**
@@ -109,7 +110,7 @@ export class TeamFunSettings implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("allowCustomMemes", this.allowCustomMemes);
         writer.writeBooleanValue("allowGiphy", this.allowGiphy);
         writer.writeBooleanValue("allowStickersAndMemes", this.allowStickersAndMemes);
-        writer.writeEnumValue<GiphyRatingType>("giphyContentRating", this.giphyContentRating);
+        writer.writeObjectValue<GiphyRatingType>("giphyContentRating", this.giphyContentRating);
         writer.writeAdditionalData(this.additionalData);
     };
 }

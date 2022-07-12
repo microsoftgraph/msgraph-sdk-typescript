@@ -1,33 +1,27 @@
-import {createConditionalAccessApplicationsFromDiscriminatorValue} from './createConditionalAccessApplicationsFromDiscriminatorValue';
-import {createConditionalAccessClientApplicationsFromDiscriminatorValue} from './createConditionalAccessClientApplicationsFromDiscriminatorValue';
-import {createConditionalAccessDevicesFromDiscriminatorValue} from './createConditionalAccessDevicesFromDiscriminatorValue';
-import {createConditionalAccessLocationsFromDiscriminatorValue} from './createConditionalAccessLocationsFromDiscriminatorValue';
-import {createConditionalAccessPlatformsFromDiscriminatorValue} from './createConditionalAccessPlatformsFromDiscriminatorValue';
-import {createConditionalAccessUsersFromDiscriminatorValue} from './createConditionalAccessUsersFromDiscriminatorValue';
-import {ConditionalAccessApplications, ConditionalAccessClientApplications, ConditionalAccessDevices, ConditionalAccessLocations, ConditionalAccessPlatforms, ConditionalAccessUsers} from './index';
+import {AdminMember1, ConditionalAccessApplications, ConditionalAccessClientApplications, ConditionalAccessDevices, ConditionalAccessLocations, ConditionalAccessPlatforms, ConditionalAccessUsers} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Applications and user actions included in and excluded from the policy. Required. */
-    private _applications?: ConditionalAccessApplications | undefined;
+    private _applications?: ConditionalAccessApplications | AdminMember1 | undefined;
     /** Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required. */
-    private _clientApplications?: ConditionalAccessClientApplications | undefined;
+    private _clientApplications?: ConditionalAccessClientApplications | AdminMember1 | undefined;
     /** Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required. */
     private _clientAppTypes?: string[] | undefined;
     /** Devices in the policy. */
-    private _devices?: ConditionalAccessDevices | undefined;
+    private _devices?: ConditionalAccessDevices | AdminMember1 | undefined;
     /** Locations included in and excluded from the policy. */
-    private _locations?: ConditionalAccessLocations | undefined;
+    private _locations?: ConditionalAccessLocations | AdminMember1 | undefined;
     /** Platforms included in and excluded from the policy. */
-    private _platforms?: ConditionalAccessPlatforms | undefined;
+    private _platforms?: ConditionalAccessPlatforms | AdminMember1 | undefined;
     /** Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required. */
     private _signInRiskLevels?: string[] | undefined;
     /** User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required. */
     private _userRiskLevels?: string[] | undefined;
     /** Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required. */
-    private _users?: ConditionalAccessUsers | undefined;
+    private _users?: ConditionalAccessUsers | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -44,7 +38,7 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
     };
     /**
      * Gets the applications property value. Applications and user actions included in and excluded from the policy. Required.
-     * @returns a conditionalAccessApplications
+     * @returns a admin
      */
     public get applications() {
         return this._applications;
@@ -53,12 +47,12 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
      * Sets the applications property value. Applications and user actions included in and excluded from the policy. Required.
      * @param value Value to set for the applications property.
      */
-    public set applications(value: ConditionalAccessApplications | undefined) {
+    public set applications(value: ConditionalAccessApplications | AdminMember1 | undefined) {
         this._applications = value;
     };
     /**
      * Gets the clientApplications property value. Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required.
-     * @returns a conditionalAccessClientApplications
+     * @returns a admin
      */
     public get clientApplications() {
         return this._clientApplications;
@@ -67,7 +61,7 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
      * Sets the clientApplications property value. Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required.
      * @param value Value to set for the clientApplications property.
      */
-    public set clientApplications(value: ConditionalAccessClientApplications | undefined) {
+    public set clientApplications(value: ConditionalAccessClientApplications | AdminMember1 | undefined) {
         this._clientApplications = value;
     };
     /**
@@ -92,7 +86,7 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
     };
     /**
      * Gets the devices property value. Devices in the policy.
-     * @returns a conditionalAccessDevices
+     * @returns a admin
      */
     public get devices() {
         return this._devices;
@@ -101,7 +95,7 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
      * Sets the devices property value. Devices in the policy.
      * @param value Value to set for the devices property.
      */
-    public set devices(value: ConditionalAccessDevices | undefined) {
+    public set devices(value: ConditionalAccessDevices | AdminMember1 | undefined) {
         this._devices = value;
     };
     /**
@@ -123,7 +117,7 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
     };
     /**
      * Gets the locations property value. Locations included in and excluded from the policy.
-     * @returns a conditionalAccessLocations
+     * @returns a admin
      */
     public get locations() {
         return this._locations;
@@ -132,12 +126,12 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
      * Sets the locations property value. Locations included in and excluded from the policy.
      * @param value Value to set for the locations property.
      */
-    public set locations(value: ConditionalAccessLocations | undefined) {
+    public set locations(value: ConditionalAccessLocations | AdminMember1 | undefined) {
         this._locations = value;
     };
     /**
      * Gets the platforms property value. Platforms included in and excluded from the policy.
-     * @returns a conditionalAccessPlatforms
+     * @returns a admin
      */
     public get platforms() {
         return this._platforms;
@@ -146,7 +140,7 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
      * Sets the platforms property value. Platforms included in and excluded from the policy.
      * @param value Value to set for the platforms property.
      */
-    public set platforms(value: ConditionalAccessPlatforms | undefined) {
+    public set platforms(value: ConditionalAccessPlatforms | AdminMember1 | undefined) {
         this._platforms = value;
     };
     /**
@@ -196,7 +190,7 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
     };
     /**
      * Gets the users property value. Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.
-     * @returns a conditionalAccessUsers
+     * @returns a admin
      */
     public get users() {
         return this._users;
@@ -205,7 +199,7 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
      * Sets the users property value. Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.
      * @param value Value to set for the users property.
      */
-    public set users(value: ConditionalAccessUsers | undefined) {
+    public set users(value: ConditionalAccessUsers | AdminMember1 | undefined) {
         this._users = value;
     };
 }

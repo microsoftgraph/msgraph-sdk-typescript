@@ -1,11 +1,9 @@
-import {createDeviceComplianceDeviceOverviewFromDiscriminatorValue} from './createDeviceComplianceDeviceOverviewFromDiscriminatorValue';
 import {createDeviceComplianceDeviceStatusFromDiscriminatorValue} from './createDeviceComplianceDeviceStatusFromDiscriminatorValue';
 import {createDeviceCompliancePolicyAssignmentFromDiscriminatorValue} from './createDeviceCompliancePolicyAssignmentFromDiscriminatorValue';
 import {createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue} from './createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue';
-import {createDeviceComplianceUserOverviewFromDiscriminatorValue} from './createDeviceComplianceUserOverviewFromDiscriminatorValue';
 import {createDeviceComplianceUserStatusFromDiscriminatorValue} from './createDeviceComplianceUserStatusFromDiscriminatorValue';
 import {createSettingStateDeviceSummaryFromDiscriminatorValue} from './createSettingStateDeviceSummaryFromDiscriminatorValue';
-import {DeviceComplianceDeviceOverview, DeviceComplianceDeviceStatus, DeviceCompliancePolicyAssignment, DeviceComplianceScheduledActionForRule, DeviceComplianceUserOverview, DeviceComplianceUserStatus, Entity, SettingStateDeviceSummary} from './index';
+import {AdminMember1, DeviceComplianceDeviceOverview, DeviceComplianceDeviceStatus, DeviceCompliancePolicyAssignment, DeviceComplianceScheduledActionForRule, DeviceComplianceUserOverview, DeviceComplianceUserStatus, Entity, SettingStateDeviceSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.  */
@@ -21,7 +19,7 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
     /** List of DeviceComplianceDeviceStatus. */
     private _deviceStatuses?: DeviceComplianceDeviceStatus[] | undefined;
     /** Device compliance devices status overview */
-    private _deviceStatusOverview?: DeviceComplianceDeviceOverview | undefined;
+    private _deviceStatusOverview?: DeviceComplianceDeviceOverview | AdminMember1 | undefined;
     /** Admin provided name of the device configuration. */
     private _displayName?: string | undefined;
     /** DateTime the object was last modified. */
@@ -31,7 +29,7 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
     /** List of DeviceComplianceUserStatus. */
     private _userStatuses?: DeviceComplianceUserStatus[] | undefined;
     /** Device compliance users status overview */
-    private _userStatusOverview?: DeviceComplianceUserOverview | undefined;
+    private _userStatusOverview?: DeviceComplianceUserOverview | AdminMember1 | undefined;
     /** Version of the device configuration. */
     private _version?: number | undefined;
     /**
@@ -53,6 +51,7 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.deviceCompliancePolicy";
     };
     /**
      * Gets the createdDateTime property value. DateTime the object was created.
@@ -112,7 +111,7 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
     };
     /**
      * Gets the deviceStatusOverview property value. Device compliance devices status overview
-     * @returns a deviceComplianceDeviceOverview
+     * @returns a admin
      */
     public get deviceStatusOverview() {
         return this._deviceStatusOverview;
@@ -121,7 +120,7 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
      * Sets the deviceStatusOverview property value. Device compliance devices status overview
      * @param value Value to set for the deviceStatusOverview property.
      */
-    public set deviceStatusOverview(value: DeviceComplianceDeviceOverview | undefined) {
+    public set deviceStatusOverview(value: DeviceComplianceDeviceOverview | AdminMember1 | undefined) {
         this._deviceStatusOverview = value;
     };
     /**
@@ -222,7 +221,7 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
     };
     /**
      * Gets the userStatusOverview property value. Device compliance users status overview
-     * @returns a deviceComplianceUserOverview
+     * @returns a admin
      */
     public get userStatusOverview() {
         return this._userStatusOverview;
@@ -231,7 +230,7 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
      * Sets the userStatusOverview property value. Device compliance users status overview
      * @param value Value to set for the userStatusOverview property.
      */
-    public set userStatusOverview(value: DeviceComplianceUserOverview | undefined) {
+    public set userStatusOverview(value: DeviceComplianceUserOverview | AdminMember1 | undefined) {
         this._userStatusOverview = value;
     };
     /**

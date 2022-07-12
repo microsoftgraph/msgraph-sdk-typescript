@@ -1,12 +1,11 @@
-import {createServiceAnnouncementFromDiscriminatorValue} from './createServiceAnnouncementFromDiscriminatorValue';
-import {ServiceAnnouncement} from './index';
+import {AdminMember1, ServiceAnnouncement} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Admin implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** A container for service communications resources. Read-only. */
-    private _serviceAnnouncement?: ServiceAnnouncement | undefined;
+    private _serviceAnnouncement?: ServiceAnnouncement | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -47,7 +46,7 @@ export class Admin implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the serviceAnnouncement property value. A container for service communications resources. Read-only.
-     * @returns a serviceAnnouncement
+     * @returns a admin
      */
     public get serviceAnnouncement() {
         return this._serviceAnnouncement;
@@ -56,7 +55,7 @@ export class Admin implements AdditionalDataHolder, Parsable {
      * Sets the serviceAnnouncement property value. A container for service communications resources. Read-only.
      * @param value Value to set for the serviceAnnouncement property.
      */
-    public set serviceAnnouncement(value: ServiceAnnouncement | undefined) {
+    public set serviceAnnouncement(value: ServiceAnnouncement | AdminMember1 | undefined) {
         this._serviceAnnouncement = value;
     };
 }

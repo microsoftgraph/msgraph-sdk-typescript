@@ -1,17 +1,13 @@
-import {createPrinterCapabilitiesFromDiscriminatorValue} from './createPrinterCapabilitiesFromDiscriminatorValue';
-import {createPrinterDefaultsFromDiscriminatorValue} from './createPrinterDefaultsFromDiscriminatorValue';
-import {createPrinterLocationFromDiscriminatorValue} from './createPrinterLocationFromDiscriminatorValue';
 import {createPrinterStatusFromDiscriminatorValue} from './createPrinterStatusFromDiscriminatorValue';
 import {createPrintJobFromDiscriminatorValue} from './createPrintJobFromDiscriminatorValue';
-import {Entity, PrinterCapabilities, PrinterDefaults, PrinterLocation, PrinterStatus, PrintJob} from './index';
+import {AdminMember1, Entity, PrinterCapabilities, PrinterDefaults, PrinterLocation, PrinterStatus, PrintJob} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
 export class PrinterBase extends Entity implements Parsable {
     /** The capabilities of the printer/printerShare. */
-    private _capabilities?: PrinterCapabilities | undefined;
+    private _capabilities?: PrinterCapabilities | AdminMember1 | undefined;
     /** The default print settings of printer/printerShare. */
-    private _defaults?: PrinterDefaults | undefined;
+    private _defaults?: PrinterDefaults | AdminMember1 | undefined;
     /** The name of the printer/printerShare. */
     private _displayName?: string | undefined;
     /** Whether the printer/printerShare is currently accepting new print jobs. */
@@ -19,7 +15,7 @@ export class PrinterBase extends Entity implements Parsable {
     /** The list of jobs that are queued for printing by the printer/printerShare. */
     private _jobs?: PrintJob[] | undefined;
     /** The physical and/or organizational location of the printer/printerShare. */
-    private _location?: PrinterLocation | undefined;
+    private _location?: PrinterLocation | AdminMember1 | undefined;
     /** The manufacturer of the printer/printerShare. */
     private _manufacturer?: string | undefined;
     /** The model name of the printer/printerShare. */
@@ -28,7 +24,7 @@ export class PrinterBase extends Entity implements Parsable {
     private _status?: PrinterStatus | undefined;
     /**
      * Gets the capabilities property value. The capabilities of the printer/printerShare.
-     * @returns a printerCapabilities
+     * @returns a admin
      */
     public get capabilities() {
         return this._capabilities;
@@ -37,7 +33,7 @@ export class PrinterBase extends Entity implements Parsable {
      * Sets the capabilities property value. The capabilities of the printer/printerShare.
      * @param value Value to set for the capabilities property.
      */
-    public set capabilities(value: PrinterCapabilities | undefined) {
+    public set capabilities(value: PrinterCapabilities | AdminMember1 | undefined) {
         this._capabilities = value;
     };
     /**
@@ -45,10 +41,11 @@ export class PrinterBase extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.printerBase";
     };
     /**
      * Gets the defaults property value. The default print settings of printer/printerShare.
-     * @returns a printerDefaults
+     * @returns a admin
      */
     public get defaults() {
         return this._defaults;
@@ -57,7 +54,7 @@ export class PrinterBase extends Entity implements Parsable {
      * Sets the defaults property value. The default print settings of printer/printerShare.
      * @param value Value to set for the defaults property.
      */
-    public set defaults(value: PrinterDefaults | undefined) {
+    public set defaults(value: PrinterDefaults | AdminMember1 | undefined) {
         this._defaults = value;
     };
     /**
@@ -121,7 +118,7 @@ export class PrinterBase extends Entity implements Parsable {
     };
     /**
      * Gets the location property value. The physical and/or organizational location of the printer/printerShare.
-     * @returns a printerLocation
+     * @returns a admin
      */
     public get location() {
         return this._location;
@@ -130,7 +127,7 @@ export class PrinterBase extends Entity implements Parsable {
      * Sets the location property value. The physical and/or organizational location of the printer/printerShare.
      * @param value Value to set for the location property.
      */
-    public set location(value: PrinterLocation | undefined) {
+    public set location(value: PrinterLocation | AdminMember1 | undefined) {
         this._location = value;
     };
     /**

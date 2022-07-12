@@ -3,31 +3,31 @@ import {IdentityUserFlowAttributeType} from './identityUserFlowAttributeType';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class IdentityUserFlowAttribute extends Entity implements Parsable {
-    /** The data type of the user flow attribute. This cannot be modified after the custom user flow attribute is created. The supported values for dataType are: string , boolean , int64 , stringCollection , dateTime. */
+    /** The dataType property */
     private _dataType?: IdentityUserFlowAttributeDataType | undefined;
     /** The description of the user flow attribute that's shown to the user at the time of sign-up. */
     private _description?: string | undefined;
     /** The display name of the user flow attribute. */
     private _displayName?: string | undefined;
-    /** The type of the user flow attribute. This is a read-only attribute that is automatically set. Depending on the type of attribute, the values for this property will be builtIn, custom, or required. */
+    /** The userFlowAttributeType property */
     private _userFlowAttributeType?: IdentityUserFlowAttributeType | undefined;
     /**
      * Instantiates a new identityUserFlowAttribute and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.identityUserFlowAttribute";
     };
     /**
-     * Gets the dataType property value. The data type of the user flow attribute. This cannot be modified after the custom user flow attribute is created. The supported values for dataType are: string , boolean , int64 , stringCollection , dateTime.
+     * Gets the dataType property value. The dataType property
      * @returns a identityUserFlowAttributeDataType
      */
     public get dataType() {
         return this._dataType;
     };
     /**
-     * Sets the dataType property value. The data type of the user flow attribute. This cannot be modified after the custom user flow attribute is created. The supported values for dataType are: string , boolean , int64 , stringCollection , dateTime.
+     * Sets the dataType property value. The dataType property
      * @param value Value to set for the dataType property.
      */
     public set dataType(value: IdentityUserFlowAttributeDataType | undefined) {
@@ -86,14 +86,14 @@ export class IdentityUserFlowAttribute extends Entity implements Parsable {
         writer.writeEnumValue<IdentityUserFlowAttributeType>("userFlowAttributeType", this.userFlowAttributeType);
     };
     /**
-     * Gets the userFlowAttributeType property value. The type of the user flow attribute. This is a read-only attribute that is automatically set. Depending on the type of attribute, the values for this property will be builtIn, custom, or required.
+     * Gets the userFlowAttributeType property value. The userFlowAttributeType property
      * @returns a identityUserFlowAttributeType
      */
     public get userFlowAttributeType() {
         return this._userFlowAttributeType;
     };
     /**
-     * Sets the userFlowAttributeType property value. The type of the user flow attribute. This is a read-only attribute that is automatically set. Depending on the type of attribute, the values for this property will be builtIn, custom, or required.
+     * Sets the userFlowAttributeType property value. The userFlowAttributeType property
      * @param value Value to set for the userFlowAttributeType property.
      */
     public set userFlowAttributeType(value: IdentityUserFlowAttributeType | undefined) {

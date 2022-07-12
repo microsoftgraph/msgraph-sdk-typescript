@@ -1,15 +1,15 @@
 import {EducationExternalSource} from './educationExternalSource';
-import {Entity} from './index';
+import {AdminMember1, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the admin singleton. */
 export class EducationOrganization extends Entity implements Parsable {
     /** Organization description. */
     private _description?: string | undefined;
     /** Organization display name. */
     private _displayName?: string | undefined;
     /** Where this user was created from. Possible values are: sis, lms, or manual. */
-    private _externalSource?: EducationExternalSource | undefined;
+    private _externalSource?: EducationExternalSource | AdminMember1 | undefined;
     /** The name of the external source this resources was generated from. */
     private _externalSourceDetail?: string | undefined;
     /**
@@ -17,6 +17,7 @@ export class EducationOrganization extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.educationOrganization";
     };
     /**
      * Gets the description property value. Organization description.
@@ -48,7 +49,7 @@ export class EducationOrganization extends Entity implements Parsable {
     };
     /**
      * Gets the externalSource property value. Where this user was created from. Possible values are: sis, lms, or manual.
-     * @returns a educationExternalSource
+     * @returns a admin
      */
     public get externalSource() {
         return this._externalSource;
@@ -57,7 +58,7 @@ export class EducationOrganization extends Entity implements Parsable {
      * Sets the externalSource property value. Where this user was created from. Possible values are: sis, lms, or manual.
      * @param value Value to set for the externalSource property.
      */
-    public set externalSource(value: EducationExternalSource | undefined) {
+    public set externalSource(value: EducationExternalSource | AdminMember1 | undefined) {
         this._externalSource = value;
     };
     /**
@@ -82,7 +83,7 @@ export class EducationOrganization extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "description": n => { this.description = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
-            "externalSource": n => { this.externalSource = n.getEnumValue<EducationExternalSource>(EducationExternalSource); },
+            "externalSource": n => { this.externalSource = n.getObjectValue<EducationExternalSource>(createEducationExternalSourceFromDiscriminatorValue); },
             "externalSourceDetail": n => { this.externalSourceDetail = n.getStringValue(); },
         };
     };
@@ -95,7 +96,7 @@ export class EducationOrganization extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeEnumValue<EducationExternalSource>("externalSource", this.externalSource);
+        writer.writeObjectValue<EducationExternalSource>("externalSource", this.externalSource);
         writer.writeStringValue("externalSourceDetail", this.externalSourceDetail);
     };
 }

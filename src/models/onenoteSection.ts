@@ -1,24 +1,21 @@
-import {createNotebookFromDiscriminatorValue} from './createNotebookFromDiscriminatorValue';
 import {createOnenotePageFromDiscriminatorValue} from './createOnenotePageFromDiscriminatorValue';
-import {createSectionGroupFromDiscriminatorValue} from './createSectionGroupFromDiscriminatorValue';
-import {createSectionLinksFromDiscriminatorValue} from './createSectionLinksFromDiscriminatorValue';
-import {Notebook, OnenoteEntityHierarchyModel, OnenotePage, SectionGroup, SectionLinks} from './index';
+import {AdminMember1, Notebook, OnenoteEntityHierarchyModel, OnenotePage, SectionGroup, SectionLinks} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class OnenoteSection extends OnenoteEntityHierarchyModel implements Parsable {
     /** Indicates whether this is the user's default section. Read-only. */
     private _isDefault?: boolean | undefined;
     /** Links for opening the section. The oneNoteClientURL link opens the section in the OneNote native client if it's installed. The oneNoteWebURL link opens the section in OneNote on the web. */
-    private _links?: SectionLinks | undefined;
+    private _links?: SectionLinks | AdminMember1 | undefined;
     /** The collection of pages in the section.  Read-only. Nullable. */
     private _pages?: OnenotePage[] | undefined;
     /** The pages endpoint where you can get details for all the pages in the section. Read-only. */
     private _pagesUrl?: string | undefined;
     /** The notebook that contains the section.  Read-only. */
-    private _parentNotebook?: Notebook | undefined;
+    private _parentNotebook?: Notebook | AdminMember1 | undefined;
     /** The section group that contains the section.  Read-only. */
-    private _parentSectionGroup?: SectionGroup | undefined;
+    private _parentSectionGroup?: SectionGroup | AdminMember1 | undefined;
     /**
      * Instantiates a new onenoteSection and sets the default values.
      */
@@ -55,7 +52,7 @@ export class OnenoteSection extends OnenoteEntityHierarchyModel implements Parsa
     };
     /**
      * Gets the links property value. Links for opening the section. The oneNoteClientURL link opens the section in the OneNote native client if it's installed. The oneNoteWebURL link opens the section in OneNote on the web.
-     * @returns a sectionLinks
+     * @returns a admin
      */
     public get links() {
         return this._links;
@@ -64,7 +61,7 @@ export class OnenoteSection extends OnenoteEntityHierarchyModel implements Parsa
      * Sets the links property value. Links for opening the section. The oneNoteClientURL link opens the section in the OneNote native client if it's installed. The oneNoteWebURL link opens the section in OneNote on the web.
      * @param value Value to set for the links property.
      */
-    public set links(value: SectionLinks | undefined) {
+    public set links(value: SectionLinks | AdminMember1 | undefined) {
         this._links = value;
     };
     /**
@@ -97,7 +94,7 @@ export class OnenoteSection extends OnenoteEntityHierarchyModel implements Parsa
     };
     /**
      * Gets the parentNotebook property value. The notebook that contains the section.  Read-only.
-     * @returns a notebook
+     * @returns a admin
      */
     public get parentNotebook() {
         return this._parentNotebook;
@@ -106,12 +103,12 @@ export class OnenoteSection extends OnenoteEntityHierarchyModel implements Parsa
      * Sets the parentNotebook property value. The notebook that contains the section.  Read-only.
      * @param value Value to set for the parentNotebook property.
      */
-    public set parentNotebook(value: Notebook | undefined) {
+    public set parentNotebook(value: Notebook | AdminMember1 | undefined) {
         this._parentNotebook = value;
     };
     /**
      * Gets the parentSectionGroup property value. The section group that contains the section.  Read-only.
-     * @returns a sectionGroup
+     * @returns a admin
      */
     public get parentSectionGroup() {
         return this._parentSectionGroup;
@@ -120,7 +117,7 @@ export class OnenoteSection extends OnenoteEntityHierarchyModel implements Parsa
      * Sets the parentSectionGroup property value. The section group that contains the section.  Read-only.
      * @param value Value to set for the parentSectionGroup property.
      */
-    public set parentSectionGroup(value: SectionGroup | undefined) {
+    public set parentSectionGroup(value: SectionGroup | AdminMember1 | undefined) {
         this._parentSectionGroup = value;
     };
     /**

@@ -1,6 +1,4 @@
-import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
-import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
-import {DateTimeTimeZone, Location} from './index';
+import {DateTimeTimeZone, Location, ReminderViewWithStartDateTimeWithEndDateTimeMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Reminder implements AdditionalDataHolder, Parsable {
@@ -9,19 +7,19 @@ export class Reminder implements AdditionalDataHolder, Parsable {
     /** Identifies the version of the reminder. Every time the reminder is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. */
     private _changeKey?: string | undefined;
     /** The date, time and time zone that the event ends. */
-    private _eventEndTime?: DateTimeTimeZone | undefined;
+    private _eventEndTime?: DateTimeTimeZone | ReminderViewWithStartDateTimeWithEndDateTimeMember1 | undefined;
     /** The unique ID of the event. Read only. */
     private _eventId?: string | undefined;
     /** The location of the event. */
-    private _eventLocation?: Location | undefined;
+    private _eventLocation?: Location | ReminderViewWithStartDateTimeWithEndDateTimeMember1 | undefined;
     /** The date, time, and time zone that the event starts. */
-    private _eventStartTime?: DateTimeTimeZone | undefined;
+    private _eventStartTime?: DateTimeTimeZone | ReminderViewWithStartDateTimeWithEndDateTimeMember1 | undefined;
     /** The text of the event's subject line. */
     private _eventSubject?: string | undefined;
     /** The URL to open the event in Outlook on the web.The event will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame. */
     private _eventWebLink?: string | undefined;
     /** The date, time, and time zone that the reminder is set to occur. */
-    private _reminderFireTime?: DateTimeTimeZone | undefined;
+    private _reminderFireTime?: DateTimeTimeZone | ReminderViewWithStartDateTimeWithEndDateTimeMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -58,7 +56,7 @@ export class Reminder implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the eventEndTime property value. The date, time and time zone that the event ends.
-     * @returns a dateTimeTimeZone
+     * @returns a reminderViewWithStartDateTimeWithEndDateTime
      */
     public get eventEndTime() {
         return this._eventEndTime;
@@ -67,7 +65,7 @@ export class Reminder implements AdditionalDataHolder, Parsable {
      * Sets the eventEndTime property value. The date, time and time zone that the event ends.
      * @param value Value to set for the eventEndTime property.
      */
-    public set eventEndTime(value: DateTimeTimeZone | undefined) {
+    public set eventEndTime(value: DateTimeTimeZone | ReminderViewWithStartDateTimeWithEndDateTimeMember1 | undefined) {
         this._eventEndTime = value;
     };
     /**
@@ -86,7 +84,7 @@ export class Reminder implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the eventLocation property value. The location of the event.
-     * @returns a location
+     * @returns a reminderViewWithStartDateTimeWithEndDateTime
      */
     public get eventLocation() {
         return this._eventLocation;
@@ -95,12 +93,12 @@ export class Reminder implements AdditionalDataHolder, Parsable {
      * Sets the eventLocation property value. The location of the event.
      * @param value Value to set for the eventLocation property.
      */
-    public set eventLocation(value: Location | undefined) {
+    public set eventLocation(value: Location | ReminderViewWithStartDateTimeWithEndDateTimeMember1 | undefined) {
         this._eventLocation = value;
     };
     /**
      * Gets the eventStartTime property value. The date, time, and time zone that the event starts.
-     * @returns a dateTimeTimeZone
+     * @returns a reminderViewWithStartDateTimeWithEndDateTime
      */
     public get eventStartTime() {
         return this._eventStartTime;
@@ -109,7 +107,7 @@ export class Reminder implements AdditionalDataHolder, Parsable {
      * Sets the eventStartTime property value. The date, time, and time zone that the event starts.
      * @param value Value to set for the eventStartTime property.
      */
-    public set eventStartTime(value: DateTimeTimeZone | undefined) {
+    public set eventStartTime(value: DateTimeTimeZone | ReminderViewWithStartDateTimeWithEndDateTimeMember1 | undefined) {
         this._eventStartTime = value;
     };
     /**
@@ -158,7 +156,7 @@ export class Reminder implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the reminderFireTime property value. The date, time, and time zone that the reminder is set to occur.
-     * @returns a dateTimeTimeZone
+     * @returns a reminderViewWithStartDateTimeWithEndDateTime
      */
     public get reminderFireTime() {
         return this._reminderFireTime;
@@ -167,7 +165,7 @@ export class Reminder implements AdditionalDataHolder, Parsable {
      * Sets the reminderFireTime property value. The date, time, and time zone that the reminder is set to occur.
      * @param value Value to set for the reminderFireTime property.
      */
-    public set reminderFireTime(value: DateTimeTimeZone | undefined) {
+    public set reminderFireTime(value: DateTimeTimeZone | ReminderViewWithStartDateTimeWithEndDateTimeMember1 | undefined) {
         this._reminderFireTime = value;
     };
     /**

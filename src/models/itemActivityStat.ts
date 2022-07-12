@@ -1,34 +1,31 @@
-import {createIncompleteDataFromDiscriminatorValue} from './createIncompleteDataFromDiscriminatorValue';
-import {createItemActionStatFromDiscriminatorValue} from './createItemActionStatFromDiscriminatorValue';
 import {createItemActivityFromDiscriminatorValue} from './createItemActivityFromDiscriminatorValue';
-import {Entity, IncompleteData, ItemActionStat, ItemActivity} from './index';
+import {AdminMember1, Entity, IncompleteData, ItemActionStat, ItemActivity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class ItemActivityStat extends Entity implements Parsable {
     /** Statistics about the access actions in this interval. Read-only. */
-    private _access?: ItemActionStat | undefined;
+    private _access?: ItemActionStat | AdminMember1 | undefined;
     /** Exposes the itemActivities represented in this itemActivityStat resource. */
     private _activities?: ItemActivity[] | undefined;
     /** Statistics about the create actions in this interval. Read-only. */
-    private _create?: ItemActionStat | undefined;
+    private _create?: ItemActionStat | AdminMember1 | undefined;
     /** Statistics about the delete actions in this interval. Read-only. */
-    private _delete?: ItemActionStat | undefined;
+    private _delete?: ItemActionStat | AdminMember1 | undefined;
     /** Statistics about the edit actions in this interval. Read-only. */
-    private _edit?: ItemActionStat | undefined;
+    private _edit?: ItemActionStat | AdminMember1 | undefined;
     /** When the interval ends. Read-only. */
     private _endDateTime?: Date | undefined;
     /** Indicates that the statistics in this interval are based on incomplete data. Read-only. */
-    private _incompleteData?: IncompleteData | undefined;
+    private _incompleteData?: IncompleteData | AdminMember1 | undefined;
     /** Indicates whether the item is 'trending.' Read-only. */
     private _isTrending?: boolean | undefined;
     /** Statistics about the move actions in this interval. Read-only. */
-    private _move?: ItemActionStat | undefined;
+    private _move?: ItemActionStat | AdminMember1 | undefined;
     /** When the interval starts. Read-only. */
     private _startDateTime?: Date | undefined;
     /**
      * Gets the access property value. Statistics about the access actions in this interval. Read-only.
-     * @returns a itemActionStat
+     * @returns a admin
      */
     public get access() {
         return this._access;
@@ -37,7 +34,7 @@ export class ItemActivityStat extends Entity implements Parsable {
      * Sets the access property value. Statistics about the access actions in this interval. Read-only.
      * @param value Value to set for the access property.
      */
-    public set access(value: ItemActionStat | undefined) {
+    public set access(value: ItemActionStat | AdminMember1 | undefined) {
         this._access = value;
     };
     /**
@@ -62,7 +59,7 @@ export class ItemActivityStat extends Entity implements Parsable {
     };
     /**
      * Gets the create property value. Statistics about the create actions in this interval. Read-only.
-     * @returns a itemActionStat
+     * @returns a admin
      */
     public get create() {
         return this._create;
@@ -71,12 +68,12 @@ export class ItemActivityStat extends Entity implements Parsable {
      * Sets the create property value. Statistics about the create actions in this interval. Read-only.
      * @param value Value to set for the create property.
      */
-    public set create(value: ItemActionStat | undefined) {
+    public set create(value: ItemActionStat | AdminMember1 | undefined) {
         this._create = value;
     };
     /**
      * Gets the delete property value. Statistics about the delete actions in this interval. Read-only.
-     * @returns a itemActionStat
+     * @returns a admin
      */
     public get delete() {
         return this._delete;
@@ -85,12 +82,12 @@ export class ItemActivityStat extends Entity implements Parsable {
      * Sets the delete property value. Statistics about the delete actions in this interval. Read-only.
      * @param value Value to set for the delete property.
      */
-    public set delete(value: ItemActionStat | undefined) {
+    public set delete(value: ItemActionStat | AdminMember1 | undefined) {
         this._delete = value;
     };
     /**
      * Gets the edit property value. Statistics about the edit actions in this interval. Read-only.
-     * @returns a itemActionStat
+     * @returns a admin
      */
     public get edit() {
         return this._edit;
@@ -99,7 +96,7 @@ export class ItemActivityStat extends Entity implements Parsable {
      * Sets the edit property value. Statistics about the edit actions in this interval. Read-only.
      * @param value Value to set for the edit property.
      */
-    public set edit(value: ItemActionStat | undefined) {
+    public set edit(value: ItemActionStat | AdminMember1 | undefined) {
         this._edit = value;
     };
     /**
@@ -136,7 +133,7 @@ export class ItemActivityStat extends Entity implements Parsable {
     };
     /**
      * Gets the incompleteData property value. Indicates that the statistics in this interval are based on incomplete data. Read-only.
-     * @returns a incompleteData
+     * @returns a admin
      */
     public get incompleteData() {
         return this._incompleteData;
@@ -145,7 +142,7 @@ export class ItemActivityStat extends Entity implements Parsable {
      * Sets the incompleteData property value. Indicates that the statistics in this interval are based on incomplete data. Read-only.
      * @param value Value to set for the incompleteData property.
      */
-    public set incompleteData(value: IncompleteData | undefined) {
+    public set incompleteData(value: IncompleteData | AdminMember1 | undefined) {
         this._incompleteData = value;
     };
     /**
@@ -164,7 +161,7 @@ export class ItemActivityStat extends Entity implements Parsable {
     };
     /**
      * Gets the move property value. Statistics about the move actions in this interval. Read-only.
-     * @returns a itemActionStat
+     * @returns a admin
      */
     public get move() {
         return this._move;
@@ -173,7 +170,7 @@ export class ItemActivityStat extends Entity implements Parsable {
      * Sets the move property value. Statistics about the move actions in this interval. Read-only.
      * @param value Value to set for the move property.
      */
-    public set move(value: ItemActionStat | undefined) {
+    public set move(value: ItemActionStat | AdminMember1 | undefined) {
         this._move = value;
     };
     /**

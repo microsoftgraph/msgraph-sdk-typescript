@@ -1,3 +1,4 @@
+import {AdminMember1} from './index';
 import {PhoneType} from './phoneType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -11,7 +12,7 @@ export class Phone implements AdditionalDataHolder, Parsable {
     /** The region property */
     private _region?: string | undefined;
     /** The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio. */
-    private _type?: PhoneType | undefined;
+    private _type?: PhoneType | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -41,7 +42,7 @@ export class Phone implements AdditionalDataHolder, Parsable {
             "language": n => { this.language = n.getStringValue(); },
             "number": n => { this.number = n.getStringValue(); },
             "region": n => { this.region = n.getStringValue(); },
-            "type": n => { this.type = n.getEnumValue<PhoneType>(PhoneType); },
+            "type": n => { this.type = n.getObjectValue<PhoneType>(createPhoneTypeFromDiscriminatorValue); },
         };
     };
     /**
@@ -95,12 +96,12 @@ export class Phone implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("language", this.language);
         writer.writeStringValue("number", this.number);
         writer.writeStringValue("region", this.region);
-        writer.writeEnumValue<PhoneType>("type", this.type);
+        writer.writeObjectValue<PhoneType>("type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the type property value. The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
-     * @returns a phoneType
+     * @returns a admin
      */
     public get type() {
         return this._type;
@@ -109,7 +110,7 @@ export class Phone implements AdditionalDataHolder, Parsable {
      * Sets the type property value. The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
      * @param value Value to set for the type property.
      */
-    public set type(value: PhoneType | undefined) {
+    public set type(value: PhoneType | AdminMember1 | undefined) {
         this._type = value;
     };
 }

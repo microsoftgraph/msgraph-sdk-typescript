@@ -1,5 +1,5 @@
 import {AssignmentOrder} from '../../../../../models/';
-import {createAssignmentOrderFromDiscriminatorValue} from '../../../../../models/createAssignmentOrderFromDiscriminatorValue';
+import {SetOrderMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the setOrder method. */
@@ -7,7 +7,7 @@ export class SetOrderPostRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The newAssignmentOrder property */
-    private _newAssignmentOrder?: AssignmentOrder | undefined;
+    private _newAssignmentOrder?: AssignmentOrder | SetOrderMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -39,7 +39,7 @@ export class SetOrderPostRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the newAssignmentOrder property value. The newAssignmentOrder property
-     * @returns a assignmentOrder
+     * @returns a setOrder
      */
     public get newAssignmentOrder() {
         return this._newAssignmentOrder;
@@ -48,7 +48,7 @@ export class SetOrderPostRequestBody implements AdditionalDataHolder, Parsable {
      * Sets the newAssignmentOrder property value. The newAssignmentOrder property
      * @param value Value to set for the newAssignmentOrder property.
      */
-    public set newAssignmentOrder(value: AssignmentOrder | undefined) {
+    public set newAssignmentOrder(value: AssignmentOrder | SetOrderMember1 | undefined) {
         this._newAssignmentOrder = value;
     };
     /**

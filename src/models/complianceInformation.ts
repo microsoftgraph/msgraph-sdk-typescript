@@ -1,12 +1,11 @@
-import {createCertificationControlFromDiscriminatorValue} from './createCertificationControlFromDiscriminatorValue';
-import {CertificationControl} from './index';
+import {AdminMember1, CertificationControl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ComplianceInformation implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Collection of the certification controls associated with certification */
-    private _certificationControls?: CertificationControl[] | undefined;
+    private _certificationControls?: CertificationControl | AdminMember1[] | undefined;
     /** Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST 800-171) */
     private _certificationName?: string | undefined;
     /**
@@ -25,7 +24,7 @@ export class ComplianceInformation implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the certificationControls property value. Collection of the certification controls associated with certification
-     * @returns a certificationControl
+     * @returns a admin
      */
     public get certificationControls() {
         return this._certificationControls;
@@ -34,7 +33,7 @@ export class ComplianceInformation implements AdditionalDataHolder, Parsable {
      * Sets the certificationControls property value. Collection of the certification controls associated with certification
      * @param value Value to set for the certificationControls property.
      */
-    public set certificationControls(value: CertificationControl[] | undefined) {
+    public set certificationControls(value: CertificationControl | AdminMember1[] | undefined) {
         this._certificationControls = value;
     };
     /**
@@ -63,7 +62,7 @@ export class ComplianceInformation implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "certificationControls": n => { this.certificationControls = n.getCollectionOfObjectValues<CertificationControl>(createCertificationControlFromDiscriminatorValue); },
+            "certificationControls": n => { this.certificationControls = n.getObjectValue<CertificationControl>(createCertificationControlFromDiscriminatorValue); },
             "certificationName": n => { this.certificationName = n.getStringValue(); },
         };
     };
@@ -73,7 +72,7 @@ export class ComplianceInformation implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<CertificationControl>("certificationControls", this.certificationControls);
+        writer.writeObjectValue<CertificationControl>("certificationControls", this.certificationControls);
         writer.writeStringValue("certificationName", this.certificationName);
         writer.writeAdditionalData(this.additionalData);
     };

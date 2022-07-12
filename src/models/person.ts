@@ -1,12 +1,7 @@
-import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
-import {createPersonTypeFromDiscriminatorValue} from './createPersonTypeFromDiscriminatorValue';
-import {createPhoneFromDiscriminatorValue} from './createPhoneFromDiscriminatorValue';
-import {createScoredEmailAddressFromDiscriminatorValue} from './createScoredEmailAddressFromDiscriminatorValue';
-import {createWebsiteFromDiscriminatorValue} from './createWebsiteFromDiscriminatorValue';
-import {Entity, Location, PersonType, Phone, ScoredEmailAddress, Website} from './index';
+import {AdminMember1, Entity, Location, PersonType, Phone, ScoredEmailAddress, Website} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class Person extends Entity implements Parsable {
     /** The person's birthday. */
     private _birthday?: string | undefined;
@@ -29,21 +24,21 @@ export class Person extends Entity implements Parsable {
     /** Free-form notes that the user has taken about this person. */
     private _personNotes?: string | undefined;
     /** The type of person, for example distribution list. */
-    private _personType?: PersonType | undefined;
+    private _personType?: PersonType | AdminMember1 | undefined;
     /** The person's phone numbers. */
-    private _phones?: Phone[] | undefined;
+    private _phones?: Phone | AdminMember1[] | undefined;
     /** The person's addresses. */
-    private _postalAddresses?: Location[] | undefined;
+    private _postalAddresses?: Location | AdminMember1[] | undefined;
     /** The person's profession. */
     private _profession?: string | undefined;
     /** The person's email addresses. */
-    private _scoredEmailAddresses?: ScoredEmailAddress[] | undefined;
+    private _scoredEmailAddresses?: ScoredEmailAddress | AdminMember1[] | undefined;
     /** The person's surname. */
     private _surname?: string | undefined;
     /** The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person's email name. The general format is alias@domain. */
     private _userPrincipalName?: string | undefined;
     /** The person's websites. */
-    private _websites?: Website[] | undefined;
+    private _websites?: Website | AdminMember1[] | undefined;
     /** The phonetic Japanese name of the person's company. */
     private _yomiCompany?: string | undefined;
     /**
@@ -125,13 +120,13 @@ export class Person extends Entity implements Parsable {
             "officeLocation": n => { this.officeLocation = n.getStringValue(); },
             "personNotes": n => { this.personNotes = n.getStringValue(); },
             "personType": n => { this.personType = n.getObjectValue<PersonType>(createPersonTypeFromDiscriminatorValue); },
-            "phones": n => { this.phones = n.getCollectionOfObjectValues<Phone>(createPhoneFromDiscriminatorValue); },
-            "postalAddresses": n => { this.postalAddresses = n.getCollectionOfObjectValues<Location>(createLocationFromDiscriminatorValue); },
+            "phones": n => { this.phones = n.getObjectValue<Phone>(createPhoneFromDiscriminatorValue); },
+            "postalAddresses": n => { this.postalAddresses = n.getObjectValue<Location>(createLocationFromDiscriminatorValue); },
             "profession": n => { this.profession = n.getStringValue(); },
-            "scoredEmailAddresses": n => { this.scoredEmailAddresses = n.getCollectionOfObjectValues<ScoredEmailAddress>(createScoredEmailAddressFromDiscriminatorValue); },
+            "scoredEmailAddresses": n => { this.scoredEmailAddresses = n.getObjectValue<ScoredEmailAddress>(createScoredEmailAddressFromDiscriminatorValue); },
             "surname": n => { this.surname = n.getStringValue(); },
             "userPrincipalName": n => { this.userPrincipalName = n.getStringValue(); },
-            "websites": n => { this.websites = n.getCollectionOfObjectValues<Website>(createWebsiteFromDiscriminatorValue); },
+            "websites": n => { this.websites = n.getObjectValue<Website>(createWebsiteFromDiscriminatorValue); },
             "yomiCompany": n => { this.yomiCompany = n.getStringValue(); },
         };
     };
@@ -221,7 +216,7 @@ export class Person extends Entity implements Parsable {
     };
     /**
      * Gets the personType property value. The type of person, for example distribution list.
-     * @returns a personType
+     * @returns a admin
      */
     public get personType() {
         return this._personType;
@@ -230,12 +225,12 @@ export class Person extends Entity implements Parsable {
      * Sets the personType property value. The type of person, for example distribution list.
      * @param value Value to set for the personType property.
      */
-    public set personType(value: PersonType | undefined) {
+    public set personType(value: PersonType | AdminMember1 | undefined) {
         this._personType = value;
     };
     /**
      * Gets the phones property value. The person's phone numbers.
-     * @returns a phone
+     * @returns a admin
      */
     public get phones() {
         return this._phones;
@@ -244,12 +239,12 @@ export class Person extends Entity implements Parsable {
      * Sets the phones property value. The person's phone numbers.
      * @param value Value to set for the phones property.
      */
-    public set phones(value: Phone[] | undefined) {
+    public set phones(value: Phone | AdminMember1[] | undefined) {
         this._phones = value;
     };
     /**
      * Gets the postalAddresses property value. The person's addresses.
-     * @returns a location
+     * @returns a admin
      */
     public get postalAddresses() {
         return this._postalAddresses;
@@ -258,7 +253,7 @@ export class Person extends Entity implements Parsable {
      * Sets the postalAddresses property value. The person's addresses.
      * @param value Value to set for the postalAddresses property.
      */
-    public set postalAddresses(value: Location[] | undefined) {
+    public set postalAddresses(value: Location | AdminMember1[] | undefined) {
         this._postalAddresses = value;
     };
     /**
@@ -277,7 +272,7 @@ export class Person extends Entity implements Parsable {
     };
     /**
      * Gets the scoredEmailAddresses property value. The person's email addresses.
-     * @returns a scoredEmailAddress
+     * @returns a admin
      */
     public get scoredEmailAddresses() {
         return this._scoredEmailAddresses;
@@ -286,7 +281,7 @@ export class Person extends Entity implements Parsable {
      * Sets the scoredEmailAddresses property value. The person's email addresses.
      * @param value Value to set for the scoredEmailAddresses property.
      */
-    public set scoredEmailAddresses(value: ScoredEmailAddress[] | undefined) {
+    public set scoredEmailAddresses(value: ScoredEmailAddress | AdminMember1[] | undefined) {
         this._scoredEmailAddresses = value;
     };
     /**
@@ -307,13 +302,13 @@ export class Person extends Entity implements Parsable {
         writer.writeStringValue("officeLocation", this.officeLocation);
         writer.writeStringValue("personNotes", this.personNotes);
         writer.writeObjectValue<PersonType>("personType", this.personType);
-        writer.writeCollectionOfObjectValues<Phone>("phones", this.phones);
-        writer.writeCollectionOfObjectValues<Location>("postalAddresses", this.postalAddresses);
+        writer.writeObjectValue<Phone>("phones", this.phones);
+        writer.writeObjectValue<Location>("postalAddresses", this.postalAddresses);
         writer.writeStringValue("profession", this.profession);
-        writer.writeCollectionOfObjectValues<ScoredEmailAddress>("scoredEmailAddresses", this.scoredEmailAddresses);
+        writer.writeObjectValue<ScoredEmailAddress>("scoredEmailAddresses", this.scoredEmailAddresses);
         writer.writeStringValue("surname", this.surname);
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
-        writer.writeCollectionOfObjectValues<Website>("websites", this.websites);
+        writer.writeObjectValue<Website>("websites", this.websites);
         writer.writeStringValue("yomiCompany", this.yomiCompany);
     };
     /**
@@ -346,7 +341,7 @@ export class Person extends Entity implements Parsable {
     };
     /**
      * Gets the websites property value. The person's websites.
-     * @returns a website
+     * @returns a admin
      */
     public get websites() {
         return this._websites;
@@ -355,7 +350,7 @@ export class Person extends Entity implements Parsable {
      * Sets the websites property value. The person's websites.
      * @param value Value to set for the websites property.
      */
-    public set websites(value: Website[] | undefined) {
+    public set websites(value: Website | AdminMember1[] | undefined) {
         this._websites = value;
     };
     /**

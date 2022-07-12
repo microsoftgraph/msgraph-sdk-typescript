@@ -1,41 +1,30 @@
 import {createAttachmentFromDiscriminatorValue} from './createAttachmentFromDiscriminatorValue';
-import {createAttendeeFromDiscriminatorValue} from './createAttendeeFromDiscriminatorValue';
-import {createCalendarFromDiscriminatorValue} from './createCalendarFromDiscriminatorValue';
-import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
 import {createEventFromDiscriminatorValue} from './createEventFromDiscriminatorValue';
 import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscriminatorValue';
-import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
-import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
 import {createMultiValueLegacyExtendedPropertyFromDiscriminatorValue} from './createMultiValueLegacyExtendedPropertyFromDiscriminatorValue';
-import {createOnlineMeetingInfoFromDiscriminatorValue} from './createOnlineMeetingInfoFromDiscriminatorValue';
-import {createPatternedRecurrenceFromDiscriminatorValue} from './createPatternedRecurrenceFromDiscriminatorValue';
-import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscriminatorValue';
-import {createResponseStatusFromDiscriminatorValue} from './createResponseStatusFromDiscriminatorValue';
 import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './createSingleValueLegacyExtendedPropertyFromDiscriminatorValue';
-import {EventType} from './eventType';
 import {FreeBusyStatus} from './freeBusyStatus';
 import {Importance} from './importance';
-import {Attachment, Attendee, Calendar, DateTimeTimeZone, Extension, ItemBody, Location, MultiValueLegacyExtendedProperty, OnlineMeetingInfo, OutlookItem, PatternedRecurrence, Recipient, ResponseStatus, SingleValueLegacyExtendedProperty} from './index';
+import {AdminMember1, Attachment, Attendee, Calendar, DateTimeTimeZone, Extension, ItemBody, Location, MultiValueLegacyExtendedProperty, OnlineMeetingInfo, OutlookItem, PatternedRecurrence, Recipient, ResponseStatus, SingleValueLegacyExtendedProperty} from './index';
 import {OnlineMeetingProviderType} from './onlineMeetingProviderType';
 import {Sensitivity} from './sensitivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Event extends OutlookItem implements Parsable {
     /** true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true. */
     private _allowNewTimeProposals?: boolean | undefined;
     /** The collection of FileAttachment, ItemAttachment, and referenceAttachment attachments for the event. Navigation property. Read-only. Nullable. */
     private _attachments?: Attachment[] | undefined;
     /** The collection of attendees for the event. */
-    private _attendees?: Attendee[] | undefined;
+    private _attendees?: Attendee | AdminMember1[] | undefined;
     /** The body of the message associated with the event. It can be in HTML or text format. */
-    private _body?: ItemBody | undefined;
+    private _body?: ItemBody | AdminMember1 | undefined;
     /** The preview of the message associated with the event. It is in text format. */
     private _bodyPreview?: string | undefined;
     /** The calendar that contains the event. Navigation property. Read-only. */
-    private _calendar?: Calendar | undefined;
+    private _calendar?: Calendar | AdminMember1 | undefined;
     /** The date, time, and time zone that the event ends. By default, the end time is in UTC. */
-    private _end?: DateTimeTimeZone | undefined;
+    private _end?: DateTimeTimeZone | AdminMember1 | undefined;
     /** The collection of open extensions defined for the event. Nullable. */
     private _extensions?: Extension[] | undefined;
     /** Set to true if the event has attachments. */
@@ -45,7 +34,7 @@ export class Event extends OutlookItem implements Parsable {
     /** A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only. */
     private _iCalUId?: string | undefined;
     /** The importance property */
-    private _importance?: Importance | undefined;
+    private _importance?: Importance | AdminMember1 | undefined;
     /** The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable. */
     private _instances?: Event[] | undefined;
     /** The isAllDay property */
@@ -61,19 +50,19 @@ export class Event extends OutlookItem implements Parsable {
     /** The isReminderOn property */
     private _isReminderOn?: boolean | undefined;
     /** The location property */
-    private _location?: Location | undefined;
+    private _location?: Location | AdminMember1 | undefined;
     /** The locations property */
-    private _locations?: Location[] | undefined;
+    private _locations?: Location | AdminMember1[] | undefined;
     /** The collection of multi-value extended properties defined for the event. Read-only. Nullable. */
     private _multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
     /** The onlineMeeting property */
-    private _onlineMeeting?: OnlineMeetingInfo | undefined;
+    private _onlineMeeting?: OnlineMeetingInfo | AdminMember1 | undefined;
     /** The onlineMeetingProvider property */
-    private _onlineMeetingProvider?: OnlineMeetingProviderType | undefined;
+    private _onlineMeetingProvider?: OnlineMeetingProviderType | AdminMember1 | undefined;
     /** The onlineMeetingUrl property */
     private _onlineMeetingUrl?: string | undefined;
     /** The organizer property */
-    private _organizer?: Recipient | undefined;
+    private _organizer?: Recipient | AdminMember1 | undefined;
     /** The originalEndTimeZone property */
     private _originalEndTimeZone?: string | undefined;
     /** The originalStart property */
@@ -81,29 +70,27 @@ export class Event extends OutlookItem implements Parsable {
     /** The originalStartTimeZone property */
     private _originalStartTimeZone?: string | undefined;
     /** The recurrence property */
-    private _recurrence?: PatternedRecurrence | undefined;
+    private _recurrence?: PatternedRecurrence | AdminMember1 | undefined;
     /** The reminderMinutesBeforeStart property */
     private _reminderMinutesBeforeStart?: number | undefined;
     /** The responseRequested property */
     private _responseRequested?: boolean | undefined;
     /** The responseStatus property */
-    private _responseStatus?: ResponseStatus | undefined;
+    private _responseStatus?: ResponseStatus | AdminMember1 | undefined;
     /** The sensitivity property */
-    private _sensitivity?: Sensitivity | undefined;
+    private _sensitivity?: Sensitivity | AdminMember1 | undefined;
     /** The seriesMasterId property */
     private _seriesMasterId?: string | undefined;
     /** The showAs property */
-    private _showAs?: FreeBusyStatus | undefined;
+    private _showAs?: FreeBusyStatus | AdminMember1 | undefined;
     /** The collection of single-value extended properties defined for the event. Read-only. Nullable. */
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
     /** The start property */
-    private _start?: DateTimeTimeZone | undefined;
+    private _start?: DateTimeTimeZone | AdminMember1 | undefined;
     /** The subject property */
     private _subject?: string | undefined;
     /** The transactionId property */
     private _transactionId?: string | undefined;
-    /** The type property */
-    private _type?: EventType | undefined;
     /** The webLink property */
     private _webLink?: string | undefined;
     /**
@@ -136,7 +123,7 @@ export class Event extends OutlookItem implements Parsable {
     };
     /**
      * Gets the attendees property value. The collection of attendees for the event.
-     * @returns a attendee
+     * @returns a admin
      */
     public get attendees() {
         return this._attendees;
@@ -145,12 +132,12 @@ export class Event extends OutlookItem implements Parsable {
      * Sets the attendees property value. The collection of attendees for the event.
      * @param value Value to set for the attendees property.
      */
-    public set attendees(value: Attendee[] | undefined) {
+    public set attendees(value: Attendee | AdminMember1[] | undefined) {
         this._attendees = value;
     };
     /**
      * Gets the body property value. The body of the message associated with the event. It can be in HTML or text format.
-     * @returns a itemBody
+     * @returns a admin
      */
     public get body() {
         return this._body;
@@ -159,7 +146,7 @@ export class Event extends OutlookItem implements Parsable {
      * Sets the body property value. The body of the message associated with the event. It can be in HTML or text format.
      * @param value Value to set for the body property.
      */
-    public set body(value: ItemBody | undefined) {
+    public set body(value: ItemBody | AdminMember1 | undefined) {
         this._body = value;
     };
     /**
@@ -178,7 +165,7 @@ export class Event extends OutlookItem implements Parsable {
     };
     /**
      * Gets the calendar property value. The calendar that contains the event. Navigation property. Read-only.
-     * @returns a calendar
+     * @returns a admin
      */
     public get calendar() {
         return this._calendar;
@@ -187,18 +174,18 @@ export class Event extends OutlookItem implements Parsable {
      * Sets the calendar property value. The calendar that contains the event. Navigation property. Read-only.
      * @param value Value to set for the calendar property.
      */
-    public set calendar(value: Calendar | undefined) {
+    public set calendar(value: Calendar | AdminMember1 | undefined) {
         this._calendar = value;
     };
     /**
-     * Instantiates a new event and sets the default values.
+     * Instantiates a new Event and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
      * Gets the end property value. The date, time, and time zone that the event ends. By default, the end time is in UTC.
-     * @returns a dateTimeTimeZone
+     * @returns a admin
      */
     public get end() {
         return this._end;
@@ -207,7 +194,7 @@ export class Event extends OutlookItem implements Parsable {
      * Sets the end property value. The date, time, and time zone that the event ends. By default, the end time is in UTC.
      * @param value Value to set for the end property.
      */
-    public set end(value: DateTimeTimeZone | undefined) {
+    public set end(value: DateTimeTimeZone | AdminMember1 | undefined) {
         this._end = value;
     };
     /**
@@ -232,7 +219,7 @@ export class Event extends OutlookItem implements Parsable {
         return {...super.getFieldDeserializers(),
             "allowNewTimeProposals": n => { this.allowNewTimeProposals = n.getBooleanValue(); },
             "attachments": n => { this.attachments = n.getCollectionOfObjectValues<Attachment>(createAttachmentFromDiscriminatorValue); },
-            "attendees": n => { this.attendees = n.getCollectionOfObjectValues<Attendee>(createAttendeeFromDiscriminatorValue); },
+            "attendees": n => { this.attendees = n.getObjectValue<Attendee>(createAttendeeFromDiscriminatorValue); },
             "body": n => { this.body = n.getObjectValue<ItemBody>(createItemBodyFromDiscriminatorValue); },
             "bodyPreview": n => { this.bodyPreview = n.getStringValue(); },
             "calendar": n => { this.calendar = n.getObjectValue<Calendar>(createCalendarFromDiscriminatorValue); },
@@ -241,7 +228,7 @@ export class Event extends OutlookItem implements Parsable {
             "hasAttachments": n => { this.hasAttachments = n.getBooleanValue(); },
             "hideAttendees": n => { this.hideAttendees = n.getBooleanValue(); },
             "iCalUId": n => { this.iCalUId = n.getStringValue(); },
-            "importance": n => { this.importance = n.getEnumValue<Importance>(Importance); },
+            "importance": n => { this.importance = n.getObjectValue<Importance>(createImportanceFromDiscriminatorValue); },
             "instances": n => { this.instances = n.getCollectionOfObjectValues<Event>(createEventFromDiscriminatorValue); },
             "isAllDay": n => { this.isAllDay = n.getBooleanValue(); },
             "isCancelled": n => { this.isCancelled = n.getBooleanValue(); },
@@ -250,10 +237,10 @@ export class Event extends OutlookItem implements Parsable {
             "isOrganizer": n => { this.isOrganizer = n.getBooleanValue(); },
             "isReminderOn": n => { this.isReminderOn = n.getBooleanValue(); },
             "location": n => { this.location = n.getObjectValue<Location>(createLocationFromDiscriminatorValue); },
-            "locations": n => { this.locations = n.getCollectionOfObjectValues<Location>(createLocationFromDiscriminatorValue); },
+            "locations": n => { this.locations = n.getObjectValue<Location>(createLocationFromDiscriminatorValue); },
             "multiValueExtendedProperties": n => { this.multiValueExtendedProperties = n.getCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(createMultiValueLegacyExtendedPropertyFromDiscriminatorValue); },
             "onlineMeeting": n => { this.onlineMeeting = n.getObjectValue<OnlineMeetingInfo>(createOnlineMeetingInfoFromDiscriminatorValue); },
-            "onlineMeetingProvider": n => { this.onlineMeetingProvider = n.getEnumValue<OnlineMeetingProviderType>(OnlineMeetingProviderType); },
+            "onlineMeetingProvider": n => { this.onlineMeetingProvider = n.getObjectValue<OnlineMeetingProviderType>(createOnlineMeetingProviderTypeFromDiscriminatorValue); },
             "onlineMeetingUrl": n => { this.onlineMeetingUrl = n.getStringValue(); },
             "organizer": n => { this.organizer = n.getObjectValue<Recipient>(createRecipientFromDiscriminatorValue); },
             "originalEndTimeZone": n => { this.originalEndTimeZone = n.getStringValue(); },
@@ -263,14 +250,13 @@ export class Event extends OutlookItem implements Parsable {
             "reminderMinutesBeforeStart": n => { this.reminderMinutesBeforeStart = n.getNumberValue(); },
             "responseRequested": n => { this.responseRequested = n.getBooleanValue(); },
             "responseStatus": n => { this.responseStatus = n.getObjectValue<ResponseStatus>(createResponseStatusFromDiscriminatorValue); },
-            "sensitivity": n => { this.sensitivity = n.getEnumValue<Sensitivity>(Sensitivity); },
+            "sensitivity": n => { this.sensitivity = n.getObjectValue<Sensitivity>(createSensitivityFromDiscriminatorValue); },
             "seriesMasterId": n => { this.seriesMasterId = n.getStringValue(); },
-            "showAs": n => { this.showAs = n.getEnumValue<FreeBusyStatus>(FreeBusyStatus); },
+            "showAs": n => { this.showAs = n.getObjectValue<FreeBusyStatus>(createFreeBusyStatusFromDiscriminatorValue); },
             "singleValueExtendedProperties": n => { this.singleValueExtendedProperties = n.getCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(createSingleValueLegacyExtendedPropertyFromDiscriminatorValue); },
             "start": n => { this.start = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
             "subject": n => { this.subject = n.getStringValue(); },
             "transactionId": n => { this.transactionId = n.getStringValue(); },
-            "type": n => { this.type = n.getEnumValue<EventType>(EventType); },
             "webLink": n => { this.webLink = n.getStringValue(); },
         };
     };
@@ -318,7 +304,7 @@ export class Event extends OutlookItem implements Parsable {
     };
     /**
      * Gets the importance property value. The importance property
-     * @returns a importance
+     * @returns a admin
      */
     public get importance() {
         return this._importance;
@@ -327,7 +313,7 @@ export class Event extends OutlookItem implements Parsable {
      * Sets the importance property value. The importance property
      * @param value Value to set for the importance property.
      */
-    public set importance(value: Importance | undefined) {
+    public set importance(value: Importance | AdminMember1 | undefined) {
         this._importance = value;
     };
     /**
@@ -430,7 +416,7 @@ export class Event extends OutlookItem implements Parsable {
     };
     /**
      * Gets the location property value. The location property
-     * @returns a location
+     * @returns a admin
      */
     public get location() {
         return this._location;
@@ -439,12 +425,12 @@ export class Event extends OutlookItem implements Parsable {
      * Sets the location property value. The location property
      * @param value Value to set for the location property.
      */
-    public set location(value: Location | undefined) {
+    public set location(value: Location | AdminMember1 | undefined) {
         this._location = value;
     };
     /**
      * Gets the locations property value. The locations property
-     * @returns a location
+     * @returns a admin
      */
     public get locations() {
         return this._locations;
@@ -453,7 +439,7 @@ export class Event extends OutlookItem implements Parsable {
      * Sets the locations property value. The locations property
      * @param value Value to set for the locations property.
      */
-    public set locations(value: Location[] | undefined) {
+    public set locations(value: Location | AdminMember1[] | undefined) {
         this._locations = value;
     };
     /**
@@ -472,7 +458,7 @@ export class Event extends OutlookItem implements Parsable {
     };
     /**
      * Gets the onlineMeeting property value. The onlineMeeting property
-     * @returns a onlineMeetingInfo
+     * @returns a admin
      */
     public get onlineMeeting() {
         return this._onlineMeeting;
@@ -481,12 +467,12 @@ export class Event extends OutlookItem implements Parsable {
      * Sets the onlineMeeting property value. The onlineMeeting property
      * @param value Value to set for the onlineMeeting property.
      */
-    public set onlineMeeting(value: OnlineMeetingInfo | undefined) {
+    public set onlineMeeting(value: OnlineMeetingInfo | AdminMember1 | undefined) {
         this._onlineMeeting = value;
     };
     /**
      * Gets the onlineMeetingProvider property value. The onlineMeetingProvider property
-     * @returns a onlineMeetingProviderType
+     * @returns a admin
      */
     public get onlineMeetingProvider() {
         return this._onlineMeetingProvider;
@@ -495,7 +481,7 @@ export class Event extends OutlookItem implements Parsable {
      * Sets the onlineMeetingProvider property value. The onlineMeetingProvider property
      * @param value Value to set for the onlineMeetingProvider property.
      */
-    public set onlineMeetingProvider(value: OnlineMeetingProviderType | undefined) {
+    public set onlineMeetingProvider(value: OnlineMeetingProviderType | AdminMember1 | undefined) {
         this._onlineMeetingProvider = value;
     };
     /**
@@ -514,7 +500,7 @@ export class Event extends OutlookItem implements Parsable {
     };
     /**
      * Gets the organizer property value. The organizer property
-     * @returns a recipient
+     * @returns a admin
      */
     public get organizer() {
         return this._organizer;
@@ -523,7 +509,7 @@ export class Event extends OutlookItem implements Parsable {
      * Sets the organizer property value. The organizer property
      * @param value Value to set for the organizer property.
      */
-    public set organizer(value: Recipient | undefined) {
+    public set organizer(value: Recipient | AdminMember1 | undefined) {
         this._organizer = value;
     };
     /**
@@ -570,7 +556,7 @@ export class Event extends OutlookItem implements Parsable {
     };
     /**
      * Gets the recurrence property value. The recurrence property
-     * @returns a patternedRecurrence
+     * @returns a admin
      */
     public get recurrence() {
         return this._recurrence;
@@ -579,7 +565,7 @@ export class Event extends OutlookItem implements Parsable {
      * Sets the recurrence property value. The recurrence property
      * @param value Value to set for the recurrence property.
      */
-    public set recurrence(value: PatternedRecurrence | undefined) {
+    public set recurrence(value: PatternedRecurrence | AdminMember1 | undefined) {
         this._recurrence = value;
     };
     /**
@@ -612,7 +598,7 @@ export class Event extends OutlookItem implements Parsable {
     };
     /**
      * Gets the responseStatus property value. The responseStatus property
-     * @returns a responseStatus
+     * @returns a admin
      */
     public get responseStatus() {
         return this._responseStatus;
@@ -621,12 +607,12 @@ export class Event extends OutlookItem implements Parsable {
      * Sets the responseStatus property value. The responseStatus property
      * @param value Value to set for the responseStatus property.
      */
-    public set responseStatus(value: ResponseStatus | undefined) {
+    public set responseStatus(value: ResponseStatus | AdminMember1 | undefined) {
         this._responseStatus = value;
     };
     /**
      * Gets the sensitivity property value. The sensitivity property
-     * @returns a sensitivity
+     * @returns a admin
      */
     public get sensitivity() {
         return this._sensitivity;
@@ -635,7 +621,7 @@ export class Event extends OutlookItem implements Parsable {
      * Sets the sensitivity property value. The sensitivity property
      * @param value Value to set for the sensitivity property.
      */
-    public set sensitivity(value: Sensitivity | undefined) {
+    public set sensitivity(value: Sensitivity | AdminMember1 | undefined) {
         this._sensitivity = value;
     };
     /**
@@ -647,7 +633,7 @@ export class Event extends OutlookItem implements Parsable {
         super.serialize(writer);
         writer.writeBooleanValue("allowNewTimeProposals", this.allowNewTimeProposals);
         writer.writeCollectionOfObjectValues<Attachment>("attachments", this.attachments);
-        writer.writeCollectionOfObjectValues<Attendee>("attendees", this.attendees);
+        writer.writeObjectValue<Attendee>("attendees", this.attendees);
         writer.writeObjectValue<ItemBody>("body", this.body);
         writer.writeStringValue("bodyPreview", this.bodyPreview);
         writer.writeObjectValue<Calendar>("calendar", this.calendar);
@@ -656,7 +642,7 @@ export class Event extends OutlookItem implements Parsable {
         writer.writeBooleanValue("hasAttachments", this.hasAttachments);
         writer.writeBooleanValue("hideAttendees", this.hideAttendees);
         writer.writeStringValue("iCalUId", this.iCalUId);
-        writer.writeEnumValue<Importance>("importance", this.importance);
+        writer.writeObjectValue<Importance>("importance", this.importance);
         writer.writeCollectionOfObjectValues<Event>("instances", this.instances);
         writer.writeBooleanValue("isAllDay", this.isAllDay);
         writer.writeBooleanValue("isCancelled", this.isCancelled);
@@ -665,10 +651,10 @@ export class Event extends OutlookItem implements Parsable {
         writer.writeBooleanValue("isOrganizer", this.isOrganizer);
         writer.writeBooleanValue("isReminderOn", this.isReminderOn);
         writer.writeObjectValue<Location>("location", this.location);
-        writer.writeCollectionOfObjectValues<Location>("locations", this.locations);
+        writer.writeObjectValue<Location>("locations", this.locations);
         writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", this.multiValueExtendedProperties);
         writer.writeObjectValue<OnlineMeetingInfo>("onlineMeeting", this.onlineMeeting);
-        writer.writeEnumValue<OnlineMeetingProviderType>("onlineMeetingProvider", this.onlineMeetingProvider);
+        writer.writeObjectValue<OnlineMeetingProviderType>("onlineMeetingProvider", this.onlineMeetingProvider);
         writer.writeStringValue("onlineMeetingUrl", this.onlineMeetingUrl);
         writer.writeObjectValue<Recipient>("organizer", this.organizer);
         writer.writeStringValue("originalEndTimeZone", this.originalEndTimeZone);
@@ -678,14 +664,13 @@ export class Event extends OutlookItem implements Parsable {
         writer.writeNumberValue("reminderMinutesBeforeStart", this.reminderMinutesBeforeStart);
         writer.writeBooleanValue("responseRequested", this.responseRequested);
         writer.writeObjectValue<ResponseStatus>("responseStatus", this.responseStatus);
-        writer.writeEnumValue<Sensitivity>("sensitivity", this.sensitivity);
+        writer.writeObjectValue<Sensitivity>("sensitivity", this.sensitivity);
         writer.writeStringValue("seriesMasterId", this.seriesMasterId);
-        writer.writeEnumValue<FreeBusyStatus>("showAs", this.showAs);
+        writer.writeObjectValue<FreeBusyStatus>("showAs", this.showAs);
         writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", this.singleValueExtendedProperties);
         writer.writeObjectValue<DateTimeTimeZone>("start", this.start);
         writer.writeStringValue("subject", this.subject);
         writer.writeStringValue("transactionId", this.transactionId);
-        writer.writeEnumValue<EventType>("type", this.type);
         writer.writeStringValue("webLink", this.webLink);
     };
     /**
@@ -704,7 +689,7 @@ export class Event extends OutlookItem implements Parsable {
     };
     /**
      * Gets the showAs property value. The showAs property
-     * @returns a freeBusyStatus
+     * @returns a admin
      */
     public get showAs() {
         return this._showAs;
@@ -713,7 +698,7 @@ export class Event extends OutlookItem implements Parsable {
      * Sets the showAs property value. The showAs property
      * @param value Value to set for the showAs property.
      */
-    public set showAs(value: FreeBusyStatus | undefined) {
+    public set showAs(value: FreeBusyStatus | AdminMember1 | undefined) {
         this._showAs = value;
     };
     /**
@@ -732,7 +717,7 @@ export class Event extends OutlookItem implements Parsable {
     };
     /**
      * Gets the start property value. The start property
-     * @returns a dateTimeTimeZone
+     * @returns a admin
      */
     public get start() {
         return this._start;
@@ -741,7 +726,7 @@ export class Event extends OutlookItem implements Parsable {
      * Sets the start property value. The start property
      * @param value Value to set for the start property.
      */
-    public set start(value: DateTimeTimeZone | undefined) {
+    public set start(value: DateTimeTimeZone | AdminMember1 | undefined) {
         this._start = value;
     };
     /**
@@ -771,20 +756,6 @@ export class Event extends OutlookItem implements Parsable {
      */
     public set transactionId(value: string | undefined) {
         this._transactionId = value;
-    };
-    /**
-     * Gets the type property value. The type property
-     * @returns a eventType
-     */
-    public get type() {
-        return this._type;
-    };
-    /**
-     * Sets the type property value. The type property
-     * @param value Value to set for the type property.
-     */
-    public set type(value: EventType | undefined) {
-        this._type = value;
     };
     /**
      * Gets the webLink property value. The webLink property

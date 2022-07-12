@@ -1,3 +1,4 @@
+import {AdminMember1} from './index';
 import {WorkforceIntegrationEncryptionProtocol} from './workforceIntegrationEncryptionProtocol';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -5,7 +6,7 @@ export class WorkforceIntegrationEncryption implements AdditionalDataHolder, Par
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Possible values are: sharedSecret, unknownFutureValue. */
-    private _protocol?: WorkforceIntegrationEncryptionProtocol | undefined;
+    private _protocol?: WorkforceIntegrationEncryptionProtocol | AdminMember1 | undefined;
     /** Encryption shared secret. */
     private _secret?: string | undefined;
     /**
@@ -34,13 +35,13 @@ export class WorkforceIntegrationEncryption implements AdditionalDataHolder, Par
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "protocol": n => { this.protocol = n.getEnumValue<WorkforceIntegrationEncryptionProtocol>(WorkforceIntegrationEncryptionProtocol); },
+            "protocol": n => { this.protocol = n.getObjectValue<WorkforceIntegrationEncryptionProtocol>(createWorkforceIntegrationEncryptionProtocolFromDiscriminatorValue); },
             "secret": n => { this.secret = n.getStringValue(); },
         };
     };
     /**
      * Gets the protocol property value. Possible values are: sharedSecret, unknownFutureValue.
-     * @returns a workforceIntegrationEncryptionProtocol
+     * @returns a admin
      */
     public get protocol() {
         return this._protocol;
@@ -49,7 +50,7 @@ export class WorkforceIntegrationEncryption implements AdditionalDataHolder, Par
      * Sets the protocol property value. Possible values are: sharedSecret, unknownFutureValue.
      * @param value Value to set for the protocol property.
      */
-    public set protocol(value: WorkforceIntegrationEncryptionProtocol | undefined) {
+    public set protocol(value: WorkforceIntegrationEncryptionProtocol | AdminMember1 | undefined) {
         this._protocol = value;
     };
     /**
@@ -72,7 +73,7 @@ export class WorkforceIntegrationEncryption implements AdditionalDataHolder, Par
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeEnumValue<WorkforceIntegrationEncryptionProtocol>("protocol", this.protocol);
+        writer.writeObjectValue<WorkforceIntegrationEncryptionProtocol>("protocol", this.protocol);
         writer.writeStringValue("secret", this.secret);
         writer.writeAdditionalData(this.additionalData);
     };

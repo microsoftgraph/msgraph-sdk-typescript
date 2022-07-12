@@ -1,21 +1,18 @@
-import {createWorkbookApplicationFromDiscriminatorValue} from './createWorkbookApplicationFromDiscriminatorValue';
 import {createWorkbookCommentFromDiscriminatorValue} from './createWorkbookCommentFromDiscriminatorValue';
-import {createWorkbookFunctionsFromDiscriminatorValue} from './createWorkbookFunctionsFromDiscriminatorValue';
 import {createWorkbookNamedItemFromDiscriminatorValue} from './createWorkbookNamedItemFromDiscriminatorValue';
 import {createWorkbookOperationFromDiscriminatorValue} from './createWorkbookOperationFromDiscriminatorValue';
 import {createWorkbookTableFromDiscriminatorValue} from './createWorkbookTableFromDiscriminatorValue';
 import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWorksheetFromDiscriminatorValue';
-import {Entity, WorkbookApplication, WorkbookComment, WorkbookFunctions, WorkbookNamedItem, WorkbookOperation, WorkbookTable, WorkbookWorksheet} from './index';
+import {AdminMember1, Entity, WorkbookApplication, WorkbookComment, WorkbookFunctions, WorkbookNamedItem, WorkbookOperation, WorkbookTable, WorkbookWorksheet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Workbook extends Entity implements Parsable {
     /** The application property */
-    private _application?: WorkbookApplication | undefined;
+    private _application?: WorkbookApplication | AdminMember1 | undefined;
     /** The comments property */
     private _comments?: WorkbookComment[] | undefined;
     /** The functions property */
-    private _functions?: WorkbookFunctions | undefined;
+    private _functions?: WorkbookFunctions | AdminMember1 | undefined;
     /** Represents a collection of workbooks scoped named items (named ranges and constants). Read-only. */
     private _names?: WorkbookNamedItem[] | undefined;
     /** The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable. */
@@ -26,7 +23,7 @@ export class Workbook extends Entity implements Parsable {
     private _worksheets?: WorkbookWorksheet[] | undefined;
     /**
      * Gets the application property value. The application property
-     * @returns a workbookApplication
+     * @returns a admin
      */
     public get application() {
         return this._application;
@@ -35,7 +32,7 @@ export class Workbook extends Entity implements Parsable {
      * Sets the application property value. The application property
      * @param value Value to set for the application property.
      */
-    public set application(value: WorkbookApplication | undefined) {
+    public set application(value: WorkbookApplication | AdminMember1 | undefined) {
         this._application = value;
     };
     /**
@@ -60,7 +57,7 @@ export class Workbook extends Entity implements Parsable {
     };
     /**
      * Gets the functions property value. The functions property
-     * @returns a workbookFunctions
+     * @returns a admin
      */
     public get functions() {
         return this._functions;
@@ -69,7 +66,7 @@ export class Workbook extends Entity implements Parsable {
      * Sets the functions property value. The functions property
      * @param value Value to set for the functions property.
      */
-    public set functions(value: WorkbookFunctions | undefined) {
+    public set functions(value: WorkbookFunctions | AdminMember1 | undefined) {
         this._functions = value;
     };
     /**

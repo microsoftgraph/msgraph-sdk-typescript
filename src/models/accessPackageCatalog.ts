@@ -1,15 +1,14 @@
 import {AccessPackageCatalogState} from './accessPackageCatalogState';
 import {AccessPackageCatalogType} from './accessPackageCatalogType';
 import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
-import {AccessPackage, Entity} from './index';
+import {AccessPackage, AdminMember1, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageCatalog extends Entity implements Parsable {
     /** The access packages in this catalog. Read-only. Nullable. Supports $expand. */
     private _accessPackages?: AccessPackage[] | undefined;
     /** One of UserManaged or ServiceDefault. */
-    private _catalogType?: AccessPackageCatalogType | undefined;
+    private _catalogType?: AccessPackageCatalogType | AdminMember1 | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _createdDateTime?: Date | undefined;
     /** The description of the access package catalog. */
@@ -21,7 +20,7 @@ export class AccessPackageCatalog extends Entity implements Parsable {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _modifiedDateTime?: Date | undefined;
     /** Has the value published if the access packages are available for management. The possible values are: unpublished, published, unknownFutureValue. */
-    private _state?: AccessPackageCatalogState | undefined;
+    private _state?: AccessPackageCatalogState | AdminMember1 | undefined;
     /**
      * Gets the accessPackages property value. The access packages in this catalog. Read-only. Nullable. Supports $expand.
      * @returns a accessPackage
@@ -38,7 +37,7 @@ export class AccessPackageCatalog extends Entity implements Parsable {
     };
     /**
      * Gets the catalogType property value. One of UserManaged or ServiceDefault.
-     * @returns a accessPackageCatalogType
+     * @returns a admin
      */
     public get catalogType() {
         return this._catalogType;
@@ -47,7 +46,7 @@ export class AccessPackageCatalog extends Entity implements Parsable {
      * Sets the catalogType property value. One of UserManaged or ServiceDefault.
      * @param value Value to set for the catalogType property.
      */
-    public set catalogType(value: AccessPackageCatalogType | undefined) {
+    public set catalogType(value: AccessPackageCatalogType | AdminMember1 | undefined) {
         this._catalogType = value;
     };
     /**
@@ -105,13 +104,13 @@ export class AccessPackageCatalog extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "accessPackages": n => { this.accessPackages = n.getCollectionOfObjectValues<AccessPackage>(createAccessPackageFromDiscriminatorValue); },
-            "catalogType": n => { this.catalogType = n.getEnumValue<AccessPackageCatalogType>(AccessPackageCatalogType); },
+            "catalogType": n => { this.catalogType = n.getObjectValue<AccessPackageCatalogType>(createAccessPackageCatalogTypeFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "description": n => { this.description = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "isExternallyVisible": n => { this.isExternallyVisible = n.getBooleanValue(); },
             "modifiedDateTime": n => { this.modifiedDateTime = n.getDateValue(); },
-            "state": n => { this.state = n.getEnumValue<AccessPackageCatalogState>(AccessPackageCatalogState); },
+            "state": n => { this.state = n.getObjectValue<AccessPackageCatalogState>(createAccessPackageCatalogStateFromDiscriminatorValue); },
         };
     };
     /**
@@ -150,17 +149,17 @@ export class AccessPackageCatalog extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<AccessPackage>("accessPackages", this.accessPackages);
-        writer.writeEnumValue<AccessPackageCatalogType>("catalogType", this.catalogType);
+        writer.writeObjectValue<AccessPackageCatalogType>("catalogType", this.catalogType);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeBooleanValue("isExternallyVisible", this.isExternallyVisible);
         writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
-        writer.writeEnumValue<AccessPackageCatalogState>("state", this.state);
+        writer.writeObjectValue<AccessPackageCatalogState>("state", this.state);
     };
     /**
      * Gets the state property value. Has the value published if the access packages are available for management. The possible values are: unpublished, published, unknownFutureValue.
-     * @returns a accessPackageCatalogState
+     * @returns a admin
      */
     public get state() {
         return this._state;
@@ -169,7 +168,7 @@ export class AccessPackageCatalog extends Entity implements Parsable {
      * Sets the state property value. Has the value published if the access packages are available for management. The possible values are: unpublished, published, unknownFutureValue.
      * @param value Value to set for the state property.
      */
-    public set state(value: AccessPackageCatalogState | undefined) {
+    public set state(value: AccessPackageCatalogState | AdminMember1 | undefined) {
         this._state = value;
     };
 }

@@ -1,5 +1,5 @@
 import {AccessReviewInstanceDecisionItem} from '../../../../../../../../models/';
-import {createAccessReviewInstanceDecisionItemFromDiscriminatorValue} from '../../../../../../../../models/createAccessReviewInstanceDecisionItemFromDiscriminatorValue';
+import {FilterByCurrentUserWithOnMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the filterByCurrentUser method. */
@@ -7,7 +7,7 @@ export class FilterByCurrentUserWithOnResponse implements AdditionalDataHolder, 
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The value property */
-    private _value?: AccessReviewInstanceDecisionItem[] | undefined;
+    private _value?: AccessReviewInstanceDecisionItem | FilterByCurrentUserWithOnMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,7 +34,7 @@ export class FilterByCurrentUserWithOnResponse implements AdditionalDataHolder, 
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": n => { this.value = n.getCollectionOfObjectValues<AccessReviewInstanceDecisionItem>(createAccessReviewInstanceDecisionItemFromDiscriminatorValue); },
+            "value": n => { this.value = n.getObjectValue<AccessReviewInstanceDecisionItem>(createAccessReviewInstanceDecisionItemFromDiscriminatorValue); },
         };
     };
     /**
@@ -43,12 +43,12 @@ export class FilterByCurrentUserWithOnResponse implements AdditionalDataHolder, 
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItem>("value", this.value);
+        writer.writeObjectValue<AccessReviewInstanceDecisionItem>("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the value property value. The value property
-     * @returns a accessReviewInstanceDecisionItem
+     * @returns a filterByCurrentUserWithOn
      */
     public get value() {
         return this._value;
@@ -57,7 +57,7 @@ export class FilterByCurrentUserWithOnResponse implements AdditionalDataHolder, 
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public set value(value: AccessReviewInstanceDecisionItem[] | undefined) {
+    public set value(value: AccessReviewInstanceDecisionItem | FilterByCurrentUserWithOnMember1[] | undefined) {
         this._value = value;
     };
 }

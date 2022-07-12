@@ -1,5 +1,5 @@
 import {UpdateWindowsDeviceAccountActionParameter} from '../../../../../models/';
-import {createUpdateWindowsDeviceAccountActionParameterFromDiscriminatorValue} from '../../../../../models/createUpdateWindowsDeviceAccountActionParameterFromDiscriminatorValue';
+import {UpdateWindowsDeviceAccountMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the updateWindowsDeviceAccount method. */
@@ -7,7 +7,7 @@ export class UpdateWindowsDeviceAccountPostRequestBody implements AdditionalData
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The updateWindowsDeviceAccountActionParameter property */
-    private _updateWindowsDeviceAccountActionParameter?: UpdateWindowsDeviceAccountActionParameter | undefined;
+    private _updateWindowsDeviceAccountActionParameter?: UpdateWindowsDeviceAccountActionParameter | UpdateWindowsDeviceAccountMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -48,7 +48,7 @@ export class UpdateWindowsDeviceAccountPostRequestBody implements AdditionalData
     };
     /**
      * Gets the updateWindowsDeviceAccountActionParameter property value. The updateWindowsDeviceAccountActionParameter property
-     * @returns a updateWindowsDeviceAccountActionParameter
+     * @returns a updateWindowsDeviceAccount
      */
     public get updateWindowsDeviceAccountActionParameter() {
         return this._updateWindowsDeviceAccountActionParameter;
@@ -57,7 +57,7 @@ export class UpdateWindowsDeviceAccountPostRequestBody implements AdditionalData
      * Sets the updateWindowsDeviceAccountActionParameter property value. The updateWindowsDeviceAccountActionParameter property
      * @param value Value to set for the updateWindowsDeviceAccountActionParameter property.
      */
-    public set updateWindowsDeviceAccountActionParameter(value: UpdateWindowsDeviceAccountActionParameter | undefined) {
+    public set updateWindowsDeviceAccountActionParameter(value: UpdateWindowsDeviceAccountActionParameter | UpdateWindowsDeviceAccountMember1 | undefined) {
         this._updateWindowsDeviceAccountActionParameter = value;
     };
 }

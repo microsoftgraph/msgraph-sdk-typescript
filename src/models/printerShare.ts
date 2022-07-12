@@ -1,10 +1,9 @@
 import {createGroupFromDiscriminatorValue} from './createGroupFromDiscriminatorValue';
-import {createPrinterFromDiscriminatorValue} from './createPrinterFromDiscriminatorValue';
 import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorValue';
-import {Group, Printer, PrinterBase, User} from './index';
+import {AdminMember1, Group, Printer, PrinterBase, User} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
+/** Provides operations to manage the admin singleton. */
 export class PrinterShare extends PrinterBase implements Parsable {
     /** If true, all users and groups will be granted access to this printer share. This supersedes the allow lists defined by the allowedUsers and allowedGroups navigation properties. */
     private _allowAllUsers?: boolean | undefined;
@@ -15,7 +14,7 @@ export class PrinterShare extends PrinterBase implements Parsable {
     /** The DateTimeOffset when the printer share was created. Read-only. */
     private _createdDateTime?: Date | undefined;
     /** The printer that this printer share is related to. */
-    private _printer?: Printer | undefined;
+    private _printer?: Printer | AdminMember1 | undefined;
     /**
      * Gets the allowAllUsers property value. If true, all users and groups will be granted access to this printer share. This supersedes the allow lists defined by the allowedUsers and allowedGroups navigation properties.
      * @returns a boolean
@@ -93,7 +92,7 @@ export class PrinterShare extends PrinterBase implements Parsable {
     };
     /**
      * Gets the printer property value. The printer that this printer share is related to.
-     * @returns a printer
+     * @returns a admin
      */
     public get printer() {
         return this._printer;
@@ -102,7 +101,7 @@ export class PrinterShare extends PrinterBase implements Parsable {
      * Sets the printer property value. The printer that this printer share is related to.
      * @param value Value to set for the printer property.
      */
-    public set printer(value: Printer | undefined) {
+    public set printer(value: Printer | AdminMember1 | undefined) {
         this._printer = value;
     };
     /**

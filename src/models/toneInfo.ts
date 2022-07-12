@@ -6,7 +6,7 @@ export class ToneInfo implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** An incremental identifier used for ordering DTMF events. */
     private _sequenceId?: number | undefined;
-    /** Possible values are: tone0, tone1, tone2, tone3, tone4, tone5, tone6, tone7, tone8, tone9, star, pound, a, b, c, d, flash. */
+    /** The tone property */
     private _tone?: Tone | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -63,14 +63,14 @@ export class ToneInfo implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the tone property value. Possible values are: tone0, tone1, tone2, tone3, tone4, tone5, tone6, tone7, tone8, tone9, star, pound, a, b, c, d, flash.
+     * Gets the tone property value. The tone property
      * @returns a tone
      */
     public get tone() {
         return this._tone;
     };
     /**
-     * Sets the tone property value. Possible values are: tone0, tone1, tone2, tone3, tone4, tone5, tone6, tone7, tone8, tone9, star, pound, a, b, c, d, flash.
+     * Sets the tone property value. The tone property
      * @param value Value to set for the tone property.
      */
     public set tone(value: Tone | undefined) {

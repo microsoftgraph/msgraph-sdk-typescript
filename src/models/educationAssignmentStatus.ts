@@ -1,4 +1,4 @@
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum EducationAssignmentStatus {
     Draft = "draft",
     Published = "published",

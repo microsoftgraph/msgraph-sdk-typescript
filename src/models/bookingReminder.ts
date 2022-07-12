@@ -9,7 +9,7 @@ export class BookingReminder implements AdditionalDataHolder, Parsable {
     private _message?: string | undefined;
     /** The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format. */
     private _offset?: Duration | undefined;
-    /** The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue. */
+    /** The recipients property */
     private _recipients?: BookingReminderRecipients | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -71,14 +71,14 @@ export class BookingReminder implements AdditionalDataHolder, Parsable {
         this._offset = value;
     };
     /**
-     * Gets the recipients property value. The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue.
+     * Gets the recipients property value. The recipients property
      * @returns a bookingReminderRecipients
      */
     public get recipients() {
         return this._recipients;
     };
     /**
-     * Sets the recipients property value. The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue.
+     * Sets the recipients property value. The recipients property
      * @param value Value to set for the recipients property.
      */
     public set recipients(value: BookingReminderRecipients | undefined) {

@@ -1,11 +1,9 @@
-import {createWorkbookChartAxisTitleFormatFromDiscriminatorValue} from './createWorkbookChartAxisTitleFormatFromDiscriminatorValue';
-import {Entity, WorkbookChartAxisTitleFormat} from './index';
+import {AdminMember1, Entity, WorkbookChartAxisTitleFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartAxisTitle extends Entity implements Parsable {
     /** Represents the formatting of chart axis title. Read-only. */
-    private _format?: WorkbookChartAxisTitleFormat | undefined;
+    private _format?: WorkbookChartAxisTitleFormat | AdminMember1 | undefined;
     /** Represents the axis title. */
     private _text?: string | undefined;
     /** A boolean that specifies the visibility of an axis title. */
@@ -18,7 +16,7 @@ export class WorkbookChartAxisTitle extends Entity implements Parsable {
     };
     /**
      * Gets the format property value. Represents the formatting of chart axis title. Read-only.
-     * @returns a workbookChartAxisTitleFormat
+     * @returns a admin
      */
     public get format() {
         return this._format;
@@ -27,7 +25,7 @@ export class WorkbookChartAxisTitle extends Entity implements Parsable {
      * Sets the format property value. Represents the formatting of chart axis title. Read-only.
      * @param value Value to set for the format property.
      */
-    public set format(value: WorkbookChartAxisTitleFormat | undefined) {
+    public set format(value: WorkbookChartAxisTitleFormat | AdminMember1 | undefined) {
         this._format = value;
     };
     /**

@@ -1,4 +1,5 @@
 import {BodyType} from './bodyType';
+import {AdminMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ItemBody implements AdditionalDataHolder, Parsable {
@@ -7,7 +8,7 @@ export class ItemBody implements AdditionalDataHolder, Parsable {
     /** The content of the item. */
     private _content?: string | undefined;
     /** The type of the content. Possible values are text and html. */
-    private _contentType?: BodyType | undefined;
+    private _contentType?: BodyType | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -44,7 +45,7 @@ export class ItemBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the contentType property value. The type of the content. Possible values are text and html.
-     * @returns a bodyType
+     * @returns a admin
      */
     public get contentType() {
         return this._contentType;
@@ -53,7 +54,7 @@ export class ItemBody implements AdditionalDataHolder, Parsable {
      * Sets the contentType property value. The type of the content. Possible values are text and html.
      * @param value Value to set for the contentType property.
      */
-    public set contentType(value: BodyType | undefined) {
+    public set contentType(value: BodyType | AdminMember1 | undefined) {
         this._contentType = value;
     };
     /**
@@ -63,7 +64,7 @@ export class ItemBody implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "content": n => { this.content = n.getStringValue(); },
-            "contentType": n => { this.contentType = n.getEnumValue<BodyType>(BodyType); },
+            "contentType": n => { this.contentType = n.getObjectValue<BodyType>(createBodyTypeFromDiscriminatorValue); },
         };
     };
     /**
@@ -73,7 +74,7 @@ export class ItemBody implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("content", this.content);
-        writer.writeEnumValue<BodyType>("contentType", this.contentType);
+        writer.writeObjectValue<BodyType>("contentType", this.contentType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

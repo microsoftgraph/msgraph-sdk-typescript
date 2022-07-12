@@ -1,5 +1,4 @@
-import {createTeamworkUserIdentityFromDiscriminatorValue} from './createTeamworkUserIdentityFromDiscriminatorValue';
-import {TeamworkUserIdentity} from './index';
+import {AdminMember1, TeamworkUserIdentity} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamworkOnlineMeetingInfo implements AdditionalDataHolder, Parsable {
@@ -10,7 +9,7 @@ export class TeamworkOnlineMeetingInfo implements AdditionalDataHolder, Parsable
     /** The URL which can be clicked on to join or uniquely identify the meeting. */
     private _joinWebUrl?: string | undefined;
     /** The organizer of the meeting. */
-    private _organizer?: TeamworkUserIdentity | undefined;
+    private _organizer?: TeamworkUserIdentity | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -72,7 +71,7 @@ export class TeamworkOnlineMeetingInfo implements AdditionalDataHolder, Parsable
     };
     /**
      * Gets the organizer property value. The organizer of the meeting.
-     * @returns a teamworkUserIdentity
+     * @returns a admin
      */
     public get organizer() {
         return this._organizer;
@@ -81,7 +80,7 @@ export class TeamworkOnlineMeetingInfo implements AdditionalDataHolder, Parsable
      * Sets the organizer property value. The organizer of the meeting.
      * @param value Value to set for the organizer property.
      */
-    public set organizer(value: TeamworkUserIdentity | undefined) {
+    public set organizer(value: TeamworkUserIdentity | AdminMember1 | undefined) {
         this._organizer = value;
     };
     /**

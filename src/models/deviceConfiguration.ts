@@ -1,10 +1,8 @@
 import {createDeviceConfigurationAssignmentFromDiscriminatorValue} from './createDeviceConfigurationAssignmentFromDiscriminatorValue';
-import {createDeviceConfigurationDeviceOverviewFromDiscriminatorValue} from './createDeviceConfigurationDeviceOverviewFromDiscriminatorValue';
 import {createDeviceConfigurationDeviceStatusFromDiscriminatorValue} from './createDeviceConfigurationDeviceStatusFromDiscriminatorValue';
-import {createDeviceConfigurationUserOverviewFromDiscriminatorValue} from './createDeviceConfigurationUserOverviewFromDiscriminatorValue';
 import {createDeviceConfigurationUserStatusFromDiscriminatorValue} from './createDeviceConfigurationUserStatusFromDiscriminatorValue';
 import {createSettingStateDeviceSummaryFromDiscriminatorValue} from './createSettingStateDeviceSummaryFromDiscriminatorValue';
-import {DeviceConfigurationAssignment, DeviceConfigurationDeviceOverview, DeviceConfigurationDeviceStatus, DeviceConfigurationUserOverview, DeviceConfigurationUserStatus, Entity, SettingStateDeviceSummary} from './index';
+import {AdminMember1, DeviceConfigurationAssignment, DeviceConfigurationDeviceOverview, DeviceConfigurationDeviceStatus, DeviceConfigurationUserOverview, DeviceConfigurationUserStatus, Entity, SettingStateDeviceSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device Configuration. */
@@ -20,7 +18,7 @@ export class DeviceConfiguration extends Entity implements Parsable {
     /** Device configuration installation status by device. */
     private _deviceStatuses?: DeviceConfigurationDeviceStatus[] | undefined;
     /** Device Configuration devices status overview */
-    private _deviceStatusOverview?: DeviceConfigurationDeviceOverview | undefined;
+    private _deviceStatusOverview?: DeviceConfigurationDeviceOverview | AdminMember1 | undefined;
     /** Admin provided name of the device configuration. */
     private _displayName?: string | undefined;
     /** DateTime the object was last modified. */
@@ -28,7 +26,7 @@ export class DeviceConfiguration extends Entity implements Parsable {
     /** Device configuration installation status by user. */
     private _userStatuses?: DeviceConfigurationUserStatus[] | undefined;
     /** Device Configuration users status overview */
-    private _userStatusOverview?: DeviceConfigurationUserOverview | undefined;
+    private _userStatusOverview?: DeviceConfigurationUserOverview | AdminMember1 | undefined;
     /** Version of the device configuration. */
     private _version?: number | undefined;
     /**
@@ -50,6 +48,7 @@ export class DeviceConfiguration extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.deviceConfiguration";
     };
     /**
      * Gets the createdDateTime property value. DateTime the object was created.
@@ -109,7 +108,7 @@ export class DeviceConfiguration extends Entity implements Parsable {
     };
     /**
      * Gets the deviceStatusOverview property value. Device Configuration devices status overview
-     * @returns a deviceConfigurationDeviceOverview
+     * @returns a admin
      */
     public get deviceStatusOverview() {
         return this._deviceStatusOverview;
@@ -118,7 +117,7 @@ export class DeviceConfiguration extends Entity implements Parsable {
      * Sets the deviceStatusOverview property value. Device Configuration devices status overview
      * @param value Value to set for the deviceStatusOverview property.
      */
-    public set deviceStatusOverview(value: DeviceConfigurationDeviceOverview | undefined) {
+    public set deviceStatusOverview(value: DeviceConfigurationDeviceOverview | AdminMember1 | undefined) {
         this._deviceStatusOverview = value;
     };
     /**
@@ -203,7 +202,7 @@ export class DeviceConfiguration extends Entity implements Parsable {
     };
     /**
      * Gets the userStatusOverview property value. Device Configuration users status overview
-     * @returns a deviceConfigurationUserOverview
+     * @returns a admin
      */
     public get userStatusOverview() {
         return this._userStatusOverview;
@@ -212,7 +211,7 @@ export class DeviceConfiguration extends Entity implements Parsable {
      * Sets the userStatusOverview property value. Device Configuration users status overview
      * @param value Value to set for the userStatusOverview property.
      */
-    public set userStatusOverview(value: DeviceConfigurationUserOverview | undefined) {
+    public set userStatusOverview(value: DeviceConfigurationUserOverview | AdminMember1 | undefined) {
         this._userStatusOverview = value;
     };
     /**

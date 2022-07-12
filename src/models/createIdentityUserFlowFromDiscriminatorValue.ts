@@ -1,4 +1,4 @@
-import {IdentityUserFlow} from './index';
+import {B2xIdentityUserFlow, IdentityUserFlow} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createIdentityUserFlowFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentityUserFlow {
@@ -8,8 +8,8 @@ export function createIdentityUserFlowFromDiscriminatorValue(parseNode: ParseNod
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.identityUserFlow":
-                    return new IdentityUserFlow();
+                case "#microsoft.graph.b2xIdentityUserFlow":
+                    return new B2xIdentityUserFlow();
             }
         }
     }

@@ -1,17 +1,15 @@
-import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from './createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue';
-import {createMobileAppAssignmentSettingsFromDiscriminatorValue} from './createMobileAppAssignmentSettingsFromDiscriminatorValue';
-import {DeviceAndAppManagementAssignmentTarget, Entity, MobileAppAssignmentSettings} from './index';
+import {AdminMember1, DeviceAndAppManagementAssignmentTarget, Entity, MobileAppAssignmentSettings} from './index';
 import {InstallIntent} from './installIntent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** A class containing the properties used for Group Assignment of a Mobile App. */
 export class MobileAppAssignment extends Entity implements Parsable {
-    /** The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
+    /** Possible values for the install intent chosen by the admin. */
     private _intent?: InstallIntent | undefined;
     /** The settings for target assignment defined by the admin. */
-    private _settings?: MobileAppAssignmentSettings | undefined;
+    private _settings?: MobileAppAssignmentSettings | AdminMember1 | undefined;
     /** The target group assignment defined by the admin. */
-    private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    private _target?: DeviceAndAppManagementAssignmentTarget | AdminMember1 | undefined;
     /**
      * Instantiates a new mobileAppAssignment and sets the default values.
      */
@@ -30,14 +28,14 @@ export class MobileAppAssignment extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the intent property value. The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * Gets the intent property value. Possible values for the install intent chosen by the admin.
      * @returns a installIntent
      */
     public get intent() {
         return this._intent;
     };
     /**
-     * Sets the intent property value. The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * Sets the intent property value. Possible values for the install intent chosen by the admin.
      * @param value Value to set for the intent property.
      */
     public set intent(value: InstallIntent | undefined) {
@@ -56,7 +54,7 @@ export class MobileAppAssignment extends Entity implements Parsable {
     };
     /**
      * Gets the settings property value. The settings for target assignment defined by the admin.
-     * @returns a mobileAppAssignmentSettings
+     * @returns a admin
      */
     public get settings() {
         return this._settings;
@@ -65,12 +63,12 @@ export class MobileAppAssignment extends Entity implements Parsable {
      * Sets the settings property value. The settings for target assignment defined by the admin.
      * @param value Value to set for the settings property.
      */
-    public set settings(value: MobileAppAssignmentSettings | undefined) {
+    public set settings(value: MobileAppAssignmentSettings | AdminMember1 | undefined) {
         this._settings = value;
     };
     /**
      * Gets the target property value. The target group assignment defined by the admin.
-     * @returns a deviceAndAppManagementAssignmentTarget
+     * @returns a admin
      */
     public get target() {
         return this._target;
@@ -79,7 +77,7 @@ export class MobileAppAssignment extends Entity implements Parsable {
      * Sets the target property value. The target group assignment defined by the admin.
      * @param value Value to set for the target property.
      */
-    public set target(value: DeviceAndAppManagementAssignmentTarget | undefined) {
+    public set target(value: DeviceAndAppManagementAssignmentTarget | AdminMember1 | undefined) {
         this._target = value;
     };
 }

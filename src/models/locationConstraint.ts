@@ -1,5 +1,4 @@
-import {createLocationConstraintItemFromDiscriminatorValue} from './createLocationConstraintItemFromDiscriminatorValue';
-import {LocationConstraintItem} from './index';
+import {FindMeetingTimesMember1, LocationConstraintItem} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LocationConstraint implements AdditionalDataHolder, Parsable {
@@ -8,7 +7,7 @@ export class LocationConstraint implements AdditionalDataHolder, Parsable {
     /** The client requests the service to include in the response a meeting location for the meeting. If this is true and all the resources are busy, findMeetingTimes will not return any meeting time suggestions. If this is false and all the resources are busy, findMeetingTimes would still look for meeting times without locations. */
     private _isRequired?: boolean | undefined;
     /** Constraint information for one or more locations that the client requests for the meeting. */
-    private _locations?: LocationConstraintItem[] | undefined;
+    private _locations?: LocationConstraintItem | FindMeetingTimesMember1[] | undefined;
     /** The client requests the service to suggest one or more meeting locations. */
     private _suggestLocation?: boolean | undefined;
     /**
@@ -38,7 +37,7 @@ export class LocationConstraint implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "isRequired": n => { this.isRequired = n.getBooleanValue(); },
-            "locations": n => { this.locations = n.getCollectionOfObjectValues<LocationConstraintItem>(createLocationConstraintItemFromDiscriminatorValue); },
+            "locations": n => { this.locations = n.getObjectValue<LocationConstraintItem>(createLocationConstraintItemFromDiscriminatorValue); },
             "suggestLocation": n => { this.suggestLocation = n.getBooleanValue(); },
         };
     };
@@ -58,7 +57,7 @@ export class LocationConstraint implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the locations property value. Constraint information for one or more locations that the client requests for the meeting.
-     * @returns a locationConstraintItem
+     * @returns a findMeetingTimes
      */
     public get locations() {
         return this._locations;
@@ -67,7 +66,7 @@ export class LocationConstraint implements AdditionalDataHolder, Parsable {
      * Sets the locations property value. Constraint information for one or more locations that the client requests for the meeting.
      * @param value Value to set for the locations property.
      */
-    public set locations(value: LocationConstraintItem[] | undefined) {
+    public set locations(value: LocationConstraintItem | FindMeetingTimesMember1[] | undefined) {
         this._locations = value;
     };
     /**
@@ -77,7 +76,7 @@ export class LocationConstraint implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("isRequired", this.isRequired);
-        writer.writeCollectionOfObjectValues<LocationConstraintItem>("locations", this.locations);
+        writer.writeObjectValue<LocationConstraintItem>("locations", this.locations);
         writer.writeBooleanValue("suggestLocation", this.suggestLocation);
         writer.writeAdditionalData(this.additionalData);
     };

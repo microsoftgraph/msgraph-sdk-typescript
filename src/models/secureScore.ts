@@ -1,31 +1,28 @@
-import {createAverageComparativeScoreFromDiscriminatorValue} from './createAverageComparativeScoreFromDiscriminatorValue';
-import {createControlScoreFromDiscriminatorValue} from './createControlScoreFromDiscriminatorValue';
-import {createSecurityVendorInformationFromDiscriminatorValue} from './createSecurityVendorInformationFromDiscriminatorValue';
-import {AverageComparativeScore, ControlScore, Entity, SecurityVendorInformation} from './index';
+import {AdminMember1, AverageComparativeScore, ControlScore, Entity, SecurityVendorInformation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the security singleton. */
+/** Provides operations to manage the admin singleton. */
 export class SecureScore extends Entity implements Parsable {
     /** Active user count of the given tenant. */
     private _activeUserCount?: number | undefined;
     /** Average score by different scopes (for example, average by industry, average by seating) and control category (Identity, Data, Device, Apps, Infrastructure) within the scope. */
-    private _averageComparativeScores?: AverageComparativeScore[] | undefined;
+    private _averageComparativeScores?: AverageComparativeScore | AdminMember1[] | undefined;
     /** GUID string for tenant ID. */
     private _azureTenantId?: string | undefined;
     /** Contains tenant scores for a set of controls. */
-    private _controlScores?: ControlScore[] | undefined;
+    private _controlScores?: ControlScore | AdminMember1[] | undefined;
     /** The date when the entity is created. */
     private _createdDateTime?: Date | undefined;
     /** Tenant current attained score on specified date. */
     private _currentScore?: number | undefined;
-    /** Microsoft-provided services for the tenant (for example, Exchange online, Skype, Sharepoint). */
+    /** Microsoft-provided services for the tenant (for example, Exchange online, Skype, SharePoint). */
     private _enabledServices?: string[] | undefined;
     /** Licensed user count of the given tenant. */
     private _licensedUserCount?: number | undefined;
     /** Tenant maximum possible score on specified date. */
     private _maxScore?: number | undefined;
     /** Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=SecureScore). Required. */
-    private _vendorInformation?: SecurityVendorInformation | undefined;
+    private _vendorInformation?: SecurityVendorInformation | AdminMember1 | undefined;
     /**
      * Gets the activeUserCount property value. Active user count of the given tenant.
      * @returns a integer
@@ -42,7 +39,7 @@ export class SecureScore extends Entity implements Parsable {
     };
     /**
      * Gets the averageComparativeScores property value. Average score by different scopes (for example, average by industry, average by seating) and control category (Identity, Data, Device, Apps, Infrastructure) within the scope.
-     * @returns a averageComparativeScore
+     * @returns a admin
      */
     public get averageComparativeScores() {
         return this._averageComparativeScores;
@@ -51,7 +48,7 @@ export class SecureScore extends Entity implements Parsable {
      * Sets the averageComparativeScores property value. Average score by different scopes (for example, average by industry, average by seating) and control category (Identity, Data, Device, Apps, Infrastructure) within the scope.
      * @param value Value to set for the averageComparativeScores property.
      */
-    public set averageComparativeScores(value: AverageComparativeScore[] | undefined) {
+    public set averageComparativeScores(value: AverageComparativeScore | AdminMember1[] | undefined) {
         this._averageComparativeScores = value;
     };
     /**
@@ -76,7 +73,7 @@ export class SecureScore extends Entity implements Parsable {
     };
     /**
      * Gets the controlScores property value. Contains tenant scores for a set of controls.
-     * @returns a controlScore
+     * @returns a admin
      */
     public get controlScores() {
         return this._controlScores;
@@ -85,7 +82,7 @@ export class SecureScore extends Entity implements Parsable {
      * Sets the controlScores property value. Contains tenant scores for a set of controls.
      * @param value Value to set for the controlScores property.
      */
-    public set controlScores(value: ControlScore[] | undefined) {
+    public set controlScores(value: ControlScore | AdminMember1[] | undefined) {
         this._controlScores = value;
     };
     /**
@@ -117,14 +114,14 @@ export class SecureScore extends Entity implements Parsable {
         this._currentScore = value;
     };
     /**
-     * Gets the enabledServices property value. Microsoft-provided services for the tenant (for example, Exchange online, Skype, Sharepoint).
+     * Gets the enabledServices property value. Microsoft-provided services for the tenant (for example, Exchange online, Skype, SharePoint).
      * @returns a string
      */
     public get enabledServices() {
         return this._enabledServices;
     };
     /**
-     * Sets the enabledServices property value. Microsoft-provided services for the tenant (for example, Exchange online, Skype, Sharepoint).
+     * Sets the enabledServices property value. Microsoft-provided services for the tenant (for example, Exchange online, Skype, SharePoint).
      * @param value Value to set for the enabledServices property.
      */
     public set enabledServices(value: string[] | undefined) {
@@ -137,9 +134,9 @@ export class SecureScore extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "activeUserCount": n => { this.activeUserCount = n.getNumberValue(); },
-            "averageComparativeScores": n => { this.averageComparativeScores = n.getCollectionOfObjectValues<AverageComparativeScore>(createAverageComparativeScoreFromDiscriminatorValue); },
+            "averageComparativeScores": n => { this.averageComparativeScores = n.getObjectValue<AverageComparativeScore>(createAverageComparativeScoreFromDiscriminatorValue); },
             "azureTenantId": n => { this.azureTenantId = n.getStringValue(); },
-            "controlScores": n => { this.controlScores = n.getCollectionOfObjectValues<ControlScore>(createControlScoreFromDiscriminatorValue); },
+            "controlScores": n => { this.controlScores = n.getObjectValue<ControlScore>(createControlScoreFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "currentScore": n => { this.currentScore = n.getNumberValue(); },
             "enabledServices": n => { this.enabledServices = n.getCollectionOfPrimitiveValues<string>(); },
@@ -184,9 +181,9 @@ export class SecureScore extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeNumberValue("activeUserCount", this.activeUserCount);
-        writer.writeCollectionOfObjectValues<AverageComparativeScore>("averageComparativeScores", this.averageComparativeScores);
+        writer.writeObjectValue<AverageComparativeScore>("averageComparativeScores", this.averageComparativeScores);
         writer.writeStringValue("azureTenantId", this.azureTenantId);
-        writer.writeCollectionOfObjectValues<ControlScore>("controlScores", this.controlScores);
+        writer.writeObjectValue<ControlScore>("controlScores", this.controlScores);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeNumberValue("currentScore", this.currentScore);
         writer.writeCollectionOfPrimitiveValues<string>("enabledServices", this.enabledServices);
@@ -196,7 +193,7 @@ export class SecureScore extends Entity implements Parsable {
     };
     /**
      * Gets the vendorInformation property value. Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=SecureScore). Required.
-     * @returns a securityVendorInformation
+     * @returns a admin
      */
     public get vendorInformation() {
         return this._vendorInformation;
@@ -205,7 +202,7 @@ export class SecureScore extends Entity implements Parsable {
      * Sets the vendorInformation property value. Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=SecureScore). Required.
      * @param value Value to set for the vendorInformation property.
      */
-    public set vendorInformation(value: SecurityVendorInformation | undefined) {
+    public set vendorInformation(value: SecurityVendorInformation | AdminMember1 | undefined) {
         this._vendorInformation = value;
     };
 }

@@ -1,7 +1,4 @@
-import {createFreeBusyErrorFromDiscriminatorValue} from './createFreeBusyErrorFromDiscriminatorValue';
-import {createScheduleItemFromDiscriminatorValue} from './createScheduleItemFromDiscriminatorValue';
-import {createWorkingHoursFromDiscriminatorValue} from './createWorkingHoursFromDiscriminatorValue';
-import {FreeBusyError, ScheduleItem, WorkingHours} from './index';
+import {FreeBusyError, GetScheduleMember1, ScheduleItem, WorkingHours} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ScheduleInformation implements AdditionalDataHolder, Parsable {
@@ -10,13 +7,13 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
     /** Represents a merged view of availability of all the items in scheduleItems. The view consists of time slots. Availability during each time slot is indicated with: 0= free, 1= tentative, 2= busy, 3= out of office, 4= working elsewhere. */
     private _availabilityView?: string | undefined;
     /** Error information from attempting to get the availability of the user, distribution list, or resource. */
-    private _error_escaped?: FreeBusyError | undefined;
+    private _error_escaped?: FreeBusyError | GetScheduleMember1 | undefined;
     /** An SMTP address of the user, distribution list, or resource, identifying an instance of scheduleInformation. */
     private _scheduleId?: string | undefined;
     /** Contains the items that describe the availability of the user or resource. */
-    private _scheduleItems?: ScheduleItem[] | undefined;
+    private _scheduleItems?: ScheduleItem | GetScheduleMember1[] | undefined;
     /** The days of the week and hours in a specific time zone that the user works. These are set as part of the user's mailboxSettings. */
-    private _workingHours?: WorkingHours | undefined;
+    private _workingHours?: WorkingHours | GetScheduleMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -53,7 +50,7 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the error property value. Error information from attempting to get the availability of the user, distribution list, or resource.
-     * @returns a freeBusyError
+     * @returns a getSchedule
      */
     public get error_escaped() {
         return this._error_escaped;
@@ -62,7 +59,7 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
      * Sets the error property value. Error information from attempting to get the availability of the user, distribution list, or resource.
      * @param value Value to set for the error_escaped property.
      */
-    public set error_escaped(value: FreeBusyError | undefined) {
+    public set error_escaped(value: FreeBusyError | GetScheduleMember1 | undefined) {
         this._error_escaped = value;
     };
     /**
@@ -74,7 +71,7 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
             "availabilityView": n => { this.availabilityView = n.getStringValue(); },
             "error": n => { this.error_escaped = n.getObjectValue<FreeBusyError>(createFreeBusyErrorFromDiscriminatorValue); },
             "scheduleId": n => { this.scheduleId = n.getStringValue(); },
-            "scheduleItems": n => { this.scheduleItems = n.getCollectionOfObjectValues<ScheduleItem>(createScheduleItemFromDiscriminatorValue); },
+            "scheduleItems": n => { this.scheduleItems = n.getObjectValue<ScheduleItem>(createScheduleItemFromDiscriminatorValue); },
             "workingHours": n => { this.workingHours = n.getObjectValue<WorkingHours>(createWorkingHoursFromDiscriminatorValue); },
         };
     };
@@ -94,7 +91,7 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the scheduleItems property value. Contains the items that describe the availability of the user or resource.
-     * @returns a scheduleItem
+     * @returns a getSchedule
      */
     public get scheduleItems() {
         return this._scheduleItems;
@@ -103,7 +100,7 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
      * Sets the scheduleItems property value. Contains the items that describe the availability of the user or resource.
      * @param value Value to set for the scheduleItems property.
      */
-    public set scheduleItems(value: ScheduleItem[] | undefined) {
+    public set scheduleItems(value: ScheduleItem | GetScheduleMember1[] | undefined) {
         this._scheduleItems = value;
     };
     /**
@@ -115,13 +112,13 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("availabilityView", this.availabilityView);
         writer.writeObjectValue<FreeBusyError>("error", this.error_escaped);
         writer.writeStringValue("scheduleId", this.scheduleId);
-        writer.writeCollectionOfObjectValues<ScheduleItem>("scheduleItems", this.scheduleItems);
+        writer.writeObjectValue<ScheduleItem>("scheduleItems", this.scheduleItems);
         writer.writeObjectValue<WorkingHours>("workingHours", this.workingHours);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the workingHours property value. The days of the week and hours in a specific time zone that the user works. These are set as part of the user's mailboxSettings.
-     * @returns a workingHours
+     * @returns a getSchedule
      */
     public get workingHours() {
         return this._workingHours;
@@ -130,7 +127,7 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
      * Sets the workingHours property value. The days of the week and hours in a specific time zone that the user works. These are set as part of the user's mailboxSettings.
      * @param value Value to set for the workingHours property.
      */
-    public set workingHours(value: WorkingHours | undefined) {
+    public set workingHours(value: WorkingHours | GetScheduleMember1 | undefined) {
         this._workingHours = value;
     };
 }

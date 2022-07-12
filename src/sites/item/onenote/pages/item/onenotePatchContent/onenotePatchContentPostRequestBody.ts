@@ -1,5 +1,5 @@
 import {OnenotePatchContentCommand} from '../../../../../../models/';
-import {createOnenotePatchContentCommandFromDiscriminatorValue} from '../../../../../../models/createOnenotePatchContentCommandFromDiscriminatorValue';
+import {OnenotePatchContentMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the onenotePatchContent method. */
@@ -7,7 +7,7 @@ export class OnenotePatchContentPostRequestBody implements AdditionalDataHolder,
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The commands property */
-    private _commands?: OnenotePatchContentCommand[] | undefined;
+    private _commands?: OnenotePatchContentCommand | OnenotePatchContentMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -24,7 +24,7 @@ export class OnenotePatchContentPostRequestBody implements AdditionalDataHolder,
     };
     /**
      * Gets the commands property value. The commands property
-     * @returns a onenotePatchContentCommand
+     * @returns a onenotePatchContent
      */
     public get commands() {
         return this._commands;
@@ -33,7 +33,7 @@ export class OnenotePatchContentPostRequestBody implements AdditionalDataHolder,
      * Sets the commands property value. The commands property
      * @param value Value to set for the commands property.
      */
-    public set commands(value: OnenotePatchContentCommand[] | undefined) {
+    public set commands(value: OnenotePatchContentCommand | OnenotePatchContentMember1[] | undefined) {
         this._commands = value;
     };
     /**
@@ -48,7 +48,7 @@ export class OnenotePatchContentPostRequestBody implements AdditionalDataHolder,
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "commands": n => { this.commands = n.getCollectionOfObjectValues<OnenotePatchContentCommand>(createOnenotePatchContentCommandFromDiscriminatorValue); },
+            "commands": n => { this.commands = n.getObjectValue<OnenotePatchContentCommand>(createOnenotePatchContentCommandFromDiscriminatorValue); },
         };
     };
     /**
@@ -57,7 +57,7 @@ export class OnenotePatchContentPostRequestBody implements AdditionalDataHolder,
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<OnenotePatchContentCommand>("commands", this.commands);
+        writer.writeObjectValue<OnenotePatchContentCommand>("commands", this.commands);
         writer.writeAdditionalData(this.additionalData);
     };
 }

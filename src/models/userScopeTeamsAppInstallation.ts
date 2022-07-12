@@ -1,14 +1,12 @@
-import {createChatFromDiscriminatorValue} from './createChatFromDiscriminatorValue';
-import {Chat, TeamsAppInstallation} from './index';
+import {AdminMember1, Chat, TeamsAppInstallation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class UserScopeTeamsAppInstallation extends TeamsAppInstallation implements Parsable {
     /** The chat between the user and Teams app. */
-    private _chat?: Chat | undefined;
+    private _chat?: Chat | AdminMember1 | undefined;
     /**
      * Gets the chat property value. The chat between the user and Teams app.
-     * @returns a chat
+     * @returns a admin
      */
     public get chat() {
         return this._chat;
@@ -17,11 +15,11 @@ export class UserScopeTeamsAppInstallation extends TeamsAppInstallation implemen
      * Sets the chat property value. The chat between the user and Teams app.
      * @param value Value to set for the chat property.
      */
-    public set chat(value: Chat | undefined) {
+    public set chat(value: Chat | AdminMember1 | undefined) {
         this._chat = value;
     };
     /**
-     * Instantiates a new userScopeTeamsAppInstallation and sets the default values.
+     * Instantiates a new UserScopeTeamsAppInstallation and sets the default values.
      */
     public constructor() {
         super();

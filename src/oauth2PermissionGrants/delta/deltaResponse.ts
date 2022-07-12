@@ -1,5 +1,5 @@
 import {OAuth2PermissionGrant} from '../../models/';
-import {createOAuth2PermissionGrantFromDiscriminatorValue} from '../../models/createOAuth2PermissionGrantFromDiscriminatorValue';
+import {DeltaMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the delta method. */
@@ -7,7 +7,7 @@ export class DeltaResponse implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The value property */
-    private _value?: OAuth2PermissionGrant[] | undefined;
+    private _value?: OAuth2PermissionGrant | DeltaMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,7 +34,7 @@ export class DeltaResponse implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": n => { this.value = n.getCollectionOfObjectValues<OAuth2PermissionGrant>(createOAuth2PermissionGrantFromDiscriminatorValue); },
+            "value": n => { this.value = n.getObjectValue<OAuth2PermissionGrant>(createOAuth2PermissionGrantFromDiscriminatorValue); },
         };
     };
     /**
@@ -43,12 +43,12 @@ export class DeltaResponse implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<OAuth2PermissionGrant>("value", this.value);
+        writer.writeObjectValue<OAuth2PermissionGrant>("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the value property value. The value property
-     * @returns a oAuth2PermissionGrant
+     * @returns a delta
      */
     public get value() {
         return this._value;
@@ -57,7 +57,7 @@ export class DeltaResponse implements AdditionalDataHolder, Parsable {
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public set value(value: OAuth2PermissionGrant[] | undefined) {
+    public set value(value: OAuth2PermissionGrant | DeltaMember1[] | undefined) {
         this._value = value;
     };
 }

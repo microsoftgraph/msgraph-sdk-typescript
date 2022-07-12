@@ -1,14 +1,13 @@
 import {createAccessPackageAssignmentPolicyFromDiscriminatorValue} from './createAccessPackageAssignmentPolicyFromDiscriminatorValue';
-import {createAccessPackageCatalogFromDiscriminatorValue} from './createAccessPackageCatalogFromDiscriminatorValue';
-import {AccessPackageAssignmentPolicy, AccessPackageCatalog, Entity} from './index';
+import {AccessPackageAssignmentPolicy, AccessPackageCatalog, AdminMember1, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the admin singleton. */
 export class AccessPackage extends Entity implements Parsable {
-    /** Read-only. Nullable. */
+    /** The assignmentPolicies property */
     private _assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
-    /** Read-only. Nullable. */
-    private _catalog?: AccessPackageCatalog | undefined;
+    /** The catalog property */
+    private _catalog?: AccessPackageCatalog | AdminMember1 | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _createdDateTime?: Date | undefined;
     /** The description of the access package. */
@@ -20,31 +19,31 @@ export class AccessPackage extends Entity implements Parsable {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _modifiedDateTime?: Date | undefined;
     /**
-     * Gets the assignmentPolicies property value. Read-only. Nullable.
+     * Gets the assignmentPolicies property value. The assignmentPolicies property
      * @returns a accessPackageAssignmentPolicy
      */
     public get assignmentPolicies() {
         return this._assignmentPolicies;
     };
     /**
-     * Sets the assignmentPolicies property value. Read-only. Nullable.
+     * Sets the assignmentPolicies property value. The assignmentPolicies property
      * @param value Value to set for the assignmentPolicies property.
      */
     public set assignmentPolicies(value: AccessPackageAssignmentPolicy[] | undefined) {
         this._assignmentPolicies = value;
     };
     /**
-     * Gets the catalog property value. Read-only. Nullable.
-     * @returns a accessPackageCatalog
+     * Gets the catalog property value. The catalog property
+     * @returns a admin
      */
     public get catalog() {
         return this._catalog;
     };
     /**
-     * Sets the catalog property value. Read-only. Nullable.
+     * Sets the catalog property value. The catalog property
      * @param value Value to set for the catalog property.
      */
-    public set catalog(value: AccessPackageCatalog | undefined) {
+    public set catalog(value: AccessPackageCatalog | AdminMember1 | undefined) {
         this._catalog = value;
     };
     /**

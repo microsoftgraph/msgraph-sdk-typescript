@@ -1,20 +1,21 @@
-import {Entity} from './index';
+import {AdminMember1, Entity} from './index';
 import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class Operation extends Entity implements Parsable {
     /** The start time of the operation. */
     private _createdDateTime?: Date | undefined;
     /** The time of the last action of the operation. */
     private _lastActionDateTime?: Date | undefined;
     /** Possible values are: notStarted, running, completed, failed. Read-only. */
-    private _status?: OperationStatus | undefined;
+    private _status?: OperationStatus | AdminMember1 | undefined;
     /**
      * Instantiates a new operation and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.operation";
     };
     /**
      * Gets the createdDateTime property value. The start time of the operation.
@@ -38,7 +39,7 @@ export class Operation extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "lastActionDateTime": n => { this.lastActionDateTime = n.getDateValue(); },
-            "status": n => { this.status = n.getEnumValue<OperationStatus>(OperationStatus); },
+            "status": n => { this.status = n.getObjectValue<OperationStatus>(createOperationStatusFromDiscriminatorValue); },
         };
     };
     /**
@@ -64,11 +65,11 @@ export class Operation extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
-        writer.writeEnumValue<OperationStatus>("status", this.status);
+        writer.writeObjectValue<OperationStatus>("status", this.status);
     };
     /**
      * Gets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
-     * @returns a operationStatus
+     * @returns a admin
      */
     public get status() {
         return this._status;
@@ -77,7 +78,7 @@ export class Operation extends Entity implements Parsable {
      * Sets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
      * @param value Value to set for the status property.
      */
-    public set status(value: OperationStatus | undefined) {
+    public set status(value: OperationStatus | AdminMember1 | undefined) {
         this._status = value;
     };
 }

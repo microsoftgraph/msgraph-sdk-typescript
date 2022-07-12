@@ -1,13 +1,7 @@
 import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createListFromDiscriminatorValue} from './createListFromDiscriminatorValue';
-import {createQuotaFromDiscriminatorValue} from './createQuotaFromDiscriminatorValue';
-import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFromDiscriminatorValue';
-import {createSystemFacetFromDiscriminatorValue} from './createSystemFacetFromDiscriminatorValue';
-import {BaseItem, DriveItem, IdentitySet, List, Quota, SharepointIds, SystemFacet} from './index';
+import {AdminMember1, BaseItem, DriveItem, IdentitySet, List, Quota, SharepointIds, SystemFacet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Drive extends BaseItem implements Parsable {
     /** Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive. */
     private _bundles?: DriveItem[] | undefined;
@@ -18,19 +12,19 @@ export class Drive extends BaseItem implements Parsable {
     /** All items contained in the drive. Read-only. Nullable. */
     private _items?: DriveItem[] | undefined;
     /** For drives in SharePoint, the underlying document library list. Read-only. Nullable. */
-    private _list?: List | undefined;
+    private _list?: List | AdminMember1 | undefined;
     /** Optional. The user account that owns the drive. Read-only. */
-    private _owner?: IdentitySet | undefined;
+    private _owner?: IdentitySet | AdminMember1 | undefined;
     /** Optional. Information about the drive's storage space quota. Read-only. */
-    private _quota?: Quota | undefined;
+    private _quota?: Quota | AdminMember1 | undefined;
     /** The root folder of the drive. Read-only. */
-    private _root?: DriveItem | undefined;
+    private _root?: DriveItem | AdminMember1 | undefined;
     /** The sharePointIds property */
-    private _sharePointIds?: SharepointIds | undefined;
+    private _sharePointIds?: SharepointIds | AdminMember1 | undefined;
     /** Collection of common folders available in OneDrive. Read-only. Nullable. */
     private _special?: DriveItem[] | undefined;
     /** If present, indicates that this is a system-managed drive. Read-only. */
-    private _system?: SystemFacet | undefined;
+    private _system?: SystemFacet | AdminMember1 | undefined;
     /**
      * Gets the bundles property value. Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.
      * @returns a driveItem
@@ -46,7 +40,7 @@ export class Drive extends BaseItem implements Parsable {
         this._bundles = value;
     };
     /**
-     * Instantiates a new drive and sets the default values.
+     * Instantiates a new Drive and sets the default values.
      */
     public constructor() {
         super();
@@ -114,7 +108,7 @@ export class Drive extends BaseItem implements Parsable {
     };
     /**
      * Gets the list property value. For drives in SharePoint, the underlying document library list. Read-only. Nullable.
-     * @returns a list
+     * @returns a admin
      */
     public get list() {
         return this._list;
@@ -123,12 +117,12 @@ export class Drive extends BaseItem implements Parsable {
      * Sets the list property value. For drives in SharePoint, the underlying document library list. Read-only. Nullable.
      * @param value Value to set for the list property.
      */
-    public set list(value: List | undefined) {
+    public set list(value: List | AdminMember1 | undefined) {
         this._list = value;
     };
     /**
      * Gets the owner property value. Optional. The user account that owns the drive. Read-only.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get owner() {
         return this._owner;
@@ -137,12 +131,12 @@ export class Drive extends BaseItem implements Parsable {
      * Sets the owner property value. Optional. The user account that owns the drive. Read-only.
      * @param value Value to set for the owner property.
      */
-    public set owner(value: IdentitySet | undefined) {
+    public set owner(value: IdentitySet | AdminMember1 | undefined) {
         this._owner = value;
     };
     /**
      * Gets the quota property value. Optional. Information about the drive's storage space quota. Read-only.
-     * @returns a quota
+     * @returns a admin
      */
     public get quota() {
         return this._quota;
@@ -151,12 +145,12 @@ export class Drive extends BaseItem implements Parsable {
      * Sets the quota property value. Optional. Information about the drive's storage space quota. Read-only.
      * @param value Value to set for the quota property.
      */
-    public set quota(value: Quota | undefined) {
+    public set quota(value: Quota | AdminMember1 | undefined) {
         this._quota = value;
     };
     /**
      * Gets the root property value. The root folder of the drive. Read-only.
-     * @returns a driveItem
+     * @returns a admin
      */
     public get root() {
         return this._root;
@@ -165,7 +159,7 @@ export class Drive extends BaseItem implements Parsable {
      * Sets the root property value. The root folder of the drive. Read-only.
      * @param value Value to set for the root property.
      */
-    public set root(value: DriveItem | undefined) {
+    public set root(value: DriveItem | AdminMember1 | undefined) {
         this._root = value;
     };
     /**
@@ -189,7 +183,7 @@ export class Drive extends BaseItem implements Parsable {
     };
     /**
      * Gets the sharePointIds property value. The sharePointIds property
-     * @returns a sharepointIds
+     * @returns a admin
      */
     public get sharePointIds() {
         return this._sharePointIds;
@@ -198,7 +192,7 @@ export class Drive extends BaseItem implements Parsable {
      * Sets the sharePointIds property value. The sharePointIds property
      * @param value Value to set for the sharePointIds property.
      */
-    public set sharePointIds(value: SharepointIds | undefined) {
+    public set sharePointIds(value: SharepointIds | AdminMember1 | undefined) {
         this._sharePointIds = value;
     };
     /**
@@ -217,7 +211,7 @@ export class Drive extends BaseItem implements Parsable {
     };
     /**
      * Gets the system property value. If present, indicates that this is a system-managed drive. Read-only.
-     * @returns a systemFacet
+     * @returns a admin
      */
     public get system() {
         return this._system;
@@ -226,7 +220,7 @@ export class Drive extends BaseItem implements Parsable {
      * Sets the system property value. If present, indicates that this is a system-managed drive. Read-only.
      * @param value Value to set for the system property.
      */
-    public set system(value: SystemFacet | undefined) {
+    public set system(value: SystemFacet | AdminMember1 | undefined) {
         this._system = value;
     };
 }

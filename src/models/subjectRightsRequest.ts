@@ -1,43 +1,34 @@
 import {createAuthoredNoteFromDiscriminatorValue} from './createAuthoredNoteFromDiscriminatorValue';
-import {createDataSubjectFromDiscriminatorValue} from './createDataSubjectFromDiscriminatorValue';
-import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createSubjectRightsRequestDetailFromDiscriminatorValue} from './createSubjectRightsRequestDetailFromDiscriminatorValue';
-import {createSubjectRightsRequestHistoryFromDiscriminatorValue} from './createSubjectRightsRequestHistoryFromDiscriminatorValue';
-import {createSubjectRightsRequestStageDetailFromDiscriminatorValue} from './createSubjectRightsRequestStageDetailFromDiscriminatorValue';
-import {createTeamFromDiscriminatorValue} from './createTeamFromDiscriminatorValue';
 import {DataSubjectType} from './dataSubjectType';
-import {AuthoredNote, DataSubject, Entity, Identity, IdentitySet, SubjectRightsRequestDetail, SubjectRightsRequestHistory, SubjectRightsRequestStageDetail, Team} from './index';
+import {AdminMember1, AuthoredNote, DataSubject, Entity, Identity, IdentitySet, SubjectRightsRequestDetail, SubjectRightsRequestHistory, SubjectRightsRequestStageDetail, Team} from './index';
 import {SubjectRightsRequestStatus} from './subjectRightsRequestStatus';
-import {SubjectRightsRequestType} from './subjectRightsRequestType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the privacy singleton. */
 export class SubjectRightsRequest extends Entity implements Parsable {
     /** Identity that the request is assigned to. */
-    private _assignedTo?: Identity | undefined;
+    private _assignedTo?: Identity | AdminMember1 | undefined;
     /** The date and time when the request was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _closedDateTime?: Date | undefined;
     /** Identity information for the entity that created the request. */
-    private _createdBy?: IdentitySet | undefined;
+    private _createdBy?: IdentitySet | AdminMember1 | undefined;
     /** The date and time when the request was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _createdDateTime?: Date | undefined;
     /** Information about the data subject. */
-    private _dataSubject?: DataSubject | undefined;
+    private _dataSubject?: DataSubject | AdminMember1 | undefined;
     /** The type of the data subject. Possible values are: customer, currentEmployee, formerEmployee, prospectiveEmployee, student, teacher, faculty, other, unknownFutureValue. */
-    private _dataSubjectType?: DataSubjectType | undefined;
+    private _dataSubjectType?: DataSubjectType | AdminMember1 | undefined;
     /** Description for the request. */
     private _description?: string | undefined;
     /** The name of the request. */
     private _displayName?: string | undefined;
     /** Collection of history change events. */
-    private _history?: SubjectRightsRequestHistory[] | undefined;
+    private _history?: SubjectRightsRequestHistory | AdminMember1[] | undefined;
     /** Insight about the request. */
-    private _insight?: SubjectRightsRequestDetail | undefined;
+    private _insight?: SubjectRightsRequestDetail | AdminMember1 | undefined;
     /** The date and time when the request is internally due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _internalDueDateTime?: Date | undefined;
     /** Identity information for the entity that last modified the request. */
-    private _lastModifiedBy?: IdentitySet | undefined;
+    private _lastModifiedBy?: IdentitySet | AdminMember1 | undefined;
     /** The date and time when the request was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _lastModifiedDateTime?: Date | undefined;
     /** List of notes associated with the request. */
@@ -45,16 +36,14 @@ export class SubjectRightsRequest extends Entity implements Parsable {
     /** List of regulations that this request will fulfill. */
     private _regulations?: string[] | undefined;
     /** Information about the different stages for the request. */
-    private _stages?: SubjectRightsRequestStageDetail[] | undefined;
+    private _stages?: SubjectRightsRequestStageDetail | AdminMember1[] | undefined;
     /** The status of the request. Possible values are: active, closed, unknownFutureValue. */
-    private _status?: SubjectRightsRequestStatus | undefined;
+    private _status?: SubjectRightsRequestStatus | AdminMember1 | undefined;
     /** Information about the Microsoft Teams team that was created for the request. */
-    private _team?: Team | undefined;
-    /** The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue. */
-    private _type?: SubjectRightsRequestType | undefined;
+    private _team?: Team | AdminMember1 | undefined;
     /**
      * Gets the assignedTo property value. Identity that the request is assigned to.
-     * @returns a identity
+     * @returns a admin
      */
     public get assignedTo() {
         return this._assignedTo;
@@ -63,7 +52,7 @@ export class SubjectRightsRequest extends Entity implements Parsable {
      * Sets the assignedTo property value. Identity that the request is assigned to.
      * @param value Value to set for the assignedTo property.
      */
-    public set assignedTo(value: Identity | undefined) {
+    public set assignedTo(value: Identity | AdminMember1 | undefined) {
         this._assignedTo = value;
     };
     /**
@@ -81,14 +70,14 @@ export class SubjectRightsRequest extends Entity implements Parsable {
         this._closedDateTime = value;
     };
     /**
-     * Instantiates a new subjectRightsRequest and sets the default values.
+     * Instantiates a new SubjectRightsRequest and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
      * Gets the createdBy property value. Identity information for the entity that created the request.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get createdBy() {
         return this._createdBy;
@@ -97,7 +86,7 @@ export class SubjectRightsRequest extends Entity implements Parsable {
      * Sets the createdBy property value. Identity information for the entity that created the request.
      * @param value Value to set for the createdBy property.
      */
-    public set createdBy(value: IdentitySet | undefined) {
+    public set createdBy(value: IdentitySet | AdminMember1 | undefined) {
         this._createdBy = value;
     };
     /**
@@ -116,7 +105,7 @@ export class SubjectRightsRequest extends Entity implements Parsable {
     };
     /**
      * Gets the dataSubject property value. Information about the data subject.
-     * @returns a dataSubject
+     * @returns a admin
      */
     public get dataSubject() {
         return this._dataSubject;
@@ -125,12 +114,12 @@ export class SubjectRightsRequest extends Entity implements Parsable {
      * Sets the dataSubject property value. Information about the data subject.
      * @param value Value to set for the dataSubject property.
      */
-    public set dataSubject(value: DataSubject | undefined) {
+    public set dataSubject(value: DataSubject | AdminMember1 | undefined) {
         this._dataSubject = value;
     };
     /**
      * Gets the dataSubjectType property value. The type of the data subject. Possible values are: customer, currentEmployee, formerEmployee, prospectiveEmployee, student, teacher, faculty, other, unknownFutureValue.
-     * @returns a dataSubjectType
+     * @returns a admin
      */
     public get dataSubjectType() {
         return this._dataSubjectType;
@@ -139,7 +128,7 @@ export class SubjectRightsRequest extends Entity implements Parsable {
      * Sets the dataSubjectType property value. The type of the data subject. Possible values are: customer, currentEmployee, formerEmployee, prospectiveEmployee, student, teacher, faculty, other, unknownFutureValue.
      * @param value Value to set for the dataSubjectType property.
      */
-    public set dataSubjectType(value: DataSubjectType | undefined) {
+    public set dataSubjectType(value: DataSubjectType | AdminMember1 | undefined) {
         this._dataSubjectType = value;
     };
     /**
@@ -181,25 +170,24 @@ export class SubjectRightsRequest extends Entity implements Parsable {
             "createdBy": n => { this.createdBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "dataSubject": n => { this.dataSubject = n.getObjectValue<DataSubject>(createDataSubjectFromDiscriminatorValue); },
-            "dataSubjectType": n => { this.dataSubjectType = n.getEnumValue<DataSubjectType>(DataSubjectType); },
+            "dataSubjectType": n => { this.dataSubjectType = n.getObjectValue<DataSubjectType>(createDataSubjectTypeFromDiscriminatorValue); },
             "description": n => { this.description = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
-            "history": n => { this.history = n.getCollectionOfObjectValues<SubjectRightsRequestHistory>(createSubjectRightsRequestHistoryFromDiscriminatorValue); },
+            "history": n => { this.history = n.getObjectValue<SubjectRightsRequestHistory>(createSubjectRightsRequestHistoryFromDiscriminatorValue); },
             "insight": n => { this.insight = n.getObjectValue<SubjectRightsRequestDetail>(createSubjectRightsRequestDetailFromDiscriminatorValue); },
             "internalDueDateTime": n => { this.internalDueDateTime = n.getDateValue(); },
             "lastModifiedBy": n => { this.lastModifiedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "notes": n => { this.notes = n.getCollectionOfObjectValues<AuthoredNote>(createAuthoredNoteFromDiscriminatorValue); },
             "regulations": n => { this.regulations = n.getCollectionOfPrimitiveValues<string>(); },
-            "stages": n => { this.stages = n.getCollectionOfObjectValues<SubjectRightsRequestStageDetail>(createSubjectRightsRequestStageDetailFromDiscriminatorValue); },
-            "status": n => { this.status = n.getEnumValue<SubjectRightsRequestStatus>(SubjectRightsRequestStatus); },
+            "stages": n => { this.stages = n.getObjectValue<SubjectRightsRequestStageDetail>(createSubjectRightsRequestStageDetailFromDiscriminatorValue); },
+            "status": n => { this.status = n.getObjectValue<SubjectRightsRequestStatus>(createSubjectRightsRequestStatusFromDiscriminatorValue); },
             "team": n => { this.team = n.getObjectValue<Team>(createTeamFromDiscriminatorValue); },
-            "type": n => { this.type = n.getEnumValue<SubjectRightsRequestType>(SubjectRightsRequestType); },
         };
     };
     /**
      * Gets the history property value. Collection of history change events.
-     * @returns a subjectRightsRequestHistory
+     * @returns a admin
      */
     public get history() {
         return this._history;
@@ -208,12 +196,12 @@ export class SubjectRightsRequest extends Entity implements Parsable {
      * Sets the history property value. Collection of history change events.
      * @param value Value to set for the history property.
      */
-    public set history(value: SubjectRightsRequestHistory[] | undefined) {
+    public set history(value: SubjectRightsRequestHistory | AdminMember1[] | undefined) {
         this._history = value;
     };
     /**
      * Gets the insight property value. Insight about the request.
-     * @returns a subjectRightsRequestDetail
+     * @returns a admin
      */
     public get insight() {
         return this._insight;
@@ -222,7 +210,7 @@ export class SubjectRightsRequest extends Entity implements Parsable {
      * Sets the insight property value. Insight about the request.
      * @param value Value to set for the insight property.
      */
-    public set insight(value: SubjectRightsRequestDetail | undefined) {
+    public set insight(value: SubjectRightsRequestDetail | AdminMember1 | undefined) {
         this._insight = value;
     };
     /**
@@ -241,7 +229,7 @@ export class SubjectRightsRequest extends Entity implements Parsable {
     };
     /**
      * Gets the lastModifiedBy property value. Identity information for the entity that last modified the request.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get lastModifiedBy() {
         return this._lastModifiedBy;
@@ -250,7 +238,7 @@ export class SubjectRightsRequest extends Entity implements Parsable {
      * Sets the lastModifiedBy property value. Identity information for the entity that last modified the request.
      * @param value Value to set for the lastModifiedBy property.
      */
-    public set lastModifiedBy(value: IdentitySet | undefined) {
+    public set lastModifiedBy(value: IdentitySet | AdminMember1 | undefined) {
         this._lastModifiedBy = value;
     };
     /**
@@ -307,24 +295,23 @@ export class SubjectRightsRequest extends Entity implements Parsable {
         writer.writeObjectValue<IdentitySet>("createdBy", this.createdBy);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeObjectValue<DataSubject>("dataSubject", this.dataSubject);
-        writer.writeEnumValue<DataSubjectType>("dataSubjectType", this.dataSubjectType);
+        writer.writeObjectValue<DataSubjectType>("dataSubjectType", this.dataSubjectType);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeCollectionOfObjectValues<SubjectRightsRequestHistory>("history", this.history);
+        writer.writeObjectValue<SubjectRightsRequestHistory>("history", this.history);
         writer.writeObjectValue<SubjectRightsRequestDetail>("insight", this.insight);
         writer.writeDateValue("internalDueDateTime", this.internalDueDateTime);
         writer.writeObjectValue<IdentitySet>("lastModifiedBy", this.lastModifiedBy);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeCollectionOfObjectValues<AuthoredNote>("notes", this.notes);
         writer.writeCollectionOfPrimitiveValues<string>("regulations", this.regulations);
-        writer.writeCollectionOfObjectValues<SubjectRightsRequestStageDetail>("stages", this.stages);
-        writer.writeEnumValue<SubjectRightsRequestStatus>("status", this.status);
+        writer.writeObjectValue<SubjectRightsRequestStageDetail>("stages", this.stages);
+        writer.writeObjectValue<SubjectRightsRequestStatus>("status", this.status);
         writer.writeObjectValue<Team>("team", this.team);
-        writer.writeEnumValue<SubjectRightsRequestType>("type", this.type);
     };
     /**
      * Gets the stages property value. Information about the different stages for the request.
-     * @returns a subjectRightsRequestStageDetail
+     * @returns a admin
      */
     public get stages() {
         return this._stages;
@@ -333,12 +320,12 @@ export class SubjectRightsRequest extends Entity implements Parsable {
      * Sets the stages property value. Information about the different stages for the request.
      * @param value Value to set for the stages property.
      */
-    public set stages(value: SubjectRightsRequestStageDetail[] | undefined) {
+    public set stages(value: SubjectRightsRequestStageDetail | AdminMember1[] | undefined) {
         this._stages = value;
     };
     /**
      * Gets the status property value. The status of the request. Possible values are: active, closed, unknownFutureValue.
-     * @returns a subjectRightsRequestStatus
+     * @returns a admin
      */
     public get status() {
         return this._status;
@@ -347,12 +334,12 @@ export class SubjectRightsRequest extends Entity implements Parsable {
      * Sets the status property value. The status of the request. Possible values are: active, closed, unknownFutureValue.
      * @param value Value to set for the status property.
      */
-    public set status(value: SubjectRightsRequestStatus | undefined) {
+    public set status(value: SubjectRightsRequestStatus | AdminMember1 | undefined) {
         this._status = value;
     };
     /**
      * Gets the team property value. Information about the Microsoft Teams team that was created for the request.
-     * @returns a team
+     * @returns a admin
      */
     public get team() {
         return this._team;
@@ -361,21 +348,7 @@ export class SubjectRightsRequest extends Entity implements Parsable {
      * Sets the team property value. Information about the Microsoft Teams team that was created for the request.
      * @param value Value to set for the team property.
      */
-    public set team(value: Team | undefined) {
+    public set team(value: Team | AdminMember1 | undefined) {
         this._team = value;
-    };
-    /**
-     * Gets the type property value. The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue.
-     * @returns a subjectRightsRequestType
-     */
-    public get type() {
-        return this._type;
-    };
-    /**
-     * Sets the type property value. The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue.
-     * @param value Value to set for the type property.
-     */
-    public set type(value: SubjectRightsRequestType | undefined) {
-        this._type = value;
     };
 }

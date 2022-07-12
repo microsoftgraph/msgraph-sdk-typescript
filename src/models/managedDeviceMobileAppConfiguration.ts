@@ -1,9 +1,7 @@
 import {createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue} from './createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue';
 import {createManagedDeviceMobileAppConfigurationDeviceStatusFromDiscriminatorValue} from './createManagedDeviceMobileAppConfigurationDeviceStatusFromDiscriminatorValue';
-import {createManagedDeviceMobileAppConfigurationDeviceSummaryFromDiscriminatorValue} from './createManagedDeviceMobileAppConfigurationDeviceSummaryFromDiscriminatorValue';
 import {createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue} from './createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue';
-import {createManagedDeviceMobileAppConfigurationUserSummaryFromDiscriminatorValue} from './createManagedDeviceMobileAppConfigurationUserSummaryFromDiscriminatorValue';
-import {Entity, ManagedDeviceMobileAppConfigurationAssignment, ManagedDeviceMobileAppConfigurationDeviceStatus, ManagedDeviceMobileAppConfigurationDeviceSummary, ManagedDeviceMobileAppConfigurationUserStatus, ManagedDeviceMobileAppConfigurationUserSummary} from './index';
+import {DeviceAppManagementMember1, Entity, ManagedDeviceMobileAppConfigurationAssignment, ManagedDeviceMobileAppConfigurationDeviceStatus, ManagedDeviceMobileAppConfigurationDeviceSummary, ManagedDeviceMobileAppConfigurationUserStatus, ManagedDeviceMobileAppConfigurationUserSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** An abstract class for Mobile app configuration for enrolled devices. */
@@ -17,7 +15,7 @@ export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsa
     /** List of ManagedDeviceMobileAppConfigurationDeviceStatus. */
     private _deviceStatuses?: ManagedDeviceMobileAppConfigurationDeviceStatus[] | undefined;
     /** App configuration device status summary. */
-    private _deviceStatusSummary?: ManagedDeviceMobileAppConfigurationDeviceSummary | undefined;
+    private _deviceStatusSummary?: ManagedDeviceMobileAppConfigurationDeviceSummary | DeviceAppManagementMember1 | undefined;
     /** Admin provided name of the device configuration. */
     private _displayName?: string | undefined;
     /** DateTime the object was last modified. */
@@ -27,7 +25,7 @@ export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsa
     /** List of ManagedDeviceMobileAppConfigurationUserStatus. */
     private _userStatuses?: ManagedDeviceMobileAppConfigurationUserStatus[] | undefined;
     /** App configuration user status summary. */
-    private _userStatusSummary?: ManagedDeviceMobileAppConfigurationUserSummary | undefined;
+    private _userStatusSummary?: ManagedDeviceMobileAppConfigurationUserSummary | DeviceAppManagementMember1 | undefined;
     /** Version of the device configuration. */
     private _version?: number | undefined;
     /**
@@ -49,6 +47,7 @@ export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsa
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.managedDeviceMobileAppConfiguration";
     };
     /**
      * Gets the createdDateTime property value. DateTime the object was created.
@@ -94,7 +93,7 @@ export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsa
     };
     /**
      * Gets the deviceStatusSummary property value. App configuration device status summary.
-     * @returns a managedDeviceMobileAppConfigurationDeviceSummary
+     * @returns a deviceAppManagement
      */
     public get deviceStatusSummary() {
         return this._deviceStatusSummary;
@@ -103,7 +102,7 @@ export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsa
      * Sets the deviceStatusSummary property value. App configuration device status summary.
      * @param value Value to set for the deviceStatusSummary property.
      */
-    public set deviceStatusSummary(value: ManagedDeviceMobileAppConfigurationDeviceSummary | undefined) {
+    public set deviceStatusSummary(value: ManagedDeviceMobileAppConfigurationDeviceSummary | DeviceAppManagementMember1 | undefined) {
         this._deviceStatusSummary = value;
     };
     /**
@@ -202,7 +201,7 @@ export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsa
     };
     /**
      * Gets the userStatusSummary property value. App configuration user status summary.
-     * @returns a managedDeviceMobileAppConfigurationUserSummary
+     * @returns a deviceAppManagement
      */
     public get userStatusSummary() {
         return this._userStatusSummary;
@@ -211,7 +210,7 @@ export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsa
      * Sets the userStatusSummary property value. App configuration user status summary.
      * @param value Value to set for the userStatusSummary property.
      */
-    public set userStatusSummary(value: ManagedDeviceMobileAppConfigurationUserSummary | undefined) {
+    public set userStatusSummary(value: ManagedDeviceMobileAppConfigurationUserSummary | DeviceAppManagementMember1 | undefined) {
         this._userStatusSummary = value;
     };
     /**

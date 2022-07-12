@@ -1,8 +1,8 @@
-import {Entity} from './index';
+import {ApplicationsMember1, Entity} from './index';
 import {PermissionType} from './permissionType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export class PermissionGrantConditionSet extends Entity implements Parsable {
     /** A list of appId values for the client applications to match with, or a list with the single value all to match any client application. Default is the single value all. */
     private _clientApplicationIds?: string[] | undefined;
@@ -17,7 +17,7 @@ export class PermissionGrantConditionSet extends Entity implements Parsable {
     /** The list of id values for the specific permissions to match with, or a list with the single value all to match with any permission. The id of delegated permissions can be found in the publishedPermissionScopes property of the API's **servicePrincipal** object. The id of application permissions can be found in the appRoles property of the API's **servicePrincipal** object. The id of resource-specific application permissions can be found in the resourceSpecificApplicationPermissions property of the API's **servicePrincipal** object. Default is the single value all. */
     private _permissions?: string[] | undefined;
     /** The permission type of the permission being granted. Possible values: application for application permissions (e.g. app roles), or delegated for delegated permissions. The value delegatedUserConsentable indicates delegated permissions which have not been configured by the API publisher to require admin consent—this value may be used in built-in permission grant policies, but cannot be used in custom permission grant policies. Required. */
-    private _permissionType?: PermissionType | undefined;
+    private _permissionType?: PermissionType | ApplicationsMember1 | undefined;
     /** The appId of the resource application (e.g. the API) for which a permission is being granted, or any to match with any resource application or API. Default is any. */
     private _resourceApplication?: string | undefined;
     /**
@@ -94,7 +94,7 @@ export class PermissionGrantConditionSet extends Entity implements Parsable {
             "clientApplicationTenantIds": n => { this.clientApplicationTenantIds = n.getCollectionOfPrimitiveValues<string>(); },
             "permissionClassification": n => { this.permissionClassification = n.getStringValue(); },
             "permissions": n => { this.permissions = n.getCollectionOfPrimitiveValues<string>(); },
-            "permissionType": n => { this.permissionType = n.getEnumValue<PermissionType>(PermissionType); },
+            "permissionType": n => { this.permissionType = n.getObjectValue<PermissionType>(createPermissionTypeFromDiscriminatorValue); },
             "resourceApplication": n => { this.resourceApplication = n.getStringValue(); },
         };
     };
@@ -128,7 +128,7 @@ export class PermissionGrantConditionSet extends Entity implements Parsable {
     };
     /**
      * Gets the permissionType property value. The permission type of the permission being granted. Possible values: application for application permissions (e.g. app roles), or delegated for delegated permissions. The value delegatedUserConsentable indicates delegated permissions which have not been configured by the API publisher to require admin consent—this value may be used in built-in permission grant policies, but cannot be used in custom permission grant policies. Required.
-     * @returns a permissionType
+     * @returns a applications
      */
     public get permissionType() {
         return this._permissionType;
@@ -137,7 +137,7 @@ export class PermissionGrantConditionSet extends Entity implements Parsable {
      * Sets the permissionType property value. The permission type of the permission being granted. Possible values: application for application permissions (e.g. app roles), or delegated for delegated permissions. The value delegatedUserConsentable indicates delegated permissions which have not been configured by the API publisher to require admin consent—this value may be used in built-in permission grant policies, but cannot be used in custom permission grant policies. Required.
      * @param value Value to set for the permissionType property.
      */
-    public set permissionType(value: PermissionType | undefined) {
+    public set permissionType(value: PermissionType | ApplicationsMember1 | undefined) {
         this._permissionType = value;
     };
     /**
@@ -167,7 +167,7 @@ export class PermissionGrantConditionSet extends Entity implements Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("clientApplicationTenantIds", this.clientApplicationTenantIds);
         writer.writeStringValue("permissionClassification", this.permissionClassification);
         writer.writeCollectionOfPrimitiveValues<string>("permissions", this.permissions);
-        writer.writeEnumValue<PermissionType>("permissionType", this.permissionType);
+        writer.writeObjectValue<PermissionType>("permissionType", this.permissionType);
         writer.writeStringValue("resourceApplication", this.resourceApplication);
     };
 }

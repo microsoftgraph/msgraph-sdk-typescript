@@ -1,14 +1,13 @@
-import {createIdentityApiConnectorFromDiscriminatorValue} from './createIdentityApiConnectorFromDiscriminatorValue';
-import {IdentityApiConnector} from './index';
+import {AdminMember1, IdentityApiConnector} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserFlowApiConnectorConfiguration implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The postAttributeCollection property */
-    private _postAttributeCollection?: IdentityApiConnector | undefined;
+    private _postAttributeCollection?: IdentityApiConnector | AdminMember1 | undefined;
     /** The postFederationSignup property */
-    private _postFederationSignup?: IdentityApiConnector | undefined;
+    private _postFederationSignup?: IdentityApiConnector | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -41,7 +40,7 @@ export class UserFlowApiConnectorConfiguration implements AdditionalDataHolder, 
     };
     /**
      * Gets the postAttributeCollection property value. The postAttributeCollection property
-     * @returns a identityApiConnector
+     * @returns a admin
      */
     public get postAttributeCollection() {
         return this._postAttributeCollection;
@@ -50,12 +49,12 @@ export class UserFlowApiConnectorConfiguration implements AdditionalDataHolder, 
      * Sets the postAttributeCollection property value. The postAttributeCollection property
      * @param value Value to set for the postAttributeCollection property.
      */
-    public set postAttributeCollection(value: IdentityApiConnector | undefined) {
+    public set postAttributeCollection(value: IdentityApiConnector | AdminMember1 | undefined) {
         this._postAttributeCollection = value;
     };
     /**
      * Gets the postFederationSignup property value. The postFederationSignup property
-     * @returns a identityApiConnector
+     * @returns a admin
      */
     public get postFederationSignup() {
         return this._postFederationSignup;
@@ -64,7 +63,7 @@ export class UserFlowApiConnectorConfiguration implements AdditionalDataHolder, 
      * Sets the postFederationSignup property value. The postFederationSignup property
      * @param value Value to set for the postFederationSignup property.
      */
-    public set postFederationSignup(value: IdentityApiConnector | undefined) {
+    public set postFederationSignup(value: IdentityApiConnector | AdminMember1 | undefined) {
         this._postFederationSignup = value;
     };
     /**

@@ -1,0 +1,9 @@
+/** Provides operations to manage the admin singleton. */
+export enum TeamworkApplicationIdentityType {
+    AadApplication = "aadApplication",
+    Bot = "bot",
+    TenantBot = "tenantBot",
+    Office365Connector = "office365Connector",
+    OutgoingWebhook = "outgoingWebhook",
+    UnknownFutureValue = "unknownFutureValue",
+}

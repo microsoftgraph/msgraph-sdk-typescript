@@ -1,12 +1,11 @@
 import {createWorkbookChartPointFromDiscriminatorValue} from './createWorkbookChartPointFromDiscriminatorValue';
-import {createWorkbookChartSeriesFormatFromDiscriminatorValue} from './createWorkbookChartSeriesFormatFromDiscriminatorValue';
-import {Entity, WorkbookChartPoint, WorkbookChartSeriesFormat} from './index';
+import {AdminMember1, Entity, WorkbookChartPoint, WorkbookChartSeriesFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookChartSeries extends Entity implements Parsable {
     /** Represents the formatting of a chart series, which includes fill and line formatting. Read-only. */
-    private _format?: WorkbookChartSeriesFormat | undefined;
+    private _format?: WorkbookChartSeriesFormat | AdminMember1 | undefined;
     /** Represents the name of a series in a chart. */
     private _name?: string | undefined;
     /** Represents a collection of all points in the series. Read-only. */
@@ -19,7 +18,7 @@ export class WorkbookChartSeries extends Entity implements Parsable {
     };
     /**
      * Gets the format property value. Represents the formatting of a chart series, which includes fill and line formatting. Read-only.
-     * @returns a workbookChartSeriesFormat
+     * @returns a admin
      */
     public get format() {
         return this._format;
@@ -28,7 +27,7 @@ export class WorkbookChartSeries extends Entity implements Parsable {
      * Sets the format property value. Represents the formatting of a chart series, which includes fill and line formatting. Read-only.
      * @param value Value to set for the format property.
      */
-    public set format(value: WorkbookChartSeriesFormat | undefined) {
+    public set format(value: WorkbookChartSeriesFormat | AdminMember1 | undefined) {
         this._format = value;
     };
     /**

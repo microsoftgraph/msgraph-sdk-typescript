@@ -1,5 +1,4 @@
-import {createFileHashFromDiscriminatorValue} from './createFileHashFromDiscriminatorValue';
-import {FileHash} from './index';
+import {AdminMember1, FileHash} from './index';
 import {ProcessIntegrityLevel} from './processIntegrityLevel';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -13,9 +12,9 @@ export class Process implements AdditionalDataHolder, Parsable {
     /** Time at which the process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _createdDateTime?: Date | undefined;
     /** Complex type containing file hashes (cryptographic and location-sensitive). */
-    private _fileHash?: FileHash | undefined;
+    private _fileHash?: FileHash | AdminMember1 | undefined;
     /** The integrity level of the process. Possible values are: unknown, untrusted, low, medium, high, system. */
-    private _integrityLevel?: ProcessIntegrityLevel | undefined;
+    private _integrityLevel?: ProcessIntegrityLevel | AdminMember1 | undefined;
     /** True if the process is elevated. */
     private _isElevated?: boolean | undefined;
     /** The name of the process' Image file. */
@@ -94,7 +93,7 @@ export class Process implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the fileHash property value. Complex type containing file hashes (cryptographic and location-sensitive).
-     * @returns a fileHash
+     * @returns a admin
      */
     public get fileHash() {
         return this._fileHash;
@@ -103,7 +102,7 @@ export class Process implements AdditionalDataHolder, Parsable {
      * Sets the fileHash property value. Complex type containing file hashes (cryptographic and location-sensitive).
      * @param value Value to set for the fileHash property.
      */
-    public set fileHash(value: FileHash | undefined) {
+    public set fileHash(value: FileHash | AdminMember1 | undefined) {
         this._fileHash = value;
     };
     /**
@@ -116,7 +115,7 @@ export class Process implements AdditionalDataHolder, Parsable {
             "commandLine": n => { this.commandLine = n.getStringValue(); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "fileHash": n => { this.fileHash = n.getObjectValue<FileHash>(createFileHashFromDiscriminatorValue); },
-            "integrityLevel": n => { this.integrityLevel = n.getEnumValue<ProcessIntegrityLevel>(ProcessIntegrityLevel); },
+            "integrityLevel": n => { this.integrityLevel = n.getObjectValue<ProcessIntegrityLevel>(createProcessIntegrityLevelFromDiscriminatorValue); },
             "isElevated": n => { this.isElevated = n.getBooleanValue(); },
             "name": n => { this.name = n.getStringValue(); },
             "parentProcessCreatedDateTime": n => { this.parentProcessCreatedDateTime = n.getDateValue(); },
@@ -128,7 +127,7 @@ export class Process implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the integrityLevel property value. The integrity level of the process. Possible values are: unknown, untrusted, low, medium, high, system.
-     * @returns a processIntegrityLevel
+     * @returns a admin
      */
     public get integrityLevel() {
         return this._integrityLevel;
@@ -137,7 +136,7 @@ export class Process implements AdditionalDataHolder, Parsable {
      * Sets the integrityLevel property value. The integrity level of the process. Possible values are: unknown, untrusted, low, medium, high, system.
      * @param value Value to set for the integrityLevel property.
      */
-    public set integrityLevel(value: ProcessIntegrityLevel | undefined) {
+    public set integrityLevel(value: ProcessIntegrityLevel | AdminMember1 | undefined) {
         this._integrityLevel = value;
     };
     /**
@@ -248,7 +247,7 @@ export class Process implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("commandLine", this.commandLine);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeObjectValue<FileHash>("fileHash", this.fileHash);
-        writer.writeEnumValue<ProcessIntegrityLevel>("integrityLevel", this.integrityLevel);
+        writer.writeObjectValue<ProcessIntegrityLevel>("integrityLevel", this.integrityLevel);
         writer.writeBooleanValue("isElevated", this.isElevated);
         writer.writeStringValue("name", this.name);
         writer.writeDateValue("parentProcessCreatedDateTime", this.parentProcessCreatedDateTime);

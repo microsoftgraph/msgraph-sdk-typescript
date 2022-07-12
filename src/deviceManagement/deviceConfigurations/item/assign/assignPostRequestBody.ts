@@ -1,5 +1,5 @@
 import {DeviceConfigurationAssignment} from '../../../../models/';
-import {createDeviceConfigurationAssignmentFromDiscriminatorValue} from '../../../../models/createDeviceConfigurationAssignmentFromDiscriminatorValue';
+import {AssignMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the assign method. */
@@ -7,7 +7,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The assignments property */
-    private _assignments?: DeviceConfigurationAssignment[] | undefined;
+    private _assignments?: DeviceConfigurationAssignment | AssignMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -24,7 +24,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the assignments property value. The assignments property
-     * @returns a deviceConfigurationAssignment
+     * @returns a assign
      */
     public get assignments() {
         return this._assignments;
@@ -33,7 +33,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
      * Sets the assignments property value. The assignments property
      * @param value Value to set for the assignments property.
      */
-    public set assignments(value: DeviceConfigurationAssignment[] | undefined) {
+    public set assignments(value: DeviceConfigurationAssignment | AssignMember1[] | undefined) {
         this._assignments = value;
     };
     /**
@@ -48,7 +48,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "assignments": n => { this.assignments = n.getCollectionOfObjectValues<DeviceConfigurationAssignment>(createDeviceConfigurationAssignmentFromDiscriminatorValue); },
+            "assignments": n => { this.assignments = n.getObjectValue<DeviceConfigurationAssignment>(createDeviceConfigurationAssignmentFromDiscriminatorValue); },
         };
     };
     /**
@@ -57,7 +57,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<DeviceConfigurationAssignment>("assignments", this.assignments);
+        writer.writeObjectValue<DeviceConfigurationAssignment>("assignments", this.assignments);
         writer.writeAdditionalData(this.additionalData);
     };
 }

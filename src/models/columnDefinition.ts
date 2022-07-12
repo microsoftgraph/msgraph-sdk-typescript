@@ -1,43 +1,24 @@
-import {ColumnTypes} from './columnTypes';
-import {createBooleanColumnFromDiscriminatorValue} from './createBooleanColumnFromDiscriminatorValue';
-import {createCalculatedColumnFromDiscriminatorValue} from './createCalculatedColumnFromDiscriminatorValue';
-import {createChoiceColumnFromDiscriminatorValue} from './createChoiceColumnFromDiscriminatorValue';
-import {createColumnDefinitionFromDiscriminatorValue} from './createColumnDefinitionFromDiscriminatorValue';
-import {createColumnValidationFromDiscriminatorValue} from './createColumnValidationFromDiscriminatorValue';
-import {createContentApprovalStatusColumnFromDiscriminatorValue} from './createContentApprovalStatusColumnFromDiscriminatorValue';
-import {createContentTypeInfoFromDiscriminatorValue} from './createContentTypeInfoFromDiscriminatorValue';
-import {createCurrencyColumnFromDiscriminatorValue} from './createCurrencyColumnFromDiscriminatorValue';
-import {createDateTimeColumnFromDiscriminatorValue} from './createDateTimeColumnFromDiscriminatorValue';
-import {createDefaultColumnValueFromDiscriminatorValue} from './createDefaultColumnValueFromDiscriminatorValue';
-import {createGeolocationColumnFromDiscriminatorValue} from './createGeolocationColumnFromDiscriminatorValue';
-import {createHyperlinkOrPictureColumnFromDiscriminatorValue} from './createHyperlinkOrPictureColumnFromDiscriminatorValue';
-import {createLookupColumnFromDiscriminatorValue} from './createLookupColumnFromDiscriminatorValue';
-import {createNumberColumnFromDiscriminatorValue} from './createNumberColumnFromDiscriminatorValue';
-import {createPersonOrGroupColumnFromDiscriminatorValue} from './createPersonOrGroupColumnFromDiscriminatorValue';
-import {createTermColumnFromDiscriminatorValue} from './createTermColumnFromDiscriminatorValue';
-import {createTextColumnFromDiscriminatorValue} from './createTextColumnFromDiscriminatorValue';
-import {createThumbnailColumnFromDiscriminatorValue} from './createThumbnailColumnFromDiscriminatorValue';
-import {BooleanColumn, CalculatedColumn, ChoiceColumn, ColumnValidation, ContentApprovalStatusColumn, ContentTypeInfo, CurrencyColumn, DateTimeColumn, DefaultColumnValue, Entity, GeolocationColumn, HyperlinkOrPictureColumn, LookupColumn, NumberColumn, PersonOrGroupColumn, TermColumn, TextColumn, ThumbnailColumn} from './index';
+import {AdminMember1, BooleanColumn, CalculatedColumn, ChoiceColumn, ColumnValidation, ContentApprovalStatusColumn, ContentTypeInfo, CurrencyColumn, DateTimeColumn, DefaultColumnValue, Entity, GeolocationColumn, HyperlinkOrPictureColumn, LookupColumn, NumberColumn, PersonOrGroupColumn, TermColumn, TextColumn, ThumbnailColumn} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class ColumnDefinition extends Entity implements Parsable {
     /** This column stores boolean values. */
-    private _boolean?: BooleanColumn | undefined;
+    private _boolean?: BooleanColumn | AdminMember1 | undefined;
     /** This column's data is calculated based on other columns. */
-    private _calculated?: CalculatedColumn | undefined;
+    private _calculated?: CalculatedColumn | AdminMember1 | undefined;
     /** This column stores data from a list of choices. */
-    private _choice?: ChoiceColumn | undefined;
+    private _choice?: ChoiceColumn | AdminMember1 | undefined;
     /** For site columns, the name of the group this column belongs to. Helps organize related columns. */
     private _columnGroup?: string | undefined;
     /** This column stores content approval status. */
-    private _contentApprovalStatus?: ContentApprovalStatusColumn | undefined;
+    private _contentApprovalStatus?: ContentApprovalStatusColumn | AdminMember1 | undefined;
     /** This column stores currency values. */
-    private _currency?: CurrencyColumn | undefined;
+    private _currency?: CurrencyColumn | AdminMember1 | undefined;
     /** This column stores DateTime values. */
-    private _dateTime?: DateTimeColumn | undefined;
+    private _dateTime?: DateTimeColumn | AdminMember1 | undefined;
     /** The default value for this column. */
-    private _defaultValue?: DefaultColumnValue | undefined;
+    private _defaultValue?: DefaultColumnValue | AdminMember1 | undefined;
     /** The user-facing description of the column. */
     private _description?: string | undefined;
     /** The user-facing name of the column. */
@@ -45,11 +26,11 @@ export class ColumnDefinition extends Entity implements Parsable {
     /** If true, no two list items may have the same value for this column. */
     private _enforceUniqueValues?: boolean | undefined;
     /** This column stores a geolocation. */
-    private _geolocation?: GeolocationColumn | undefined;
+    private _geolocation?: GeolocationColumn | AdminMember1 | undefined;
     /** Specifies whether the column is displayed in the user interface. */
     private _hidden?: boolean | undefined;
     /** This column stores hyperlink or picture values. */
-    private _hyperlinkOrPicture?: HyperlinkOrPictureColumn | undefined;
+    private _hyperlinkOrPicture?: HyperlinkOrPictureColumn | AdminMember1 | undefined;
     /** Specifies whether the column values can used for sorting and searching. */
     private _indexed?: boolean | undefined;
     /** Indicates whether this column can be deleted. */
@@ -59,13 +40,13 @@ export class ColumnDefinition extends Entity implements Parsable {
     /** Specifies whether the column can be changed. */
     private _isSealed?: boolean | undefined;
     /** This column's data is looked up from another source in the site. */
-    private _lookup?: LookupColumn | undefined;
+    private _lookup?: LookupColumn | AdminMember1 | undefined;
     /** The API-facing name of the column as it appears in the [fields][] on a [listItem][]. For the user-facing name, see displayName. */
     private _name?: string | undefined;
     /** This column stores number values. */
-    private _number?: NumberColumn | undefined;
+    private _number?: NumberColumn | AdminMember1 | undefined;
     /** This column stores Person or Group values. */
-    private _personOrGroup?: PersonOrGroupColumn | undefined;
+    private _personOrGroup?: PersonOrGroupColumn | AdminMember1 | undefined;
     /** If true, changes to this column will be propagated to lists that implement the column. */
     private _propagateChanges?: boolean | undefined;
     /** Specifies whether the column values can be modified. */
@@ -73,22 +54,20 @@ export class ColumnDefinition extends Entity implements Parsable {
     /** Specifies whether the column value isn't optional. */
     private _required?: boolean | undefined;
     /** The source column for content type column. */
-    private _sourceColumn?: ColumnDefinition | undefined;
+    private _sourceColumn?: ColumnDefinition | AdminMember1 | undefined;
     /** ContentType from which this column is inherited from. Used only to fetch contentTypes columns. */
-    private _sourceContentType?: ContentTypeInfo | undefined;
+    private _sourceContentType?: ContentTypeInfo | AdminMember1 | undefined;
     /** This column stores taxonomy terms. */
-    private _term?: TermColumn | undefined;
+    private _term?: TermColumn | AdminMember1 | undefined;
     /** This column stores text values. */
-    private _text?: TextColumn | undefined;
+    private _text?: TextColumn | AdminMember1 | undefined;
     /** This column stores thumbnail values. */
-    private _thumbnail?: ThumbnailColumn | undefined;
-    /** For site columns, the type of column. Read-only. */
-    private _type?: ColumnTypes | undefined;
+    private _thumbnail?: ThumbnailColumn | AdminMember1 | undefined;
     /** This column stores validation formula and message for the column. */
-    private _validation?: ColumnValidation | undefined;
+    private _validation?: ColumnValidation | AdminMember1 | undefined;
     /**
      * Gets the boolean property value. This column stores boolean values.
-     * @returns a booleanColumn
+     * @returns a admin
      */
     public get boolean() {
         return this._boolean;
@@ -97,12 +76,12 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the boolean property value. This column stores boolean values.
      * @param value Value to set for the boolean property.
      */
-    public set boolean(value: BooleanColumn | undefined) {
+    public set boolean(value: BooleanColumn | AdminMember1 | undefined) {
         this._boolean = value;
     };
     /**
      * Gets the calculated property value. This column's data is calculated based on other columns.
-     * @returns a calculatedColumn
+     * @returns a admin
      */
     public get calculated() {
         return this._calculated;
@@ -111,12 +90,12 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the calculated property value. This column's data is calculated based on other columns.
      * @param value Value to set for the calculated property.
      */
-    public set calculated(value: CalculatedColumn | undefined) {
+    public set calculated(value: CalculatedColumn | AdminMember1 | undefined) {
         this._calculated = value;
     };
     /**
      * Gets the choice property value. This column stores data from a list of choices.
-     * @returns a choiceColumn
+     * @returns a admin
      */
     public get choice() {
         return this._choice;
@@ -125,7 +104,7 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the choice property value. This column stores data from a list of choices.
      * @param value Value to set for the choice property.
      */
-    public set choice(value: ChoiceColumn | undefined) {
+    public set choice(value: ChoiceColumn | AdminMember1 | undefined) {
         this._choice = value;
     };
     /**
@@ -150,7 +129,7 @@ export class ColumnDefinition extends Entity implements Parsable {
     };
     /**
      * Gets the contentApprovalStatus property value. This column stores content approval status.
-     * @returns a contentApprovalStatusColumn
+     * @returns a admin
      */
     public get contentApprovalStatus() {
         return this._contentApprovalStatus;
@@ -159,12 +138,12 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the contentApprovalStatus property value. This column stores content approval status.
      * @param value Value to set for the contentApprovalStatus property.
      */
-    public set contentApprovalStatus(value: ContentApprovalStatusColumn | undefined) {
+    public set contentApprovalStatus(value: ContentApprovalStatusColumn | AdminMember1 | undefined) {
         this._contentApprovalStatus = value;
     };
     /**
      * Gets the currency property value. This column stores currency values.
-     * @returns a currencyColumn
+     * @returns a admin
      */
     public get currency() {
         return this._currency;
@@ -173,12 +152,12 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the currency property value. This column stores currency values.
      * @param value Value to set for the currency property.
      */
-    public set currency(value: CurrencyColumn | undefined) {
+    public set currency(value: CurrencyColumn | AdminMember1 | undefined) {
         this._currency = value;
     };
     /**
      * Gets the dateTime property value. This column stores DateTime values.
-     * @returns a dateTimeColumn
+     * @returns a admin
      */
     public get dateTime() {
         return this._dateTime;
@@ -187,12 +166,12 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the dateTime property value. This column stores DateTime values.
      * @param value Value to set for the dateTime property.
      */
-    public set dateTime(value: DateTimeColumn | undefined) {
+    public set dateTime(value: DateTimeColumn | AdminMember1 | undefined) {
         this._dateTime = value;
     };
     /**
      * Gets the defaultValue property value. The default value for this column.
-     * @returns a defaultColumnValue
+     * @returns a admin
      */
     public get defaultValue() {
         return this._defaultValue;
@@ -201,7 +180,7 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the defaultValue property value. The default value for this column.
      * @param value Value to set for the defaultValue property.
      */
-    public set defaultValue(value: DefaultColumnValue | undefined) {
+    public set defaultValue(value: DefaultColumnValue | AdminMember1 | undefined) {
         this._defaultValue = value;
     };
     /**
@@ -248,7 +227,7 @@ export class ColumnDefinition extends Entity implements Parsable {
     };
     /**
      * Gets the geolocation property value. This column stores a geolocation.
-     * @returns a geolocationColumn
+     * @returns a admin
      */
     public get geolocation() {
         return this._geolocation;
@@ -257,7 +236,7 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the geolocation property value. This column stores a geolocation.
      * @param value Value to set for the geolocation property.
      */
-    public set geolocation(value: GeolocationColumn | undefined) {
+    public set geolocation(value: GeolocationColumn | AdminMember1 | undefined) {
         this._geolocation = value;
     };
     /**
@@ -296,7 +275,6 @@ export class ColumnDefinition extends Entity implements Parsable {
             "term": n => { this.term = n.getObjectValue<TermColumn>(createTermColumnFromDiscriminatorValue); },
             "text": n => { this.text = n.getObjectValue<TextColumn>(createTextColumnFromDiscriminatorValue); },
             "thumbnail": n => { this.thumbnail = n.getObjectValue<ThumbnailColumn>(createThumbnailColumnFromDiscriminatorValue); },
-            "type": n => { this.type = n.getEnumValue<ColumnTypes>(ColumnTypes); },
             "validation": n => { this.validation = n.getObjectValue<ColumnValidation>(createColumnValidationFromDiscriminatorValue); },
         };
     };
@@ -316,7 +294,7 @@ export class ColumnDefinition extends Entity implements Parsable {
     };
     /**
      * Gets the hyperlinkOrPicture property value. This column stores hyperlink or picture values.
-     * @returns a hyperlinkOrPictureColumn
+     * @returns a admin
      */
     public get hyperlinkOrPicture() {
         return this._hyperlinkOrPicture;
@@ -325,7 +303,7 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the hyperlinkOrPicture property value. This column stores hyperlink or picture values.
      * @param value Value to set for the hyperlinkOrPicture property.
      */
-    public set hyperlinkOrPicture(value: HyperlinkOrPictureColumn | undefined) {
+    public set hyperlinkOrPicture(value: HyperlinkOrPictureColumn | AdminMember1 | undefined) {
         this._hyperlinkOrPicture = value;
     };
     /**
@@ -386,7 +364,7 @@ export class ColumnDefinition extends Entity implements Parsable {
     };
     /**
      * Gets the lookup property value. This column's data is looked up from another source in the site.
-     * @returns a lookupColumn
+     * @returns a admin
      */
     public get lookup() {
         return this._lookup;
@@ -395,7 +373,7 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the lookup property value. This column's data is looked up from another source in the site.
      * @param value Value to set for the lookup property.
      */
-    public set lookup(value: LookupColumn | undefined) {
+    public set lookup(value: LookupColumn | AdminMember1 | undefined) {
         this._lookup = value;
     };
     /**
@@ -414,7 +392,7 @@ export class ColumnDefinition extends Entity implements Parsable {
     };
     /**
      * Gets the number property value. This column stores number values.
-     * @returns a numberColumn
+     * @returns a admin
      */
     public get number() {
         return this._number;
@@ -423,12 +401,12 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the number property value. This column stores number values.
      * @param value Value to set for the number property.
      */
-    public set number(value: NumberColumn | undefined) {
+    public set number(value: NumberColumn | AdminMember1 | undefined) {
         this._number = value;
     };
     /**
      * Gets the personOrGroup property value. This column stores Person or Group values.
-     * @returns a personOrGroupColumn
+     * @returns a admin
      */
     public get personOrGroup() {
         return this._personOrGroup;
@@ -437,7 +415,7 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the personOrGroup property value. This column stores Person or Group values.
      * @param value Value to set for the personOrGroup property.
      */
-    public set personOrGroup(value: PersonOrGroupColumn | undefined) {
+    public set personOrGroup(value: PersonOrGroupColumn | AdminMember1 | undefined) {
         this._personOrGroup = value;
     };
     /**
@@ -519,12 +497,11 @@ export class ColumnDefinition extends Entity implements Parsable {
         writer.writeObjectValue<TermColumn>("term", this.term);
         writer.writeObjectValue<TextColumn>("text", this.text);
         writer.writeObjectValue<ThumbnailColumn>("thumbnail", this.thumbnail);
-        writer.writeEnumValue<ColumnTypes>("type", this.type);
         writer.writeObjectValue<ColumnValidation>("validation", this.validation);
     };
     /**
      * Gets the sourceColumn property value. The source column for content type column.
-     * @returns a columnDefinition
+     * @returns a admin
      */
     public get sourceColumn() {
         return this._sourceColumn;
@@ -533,12 +510,12 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the sourceColumn property value. The source column for content type column.
      * @param value Value to set for the sourceColumn property.
      */
-    public set sourceColumn(value: ColumnDefinition | undefined) {
+    public set sourceColumn(value: ColumnDefinition | AdminMember1 | undefined) {
         this._sourceColumn = value;
     };
     /**
      * Gets the sourceContentType property value. ContentType from which this column is inherited from. Used only to fetch contentTypes columns.
-     * @returns a contentTypeInfo
+     * @returns a admin
      */
     public get sourceContentType() {
         return this._sourceContentType;
@@ -547,12 +524,12 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the sourceContentType property value. ContentType from which this column is inherited from. Used only to fetch contentTypes columns.
      * @param value Value to set for the sourceContentType property.
      */
-    public set sourceContentType(value: ContentTypeInfo | undefined) {
+    public set sourceContentType(value: ContentTypeInfo | AdminMember1 | undefined) {
         this._sourceContentType = value;
     };
     /**
      * Gets the term property value. This column stores taxonomy terms.
-     * @returns a termColumn
+     * @returns a admin
      */
     public get term() {
         return this._term;
@@ -561,12 +538,12 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the term property value. This column stores taxonomy terms.
      * @param value Value to set for the term property.
      */
-    public set term(value: TermColumn | undefined) {
+    public set term(value: TermColumn | AdminMember1 | undefined) {
         this._term = value;
     };
     /**
      * Gets the text property value. This column stores text values.
-     * @returns a textColumn
+     * @returns a admin
      */
     public get text() {
         return this._text;
@@ -575,12 +552,12 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the text property value. This column stores text values.
      * @param value Value to set for the text property.
      */
-    public set text(value: TextColumn | undefined) {
+    public set text(value: TextColumn | AdminMember1 | undefined) {
         this._text = value;
     };
     /**
      * Gets the thumbnail property value. This column stores thumbnail values.
-     * @returns a thumbnailColumn
+     * @returns a admin
      */
     public get thumbnail() {
         return this._thumbnail;
@@ -589,26 +566,12 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the thumbnail property value. This column stores thumbnail values.
      * @param value Value to set for the thumbnail property.
      */
-    public set thumbnail(value: ThumbnailColumn | undefined) {
+    public set thumbnail(value: ThumbnailColumn | AdminMember1 | undefined) {
         this._thumbnail = value;
     };
     /**
-     * Gets the type property value. For site columns, the type of column. Read-only.
-     * @returns a columnTypes
-     */
-    public get type() {
-        return this._type;
-    };
-    /**
-     * Sets the type property value. For site columns, the type of column. Read-only.
-     * @param value Value to set for the type property.
-     */
-    public set type(value: ColumnTypes | undefined) {
-        this._type = value;
-    };
-    /**
      * Gets the validation property value. This column stores validation formula and message for the column.
-     * @returns a columnValidation
+     * @returns a admin
      */
     public get validation() {
         return this._validation;
@@ -617,7 +580,7 @@ export class ColumnDefinition extends Entity implements Parsable {
      * Sets the validation property value. This column stores validation formula and message for the column.
      * @param value Value to set for the validation property.
      */
-    public set validation(value: ColumnValidation | undefined) {
+    public set validation(value: ColumnValidation | AdminMember1 | undefined) {
         this._validation = value;
     };
 }

@@ -1,14 +1,11 @@
-import {createWorkbookChartFillFromDiscriminatorValue} from './createWorkbookChartFillFromDiscriminatorValue';
-import {createWorkbookChartLineFormatFromDiscriminatorValue} from './createWorkbookChartLineFormatFromDiscriminatorValue';
-import {Entity, WorkbookChartFill, WorkbookChartLineFormat} from './index';
+import {AdminMember1, Entity, WorkbookChartFill, WorkbookChartLineFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartSeriesFormat extends Entity implements Parsable {
     /** Represents the fill format of a chart series, which includes background formating information. Read-only. */
-    private _fill?: WorkbookChartFill | undefined;
+    private _fill?: WorkbookChartFill | AdminMember1 | undefined;
     /** Represents line formatting. Read-only. */
-    private _line?: WorkbookChartLineFormat | undefined;
+    private _line?: WorkbookChartLineFormat | AdminMember1 | undefined;
     /**
      * Instantiates a new workbookChartSeriesFormat and sets the default values.
      */
@@ -17,7 +14,7 @@ export class WorkbookChartSeriesFormat extends Entity implements Parsable {
     };
     /**
      * Gets the fill property value. Represents the fill format of a chart series, which includes background formating information. Read-only.
-     * @returns a workbookChartFill
+     * @returns a admin
      */
     public get fill() {
         return this._fill;
@@ -26,7 +23,7 @@ export class WorkbookChartSeriesFormat extends Entity implements Parsable {
      * Sets the fill property value. Represents the fill format of a chart series, which includes background formating information. Read-only.
      * @param value Value to set for the fill property.
      */
-    public set fill(value: WorkbookChartFill | undefined) {
+    public set fill(value: WorkbookChartFill | AdminMember1 | undefined) {
         this._fill = value;
     };
     /**
@@ -41,7 +38,7 @@ export class WorkbookChartSeriesFormat extends Entity implements Parsable {
     };
     /**
      * Gets the line property value. Represents line formatting. Read-only.
-     * @returns a workbookChartLineFormat
+     * @returns a admin
      */
     public get line() {
         return this._line;
@@ -50,7 +47,7 @@ export class WorkbookChartSeriesFormat extends Entity implements Parsable {
      * Sets the line property value. Represents line formatting. Read-only.
      * @param value Value to set for the line property.
      */
-    public set line(value: WorkbookChartLineFormat | undefined) {
+    public set line(value: WorkbookChartLineFormat | AdminMember1 | undefined) {
         this._line = value;
     };
     /**

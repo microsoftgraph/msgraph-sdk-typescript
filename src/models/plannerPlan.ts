@@ -1,23 +1,20 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {createPlannerBucketFromDiscriminatorValue} from './createPlannerBucketFromDiscriminatorValue';
-import {createPlannerPlanContainerFromDiscriminatorValue} from './createPlannerPlanContainerFromDiscriminatorValue';
-import {createPlannerPlanDetailsFromDiscriminatorValue} from './createPlannerPlanDetailsFromDiscriminatorValue';
 import {createPlannerTaskFromDiscriminatorValue} from './createPlannerTaskFromDiscriminatorValue';
-import {Entity, IdentitySet, PlannerBucket, PlannerPlanContainer, PlannerPlanDetails, PlannerTask} from './index';
+import {AdminMember1, Entity, IdentitySet, PlannerBucket, PlannerPlanContainer, PlannerPlanDetails, PlannerTask} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class PlannerPlan extends Entity implements Parsable {
     /** Collection of buckets in the plan. Read-only. Nullable. */
     private _buckets?: PlannerBucket[] | undefined;
     /** Identifies the container of the plan. After it is set, this property can’t be updated. Required. */
-    private _container?: PlannerPlanContainer | undefined;
+    private _container?: PlannerPlanContainer | AdminMember1 | undefined;
     /** Read-only. The user who created the plan. */
-    private _createdBy?: IdentitySet | undefined;
+    private _createdBy?: IdentitySet | AdminMember1 | undefined;
     /** Read-only. Date and time at which the plan is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _createdDateTime?: Date | undefined;
     /** Additional details about the plan. Read-only. Nullable. */
-    private _details?: PlannerPlanDetails | undefined;
+    private _details?: PlannerPlanDetails | AdminMember1 | undefined;
     /** The owner property */
     private _owner?: string | undefined;
     /** Collection of tasks in the plan. Read-only. Nullable. */
@@ -46,7 +43,7 @@ export class PlannerPlan extends Entity implements Parsable {
     };
     /**
      * Gets the container property value. Identifies the container of the plan. After it is set, this property can’t be updated. Required.
-     * @returns a plannerPlanContainer
+     * @returns a admin
      */
     public get container() {
         return this._container;
@@ -55,12 +52,12 @@ export class PlannerPlan extends Entity implements Parsable {
      * Sets the container property value. Identifies the container of the plan. After it is set, this property can’t be updated. Required.
      * @param value Value to set for the container property.
      */
-    public set container(value: PlannerPlanContainer | undefined) {
+    public set container(value: PlannerPlanContainer | AdminMember1 | undefined) {
         this._container = value;
     };
     /**
      * Gets the createdBy property value. Read-only. The user who created the plan.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get createdBy() {
         return this._createdBy;
@@ -69,7 +66,7 @@ export class PlannerPlan extends Entity implements Parsable {
      * Sets the createdBy property value. Read-only. The user who created the plan.
      * @param value Value to set for the createdBy property.
      */
-    public set createdBy(value: IdentitySet | undefined) {
+    public set createdBy(value: IdentitySet | AdminMember1 | undefined) {
         this._createdBy = value;
     };
     /**
@@ -88,7 +85,7 @@ export class PlannerPlan extends Entity implements Parsable {
     };
     /**
      * Gets the details property value. Additional details about the plan. Read-only. Nullable.
-     * @returns a plannerPlanDetails
+     * @returns a admin
      */
     public get details() {
         return this._details;
@@ -97,7 +94,7 @@ export class PlannerPlan extends Entity implements Parsable {
      * Sets the details property value. Additional details about the plan. Read-only. Nullable.
      * @param value Value to set for the details property.
      */
-    public set details(value: PlannerPlanDetails | undefined) {
+    public set details(value: PlannerPlanDetails | AdminMember1 | undefined) {
         this._details = value;
     };
     /**

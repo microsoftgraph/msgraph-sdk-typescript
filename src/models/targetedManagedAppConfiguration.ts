@@ -1,10 +1,8 @@
-import {createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue} from './createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue';
 import {createManagedMobileAppFromDiscriminatorValue} from './createManagedMobileAppFromDiscriminatorValue';
 import {createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue} from './createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue';
-import {ManagedAppConfiguration, ManagedAppPolicyDeploymentSummary, ManagedMobileApp, TargetedManagedAppPolicyAssignment} from './index';
+import {AdminMember1, ManagedAppConfiguration, ManagedAppPolicyDeploymentSummary, ManagedMobileApp, TargetedManagedAppPolicyAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Configuration used to deliver a set of custom settings as-is to all users in the targeted security group */
 export class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements Parsable {
     /** List of apps to which the policy is deployed. */
     private _apps?: ManagedMobileApp[] | undefined;
@@ -13,7 +11,7 @@ export class TargetedManagedAppConfiguration extends ManagedAppConfiguration imp
     /** Count of apps to which the current policy is deployed. */
     private _deployedAppCount?: number | undefined;
     /** Navigation property to deployment summary of the configuration. */
-    private _deploymentSummary?: ManagedAppPolicyDeploymentSummary | undefined;
+    private _deploymentSummary?: ManagedAppPolicyDeploymentSummary | AdminMember1 | undefined;
     /** Indicates if the policy is deployed to any inclusion groups or not. */
     private _isAssigned?: boolean | undefined;
     /**
@@ -45,7 +43,7 @@ export class TargetedManagedAppConfiguration extends ManagedAppConfiguration imp
         this._assignments = value;
     };
     /**
-     * Instantiates a new targetedManagedAppConfiguration and sets the default values.
+     * Instantiates a new TargetedManagedAppConfiguration and sets the default values.
      */
     public constructor() {
         super();
@@ -66,7 +64,7 @@ export class TargetedManagedAppConfiguration extends ManagedAppConfiguration imp
     };
     /**
      * Gets the deploymentSummary property value. Navigation property to deployment summary of the configuration.
-     * @returns a managedAppPolicyDeploymentSummary
+     * @returns a admin
      */
     public get deploymentSummary() {
         return this._deploymentSummary;
@@ -75,7 +73,7 @@ export class TargetedManagedAppConfiguration extends ManagedAppConfiguration imp
      * Sets the deploymentSummary property value. Navigation property to deployment summary of the configuration.
      * @param value Value to set for the deploymentSummary property.
      */
-    public set deploymentSummary(value: ManagedAppPolicyDeploymentSummary | undefined) {
+    public set deploymentSummary(value: ManagedAppPolicyDeploymentSummary | AdminMember1 | undefined) {
         this._deploymentSummary = value;
     };
     /**

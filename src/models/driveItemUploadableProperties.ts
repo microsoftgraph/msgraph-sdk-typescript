@@ -1,5 +1,4 @@
-import {createFileSystemInfoFromDiscriminatorValue} from './createFileSystemInfoFromDiscriminatorValue';
-import {FileSystemInfo} from './index';
+import {CreateUploadSessionMember1, FileSystemInfo} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DriveItemUploadableProperties implements AdditionalDataHolder, Parsable {
@@ -10,7 +9,7 @@ export class DriveItemUploadableProperties implements AdditionalDataHolder, Pars
     /** Provides an expected file size to perform a quota check prior to upload. Only on OneDrive Personal. */
     private _fileSize?: number | undefined;
     /** File system information on client. Read-write. */
-    private _fileSystemInfo?: FileSystemInfo | undefined;
+    private _fileSystemInfo?: FileSystemInfo | CreateUploadSessionMember1 | undefined;
     /** The name of the item (filename and extension). Read-write. */
     private _name?: string | undefined;
     /**
@@ -63,7 +62,7 @@ export class DriveItemUploadableProperties implements AdditionalDataHolder, Pars
     };
     /**
      * Gets the fileSystemInfo property value. File system information on client. Read-write.
-     * @returns a fileSystemInfo
+     * @returns a createUploadSession
      */
     public get fileSystemInfo() {
         return this._fileSystemInfo;
@@ -72,7 +71,7 @@ export class DriveItemUploadableProperties implements AdditionalDataHolder, Pars
      * Sets the fileSystemInfo property value. File system information on client. Read-write.
      * @param value Value to set for the fileSystemInfo property.
      */
-    public set fileSystemInfo(value: FileSystemInfo | undefined) {
+    public set fileSystemInfo(value: FileSystemInfo | CreateUploadSessionMember1 | undefined) {
         this._fileSystemInfo = value;
     };
     /**

@@ -1,19 +1,16 @@
-import {createEntityFromDiscriminatorValue} from './createEntityFromDiscriminatorValue';
-import {createResourceReferenceFromDiscriminatorValue} from './createResourceReferenceFromDiscriminatorValue';
-import {createResourceVisualizationFromDiscriminatorValue} from './createResourceVisualizationFromDiscriminatorValue';
-import {Entity, ResourceReference, ResourceVisualization} from './index';
+import {AdminMember1, Entity, ResourceReference, ResourceVisualization} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class Trending extends Entity implements Parsable {
     /** The lastModifiedDateTime property */
     private _lastModifiedDateTime?: Date | undefined;
     /** Used for navigating to the trending document. */
-    private _resource?: Entity | undefined;
+    private _resource?: Entity | AdminMember1 | undefined;
     /** Reference properties of the trending document, such as the url and type of the document. */
-    private _resourceReference?: ResourceReference | undefined;
+    private _resourceReference?: ResourceReference | AdminMember1 | undefined;
     /** Properties that you can use to visualize the document in your experience. */
-    private _resourceVisualization?: ResourceVisualization | undefined;
+    private _resourceVisualization?: ResourceVisualization | AdminMember1 | undefined;
     /** Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value. */
     private _weight?: number | undefined;
     /**
@@ -51,7 +48,7 @@ export class Trending extends Entity implements Parsable {
     };
     /**
      * Gets the resource property value. Used for navigating to the trending document.
-     * @returns a entity
+     * @returns a admin
      */
     public get resource() {
         return this._resource;
@@ -60,12 +57,12 @@ export class Trending extends Entity implements Parsable {
      * Sets the resource property value. Used for navigating to the trending document.
      * @param value Value to set for the resource property.
      */
-    public set resource(value: Entity | undefined) {
+    public set resource(value: Entity | AdminMember1 | undefined) {
         this._resource = value;
     };
     /**
      * Gets the resourceReference property value. Reference properties of the trending document, such as the url and type of the document.
-     * @returns a resourceReference
+     * @returns a admin
      */
     public get resourceReference() {
         return this._resourceReference;
@@ -74,12 +71,12 @@ export class Trending extends Entity implements Parsable {
      * Sets the resourceReference property value. Reference properties of the trending document, such as the url and type of the document.
      * @param value Value to set for the resourceReference property.
      */
-    public set resourceReference(value: ResourceReference | undefined) {
+    public set resourceReference(value: ResourceReference | AdminMember1 | undefined) {
         this._resourceReference = value;
     };
     /**
      * Gets the resourceVisualization property value. Properties that you can use to visualize the document in your experience.
-     * @returns a resourceVisualization
+     * @returns a admin
      */
     public get resourceVisualization() {
         return this._resourceVisualization;
@@ -88,7 +85,7 @@ export class Trending extends Entity implements Parsable {
      * Sets the resourceVisualization property value. Properties that you can use to visualize the document in your experience.
      * @param value Value to set for the resourceVisualization property.
      */
-    public set resourceVisualization(value: ResourceVisualization | undefined) {
+    public set resourceVisualization(value: ResourceVisualization | AdminMember1 | undefined) {
         this._resourceVisualization = value;
     };
     /**

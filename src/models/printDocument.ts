@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
+/** Provides operations to manage the admin singleton. */
 export class PrintDocument extends Entity implements Parsable {
     /** The document's content (MIME) type. Read-only. */
     private _contentType?: string | undefined;

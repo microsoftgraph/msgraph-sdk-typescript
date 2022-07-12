@@ -1,5 +1,5 @@
 import {TimeSlot} from '../../../../../../../../../../../models/';
-import {createTimeSlotFromDiscriminatorValue} from '../../../../../../../../../../../models/createTimeSlotFromDiscriminatorValue';
+import {TentativelyAcceptMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the tentativelyAccept method. */
@@ -9,7 +9,7 @@ export class TentativelyAcceptPostRequestBody implements AdditionalDataHolder, P
     /** The Comment property */
     private _comment?: string | undefined;
     /** The ProposedNewTime property */
-    private _proposedNewTime?: TimeSlot | undefined;
+    private _proposedNewTime?: TimeSlot | TentativelyAcceptMember1 | undefined;
     /** The SendResponse property */
     private _sendResponse?: boolean | undefined;
     /**
@@ -59,7 +59,7 @@ export class TentativelyAcceptPostRequestBody implements AdditionalDataHolder, P
     };
     /**
      * Gets the proposedNewTime property value. The ProposedNewTime property
-     * @returns a timeSlot
+     * @returns a tentativelyAccept
      */
     public get proposedNewTime() {
         return this._proposedNewTime;
@@ -68,7 +68,7 @@ export class TentativelyAcceptPostRequestBody implements AdditionalDataHolder, P
      * Sets the proposedNewTime property value. The ProposedNewTime property
      * @param value Value to set for the ProposedNewTime property.
      */
-    public set proposedNewTime(value: TimeSlot | undefined) {
+    public set proposedNewTime(value: TimeSlot | TentativelyAcceptMember1 | undefined) {
         this._proposedNewTime = value;
     };
     /**

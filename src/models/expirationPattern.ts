@@ -1,4 +1,5 @@
 import {ExpirationPatternType} from './expirationPatternType';
+import {AdminMember1} from './index';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ExpirationPattern implements AdditionalDataHolder, Parsable {
@@ -9,7 +10,7 @@ export class ExpirationPattern implements AdditionalDataHolder, Parsable {
     /** Timestamp of date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _endDateTime?: Date | undefined;
     /** The requestor's desired expiration pattern type. */
-    private _type?: ExpirationPatternType | undefined;
+    private _type?: ExpirationPatternType | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -66,7 +67,7 @@ export class ExpirationPattern implements AdditionalDataHolder, Parsable {
         return {
             "duration": n => { this.duration = n.getDurationValue(); },
             "endDateTime": n => { this.endDateTime = n.getDateValue(); },
-            "type": n => { this.type = n.getEnumValue<ExpirationPatternType>(ExpirationPatternType); },
+            "type": n => { this.type = n.getObjectValue<ExpirationPatternType>(createExpirationPatternTypeFromDiscriminatorValue); },
         };
     };
     /**
@@ -77,12 +78,12 @@ export class ExpirationPattern implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeDurationValue("duration", this.duration);
         writer.writeDateValue("endDateTime", this.endDateTime);
-        writer.writeEnumValue<ExpirationPatternType>("type", this.type);
+        writer.writeObjectValue<ExpirationPatternType>("type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the type property value. The requestor's desired expiration pattern type.
-     * @returns a expirationPatternType
+     * @returns a admin
      */
     public get type() {
         return this._type;
@@ -91,7 +92,7 @@ export class ExpirationPattern implements AdditionalDataHolder, Parsable {
      * Sets the type property value. The requestor's desired expiration pattern type.
      * @param value Value to set for the type property.
      */
-    public set type(value: ExpirationPatternType | undefined) {
+    public set type(value: ExpirationPatternType | AdminMember1 | undefined) {
         this._type = value;
     };
 }

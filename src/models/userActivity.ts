@@ -1,11 +1,10 @@
 import {createActivityHistoryItemFromDiscriminatorValue} from './createActivityHistoryItemFromDiscriminatorValue';
-import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
 import {createVisualInfoFromDiscriminatorValue} from './createVisualInfoFromDiscriminatorValue';
-import {ActivityHistoryItem, Entity, Json, VisualInfo} from './index';
+import {ActivityHistoryItem, AdminMember1, Entity, Json, VisualInfo} from './index';
 import {Status} from './status';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class UserActivity extends Entity implements Parsable {
     /** Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists. */
     private _activationUrl?: string | undefined;
@@ -16,7 +15,7 @@ export class UserActivity extends Entity implements Parsable {
     /** Optional. Short text description of the app used to generate the activity for use in cases when the app is not installed on the user’s local device. */
     private _appDisplayName?: string | undefined;
     /** Optional. A custom piece of data - JSON-LD extensible description of content according to schema.org syntax. */
-    private _contentInfo?: Json | undefined;
+    private _contentInfo?: Json | AdminMember1 | undefined;
     /** Optional. Used in the event the content can be rendered outside of a native or web-based app experience (for example, a pointer to an item in an RSS feed). */
     private _contentUrl?: string | undefined;
     /** Set by the server. DateTime in UTC when the object was created on the server. */
@@ -30,7 +29,7 @@ export class UserActivity extends Entity implements Parsable {
     /** Set by the server. DateTime in UTC when the object was modified on the server. */
     private _lastModifiedDateTime?: Date | undefined;
     /** Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored. */
-    private _status?: Status | undefined;
+    private _status?: Status | AdminMember1 | undefined;
     /** Optional. The timezone in which the user's device used to generate the activity was located at activity creation time; values supplied as Olson IDs in order to support cross-platform representation. */
     private _userTimezone?: string | undefined;
     /** The visualElements property */
@@ -99,7 +98,7 @@ export class UserActivity extends Entity implements Parsable {
     };
     /**
      * Gets the contentInfo property value. Optional. A custom piece of data - JSON-LD extensible description of content according to schema.org syntax.
-     * @returns a Json
+     * @returns a admin
      */
     public get contentInfo() {
         return this._contentInfo;
@@ -108,7 +107,7 @@ export class UserActivity extends Entity implements Parsable {
      * Sets the contentInfo property value. Optional. A custom piece of data - JSON-LD extensible description of content according to schema.org syntax.
      * @param value Value to set for the contentInfo property.
      */
-    public set contentInfo(value: Json | undefined) {
+    public set contentInfo(value: Json | AdminMember1 | undefined) {
         this._contentInfo = value;
     };
     /**
@@ -184,7 +183,7 @@ export class UserActivity extends Entity implements Parsable {
             "fallbackUrl": n => { this.fallbackUrl = n.getStringValue(); },
             "historyItems": n => { this.historyItems = n.getCollectionOfObjectValues<ActivityHistoryItem>(createActivityHistoryItemFromDiscriminatorValue); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
-            "status": n => { this.status = n.getEnumValue<Status>(Status); },
+            "status": n => { this.status = n.getObjectValue<Status>(createStatusFromDiscriminatorValue); },
             "userTimezone": n => { this.userTimezone = n.getStringValue(); },
             "visualElements": n => { this.visualElements = n.getObjectValue<VisualInfo>(createVisualInfoFromDiscriminatorValue); },
         };
@@ -235,13 +234,13 @@ export class UserActivity extends Entity implements Parsable {
         writer.writeStringValue("fallbackUrl", this.fallbackUrl);
         writer.writeCollectionOfObjectValues<ActivityHistoryItem>("historyItems", this.historyItems);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-        writer.writeEnumValue<Status>("status", this.status);
+        writer.writeObjectValue<Status>("status", this.status);
         writer.writeStringValue("userTimezone", this.userTimezone);
         writer.writeObjectValue<VisualInfo>("visualElements", this.visualElements);
     };
     /**
      * Gets the status property value. Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
-     * @returns a status
+     * @returns a admin
      */
     public get status() {
         return this._status;
@@ -250,7 +249,7 @@ export class UserActivity extends Entity implements Parsable {
      * Sets the status property value. Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
      * @param value Value to set for the status property.
      */
-    public set status(value: Status | undefined) {
+    public set status(value: Status | AdminMember1 | undefined) {
         this._status = value;
     };
     /**

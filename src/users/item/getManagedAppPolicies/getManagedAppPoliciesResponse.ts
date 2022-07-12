@@ -1,5 +1,5 @@
 import {ManagedAppPolicy} from '../../../models/';
-import {createManagedAppPolicyFromDiscriminatorValue} from '../../../models/createManagedAppPolicyFromDiscriminatorValue';
+import {GetManagedAppPoliciesMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getManagedAppPolicies method. */
@@ -7,7 +7,7 @@ export class GetManagedAppPoliciesResponse implements AdditionalDataHolder, Pars
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The value property */
-    private _value?: ManagedAppPolicy[] | undefined;
+    private _value?: ManagedAppPolicy | GetManagedAppPoliciesMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,7 +34,7 @@ export class GetManagedAppPoliciesResponse implements AdditionalDataHolder, Pars
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": n => { this.value = n.getCollectionOfObjectValues<ManagedAppPolicy>(createManagedAppPolicyFromDiscriminatorValue); },
+            "value": n => { this.value = n.getObjectValue<ManagedAppPolicy>(createManagedAppPolicyFromDiscriminatorValue); },
         };
     };
     /**
@@ -43,12 +43,12 @@ export class GetManagedAppPoliciesResponse implements AdditionalDataHolder, Pars
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<ManagedAppPolicy>("value", this.value);
+        writer.writeObjectValue<ManagedAppPolicy>("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the value property value. The value property
-     * @returns a managedAppPolicy
+     * @returns a getManagedAppPolicies
      */
     public get value() {
         return this._value;
@@ -57,7 +57,7 @@ export class GetManagedAppPoliciesResponse implements AdditionalDataHolder, Pars
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public set value(value: ManagedAppPolicy[] | undefined) {
+    public set value(value: ManagedAppPolicy | GetManagedAppPoliciesMember1[] | undefined) {
         this._value = value;
     };
 }

@@ -1,12 +1,11 @@
-import {createGenericErrorFromDiscriminatorValue} from './createGenericErrorFromDiscriminatorValue';
-import {GenericError} from './index';
+import {GenericError, TranslateExchangeIdsMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConvertIdResult implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** An error object indicating the reason for the conversion failure. This value is not present if the conversion succeeded. */
-    private _errorDetails?: GenericError | undefined;
+    private _errorDetails?: GenericError | TranslateExchangeIdsMember1 | undefined;
     /** The identifier that was converted. This value is the original, un-converted identifier. */
     private _sourceId?: string | undefined;
     /** The converted identifier. This value is not present if the conversion failed. */
@@ -33,7 +32,7 @@ export class ConvertIdResult implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the errorDetails property value. An error object indicating the reason for the conversion failure. This value is not present if the conversion succeeded.
-     * @returns a genericError
+     * @returns a translateExchangeIds
      */
     public get errorDetails() {
         return this._errorDetails;
@@ -42,7 +41,7 @@ export class ConvertIdResult implements AdditionalDataHolder, Parsable {
      * Sets the errorDetails property value. An error object indicating the reason for the conversion failure. This value is not present if the conversion succeeded.
      * @param value Value to set for the errorDetails property.
      */
-    public set errorDetails(value: GenericError | undefined) {
+    public set errorDetails(value: GenericError | TranslateExchangeIdsMember1 | undefined) {
         this._errorDetails = value;
     };
     /**

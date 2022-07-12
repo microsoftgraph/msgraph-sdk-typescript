@@ -1,25 +1,19 @@
-import {createAudioConferencingFromDiscriminatorValue} from './createAudioConferencingFromDiscriminatorValue';
-import {createBroadcastMeetingSettingsFromDiscriminatorValue} from './createBroadcastMeetingSettingsFromDiscriminatorValue';
-import {createChatInfoFromDiscriminatorValue} from './createChatInfoFromDiscriminatorValue';
-import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
-import {createLobbyBypassSettingsFromDiscriminatorValue} from './createLobbyBypassSettingsFromDiscriminatorValue';
 import {createMeetingAttendanceReportFromDiscriminatorValue} from './createMeetingAttendanceReportFromDiscriminatorValue';
-import {createMeetingParticipantsFromDiscriminatorValue} from './createMeetingParticipantsFromDiscriminatorValue';
-import {AudioConferencing, BroadcastMeetingSettings, ChatInfo, Entity, ItemBody, LobbyBypassSettings, MeetingAttendanceReport, MeetingParticipants} from './index';
+import {AdminMember1, AudioConferencing, BroadcastMeetingSettings, ChatInfo, Entity, ItemBody, LobbyBypassSettings, MeetingAttendanceReport, MeetingParticipants} from './index';
 import {MeetingChatMode} from './meetingChatMode';
 import {OnlineMeetingPresenters} from './onlineMeetingPresenters';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the admin singleton. */
 export class OnlineMeeting extends Entity implements Parsable {
     /** Indicates whether attendees can turn on their camera. */
     private _allowAttendeeToEnableCamera?: boolean | undefined;
     /** Indicates whether attendees can turn on their microphone. */
     private _allowAttendeeToEnableMic?: boolean | undefined;
     /** Specifies who can be a presenter in a meeting. */
-    private _allowedPresenters?: OnlineMeetingPresenters | undefined;
+    private _allowedPresenters?: OnlineMeetingPresenters | AdminMember1 | undefined;
     /** Specifies the mode of meeting chat. */
-    private _allowMeetingChat?: MeetingChatMode | undefined;
+    private _allowMeetingChat?: MeetingChatMode | AdminMember1 | undefined;
     /** Indicates if Teams reactions are enabled for the meeting. */
     private _allowTeamworkReactions?: boolean | undefined;
     /** The attendance reports of an online meeting. Read-only. */
@@ -27,11 +21,11 @@ export class OnlineMeeting extends Entity implements Parsable {
     /** The content stream of the attendee report of a Teams live event. Read-only. */
     private _attendeeReport?: string | undefined;
     /** The phone access (dial-in) information for an online meeting. Read-only. */
-    private _audioConferencing?: AudioConferencing | undefined;
+    private _audioConferencing?: AudioConferencing | AdminMember1 | undefined;
     /** Settings related to a live event. */
-    private _broadcastSettings?: BroadcastMeetingSettings | undefined;
+    private _broadcastSettings?: BroadcastMeetingSettings | AdminMember1 | undefined;
     /** The chat information associated with this online meeting. */
-    private _chatInfo?: ChatInfo | undefined;
+    private _chatInfo?: ChatInfo | AdminMember1 | undefined;
     /** The meeting creation time in UTC. Read-only. */
     private _creationDateTime?: Date | undefined;
     /** The meeting end time in UTC. */
@@ -43,13 +37,13 @@ export class OnlineMeeting extends Entity implements Parsable {
     /** Indicates whether to announce when callers join or leave. */
     private _isEntryExitAnnounced?: boolean | undefined;
     /** The join information in the language and locale variant specified in 'Accept-Language' request HTTP header. Read-only. */
-    private _joinInformation?: ItemBody | undefined;
+    private _joinInformation?: ItemBody | AdminMember1 | undefined;
     /** The join URL of the online meeting. Read-only. */
     private _joinWebUrl?: string | undefined;
     /** Specifies which participants can bypass the meeting lobby. */
-    private _lobbyBypassSettings?: LobbyBypassSettings | undefined;
+    private _lobbyBypassSettings?: LobbyBypassSettings | AdminMember1 | undefined;
     /** The participants associated with the online meeting. This includes the organizer and the attendees. */
-    private _participants?: MeetingParticipants | undefined;
+    private _participants?: MeetingParticipants | AdminMember1 | undefined;
     /** Indicates whether to record the meeting automatically. */
     private _recordAutomatically?: boolean | undefined;
     /** The meeting start time in UTC. */
@@ -88,7 +82,7 @@ export class OnlineMeeting extends Entity implements Parsable {
     };
     /**
      * Gets the allowedPresenters property value. Specifies who can be a presenter in a meeting.
-     * @returns a onlineMeetingPresenters
+     * @returns a admin
      */
     public get allowedPresenters() {
         return this._allowedPresenters;
@@ -97,12 +91,12 @@ export class OnlineMeeting extends Entity implements Parsable {
      * Sets the allowedPresenters property value. Specifies who can be a presenter in a meeting.
      * @param value Value to set for the allowedPresenters property.
      */
-    public set allowedPresenters(value: OnlineMeetingPresenters | undefined) {
+    public set allowedPresenters(value: OnlineMeetingPresenters | AdminMember1 | undefined) {
         this._allowedPresenters = value;
     };
     /**
      * Gets the allowMeetingChat property value. Specifies the mode of meeting chat.
-     * @returns a meetingChatMode
+     * @returns a admin
      */
     public get allowMeetingChat() {
         return this._allowMeetingChat;
@@ -111,7 +105,7 @@ export class OnlineMeeting extends Entity implements Parsable {
      * Sets the allowMeetingChat property value. Specifies the mode of meeting chat.
      * @param value Value to set for the allowMeetingChat property.
      */
-    public set allowMeetingChat(value: MeetingChatMode | undefined) {
+    public set allowMeetingChat(value: MeetingChatMode | AdminMember1 | undefined) {
         this._allowMeetingChat = value;
     };
     /**
@@ -158,7 +152,7 @@ export class OnlineMeeting extends Entity implements Parsable {
     };
     /**
      * Gets the audioConferencing property value. The phone access (dial-in) information for an online meeting. Read-only.
-     * @returns a audioConferencing
+     * @returns a admin
      */
     public get audioConferencing() {
         return this._audioConferencing;
@@ -167,12 +161,12 @@ export class OnlineMeeting extends Entity implements Parsable {
      * Sets the audioConferencing property value. The phone access (dial-in) information for an online meeting. Read-only.
      * @param value Value to set for the audioConferencing property.
      */
-    public set audioConferencing(value: AudioConferencing | undefined) {
+    public set audioConferencing(value: AudioConferencing | AdminMember1 | undefined) {
         this._audioConferencing = value;
     };
     /**
      * Gets the broadcastSettings property value. Settings related to a live event.
-     * @returns a broadcastMeetingSettings
+     * @returns a admin
      */
     public get broadcastSettings() {
         return this._broadcastSettings;
@@ -181,12 +175,12 @@ export class OnlineMeeting extends Entity implements Parsable {
      * Sets the broadcastSettings property value. Settings related to a live event.
      * @param value Value to set for the broadcastSettings property.
      */
-    public set broadcastSettings(value: BroadcastMeetingSettings | undefined) {
+    public set broadcastSettings(value: BroadcastMeetingSettings | AdminMember1 | undefined) {
         this._broadcastSettings = value;
     };
     /**
      * Gets the chatInfo property value. The chat information associated with this online meeting.
-     * @returns a chatInfo
+     * @returns a admin
      */
     public get chatInfo() {
         return this._chatInfo;
@@ -195,7 +189,7 @@ export class OnlineMeeting extends Entity implements Parsable {
      * Sets the chatInfo property value. The chat information associated with this online meeting.
      * @param value Value to set for the chatInfo property.
      */
-    public set chatInfo(value: ChatInfo | undefined) {
+    public set chatInfo(value: ChatInfo | AdminMember1 | undefined) {
         this._chatInfo = value;
     };
     /**
@@ -254,8 +248,8 @@ export class OnlineMeeting extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "allowAttendeeToEnableCamera": n => { this.allowAttendeeToEnableCamera = n.getBooleanValue(); },
             "allowAttendeeToEnableMic": n => { this.allowAttendeeToEnableMic = n.getBooleanValue(); },
-            "allowedPresenters": n => { this.allowedPresenters = n.getEnumValue<OnlineMeetingPresenters>(OnlineMeetingPresenters); },
-            "allowMeetingChat": n => { this.allowMeetingChat = n.getEnumValue<MeetingChatMode>(MeetingChatMode); },
+            "allowedPresenters": n => { this.allowedPresenters = n.getObjectValue<OnlineMeetingPresenters>(createOnlineMeetingPresentersFromDiscriminatorValue); },
+            "allowMeetingChat": n => { this.allowMeetingChat = n.getObjectValue<MeetingChatMode>(createMeetingChatModeFromDiscriminatorValue); },
             "allowTeamworkReactions": n => { this.allowTeamworkReactions = n.getBooleanValue(); },
             "attendanceReports": n => { this.attendanceReports = n.getCollectionOfObjectValues<MeetingAttendanceReport>(createMeetingAttendanceReportFromDiscriminatorValue); },
             "attendeeReport": n => { this.attendeeReport = n.getStringValue(); },
@@ -307,7 +301,7 @@ export class OnlineMeeting extends Entity implements Parsable {
     };
     /**
      * Gets the joinInformation property value. The join information in the language and locale variant specified in 'Accept-Language' request HTTP header. Read-only.
-     * @returns a itemBody
+     * @returns a admin
      */
     public get joinInformation() {
         return this._joinInformation;
@@ -316,7 +310,7 @@ export class OnlineMeeting extends Entity implements Parsable {
      * Sets the joinInformation property value. The join information in the language and locale variant specified in 'Accept-Language' request HTTP header. Read-only.
      * @param value Value to set for the joinInformation property.
      */
-    public set joinInformation(value: ItemBody | undefined) {
+    public set joinInformation(value: ItemBody | AdminMember1 | undefined) {
         this._joinInformation = value;
     };
     /**
@@ -335,7 +329,7 @@ export class OnlineMeeting extends Entity implements Parsable {
     };
     /**
      * Gets the lobbyBypassSettings property value. Specifies which participants can bypass the meeting lobby.
-     * @returns a lobbyBypassSettings
+     * @returns a admin
      */
     public get lobbyBypassSettings() {
         return this._lobbyBypassSettings;
@@ -344,12 +338,12 @@ export class OnlineMeeting extends Entity implements Parsable {
      * Sets the lobbyBypassSettings property value. Specifies which participants can bypass the meeting lobby.
      * @param value Value to set for the lobbyBypassSettings property.
      */
-    public set lobbyBypassSettings(value: LobbyBypassSettings | undefined) {
+    public set lobbyBypassSettings(value: LobbyBypassSettings | AdminMember1 | undefined) {
         this._lobbyBypassSettings = value;
     };
     /**
      * Gets the participants property value. The participants associated with the online meeting. This includes the organizer and the attendees.
-     * @returns a meetingParticipants
+     * @returns a admin
      */
     public get participants() {
         return this._participants;
@@ -358,7 +352,7 @@ export class OnlineMeeting extends Entity implements Parsable {
      * Sets the participants property value. The participants associated with the online meeting. This includes the organizer and the attendees.
      * @param value Value to set for the participants property.
      */
-    public set participants(value: MeetingParticipants | undefined) {
+    public set participants(value: MeetingParticipants | AdminMember1 | undefined) {
         this._participants = value;
     };
     /**
@@ -384,8 +378,8 @@ export class OnlineMeeting extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeBooleanValue("allowAttendeeToEnableCamera", this.allowAttendeeToEnableCamera);
         writer.writeBooleanValue("allowAttendeeToEnableMic", this.allowAttendeeToEnableMic);
-        writer.writeEnumValue<OnlineMeetingPresenters>("allowedPresenters", this.allowedPresenters);
-        writer.writeEnumValue<MeetingChatMode>("allowMeetingChat", this.allowMeetingChat);
+        writer.writeObjectValue<OnlineMeetingPresenters>("allowedPresenters", this.allowedPresenters);
+        writer.writeObjectValue<MeetingChatMode>("allowMeetingChat", this.allowMeetingChat);
         writer.writeBooleanValue("allowTeamworkReactions", this.allowTeamworkReactions);
         writer.writeCollectionOfObjectValues<MeetingAttendanceReport>("attendanceReports", this.attendanceReports);
         writer.writeStringValue("attendeeReport", this.attendeeReport);

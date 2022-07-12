@@ -1,5 +1,4 @@
-import {createRoleDefinitionFromDiscriminatorValue} from './createRoleDefinitionFromDiscriminatorValue';
-import {Entity, RoleDefinition} from './index';
+import {AdminMember1, Entity, RoleDefinition} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The Role Assignment resource. Role assignments tie together a role definition with members and scopes. There can be one or more role assignments per role. This applies to custom and built-in roles. */
@@ -11,12 +10,13 @@ export class RoleAssignment extends Entity implements Parsable {
     /** List of ids of role scope member security groups.  These are IDs from Azure Active Directory. */
     private _resourceScopes?: string[] | undefined;
     /** Role definition this assignment is part of. */
-    private _roleDefinition?: RoleDefinition | undefined;
+    private _roleDefinition?: RoleDefinition | AdminMember1 | undefined;
     /**
      * Instantiates a new roleAssignment and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.roleAssignment";
     };
     /**
      * Gets the description property value. Description of the Role Assignment.
@@ -74,7 +74,7 @@ export class RoleAssignment extends Entity implements Parsable {
     };
     /**
      * Gets the roleDefinition property value. Role definition this assignment is part of.
-     * @returns a roleDefinition
+     * @returns a admin
      */
     public get roleDefinition() {
         return this._roleDefinition;
@@ -83,7 +83,7 @@ export class RoleAssignment extends Entity implements Parsable {
      * Sets the roleDefinition property value. Role definition this assignment is part of.
      * @param value Value to set for the roleDefinition property.
      */
-    public set roleDefinition(value: RoleDefinition | undefined) {
+    public set roleDefinition(value: RoleDefinition | AdminMember1 | undefined) {
         this._roleDefinition = value;
     };
     /**

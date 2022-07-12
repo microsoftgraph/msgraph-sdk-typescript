@@ -1,18 +1,12 @@
 import {createAccessReviewInstanceFromDiscriminatorValue} from './createAccessReviewInstanceFromDiscriminatorValue';
-import {createAccessReviewNotificationRecipientItemFromDiscriminatorValue} from './createAccessReviewNotificationRecipientItemFromDiscriminatorValue';
-import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAccessReviewReviewerScopeFromDiscriminatorValue';
-import {createAccessReviewScheduleSettingsFromDiscriminatorValue} from './createAccessReviewScheduleSettingsFromDiscriminatorValue';
-import {createAccessReviewScopeFromDiscriminatorValue} from './createAccessReviewScopeFromDiscriminatorValue';
-import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFromDiscriminatorValue';
-import {AccessReviewInstance, AccessReviewNotificationRecipientItem, AccessReviewReviewerScope, AccessReviewScheduleSettings, AccessReviewScope, Entity, UserIdentity} from './index';
+import {AccessReviewInstance, AccessReviewNotificationRecipientItem, AccessReviewReviewerScope, AccessReviewScheduleSettings, AccessReviewScope, AccessReviewStageSettings, AdminMember1, Entity, UserIdentity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewScheduleDefinition extends Entity implements Parsable {
     /** Defines the list of additional users or group members to be notified of the access review progress. */
-    private _additionalNotificationRecipients?: AccessReviewNotificationRecipientItem[] | undefined;
+    private _additionalNotificationRecipients?: AccessReviewNotificationRecipientItem | AdminMember1[] | undefined;
     /** User who created this review. Read-only. */
-    private _createdBy?: UserIdentity | undefined;
+    private _createdBy?: UserIdentity | AdminMember1 | undefined;
     /** Timestamp when the access review series was created. Supports $select. Read-only. */
     private _createdDateTime?: Date | undefined;
     /** Description provided by review creators to provide more context of the review to admins. Supports $select. */
@@ -22,24 +16,26 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
     /** Name of the access review series. Supports $select and $orderBy. Required on create. */
     private _displayName?: string | undefined;
     /** This collection of reviewer scopes is used to define the list of fallback reviewers. These fallback reviewers will be notified to take action if no users are found from the list of reviewers specified. This could occur when either the group owner is specified as the reviewer but the group owner does not exist, or manager is specified as reviewer but a user's manager does not exist. See accessReviewReviewerScope. Replaces backupReviewers. Supports $select. NOTE: The value of this property will be ignored if fallback reviewers are assigned through the stageSettings property. */
-    private _fallbackReviewers?: AccessReviewReviewerScope[] | undefined;
+    private _fallbackReviewers?: AccessReviewReviewerScope | AdminMember1[] | undefined;
     /** This property is required when scoping a review to guest users' access across all Microsoft 365 groups and determines which Microsoft 365 groups are reviewed. Each group will become a unique accessReviewInstance of the access review series.  For supported scopes, see accessReviewScope. Supports $select. For examples of options for configuring instanceEnumerationScope, see Configure the scope of your access review definition using the Microsoft Graph API. */
-    private _instanceEnumerationScope?: AccessReviewScope | undefined;
+    private _instanceEnumerationScope?: AccessReviewScope | AdminMember1 | undefined;
     /** Set of access reviews instances for this access review series. Access reviews that do not recur will only have one instance; otherwise, there is an instance for each recurrence. */
     private _instances?: AccessReviewInstance[] | undefined;
     /** Timestamp when the access review series was last modified. Supports $select. Read-only. */
     private _lastModifiedDateTime?: Date | undefined;
     /** This collection of access review scopes is used to define who are the reviewers. The reviewers property is only updatable if individual users are assigned as reviewers. Required on create. Supports $select. For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API. NOTE: The value of this property will be ignored if reviewers are assigned through the stageSettings property. */
-    private _reviewers?: AccessReviewReviewerScope[] | undefined;
+    private _reviewers?: AccessReviewReviewerScope | AdminMember1[] | undefined;
     /** Defines the entities whose access is reviewed. For supported scopes, see accessReviewScope. Required on create. Supports $select and $filter (contains only). For examples of options for configuring scope, see Configure the scope of your access review definition using the Microsoft Graph API. */
-    private _scope?: AccessReviewScope | undefined;
+    private _scope?: AccessReviewScope | AdminMember1 | undefined;
     /** The settings for an access review series, see type definition below. Supports $select. Required on create. */
-    private _settings?: AccessReviewScheduleSettings | undefined;
+    private _settings?: AccessReviewScheduleSettings | AdminMember1 | undefined;
+    /** Required only for a multi-stage access review to define the stages and their settings. You can break down each review instance into up to three sequential stages, where each stage can have a different set of reviewers, fallback reviewers, and settings. Stages will be created sequentially based on the dependsOn property. Optional.  When this property is defined, its settings are used instead of the corresponding settings in the accessReviewScheduleDefinition object and its settings, reviewers, and fallbackReviewers properties. */
+    private _stageSettings?: AccessReviewStageSettings | AdminMember1[] | undefined;
     /** This read-only field specifies the status of an access review. The typical states include Initializing, NotStarted, Starting, InProgress, Completing, Completed, AutoReviewing, and AutoReviewed.  Supports $select, $orderby, and $filter (eq only). Read-only. */
     private _status?: string | undefined;
     /**
      * Gets the additionalNotificationRecipients property value. Defines the list of additional users or group members to be notified of the access review progress.
-     * @returns a accessReviewNotificationRecipientItem
+     * @returns a admin
      */
     public get additionalNotificationRecipients() {
         return this._additionalNotificationRecipients;
@@ -48,18 +44,18 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
      * Sets the additionalNotificationRecipients property value. Defines the list of additional users or group members to be notified of the access review progress.
      * @param value Value to set for the additionalNotificationRecipients property.
      */
-    public set additionalNotificationRecipients(value: AccessReviewNotificationRecipientItem[] | undefined) {
+    public set additionalNotificationRecipients(value: AccessReviewNotificationRecipientItem | AdminMember1[] | undefined) {
         this._additionalNotificationRecipients = value;
     };
     /**
-     * Instantiates a new accessReviewScheduleDefinition and sets the default values.
+     * Instantiates a new AccessReviewScheduleDefinition and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
      * Gets the createdBy property value. User who created this review. Read-only.
-     * @returns a userIdentity
+     * @returns a admin
      */
     public get createdBy() {
         return this._createdBy;
@@ -68,7 +64,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
      * Sets the createdBy property value. User who created this review. Read-only.
      * @param value Value to set for the createdBy property.
      */
-    public set createdBy(value: UserIdentity | undefined) {
+    public set createdBy(value: UserIdentity | AdminMember1 | undefined) {
         this._createdBy = value;
     };
     /**
@@ -129,7 +125,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
     };
     /**
      * Gets the fallbackReviewers property value. This collection of reviewer scopes is used to define the list of fallback reviewers. These fallback reviewers will be notified to take action if no users are found from the list of reviewers specified. This could occur when either the group owner is specified as the reviewer but the group owner does not exist, or manager is specified as reviewer but a user's manager does not exist. See accessReviewReviewerScope. Replaces backupReviewers. Supports $select. NOTE: The value of this property will be ignored if fallback reviewers are assigned through the stageSettings property.
-     * @returns a accessReviewReviewerScope
+     * @returns a admin
      */
     public get fallbackReviewers() {
         return this._fallbackReviewers;
@@ -138,7 +134,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
      * Sets the fallbackReviewers property value. This collection of reviewer scopes is used to define the list of fallback reviewers. These fallback reviewers will be notified to take action if no users are found from the list of reviewers specified. This could occur when either the group owner is specified as the reviewer but the group owner does not exist, or manager is specified as reviewer but a user's manager does not exist. See accessReviewReviewerScope. Replaces backupReviewers. Supports $select. NOTE: The value of this property will be ignored if fallback reviewers are assigned through the stageSettings property.
      * @param value Value to set for the fallbackReviewers property.
      */
-    public set fallbackReviewers(value: AccessReviewReviewerScope[] | undefined) {
+    public set fallbackReviewers(value: AccessReviewReviewerScope | AdminMember1[] | undefined) {
         this._fallbackReviewers = value;
     };
     /**
@@ -147,25 +143,26 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "additionalNotificationRecipients": n => { this.additionalNotificationRecipients = n.getCollectionOfObjectValues<AccessReviewNotificationRecipientItem>(createAccessReviewNotificationRecipientItemFromDiscriminatorValue); },
+            "additionalNotificationRecipients": n => { this.additionalNotificationRecipients = n.getObjectValue<AccessReviewNotificationRecipientItem>(createAccessReviewNotificationRecipientItemFromDiscriminatorValue); },
             "createdBy": n => { this.createdBy = n.getObjectValue<UserIdentity>(createUserIdentityFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "descriptionForAdmins": n => { this.descriptionForAdmins = n.getStringValue(); },
             "descriptionForReviewers": n => { this.descriptionForReviewers = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
-            "fallbackReviewers": n => { this.fallbackReviewers = n.getCollectionOfObjectValues<AccessReviewReviewerScope>(createAccessReviewReviewerScopeFromDiscriminatorValue); },
+            "fallbackReviewers": n => { this.fallbackReviewers = n.getObjectValue<AccessReviewReviewerScope>(createAccessReviewReviewerScopeFromDiscriminatorValue); },
             "instanceEnumerationScope": n => { this.instanceEnumerationScope = n.getObjectValue<AccessReviewScope>(createAccessReviewScopeFromDiscriminatorValue); },
             "instances": n => { this.instances = n.getCollectionOfObjectValues<AccessReviewInstance>(createAccessReviewInstanceFromDiscriminatorValue); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
-            "reviewers": n => { this.reviewers = n.getCollectionOfObjectValues<AccessReviewReviewerScope>(createAccessReviewReviewerScopeFromDiscriminatorValue); },
+            "reviewers": n => { this.reviewers = n.getObjectValue<AccessReviewReviewerScope>(createAccessReviewReviewerScopeFromDiscriminatorValue); },
             "scope": n => { this.scope = n.getObjectValue<AccessReviewScope>(createAccessReviewScopeFromDiscriminatorValue); },
             "settings": n => { this.settings = n.getObjectValue<AccessReviewScheduleSettings>(createAccessReviewScheduleSettingsFromDiscriminatorValue); },
+            "stageSettings": n => { this.stageSettings = n.getObjectValue<AccessReviewStageSettings>(createAccessReviewStageSettingsFromDiscriminatorValue); },
             "status": n => { this.status = n.getStringValue(); },
         };
     };
     /**
      * Gets the instanceEnumerationScope property value. This property is required when scoping a review to guest users' access across all Microsoft 365 groups and determines which Microsoft 365 groups are reviewed. Each group will become a unique accessReviewInstance of the access review series.  For supported scopes, see accessReviewScope. Supports $select. For examples of options for configuring instanceEnumerationScope, see Configure the scope of your access review definition using the Microsoft Graph API.
-     * @returns a accessReviewScope
+     * @returns a admin
      */
     public get instanceEnumerationScope() {
         return this._instanceEnumerationScope;
@@ -174,7 +171,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
      * Sets the instanceEnumerationScope property value. This property is required when scoping a review to guest users' access across all Microsoft 365 groups and determines which Microsoft 365 groups are reviewed. Each group will become a unique accessReviewInstance of the access review series.  For supported scopes, see accessReviewScope. Supports $select. For examples of options for configuring instanceEnumerationScope, see Configure the scope of your access review definition using the Microsoft Graph API.
      * @param value Value to set for the instanceEnumerationScope property.
      */
-    public set instanceEnumerationScope(value: AccessReviewScope | undefined) {
+    public set instanceEnumerationScope(value: AccessReviewScope | AdminMember1 | undefined) {
         this._instanceEnumerationScope = value;
     };
     /**
@@ -207,7 +204,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
     };
     /**
      * Gets the reviewers property value. This collection of access review scopes is used to define who are the reviewers. The reviewers property is only updatable if individual users are assigned as reviewers. Required on create. Supports $select. For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API. NOTE: The value of this property will be ignored if reviewers are assigned through the stageSettings property.
-     * @returns a accessReviewReviewerScope
+     * @returns a admin
      */
     public get reviewers() {
         return this._reviewers;
@@ -216,12 +213,12 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
      * Sets the reviewers property value. This collection of access review scopes is used to define who are the reviewers. The reviewers property is only updatable if individual users are assigned as reviewers. Required on create. Supports $select. For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API. NOTE: The value of this property will be ignored if reviewers are assigned through the stageSettings property.
      * @param value Value to set for the reviewers property.
      */
-    public set reviewers(value: AccessReviewReviewerScope[] | undefined) {
+    public set reviewers(value: AccessReviewReviewerScope | AdminMember1[] | undefined) {
         this._reviewers = value;
     };
     /**
      * Gets the scope property value. Defines the entities whose access is reviewed. For supported scopes, see accessReviewScope. Required on create. Supports $select and $filter (contains only). For examples of options for configuring scope, see Configure the scope of your access review definition using the Microsoft Graph API.
-     * @returns a accessReviewScope
+     * @returns a admin
      */
     public get scope() {
         return this._scope;
@@ -230,7 +227,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
      * Sets the scope property value. Defines the entities whose access is reviewed. For supported scopes, see accessReviewScope. Required on create. Supports $select and $filter (contains only). For examples of options for configuring scope, see Configure the scope of your access review definition using the Microsoft Graph API.
      * @param value Value to set for the scope property.
      */
-    public set scope(value: AccessReviewScope | undefined) {
+    public set scope(value: AccessReviewScope | AdminMember1 | undefined) {
         this._scope = value;
     };
     /**
@@ -240,24 +237,25 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfObjectValues<AccessReviewNotificationRecipientItem>("additionalNotificationRecipients", this.additionalNotificationRecipients);
+        writer.writeObjectValue<AccessReviewNotificationRecipientItem>("additionalNotificationRecipients", this.additionalNotificationRecipients);
         writer.writeObjectValue<UserIdentity>("createdBy", this.createdBy);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeStringValue("descriptionForAdmins", this.descriptionForAdmins);
         writer.writeStringValue("descriptionForReviewers", this.descriptionForReviewers);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("fallbackReviewers", this.fallbackReviewers);
+        writer.writeObjectValue<AccessReviewReviewerScope>("fallbackReviewers", this.fallbackReviewers);
         writer.writeObjectValue<AccessReviewScope>("instanceEnumerationScope", this.instanceEnumerationScope);
         writer.writeCollectionOfObjectValues<AccessReviewInstance>("instances", this.instances);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-        writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("reviewers", this.reviewers);
+        writer.writeObjectValue<AccessReviewReviewerScope>("reviewers", this.reviewers);
         writer.writeObjectValue<AccessReviewScope>("scope", this.scope);
         writer.writeObjectValue<AccessReviewScheduleSettings>("settings", this.settings);
+        writer.writeObjectValue<AccessReviewStageSettings>("stageSettings", this.stageSettings);
         writer.writeStringValue("status", this.status);
     };
     /**
      * Gets the settings property value. The settings for an access review series, see type definition below. Supports $select. Required on create.
-     * @returns a accessReviewScheduleSettings
+     * @returns a admin
      */
     public get settings() {
         return this._settings;
@@ -266,8 +264,22 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
      * Sets the settings property value. The settings for an access review series, see type definition below. Supports $select. Required on create.
      * @param value Value to set for the settings property.
      */
-    public set settings(value: AccessReviewScheduleSettings | undefined) {
+    public set settings(value: AccessReviewScheduleSettings | AdminMember1 | undefined) {
         this._settings = value;
+    };
+    /**
+     * Gets the stageSettings property value. Required only for a multi-stage access review to define the stages and their settings. You can break down each review instance into up to three sequential stages, where each stage can have a different set of reviewers, fallback reviewers, and settings. Stages will be created sequentially based on the dependsOn property. Optional.  When this property is defined, its settings are used instead of the corresponding settings in the accessReviewScheduleDefinition object and its settings, reviewers, and fallbackReviewers properties.
+     * @returns a admin
+     */
+    public get stageSettings() {
+        return this._stageSettings;
+    };
+    /**
+     * Sets the stageSettings property value. Required only for a multi-stage access review to define the stages and their settings. You can break down each review instance into up to three sequential stages, where each stage can have a different set of reviewers, fallback reviewers, and settings. Stages will be created sequentially based on the dependsOn property. Optional.  When this property is defined, its settings are used instead of the corresponding settings in the accessReviewScheduleDefinition object and its settings, reviewers, and fallbackReviewers properties.
+     * @param value Value to set for the stageSettings property.
+     */
+    public set stageSettings(value: AccessReviewStageSettings | AdminMember1[] | undefined) {
+        this._stageSettings = value;
     };
     /**
      * Gets the status property value. This read-only field specifies the status of an access review. The typical states include Initializing, NotStarted, Starting, InProgress, Completing, Completed, AutoReviewing, and AutoReviewed.  Supports $select, $orderby, and $filter (eq only). Read-only.

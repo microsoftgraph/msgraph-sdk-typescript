@@ -1,5 +1,4 @@
-import {createSearchAlterationFromDiscriminatorValue} from './createSearchAlterationFromDiscriminatorValue';
-import {SearchAlteration} from './index';
+import {QueryMember1, SearchAlteration} from './index';
 import {SearchAlterationType} from './searchAlterationType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -9,9 +8,9 @@ export class AlterationResponse implements AdditionalDataHolder, Parsable {
     /** Defines the original user query string. */
     private _originalQueryString?: string | undefined;
     /** Defines the details of alteration information for the spelling correction. */
-    private _queryAlteration?: SearchAlteration | undefined;
+    private _queryAlteration?: SearchAlteration | QueryMember1 | undefined;
     /** Defines the type of the spelling correction. Possible values are suggestion, modification. */
-    private _queryAlterationType?: SearchAlterationType | undefined;
+    private _queryAlterationType?: SearchAlterationType | QueryMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -40,7 +39,7 @@ export class AlterationResponse implements AdditionalDataHolder, Parsable {
         return {
             "originalQueryString": n => { this.originalQueryString = n.getStringValue(); },
             "queryAlteration": n => { this.queryAlteration = n.getObjectValue<SearchAlteration>(createSearchAlterationFromDiscriminatorValue); },
-            "queryAlterationType": n => { this.queryAlterationType = n.getEnumValue<SearchAlterationType>(SearchAlterationType); },
+            "queryAlterationType": n => { this.queryAlterationType = n.getObjectValue<SearchAlterationType>(createSearchAlterationTypeFromDiscriminatorValue); },
         };
     };
     /**
@@ -59,7 +58,7 @@ export class AlterationResponse implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the queryAlteration property value. Defines the details of alteration information for the spelling correction.
-     * @returns a searchAlteration
+     * @returns a query
      */
     public get queryAlteration() {
         return this._queryAlteration;
@@ -68,12 +67,12 @@ export class AlterationResponse implements AdditionalDataHolder, Parsable {
      * Sets the queryAlteration property value. Defines the details of alteration information for the spelling correction.
      * @param value Value to set for the queryAlteration property.
      */
-    public set queryAlteration(value: SearchAlteration | undefined) {
+    public set queryAlteration(value: SearchAlteration | QueryMember1 | undefined) {
         this._queryAlteration = value;
     };
     /**
      * Gets the queryAlterationType property value. Defines the type of the spelling correction. Possible values are suggestion, modification.
-     * @returns a searchAlterationType
+     * @returns a query
      */
     public get queryAlterationType() {
         return this._queryAlterationType;
@@ -82,7 +81,7 @@ export class AlterationResponse implements AdditionalDataHolder, Parsable {
      * Sets the queryAlterationType property value. Defines the type of the spelling correction. Possible values are suggestion, modification.
      * @param value Value to set for the queryAlterationType property.
      */
-    public set queryAlterationType(value: SearchAlterationType | undefined) {
+    public set queryAlterationType(value: SearchAlterationType | QueryMember1 | undefined) {
         this._queryAlterationType = value;
     };
     /**
@@ -93,7 +92,7 @@ export class AlterationResponse implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("originalQueryString", this.originalQueryString);
         writer.writeObjectValue<SearchAlteration>("queryAlteration", this.queryAlteration);
-        writer.writeEnumValue<SearchAlterationType>("queryAlterationType", this.queryAlterationType);
+        writer.writeObjectValue<SearchAlterationType>("queryAlterationType", this.queryAlterationType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,13 +1,12 @@
-import {Identity} from './index';
+import {AdminMember1, Identity} from './index';
 import {InitiatorType} from './initiatorType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
 export class Initiator extends Identity implements Parsable {
     /** Type of initiator. Possible values are: user, application, system, unknownFutureValue. */
-    private _initiatorType?: InitiatorType | undefined;
+    private _initiatorType?: InitiatorType | AdminMember1 | undefined;
     /**
-     * Instantiates a new initiator and sets the default values.
+     * Instantiates a new Initiator and sets the default values.
      */
     public constructor() {
         super();
@@ -18,12 +17,12 @@ export class Initiator extends Identity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "initiatorType": n => { this.initiatorType = n.getEnumValue<InitiatorType>(InitiatorType); },
+            "initiatorType": n => { this.initiatorType = n.getObjectValue<InitiatorType>(createInitiatorTypeFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the initiatorType property value. Type of initiator. Possible values are: user, application, system, unknownFutureValue.
-     * @returns a initiatorType
+     * @returns a admin
      */
     public get initiatorType() {
         return this._initiatorType;
@@ -32,7 +31,7 @@ export class Initiator extends Identity implements Parsable {
      * Sets the initiatorType property value. Type of initiator. Possible values are: user, application, system, unknownFutureValue.
      * @param value Value to set for the initiatorType property.
      */
-    public set initiatorType(value: InitiatorType | undefined) {
+    public set initiatorType(value: InitiatorType | AdminMember1 | undefined) {
         this._initiatorType = value;
     };
     /**
@@ -42,6 +41,6 @@ export class Initiator extends Identity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeEnumValue<InitiatorType>("initiatorType", this.initiatorType);
+        writer.writeObjectValue<InitiatorType>("initiatorType", this.initiatorType);
     };
 }

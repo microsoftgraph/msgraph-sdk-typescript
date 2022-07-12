@@ -1,19 +1,18 @@
-import {createTeamsAppDefinitionFromDiscriminatorValue} from './createTeamsAppDefinitionFromDiscriminatorValue';
-import {createTeamsAppFromDiscriminatorValue} from './createTeamsAppFromDiscriminatorValue';
-import {Entity, TeamsApp, TeamsAppDefinition} from './index';
+import {AdminMember1, Entity, TeamsApp, TeamsAppDefinition} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
+/** Provides operations to manage the admin singleton. */
 export class TeamsAppInstallation extends Entity implements Parsable {
     /** The app that is installed. */
-    private _teamsApp?: TeamsApp | undefined;
+    private _teamsApp?: TeamsApp | AdminMember1 | undefined;
     /** The details of this version of the app. */
-    private _teamsAppDefinition?: TeamsAppDefinition | undefined;
+    private _teamsAppDefinition?: TeamsAppDefinition | AdminMember1 | undefined;
     /**
      * Instantiates a new teamsAppInstallation and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.teamsAppInstallation";
     };
     /**
      * The deserialization information for the current model
@@ -37,7 +36,7 @@ export class TeamsAppInstallation extends Entity implements Parsable {
     };
     /**
      * Gets the teamsApp property value. The app that is installed.
-     * @returns a teamsApp
+     * @returns a admin
      */
     public get teamsApp() {
         return this._teamsApp;
@@ -46,12 +45,12 @@ export class TeamsAppInstallation extends Entity implements Parsable {
      * Sets the teamsApp property value. The app that is installed.
      * @param value Value to set for the teamsApp property.
      */
-    public set teamsApp(value: TeamsApp | undefined) {
+    public set teamsApp(value: TeamsApp | AdminMember1 | undefined) {
         this._teamsApp = value;
     };
     /**
      * Gets the teamsAppDefinition property value. The details of this version of the app.
-     * @returns a teamsAppDefinition
+     * @returns a admin
      */
     public get teamsAppDefinition() {
         return this._teamsAppDefinition;
@@ -60,7 +59,7 @@ export class TeamsAppInstallation extends Entity implements Parsable {
      * Sets the teamsAppDefinition property value. The details of this version of the app.
      * @param value Value to set for the teamsAppDefinition property.
      */
-    public set teamsAppDefinition(value: TeamsAppDefinition | undefined) {
+    public set teamsAppDefinition(value: TeamsAppDefinition | AdminMember1 | undefined) {
         this._teamsAppDefinition = value;
     };
 }

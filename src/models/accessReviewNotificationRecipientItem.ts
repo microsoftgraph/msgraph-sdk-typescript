@@ -1,12 +1,11 @@
-import {createAccessReviewNotificationRecipientScopeFromDiscriminatorValue} from './createAccessReviewNotificationRecipientScopeFromDiscriminatorValue';
-import {AccessReviewNotificationRecipientScope} from './index';
+import {AccessReviewNotificationRecipientScope, AdminMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewNotificationRecipientItem implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Determines the recipient of the notification email. */
-    private _notificationRecipientScope?: AccessReviewNotificationRecipientScope | undefined;
+    private _notificationRecipientScope?: AccessReviewNotificationRecipientScope | AdminMember1 | undefined;
     /** Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients. */
     private _notificationTemplateType?: string | undefined;
     /**
@@ -41,7 +40,7 @@ export class AccessReviewNotificationRecipientItem implements AdditionalDataHold
     };
     /**
      * Gets the notificationRecipientScope property value. Determines the recipient of the notification email.
-     * @returns a accessReviewNotificationRecipientScope
+     * @returns a admin
      */
     public get notificationRecipientScope() {
         return this._notificationRecipientScope;
@@ -50,7 +49,7 @@ export class AccessReviewNotificationRecipientItem implements AdditionalDataHold
      * Sets the notificationRecipientScope property value. Determines the recipient of the notification email.
      * @param value Value to set for the notificationRecipientScope property.
      */
-    public set notificationRecipientScope(value: AccessReviewNotificationRecipientScope | undefined) {
+    public set notificationRecipientScope(value: AccessReviewNotificationRecipientScope | AdminMember1 | undefined) {
         this._notificationRecipientScope = value;
     };
     /**

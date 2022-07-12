@@ -1,5 +1,5 @@
 import {ChatMessage} from '../../../../../../models/';
-import {createChatMessageFromDiscriminatorValue} from '../../../../../../models/createChatMessageFromDiscriminatorValue';
+import {GetAllMessagesMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getAllMessages method. */
@@ -7,7 +7,7 @@ export class GetAllMessagesResponse implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The value property */
-    private _value?: ChatMessage[] | undefined;
+    private _value?: ChatMessage | GetAllMessagesMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,7 +34,7 @@ export class GetAllMessagesResponse implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": n => { this.value = n.getCollectionOfObjectValues<ChatMessage>(createChatMessageFromDiscriminatorValue); },
+            "value": n => { this.value = n.getObjectValue<ChatMessage>(createChatMessageFromDiscriminatorValue); },
         };
     };
     /**
@@ -43,12 +43,12 @@ export class GetAllMessagesResponse implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<ChatMessage>("value", this.value);
+        writer.writeObjectValue<ChatMessage>("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the value property value. The value property
-     * @returns a chatMessage
+     * @returns a getAllMessages
      */
     public get value() {
         return this._value;
@@ -57,7 +57,7 @@ export class GetAllMessagesResponse implements AdditionalDataHolder, Parsable {
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public set value(value: ChatMessage[] | undefined) {
+    public set value(value: ChatMessage | GetAllMessagesMember1[] | undefined) {
         this._value = value;
     };
 }

@@ -1,5 +1,5 @@
 import {Message} from '../../../../../../../models/';
-import {createMessageFromDiscriminatorValue} from '../../../../../../../models/createMessageFromDiscriminatorValue';
+import {ReplyMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the reply method. */
@@ -9,7 +9,7 @@ export class ReplyPostRequestBody implements AdditionalDataHolder, Parsable {
     /** The Comment property */
     private _comment?: string | undefined;
     /** The Message property */
-    private _message?: Message | undefined;
+    private _message?: Message | ReplyMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -56,7 +56,7 @@ export class ReplyPostRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the message property value. The Message property
-     * @returns a message
+     * @returns a reply
      */
     public get message() {
         return this._message;
@@ -65,7 +65,7 @@ export class ReplyPostRequestBody implements AdditionalDataHolder, Parsable {
      * Sets the message property value. The Message property
      * @param value Value to set for the Message property.
      */
-    public set message(value: Message | undefined) {
+    public set message(value: Message | ReplyMember1 | undefined) {
         this._message = value;
     };
     /**

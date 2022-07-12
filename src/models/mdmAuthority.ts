@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of organization entities. */
+/** Provides operations to manage the admin singleton. */
 export enum MdmAuthority {
     /** Unknown */
     Unknown = "unknown",

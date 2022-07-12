@@ -1,10 +1,7 @@
-import {createNotebookFromDiscriminatorValue} from './createNotebookFromDiscriminatorValue';
-import {createOnenoteSectionFromDiscriminatorValue} from './createOnenoteSectionFromDiscriminatorValue';
-import {createPageLinksFromDiscriminatorValue} from './createPageLinksFromDiscriminatorValue';
-import {Notebook, OnenoteEntitySchemaObjectModel, OnenoteSection, PageLinks} from './index';
+import {AdminMember1, Notebook, OnenoteEntitySchemaObjectModel, OnenoteSection, PageLinks} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsable {
     /** The page's HTML content. */
     private _content?: string | undefined;
@@ -17,13 +14,13 @@ export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsa
     /** The indentation level of the page. Read-only. */
     private _level?: number | undefined;
     /** Links for opening the page. The oneNoteClientURL link opens the page in the OneNote native client if it 's installed. The oneNoteWebUrl link opens the page in OneNote on the web. Read-only. */
-    private _links?: PageLinks | undefined;
+    private _links?: PageLinks | AdminMember1 | undefined;
     /** The order of the page within its parent section. Read-only. */
     private _order?: number | undefined;
     /** The notebook that contains the page.  Read-only. */
-    private _parentNotebook?: Notebook | undefined;
+    private _parentNotebook?: Notebook | AdminMember1 | undefined;
     /** The section that contains the page. Read-only. */
-    private _parentSection?: OnenoteSection | undefined;
+    private _parentSection?: OnenoteSection | AdminMember1 | undefined;
     /** The title of the page. */
     private _title?: string | undefined;
     /** The userTags property */
@@ -125,7 +122,7 @@ export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsa
     };
     /**
      * Gets the links property value. Links for opening the page. The oneNoteClientURL link opens the page in the OneNote native client if it 's installed. The oneNoteWebUrl link opens the page in OneNote on the web. Read-only.
-     * @returns a pageLinks
+     * @returns a admin
      */
     public get links() {
         return this._links;
@@ -134,7 +131,7 @@ export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsa
      * Sets the links property value. Links for opening the page. The oneNoteClientURL link opens the page in the OneNote native client if it 's installed. The oneNoteWebUrl link opens the page in OneNote on the web. Read-only.
      * @param value Value to set for the links property.
      */
-    public set links(value: PageLinks | undefined) {
+    public set links(value: PageLinks | AdminMember1 | undefined) {
         this._links = value;
     };
     /**
@@ -153,7 +150,7 @@ export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsa
     };
     /**
      * Gets the parentNotebook property value. The notebook that contains the page.  Read-only.
-     * @returns a notebook
+     * @returns a admin
      */
     public get parentNotebook() {
         return this._parentNotebook;
@@ -162,12 +159,12 @@ export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsa
      * Sets the parentNotebook property value. The notebook that contains the page.  Read-only.
      * @param value Value to set for the parentNotebook property.
      */
-    public set parentNotebook(value: Notebook | undefined) {
+    public set parentNotebook(value: Notebook | AdminMember1 | undefined) {
         this._parentNotebook = value;
     };
     /**
      * Gets the parentSection property value. The section that contains the page. Read-only.
-     * @returns a onenoteSection
+     * @returns a admin
      */
     public get parentSection() {
         return this._parentSection;
@@ -176,7 +173,7 @@ export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsa
      * Sets the parentSection property value. The section that contains the page. Read-only.
      * @param value Value to set for the parentSection property.
      */
-    public set parentSection(value: OnenoteSection | undefined) {
+    public set parentSection(value: OnenoteSection | AdminMember1 | undefined) {
         this._parentSection = value;
     };
     /**

@@ -1,5 +1,4 @@
-import {createDisplayNameLocalizationFromDiscriminatorValue} from './createDisplayNameLocalizationFromDiscriminatorValue';
-import {DisplayNameLocalization} from './index';
+import {AdminMember1, DisplayNameLocalization} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ColumnValidation implements AdditionalDataHolder, Parsable {
@@ -8,7 +7,7 @@ export class ColumnValidation implements AdditionalDataHolder, Parsable {
     /** Default BCP 47 language tag for the description. */
     private _defaultLanguage?: string | undefined;
     /** Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails. */
-    private _descriptions?: DisplayNameLocalization[] | undefined;
+    private _descriptions?: DisplayNameLocalization | AdminMember1[] | undefined;
     /** The formula to validate column value. For examples, see Examples of common formulas in lists */
     private _formula?: string | undefined;
     /**
@@ -47,7 +46,7 @@ export class ColumnValidation implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the descriptions property value. Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails.
-     * @returns a displayNameLocalization
+     * @returns a admin
      */
     public get descriptions() {
         return this._descriptions;
@@ -56,7 +55,7 @@ export class ColumnValidation implements AdditionalDataHolder, Parsable {
      * Sets the descriptions property value. Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails.
      * @param value Value to set for the descriptions property.
      */
-    public set descriptions(value: DisplayNameLocalization[] | undefined) {
+    public set descriptions(value: DisplayNameLocalization | AdminMember1[] | undefined) {
         this._descriptions = value;
     };
     /**
@@ -80,7 +79,7 @@ export class ColumnValidation implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "defaultLanguage": n => { this.defaultLanguage = n.getStringValue(); },
-            "descriptions": n => { this.descriptions = n.getCollectionOfObjectValues<DisplayNameLocalization>(createDisplayNameLocalizationFromDiscriminatorValue); },
+            "descriptions": n => { this.descriptions = n.getObjectValue<DisplayNameLocalization>(createDisplayNameLocalizationFromDiscriminatorValue); },
             "formula": n => { this.formula = n.getStringValue(); },
         };
     };
@@ -91,7 +90,7 @@ export class ColumnValidation implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("defaultLanguage", this.defaultLanguage);
-        writer.writeCollectionOfObjectValues<DisplayNameLocalization>("descriptions", this.descriptions);
+        writer.writeObjectValue<DisplayNameLocalization>("descriptions", this.descriptions);
         writer.writeStringValue("formula", this.formula);
         writer.writeAdditionalData(this.additionalData);
     };

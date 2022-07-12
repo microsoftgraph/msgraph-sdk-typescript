@@ -1,6 +1,4 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createNotebookLinksFromDiscriminatorValue} from './createNotebookLinksFromDiscriminatorValue';
-import {IdentitySet, NotebookLinks} from './index';
+import {GetNotebookFromWebUrlMember1, IdentitySet, NotebookLinks} from './index';
 import {OnenoteUserRole} from './onenoteUserRole';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -10,7 +8,7 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
     /** The createdBy property */
     private _createdBy?: string | undefined;
     /** The createdByIdentity property */
-    private _createdByIdentity?: IdentitySet | undefined;
+    private _createdByIdentity?: IdentitySet | GetNotebookFromWebUrlMember1 | undefined;
     /** The createdTime property */
     private _createdTime?: Date | undefined;
     /** The id property */
@@ -22,11 +20,11 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
     /** The lastModifiedBy property */
     private _lastModifiedBy?: string | undefined;
     /** The lastModifiedByIdentity property */
-    private _lastModifiedByIdentity?: IdentitySet | undefined;
+    private _lastModifiedByIdentity?: IdentitySet | GetNotebookFromWebUrlMember1 | undefined;
     /** The lastModifiedTime property */
     private _lastModifiedTime?: Date | undefined;
     /** The links property */
-    private _links?: NotebookLinks | undefined;
+    private _links?: NotebookLinks | GetNotebookFromWebUrlMember1 | undefined;
     /** The name property */
     private _name?: string | undefined;
     /** The sectionGroupsUrl property */
@@ -36,7 +34,7 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
     /** The self property */
     private _self?: string | undefined;
     /** The userRole property */
-    private _userRole?: OnenoteUserRole | undefined;
+    private _userRole?: OnenoteUserRole | GetNotebookFromWebUrlMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -73,7 +71,7 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the createdByIdentity property value. The createdByIdentity property
-     * @returns a identitySet
+     * @returns a getNotebookFromWebUrl
      */
     public get createdByIdentity() {
         return this._createdByIdentity;
@@ -82,7 +80,7 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
      * Sets the createdByIdentity property value. The createdByIdentity property
      * @param value Value to set for the createdByIdentity property.
      */
-    public set createdByIdentity(value: IdentitySet | undefined) {
+    public set createdByIdentity(value: IdentitySet | GetNotebookFromWebUrlMember1 | undefined) {
         this._createdByIdentity = value;
     };
     /**
@@ -119,7 +117,7 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
             "sectionGroupsUrl": n => { this.sectionGroupsUrl = n.getStringValue(); },
             "sectionsUrl": n => { this.sectionsUrl = n.getStringValue(); },
             "self": n => { this.self = n.getStringValue(); },
-            "userRole": n => { this.userRole = n.getEnumValue<OnenoteUserRole>(OnenoteUserRole); },
+            "userRole": n => { this.userRole = n.getObjectValue<OnenoteUserRole>(createOnenoteUserRoleFromDiscriminatorValue); },
         };
     };
     /**
@@ -180,7 +178,7 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the lastModifiedByIdentity property value. The lastModifiedByIdentity property
-     * @returns a identitySet
+     * @returns a getNotebookFromWebUrl
      */
     public get lastModifiedByIdentity() {
         return this._lastModifiedByIdentity;
@@ -189,7 +187,7 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
      * Sets the lastModifiedByIdentity property value. The lastModifiedByIdentity property
      * @param value Value to set for the lastModifiedByIdentity property.
      */
-    public set lastModifiedByIdentity(value: IdentitySet | undefined) {
+    public set lastModifiedByIdentity(value: IdentitySet | GetNotebookFromWebUrlMember1 | undefined) {
         this._lastModifiedByIdentity = value;
     };
     /**
@@ -208,7 +206,7 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the links property value. The links property
-     * @returns a notebookLinks
+     * @returns a getNotebookFromWebUrl
      */
     public get links() {
         return this._links;
@@ -217,7 +215,7 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
      * Sets the links property value. The links property
      * @param value Value to set for the links property.
      */
-    public set links(value: NotebookLinks | undefined) {
+    public set links(value: NotebookLinks | GetNotebookFromWebUrlMember1 | undefined) {
         this._links = value;
     };
     /**
@@ -296,12 +294,12 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("sectionGroupsUrl", this.sectionGroupsUrl);
         writer.writeStringValue("sectionsUrl", this.sectionsUrl);
         writer.writeStringValue("self", this.self);
-        writer.writeEnumValue<OnenoteUserRole>("userRole", this.userRole);
+        writer.writeObjectValue<OnenoteUserRole>("userRole", this.userRole);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the userRole property value. The userRole property
-     * @returns a onenoteUserRole
+     * @returns a getNotebookFromWebUrl
      */
     public get userRole() {
         return this._userRole;
@@ -310,7 +308,7 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
      * Sets the userRole property value. The userRole property
      * @param value Value to set for the userRole property.
      */
-    public set userRole(value: OnenoteUserRole | undefined) {
+    public set userRole(value: OnenoteUserRole | GetNotebookFromWebUrlMember1 | undefined) {
         this._userRole = value;
     };
 }

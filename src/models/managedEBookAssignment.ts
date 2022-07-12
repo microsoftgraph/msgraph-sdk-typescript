@@ -1,19 +1,19 @@
-import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from './createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue';
-import {DeviceAndAppManagementAssignmentTarget, Entity} from './index';
+import {DeviceAndAppManagementAssignmentTarget, DeviceAppManagementMember1, Entity} from './index';
 import {InstallIntent} from './installIntent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains properties used to assign a eBook to a group. */
 export class ManagedEBookAssignment extends Entity implements Parsable {
-    /** The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
+    /** Possible values for the install intent chosen by the admin. */
     private _installIntent?: InstallIntent | undefined;
     /** The assignment target for eBook. */
-    private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    private _target?: DeviceAndAppManagementAssignmentTarget | DeviceAppManagementMember1 | undefined;
     /**
      * Instantiates a new managedEBookAssignment and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.managedEBookAssignment";
     };
     /**
      * The deserialization information for the current model
@@ -26,14 +26,14 @@ export class ManagedEBookAssignment extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the installIntent property value. The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * Gets the installIntent property value. Possible values for the install intent chosen by the admin.
      * @returns a installIntent
      */
     public get installIntent() {
         return this._installIntent;
     };
     /**
-     * Sets the installIntent property value. The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * Sets the installIntent property value. Possible values for the install intent chosen by the admin.
      * @param value Value to set for the installIntent property.
      */
     public set installIntent(value: InstallIntent | undefined) {
@@ -51,7 +51,7 @@ export class ManagedEBookAssignment extends Entity implements Parsable {
     };
     /**
      * Gets the target property value. The assignment target for eBook.
-     * @returns a deviceAndAppManagementAssignmentTarget
+     * @returns a deviceAppManagement
      */
     public get target() {
         return this._target;
@@ -60,7 +60,7 @@ export class ManagedEBookAssignment extends Entity implements Parsable {
      * Sets the target property value. The assignment target for eBook.
      * @param value Value to set for the target property.
      */
-    public set target(value: DeviceAndAppManagementAssignmentTarget | undefined) {
+    public set target(value: DeviceAndAppManagementAssignmentTarget | DeviceAppManagementMember1 | undefined) {
         this._target = value;
     };
 }

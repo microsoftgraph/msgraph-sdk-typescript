@@ -1,5 +1,5 @@
 import {Prompt} from '../../../../../../models/';
-import {createPromptFromDiscriminatorValue} from '../../../../../../models/createPromptFromDiscriminatorValue';
+import {StartHoldMusicMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the startHoldMusic method. */
@@ -9,7 +9,7 @@ export class StartHoldMusicPostRequestBody implements AdditionalDataHolder, Pars
     /** The clientContext property */
     private _clientContext?: string | undefined;
     /** The customPrompt property */
-    private _customPrompt?: Prompt | undefined;
+    private _customPrompt?: Prompt | StartHoldMusicMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -46,7 +46,7 @@ export class StartHoldMusicPostRequestBody implements AdditionalDataHolder, Pars
     };
     /**
      * Gets the customPrompt property value. The customPrompt property
-     * @returns a prompt
+     * @returns a startHoldMusic
      */
     public get customPrompt() {
         return this._customPrompt;
@@ -55,7 +55,7 @@ export class StartHoldMusicPostRequestBody implements AdditionalDataHolder, Pars
      * Sets the customPrompt property value. The customPrompt property
      * @param value Value to set for the customPrompt property.
      */
-    public set customPrompt(value: Prompt | undefined) {
+    public set customPrompt(value: Prompt | StartHoldMusicMember1 | undefined) {
         this._customPrompt = value;
     };
     /**

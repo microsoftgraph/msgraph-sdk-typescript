@@ -1,3 +1,4 @@
+import {GetPstnCallsWithFromDateTimeWithToDateTimeMember1} from './index';
 import {PstnCallDurationSource} from './pstnCallDurationSource';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -5,7 +6,7 @@ export class PstnCallLogRow implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The source of the call duration data. If the call uses a third-party telecommunications operator via the Operator Connect Program, the operator may provide their own call duration data. In this case, the property value is operator. Otherwise, the value is microsoft. */
-    private _callDurationSource?: PstnCallDurationSource | undefined;
+    private _callDurationSource?: PstnCallDurationSource | GetPstnCallsWithFromDateTimeWithToDateTimeMember1 | undefined;
     /** Number dialed in E.164 format. */
     private _calleeNumber?: string | undefined;
     /** Number that received the call for inbound calls or the number dialed for outbound calls. E.164 format. */
@@ -66,7 +67,7 @@ export class PstnCallLogRow implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the callDurationSource property value. The source of the call duration data. If the call uses a third-party telecommunications operator via the Operator Connect Program, the operator may provide their own call duration data. In this case, the property value is operator. Otherwise, the value is microsoft.
-     * @returns a pstnCallDurationSource
+     * @returns a getPstnCallsWithFromDateTimeWithToDateTime
      */
     public get callDurationSource() {
         return this._callDurationSource;
@@ -75,7 +76,7 @@ export class PstnCallLogRow implements AdditionalDataHolder, Parsable {
      * Sets the callDurationSource property value. The source of the call duration data. If the call uses a third-party telecommunications operator via the Operator Connect Program, the operator may provide their own call duration data. In this case, the property value is operator. Otherwise, the value is microsoft.
      * @param value Value to set for the callDurationSource property.
      */
-    public set callDurationSource(value: PstnCallDurationSource | undefined) {
+    public set callDurationSource(value: PstnCallDurationSource | GetPstnCallsWithFromDateTimeWithToDateTimeMember1 | undefined) {
         this._callDurationSource = value;
     };
     /**
@@ -258,7 +259,7 @@ export class PstnCallLogRow implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "callDurationSource": n => { this.callDurationSource = n.getEnumValue<PstnCallDurationSource>(PstnCallDurationSource); },
+            "callDurationSource": n => { this.callDurationSource = n.getObjectValue<PstnCallDurationSource>(createPstnCallDurationSourceFromDiscriminatorValue); },
             "calleeNumber": n => { this.calleeNumber = n.getStringValue(); },
             "callerNumber": n => { this.callerNumber = n.getStringValue(); },
             "callId": n => { this.callId = n.getStringValue(); },
@@ -345,7 +346,7 @@ export class PstnCallLogRow implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeEnumValue<PstnCallDurationSource>("callDurationSource", this.callDurationSource);
+        writer.writeObjectValue<PstnCallDurationSource>("callDurationSource", this.callDurationSource);
         writer.writeStringValue("calleeNumber", this.calleeNumber);
         writer.writeStringValue("callerNumber", this.callerNumber);
         writer.writeStringValue("callId", this.callId);

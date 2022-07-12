@@ -2,11 +2,9 @@ import {createWorkbookChartFromDiscriminatorValue} from './createWorkbookChartFr
 import {createWorkbookNamedItemFromDiscriminatorValue} from './createWorkbookNamedItemFromDiscriminatorValue';
 import {createWorkbookPivotTableFromDiscriminatorValue} from './createWorkbookPivotTableFromDiscriminatorValue';
 import {createWorkbookTableFromDiscriminatorValue} from './createWorkbookTableFromDiscriminatorValue';
-import {createWorkbookWorksheetProtectionFromDiscriminatorValue} from './createWorkbookWorksheetProtectionFromDiscriminatorValue';
-import {Entity, WorkbookChart, WorkbookNamedItem, WorkbookPivotTable, WorkbookTable, WorkbookWorksheetProtection} from './index';
+import {AdminMember1, Entity, WorkbookChart, WorkbookNamedItem, WorkbookPivotTable, WorkbookTable, WorkbookWorksheetProtection} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookWorksheet extends Entity implements Parsable {
     /** Returns collection of charts that are part of the worksheet. Read-only. */
     private _charts?: WorkbookChart[] | undefined;
@@ -19,7 +17,7 @@ export class WorkbookWorksheet extends Entity implements Parsable {
     /** The zero-based position of the worksheet within the workbook. */
     private _position?: number | undefined;
     /** Returns sheet protection object for a worksheet. Read-only. */
-    private _protection?: WorkbookWorksheetProtection | undefined;
+    private _protection?: WorkbookWorksheetProtection | AdminMember1 | undefined;
     /** Collection of tables that are part of the worksheet. Read-only. */
     private _tables?: WorkbookTable[] | undefined;
     /** The Visibility of the worksheet. The possible values are: Visible, Hidden, VeryHidden. */
@@ -118,7 +116,7 @@ export class WorkbookWorksheet extends Entity implements Parsable {
     };
     /**
      * Gets the protection property value. Returns sheet protection object for a worksheet. Read-only.
-     * @returns a workbookWorksheetProtection
+     * @returns a admin
      */
     public get protection() {
         return this._protection;
@@ -127,7 +125,7 @@ export class WorkbookWorksheet extends Entity implements Parsable {
      * Sets the protection property value. Returns sheet protection object for a worksheet. Read-only.
      * @param value Value to set for the protection property.
      */
-    public set protection(value: WorkbookWorksheetProtection | undefined) {
+    public set protection(value: WorkbookWorksheetProtection | AdminMember1 | undefined) {
         this._protection = value;
     };
     /**

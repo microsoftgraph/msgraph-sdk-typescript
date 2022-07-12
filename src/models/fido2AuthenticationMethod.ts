@@ -1,15 +1,14 @@
 import {AttestationLevel} from './attestationLevel';
-import {AuthenticationMethod} from './index';
+import {AdminMember1, AuthenticationMethod} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable {
     /** Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator. */
     private _aaGuid?: string | undefined;
     /** The attestation certificate(s) attached to this security key. */
     private _attestationCertificates?: string[] | undefined;
     /** The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue. */
-    private _attestationLevel?: AttestationLevel | undefined;
+    private _attestationLevel?: AttestationLevel | AdminMember1 | undefined;
     /** The timestamp when this key was registered to the user. */
     private _createdDateTime?: Date | undefined;
     /** The display name of the key as given by the user. */
@@ -46,7 +45,7 @@ export class Fido2AuthenticationMethod extends AuthenticationMethod implements P
     };
     /**
      * Gets the attestationLevel property value. The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.
-     * @returns a attestationLevel
+     * @returns a admin
      */
     public get attestationLevel() {
         return this._attestationLevel;
@@ -55,11 +54,11 @@ export class Fido2AuthenticationMethod extends AuthenticationMethod implements P
      * Sets the attestationLevel property value. The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.
      * @param value Value to set for the attestationLevel property.
      */
-    public set attestationLevel(value: AttestationLevel | undefined) {
+    public set attestationLevel(value: AttestationLevel | AdminMember1 | undefined) {
         this._attestationLevel = value;
     };
     /**
-     * Instantiates a new fido2AuthenticationMethod and sets the default values.
+     * Instantiates a new Fido2AuthenticationMethod and sets the default values.
      */
     public constructor() {
         super();
@@ -100,7 +99,7 @@ export class Fido2AuthenticationMethod extends AuthenticationMethod implements P
         return {...super.getFieldDeserializers(),
             "aaGuid": n => { this.aaGuid = n.getStringValue(); },
             "attestationCertificates": n => { this.attestationCertificates = n.getCollectionOfPrimitiveValues<string>(); },
-            "attestationLevel": n => { this.attestationLevel = n.getEnumValue<AttestationLevel>(AttestationLevel); },
+            "attestationLevel": n => { this.attestationLevel = n.getObjectValue<AttestationLevel>(createAttestationLevelFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "model": n => { this.model = n.getStringValue(); },
@@ -129,7 +128,7 @@ export class Fido2AuthenticationMethod extends AuthenticationMethod implements P
         super.serialize(writer);
         writer.writeStringValue("aaGuid", this.aaGuid);
         writer.writeCollectionOfPrimitiveValues<string>("attestationCertificates", this.attestationCertificates);
-        writer.writeEnumValue<AttestationLevel>("attestationLevel", this.attestationLevel);
+        writer.writeObjectValue<AttestationLevel>("attestationLevel", this.attestationLevel);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("model", this.model);

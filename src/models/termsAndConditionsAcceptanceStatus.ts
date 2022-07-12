@@ -1,5 +1,4 @@
-import {createTermsAndConditionsFromDiscriminatorValue} from './createTermsAndConditionsFromDiscriminatorValue';
-import {Entity, TermsAndConditions} from './index';
+import {AdminMember1, Entity, TermsAndConditions} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** A termsAndConditionsAcceptanceStatus entity represents the acceptance status of a given Terms and Conditions (T&C) policy by a given user. Users must accept the most up-to-date version of the terms in order to retain access to the Company Portal. */
@@ -9,7 +8,7 @@ export class TermsAndConditionsAcceptanceStatus extends Entity implements Parsab
     /** Most recent version number of the T&C accepted by the user. */
     private _acceptedVersion?: number | undefined;
     /** Navigation link to the terms and conditions that are assigned. */
-    private _termsAndConditions?: TermsAndConditions | undefined;
+    private _termsAndConditions?: TermsAndConditions | AdminMember1 | undefined;
     /** Display name of the user whose acceptance the entity represents. */
     private _userDisplayName?: string | undefined;
     /** The userPrincipalName of the User that accepted the term. */
@@ -76,7 +75,7 @@ export class TermsAndConditionsAcceptanceStatus extends Entity implements Parsab
     };
     /**
      * Gets the termsAndConditions property value. Navigation link to the terms and conditions that are assigned.
-     * @returns a termsAndConditions
+     * @returns a admin
      */
     public get termsAndConditions() {
         return this._termsAndConditions;
@@ -85,7 +84,7 @@ export class TermsAndConditionsAcceptanceStatus extends Entity implements Parsab
      * Sets the termsAndConditions property value. Navigation link to the terms and conditions that are assigned.
      * @param value Value to set for the termsAndConditions property.
      */
-    public set termsAndConditions(value: TermsAndConditions | undefined) {
+    public set termsAndConditions(value: TermsAndConditions | AdminMember1 | undefined) {
         this._termsAndConditions = value;
     };
     /**

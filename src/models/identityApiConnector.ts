@@ -1,18 +1,16 @@
-import {createApiAuthenticationConfigurationBaseFromDiscriminatorValue} from './createApiAuthenticationConfigurationBaseFromDiscriminatorValue';
-import {ApiAuthenticationConfigurationBase, Entity} from './index';
+import {AdminMember1, ApiAuthenticationConfigurationBase, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class IdentityApiConnector extends Entity implements Parsable {
     /** The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported. */
-    private _authenticationConfiguration?: ApiAuthenticationConfigurationBase | undefined;
+    private _authenticationConfiguration?: ApiAuthenticationConfigurationBase | AdminMember1 | undefined;
     /** The name of the API connector. */
     private _displayName?: string | undefined;
     /** The URL of the API endpoint to call. */
     private _targetUrl?: string | undefined;
     /**
      * Gets the authenticationConfiguration property value. The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported.
-     * @returns a apiAuthenticationConfigurationBase
+     * @returns a admin
      */
     public get authenticationConfiguration() {
         return this._authenticationConfiguration;
@@ -21,11 +19,11 @@ export class IdentityApiConnector extends Entity implements Parsable {
      * Sets the authenticationConfiguration property value. The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported.
      * @param value Value to set for the authenticationConfiguration property.
      */
-    public set authenticationConfiguration(value: ApiAuthenticationConfigurationBase | undefined) {
+    public set authenticationConfiguration(value: ApiAuthenticationConfigurationBase | AdminMember1 | undefined) {
         this._authenticationConfiguration = value;
     };
     /**
-     * Instantiates a new identityApiConnector and sets the default values.
+     * Instantiates a new IdentityApiConnector and sets the default values.
      */
     public constructor() {
         super();

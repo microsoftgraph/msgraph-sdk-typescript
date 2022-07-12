@@ -1,19 +1,18 @@
-import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
 import {FollowupFlagStatus} from './followupFlagStatus';
-import {DateTimeTimeZone} from './index';
+import {AdminMember1, DateTimeTimeZone} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class FollowupFlag implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The date and time that the follow-up was finished. */
-    private _completedDateTime?: DateTimeTimeZone | undefined;
+    private _completedDateTime?: DateTimeTimeZone | AdminMember1 | undefined;
     /** The date and time that the follow up is to be finished. Note: To set the due date, you must also specify the startDateTime; otherwise, you will get a 400 Bad Request response. */
-    private _dueDateTime?: DateTimeTimeZone | undefined;
+    private _dueDateTime?: DateTimeTimeZone | AdminMember1 | undefined;
     /** The status for follow-up for an item. Possible values are notFlagged, complete, and flagged. */
-    private _flagStatus?: FollowupFlagStatus | undefined;
+    private _flagStatus?: FollowupFlagStatus | AdminMember1 | undefined;
     /** The date and time that the follow-up is to begin. */
-    private _startDateTime?: DateTimeTimeZone | undefined;
+    private _startDateTime?: DateTimeTimeZone | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -30,7 +29,7 @@ export class FollowupFlag implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the completedDateTime property value. The date and time that the follow-up was finished.
-     * @returns a dateTimeTimeZone
+     * @returns a admin
      */
     public get completedDateTime() {
         return this._completedDateTime;
@@ -39,7 +38,7 @@ export class FollowupFlag implements AdditionalDataHolder, Parsable {
      * Sets the completedDateTime property value. The date and time that the follow-up was finished.
      * @param value Value to set for the completedDateTime property.
      */
-    public set completedDateTime(value: DateTimeTimeZone | undefined) {
+    public set completedDateTime(value: DateTimeTimeZone | AdminMember1 | undefined) {
         this._completedDateTime = value;
     };
     /**
@@ -50,7 +49,7 @@ export class FollowupFlag implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the dueDateTime property value. The date and time that the follow up is to be finished. Note: To set the due date, you must also specify the startDateTime; otherwise, you will get a 400 Bad Request response.
-     * @returns a dateTimeTimeZone
+     * @returns a admin
      */
     public get dueDateTime() {
         return this._dueDateTime;
@@ -59,12 +58,12 @@ export class FollowupFlag implements AdditionalDataHolder, Parsable {
      * Sets the dueDateTime property value. The date and time that the follow up is to be finished. Note: To set the due date, you must also specify the startDateTime; otherwise, you will get a 400 Bad Request response.
      * @param value Value to set for the dueDateTime property.
      */
-    public set dueDateTime(value: DateTimeTimeZone | undefined) {
+    public set dueDateTime(value: DateTimeTimeZone | AdminMember1 | undefined) {
         this._dueDateTime = value;
     };
     /**
      * Gets the flagStatus property value. The status for follow-up for an item. Possible values are notFlagged, complete, and flagged.
-     * @returns a followupFlagStatus
+     * @returns a admin
      */
     public get flagStatus() {
         return this._flagStatus;
@@ -73,7 +72,7 @@ export class FollowupFlag implements AdditionalDataHolder, Parsable {
      * Sets the flagStatus property value. The status for follow-up for an item. Possible values are notFlagged, complete, and flagged.
      * @param value Value to set for the flagStatus property.
      */
-    public set flagStatus(value: FollowupFlagStatus | undefined) {
+    public set flagStatus(value: FollowupFlagStatus | AdminMember1 | undefined) {
         this._flagStatus = value;
     };
     /**
@@ -84,7 +83,7 @@ export class FollowupFlag implements AdditionalDataHolder, Parsable {
         return {
             "completedDateTime": n => { this.completedDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
             "dueDateTime": n => { this.dueDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
-            "flagStatus": n => { this.flagStatus = n.getEnumValue<FollowupFlagStatus>(FollowupFlagStatus); },
+            "flagStatus": n => { this.flagStatus = n.getObjectValue<FollowupFlagStatus>(createFollowupFlagStatusFromDiscriminatorValue); },
             "startDateTime": n => { this.startDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
         };
     };
@@ -96,13 +95,13 @@ export class FollowupFlag implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<DateTimeTimeZone>("completedDateTime", this.completedDateTime);
         writer.writeObjectValue<DateTimeTimeZone>("dueDateTime", this.dueDateTime);
-        writer.writeEnumValue<FollowupFlagStatus>("flagStatus", this.flagStatus);
+        writer.writeObjectValue<FollowupFlagStatus>("flagStatus", this.flagStatus);
         writer.writeObjectValue<DateTimeTimeZone>("startDateTime", this.startDateTime);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the startDateTime property value. The date and time that the follow-up is to begin.
-     * @returns a dateTimeTimeZone
+     * @returns a admin
      */
     public get startDateTime() {
         return this._startDateTime;
@@ -111,7 +110,7 @@ export class FollowupFlag implements AdditionalDataHolder, Parsable {
      * Sets the startDateTime property value. The date and time that the follow-up is to begin.
      * @param value Value to set for the startDateTime property.
      */
-    public set startDateTime(value: DateTimeTimeZone | undefined) {
+    public set startDateTime(value: DateTimeTimeZone | AdminMember1 | undefined) {
         this._startDateTime = value;
     };
 }

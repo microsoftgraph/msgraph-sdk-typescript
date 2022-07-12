@@ -1,4 +1,4 @@
-import {ManagedMobileLobApp} from './index';
+import {ManagedAndroidLobApp, ManagedIOSLobApp, ManagedMobileLobApp} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createManagedMobileLobAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedMobileLobApp {
@@ -8,8 +8,10 @@ export function createManagedMobileLobAppFromDiscriminatorValue(parseNode: Parse
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.managedMobileLobApp":
-                    return new ManagedMobileLobApp();
+                case "#microsoft.graph.managedAndroidLobApp":
+                    return new ManagedAndroidLobApp();
+                case "#microsoft.graph.managedIOSLobApp":
+                    return new ManagedIOSLobApp();
             }
         }
     }

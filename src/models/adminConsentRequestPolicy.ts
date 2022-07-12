@@ -1,8 +1,6 @@
-import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAccessReviewReviewerScopeFromDiscriminatorValue';
-import {AccessReviewReviewerScope, Entity} from './index';
+import {AccessReviewReviewerScope, AdminMember1, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
 export class AdminConsentRequestPolicy extends Entity implements Parsable {
     /** Specifies whether the admin consent request feature is enabled or disabled. Required. */
     private _isEnabled?: boolean | undefined;
@@ -13,7 +11,7 @@ export class AdminConsentRequestPolicy extends Entity implements Parsable {
     /** Specifies the duration the request is active before it automatically expires if no decision is applied. */
     private _requestDurationInDays?: number | undefined;
     /** Required. */
-    private _reviewers?: AccessReviewReviewerScope[] | undefined;
+    private _reviewers?: AccessReviewReviewerScope | AdminMember1[] | undefined;
     /** Specifies the version of this policy. When the policy is updated, this version is updated. Read-only. */
     private _version?: number | undefined;
     /**
@@ -32,7 +30,7 @@ export class AdminConsentRequestPolicy extends Entity implements Parsable {
             "notifyReviewers": n => { this.notifyReviewers = n.getBooleanValue(); },
             "remindersEnabled": n => { this.remindersEnabled = n.getBooleanValue(); },
             "requestDurationInDays": n => { this.requestDurationInDays = n.getNumberValue(); },
-            "reviewers": n => { this.reviewers = n.getCollectionOfObjectValues<AccessReviewReviewerScope>(createAccessReviewReviewerScopeFromDiscriminatorValue); },
+            "reviewers": n => { this.reviewers = n.getObjectValue<AccessReviewReviewerScope>(createAccessReviewReviewerScopeFromDiscriminatorValue); },
             "version": n => { this.version = n.getNumberValue(); },
         };
     };
@@ -94,7 +92,7 @@ export class AdminConsentRequestPolicy extends Entity implements Parsable {
     };
     /**
      * Gets the reviewers property value. Required.
-     * @returns a accessReviewReviewerScope
+     * @returns a admin
      */
     public get reviewers() {
         return this._reviewers;
@@ -103,7 +101,7 @@ export class AdminConsentRequestPolicy extends Entity implements Parsable {
      * Sets the reviewers property value. Required.
      * @param value Value to set for the reviewers property.
      */
-    public set reviewers(value: AccessReviewReviewerScope[] | undefined) {
+    public set reviewers(value: AccessReviewReviewerScope | AdminMember1[] | undefined) {
         this._reviewers = value;
     };
     /**
@@ -117,7 +115,7 @@ export class AdminConsentRequestPolicy extends Entity implements Parsable {
         writer.writeBooleanValue("notifyReviewers", this.notifyReviewers);
         writer.writeBooleanValue("remindersEnabled", this.remindersEnabled);
         writer.writeNumberValue("requestDurationInDays", this.requestDurationInDays);
-        writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("reviewers", this.reviewers);
+        writer.writeObjectValue<AccessReviewReviewerScope>("reviewers", this.reviewers);
         writer.writeNumberValue("version", this.version);
     };
     /**

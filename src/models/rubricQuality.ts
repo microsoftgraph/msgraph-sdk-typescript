@@ -1,15 +1,13 @@
-import {createEducationItemBodyFromDiscriminatorValue} from './createEducationItemBodyFromDiscriminatorValue';
-import {createRubricCriterionFromDiscriminatorValue} from './createRubricCriterionFromDiscriminatorValue';
-import {EducationItemBody, RubricCriterion} from './index';
+import {AdminMember1, EducationItemBody, RubricCriterion} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RubricQuality implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The collection of criteria for this rubric quality. */
-    private _criteria?: RubricCriterion[] | undefined;
+    private _criteria?: RubricCriterion | AdminMember1[] | undefined;
     /** The description of this rubric quality. */
-    private _description?: EducationItemBody | undefined;
+    private _description?: EducationItemBody | AdminMember1 | undefined;
     /** The name of this rubric quality. */
     private _displayName?: string | undefined;
     /** The ID of this resource. */
@@ -38,7 +36,7 @@ export class RubricQuality implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the criteria property value. The collection of criteria for this rubric quality.
-     * @returns a rubricCriterion
+     * @returns a admin
      */
     public get criteria() {
         return this._criteria;
@@ -47,12 +45,12 @@ export class RubricQuality implements AdditionalDataHolder, Parsable {
      * Sets the criteria property value. The collection of criteria for this rubric quality.
      * @param value Value to set for the criteria property.
      */
-    public set criteria(value: RubricCriterion[] | undefined) {
+    public set criteria(value: RubricCriterion | AdminMember1[] | undefined) {
         this._criteria = value;
     };
     /**
      * Gets the description property value. The description of this rubric quality.
-     * @returns a educationItemBody
+     * @returns a admin
      */
     public get description() {
         return this._description;
@@ -61,7 +59,7 @@ export class RubricQuality implements AdditionalDataHolder, Parsable {
      * Sets the description property value. The description of this rubric quality.
      * @param value Value to set for the description property.
      */
-    public set description(value: EducationItemBody | undefined) {
+    public set description(value: EducationItemBody | AdminMember1 | undefined) {
         this._description = value;
     };
     /**
@@ -84,7 +82,7 @@ export class RubricQuality implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "criteria": n => { this.criteria = n.getCollectionOfObjectValues<RubricCriterion>(createRubricCriterionFromDiscriminatorValue); },
+            "criteria": n => { this.criteria = n.getObjectValue<RubricCriterion>(createRubricCriterionFromDiscriminatorValue); },
             "description": n => { this.description = n.getObjectValue<EducationItemBody>(createEducationItemBodyFromDiscriminatorValue); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "qualityId": n => { this.qualityId = n.getStringValue(); },
@@ -111,7 +109,7 @@ export class RubricQuality implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<RubricCriterion>("criteria", this.criteria);
+        writer.writeObjectValue<RubricCriterion>("criteria", this.criteria);
         writer.writeObjectValue<EducationItemBody>("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("qualityId", this.qualityId);

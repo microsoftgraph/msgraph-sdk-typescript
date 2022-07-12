@@ -1,5 +1,5 @@
 import {ResourceSpecificPermissionGrant} from '../../../models/';
-import {createResourceSpecificPermissionGrantFromDiscriminatorValue} from '../../../models/createResourceSpecificPermissionGrantFromDiscriminatorValue';
+import {CheckGrantedPermissionsForAppMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the checkGrantedPermissionsForApp method. */
@@ -7,7 +7,7 @@ export class CheckGrantedPermissionsForAppResponse implements AdditionalDataHold
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The value property */
-    private _value?: ResourceSpecificPermissionGrant[] | undefined;
+    private _value?: ResourceSpecificPermissionGrant | CheckGrantedPermissionsForAppMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,7 +34,7 @@ export class CheckGrantedPermissionsForAppResponse implements AdditionalDataHold
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": n => { this.value = n.getCollectionOfObjectValues<ResourceSpecificPermissionGrant>(createResourceSpecificPermissionGrantFromDiscriminatorValue); },
+            "value": n => { this.value = n.getObjectValue<ResourceSpecificPermissionGrant>(createResourceSpecificPermissionGrantFromDiscriminatorValue); },
         };
     };
     /**
@@ -43,12 +43,12 @@ export class CheckGrantedPermissionsForAppResponse implements AdditionalDataHold
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("value", this.value);
+        writer.writeObjectValue<ResourceSpecificPermissionGrant>("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the value property value. The value property
-     * @returns a resourceSpecificPermissionGrant
+     * @returns a checkGrantedPermissionsForApp
      */
     public get value() {
         return this._value;
@@ -57,7 +57,7 @@ export class CheckGrantedPermissionsForAppResponse implements AdditionalDataHold
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public set value(value: ResourceSpecificPermissionGrant[] | undefined) {
+    public set value(value: ResourceSpecificPermissionGrant | CheckGrantedPermissionsForAppMember1[] | undefined) {
         this._value = value;
     };
 }

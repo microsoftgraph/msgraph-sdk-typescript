@@ -1,3 +1,4 @@
+import {AdminMember1} from './index';
 import {SelectionLikelihoodInfo} from './selectionLikelihoodInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -11,7 +12,7 @@ export class ScoredEmailAddress implements AdditionalDataHolder, Parsable {
     /** The relevance score of the email address. A relevance score is used as a sort key, in relation to the other returned results. A higher relevance score value corresponds to a more relevant result. Relevance is determined by the user’s communication and collaboration patterns and business relationships. */
     private _relevanceScore?: number | undefined;
     /** The selectionLikelihood property */
-    private _selectionLikelihood?: SelectionLikelihoodInfo | undefined;
+    private _selectionLikelihood?: SelectionLikelihoodInfo | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -55,7 +56,7 @@ export class ScoredEmailAddress implements AdditionalDataHolder, Parsable {
             "address": n => { this.address = n.getStringValue(); },
             "itemId": n => { this.itemId = n.getStringValue(); },
             "relevanceScore": n => { this.relevanceScore = n.getNumberValue(); },
-            "selectionLikelihood": n => { this.selectionLikelihood = n.getEnumValue<SelectionLikelihoodInfo>(SelectionLikelihoodInfo); },
+            "selectionLikelihood": n => { this.selectionLikelihood = n.getObjectValue<SelectionLikelihoodInfo>(createSelectionLikelihoodInfoFromDiscriminatorValue); },
         };
     };
     /**
@@ -88,7 +89,7 @@ export class ScoredEmailAddress implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the selectionLikelihood property value. The selectionLikelihood property
-     * @returns a selectionLikelihoodInfo
+     * @returns a admin
      */
     public get selectionLikelihood() {
         return this._selectionLikelihood;
@@ -97,7 +98,7 @@ export class ScoredEmailAddress implements AdditionalDataHolder, Parsable {
      * Sets the selectionLikelihood property value. The selectionLikelihood property
      * @param value Value to set for the selectionLikelihood property.
      */
-    public set selectionLikelihood(value: SelectionLikelihoodInfo | undefined) {
+    public set selectionLikelihood(value: SelectionLikelihoodInfo | AdminMember1 | undefined) {
         this._selectionLikelihood = value;
     };
     /**
@@ -109,7 +110,7 @@ export class ScoredEmailAddress implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("address", this.address);
         writer.writeStringValue("itemId", this.itemId);
         writer.writeNumberValue("relevanceScore", this.relevanceScore);
-        writer.writeEnumValue<SelectionLikelihoodInfo>("selectionLikelihood", this.selectionLikelihood);
+        writer.writeObjectValue<SelectionLikelihoodInfo>("selectionLikelihood", this.selectionLikelihood);
         writer.writeAdditionalData(this.additionalData);
     };
 }

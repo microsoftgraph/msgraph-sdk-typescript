@@ -1,11 +1,9 @@
-import {createWorkbookChartFillFromDiscriminatorValue} from './createWorkbookChartFillFromDiscriminatorValue';
-import {Entity, WorkbookChartFill} from './index';
+import {AdminMember1, Entity, WorkbookChartFill} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartPointFormat extends Entity implements Parsable {
     /** Represents the fill format of a chart, which includes background formating information. Read-only. */
-    private _fill?: WorkbookChartFill | undefined;
+    private _fill?: WorkbookChartFill | AdminMember1 | undefined;
     /**
      * Instantiates a new workbookChartPointFormat and sets the default values.
      */
@@ -14,7 +12,7 @@ export class WorkbookChartPointFormat extends Entity implements Parsable {
     };
     /**
      * Gets the fill property value. Represents the fill format of a chart, which includes background formating information. Read-only.
-     * @returns a workbookChartFill
+     * @returns a admin
      */
     public get fill() {
         return this._fill;
@@ -23,7 +21,7 @@ export class WorkbookChartPointFormat extends Entity implements Parsable {
      * Sets the fill property value. Represents the fill format of a chart, which includes background formating information. Read-only.
      * @param value Value to set for the fill property.
      */
-    public set fill(value: WorkbookChartFill | undefined) {
+    public set fill(value: WorkbookChartFill | AdminMember1 | undefined) {
         this._fill = value;
     };
     /**

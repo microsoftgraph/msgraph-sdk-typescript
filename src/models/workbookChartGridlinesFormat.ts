@@ -1,11 +1,9 @@
-import {createWorkbookChartLineFormatFromDiscriminatorValue} from './createWorkbookChartLineFormatFromDiscriminatorValue';
-import {Entity, WorkbookChartLineFormat} from './index';
+import {AdminMember1, Entity, WorkbookChartLineFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartGridlinesFormat extends Entity implements Parsable {
     /** Represents chart line formatting. Read-only. */
-    private _line?: WorkbookChartLineFormat | undefined;
+    private _line?: WorkbookChartLineFormat | AdminMember1 | undefined;
     /**
      * Instantiates a new workbookChartGridlinesFormat and sets the default values.
      */
@@ -23,7 +21,7 @@ export class WorkbookChartGridlinesFormat extends Entity implements Parsable {
     };
     /**
      * Gets the line property value. Represents chart line formatting. Read-only.
-     * @returns a workbookChartLineFormat
+     * @returns a admin
      */
     public get line() {
         return this._line;
@@ -32,7 +30,7 @@ export class WorkbookChartGridlinesFormat extends Entity implements Parsable {
      * Sets the line property value. Represents chart line formatting. Read-only.
      * @param value Value to set for the line property.
      */
-    public set line(value: WorkbookChartLineFormat | undefined) {
+    public set line(value: WorkbookChartLineFormat | AdminMember1 | undefined) {
         this._line = value;
     };
     /**

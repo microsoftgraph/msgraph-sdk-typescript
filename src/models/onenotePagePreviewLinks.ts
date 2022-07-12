@@ -1,12 +1,11 @@
-import {createExternalLinkFromDiscriminatorValue} from './createExternalLinkFromDiscriminatorValue';
-import {ExternalLink} from './index';
+import {ExternalLink, PreviewMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenotePagePreviewLinks implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The previewImageUrl property */
-    private _previewImageUrl?: ExternalLink | undefined;
+    private _previewImageUrl?: ExternalLink | PreviewMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -38,7 +37,7 @@ export class OnenotePagePreviewLinks implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the previewImageUrl property value. The previewImageUrl property
-     * @returns a externalLink
+     * @returns a preview
      */
     public get previewImageUrl() {
         return this._previewImageUrl;
@@ -47,7 +46,7 @@ export class OnenotePagePreviewLinks implements AdditionalDataHolder, Parsable {
      * Sets the previewImageUrl property value. The previewImageUrl property
      * @param value Value to set for the previewImageUrl property.
      */
-    public set previewImageUrl(value: ExternalLink | undefined) {
+    public set previewImageUrl(value: ExternalLink | PreviewMember1 | undefined) {
         this._previewImageUrl = value;
     };
     /**

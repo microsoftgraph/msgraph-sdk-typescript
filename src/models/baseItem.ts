@@ -1,15 +1,11 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createItemReferenceFromDiscriminatorValue} from './createItemReferenceFromDiscriminatorValue';
-import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorValue';
-import {Entity, IdentitySet, ItemReference, User} from './index';
+import {AdminMember1, Entity, IdentitySet, ItemReference, User} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class BaseItem extends Entity implements Parsable {
     /** Identity of the user, device, or application which created the item. Read-only. */
-    private _createdBy?: IdentitySet | undefined;
+    private _createdBy?: IdentitySet | AdminMember1 | undefined;
     /** Identity of the user who created the item. Read-only. */
-    private _createdByUser?: User | undefined;
+    private _createdByUser?: User | AdminMember1 | undefined;
     /** Date and time of item creation. Read-only. */
     private _createdDateTime?: Date | undefined;
     /** Provides a user-visible description of the item. Optional. */
@@ -17,15 +13,15 @@ export class BaseItem extends Entity implements Parsable {
     /** ETag for the item. Read-only. */
     private _eTag?: string | undefined;
     /** Identity of the user, device, and application which last modified the item. Read-only. */
-    private _lastModifiedBy?: IdentitySet | undefined;
+    private _lastModifiedBy?: IdentitySet | AdminMember1 | undefined;
     /** Identity of the user who last modified the item. Read-only. */
-    private _lastModifiedByUser?: User | undefined;
+    private _lastModifiedByUser?: User | AdminMember1 | undefined;
     /** Date and time the item was last modified. Read-only. */
     private _lastModifiedDateTime?: Date | undefined;
     /** The name of the item. Read-write. */
     private _name?: string | undefined;
     /** Parent information, if the item has a parent. Read-write. */
-    private _parentReference?: ItemReference | undefined;
+    private _parentReference?: ItemReference | AdminMember1 | undefined;
     /** URL that displays the resource in the browser. Read-only. */
     private _webUrl?: string | undefined;
     /**
@@ -33,10 +29,11 @@ export class BaseItem extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.baseItem";
     };
     /**
      * Gets the createdBy property value. Identity of the user, device, or application which created the item. Read-only.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get createdBy() {
         return this._createdBy;
@@ -45,12 +42,12 @@ export class BaseItem extends Entity implements Parsable {
      * Sets the createdBy property value. Identity of the user, device, or application which created the item. Read-only.
      * @param value Value to set for the createdBy property.
      */
-    public set createdBy(value: IdentitySet | undefined) {
+    public set createdBy(value: IdentitySet | AdminMember1 | undefined) {
         this._createdBy = value;
     };
     /**
      * Gets the createdByUser property value. Identity of the user who created the item. Read-only.
-     * @returns a user
+     * @returns a admin
      */
     public get createdByUser() {
         return this._createdByUser;
@@ -59,7 +56,7 @@ export class BaseItem extends Entity implements Parsable {
      * Sets the createdByUser property value. Identity of the user who created the item. Read-only.
      * @param value Value to set for the createdByUser property.
      */
-    public set createdByUser(value: User | undefined) {
+    public set createdByUser(value: User | AdminMember1 | undefined) {
         this._createdByUser = value;
     };
     /**
@@ -125,7 +122,7 @@ export class BaseItem extends Entity implements Parsable {
     };
     /**
      * Gets the lastModifiedBy property value. Identity of the user, device, and application which last modified the item. Read-only.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get lastModifiedBy() {
         return this._lastModifiedBy;
@@ -134,12 +131,12 @@ export class BaseItem extends Entity implements Parsable {
      * Sets the lastModifiedBy property value. Identity of the user, device, and application which last modified the item. Read-only.
      * @param value Value to set for the lastModifiedBy property.
      */
-    public set lastModifiedBy(value: IdentitySet | undefined) {
+    public set lastModifiedBy(value: IdentitySet | AdminMember1 | undefined) {
         this._lastModifiedBy = value;
     };
     /**
      * Gets the lastModifiedByUser property value. Identity of the user who last modified the item. Read-only.
-     * @returns a user
+     * @returns a admin
      */
     public get lastModifiedByUser() {
         return this._lastModifiedByUser;
@@ -148,7 +145,7 @@ export class BaseItem extends Entity implements Parsable {
      * Sets the lastModifiedByUser property value. Identity of the user who last modified the item. Read-only.
      * @param value Value to set for the lastModifiedByUser property.
      */
-    public set lastModifiedByUser(value: User | undefined) {
+    public set lastModifiedByUser(value: User | AdminMember1 | undefined) {
         this._lastModifiedByUser = value;
     };
     /**
@@ -181,7 +178,7 @@ export class BaseItem extends Entity implements Parsable {
     };
     /**
      * Gets the parentReference property value. Parent information, if the item has a parent. Read-write.
-     * @returns a itemReference
+     * @returns a admin
      */
     public get parentReference() {
         return this._parentReference;
@@ -190,7 +187,7 @@ export class BaseItem extends Entity implements Parsable {
      * Sets the parentReference property value. Parent information, if the item has a parent. Read-write.
      * @param value Value to set for the parentReference property.
      */
-    public set parentReference(value: ItemReference | undefined) {
+    public set parentReference(value: ItemReference | AdminMember1 | undefined) {
         this._parentReference = value;
     };
     /**

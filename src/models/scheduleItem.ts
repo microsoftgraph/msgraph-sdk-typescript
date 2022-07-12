@@ -1,21 +1,20 @@
-import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
 import {FreeBusyStatus} from './freeBusyStatus';
-import {DateTimeTimeZone} from './index';
+import {DateTimeTimeZone, GetScheduleMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ScheduleItem implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The date, time, and time zone that the corresponding event ends. */
-    private _end?: DateTimeTimeZone | undefined;
+    private _end?: DateTimeTimeZone | GetScheduleMember1 | undefined;
     /** The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional. */
     private _isPrivate?: boolean | undefined;
     /** The location where the corresponding event is held or attended from. Optional. */
     private _location?: string | undefined;
     /** The date, time, and time zone that the corresponding event starts. */
-    private _start?: DateTimeTimeZone | undefined;
+    private _start?: DateTimeTimeZone | GetScheduleMember1 | undefined;
     /** The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown. */
-    private _status?: FreeBusyStatus | undefined;
+    private _status?: FreeBusyStatus | GetScheduleMember1 | undefined;
     /** The corresponding event's subject line. Optional. */
     private _subject?: string | undefined;
     /**
@@ -40,7 +39,7 @@ export class ScheduleItem implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the end property value. The date, time, and time zone that the corresponding event ends.
-     * @returns a dateTimeTimeZone
+     * @returns a getSchedule
      */
     public get end() {
         return this._end;
@@ -49,7 +48,7 @@ export class ScheduleItem implements AdditionalDataHolder, Parsable {
      * Sets the end property value. The date, time, and time zone that the corresponding event ends.
      * @param value Value to set for the end property.
      */
-    public set end(value: DateTimeTimeZone | undefined) {
+    public set end(value: DateTimeTimeZone | GetScheduleMember1 | undefined) {
         this._end = value;
     };
     /**
@@ -62,7 +61,7 @@ export class ScheduleItem implements AdditionalDataHolder, Parsable {
             "isPrivate": n => { this.isPrivate = n.getBooleanValue(); },
             "location": n => { this.location = n.getStringValue(); },
             "start": n => { this.start = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
-            "status": n => { this.status = n.getEnumValue<FreeBusyStatus>(FreeBusyStatus); },
+            "status": n => { this.status = n.getObjectValue<FreeBusyStatus>(createFreeBusyStatusFromDiscriminatorValue); },
             "subject": n => { this.subject = n.getStringValue(); },
         };
     };
@@ -104,13 +103,13 @@ export class ScheduleItem implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isPrivate", this.isPrivate);
         writer.writeStringValue("location", this.location);
         writer.writeObjectValue<DateTimeTimeZone>("start", this.start);
-        writer.writeEnumValue<FreeBusyStatus>("status", this.status);
+        writer.writeObjectValue<FreeBusyStatus>("status", this.status);
         writer.writeStringValue("subject", this.subject);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the start property value. The date, time, and time zone that the corresponding event starts.
-     * @returns a dateTimeTimeZone
+     * @returns a getSchedule
      */
     public get start() {
         return this._start;
@@ -119,12 +118,12 @@ export class ScheduleItem implements AdditionalDataHolder, Parsable {
      * Sets the start property value. The date, time, and time zone that the corresponding event starts.
      * @param value Value to set for the start property.
      */
-    public set start(value: DateTimeTimeZone | undefined) {
+    public set start(value: DateTimeTimeZone | GetScheduleMember1 | undefined) {
         this._start = value;
     };
     /**
      * Gets the status property value. The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
-     * @returns a freeBusyStatus
+     * @returns a getSchedule
      */
     public get status() {
         return this._status;
@@ -133,7 +132,7 @@ export class ScheduleItem implements AdditionalDataHolder, Parsable {
      * Sets the status property value. The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @param value Value to set for the status property.
      */
-    public set status(value: FreeBusyStatus | undefined) {
+    public set status(value: FreeBusyStatus | GetScheduleMember1 | undefined) {
         this._status = value;
     };
     /**

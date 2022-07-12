@@ -1,22 +1,15 @@
 import {AllowedTargetScope} from './allowedTargetScope';
-import {createAccessPackageAssignmentApprovalSettingsFromDiscriminatorValue} from './createAccessPackageAssignmentApprovalSettingsFromDiscriminatorValue';
-import {createAccessPackageAssignmentRequestorSettingsFromDiscriminatorValue} from './createAccessPackageAssignmentRequestorSettingsFromDiscriminatorValue';
-import {createAccessPackageAssignmentReviewSettingsFromDiscriminatorValue} from './createAccessPackageAssignmentReviewSettingsFromDiscriminatorValue';
-import {createAccessPackageCatalogFromDiscriminatorValue} from './createAccessPackageCatalogFromDiscriminatorValue';
-import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
-import {createExpirationPatternFromDiscriminatorValue} from './createExpirationPatternFromDiscriminatorValue';
-import {createSubjectSetFromDiscriminatorValue} from './createSubjectSetFromDiscriminatorValue';
-import {AccessPackage, AccessPackageAssignmentApprovalSettings, AccessPackageAssignmentRequestorSettings, AccessPackageAssignmentReviewSettings, AccessPackageCatalog, Entity, ExpirationPattern, SubjectSet} from './index';
+import {AccessPackage, AccessPackageAssignmentApprovalSettings, AccessPackageAssignmentRequestorSettings, AccessPackageAssignmentReviewSettings, AccessPackageCatalog, AdminMember1, Entity, ExpirationPattern, SubjectSet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the admin singleton. */
 export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
     /** The access package with this policy. Read-only. Nullable. Supports $expand. */
-    private _accessPackage?: AccessPackage | undefined;
+    private _accessPackage?: AccessPackage | AdminMember1 | undefined;
     /** Principals that can be assigned the access package through this policy. The possible values are: notSpecified, specificDirectoryUsers, specificConnectedOrganizationUsers, specificDirectoryServicePrincipals, allMemberUsers, allDirectoryUsers, allDirectoryServicePrincipals, allConfiguredConnectedOrganizationUsers, allExternalUsers, unknownFutureValue. */
-    private _allowedTargetScope?: AllowedTargetScope | undefined;
+    private _allowedTargetScope?: AllowedTargetScope | AdminMember1 | undefined;
     /** Catalog of the access package containing this policy. Read-only. */
-    private _catalog?: AccessPackageCatalog | undefined;
+    private _catalog?: AccessPackageCatalog | AdminMember1 | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _createdDateTime?: Date | undefined;
     /** The description of the policy. */
@@ -24,20 +17,20 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
     /** The display name of the policy. Supports $filter (eq). */
     private _displayName?: string | undefined;
     /** The expiration date for assignments created in this policy. */
-    private _expiration?: ExpirationPattern | undefined;
+    private _expiration?: ExpirationPattern | AdminMember1 | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _modifiedDateTime?: Date | undefined;
     /** Who must approve requests for access package in this policy. */
-    private _requestApprovalSettings?: AccessPackageAssignmentApprovalSettings | undefined;
+    private _requestApprovalSettings?: AccessPackageAssignmentApprovalSettings | AdminMember1 | undefined;
     /** Who can request this access package from this policy. */
-    private _requestorSettings?: AccessPackageAssignmentRequestorSettings | undefined;
+    private _requestorSettings?: AccessPackageAssignmentRequestorSettings | AdminMember1 | undefined;
     /** Settings for access reviews of assignments through this policy. */
-    private _reviewSettings?: AccessPackageAssignmentReviewSettings | undefined;
+    private _reviewSettings?: AccessPackageAssignmentReviewSettings | AdminMember1 | undefined;
     /** The principals that can be assigned access from an access package through this policy. */
-    private _specificAllowedTargets?: SubjectSet[] | undefined;
+    private _specificAllowedTargets?: SubjectSet | AdminMember1[] | undefined;
     /**
      * Gets the accessPackage property value. The access package with this policy. Read-only. Nullable. Supports $expand.
-     * @returns a accessPackage
+     * @returns a admin
      */
     public get accessPackage() {
         return this._accessPackage;
@@ -46,12 +39,12 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
      * Sets the accessPackage property value. The access package with this policy. Read-only. Nullable. Supports $expand.
      * @param value Value to set for the accessPackage property.
      */
-    public set accessPackage(value: AccessPackage | undefined) {
+    public set accessPackage(value: AccessPackage | AdminMember1 | undefined) {
         this._accessPackage = value;
     };
     /**
      * Gets the allowedTargetScope property value. Principals that can be assigned the access package through this policy. The possible values are: notSpecified, specificDirectoryUsers, specificConnectedOrganizationUsers, specificDirectoryServicePrincipals, allMemberUsers, allDirectoryUsers, allDirectoryServicePrincipals, allConfiguredConnectedOrganizationUsers, allExternalUsers, unknownFutureValue.
-     * @returns a allowedTargetScope
+     * @returns a admin
      */
     public get allowedTargetScope() {
         return this._allowedTargetScope;
@@ -60,12 +53,12 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
      * Sets the allowedTargetScope property value. Principals that can be assigned the access package through this policy. The possible values are: notSpecified, specificDirectoryUsers, specificConnectedOrganizationUsers, specificDirectoryServicePrincipals, allMemberUsers, allDirectoryUsers, allDirectoryServicePrincipals, allConfiguredConnectedOrganizationUsers, allExternalUsers, unknownFutureValue.
      * @param value Value to set for the allowedTargetScope property.
      */
-    public set allowedTargetScope(value: AllowedTargetScope | undefined) {
+    public set allowedTargetScope(value: AllowedTargetScope | AdminMember1 | undefined) {
         this._allowedTargetScope = value;
     };
     /**
      * Gets the catalog property value. Catalog of the access package containing this policy. Read-only.
-     * @returns a accessPackageCatalog
+     * @returns a admin
      */
     public get catalog() {
         return this._catalog;
@@ -74,7 +67,7 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
      * Sets the catalog property value. Catalog of the access package containing this policy. Read-only.
      * @param value Value to set for the catalog property.
      */
-    public set catalog(value: AccessPackageCatalog | undefined) {
+    public set catalog(value: AccessPackageCatalog | AdminMember1 | undefined) {
         this._catalog = value;
     };
     /**
@@ -127,7 +120,7 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
     };
     /**
      * Gets the expiration property value. The expiration date for assignments created in this policy.
-     * @returns a expirationPattern
+     * @returns a admin
      */
     public get expiration() {
         return this._expiration;
@@ -136,7 +129,7 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
      * Sets the expiration property value. The expiration date for assignments created in this policy.
      * @param value Value to set for the expiration property.
      */
-    public set expiration(value: ExpirationPattern | undefined) {
+    public set expiration(value: ExpirationPattern | AdminMember1 | undefined) {
         this._expiration = value;
     };
     /**
@@ -146,7 +139,7 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "accessPackage": n => { this.accessPackage = n.getObjectValue<AccessPackage>(createAccessPackageFromDiscriminatorValue); },
-            "allowedTargetScope": n => { this.allowedTargetScope = n.getEnumValue<AllowedTargetScope>(AllowedTargetScope); },
+            "allowedTargetScope": n => { this.allowedTargetScope = n.getObjectValue<AllowedTargetScope>(createAllowedTargetScopeFromDiscriminatorValue); },
             "catalog": n => { this.catalog = n.getObjectValue<AccessPackageCatalog>(createAccessPackageCatalogFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "description": n => { this.description = n.getStringValue(); },
@@ -156,7 +149,7 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
             "requestApprovalSettings": n => { this.requestApprovalSettings = n.getObjectValue<AccessPackageAssignmentApprovalSettings>(createAccessPackageAssignmentApprovalSettingsFromDiscriminatorValue); },
             "requestorSettings": n => { this.requestorSettings = n.getObjectValue<AccessPackageAssignmentRequestorSettings>(createAccessPackageAssignmentRequestorSettingsFromDiscriminatorValue); },
             "reviewSettings": n => { this.reviewSettings = n.getObjectValue<AccessPackageAssignmentReviewSettings>(createAccessPackageAssignmentReviewSettingsFromDiscriminatorValue); },
-            "specificAllowedTargets": n => { this.specificAllowedTargets = n.getCollectionOfObjectValues<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
+            "specificAllowedTargets": n => { this.specificAllowedTargets = n.getObjectValue<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
         };
     };
     /**
@@ -175,7 +168,7 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
     };
     /**
      * Gets the requestApprovalSettings property value. Who must approve requests for access package in this policy.
-     * @returns a accessPackageAssignmentApprovalSettings
+     * @returns a admin
      */
     public get requestApprovalSettings() {
         return this._requestApprovalSettings;
@@ -184,12 +177,12 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
      * Sets the requestApprovalSettings property value. Who must approve requests for access package in this policy.
      * @param value Value to set for the requestApprovalSettings property.
      */
-    public set requestApprovalSettings(value: AccessPackageAssignmentApprovalSettings | undefined) {
+    public set requestApprovalSettings(value: AccessPackageAssignmentApprovalSettings | AdminMember1 | undefined) {
         this._requestApprovalSettings = value;
     };
     /**
      * Gets the requestorSettings property value. Who can request this access package from this policy.
-     * @returns a accessPackageAssignmentRequestorSettings
+     * @returns a admin
      */
     public get requestorSettings() {
         return this._requestorSettings;
@@ -198,12 +191,12 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
      * Sets the requestorSettings property value. Who can request this access package from this policy.
      * @param value Value to set for the requestorSettings property.
      */
-    public set requestorSettings(value: AccessPackageAssignmentRequestorSettings | undefined) {
+    public set requestorSettings(value: AccessPackageAssignmentRequestorSettings | AdminMember1 | undefined) {
         this._requestorSettings = value;
     };
     /**
      * Gets the reviewSettings property value. Settings for access reviews of assignments through this policy.
-     * @returns a accessPackageAssignmentReviewSettings
+     * @returns a admin
      */
     public get reviewSettings() {
         return this._reviewSettings;
@@ -212,7 +205,7 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
      * Sets the reviewSettings property value. Settings for access reviews of assignments through this policy.
      * @param value Value to set for the reviewSettings property.
      */
-    public set reviewSettings(value: AccessPackageAssignmentReviewSettings | undefined) {
+    public set reviewSettings(value: AccessPackageAssignmentReviewSettings | AdminMember1 | undefined) {
         this._reviewSettings = value;
     };
     /**
@@ -223,7 +216,7 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeObjectValue<AccessPackage>("accessPackage", this.accessPackage);
-        writer.writeEnumValue<AllowedTargetScope>("allowedTargetScope", this.allowedTargetScope);
+        writer.writeObjectValue<AllowedTargetScope>("allowedTargetScope", this.allowedTargetScope);
         writer.writeObjectValue<AccessPackageCatalog>("catalog", this.catalog);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeStringValue("description", this.description);
@@ -233,11 +226,11 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
         writer.writeObjectValue<AccessPackageAssignmentApprovalSettings>("requestApprovalSettings", this.requestApprovalSettings);
         writer.writeObjectValue<AccessPackageAssignmentRequestorSettings>("requestorSettings", this.requestorSettings);
         writer.writeObjectValue<AccessPackageAssignmentReviewSettings>("reviewSettings", this.reviewSettings);
-        writer.writeCollectionOfObjectValues<SubjectSet>("specificAllowedTargets", this.specificAllowedTargets);
+        writer.writeObjectValue<SubjectSet>("specificAllowedTargets", this.specificAllowedTargets);
     };
     /**
      * Gets the specificAllowedTargets property value. The principals that can be assigned access from an access package through this policy.
-     * @returns a subjectSet
+     * @returns a admin
      */
     public get specificAllowedTargets() {
         return this._specificAllowedTargets;
@@ -246,7 +239,7 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
      * Sets the specificAllowedTargets property value. The principals that can be assigned access from an access package through this policy.
      * @param value Value to set for the specificAllowedTargets property.
      */
-    public set specificAllowedTargets(value: SubjectSet[] | undefined) {
+    public set specificAllowedTargets(value: SubjectSet | AdminMember1[] | undefined) {
         this._specificAllowedTargets = value;
     };
 }

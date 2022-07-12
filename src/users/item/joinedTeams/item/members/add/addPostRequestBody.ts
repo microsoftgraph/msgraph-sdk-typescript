@@ -1,5 +1,5 @@
 import {ConversationMember} from '../../../../../../models/';
-import {createConversationMemberFromDiscriminatorValue} from '../../../../../../models/createConversationMemberFromDiscriminatorValue';
+import {AddMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the add method. */
@@ -7,7 +7,7 @@ export class AddPostRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The values property */
-    private _values?: ConversationMember[] | undefined;
+    private _values?: ConversationMember | AddMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,7 +34,7 @@ export class AddPostRequestBody implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "values": n => { this.values = n.getCollectionOfObjectValues<ConversationMember>(createConversationMemberFromDiscriminatorValue); },
+            "values": n => { this.values = n.getObjectValue<ConversationMember>(createConversationMemberFromDiscriminatorValue); },
         };
     };
     /**
@@ -43,12 +43,12 @@ export class AddPostRequestBody implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<ConversationMember>("values", this.values);
+        writer.writeObjectValue<ConversationMember>("values", this.values);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the values property value. The values property
-     * @returns a conversationMember
+     * @returns a add
      */
     public get values() {
         return this._values;
@@ -57,7 +57,7 @@ export class AddPostRequestBody implements AdditionalDataHolder, Parsable {
      * Sets the values property value. The values property
      * @param value Value to set for the values property.
      */
-    public set values(value: ConversationMember[] | undefined) {
+    public set values(value: ConversationMember | AddMember1[] | undefined) {
         this._values = value;
     };
 }

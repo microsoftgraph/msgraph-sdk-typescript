@@ -1,19 +1,18 @@
-import {createOptionalClaimFromDiscriminatorValue} from './createOptionalClaimFromDiscriminatorValue';
-import {OptionalClaim} from './index';
+import {ApplicationsMember1, OptionalClaim} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OptionalClaims implements AdditionalDataHolder, Parsable {
     /** The optional claims returned in the JWT access token. */
-    private _accessToken?: OptionalClaim[] | undefined;
+    private _accessToken?: OptionalClaim | ApplicationsMember1[] | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The optional claims returned in the JWT ID token. */
-    private _idToken?: OptionalClaim[] | undefined;
+    private _idToken?: OptionalClaim | ApplicationsMember1[] | undefined;
     /** The optional claims returned in the SAML token. */
-    private _saml2Token?: OptionalClaim[] | undefined;
+    private _saml2Token?: OptionalClaim | ApplicationsMember1[] | undefined;
     /**
      * Gets the accessToken property value. The optional claims returned in the JWT access token.
-     * @returns a optionalClaim
+     * @returns a applications
      */
     public get accessToken() {
         return this._accessToken;
@@ -22,7 +21,7 @@ export class OptionalClaims implements AdditionalDataHolder, Parsable {
      * Sets the accessToken property value. The optional claims returned in the JWT access token.
      * @param value Value to set for the accessToken property.
      */
-    public set accessToken(value: OptionalClaim[] | undefined) {
+    public set accessToken(value: OptionalClaim | ApplicationsMember1[] | undefined) {
         this._accessToken = value;
     };
     /**
@@ -51,14 +50,14 @@ export class OptionalClaims implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "accessToken": n => { this.accessToken = n.getCollectionOfObjectValues<OptionalClaim>(createOptionalClaimFromDiscriminatorValue); },
-            "idToken": n => { this.idToken = n.getCollectionOfObjectValues<OptionalClaim>(createOptionalClaimFromDiscriminatorValue); },
-            "saml2Token": n => { this.saml2Token = n.getCollectionOfObjectValues<OptionalClaim>(createOptionalClaimFromDiscriminatorValue); },
+            "accessToken": n => { this.accessToken = n.getObjectValue<OptionalClaim>(createOptionalClaimFromDiscriminatorValue); },
+            "idToken": n => { this.idToken = n.getObjectValue<OptionalClaim>(createOptionalClaimFromDiscriminatorValue); },
+            "saml2Token": n => { this.saml2Token = n.getObjectValue<OptionalClaim>(createOptionalClaimFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the idToken property value. The optional claims returned in the JWT ID token.
-     * @returns a optionalClaim
+     * @returns a applications
      */
     public get idToken() {
         return this._idToken;
@@ -67,12 +66,12 @@ export class OptionalClaims implements AdditionalDataHolder, Parsable {
      * Sets the idToken property value. The optional claims returned in the JWT ID token.
      * @param value Value to set for the idToken property.
      */
-    public set idToken(value: OptionalClaim[] | undefined) {
+    public set idToken(value: OptionalClaim | ApplicationsMember1[] | undefined) {
         this._idToken = value;
     };
     /**
      * Gets the saml2Token property value. The optional claims returned in the SAML token.
-     * @returns a optionalClaim
+     * @returns a applications
      */
     public get saml2Token() {
         return this._saml2Token;
@@ -81,7 +80,7 @@ export class OptionalClaims implements AdditionalDataHolder, Parsable {
      * Sets the saml2Token property value. The optional claims returned in the SAML token.
      * @param value Value to set for the saml2Token property.
      */
-    public set saml2Token(value: OptionalClaim[] | undefined) {
+    public set saml2Token(value: OptionalClaim | ApplicationsMember1[] | undefined) {
         this._saml2Token = value;
     };
     /**
@@ -90,9 +89,9 @@ export class OptionalClaims implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<OptionalClaim>("accessToken", this.accessToken);
-        writer.writeCollectionOfObjectValues<OptionalClaim>("idToken", this.idToken);
-        writer.writeCollectionOfObjectValues<OptionalClaim>("saml2Token", this.saml2Token);
+        writer.writeObjectValue<OptionalClaim>("accessToken", this.accessToken);
+        writer.writeObjectValue<OptionalClaim>("idToken", this.idToken);
+        writer.writeObjectValue<OptionalClaim>("saml2Token", this.saml2Token);
         writer.writeAdditionalData(this.additionalData);
     };
 }

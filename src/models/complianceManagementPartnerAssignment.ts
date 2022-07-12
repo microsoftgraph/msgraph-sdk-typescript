@@ -1,5 +1,4 @@
-import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from './createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue';
-import {DeviceAndAppManagementAssignmentTarget} from './index';
+import {AdminMember1, DeviceAndAppManagementAssignmentTarget} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** User group targeting for Compliance Management Partner */
@@ -7,7 +6,7 @@ export class ComplianceManagementPartnerAssignment implements AdditionalDataHold
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Group assignment target. */
-    private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    private _target?: DeviceAndAppManagementAssignmentTarget | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -48,7 +47,7 @@ export class ComplianceManagementPartnerAssignment implements AdditionalDataHold
     };
     /**
      * Gets the target property value. Group assignment target.
-     * @returns a deviceAndAppManagementAssignmentTarget
+     * @returns a admin
      */
     public get target() {
         return this._target;
@@ -57,7 +56,7 @@ export class ComplianceManagementPartnerAssignment implements AdditionalDataHold
      * Sets the target property value. Group assignment target.
      * @param value Value to set for the target property.
      */
-    public set target(value: DeviceAndAppManagementAssignmentTarget | undefined) {
+    public set target(value: DeviceAndAppManagementAssignmentTarget | AdminMember1 | undefined) {
         this._target = value;
     };
 }

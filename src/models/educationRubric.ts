@@ -1,31 +1,25 @@
-import {createEducationAssignmentGradeTypeFromDiscriminatorValue} from './createEducationAssignmentGradeTypeFromDiscriminatorValue';
-import {createEducationItemBodyFromDiscriminatorValue} from './createEducationItemBodyFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createRubricLevelFromDiscriminatorValue} from './createRubricLevelFromDiscriminatorValue';
-import {createRubricQualityFromDiscriminatorValue} from './createRubricQualityFromDiscriminatorValue';
-import {EducationAssignmentGradeType, EducationItemBody, Entity, IdentitySet, RubricLevel, RubricQuality} from './index';
+import {AdminMember1, EducationAssignmentGradeType, EducationItemBody, Entity, IdentitySet, RubricLevel, RubricQuality} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
 export class EducationRubric extends Entity implements Parsable {
     /** The user who created this resource. */
-    private _createdBy?: IdentitySet | undefined;
+    private _createdBy?: IdentitySet | AdminMember1 | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _createdDateTime?: Date | undefined;
     /** The description of this rubric. */
-    private _description?: EducationItemBody | undefined;
+    private _description?: EducationItemBody | AdminMember1 | undefined;
     /** The name of this rubric. */
     private _displayName?: string | undefined;
     /** The grading type of this rubric -- null for a no-points rubric, or educationAssignmentPointsGradeType for a points rubric. */
-    private _grading?: EducationAssignmentGradeType | undefined;
+    private _grading?: EducationAssignmentGradeType | AdminMember1 | undefined;
     /** The last user to modify the resource. */
-    private _lastModifiedBy?: IdentitySet | undefined;
+    private _lastModifiedBy?: IdentitySet | AdminMember1 | undefined;
     /** Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _lastModifiedDateTime?: Date | undefined;
     /** The collection of levels making up this rubric. */
-    private _levels?: RubricLevel[] | undefined;
+    private _levels?: RubricLevel | AdminMember1[] | undefined;
     /** The collection of qualities making up this rubric. */
-    private _qualities?: RubricQuality[] | undefined;
+    private _qualities?: RubricQuality | AdminMember1[] | undefined;
     /**
      * Instantiates a new educationRubric and sets the default values.
      */
@@ -34,7 +28,7 @@ export class EducationRubric extends Entity implements Parsable {
     };
     /**
      * Gets the createdBy property value. The user who created this resource.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get createdBy() {
         return this._createdBy;
@@ -43,7 +37,7 @@ export class EducationRubric extends Entity implements Parsable {
      * Sets the createdBy property value. The user who created this resource.
      * @param value Value to set for the createdBy property.
      */
-    public set createdBy(value: IdentitySet | undefined) {
+    public set createdBy(value: IdentitySet | AdminMember1 | undefined) {
         this._createdBy = value;
     };
     /**
@@ -62,7 +56,7 @@ export class EducationRubric extends Entity implements Parsable {
     };
     /**
      * Gets the description property value. The description of this rubric.
-     * @returns a educationItemBody
+     * @returns a admin
      */
     public get description() {
         return this._description;
@@ -71,7 +65,7 @@ export class EducationRubric extends Entity implements Parsable {
      * Sets the description property value. The description of this rubric.
      * @param value Value to set for the description property.
      */
-    public set description(value: EducationItemBody | undefined) {
+    public set description(value: EducationItemBody | AdminMember1 | undefined) {
         this._description = value;
     };
     /**
@@ -101,13 +95,13 @@ export class EducationRubric extends Entity implements Parsable {
             "grading": n => { this.grading = n.getObjectValue<EducationAssignmentGradeType>(createEducationAssignmentGradeTypeFromDiscriminatorValue); },
             "lastModifiedBy": n => { this.lastModifiedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
-            "levels": n => { this.levels = n.getCollectionOfObjectValues<RubricLevel>(createRubricLevelFromDiscriminatorValue); },
-            "qualities": n => { this.qualities = n.getCollectionOfObjectValues<RubricQuality>(createRubricQualityFromDiscriminatorValue); },
+            "levels": n => { this.levels = n.getObjectValue<RubricLevel>(createRubricLevelFromDiscriminatorValue); },
+            "qualities": n => { this.qualities = n.getObjectValue<RubricQuality>(createRubricQualityFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the grading property value. The grading type of this rubric -- null for a no-points rubric, or educationAssignmentPointsGradeType for a points rubric.
-     * @returns a educationAssignmentGradeType
+     * @returns a admin
      */
     public get grading() {
         return this._grading;
@@ -116,12 +110,12 @@ export class EducationRubric extends Entity implements Parsable {
      * Sets the grading property value. The grading type of this rubric -- null for a no-points rubric, or educationAssignmentPointsGradeType for a points rubric.
      * @param value Value to set for the grading property.
      */
-    public set grading(value: EducationAssignmentGradeType | undefined) {
+    public set grading(value: EducationAssignmentGradeType | AdminMember1 | undefined) {
         this._grading = value;
     };
     /**
      * Gets the lastModifiedBy property value. The last user to modify the resource.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get lastModifiedBy() {
         return this._lastModifiedBy;
@@ -130,7 +124,7 @@ export class EducationRubric extends Entity implements Parsable {
      * Sets the lastModifiedBy property value. The last user to modify the resource.
      * @param value Value to set for the lastModifiedBy property.
      */
-    public set lastModifiedBy(value: IdentitySet | undefined) {
+    public set lastModifiedBy(value: IdentitySet | AdminMember1 | undefined) {
         this._lastModifiedBy = value;
     };
     /**
@@ -149,7 +143,7 @@ export class EducationRubric extends Entity implements Parsable {
     };
     /**
      * Gets the levels property value. The collection of levels making up this rubric.
-     * @returns a rubricLevel
+     * @returns a admin
      */
     public get levels() {
         return this._levels;
@@ -158,12 +152,12 @@ export class EducationRubric extends Entity implements Parsable {
      * Sets the levels property value. The collection of levels making up this rubric.
      * @param value Value to set for the levels property.
      */
-    public set levels(value: RubricLevel[] | undefined) {
+    public set levels(value: RubricLevel | AdminMember1[] | undefined) {
         this._levels = value;
     };
     /**
      * Gets the qualities property value. The collection of qualities making up this rubric.
-     * @returns a rubricQuality
+     * @returns a admin
      */
     public get qualities() {
         return this._qualities;
@@ -172,7 +166,7 @@ export class EducationRubric extends Entity implements Parsable {
      * Sets the qualities property value. The collection of qualities making up this rubric.
      * @param value Value to set for the qualities property.
      */
-    public set qualities(value: RubricQuality[] | undefined) {
+    public set qualities(value: RubricQuality | AdminMember1[] | undefined) {
         this._qualities = value;
     };
     /**
@@ -189,7 +183,7 @@ export class EducationRubric extends Entity implements Parsable {
         writer.writeObjectValue<EducationAssignmentGradeType>("grading", this.grading);
         writer.writeObjectValue<IdentitySet>("lastModifiedBy", this.lastModifiedBy);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-        writer.writeCollectionOfObjectValues<RubricLevel>("levels", this.levels);
-        writer.writeCollectionOfObjectValues<RubricQuality>("qualities", this.qualities);
+        writer.writeObjectValue<RubricLevel>("levels", this.levels);
+        writer.writeObjectValue<RubricQuality>("qualities", this.qualities);
     };
 }

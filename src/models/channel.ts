@@ -1,12 +1,12 @@
 import {ChannelMembershipType} from './channelMembershipType';
 import {createChatMessageFromDiscriminatorValue} from './createChatMessageFromDiscriminatorValue';
 import {createConversationMemberFromDiscriminatorValue} from './createConversationMemberFromDiscriminatorValue';
-import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscriminatorValue';
+import {createSharedWithChannelTeamInfoFromDiscriminatorValue} from './createSharedWithChannelTeamInfoFromDiscriminatorValue';
 import {createTeamsTabFromDiscriminatorValue} from './createTeamsTabFromDiscriminatorValue';
-import {ChatMessage, ConversationMember, DriveItem, Entity, TeamsTab} from './index';
+import {AdminMember1, ChatMessage, ConversationMember, DriveItem, Entity, SharedWithChannelTeamInfo, TeamsTab} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class Channel extends Entity implements Parsable {
     /** Read only. Timestamp at which the channel was created. */
     private _createdDateTime?: Date | undefined;
@@ -17,17 +17,21 @@ export class Channel extends Entity implements Parsable {
     /** The email address for sending messages to the channel. Read-only. */
     private _email?: string | undefined;
     /** Metadata for the location where the channel's files are stored. */
-    private _filesFolder?: DriveItem | undefined;
+    private _filesFolder?: DriveItem | AdminMember1 | undefined;
     /** Indicates whether the channel should automatically be marked 'favorite' for all members of the team. Can only be set programmatically with Create team. Default: false. */
     private _isFavoriteByDefault?: boolean | undefined;
     /** A collection of membership records associated with the channel. */
     private _members?: ConversationMember[] | undefined;
     /** The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared. */
-    private _membershipType?: ChannelMembershipType | undefined;
+    private _membershipType?: ChannelMembershipType | AdminMember1 | undefined;
     /** A collection of all the messages in the channel. A navigation property. Nullable. */
     private _messages?: ChatMessage[] | undefined;
+    /** A collection of teams with which a channel is shared. */
+    private _sharedWithTeams?: SharedWithChannelTeamInfo[] | undefined;
     /** A collection of all the tabs in the channel. A navigation property. */
     private _tabs?: TeamsTab[] | undefined;
+    /** The ID of the Azure Active Directory tenant. */
+    private _tenantId?: string | undefined;
     /** A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only. */
     private _webUrl?: string | undefined;
     /**
@@ -94,7 +98,7 @@ export class Channel extends Entity implements Parsable {
     };
     /**
      * Gets the filesFolder property value. Metadata for the location where the channel's files are stored.
-     * @returns a driveItem
+     * @returns a admin
      */
     public get filesFolder() {
         return this._filesFolder;
@@ -103,7 +107,7 @@ export class Channel extends Entity implements Parsable {
      * Sets the filesFolder property value. Metadata for the location where the channel's files are stored.
      * @param value Value to set for the filesFolder property.
      */
-    public set filesFolder(value: DriveItem | undefined) {
+    public set filesFolder(value: DriveItem | AdminMember1 | undefined) {
         this._filesFolder = value;
     };
     /**
@@ -119,9 +123,11 @@ export class Channel extends Entity implements Parsable {
             "filesFolder": n => { this.filesFolder = n.getObjectValue<DriveItem>(createDriveItemFromDiscriminatorValue); },
             "isFavoriteByDefault": n => { this.isFavoriteByDefault = n.getBooleanValue(); },
             "members": n => { this.members = n.getCollectionOfObjectValues<ConversationMember>(createConversationMemberFromDiscriminatorValue); },
-            "membershipType": n => { this.membershipType = n.getEnumValue<ChannelMembershipType>(ChannelMembershipType); },
+            "membershipType": n => { this.membershipType = n.getObjectValue<ChannelMembershipType>(createChannelMembershipTypeFromDiscriminatorValue); },
             "messages": n => { this.messages = n.getCollectionOfObjectValues<ChatMessage>(createChatMessageFromDiscriminatorValue); },
+            "sharedWithTeams": n => { this.sharedWithTeams = n.getCollectionOfObjectValues<SharedWithChannelTeamInfo>(createSharedWithChannelTeamInfoFromDiscriminatorValue); },
             "tabs": n => { this.tabs = n.getCollectionOfObjectValues<TeamsTab>(createTeamsTabFromDiscriminatorValue); },
+            "tenantId": n => { this.tenantId = n.getStringValue(); },
             "webUrl": n => { this.webUrl = n.getStringValue(); },
         };
     };
@@ -155,7 +161,7 @@ export class Channel extends Entity implements Parsable {
     };
     /**
      * Gets the membershipType property value. The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.
-     * @returns a channelMembershipType
+     * @returns a admin
      */
     public get membershipType() {
         return this._membershipType;
@@ -164,7 +170,7 @@ export class Channel extends Entity implements Parsable {
      * Sets the membershipType property value. The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.
      * @param value Value to set for the membershipType property.
      */
-    public set membershipType(value: ChannelMembershipType | undefined) {
+    public set membershipType(value: ChannelMembershipType | AdminMember1 | undefined) {
         this._membershipType = value;
     };
     /**
@@ -195,10 +201,26 @@ export class Channel extends Entity implements Parsable {
         writer.writeObjectValue<DriveItem>("filesFolder", this.filesFolder);
         writer.writeBooleanValue("isFavoriteByDefault", this.isFavoriteByDefault);
         writer.writeCollectionOfObjectValues<ConversationMember>("members", this.members);
-        writer.writeEnumValue<ChannelMembershipType>("membershipType", this.membershipType);
+        writer.writeObjectValue<ChannelMembershipType>("membershipType", this.membershipType);
         writer.writeCollectionOfObjectValues<ChatMessage>("messages", this.messages);
+        writer.writeCollectionOfObjectValues<SharedWithChannelTeamInfo>("sharedWithTeams", this.sharedWithTeams);
         writer.writeCollectionOfObjectValues<TeamsTab>("tabs", this.tabs);
+        writer.writeStringValue("tenantId", this.tenantId);
         writer.writeStringValue("webUrl", this.webUrl);
+    };
+    /**
+     * Gets the sharedWithTeams property value. A collection of teams with which a channel is shared.
+     * @returns a sharedWithChannelTeamInfo
+     */
+    public get sharedWithTeams() {
+        return this._sharedWithTeams;
+    };
+    /**
+     * Sets the sharedWithTeams property value. A collection of teams with which a channel is shared.
+     * @param value Value to set for the sharedWithTeams property.
+     */
+    public set sharedWithTeams(value: SharedWithChannelTeamInfo[] | undefined) {
+        this._sharedWithTeams = value;
     };
     /**
      * Gets the tabs property value. A collection of all the tabs in the channel. A navigation property.
@@ -213,6 +235,20 @@ export class Channel extends Entity implements Parsable {
      */
     public set tabs(value: TeamsTab[] | undefined) {
         this._tabs = value;
+    };
+    /**
+     * Gets the tenantId property value. The ID of the Azure Active Directory tenant.
+     * @returns a string
+     */
+    public get tenantId() {
+        return this._tenantId;
+    };
+    /**
+     * Sets the tenantId property value. The ID of the Azure Active Directory tenant.
+     * @param value Value to set for the tenantId property.
+     */
+    public set tenantId(value: string | undefined) {
+        this._tenantId = value;
     };
     /**
      * Gets the webUrl property value. A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.

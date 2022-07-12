@@ -1,6 +1,4 @@
-import {createOutlookGeoCoordinatesFromDiscriminatorValue} from './createOutlookGeoCoordinatesFromDiscriminatorValue';
-import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddressFromDiscriminatorValue';
-import {OutlookGeoCoordinates, PhysicalAddress} from './index';
+import {AdminMember1, OutlookGeoCoordinates, PhysicalAddress} from './index';
 import {LocationType} from './locationType';
 import {LocationUniqueIdType} from './locationUniqueIdType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -9,21 +7,23 @@ export class Location implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The street address of the location. */
-    private _address?: PhysicalAddress | undefined;
+    private _address?: PhysicalAddress | AdminMember1 | undefined;
     /** The geographic coordinates and elevation of the location. */
-    private _coordinates?: OutlookGeoCoordinates | undefined;
+    private _coordinates?: OutlookGeoCoordinates | AdminMember1 | undefined;
     /** The name associated with the location. */
     private _displayName?: string | undefined;
     /** Optional email address of the location. */
     private _locationEmailAddress?: string | undefined;
     /** The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only. */
-    private _locationType?: LocationType | undefined;
+    private _locationType?: LocationType | AdminMember1 | undefined;
     /** Optional URI representing the location. */
     private _locationUri?: string | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /** For internal use only. */
     private _uniqueId?: string | undefined;
     /** For internal use only. */
-    private _uniqueIdType?: LocationUniqueIdType | undefined;
+    private _uniqueIdType?: LocationUniqueIdType | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -40,7 +40,7 @@ export class Location implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the address property value. The street address of the location.
-     * @returns a physicalAddress
+     * @returns a admin
      */
     public get address() {
         return this._address;
@@ -49,7 +49,7 @@ export class Location implements AdditionalDataHolder, Parsable {
      * Sets the address property value. The street address of the location.
      * @param value Value to set for the address property.
      */
-    public set address(value: PhysicalAddress | undefined) {
+    public set address(value: PhysicalAddress | AdminMember1 | undefined) {
         this._address = value;
     };
     /**
@@ -57,10 +57,11 @@ export class Location implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.type = "#microsoft.graph.location";
     };
     /**
      * Gets the coordinates property value. The geographic coordinates and elevation of the location.
-     * @returns a outlookGeoCoordinates
+     * @returns a admin
      */
     public get coordinates() {
         return this._coordinates;
@@ -69,7 +70,7 @@ export class Location implements AdditionalDataHolder, Parsable {
      * Sets the coordinates property value. The geographic coordinates and elevation of the location.
      * @param value Value to set for the coordinates property.
      */
-    public set coordinates(value: OutlookGeoCoordinates | undefined) {
+    public set coordinates(value: OutlookGeoCoordinates | AdminMember1 | undefined) {
         this._coordinates = value;
     };
     /**
@@ -96,10 +97,11 @@ export class Location implements AdditionalDataHolder, Parsable {
             "coordinates": n => { this.coordinates = n.getObjectValue<OutlookGeoCoordinates>(createOutlookGeoCoordinatesFromDiscriminatorValue); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "locationEmailAddress": n => { this.locationEmailAddress = n.getStringValue(); },
-            "locationType": n => { this.locationType = n.getEnumValue<LocationType>(LocationType); },
+            "locationType": n => { this.locationType = n.getObjectValue<LocationType>(createLocationTypeFromDiscriminatorValue); },
             "locationUri": n => { this.locationUri = n.getStringValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
             "uniqueId": n => { this.uniqueId = n.getStringValue(); },
-            "uniqueIdType": n => { this.uniqueIdType = n.getEnumValue<LocationUniqueIdType>(LocationUniqueIdType); },
+            "uniqueIdType": n => { this.uniqueIdType = n.getObjectValue<LocationUniqueIdType>(createLocationUniqueIdTypeFromDiscriminatorValue); },
         };
     };
     /**
@@ -118,7 +120,7 @@ export class Location implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the locationType property value. The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
-     * @returns a locationType
+     * @returns a admin
      */
     public get locationType() {
         return this._locationType;
@@ -127,7 +129,7 @@ export class Location implements AdditionalDataHolder, Parsable {
      * Sets the locationType property value. The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
      * @param value Value to set for the locationType property.
      */
-    public set locationType(value: LocationType | undefined) {
+    public set locationType(value: LocationType | AdminMember1 | undefined) {
         this._locationType = value;
     };
     /**
@@ -145,6 +147,20 @@ export class Location implements AdditionalDataHolder, Parsable {
         this._locationUri = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -154,10 +170,11 @@ export class Location implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue<OutlookGeoCoordinates>("coordinates", this.coordinates);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("locationEmailAddress", this.locationEmailAddress);
-        writer.writeEnumValue<LocationType>("locationType", this.locationType);
+        writer.writeObjectValue<LocationType>("locationType", this.locationType);
         writer.writeStringValue("locationUri", this.locationUri);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeStringValue("uniqueId", this.uniqueId);
-        writer.writeEnumValue<LocationUniqueIdType>("uniqueIdType", this.uniqueIdType);
+        writer.writeObjectValue<LocationUniqueIdType>("uniqueIdType", this.uniqueIdType);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -176,7 +193,7 @@ export class Location implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the uniqueIdType property value. For internal use only.
-     * @returns a locationUniqueIdType
+     * @returns a admin
      */
     public get uniqueIdType() {
         return this._uniqueIdType;
@@ -185,7 +202,7 @@ export class Location implements AdditionalDataHolder, Parsable {
      * Sets the uniqueIdType property value. For internal use only.
      * @param value Value to set for the uniqueIdType property.
      */
-    public set uniqueIdType(value: LocationUniqueIdType | undefined) {
+    public set uniqueIdType(value: LocationUniqueIdType | AdminMember1 | undefined) {
         this._uniqueIdType = value;
     };
 }

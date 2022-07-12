@@ -1,5 +1,5 @@
 import {DateTimeTimeZone} from '../../../models/';
-import {createDateTimeTimeZoneFromDiscriminatorValue} from '../../../models/createDateTimeTimeZoneFromDiscriminatorValue';
+import {GetScheduleMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getSchedule method. */
@@ -9,11 +9,11 @@ export class GetSchedulePostRequestBody implements AdditionalDataHolder, Parsabl
     /** The AvailabilityViewInterval property */
     private _availabilityViewInterval?: number | undefined;
     /** The EndTime property */
-    private _endTime?: DateTimeTimeZone | undefined;
+    private _endTime?: DateTimeTimeZone | GetScheduleMember1 | undefined;
     /** The Schedules property */
     private _schedules?: string[] | undefined;
     /** The StartTime property */
-    private _startTime?: DateTimeTimeZone | undefined;
+    private _startTime?: DateTimeTimeZone | GetScheduleMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -50,7 +50,7 @@ export class GetSchedulePostRequestBody implements AdditionalDataHolder, Parsabl
     };
     /**
      * Gets the endTime property value. The EndTime property
-     * @returns a dateTimeTimeZone
+     * @returns a getSchedule
      */
     public get endTime() {
         return this._endTime;
@@ -59,7 +59,7 @@ export class GetSchedulePostRequestBody implements AdditionalDataHolder, Parsabl
      * Sets the endTime property value. The EndTime property
      * @param value Value to set for the EndTime property.
      */
-    public set endTime(value: DateTimeTimeZone | undefined) {
+    public set endTime(value: DateTimeTimeZone | GetScheduleMember1 | undefined) {
         this._endTime = value;
     };
     /**
@@ -102,7 +102,7 @@ export class GetSchedulePostRequestBody implements AdditionalDataHolder, Parsabl
     };
     /**
      * Gets the startTime property value. The StartTime property
-     * @returns a dateTimeTimeZone
+     * @returns a getSchedule
      */
     public get startTime() {
         return this._startTime;
@@ -111,7 +111,7 @@ export class GetSchedulePostRequestBody implements AdditionalDataHolder, Parsabl
      * Sets the startTime property value. The StartTime property
      * @param value Value to set for the StartTime property.
      */
-    public set startTime(value: DateTimeTimeZone | undefined) {
+    public set startTime(value: DateTimeTimeZone | GetScheduleMember1 | undefined) {
         this._startTime = value;
     };
 }

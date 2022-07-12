@@ -1,31 +1,30 @@
-import {createComplianceManagementPartnerAssignmentFromDiscriminatorValue} from './createComplianceManagementPartnerAssignmentFromDiscriminatorValue';
 import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
-import {ComplianceManagementPartnerAssignment, Entity} from './index';
+import {AdminMember1, ComplianceManagementPartnerAssignment, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Compliance management partner for all platforms */
 export class ComplianceManagementPartner extends Entity implements Parsable {
     /** User groups which enroll Android devices through partner. */
-    private _androidEnrollmentAssignments?: ComplianceManagementPartnerAssignment[] | undefined;
+    private _androidEnrollmentAssignments?: ComplianceManagementPartnerAssignment | AdminMember1[] | undefined;
     /** Partner onboarded for Android devices. */
     private _androidOnboarded?: boolean | undefined;
     /** Partner display name */
     private _displayName?: string | undefined;
     /** User groups which enroll ios devices through partner. */
-    private _iosEnrollmentAssignments?: ComplianceManagementPartnerAssignment[] | undefined;
+    private _iosEnrollmentAssignments?: ComplianceManagementPartnerAssignment | AdminMember1[] | undefined;
     /** Partner onboarded for ios devices. */
     private _iosOnboarded?: boolean | undefined;
     /** Timestamp of last heartbeat after admin onboarded to the compliance management partner */
     private _lastHeartbeatDateTime?: Date | undefined;
     /** User groups which enroll Mac devices through partner. */
-    private _macOsEnrollmentAssignments?: ComplianceManagementPartnerAssignment[] | undefined;
+    private _macOsEnrollmentAssignments?: ComplianceManagementPartnerAssignment | AdminMember1[] | undefined;
     /** Partner onboarded for Mac devices. */
     private _macOsOnboarded?: boolean | undefined;
-    /** Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive. */
+    /** Partner state of this tenant. */
     private _partnerState?: DeviceManagementPartnerTenantState | undefined;
     /**
      * Gets the androidEnrollmentAssignments property value. User groups which enroll Android devices through partner.
-     * @returns a complianceManagementPartnerAssignment
+     * @returns a admin
      */
     public get androidEnrollmentAssignments() {
         return this._androidEnrollmentAssignments;
@@ -34,7 +33,7 @@ export class ComplianceManagementPartner extends Entity implements Parsable {
      * Sets the androidEnrollmentAssignments property value. User groups which enroll Android devices through partner.
      * @param value Value to set for the androidEnrollmentAssignments property.
      */
-    public set androidEnrollmentAssignments(value: ComplianceManagementPartnerAssignment[] | undefined) {
+    public set androidEnrollmentAssignments(value: ComplianceManagementPartnerAssignment | AdminMember1[] | undefined) {
         this._androidEnrollmentAssignments = value;
     };
     /**
@@ -77,20 +76,20 @@ export class ComplianceManagementPartner extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "androidEnrollmentAssignments": n => { this.androidEnrollmentAssignments = n.getCollectionOfObjectValues<ComplianceManagementPartnerAssignment>(createComplianceManagementPartnerAssignmentFromDiscriminatorValue); },
+            "androidEnrollmentAssignments": n => { this.androidEnrollmentAssignments = n.getObjectValue<ComplianceManagementPartnerAssignment>(createComplianceManagementPartnerAssignmentFromDiscriminatorValue); },
             "androidOnboarded": n => { this.androidOnboarded = n.getBooleanValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
-            "iosEnrollmentAssignments": n => { this.iosEnrollmentAssignments = n.getCollectionOfObjectValues<ComplianceManagementPartnerAssignment>(createComplianceManagementPartnerAssignmentFromDiscriminatorValue); },
+            "iosEnrollmentAssignments": n => { this.iosEnrollmentAssignments = n.getObjectValue<ComplianceManagementPartnerAssignment>(createComplianceManagementPartnerAssignmentFromDiscriminatorValue); },
             "iosOnboarded": n => { this.iosOnboarded = n.getBooleanValue(); },
             "lastHeartbeatDateTime": n => { this.lastHeartbeatDateTime = n.getDateValue(); },
-            "macOsEnrollmentAssignments": n => { this.macOsEnrollmentAssignments = n.getCollectionOfObjectValues<ComplianceManagementPartnerAssignment>(createComplianceManagementPartnerAssignmentFromDiscriminatorValue); },
+            "macOsEnrollmentAssignments": n => { this.macOsEnrollmentAssignments = n.getObjectValue<ComplianceManagementPartnerAssignment>(createComplianceManagementPartnerAssignmentFromDiscriminatorValue); },
             "macOsOnboarded": n => { this.macOsOnboarded = n.getBooleanValue(); },
             "partnerState": n => { this.partnerState = n.getEnumValue<DeviceManagementPartnerTenantState>(DeviceManagementPartnerTenantState); },
         };
     };
     /**
      * Gets the iosEnrollmentAssignments property value. User groups which enroll ios devices through partner.
-     * @returns a complianceManagementPartnerAssignment
+     * @returns a admin
      */
     public get iosEnrollmentAssignments() {
         return this._iosEnrollmentAssignments;
@@ -99,7 +98,7 @@ export class ComplianceManagementPartner extends Entity implements Parsable {
      * Sets the iosEnrollmentAssignments property value. User groups which enroll ios devices through partner.
      * @param value Value to set for the iosEnrollmentAssignments property.
      */
-    public set iosEnrollmentAssignments(value: ComplianceManagementPartnerAssignment[] | undefined) {
+    public set iosEnrollmentAssignments(value: ComplianceManagementPartnerAssignment | AdminMember1[] | undefined) {
         this._iosEnrollmentAssignments = value;
     };
     /**
@@ -132,7 +131,7 @@ export class ComplianceManagementPartner extends Entity implements Parsable {
     };
     /**
      * Gets the macOsEnrollmentAssignments property value. User groups which enroll Mac devices through partner.
-     * @returns a complianceManagementPartnerAssignment
+     * @returns a admin
      */
     public get macOsEnrollmentAssignments() {
         return this._macOsEnrollmentAssignments;
@@ -141,7 +140,7 @@ export class ComplianceManagementPartner extends Entity implements Parsable {
      * Sets the macOsEnrollmentAssignments property value. User groups which enroll Mac devices through partner.
      * @param value Value to set for the macOsEnrollmentAssignments property.
      */
-    public set macOsEnrollmentAssignments(value: ComplianceManagementPartnerAssignment[] | undefined) {
+    public set macOsEnrollmentAssignments(value: ComplianceManagementPartnerAssignment | AdminMember1[] | undefined) {
         this._macOsEnrollmentAssignments = value;
     };
     /**
@@ -159,14 +158,14 @@ export class ComplianceManagementPartner extends Entity implements Parsable {
         this._macOsOnboarded = value;
     };
     /**
-     * Gets the partnerState property value. Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive.
+     * Gets the partnerState property value. Partner state of this tenant.
      * @returns a deviceManagementPartnerTenantState
      */
     public get partnerState() {
         return this._partnerState;
     };
     /**
-     * Sets the partnerState property value. Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive.
+     * Sets the partnerState property value. Partner state of this tenant.
      * @param value Value to set for the partnerState property.
      */
     public set partnerState(value: DeviceManagementPartnerTenantState | undefined) {
@@ -179,13 +178,13 @@ export class ComplianceManagementPartner extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfObjectValues<ComplianceManagementPartnerAssignment>("androidEnrollmentAssignments", this.androidEnrollmentAssignments);
+        writer.writeObjectValue<ComplianceManagementPartnerAssignment>("androidEnrollmentAssignments", this.androidEnrollmentAssignments);
         writer.writeBooleanValue("androidOnboarded", this.androidOnboarded);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeCollectionOfObjectValues<ComplianceManagementPartnerAssignment>("iosEnrollmentAssignments", this.iosEnrollmentAssignments);
+        writer.writeObjectValue<ComplianceManagementPartnerAssignment>("iosEnrollmentAssignments", this.iosEnrollmentAssignments);
         writer.writeBooleanValue("iosOnboarded", this.iosOnboarded);
         writer.writeDateValue("lastHeartbeatDateTime", this.lastHeartbeatDateTime);
-        writer.writeCollectionOfObjectValues<ComplianceManagementPartnerAssignment>("macOsEnrollmentAssignments", this.macOsEnrollmentAssignments);
+        writer.writeObjectValue<ComplianceManagementPartnerAssignment>("macOsEnrollmentAssignments", this.macOsEnrollmentAssignments);
         writer.writeBooleanValue("macOsOnboarded", this.macOsOnboarded);
         writer.writeEnumValue<DeviceManagementPartnerTenantState>("partnerState", this.partnerState);
     };

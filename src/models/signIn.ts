@@ -1,56 +1,52 @@
 import {ConditionalAccessStatus} from './conditionalAccessStatus';
-import {createAppliedConditionalAccessPolicyFromDiscriminatorValue} from './createAppliedConditionalAccessPolicyFromDiscriminatorValue';
-import {createDeviceDetailFromDiscriminatorValue} from './createDeviceDetailFromDiscriminatorValue';
-import {createSignInLocationFromDiscriminatorValue} from './createSignInLocationFromDiscriminatorValue';
-import {createSignInStatusFromDiscriminatorValue} from './createSignInStatusFromDiscriminatorValue';
-import {AppliedConditionalAccessPolicy, DeviceDetail, Entity, SignInLocation, SignInStatus} from './index';
+import {AdminMember1, AppliedConditionalAccessPolicy, DeviceDetail, Entity, SignInLocation, SignInStatus} from './index';
 import {RiskDetail} from './riskDetail';
 import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the admin singleton. */
 export class SignIn extends Entity implements Parsable {
     /** The application name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only). */
     private _appDisplayName?: string | undefined;
     /** The application identifier in Azure Active Directory. Supports $filter (eq operator only). */
     private _appId?: string | undefined;
     /** A list of conditional access policies that are triggered by the corresponding sign-in activity. */
-    private _appliedConditionalAccessPolicies?: AppliedConditionalAccessPolicy[] | undefined;
+    private _appliedConditionalAccessPolicies?: AppliedConditionalAccessPolicy | AdminMember1[] | undefined;
     /** The legacy client used for sign-in activity. For example: Browser, Exchange ActiveSync, Modern clients, IMAP, MAPI, SMTP, or POP. Supports $filter (eq operator only). */
     private _clientAppUsed?: string | undefined;
     /** The status of the conditional access policy triggered. Possible values: success, failure, notApplied, or unknownFutureValue. Supports $filter (eq operator only). */
-    private _conditionalAccessStatus?: ConditionalAccessStatus | undefined;
+    private _conditionalAccessStatus?: ConditionalAccessStatus | AdminMember1 | undefined;
     /** The identifier that's sent from the client when sign-in is initiated. This is used for troubleshooting the corresponding sign-in activity when calling for support. Supports $filter (eq operator only). */
     private _correlationId?: string | undefined;
     /** The date and time the sign-in was initiated. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $orderby and $filter (eq, le, and ge operators only). */
     private _createdDateTime?: Date | undefined;
     /** The device information from where the sign-in occurred. Includes information such as deviceId, OS, and browser. Supports $filter (eq and startsWith operators only) on browser and operatingSystem properties. */
-    private _deviceDetail?: DeviceDetail | undefined;
+    private _deviceDetail?: DeviceDetail | AdminMember1 | undefined;
     /** The IP address of the client from where the sign-in occurred. Supports $filter (eq and startsWith operators only). */
     private _ipAddress?: string | undefined;
     /** Indicates whether a user sign in is interactive. In interactive sign in, the user provides an authentication factor to Azure AD. These factors include passwords, responses to MFA challenges, biometric factors, or QR codes that a user provides to Azure AD or an associated app. In non-interactive sign in, the user doesn't provide an authentication factor. Instead, the client app uses a token or code to authenticate or access a resource on behalf of a user. Non-interactive sign ins are commonly used for a client to sign in on a user's behalf in a process transparent to the user. */
     private _isInteractive?: boolean | undefined;
     /** The city, state, and 2 letter country code from where the sign-in occurred. Supports $filter (eq and startsWith operators only) on city, state, and countryOrRegion properties. */
-    private _location?: SignInLocation | undefined;
+    private _location?: SignInLocation | AdminMember1 | undefined;
     /** The name of the resource that the user signed in to. Supports $filter (eq operator only). */
     private _resourceDisplayName?: string | undefined;
     /** The identifier of the resource that the user signed in to. Supports $filter (eq operator only). */
     private _resourceId?: string | undefined;
     /** The reason behind a specific state of a risky user, sign-in, or a risk event. Possible values: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, or unknownFutureValue. The value none means that no action has been performed on the user or sign-in so far. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden. */
-    private _riskDetail?: RiskDetail | undefined;
+    private _riskDetail?: RiskDetail | AdminMember1 | undefined;
     /** Risk event types associated with the sign-in. The possible values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, and unknownFutureValue. Supports $filter (eq operator only). */
     private _riskEventTypes?: string[] | undefined;
     /** The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue. Supports $filter (eq and startsWith operators only). */
     private _riskEventTypes_v2?: string[] | undefined;
     /** The aggregated risk level. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden. */
-    private _riskLevelAggregated?: RiskLevel | undefined;
+    private _riskLevelAggregated?: RiskLevel | AdminMember1 | undefined;
     /** The risk level during sign-in. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden. */
-    private _riskLevelDuringSignIn?: RiskLevel | undefined;
+    private _riskLevelDuringSignIn?: RiskLevel | AdminMember1 | undefined;
     /** The risk state of a risky user, sign-in, or a risk event. Possible values: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, or unknownFutureValue. Supports $filter (eq operator only). */
-    private _riskState?: RiskState | undefined;
+    private _riskState?: RiskState | AdminMember1 | undefined;
     /** The sign-in status. Includes the error code and description of the error (in case of a sign-in failure). Supports $filter (eq operator only) on errorCode property. */
-    private _status?: SignInStatus | undefined;
+    private _status?: SignInStatus | AdminMember1 | undefined;
     /** The display name of the user. Supports $filter (eq and startsWith operators only). */
     private _userDisplayName?: string | undefined;
     /** The identifier of the user. Supports $filter (eq operator only). */
@@ -87,7 +83,7 @@ export class SignIn extends Entity implements Parsable {
     };
     /**
      * Gets the appliedConditionalAccessPolicies property value. A list of conditional access policies that are triggered by the corresponding sign-in activity.
-     * @returns a appliedConditionalAccessPolicy
+     * @returns a admin
      */
     public get appliedConditionalAccessPolicies() {
         return this._appliedConditionalAccessPolicies;
@@ -96,7 +92,7 @@ export class SignIn extends Entity implements Parsable {
      * Sets the appliedConditionalAccessPolicies property value. A list of conditional access policies that are triggered by the corresponding sign-in activity.
      * @param value Value to set for the appliedConditionalAccessPolicies property.
      */
-    public set appliedConditionalAccessPolicies(value: AppliedConditionalAccessPolicy[] | undefined) {
+    public set appliedConditionalAccessPolicies(value: AppliedConditionalAccessPolicy | AdminMember1[] | undefined) {
         this._appliedConditionalAccessPolicies = value;
     };
     /**
@@ -115,7 +111,7 @@ export class SignIn extends Entity implements Parsable {
     };
     /**
      * Gets the conditionalAccessStatus property value. The status of the conditional access policy triggered. Possible values: success, failure, notApplied, or unknownFutureValue. Supports $filter (eq operator only).
-     * @returns a conditionalAccessStatus
+     * @returns a admin
      */
     public get conditionalAccessStatus() {
         return this._conditionalAccessStatus;
@@ -124,7 +120,7 @@ export class SignIn extends Entity implements Parsable {
      * Sets the conditionalAccessStatus property value. The status of the conditional access policy triggered. Possible values: success, failure, notApplied, or unknownFutureValue. Supports $filter (eq operator only).
      * @param value Value to set for the conditionalAccessStatus property.
      */
-    public set conditionalAccessStatus(value: ConditionalAccessStatus | undefined) {
+    public set conditionalAccessStatus(value: ConditionalAccessStatus | AdminMember1 | undefined) {
         this._conditionalAccessStatus = value;
     };
     /**
@@ -132,6 +128,7 @@ export class SignIn extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.signIn";
     };
     /**
      * Gets the correlationId property value. The identifier that's sent from the client when sign-in is initiated. This is used for troubleshooting the corresponding sign-in activity when calling for support. Supports $filter (eq operator only).
@@ -163,7 +160,7 @@ export class SignIn extends Entity implements Parsable {
     };
     /**
      * Gets the deviceDetail property value. The device information from where the sign-in occurred. Includes information such as deviceId, OS, and browser. Supports $filter (eq and startsWith operators only) on browser and operatingSystem properties.
-     * @returns a deviceDetail
+     * @returns a admin
      */
     public get deviceDetail() {
         return this._deviceDetail;
@@ -172,7 +169,7 @@ export class SignIn extends Entity implements Parsable {
      * Sets the deviceDetail property value. The device information from where the sign-in occurred. Includes information such as deviceId, OS, and browser. Supports $filter (eq and startsWith operators only) on browser and operatingSystem properties.
      * @param value Value to set for the deviceDetail property.
      */
-    public set deviceDetail(value: DeviceDetail | undefined) {
+    public set deviceDetail(value: DeviceDetail | AdminMember1 | undefined) {
         this._deviceDetail = value;
     };
     /**
@@ -183,9 +180,9 @@ export class SignIn extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "appDisplayName": n => { this.appDisplayName = n.getStringValue(); },
             "appId": n => { this.appId = n.getStringValue(); },
-            "appliedConditionalAccessPolicies": n => { this.appliedConditionalAccessPolicies = n.getCollectionOfObjectValues<AppliedConditionalAccessPolicy>(createAppliedConditionalAccessPolicyFromDiscriminatorValue); },
+            "appliedConditionalAccessPolicies": n => { this.appliedConditionalAccessPolicies = n.getObjectValue<AppliedConditionalAccessPolicy>(createAppliedConditionalAccessPolicyFromDiscriminatorValue); },
             "clientAppUsed": n => { this.clientAppUsed = n.getStringValue(); },
-            "conditionalAccessStatus": n => { this.conditionalAccessStatus = n.getEnumValue<ConditionalAccessStatus>(ConditionalAccessStatus); },
+            "conditionalAccessStatus": n => { this.conditionalAccessStatus = n.getObjectValue<ConditionalAccessStatus>(createConditionalAccessStatusFromDiscriminatorValue); },
             "correlationId": n => { this.correlationId = n.getStringValue(); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "deviceDetail": n => { this.deviceDetail = n.getObjectValue<DeviceDetail>(createDeviceDetailFromDiscriminatorValue); },
@@ -194,12 +191,12 @@ export class SignIn extends Entity implements Parsable {
             "location": n => { this.location = n.getObjectValue<SignInLocation>(createSignInLocationFromDiscriminatorValue); },
             "resourceDisplayName": n => { this.resourceDisplayName = n.getStringValue(); },
             "resourceId": n => { this.resourceId = n.getStringValue(); },
-            "riskDetail": n => { this.riskDetail = n.getEnumValue<RiskDetail>(RiskDetail); },
+            "riskDetail": n => { this.riskDetail = n.getObjectValue<RiskDetail>(createRiskDetailFromDiscriminatorValue); },
             "riskEventTypes": n => { this.riskEventTypes = n.getCollectionOfPrimitiveValues<string>(); },
             "riskEventTypes_v2": n => { this.riskEventTypes_v2 = n.getCollectionOfPrimitiveValues<string>(); },
-            "riskLevelAggregated": n => { this.riskLevelAggregated = n.getEnumValue<RiskLevel>(RiskLevel); },
-            "riskLevelDuringSignIn": n => { this.riskLevelDuringSignIn = n.getEnumValue<RiskLevel>(RiskLevel); },
-            "riskState": n => { this.riskState = n.getEnumValue<RiskState>(RiskState); },
+            "riskLevelAggregated": n => { this.riskLevelAggregated = n.getObjectValue<RiskLevel>(createRiskLevelFromDiscriminatorValue); },
+            "riskLevelDuringSignIn": n => { this.riskLevelDuringSignIn = n.getObjectValue<RiskLevel>(createRiskLevelFromDiscriminatorValue); },
+            "riskState": n => { this.riskState = n.getObjectValue<RiskState>(createRiskStateFromDiscriminatorValue); },
             "status": n => { this.status = n.getObjectValue<SignInStatus>(createSignInStatusFromDiscriminatorValue); },
             "userDisplayName": n => { this.userDisplayName = n.getStringValue(); },
             "userId": n => { this.userId = n.getStringValue(); },
@@ -236,7 +233,7 @@ export class SignIn extends Entity implements Parsable {
     };
     /**
      * Gets the location property value. The city, state, and 2 letter country code from where the sign-in occurred. Supports $filter (eq and startsWith operators only) on city, state, and countryOrRegion properties.
-     * @returns a signInLocation
+     * @returns a admin
      */
     public get location() {
         return this._location;
@@ -245,7 +242,7 @@ export class SignIn extends Entity implements Parsable {
      * Sets the location property value. The city, state, and 2 letter country code from where the sign-in occurred. Supports $filter (eq and startsWith operators only) on city, state, and countryOrRegion properties.
      * @param value Value to set for the location property.
      */
-    public set location(value: SignInLocation | undefined) {
+    public set location(value: SignInLocation | AdminMember1 | undefined) {
         this._location = value;
     };
     /**
@@ -278,7 +275,7 @@ export class SignIn extends Entity implements Parsable {
     };
     /**
      * Gets the riskDetail property value. The reason behind a specific state of a risky user, sign-in, or a risk event. Possible values: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, or unknownFutureValue. The value none means that no action has been performed on the user or sign-in so far. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
-     * @returns a riskDetail
+     * @returns a admin
      */
     public get riskDetail() {
         return this._riskDetail;
@@ -287,7 +284,7 @@ export class SignIn extends Entity implements Parsable {
      * Sets the riskDetail property value. The reason behind a specific state of a risky user, sign-in, or a risk event. Possible values: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, or unknownFutureValue. The value none means that no action has been performed on the user or sign-in so far. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
      * @param value Value to set for the riskDetail property.
      */
-    public set riskDetail(value: RiskDetail | undefined) {
+    public set riskDetail(value: RiskDetail | AdminMember1 | undefined) {
         this._riskDetail = value;
     };
     /**
@@ -320,7 +317,7 @@ export class SignIn extends Entity implements Parsable {
     };
     /**
      * Gets the riskLevelAggregated property value. The aggregated risk level. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
-     * @returns a riskLevel
+     * @returns a admin
      */
     public get riskLevelAggregated() {
         return this._riskLevelAggregated;
@@ -329,12 +326,12 @@ export class SignIn extends Entity implements Parsable {
      * Sets the riskLevelAggregated property value. The aggregated risk level. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
      * @param value Value to set for the riskLevelAggregated property.
      */
-    public set riskLevelAggregated(value: RiskLevel | undefined) {
+    public set riskLevelAggregated(value: RiskLevel | AdminMember1 | undefined) {
         this._riskLevelAggregated = value;
     };
     /**
      * Gets the riskLevelDuringSignIn property value. The risk level during sign-in. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
-     * @returns a riskLevel
+     * @returns a admin
      */
     public get riskLevelDuringSignIn() {
         return this._riskLevelDuringSignIn;
@@ -343,12 +340,12 @@ export class SignIn extends Entity implements Parsable {
      * Sets the riskLevelDuringSignIn property value. The risk level during sign-in. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in was not enabled for Azure AD Identity Protection. Supports $filter (eq operator only). Note: Details for this property are only available for Azure AD Premium P2 customers. All other customers are returned hidden.
      * @param value Value to set for the riskLevelDuringSignIn property.
      */
-    public set riskLevelDuringSignIn(value: RiskLevel | undefined) {
+    public set riskLevelDuringSignIn(value: RiskLevel | AdminMember1 | undefined) {
         this._riskLevelDuringSignIn = value;
     };
     /**
      * Gets the riskState property value. The risk state of a risky user, sign-in, or a risk event. Possible values: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, or unknownFutureValue. Supports $filter (eq operator only).
-     * @returns a riskState
+     * @returns a admin
      */
     public get riskState() {
         return this._riskState;
@@ -357,7 +354,7 @@ export class SignIn extends Entity implements Parsable {
      * Sets the riskState property value. The risk state of a risky user, sign-in, or a risk event. Possible values: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, or unknownFutureValue. Supports $filter (eq operator only).
      * @param value Value to set for the riskState property.
      */
-    public set riskState(value: RiskState | undefined) {
+    public set riskState(value: RiskState | AdminMember1 | undefined) {
         this._riskState = value;
     };
     /**
@@ -369,9 +366,9 @@ export class SignIn extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeStringValue("appDisplayName", this.appDisplayName);
         writer.writeStringValue("appId", this.appId);
-        writer.writeCollectionOfObjectValues<AppliedConditionalAccessPolicy>("appliedConditionalAccessPolicies", this.appliedConditionalAccessPolicies);
+        writer.writeObjectValue<AppliedConditionalAccessPolicy>("appliedConditionalAccessPolicies", this.appliedConditionalAccessPolicies);
         writer.writeStringValue("clientAppUsed", this.clientAppUsed);
-        writer.writeEnumValue<ConditionalAccessStatus>("conditionalAccessStatus", this.conditionalAccessStatus);
+        writer.writeObjectValue<ConditionalAccessStatus>("conditionalAccessStatus", this.conditionalAccessStatus);
         writer.writeStringValue("correlationId", this.correlationId);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeObjectValue<DeviceDetail>("deviceDetail", this.deviceDetail);
@@ -380,12 +377,12 @@ export class SignIn extends Entity implements Parsable {
         writer.writeObjectValue<SignInLocation>("location", this.location);
         writer.writeStringValue("resourceDisplayName", this.resourceDisplayName);
         writer.writeStringValue("resourceId", this.resourceId);
-        writer.writeEnumValue<RiskDetail>("riskDetail", this.riskDetail);
+        writer.writeObjectValue<RiskDetail>("riskDetail", this.riskDetail);
         writer.writeCollectionOfPrimitiveValues<string>("riskEventTypes", this.riskEventTypes);
         writer.writeCollectionOfPrimitiveValues<string>("riskEventTypes_v2", this.riskEventTypes_v2);
-        writer.writeEnumValue<RiskLevel>("riskLevelAggregated", this.riskLevelAggregated);
-        writer.writeEnumValue<RiskLevel>("riskLevelDuringSignIn", this.riskLevelDuringSignIn);
-        writer.writeEnumValue<RiskState>("riskState", this.riskState);
+        writer.writeObjectValue<RiskLevel>("riskLevelAggregated", this.riskLevelAggregated);
+        writer.writeObjectValue<RiskLevel>("riskLevelDuringSignIn", this.riskLevelDuringSignIn);
+        writer.writeObjectValue<RiskState>("riskState", this.riskState);
         writer.writeObjectValue<SignInStatus>("status", this.status);
         writer.writeStringValue("userDisplayName", this.userDisplayName);
         writer.writeStringValue("userId", this.userId);
@@ -393,7 +390,7 @@ export class SignIn extends Entity implements Parsable {
     };
     /**
      * Gets the status property value. The sign-in status. Includes the error code and description of the error (in case of a sign-in failure). Supports $filter (eq operator only) on errorCode property.
-     * @returns a signInStatus
+     * @returns a admin
      */
     public get status() {
         return this._status;
@@ -402,7 +399,7 @@ export class SignIn extends Entity implements Parsable {
      * Sets the status property value. The sign-in status. Includes the error code and description of the error (in case of a sign-in failure). Supports $filter (eq operator only) on errorCode property.
      * @param value Value to set for the status property.
      */
-    public set status(value: SignInStatus | undefined) {
+    public set status(value: SignInStatus | AdminMember1 | undefined) {
         this._status = value;
     };
     /**

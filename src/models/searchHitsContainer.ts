@@ -1,15 +1,13 @@
-import {createSearchAggregationFromDiscriminatorValue} from './createSearchAggregationFromDiscriminatorValue';
-import {createSearchHitFromDiscriminatorValue} from './createSearchHitFromDiscriminatorValue';
-import {SearchAggregation, SearchHit} from './index';
+import {QueryMember1, SearchAggregation, SearchHit} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchHitsContainer implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Contains the collection of aggregations computed based on the provided aggregationOption specified in the request. */
-    private _aggregations?: SearchAggregation[] | undefined;
+    private _aggregations?: SearchAggregation | QueryMember1[] | undefined;
     /** A collection of the search results. */
-    private _hits?: SearchHit[] | undefined;
+    private _hits?: SearchHit | QueryMember1[] | undefined;
     /** Provides information if more results are available. Based on this information, you can adjust the from and size properties of the searchRequest accordingly. */
     private _moreResultsAvailable?: boolean | undefined;
     /** The total number of results. Note this is not the number of results on the page, but the total number of results satisfying the query. */
@@ -30,7 +28,7 @@ export class SearchHitsContainer implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the aggregations property value. Contains the collection of aggregations computed based on the provided aggregationOption specified in the request.
-     * @returns a searchAggregation
+     * @returns a query
      */
     public get aggregations() {
         return this._aggregations;
@@ -39,7 +37,7 @@ export class SearchHitsContainer implements AdditionalDataHolder, Parsable {
      * Sets the aggregations property value. Contains the collection of aggregations computed based on the provided aggregationOption specified in the request.
      * @param value Value to set for the aggregations property.
      */
-    public set aggregations(value: SearchAggregation[] | undefined) {
+    public set aggregations(value: SearchAggregation | QueryMember1[] | undefined) {
         this._aggregations = value;
     };
     /**
@@ -54,15 +52,15 @@ export class SearchHitsContainer implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "aggregations": n => { this.aggregations = n.getCollectionOfObjectValues<SearchAggregation>(createSearchAggregationFromDiscriminatorValue); },
-            "hits": n => { this.hits = n.getCollectionOfObjectValues<SearchHit>(createSearchHitFromDiscriminatorValue); },
+            "aggregations": n => { this.aggregations = n.getObjectValue<SearchAggregation>(createSearchAggregationFromDiscriminatorValue); },
+            "hits": n => { this.hits = n.getObjectValue<SearchHit>(createSearchHitFromDiscriminatorValue); },
             "moreResultsAvailable": n => { this.moreResultsAvailable = n.getBooleanValue(); },
             "total": n => { this.total = n.getNumberValue(); },
         };
     };
     /**
      * Gets the hits property value. A collection of the search results.
-     * @returns a searchHit
+     * @returns a query
      */
     public get hits() {
         return this._hits;
@@ -71,7 +69,7 @@ export class SearchHitsContainer implements AdditionalDataHolder, Parsable {
      * Sets the hits property value. A collection of the search results.
      * @param value Value to set for the hits property.
      */
-    public set hits(value: SearchHit[] | undefined) {
+    public set hits(value: SearchHit | QueryMember1[] | undefined) {
         this._hits = value;
     };
     /**
@@ -94,8 +92,8 @@ export class SearchHitsContainer implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<SearchAggregation>("aggregations", this.aggregations);
-        writer.writeCollectionOfObjectValues<SearchHit>("hits", this.hits);
+        writer.writeObjectValue<SearchAggregation>("aggregations", this.aggregations);
+        writer.writeObjectValue<SearchHit>("hits", this.hits);
         writer.writeBooleanValue("moreResultsAvailable", this.moreResultsAvailable);
         writer.writeNumberValue("total", this.total);
         writer.writeAdditionalData(this.additionalData);

@@ -1,19 +1,17 @@
 import {createB2xIdentityUserFlowFromDiscriminatorValue} from './createB2xIdentityUserFlowFromDiscriminatorValue';
-import {createConditionalAccessRootFromDiscriminatorValue} from './createConditionalAccessRootFromDiscriminatorValue';
 import {createIdentityApiConnectorFromDiscriminatorValue} from './createIdentityApiConnectorFromDiscriminatorValue';
 import {createIdentityProviderBaseFromDiscriminatorValue} from './createIdentityProviderBaseFromDiscriminatorValue';
 import {createIdentityUserFlowAttributeFromDiscriminatorValue} from './createIdentityUserFlowAttributeFromDiscriminatorValue';
-import {B2xIdentityUserFlow, ConditionalAccessRoot, Entity, IdentityApiConnector, IdentityProviderBase, IdentityUserFlowAttribute} from './index';
+import {AdminMember1, B2xIdentityUserFlow, ConditionalAccessRoot, Entity, IdentityApiConnector, IdentityProviderBase, IdentityUserFlowAttribute} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class IdentityContainer extends Entity implements Parsable {
     /** Represents entry point for API connectors. */
     private _apiConnectors?: IdentityApiConnector[] | undefined;
     /** Represents entry point for B2X and self-service sign-up identity userflows. */
     private _b2xUserFlows?: B2xIdentityUserFlow[] | undefined;
     /** the entry point for the Conditional Access (CA) object model. */
-    private _conditionalAccess?: ConditionalAccessRoot | undefined;
+    private _conditionalAccess?: ConditionalAccessRoot | AdminMember1 | undefined;
     /** Represents entry point for identity provider base. */
     private _identityProviders?: IdentityProviderBase[] | undefined;
     /** Represents entry point for identity userflow attributes. */
@@ -48,7 +46,7 @@ export class IdentityContainer extends Entity implements Parsable {
     };
     /**
      * Gets the conditionalAccess property value. the entry point for the Conditional Access (CA) object model.
-     * @returns a conditionalAccessRoot
+     * @returns a admin
      */
     public get conditionalAccess() {
         return this._conditionalAccess;
@@ -57,11 +55,11 @@ export class IdentityContainer extends Entity implements Parsable {
      * Sets the conditionalAccess property value. the entry point for the Conditional Access (CA) object model.
      * @param value Value to set for the conditionalAccess property.
      */
-    public set conditionalAccess(value: ConditionalAccessRoot | undefined) {
+    public set conditionalAccess(value: ConditionalAccessRoot | AdminMember1 | undefined) {
         this._conditionalAccess = value;
     };
     /**
-     * Instantiates a new identityContainer and sets the default values.
+     * Instantiates a new IdentityContainer and sets the default values.
      */
     public constructor() {
         super();

@@ -1,12 +1,11 @@
-import {createContentTypeInfoFromDiscriminatorValue} from './createContentTypeInfoFromDiscriminatorValue';
-import {ContentTypeInfo} from './index';
+import {AdminMember1, ContentTypeInfo} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DocumentSetContent implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Content type information of the file. */
-    private _contentType?: ContentTypeInfo | undefined;
+    private _contentType?: ContentTypeInfo | AdminMember1 | undefined;
     /** Name of the file in resource folder that should be added as a default content or a template in the document set */
     private _fileName?: string | undefined;
     /** Folder name in which the file will be placed when a new document set is created in the library. */
@@ -33,7 +32,7 @@ export class DocumentSetContent implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the contentType property value. Content type information of the file.
-     * @returns a contentTypeInfo
+     * @returns a admin
      */
     public get contentType() {
         return this._contentType;
@@ -42,7 +41,7 @@ export class DocumentSetContent implements AdditionalDataHolder, Parsable {
      * Sets the contentType property value. Content type information of the file.
      * @param value Value to set for the contentType property.
      */
-    public set contentType(value: ContentTypeInfo | undefined) {
+    public set contentType(value: ContentTypeInfo | AdminMember1 | undefined) {
         this._contentType = value;
     };
     /**

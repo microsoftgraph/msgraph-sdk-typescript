@@ -1,14 +1,12 @@
 import {Entity} from '../';
-import {createPropertyFromDiscriminatorValue} from './createPropertyFromDiscriminatorValue';
-import {Property} from './index';
+import {ConnectionsMember1, Property} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of externalConnection entities. */
 export class Schema extends Entity implements Parsable {
     /** Must be set to microsoft.graph.externalItem. Required. */
     private _baseType?: string | undefined;
     /** The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128. */
-    private _properties?: Property[] | undefined;
+    private _properties?: Property | ConnectionsMember1[] | undefined;
     /**
      * Gets the baseType property value. Must be set to microsoft.graph.externalItem. Required.
      * @returns a string
@@ -36,12 +34,12 @@ export class Schema extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "baseType": n => { this.baseType = n.getStringValue(); },
-            "properties": n => { this.properties = n.getCollectionOfObjectValues<Property>(createPropertyFromDiscriminatorValue); },
+            "properties": n => { this.properties = n.getObjectValue<Property>(createPropertyFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the properties property value. The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128.
-     * @returns a property
+     * @returns a connections
      */
     public get properties() {
         return this._properties;
@@ -50,7 +48,7 @@ export class Schema extends Entity implements Parsable {
      * Sets the properties property value. The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128.
      * @param value Value to set for the properties property.
      */
-    public set properties(value: Property[] | undefined) {
+    public set properties(value: Property | ConnectionsMember1[] | undefined) {
         this._properties = value;
     };
     /**
@@ -61,6 +59,6 @@ export class Schema extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("baseType", this.baseType);
-        writer.writeCollectionOfObjectValues<Property>("properties", this.properties);
+        writer.writeObjectValue<Property>("properties", this.properties);
     };
 }

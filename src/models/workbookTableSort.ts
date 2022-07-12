@@ -1,11 +1,9 @@
-import {createWorkbookSortFieldFromDiscriminatorValue} from './createWorkbookSortFieldFromDiscriminatorValue';
-import {Entity, WorkbookSortField} from './index';
+import {AdminMember1, Entity, WorkbookSortField} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookTableSort extends Entity implements Parsable {
     /** Represents the current conditions used to last sort the table. Read-only. */
-    private _fields?: WorkbookSortField[] | undefined;
+    private _fields?: WorkbookSortField | AdminMember1[] | undefined;
     /** Represents whether the casing impacted the last sort of the table. Read-only. */
     private _matchCase?: boolean | undefined;
     /** Represents Chinese character ordering method last used to sort the table. Possible values are: PinYin, StrokeCount. Read-only. */
@@ -18,7 +16,7 @@ export class WorkbookTableSort extends Entity implements Parsable {
     };
     /**
      * Gets the fields property value. Represents the current conditions used to last sort the table. Read-only.
-     * @returns a workbookSortField
+     * @returns a admin
      */
     public get fields() {
         return this._fields;
@@ -27,7 +25,7 @@ export class WorkbookTableSort extends Entity implements Parsable {
      * Sets the fields property value. Represents the current conditions used to last sort the table. Read-only.
      * @param value Value to set for the fields property.
      */
-    public set fields(value: WorkbookSortField[] | undefined) {
+    public set fields(value: WorkbookSortField | AdminMember1[] | undefined) {
         this._fields = value;
     };
     /**
@@ -36,7 +34,7 @@ export class WorkbookTableSort extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "fields": n => { this.fields = n.getCollectionOfObjectValues<WorkbookSortField>(createWorkbookSortFieldFromDiscriminatorValue); },
+            "fields": n => { this.fields = n.getObjectValue<WorkbookSortField>(createWorkbookSortFieldFromDiscriminatorValue); },
             "matchCase": n => { this.matchCase = n.getBooleanValue(); },
             "method": n => { this.method = n.getStringValue(); },
         };
@@ -76,7 +74,7 @@ export class WorkbookTableSort extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfObjectValues<WorkbookSortField>("fields", this.fields);
+        writer.writeObjectValue<WorkbookSortField>("fields", this.fields);
         writer.writeBooleanValue("matchCase", this.matchCase);
         writer.writeStringValue("method", this.method);
     };

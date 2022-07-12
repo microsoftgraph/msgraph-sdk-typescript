@@ -1,5 +1,4 @@
-import {createPhoneFromDiscriminatorValue} from './createPhoneFromDiscriminatorValue';
-import {Phone} from './index';
+import {AdminMember1, Phone} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnlineMeetingInfo implements AdditionalDataHolder, Parsable {
@@ -10,7 +9,7 @@ export class OnlineMeetingInfo implements AdditionalDataHolder, Parsable {
     /** The external link that launches the online meeting. This is a URL that clients will launch into a browser and will redirect the user to join the meeting. */
     private _joinUrl?: string | undefined;
     /** All of the phone numbers associated with this conference. */
-    private _phones?: Phone[] | undefined;
+    private _phones?: Phone | AdminMember1[] | undefined;
     /** The pre-formatted quickdial for this call. */
     private _quickDial?: string | undefined;
     /** The toll free numbers that can be used to join the conference. */
@@ -59,7 +58,7 @@ export class OnlineMeetingInfo implements AdditionalDataHolder, Parsable {
         return {
             "conferenceId": n => { this.conferenceId = n.getStringValue(); },
             "joinUrl": n => { this.joinUrl = n.getStringValue(); },
-            "phones": n => { this.phones = n.getCollectionOfObjectValues<Phone>(createPhoneFromDiscriminatorValue); },
+            "phones": n => { this.phones = n.getObjectValue<Phone>(createPhoneFromDiscriminatorValue); },
             "quickDial": n => { this.quickDial = n.getStringValue(); },
             "tollFreeNumbers": n => { this.tollFreeNumbers = n.getCollectionOfPrimitiveValues<string>(); },
             "tollNumber": n => { this.tollNumber = n.getStringValue(); },
@@ -81,7 +80,7 @@ export class OnlineMeetingInfo implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the phones property value. All of the phone numbers associated with this conference.
-     * @returns a phone
+     * @returns a admin
      */
     public get phones() {
         return this._phones;
@@ -90,7 +89,7 @@ export class OnlineMeetingInfo implements AdditionalDataHolder, Parsable {
      * Sets the phones property value. All of the phone numbers associated with this conference.
      * @param value Value to set for the phones property.
      */
-    public set phones(value: Phone[] | undefined) {
+    public set phones(value: Phone | AdminMember1[] | undefined) {
         this._phones = value;
     };
     /**
@@ -115,7 +114,7 @@ export class OnlineMeetingInfo implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("conferenceId", this.conferenceId);
         writer.writeStringValue("joinUrl", this.joinUrl);
-        writer.writeCollectionOfObjectValues<Phone>("phones", this.phones);
+        writer.writeObjectValue<Phone>("phones", this.phones);
         writer.writeStringValue("quickDial", this.quickDial);
         writer.writeCollectionOfPrimitiveValues<string>("tollFreeNumbers", this.tollFreeNumbers);
         writer.writeStringValue("tollNumber", this.tollNumber);

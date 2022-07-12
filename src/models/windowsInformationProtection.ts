@@ -1,46 +1,40 @@
 import {createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue} from './createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue';
-import {createWindowsInformationProtectionAppFromDiscriminatorValue} from './createWindowsInformationProtectionAppFromDiscriminatorValue';
 import {createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue} from './createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue';
-import {createWindowsInformationProtectionDataRecoveryCertificateFromDiscriminatorValue} from './createWindowsInformationProtectionDataRecoveryCertificateFromDiscriminatorValue';
-import {createWindowsInformationProtectionIPRangeCollectionFromDiscriminatorValue} from './createWindowsInformationProtectionIPRangeCollectionFromDiscriminatorValue';
-import {createWindowsInformationProtectionProxiedDomainCollectionFromDiscriminatorValue} from './createWindowsInformationProtectionProxiedDomainCollectionFromDiscriminatorValue';
-import {createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue} from './createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue';
-import {ManagedAppPolicy, TargetedManagedAppPolicyAssignment, WindowsInformationProtectionApp, WindowsInformationProtectionAppLockerFile, WindowsInformationProtectionDataRecoveryCertificate, WindowsInformationProtectionIPRangeCollection, WindowsInformationProtectionProxiedDomainCollection, WindowsInformationProtectionResourceCollection} from './index';
+import {AdminMember1, ManagedAppPolicy, TargetedManagedAppPolicyAssignment, WindowsInformationProtectionApp, WindowsInformationProtectionAppLockerFile, WindowsInformationProtectionDataRecoveryCertificate, WindowsInformationProtectionIPRangeCollection, WindowsInformationProtectionProxiedDomainCollection, WindowsInformationProtectionResourceCollection} from './index';
 import {WindowsInformationProtectionEnforcementLevel} from './windowsInformationProtectionEnforcementLevel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy for Windows information protection to configure detailed management settings */
 export class WindowsInformationProtection extends ManagedAppPolicy implements Parsable {
     /** Navigation property to list of security groups targeted for policy. */
     private _assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
     /** Specifies whether to allow Azure RMS encryption for WIP */
     private _azureRightsManagementServicesAllowed?: boolean | undefined;
     /** Specifies a recovery certificate that can be used for data recovery of encrypted files. This is the same as the data recovery agent(DRA) certificate for encrypting file system(EFS) */
-    private _dataRecoveryCertificate?: WindowsInformationProtectionDataRecoveryCertificate | undefined;
-    /** WIP enforcement level.See the Enum definition for supported values. Possible values are: noProtection, encryptAndAuditOnly, encryptAuditAndPrompt, encryptAuditAndBlock. */
+    private _dataRecoveryCertificate?: WindowsInformationProtectionDataRecoveryCertificate | AdminMember1 | undefined;
+    /** Possible values for WIP Protection enforcement levels */
     private _enforcementLevel?: WindowsInformationProtectionEnforcementLevel | undefined;
     /** Primary enterprise domain */
     private _enterpriseDomain?: string | undefined;
     /** This is the comma-separated list of internal proxy servers. For example, '157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59'. These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies */
-    private _enterpriseInternalProxyServers?: WindowsInformationProtectionResourceCollection[] | undefined;
+    private _enterpriseInternalProxyServers?: WindowsInformationProtectionResourceCollection | AdminMember1[] | undefined;
     /** Sets the enterprise IP ranges that define the computers in the enterprise network. Data that comes from those computers will be considered part of the enterprise and protected. These locations will be considered a safe destination for enterprise data to be shared to */
-    private _enterpriseIPRanges?: WindowsInformationProtectionIPRangeCollection[] | undefined;
+    private _enterpriseIPRanges?: WindowsInformationProtectionIPRangeCollection | AdminMember1[] | undefined;
     /** Boolean value that tells the client to accept the configured list and not to use heuristics to attempt to find other subnets. Default is false */
     private _enterpriseIPRangesAreAuthoritative?: boolean | undefined;
     /** This is the list of domains that comprise the boundaries of the enterprise. Data from one of these domains that is sent to a device will be considered enterprise data and protected These locations will be considered a safe destination for enterprise data to be shared to */
-    private _enterpriseNetworkDomainNames?: WindowsInformationProtectionResourceCollection[] | undefined;
+    private _enterpriseNetworkDomainNames?: WindowsInformationProtectionResourceCollection | AdminMember1[] | undefined;
     /** List of enterprise domains to be protected */
-    private _enterpriseProtectedDomainNames?: WindowsInformationProtectionResourceCollection[] | undefined;
+    private _enterpriseProtectedDomainNames?: WindowsInformationProtectionResourceCollection | AdminMember1[] | undefined;
     /** Contains a list of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy */
-    private _enterpriseProxiedDomains?: WindowsInformationProtectionProxiedDomainCollection[] | undefined;
+    private _enterpriseProxiedDomains?: WindowsInformationProtectionProxiedDomainCollection | AdminMember1[] | undefined;
     /** This is a list of proxy servers. Any server not on this list is considered non-enterprise */
-    private _enterpriseProxyServers?: WindowsInformationProtectionResourceCollection[] | undefined;
+    private _enterpriseProxyServers?: WindowsInformationProtectionResourceCollection | AdminMember1[] | undefined;
     /** Boolean value that tells the client to accept the configured list of proxies and not try to detect other work proxies. Default is false */
     private _enterpriseProxyServersAreAuthoritative?: boolean | undefined;
     /** Another way to input exempt apps through xml files */
     private _exemptAppLockerFiles?: WindowsInformationProtectionAppLockerFile[] | undefined;
     /** Exempt applications can also access enterprise data, but the data handled by those applications are not protected. This is because some critical enterprise applications may have compatibility problems with encrypted data. */
-    private _exemptApps?: WindowsInformationProtectionApp[] | undefined;
+    private _exemptApps?: WindowsInformationProtectionApp | AdminMember1[] | undefined;
     /** Determines whether overlays are added to icons for WIP protected files in Explorer and enterprise only app tiles in the Start menu. Starting in Windows 10, version 1703 this setting also configures the visibility of the WIP icon in the title bar of a WIP-protected app */
     private _iconsVisible?: boolean | undefined;
     /** This switch is for the Windows Search Indexer, to allow or disallow indexing of items */
@@ -48,11 +42,11 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
     /** Indicates if the policy is deployed to any inclusion groups or not. */
     private _isAssigned?: boolean | undefined;
     /** List of domain names that can used for work or personal resource */
-    private _neutralDomainResources?: WindowsInformationProtectionResourceCollection[] | undefined;
+    private _neutralDomainResources?: WindowsInformationProtectionResourceCollection | AdminMember1[] | undefined;
     /** Another way to input protected apps through xml files */
     private _protectedAppLockerFiles?: WindowsInformationProtectionAppLockerFile[] | undefined;
     /** Protected applications can access enterprise data and the data handled by those applications are protected with encryption */
-    private _protectedApps?: WindowsInformationProtectionApp[] | undefined;
+    private _protectedApps?: WindowsInformationProtectionApp | AdminMember1[] | undefined;
     /** Specifies whether the protection under lock feature (also known as encrypt under pin) should be configured */
     private _protectionUnderLockConfigRequired?: boolean | undefined;
     /** This policy controls whether to revoke the WIP keys when a device unenrolls from the management service. If set to 1 (Don't revoke keys), the keys will not be revoked and the user will continue to have access to protected files after unenrollment. If the keys are not revoked, there will be no revoked file cleanup subsequently. */
@@ -60,7 +54,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
     /** TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access */
     private _rightsManagementServicesTemplateId?: string | undefined;
     /** Specifies a list of file extensions, so that files with these extensions are encrypted when copying from an SMB share within the corporate boundary */
-    private _smbAutoEncryptedFileExtensions?: WindowsInformationProtectionResourceCollection[] | undefined;
+    private _smbAutoEncryptedFileExtensions?: WindowsInformationProtectionResourceCollection | AdminMember1[] | undefined;
     /**
      * Gets the assignments property value. Navigation property to list of security groups targeted for policy.
      * @returns a targetedManagedAppPolicyAssignment
@@ -90,14 +84,15 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
         this._azureRightsManagementServicesAllowed = value;
     };
     /**
-     * Instantiates a new windowsInformationProtection and sets the default values.
+     * Instantiates a new WindowsInformationProtection and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.windowsInformationProtection";
     };
     /**
      * Gets the dataRecoveryCertificate property value. Specifies a recovery certificate that can be used for data recovery of encrypted files. This is the same as the data recovery agent(DRA) certificate for encrypting file system(EFS)
-     * @returns a windowsInformationProtectionDataRecoveryCertificate
+     * @returns a admin
      */
     public get dataRecoveryCertificate() {
         return this._dataRecoveryCertificate;
@@ -106,18 +101,18 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
      * Sets the dataRecoveryCertificate property value. Specifies a recovery certificate that can be used for data recovery of encrypted files. This is the same as the data recovery agent(DRA) certificate for encrypting file system(EFS)
      * @param value Value to set for the dataRecoveryCertificate property.
      */
-    public set dataRecoveryCertificate(value: WindowsInformationProtectionDataRecoveryCertificate | undefined) {
+    public set dataRecoveryCertificate(value: WindowsInformationProtectionDataRecoveryCertificate | AdminMember1 | undefined) {
         this._dataRecoveryCertificate = value;
     };
     /**
-     * Gets the enforcementLevel property value. WIP enforcement level.See the Enum definition for supported values. Possible values are: noProtection, encryptAndAuditOnly, encryptAuditAndPrompt, encryptAuditAndBlock.
+     * Gets the enforcementLevel property value. Possible values for WIP Protection enforcement levels
      * @returns a windowsInformationProtectionEnforcementLevel
      */
     public get enforcementLevel() {
         return this._enforcementLevel;
     };
     /**
-     * Sets the enforcementLevel property value. WIP enforcement level.See the Enum definition for supported values. Possible values are: noProtection, encryptAndAuditOnly, encryptAuditAndPrompt, encryptAuditAndBlock.
+     * Sets the enforcementLevel property value. Possible values for WIP Protection enforcement levels
      * @param value Value to set for the enforcementLevel property.
      */
     public set enforcementLevel(value: WindowsInformationProtectionEnforcementLevel | undefined) {
@@ -139,7 +134,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
     };
     /**
      * Gets the enterpriseInternalProxyServers property value. This is the comma-separated list of internal proxy servers. For example, '157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59'. These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies
-     * @returns a windowsInformationProtectionResourceCollection
+     * @returns a admin
      */
     public get enterpriseInternalProxyServers() {
         return this._enterpriseInternalProxyServers;
@@ -148,12 +143,12 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
      * Sets the enterpriseInternalProxyServers property value. This is the comma-separated list of internal proxy servers. For example, '157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59'. These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies
      * @param value Value to set for the enterpriseInternalProxyServers property.
      */
-    public set enterpriseInternalProxyServers(value: WindowsInformationProtectionResourceCollection[] | undefined) {
+    public set enterpriseInternalProxyServers(value: WindowsInformationProtectionResourceCollection | AdminMember1[] | undefined) {
         this._enterpriseInternalProxyServers = value;
     };
     /**
      * Gets the enterpriseIPRanges property value. Sets the enterprise IP ranges that define the computers in the enterprise network. Data that comes from those computers will be considered part of the enterprise and protected. These locations will be considered a safe destination for enterprise data to be shared to
-     * @returns a windowsInformationProtectionIPRangeCollection
+     * @returns a admin
      */
     public get enterpriseIPRanges() {
         return this._enterpriseIPRanges;
@@ -162,7 +157,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
      * Sets the enterpriseIPRanges property value. Sets the enterprise IP ranges that define the computers in the enterprise network. Data that comes from those computers will be considered part of the enterprise and protected. These locations will be considered a safe destination for enterprise data to be shared to
      * @param value Value to set for the enterpriseIPRanges property.
      */
-    public set enterpriseIPRanges(value: WindowsInformationProtectionIPRangeCollection[] | undefined) {
+    public set enterpriseIPRanges(value: WindowsInformationProtectionIPRangeCollection | AdminMember1[] | undefined) {
         this._enterpriseIPRanges = value;
     };
     /**
@@ -181,7 +176,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
     };
     /**
      * Gets the enterpriseNetworkDomainNames property value. This is the list of domains that comprise the boundaries of the enterprise. Data from one of these domains that is sent to a device will be considered enterprise data and protected These locations will be considered a safe destination for enterprise data to be shared to
-     * @returns a windowsInformationProtectionResourceCollection
+     * @returns a admin
      */
     public get enterpriseNetworkDomainNames() {
         return this._enterpriseNetworkDomainNames;
@@ -190,12 +185,12 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
      * Sets the enterpriseNetworkDomainNames property value. This is the list of domains that comprise the boundaries of the enterprise. Data from one of these domains that is sent to a device will be considered enterprise data and protected These locations will be considered a safe destination for enterprise data to be shared to
      * @param value Value to set for the enterpriseNetworkDomainNames property.
      */
-    public set enterpriseNetworkDomainNames(value: WindowsInformationProtectionResourceCollection[] | undefined) {
+    public set enterpriseNetworkDomainNames(value: WindowsInformationProtectionResourceCollection | AdminMember1[] | undefined) {
         this._enterpriseNetworkDomainNames = value;
     };
     /**
      * Gets the enterpriseProtectedDomainNames property value. List of enterprise domains to be protected
-     * @returns a windowsInformationProtectionResourceCollection
+     * @returns a admin
      */
     public get enterpriseProtectedDomainNames() {
         return this._enterpriseProtectedDomainNames;
@@ -204,12 +199,12 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
      * Sets the enterpriseProtectedDomainNames property value. List of enterprise domains to be protected
      * @param value Value to set for the enterpriseProtectedDomainNames property.
      */
-    public set enterpriseProtectedDomainNames(value: WindowsInformationProtectionResourceCollection[] | undefined) {
+    public set enterpriseProtectedDomainNames(value: WindowsInformationProtectionResourceCollection | AdminMember1[] | undefined) {
         this._enterpriseProtectedDomainNames = value;
     };
     /**
      * Gets the enterpriseProxiedDomains property value. Contains a list of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy
-     * @returns a windowsInformationProtectionProxiedDomainCollection
+     * @returns a admin
      */
     public get enterpriseProxiedDomains() {
         return this._enterpriseProxiedDomains;
@@ -218,12 +213,12 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
      * Sets the enterpriseProxiedDomains property value. Contains a list of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy
      * @param value Value to set for the enterpriseProxiedDomains property.
      */
-    public set enterpriseProxiedDomains(value: WindowsInformationProtectionProxiedDomainCollection[] | undefined) {
+    public set enterpriseProxiedDomains(value: WindowsInformationProtectionProxiedDomainCollection | AdminMember1[] | undefined) {
         this._enterpriseProxiedDomains = value;
     };
     /**
      * Gets the enterpriseProxyServers property value. This is a list of proxy servers. Any server not on this list is considered non-enterprise
-     * @returns a windowsInformationProtectionResourceCollection
+     * @returns a admin
      */
     public get enterpriseProxyServers() {
         return this._enterpriseProxyServers;
@@ -232,7 +227,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
      * Sets the enterpriseProxyServers property value. This is a list of proxy servers. Any server not on this list is considered non-enterprise
      * @param value Value to set for the enterpriseProxyServers property.
      */
-    public set enterpriseProxyServers(value: WindowsInformationProtectionResourceCollection[] | undefined) {
+    public set enterpriseProxyServers(value: WindowsInformationProtectionResourceCollection | AdminMember1[] | undefined) {
         this._enterpriseProxyServers = value;
     };
     /**
@@ -265,7 +260,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
     };
     /**
      * Gets the exemptApps property value. Exempt applications can also access enterprise data, but the data handled by those applications are not protected. This is because some critical enterprise applications may have compatibility problems with encrypted data.
-     * @returns a windowsInformationProtectionApp
+     * @returns a admin
      */
     public get exemptApps() {
         return this._exemptApps;
@@ -274,7 +269,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
      * Sets the exemptApps property value. Exempt applications can also access enterprise data, but the data handled by those applications are not protected. This is because some critical enterprise applications may have compatibility problems with encrypted data.
      * @param value Value to set for the exemptApps property.
      */
-    public set exemptApps(value: WindowsInformationProtectionApp[] | undefined) {
+    public set exemptApps(value: WindowsInformationProtectionApp | AdminMember1[] | undefined) {
         this._exemptApps = value;
     };
     /**
@@ -288,26 +283,26 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
             "dataRecoveryCertificate": n => { this.dataRecoveryCertificate = n.getObjectValue<WindowsInformationProtectionDataRecoveryCertificate>(createWindowsInformationProtectionDataRecoveryCertificateFromDiscriminatorValue); },
             "enforcementLevel": n => { this.enforcementLevel = n.getEnumValue<WindowsInformationProtectionEnforcementLevel>(WindowsInformationProtectionEnforcementLevel); },
             "enterpriseDomain": n => { this.enterpriseDomain = n.getStringValue(); },
-            "enterpriseInternalProxyServers": n => { this.enterpriseInternalProxyServers = n.getCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>(createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue); },
-            "enterpriseIPRanges": n => { this.enterpriseIPRanges = n.getCollectionOfObjectValues<WindowsInformationProtectionIPRangeCollection>(createWindowsInformationProtectionIPRangeCollectionFromDiscriminatorValue); },
+            "enterpriseInternalProxyServers": n => { this.enterpriseInternalProxyServers = n.getObjectValue<WindowsInformationProtectionResourceCollection>(createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue); },
+            "enterpriseIPRanges": n => { this.enterpriseIPRanges = n.getObjectValue<WindowsInformationProtectionIPRangeCollection>(createWindowsInformationProtectionIPRangeCollectionFromDiscriminatorValue); },
             "enterpriseIPRangesAreAuthoritative": n => { this.enterpriseIPRangesAreAuthoritative = n.getBooleanValue(); },
-            "enterpriseNetworkDomainNames": n => { this.enterpriseNetworkDomainNames = n.getCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>(createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue); },
-            "enterpriseProtectedDomainNames": n => { this.enterpriseProtectedDomainNames = n.getCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>(createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue); },
-            "enterpriseProxiedDomains": n => { this.enterpriseProxiedDomains = n.getCollectionOfObjectValues<WindowsInformationProtectionProxiedDomainCollection>(createWindowsInformationProtectionProxiedDomainCollectionFromDiscriminatorValue); },
-            "enterpriseProxyServers": n => { this.enterpriseProxyServers = n.getCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>(createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue); },
+            "enterpriseNetworkDomainNames": n => { this.enterpriseNetworkDomainNames = n.getObjectValue<WindowsInformationProtectionResourceCollection>(createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue); },
+            "enterpriseProtectedDomainNames": n => { this.enterpriseProtectedDomainNames = n.getObjectValue<WindowsInformationProtectionResourceCollection>(createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue); },
+            "enterpriseProxiedDomains": n => { this.enterpriseProxiedDomains = n.getObjectValue<WindowsInformationProtectionProxiedDomainCollection>(createWindowsInformationProtectionProxiedDomainCollectionFromDiscriminatorValue); },
+            "enterpriseProxyServers": n => { this.enterpriseProxyServers = n.getObjectValue<WindowsInformationProtectionResourceCollection>(createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue); },
             "enterpriseProxyServersAreAuthoritative": n => { this.enterpriseProxyServersAreAuthoritative = n.getBooleanValue(); },
             "exemptAppLockerFiles": n => { this.exemptAppLockerFiles = n.getCollectionOfObjectValues<WindowsInformationProtectionAppLockerFile>(createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue); },
-            "exemptApps": n => { this.exemptApps = n.getCollectionOfObjectValues<WindowsInformationProtectionApp>(createWindowsInformationProtectionAppFromDiscriminatorValue); },
+            "exemptApps": n => { this.exemptApps = n.getObjectValue<WindowsInformationProtectionApp>(createWindowsInformationProtectionAppFromDiscriminatorValue); },
             "iconsVisible": n => { this.iconsVisible = n.getBooleanValue(); },
             "indexingEncryptedStoresOrItemsBlocked": n => { this.indexingEncryptedStoresOrItemsBlocked = n.getBooleanValue(); },
             "isAssigned": n => { this.isAssigned = n.getBooleanValue(); },
-            "neutralDomainResources": n => { this.neutralDomainResources = n.getCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>(createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue); },
+            "neutralDomainResources": n => { this.neutralDomainResources = n.getObjectValue<WindowsInformationProtectionResourceCollection>(createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue); },
             "protectedAppLockerFiles": n => { this.protectedAppLockerFiles = n.getCollectionOfObjectValues<WindowsInformationProtectionAppLockerFile>(createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue); },
-            "protectedApps": n => { this.protectedApps = n.getCollectionOfObjectValues<WindowsInformationProtectionApp>(createWindowsInformationProtectionAppFromDiscriminatorValue); },
+            "protectedApps": n => { this.protectedApps = n.getObjectValue<WindowsInformationProtectionApp>(createWindowsInformationProtectionAppFromDiscriminatorValue); },
             "protectionUnderLockConfigRequired": n => { this.protectionUnderLockConfigRequired = n.getBooleanValue(); },
             "revokeOnUnenrollDisabled": n => { this.revokeOnUnenrollDisabled = n.getBooleanValue(); },
             "rightsManagementServicesTemplateId": n => { this.rightsManagementServicesTemplateId = n.getStringValue(); },
-            "smbAutoEncryptedFileExtensions": n => { this.smbAutoEncryptedFileExtensions = n.getCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>(createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue); },
+            "smbAutoEncryptedFileExtensions": n => { this.smbAutoEncryptedFileExtensions = n.getObjectValue<WindowsInformationProtectionResourceCollection>(createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue); },
         };
     };
     /**
@@ -354,7 +349,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
     };
     /**
      * Gets the neutralDomainResources property value. List of domain names that can used for work or personal resource
-     * @returns a windowsInformationProtectionResourceCollection
+     * @returns a admin
      */
     public get neutralDomainResources() {
         return this._neutralDomainResources;
@@ -363,7 +358,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
      * Sets the neutralDomainResources property value. List of domain names that can used for work or personal resource
      * @param value Value to set for the neutralDomainResources property.
      */
-    public set neutralDomainResources(value: WindowsInformationProtectionResourceCollection[] | undefined) {
+    public set neutralDomainResources(value: WindowsInformationProtectionResourceCollection | AdminMember1[] | undefined) {
         this._neutralDomainResources = value;
     };
     /**
@@ -382,7 +377,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
     };
     /**
      * Gets the protectedApps property value. Protected applications can access enterprise data and the data handled by those applications are protected with encryption
-     * @returns a windowsInformationProtectionApp
+     * @returns a admin
      */
     public get protectedApps() {
         return this._protectedApps;
@@ -391,7 +386,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
      * Sets the protectedApps property value. Protected applications can access enterprise data and the data handled by those applications are protected with encryption
      * @param value Value to set for the protectedApps property.
      */
-    public set protectedApps(value: WindowsInformationProtectionApp[] | undefined) {
+    public set protectedApps(value: WindowsInformationProtectionApp | AdminMember1[] | undefined) {
         this._protectedApps = value;
     };
     /**
@@ -448,30 +443,30 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
         writer.writeObjectValue<WindowsInformationProtectionDataRecoveryCertificate>("dataRecoveryCertificate", this.dataRecoveryCertificate);
         writer.writeEnumValue<WindowsInformationProtectionEnforcementLevel>("enforcementLevel", this.enforcementLevel);
         writer.writeStringValue("enterpriseDomain", this.enterpriseDomain);
-        writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>("enterpriseInternalProxyServers", this.enterpriseInternalProxyServers);
-        writer.writeCollectionOfObjectValues<WindowsInformationProtectionIPRangeCollection>("enterpriseIPRanges", this.enterpriseIPRanges);
+        writer.writeObjectValue<WindowsInformationProtectionResourceCollection>("enterpriseInternalProxyServers", this.enterpriseInternalProxyServers);
+        writer.writeObjectValue<WindowsInformationProtectionIPRangeCollection>("enterpriseIPRanges", this.enterpriseIPRanges);
         writer.writeBooleanValue("enterpriseIPRangesAreAuthoritative", this.enterpriseIPRangesAreAuthoritative);
-        writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>("enterpriseNetworkDomainNames", this.enterpriseNetworkDomainNames);
-        writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>("enterpriseProtectedDomainNames", this.enterpriseProtectedDomainNames);
-        writer.writeCollectionOfObjectValues<WindowsInformationProtectionProxiedDomainCollection>("enterpriseProxiedDomains", this.enterpriseProxiedDomains);
-        writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>("enterpriseProxyServers", this.enterpriseProxyServers);
+        writer.writeObjectValue<WindowsInformationProtectionResourceCollection>("enterpriseNetworkDomainNames", this.enterpriseNetworkDomainNames);
+        writer.writeObjectValue<WindowsInformationProtectionResourceCollection>("enterpriseProtectedDomainNames", this.enterpriseProtectedDomainNames);
+        writer.writeObjectValue<WindowsInformationProtectionProxiedDomainCollection>("enterpriseProxiedDomains", this.enterpriseProxiedDomains);
+        writer.writeObjectValue<WindowsInformationProtectionResourceCollection>("enterpriseProxyServers", this.enterpriseProxyServers);
         writer.writeBooleanValue("enterpriseProxyServersAreAuthoritative", this.enterpriseProxyServersAreAuthoritative);
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLockerFile>("exemptAppLockerFiles", this.exemptAppLockerFiles);
-        writer.writeCollectionOfObjectValues<WindowsInformationProtectionApp>("exemptApps", this.exemptApps);
+        writer.writeObjectValue<WindowsInformationProtectionApp>("exemptApps", this.exemptApps);
         writer.writeBooleanValue("iconsVisible", this.iconsVisible);
         writer.writeBooleanValue("indexingEncryptedStoresOrItemsBlocked", this.indexingEncryptedStoresOrItemsBlocked);
         writer.writeBooleanValue("isAssigned", this.isAssigned);
-        writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>("neutralDomainResources", this.neutralDomainResources);
+        writer.writeObjectValue<WindowsInformationProtectionResourceCollection>("neutralDomainResources", this.neutralDomainResources);
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLockerFile>("protectedAppLockerFiles", this.protectedAppLockerFiles);
-        writer.writeCollectionOfObjectValues<WindowsInformationProtectionApp>("protectedApps", this.protectedApps);
+        writer.writeObjectValue<WindowsInformationProtectionApp>("protectedApps", this.protectedApps);
         writer.writeBooleanValue("protectionUnderLockConfigRequired", this.protectionUnderLockConfigRequired);
         writer.writeBooleanValue("revokeOnUnenrollDisabled", this.revokeOnUnenrollDisabled);
         writer.writeStringValue("rightsManagementServicesTemplateId", this.rightsManagementServicesTemplateId);
-        writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>("smbAutoEncryptedFileExtensions", this.smbAutoEncryptedFileExtensions);
+        writer.writeObjectValue<WindowsInformationProtectionResourceCollection>("smbAutoEncryptedFileExtensions", this.smbAutoEncryptedFileExtensions);
     };
     /**
      * Gets the smbAutoEncryptedFileExtensions property value. Specifies a list of file extensions, so that files with these extensions are encrypted when copying from an SMB share within the corporate boundary
-     * @returns a windowsInformationProtectionResourceCollection
+     * @returns a admin
      */
     public get smbAutoEncryptedFileExtensions() {
         return this._smbAutoEncryptedFileExtensions;
@@ -480,7 +475,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
      * Sets the smbAutoEncryptedFileExtensions property value. Specifies a list of file extensions, so that files with these extensions are encrypted when copying from an SMB share within the corporate boundary
      * @param value Value to set for the smbAutoEncryptedFileExtensions property.
      */
-    public set smbAutoEncryptedFileExtensions(value: WindowsInformationProtectionResourceCollection[] | undefined) {
+    public set smbAutoEncryptedFileExtensions(value: WindowsInformationProtectionResourceCollection | AdminMember1[] | undefined) {
         this._smbAutoEncryptedFileExtensions = value;
     };
 }

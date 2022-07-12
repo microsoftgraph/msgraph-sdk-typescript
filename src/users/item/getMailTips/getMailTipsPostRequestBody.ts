@@ -1,4 +1,5 @@
 import {MailTipsType} from '../../../models/mailTipsType';
+import {GetMailTipsMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getMailTips method. */
@@ -8,7 +9,7 @@ export class GetMailTipsPostRequestBody implements AdditionalDataHolder, Parsabl
     /** The EmailAddresses property */
     private _emailAddresses?: string[] | undefined;
     /** The MailTipsOptions property */
-    private _mailTipsOptions?: MailTipsType | undefined;
+    private _mailTipsOptions?: MailTipsType | GetMailTipsMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -50,12 +51,12 @@ export class GetMailTipsPostRequestBody implements AdditionalDataHolder, Parsabl
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "emailAddresses": n => { this.emailAddresses = n.getCollectionOfPrimitiveValues<string>(); },
-            "mailTipsOptions": n => { this.mailTipsOptions = n.getEnumValue<MailTipsType>(MailTipsType); },
+            "mailTipsOptions": n => { this.mailTipsOptions = n.getObjectValue<MailTipsType>(createMailTipsTypeFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the mailTipsOptions property value. The MailTipsOptions property
-     * @returns a mailTipsType
+     * @returns a getMailTips
      */
     public get mailTipsOptions() {
         return this._mailTipsOptions;
@@ -64,7 +65,7 @@ export class GetMailTipsPostRequestBody implements AdditionalDataHolder, Parsabl
      * Sets the mailTipsOptions property value. The MailTipsOptions property
      * @param value Value to set for the MailTipsOptions property.
      */
-    public set mailTipsOptions(value: MailTipsType | undefined) {
+    public set mailTipsOptions(value: MailTipsType | GetMailTipsMember1 | undefined) {
         this._mailTipsOptions = value;
     };
     /**
@@ -74,7 +75,7 @@ export class GetMailTipsPostRequestBody implements AdditionalDataHolder, Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfPrimitiveValues<string>("emailAddresses", this.emailAddresses);
-        writer.writeEnumValue<MailTipsType>("mailTipsOptions", this.mailTipsOptions);
+        writer.writeObjectValue<MailTipsType>("mailTipsOptions", this.mailTipsOptions);
         writer.writeAdditionalData(this.additionalData);
     };
 }

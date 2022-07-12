@@ -1,5 +1,4 @@
-import {createEntityFromDiscriminatorValue} from './createEntityFromDiscriminatorValue';
-import {Entity} from './index';
+import {Entity, QueryMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchHit implements AdditionalDataHolder, Parsable {
@@ -12,7 +11,7 @@ export class SearchHit implements AdditionalDataHolder, Parsable {
     /** The rank or the order of the result. */
     private _rank?: number | undefined;
     /** The resource property */
-    private _resource?: Entity | undefined;
+    private _resource?: Entity | QueryMember1 | undefined;
     /** ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well. */
     private _resultTemplateId?: string | undefined;
     /** A summary of the result, if a summary is available. */
@@ -95,7 +94,7 @@ export class SearchHit implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the resource property value. The resource property
-     * @returns a entity
+     * @returns a query
      */
     public get resource() {
         return this._resource;
@@ -104,7 +103,7 @@ export class SearchHit implements AdditionalDataHolder, Parsable {
      * Sets the resource property value. The resource property
      * @param value Value to set for the resource property.
      */
-    public set resource(value: Entity | undefined) {
+    public set resource(value: Entity | QueryMember1 | undefined) {
         this._resource = value;
     };
     /**

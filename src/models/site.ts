@@ -2,25 +2,18 @@ import {createBaseItemFromDiscriminatorValue} from './createBaseItemFromDiscrimi
 import {createColumnDefinitionFromDiscriminatorValue} from './createColumnDefinitionFromDiscriminatorValue';
 import {createContentTypeFromDiscriminatorValue} from './createContentTypeFromDiscriminatorValue';
 import {createDriveFromDiscriminatorValue} from './createDriveFromDiscriminatorValue';
-import {createItemAnalyticsFromDiscriminatorValue} from './createItemAnalyticsFromDiscriminatorValue';
 import {createListFromDiscriminatorValue} from './createListFromDiscriminatorValue';
-import {createOnenoteFromDiscriminatorValue} from './createOnenoteFromDiscriminatorValue';
 import {createPermissionFromDiscriminatorValue} from './createPermissionFromDiscriminatorValue';
-import {createPublicErrorFromDiscriminatorValue} from './createPublicErrorFromDiscriminatorValue';
 import {createRichLongRunningOperationFromDiscriminatorValue} from './createRichLongRunningOperationFromDiscriminatorValue';
-import {createRootFromDiscriminatorValue} from './createRootFromDiscriminatorValue';
-import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFromDiscriminatorValue';
-import {createSiteCollectionFromDiscriminatorValue} from './createSiteCollectionFromDiscriminatorValue';
 import {createSiteFromDiscriminatorValue} from './createSiteFromDiscriminatorValue';
-import {BaseItem, ColumnDefinition, ContentType, Drive, ItemAnalytics, List, Onenote, Permission, PublicError, RichLongRunningOperation, Root, SharepointIds, SiteCollection} from './index';
+import {AdminMember1, BaseItem, ColumnDefinition, ContentType, Drive, ItemAnalytics, List, Onenote, Permission, PublicError, RichLongRunningOperation, Root, SharepointIds, SiteCollection} from './index';
 import {Store} from './termStore/';
 import {createStoreFromDiscriminatorValue} from './termStore/createStoreFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Site extends BaseItem implements Parsable {
     /** Analytics about the view activities that took place in this site. */
-    private _analytics?: ItemAnalytics | undefined;
+    private _analytics?: ItemAnalytics | AdminMember1 | undefined;
     /** The collection of column definitions reusable across lists under this site. */
     private _columns?: ColumnDefinition[] | undefined;
     /** The collection of content types defined for this site. */
@@ -28,11 +21,11 @@ export class Site extends BaseItem implements Parsable {
     /** The full title for the site. Read-only. */
     private _displayName?: string | undefined;
     /** The default drive (document library) for this site. */
-    private _drive?: Drive | undefined;
+    private _drive?: Drive | AdminMember1 | undefined;
     /** The collection of drives (document libraries) under this site. */
     private _drives?: Drive[] | undefined;
     /** The error property */
-    private _error_escaped?: PublicError | undefined;
+    private _error_escaped?: PublicError | AdminMember1 | undefined;
     /** The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site. */
     private _externalColumns?: ColumnDefinition[] | undefined;
     /** Used to address any item contained in this site. This collection cannot be enumerated. */
@@ -40,26 +33,26 @@ export class Site extends BaseItem implements Parsable {
     /** The collection of lists under this site. */
     private _lists?: List[] | undefined;
     /** Calls the OneNote service for notebook related operations. */
-    private _onenote?: Onenote | undefined;
+    private _onenote?: Onenote | AdminMember1 | undefined;
     /** The collection of long running operations for the site. */
     private _operations?: RichLongRunningOperation[] | undefined;
     /** The permissions associated with the site. Nullable. */
     private _permissions?: Permission[] | undefined;
     /** If present, indicates that this is the root site in the site collection. Read-only. */
-    private _root?: Root | undefined;
+    private _root?: Root | AdminMember1 | undefined;
     /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
-    private _sharepointIds?: SharepointIds | undefined;
+    private _sharepointIds?: SharepointIds | AdminMember1 | undefined;
     /** Provides details about the site's site collection. Available only on the root site. Read-only. */
-    private _siteCollection?: SiteCollection | undefined;
+    private _siteCollection?: SiteCollection | AdminMember1 | undefined;
     /** The collection of the sub-sites under this site. */
     private _sites?: Site[] | undefined;
     /** The termStore under this site. */
-    private _termStore?: Store | undefined;
+    private _termStore?: Store | AdminMember1 | undefined;
     /** The collection of termStores under this site. */
     private _termStores?: Store[] | undefined;
     /**
      * Gets the analytics property value. Analytics about the view activities that took place in this site.
-     * @returns a itemAnalytics
+     * @returns a admin
      */
     public get analytics() {
         return this._analytics;
@@ -68,7 +61,7 @@ export class Site extends BaseItem implements Parsable {
      * Sets the analytics property value. Analytics about the view activities that took place in this site.
      * @param value Value to set for the analytics property.
      */
-    public set analytics(value: ItemAnalytics | undefined) {
+    public set analytics(value: ItemAnalytics | AdminMember1 | undefined) {
         this._analytics = value;
     };
     /**
@@ -86,7 +79,7 @@ export class Site extends BaseItem implements Parsable {
         this._columns = value;
     };
     /**
-     * Instantiates a new site and sets the default values.
+     * Instantiates a new Site and sets the default values.
      */
     public constructor() {
         super();
@@ -121,7 +114,7 @@ export class Site extends BaseItem implements Parsable {
     };
     /**
      * Gets the drive property value. The default drive (document library) for this site.
-     * @returns a drive
+     * @returns a admin
      */
     public get drive() {
         return this._drive;
@@ -130,7 +123,7 @@ export class Site extends BaseItem implements Parsable {
      * Sets the drive property value. The default drive (document library) for this site.
      * @param value Value to set for the drive property.
      */
-    public set drive(value: Drive | undefined) {
+    public set drive(value: Drive | AdminMember1 | undefined) {
         this._drive = value;
     };
     /**
@@ -149,7 +142,7 @@ export class Site extends BaseItem implements Parsable {
     };
     /**
      * Gets the error property value. The error property
-     * @returns a publicError
+     * @returns a admin
      */
     public get error_escaped() {
         return this._error_escaped;
@@ -158,7 +151,7 @@ export class Site extends BaseItem implements Parsable {
      * Sets the error property value. The error property
      * @param value Value to set for the error_escaped property.
      */
-    public set error_escaped(value: PublicError | undefined) {
+    public set error_escaped(value: PublicError | AdminMember1 | undefined) {
         this._error_escaped = value;
     };
     /**
@@ -232,7 +225,7 @@ export class Site extends BaseItem implements Parsable {
     };
     /**
      * Gets the onenote property value. Calls the OneNote service for notebook related operations.
-     * @returns a onenote
+     * @returns a admin
      */
     public get onenote() {
         return this._onenote;
@@ -241,7 +234,7 @@ export class Site extends BaseItem implements Parsable {
      * Sets the onenote property value. Calls the OneNote service for notebook related operations.
      * @param value Value to set for the onenote property.
      */
-    public set onenote(value: Onenote | undefined) {
+    public set onenote(value: Onenote | AdminMember1 | undefined) {
         this._onenote = value;
     };
     /**
@@ -274,7 +267,7 @@ export class Site extends BaseItem implements Parsable {
     };
     /**
      * Gets the root property value. If present, indicates that this is the root site in the site collection. Read-only.
-     * @returns a root
+     * @returns a admin
      */
     public get root() {
         return this._root;
@@ -283,7 +276,7 @@ export class Site extends BaseItem implements Parsable {
      * Sets the root property value. If present, indicates that this is the root site in the site collection. Read-only.
      * @param value Value to set for the root property.
      */
-    public set root(value: Root | undefined) {
+    public set root(value: Root | AdminMember1 | undefined) {
         this._root = value;
     };
     /**
@@ -315,7 +308,7 @@ export class Site extends BaseItem implements Parsable {
     };
     /**
      * Gets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
-     * @returns a sharepointIds
+     * @returns a admin
      */
     public get sharepointIds() {
         return this._sharepointIds;
@@ -324,12 +317,12 @@ export class Site extends BaseItem implements Parsable {
      * Sets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
      * @param value Value to set for the sharepointIds property.
      */
-    public set sharepointIds(value: SharepointIds | undefined) {
+    public set sharepointIds(value: SharepointIds | AdminMember1 | undefined) {
         this._sharepointIds = value;
     };
     /**
      * Gets the siteCollection property value. Provides details about the site's site collection. Available only on the root site. Read-only.
-     * @returns a siteCollection
+     * @returns a admin
      */
     public get siteCollection() {
         return this._siteCollection;
@@ -338,7 +331,7 @@ export class Site extends BaseItem implements Parsable {
      * Sets the siteCollection property value. Provides details about the site's site collection. Available only on the root site. Read-only.
      * @param value Value to set for the siteCollection property.
      */
-    public set siteCollection(value: SiteCollection | undefined) {
+    public set siteCollection(value: SiteCollection | AdminMember1 | undefined) {
         this._siteCollection = value;
     };
     /**
@@ -357,7 +350,7 @@ export class Site extends BaseItem implements Parsable {
     };
     /**
      * Gets the termStore property value. The termStore under this site.
-     * @returns a store
+     * @returns a admin
      */
     public get termStore() {
         return this._termStore;
@@ -366,7 +359,7 @@ export class Site extends BaseItem implements Parsable {
      * Sets the termStore property value. The termStore under this site.
      * @param value Value to set for the termStore property.
      */
-    public set termStore(value: Store | undefined) {
+    public set termStore(value: Store | AdminMember1 | undefined) {
         this._termStore = value;
     };
     /**

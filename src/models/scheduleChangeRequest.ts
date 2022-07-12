@@ -1,12 +1,11 @@
-import {ChangeTrackedEntity} from './index';
+import {AdminMember1, ChangeTrackedEntity} from './index';
 import {ScheduleChangeRequestActor} from './scheduleChangeRequestActor';
 import {ScheduleChangeState} from './scheduleChangeState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsable {
     /** The assignedTo property */
-    private _assignedTo?: ScheduleChangeRequestActor | undefined;
+    private _assignedTo?: ScheduleChangeRequestActor | AdminMember1 | undefined;
     /** The managerActionDateTime property */
     private _managerActionDateTime?: Date | undefined;
     /** The managerActionMessage property */
@@ -20,10 +19,10 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
     /** The senderUserId property */
     private _senderUserId?: string | undefined;
     /** The state property */
-    private _state?: ScheduleChangeState | undefined;
+    private _state?: ScheduleChangeState | AdminMember1 | undefined;
     /**
      * Gets the assignedTo property value. The assignedTo property
-     * @returns a scheduleChangeRequestActor
+     * @returns a admin
      */
     public get assignedTo() {
         return this._assignedTo;
@@ -32,14 +31,15 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
      * Sets the assignedTo property value. The assignedTo property
      * @param value Value to set for the assignedTo property.
      */
-    public set assignedTo(value: ScheduleChangeRequestActor | undefined) {
+    public set assignedTo(value: ScheduleChangeRequestActor | AdminMember1 | undefined) {
         this._assignedTo = value;
     };
     /**
-     * Instantiates a new scheduleChangeRequest and sets the default values.
+     * Instantiates a new ScheduleChangeRequest and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.scheduleChangeRequest";
     };
     /**
      * The deserialization information for the current model
@@ -47,14 +47,14 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "assignedTo": n => { this.assignedTo = n.getEnumValue<ScheduleChangeRequestActor>(ScheduleChangeRequestActor); },
+            "assignedTo": n => { this.assignedTo = n.getObjectValue<ScheduleChangeRequestActor>(createScheduleChangeRequestActorFromDiscriminatorValue); },
             "managerActionDateTime": n => { this.managerActionDateTime = n.getDateValue(); },
             "managerActionMessage": n => { this.managerActionMessage = n.getStringValue(); },
             "managerUserId": n => { this.managerUserId = n.getStringValue(); },
             "senderDateTime": n => { this.senderDateTime = n.getDateValue(); },
             "senderMessage": n => { this.senderMessage = n.getStringValue(); },
             "senderUserId": n => { this.senderUserId = n.getStringValue(); },
-            "state": n => { this.state = n.getEnumValue<ScheduleChangeState>(ScheduleChangeState); },
+            "state": n => { this.state = n.getObjectValue<ScheduleChangeState>(createScheduleChangeStateFromDiscriminatorValue); },
         };
     };
     /**
@@ -148,18 +148,18 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeEnumValue<ScheduleChangeRequestActor>("assignedTo", this.assignedTo);
+        writer.writeObjectValue<ScheduleChangeRequestActor>("assignedTo", this.assignedTo);
         writer.writeDateValue("managerActionDateTime", this.managerActionDateTime);
         writer.writeStringValue("managerActionMessage", this.managerActionMessage);
         writer.writeStringValue("managerUserId", this.managerUserId);
         writer.writeDateValue("senderDateTime", this.senderDateTime);
         writer.writeStringValue("senderMessage", this.senderMessage);
         writer.writeStringValue("senderUserId", this.senderUserId);
-        writer.writeEnumValue<ScheduleChangeState>("state", this.state);
+        writer.writeObjectValue<ScheduleChangeState>("state", this.state);
     };
     /**
      * Gets the state property value. The state property
-     * @returns a scheduleChangeState
+     * @returns a admin
      */
     public get state() {
         return this._state;
@@ -168,7 +168,7 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
      * Sets the state property value. The state property
      * @param value Value to set for the state property.
      */
-    public set state(value: ScheduleChangeState | undefined) {
+    public set state(value: ScheduleChangeState | AdminMember1 | undefined) {
         this._state = value;
     };
 }

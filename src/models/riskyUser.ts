@@ -1,11 +1,10 @@
 import {createRiskyUserHistoryItemFromDiscriminatorValue} from './createRiskyUserHistoryItemFromDiscriminatorValue';
-import {Entity, RiskyUserHistoryItem} from './index';
+import {AdminMember1, Entity, RiskyUserHistoryItem} from './index';
 import {RiskDetail} from './riskDetail';
 import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityProtectionRoot singleton. */
 export class RiskyUser extends Entity implements Parsable {
     /** The activity related to user risk level change */
     private _history?: RiskyUserHistoryItem[] | undefined;
@@ -14,22 +13,23 @@ export class RiskyUser extends Entity implements Parsable {
     /** Indicates whether a user's risky state is being processed by the backend. */
     private _isProcessing?: boolean | undefined;
     /** The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue. */
-    private _riskDetail?: RiskDetail | undefined;
+    private _riskDetail?: RiskDetail | AdminMember1 | undefined;
     /** The date and time that the risky user was last updated.  The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _riskLastUpdatedDateTime?: Date | undefined;
     /** Level of the detected risky user. The possible values are low, medium, high, hidden, none, unknownFutureValue. */
-    private _riskLevel?: RiskLevel | undefined;
+    private _riskLevel?: RiskLevel | AdminMember1 | undefined;
     /** State of the user's risk. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue. */
-    private _riskState?: RiskState | undefined;
+    private _riskState?: RiskState | AdminMember1 | undefined;
     /** Risky user display name. */
     private _userDisplayName?: string | undefined;
     /** Risky user principal name. */
     private _userPrincipalName?: string | undefined;
     /**
-     * Instantiates a new riskyUser and sets the default values.
+     * Instantiates a new RiskyUser and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.riskyUser";
     };
     /**
      * The deserialization information for the current model
@@ -40,10 +40,10 @@ export class RiskyUser extends Entity implements Parsable {
             "history": n => { this.history = n.getCollectionOfObjectValues<RiskyUserHistoryItem>(createRiskyUserHistoryItemFromDiscriminatorValue); },
             "isDeleted": n => { this.isDeleted = n.getBooleanValue(); },
             "isProcessing": n => { this.isProcessing = n.getBooleanValue(); },
-            "riskDetail": n => { this.riskDetail = n.getEnumValue<RiskDetail>(RiskDetail); },
+            "riskDetail": n => { this.riskDetail = n.getObjectValue<RiskDetail>(createRiskDetailFromDiscriminatorValue); },
             "riskLastUpdatedDateTime": n => { this.riskLastUpdatedDateTime = n.getDateValue(); },
-            "riskLevel": n => { this.riskLevel = n.getEnumValue<RiskLevel>(RiskLevel); },
-            "riskState": n => { this.riskState = n.getEnumValue<RiskState>(RiskState); },
+            "riskLevel": n => { this.riskLevel = n.getObjectValue<RiskLevel>(createRiskLevelFromDiscriminatorValue); },
+            "riskState": n => { this.riskState = n.getObjectValue<RiskState>(createRiskStateFromDiscriminatorValue); },
             "userDisplayName": n => { this.userDisplayName = n.getStringValue(); },
             "userPrincipalName": n => { this.userPrincipalName = n.getStringValue(); },
         };
@@ -92,7 +92,7 @@ export class RiskyUser extends Entity implements Parsable {
     };
     /**
      * Gets the riskDetail property value. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
-     * @returns a riskDetail
+     * @returns a admin
      */
     public get riskDetail() {
         return this._riskDetail;
@@ -101,7 +101,7 @@ export class RiskyUser extends Entity implements Parsable {
      * Sets the riskDetail property value. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
      * @param value Value to set for the riskDetail property.
      */
-    public set riskDetail(value: RiskDetail | undefined) {
+    public set riskDetail(value: RiskDetail | AdminMember1 | undefined) {
         this._riskDetail = value;
     };
     /**
@@ -120,7 +120,7 @@ export class RiskyUser extends Entity implements Parsable {
     };
     /**
      * Gets the riskLevel property value. Level of the detected risky user. The possible values are low, medium, high, hidden, none, unknownFutureValue.
-     * @returns a riskLevel
+     * @returns a admin
      */
     public get riskLevel() {
         return this._riskLevel;
@@ -129,12 +129,12 @@ export class RiskyUser extends Entity implements Parsable {
      * Sets the riskLevel property value. Level of the detected risky user. The possible values are low, medium, high, hidden, none, unknownFutureValue.
      * @param value Value to set for the riskLevel property.
      */
-    public set riskLevel(value: RiskLevel | undefined) {
+    public set riskLevel(value: RiskLevel | AdminMember1 | undefined) {
         this._riskLevel = value;
     };
     /**
      * Gets the riskState property value. State of the user's risk. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue.
-     * @returns a riskState
+     * @returns a admin
      */
     public get riskState() {
         return this._riskState;
@@ -143,7 +143,7 @@ export class RiskyUser extends Entity implements Parsable {
      * Sets the riskState property value. State of the user's risk. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue.
      * @param value Value to set for the riskState property.
      */
-    public set riskState(value: RiskState | undefined) {
+    public set riskState(value: RiskState | AdminMember1 | undefined) {
         this._riskState = value;
     };
     /**
@@ -156,10 +156,10 @@ export class RiskyUser extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<RiskyUserHistoryItem>("history", this.history);
         writer.writeBooleanValue("isDeleted", this.isDeleted);
         writer.writeBooleanValue("isProcessing", this.isProcessing);
-        writer.writeEnumValue<RiskDetail>("riskDetail", this.riskDetail);
+        writer.writeObjectValue<RiskDetail>("riskDetail", this.riskDetail);
         writer.writeDateValue("riskLastUpdatedDateTime", this.riskLastUpdatedDateTime);
-        writer.writeEnumValue<RiskLevel>("riskLevel", this.riskLevel);
-        writer.writeEnumValue<RiskState>("riskState", this.riskState);
+        writer.writeObjectValue<RiskLevel>("riskLevel", this.riskLevel);
+        writer.writeObjectValue<RiskState>("riskState", this.riskState);
         writer.writeStringValue("userDisplayName", this.userDisplayName);
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
     };

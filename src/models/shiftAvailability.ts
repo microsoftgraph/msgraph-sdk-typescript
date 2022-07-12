@@ -1,15 +1,13 @@
-import {createPatternedRecurrenceFromDiscriminatorValue} from './createPatternedRecurrenceFromDiscriminatorValue';
-import {createTimeRangeFromDiscriminatorValue} from './createTimeRangeFromDiscriminatorValue';
-import {PatternedRecurrence, TimeRange} from './index';
+import {AdminMember1, PatternedRecurrence, TimeRange} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ShiftAvailability implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Specifies the pattern for recurrence */
-    private _recurrence?: PatternedRecurrence | undefined;
+    private _recurrence?: PatternedRecurrence | AdminMember1 | undefined;
     /** The time slot(s) preferred by the user. */
-    private _timeSlots?: TimeRange[] | undefined;
+    private _timeSlots?: TimeRange | AdminMember1[] | undefined;
     /** Specifies the time zone for the indicated time. */
     private _timeZone?: string | undefined;
     /**
@@ -39,13 +37,13 @@ export class ShiftAvailability implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "recurrence": n => { this.recurrence = n.getObjectValue<PatternedRecurrence>(createPatternedRecurrenceFromDiscriminatorValue); },
-            "timeSlots": n => { this.timeSlots = n.getCollectionOfObjectValues<TimeRange>(createTimeRangeFromDiscriminatorValue); },
+            "timeSlots": n => { this.timeSlots = n.getObjectValue<TimeRange>(createTimeRangeFromDiscriminatorValue); },
             "timeZone": n => { this.timeZone = n.getStringValue(); },
         };
     };
     /**
      * Gets the recurrence property value. Specifies the pattern for recurrence
-     * @returns a patternedRecurrence
+     * @returns a admin
      */
     public get recurrence() {
         return this._recurrence;
@@ -54,7 +52,7 @@ export class ShiftAvailability implements AdditionalDataHolder, Parsable {
      * Sets the recurrence property value. Specifies the pattern for recurrence
      * @param value Value to set for the recurrence property.
      */
-    public set recurrence(value: PatternedRecurrence | undefined) {
+    public set recurrence(value: PatternedRecurrence | AdminMember1 | undefined) {
         this._recurrence = value;
     };
     /**
@@ -64,13 +62,13 @@ export class ShiftAvailability implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<PatternedRecurrence>("recurrence", this.recurrence);
-        writer.writeCollectionOfObjectValues<TimeRange>("timeSlots", this.timeSlots);
+        writer.writeObjectValue<TimeRange>("timeSlots", this.timeSlots);
         writer.writeStringValue("timeZone", this.timeZone);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the timeSlots property value. The time slot(s) preferred by the user.
-     * @returns a timeRange
+     * @returns a admin
      */
     public get timeSlots() {
         return this._timeSlots;
@@ -79,7 +77,7 @@ export class ShiftAvailability implements AdditionalDataHolder, Parsable {
      * Sets the timeSlots property value. The time slot(s) preferred by the user.
      * @param value Value to set for the timeSlots property.
      */
-    public set timeSlots(value: TimeRange[] | undefined) {
+    public set timeSlots(value: TimeRange | AdminMember1[] | undefined) {
         this._timeSlots = value;
     };
     /**

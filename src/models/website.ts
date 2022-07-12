@@ -1,3 +1,4 @@
+import {AdminMember1} from './index';
 import {WebsiteType} from './websiteType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -9,7 +10,7 @@ export class Website implements AdditionalDataHolder, Parsable {
     /** The display name of the web site. */
     private _displayName?: string | undefined;
     /** Possible values are: other, home, work, blog, profile. */
-    private _type?: WebsiteType | undefined;
+    private _type?: WebsiteType | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -66,7 +67,7 @@ export class Website implements AdditionalDataHolder, Parsable {
         return {
             "address": n => { this.address = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
-            "type": n => { this.type = n.getEnumValue<WebsiteType>(WebsiteType); },
+            "type": n => { this.type = n.getObjectValue<WebsiteType>(createWebsiteTypeFromDiscriminatorValue); },
         };
     };
     /**
@@ -77,12 +78,12 @@ export class Website implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("address", this.address);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeEnumValue<WebsiteType>("type", this.type);
+        writer.writeObjectValue<WebsiteType>("type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the type property value. Possible values are: other, home, work, blog, profile.
-     * @returns a websiteType
+     * @returns a admin
      */
     public get type() {
         return this._type;
@@ -91,7 +92,7 @@ export class Website implements AdditionalDataHolder, Parsable {
      * Sets the type property value. Possible values are: other, home, work, blog, profile.
      * @param value Value to set for the type property.
      */
-    public set type(value: WebsiteType | undefined) {
+    public set type(value: WebsiteType | AdminMember1 | undefined) {
         this._type = value;
     };
 }

@@ -1,6 +1,5 @@
 import {Message, Recipient} from '../../../../models/';
-import {createMessageFromDiscriminatorValue} from '../../../../models/createMessageFromDiscriminatorValue';
-import {createRecipientFromDiscriminatorValue} from '../../../../models/createRecipientFromDiscriminatorValue';
+import {CreateForwardMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the createForward method. */
@@ -10,9 +9,9 @@ export class CreateForwardPostRequestBody implements AdditionalDataHolder, Parsa
     /** The Comment property */
     private _comment?: string | undefined;
     /** The Message property */
-    private _message?: Message | undefined;
+    private _message?: Message | CreateForwardMember1 | undefined;
     /** The ToRecipients property */
-    private _toRecipients?: Recipient[] | undefined;
+    private _toRecipients?: Recipient | CreateForwardMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -55,12 +54,12 @@ export class CreateForwardPostRequestBody implements AdditionalDataHolder, Parsa
         return {
             "comment": n => { this.comment = n.getStringValue(); },
             "message": n => { this.message = n.getObjectValue<Message>(createMessageFromDiscriminatorValue); },
-            "toRecipients": n => { this.toRecipients = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
+            "toRecipients": n => { this.toRecipients = n.getObjectValue<Recipient>(createRecipientFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the message property value. The Message property
-     * @returns a message
+     * @returns a createForward
      */
     public get message() {
         return this._message;
@@ -69,7 +68,7 @@ export class CreateForwardPostRequestBody implements AdditionalDataHolder, Parsa
      * Sets the message property value. The Message property
      * @param value Value to set for the Message property.
      */
-    public set message(value: Message | undefined) {
+    public set message(value: Message | CreateForwardMember1 | undefined) {
         this._message = value;
     };
     /**
@@ -80,12 +79,12 @@ export class CreateForwardPostRequestBody implements AdditionalDataHolder, Parsa
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("comment", this.comment);
         writer.writeObjectValue<Message>("message", this.message);
-        writer.writeCollectionOfObjectValues<Recipient>("toRecipients", this.toRecipients);
+        writer.writeObjectValue<Recipient>("toRecipients", this.toRecipients);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the toRecipients property value. The ToRecipients property
-     * @returns a recipient
+     * @returns a createForward
      */
     public get toRecipients() {
         return this._toRecipients;
@@ -94,7 +93,7 @@ export class CreateForwardPostRequestBody implements AdditionalDataHolder, Parsa
      * Sets the toRecipients property value. The ToRecipients property
      * @param value Value to set for the ToRecipients property.
      */
-    public set toRecipients(value: Recipient[] | undefined) {
+    public set toRecipients(value: Recipient | CreateForwardMember1[] | undefined) {
         this._toRecipients = value;
     };
 }

@@ -1,3 +1,4 @@
+import {AdminMember1} from './index';
 import {RiskDetail} from './riskDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -5,7 +6,7 @@ export class RiskUserActivity implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue. */
-    private _detail?: RiskDetail | undefined;
+    private _detail?: RiskDetail | AdminMember1 | undefined;
     /** The type of risk event detected. */
     private _riskEventTypes?: string[] | undefined;
     /**
@@ -30,7 +31,7 @@ export class RiskUserActivity implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the detail property value. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
-     * @returns a riskDetail
+     * @returns a admin
      */
     public get detail() {
         return this._detail;
@@ -39,7 +40,7 @@ export class RiskUserActivity implements AdditionalDataHolder, Parsable {
      * Sets the detail property value. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
      * @param value Value to set for the detail property.
      */
-    public set detail(value: RiskDetail | undefined) {
+    public set detail(value: RiskDetail | AdminMember1 | undefined) {
         this._detail = value;
     };
     /**
@@ -48,7 +49,7 @@ export class RiskUserActivity implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "detail": n => { this.detail = n.getEnumValue<RiskDetail>(RiskDetail); },
+            "detail": n => { this.detail = n.getObjectValue<RiskDetail>(createRiskDetailFromDiscriminatorValue); },
             "riskEventTypes": n => { this.riskEventTypes = n.getCollectionOfPrimitiveValues<string>(); },
         };
     };
@@ -72,7 +73,7 @@ export class RiskUserActivity implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeEnumValue<RiskDetail>("detail", this.detail);
+        writer.writeObjectValue<RiskDetail>("detail", this.detail);
         writer.writeCollectionOfPrimitiveValues<string>("riskEventTypes", this.riskEventTypes);
         writer.writeAdditionalData(this.additionalData);
     };

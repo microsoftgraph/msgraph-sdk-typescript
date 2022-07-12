@@ -1,5 +1,7 @@
 import {Report} from '../../models/';
-import {createReportFromDiscriminatorValue} from '../../models/createReportFromDiscriminatorValue';
+import {ODataError} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ManagedDeviceEnrollmentTopFailuresWithPeriodResponseMember1} from './index';
 import {ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilderGetRequestConfiguration} from './managedDeviceEnrollmentTopFailuresWithPeriodRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -22,7 +24,7 @@ export class ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/reports/microsoft.graph.managedDeviceEnrollmentTopFailures(period='{period}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = period
+        urlTplParams["period"] = period
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -36,6 +38,7 @@ export class ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -46,12 +49,16 @@ export class ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder {
      * Invoke function managedDeviceEnrollmentTopFailures
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of Report
+     * @returns a Promise of ManagedDeviceEnrollmentTopFailuresWithPeriodResponse
      */
-    public get(requestConfiguration?: ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Report | undefined> {
+    public get(requestConfiguration?: ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Report | ManagedDeviceEnrollmentTopFailuresWithPeriodResponseMember1 | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<Report>(requestInfo, createReportFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<Report | ManagedDeviceEnrollmentTopFailuresWithPeriodResponseMember1>(requestInfo, createReport | ManagedDeviceEnrollmentTopFailuresWithPeriodResponseMember1FromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

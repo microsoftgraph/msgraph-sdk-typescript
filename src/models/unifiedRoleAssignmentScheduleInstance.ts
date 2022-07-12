@@ -1,66 +1,64 @@
-import {createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue} from './createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue';
-import {UnifiedRoleEligibilityScheduleInstance, UnifiedRoleScheduleInstanceBase} from './index';
+import {AdminMember1, UnifiedRoleEligibilityScheduleInstance, UnifiedRoleScheduleInstanceBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceBase implements Parsable {
-    /** If the roleAssignmentScheduleInstance is activated by a roleEligibilityScheduleRequest, this is the link to the related schedule instance. */
-    private _activatedUsing?: UnifiedRoleEligibilityScheduleInstance | undefined;
-    /** Type of the assignment. It can either be Assigned or Activated. */
+    /** If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand. */
+    private _activatedUsing?: UnifiedRoleEligibilityScheduleInstance | AdminMember1 | undefined;
+    /** Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne). */
     private _assignmentType?: string | undefined;
-    /** Time that the roleAssignmentInstance will expire */
+    /** The end date of the schedule instance. */
     private _endDateTime?: Date | undefined;
-    /** Membership type of the assignment. It can either be Inherited, Direct, or Group. */
+    /** How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne). */
     private _memberType?: string | undefined;
-    /** ID of the roleAssignment in the directory */
+    /** The identifier of the role assignment in Azure AD. */
     private _roleAssignmentOriginId?: string | undefined;
-    /** ID of the parent roleAssignmentSchedule for this instance */
+    /** The identifier of the unifiedRoleAssignmentSchedule object from which this instance was created. */
     private _roleAssignmentScheduleId?: string | undefined;
-    /** Time that the roleAssignmentInstance will start */
+    /** When this instance starts. */
     private _startDateTime?: Date | undefined;
     /**
-     * Gets the activatedUsing property value. If the roleAssignmentScheduleInstance is activated by a roleEligibilityScheduleRequest, this is the link to the related schedule instance.
-     * @returns a unifiedRoleEligibilityScheduleInstance
+     * Gets the activatedUsing property value. If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand.
+     * @returns a admin
      */
     public get activatedUsing() {
         return this._activatedUsing;
     };
     /**
-     * Sets the activatedUsing property value. If the roleAssignmentScheduleInstance is activated by a roleEligibilityScheduleRequest, this is the link to the related schedule instance.
+     * Sets the activatedUsing property value. If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand.
      * @param value Value to set for the activatedUsing property.
      */
-    public set activatedUsing(value: UnifiedRoleEligibilityScheduleInstance | undefined) {
+    public set activatedUsing(value: UnifiedRoleEligibilityScheduleInstance | AdminMember1 | undefined) {
         this._activatedUsing = value;
     };
     /**
-     * Gets the assignmentType property value. Type of the assignment. It can either be Assigned or Activated.
+     * Gets the assignmentType property value. Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne).
      * @returns a string
      */
     public get assignmentType() {
         return this._assignmentType;
     };
     /**
-     * Sets the assignmentType property value. Type of the assignment. It can either be Assigned or Activated.
+     * Sets the assignmentType property value. Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne).
      * @param value Value to set for the assignmentType property.
      */
     public set assignmentType(value: string | undefined) {
         this._assignmentType = value;
     };
     /**
-     * Instantiates a new unifiedRoleAssignmentScheduleInstance and sets the default values.
+     * Instantiates a new UnifiedRoleAssignmentScheduleInstance and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
-     * Gets the endDateTime property value. Time that the roleAssignmentInstance will expire
+     * Gets the endDateTime property value. The end date of the schedule instance.
      * @returns a Date
      */
     public get endDateTime() {
         return this._endDateTime;
     };
     /**
-     * Sets the endDateTime property value. Time that the roleAssignmentInstance will expire
+     * Sets the endDateTime property value. The end date of the schedule instance.
      * @param value Value to set for the endDateTime property.
      */
     public set endDateTime(value: Date | undefined) {
@@ -82,42 +80,42 @@ export class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleIn
         };
     };
     /**
-     * Gets the memberType property value. Membership type of the assignment. It can either be Inherited, Direct, or Group.
+     * Gets the memberType property value. How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne).
      * @returns a string
      */
     public get memberType() {
         return this._memberType;
     };
     /**
-     * Sets the memberType property value. Membership type of the assignment. It can either be Inherited, Direct, or Group.
+     * Sets the memberType property value. How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne).
      * @param value Value to set for the memberType property.
      */
     public set memberType(value: string | undefined) {
         this._memberType = value;
     };
     /**
-     * Gets the roleAssignmentOriginId property value. ID of the roleAssignment in the directory
+     * Gets the roleAssignmentOriginId property value. The identifier of the role assignment in Azure AD.
      * @returns a string
      */
     public get roleAssignmentOriginId() {
         return this._roleAssignmentOriginId;
     };
     /**
-     * Sets the roleAssignmentOriginId property value. ID of the roleAssignment in the directory
+     * Sets the roleAssignmentOriginId property value. The identifier of the role assignment in Azure AD.
      * @param value Value to set for the roleAssignmentOriginId property.
      */
     public set roleAssignmentOriginId(value: string | undefined) {
         this._roleAssignmentOriginId = value;
     };
     /**
-     * Gets the roleAssignmentScheduleId property value. ID of the parent roleAssignmentSchedule for this instance
+     * Gets the roleAssignmentScheduleId property value. The identifier of the unifiedRoleAssignmentSchedule object from which this instance was created.
      * @returns a string
      */
     public get roleAssignmentScheduleId() {
         return this._roleAssignmentScheduleId;
     };
     /**
-     * Sets the roleAssignmentScheduleId property value. ID of the parent roleAssignmentSchedule for this instance
+     * Sets the roleAssignmentScheduleId property value. The identifier of the unifiedRoleAssignmentSchedule object from which this instance was created.
      * @param value Value to set for the roleAssignmentScheduleId property.
      */
     public set roleAssignmentScheduleId(value: string | undefined) {
@@ -139,14 +137,14 @@ export class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleIn
         writer.writeDateValue("startDateTime", this.startDateTime);
     };
     /**
-     * Gets the startDateTime property value. Time that the roleAssignmentInstance will start
+     * Gets the startDateTime property value. When this instance starts.
      * @returns a Date
      */
     public get startDateTime() {
         return this._startDateTime;
     };
     /**
-     * Sets the startDateTime property value. Time that the roleAssignmentInstance will start
+     * Sets the startDateTime property value. When this instance starts.
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: Date | undefined) {

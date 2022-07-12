@@ -1,39 +1,37 @@
 import {createEducationOutcomeFromDiscriminatorValue} from './createEducationOutcomeFromDiscriminatorValue';
-import {createEducationSubmissionRecipientFromDiscriminatorValue} from './createEducationSubmissionRecipientFromDiscriminatorValue';
 import {createEducationSubmissionResourceFromDiscriminatorValue} from './createEducationSubmissionResourceFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {EducationSubmissionStatus} from './educationSubmissionStatus';
-import {EducationOutcome, EducationSubmissionRecipient, EducationSubmissionResource, Entity, IdentitySet} from './index';
+import {AdminMember1, EducationOutcome, EducationSubmissionRecipient, EducationSubmissionResource, Entity, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the admin singleton. */
 export class EducationSubmission extends Entity implements Parsable {
-    /** Read-Write. Nullable. */
+    /** The outcomes property */
     private _outcomes?: EducationOutcome[] | undefined;
     /** User who moved the status of this submission to reassigned. */
-    private _reassignedBy?: IdentitySet | undefined;
+    private _reassignedBy?: IdentitySet | AdminMember1 | undefined;
     /** Moment in time when the submission was reassigned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _reassignedDateTime?: Date | undefined;
     /** Who this submission is assigned to. */
-    private _recipient?: EducationSubmissionRecipient | undefined;
-    /** Nullable. */
+    private _recipient?: EducationSubmissionRecipient | AdminMember1 | undefined;
+    /** The resources property */
     private _resources?: EducationSubmissionResource[] | undefined;
     /** Folder where all file resources for this submission need to be stored. */
     private _resourcesFolderUrl?: string | undefined;
     /** User who moved the status of this submission to returned. */
-    private _returnedBy?: IdentitySet | undefined;
+    private _returnedBy?: IdentitySet | AdminMember1 | undefined;
     /** Moment in time when the submission was returned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _returnedDateTime?: Date | undefined;
     /** Read-only. Possible values are: working, submitted, released, returned, unknownFutureValue and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned. */
-    private _status?: EducationSubmissionStatus | undefined;
+    private _status?: EducationSubmissionStatus | AdminMember1 | undefined;
     /** User who moved the resource into the submitted state. */
-    private _submittedBy?: IdentitySet | undefined;
+    private _submittedBy?: IdentitySet | AdminMember1 | undefined;
     /** Moment in time when the submission was moved into the submitted state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _submittedDateTime?: Date | undefined;
-    /** Read-only. Nullable. */
+    /** The submittedResources property */
     private _submittedResources?: EducationSubmissionResource[] | undefined;
     /** User who moved the resource from submitted into the working state. */
-    private _unsubmittedBy?: IdentitySet | undefined;
+    private _unsubmittedBy?: IdentitySet | AdminMember1 | undefined;
     /** Moment in time when the submission was moved from submitted into the working state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _unsubmittedDateTime?: Date | undefined;
     /**
@@ -56,7 +54,7 @@ export class EducationSubmission extends Entity implements Parsable {
             "resourcesFolderUrl": n => { this.resourcesFolderUrl = n.getStringValue(); },
             "returnedBy": n => { this.returnedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "returnedDateTime": n => { this.returnedDateTime = n.getDateValue(); },
-            "status": n => { this.status = n.getEnumValue<EducationSubmissionStatus>(EducationSubmissionStatus); },
+            "status": n => { this.status = n.getObjectValue<EducationSubmissionStatus>(createEducationSubmissionStatusFromDiscriminatorValue); },
             "submittedBy": n => { this.submittedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "submittedDateTime": n => { this.submittedDateTime = n.getDateValue(); },
             "submittedResources": n => { this.submittedResources = n.getCollectionOfObjectValues<EducationSubmissionResource>(createEducationSubmissionResourceFromDiscriminatorValue); },
@@ -65,14 +63,14 @@ export class EducationSubmission extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the outcomes property value. Read-Write. Nullable.
+     * Gets the outcomes property value. The outcomes property
      * @returns a educationOutcome
      */
     public get outcomes() {
         return this._outcomes;
     };
     /**
-     * Sets the outcomes property value. Read-Write. Nullable.
+     * Sets the outcomes property value. The outcomes property
      * @param value Value to set for the outcomes property.
      */
     public set outcomes(value: EducationOutcome[] | undefined) {
@@ -80,7 +78,7 @@ export class EducationSubmission extends Entity implements Parsable {
     };
     /**
      * Gets the reassignedBy property value. User who moved the status of this submission to reassigned.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get reassignedBy() {
         return this._reassignedBy;
@@ -89,7 +87,7 @@ export class EducationSubmission extends Entity implements Parsable {
      * Sets the reassignedBy property value. User who moved the status of this submission to reassigned.
      * @param value Value to set for the reassignedBy property.
      */
-    public set reassignedBy(value: IdentitySet | undefined) {
+    public set reassignedBy(value: IdentitySet | AdminMember1 | undefined) {
         this._reassignedBy = value;
     };
     /**
@@ -108,7 +106,7 @@ export class EducationSubmission extends Entity implements Parsable {
     };
     /**
      * Gets the recipient property value. Who this submission is assigned to.
-     * @returns a educationSubmissionRecipient
+     * @returns a admin
      */
     public get recipient() {
         return this._recipient;
@@ -117,18 +115,18 @@ export class EducationSubmission extends Entity implements Parsable {
      * Sets the recipient property value. Who this submission is assigned to.
      * @param value Value to set for the recipient property.
      */
-    public set recipient(value: EducationSubmissionRecipient | undefined) {
+    public set recipient(value: EducationSubmissionRecipient | AdminMember1 | undefined) {
         this._recipient = value;
     };
     /**
-     * Gets the resources property value. Nullable.
+     * Gets the resources property value. The resources property
      * @returns a educationSubmissionResource
      */
     public get resources() {
         return this._resources;
     };
     /**
-     * Sets the resources property value. Nullable.
+     * Sets the resources property value. The resources property
      * @param value Value to set for the resources property.
      */
     public set resources(value: EducationSubmissionResource[] | undefined) {
@@ -150,7 +148,7 @@ export class EducationSubmission extends Entity implements Parsable {
     };
     /**
      * Gets the returnedBy property value. User who moved the status of this submission to returned.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get returnedBy() {
         return this._returnedBy;
@@ -159,7 +157,7 @@ export class EducationSubmission extends Entity implements Parsable {
      * Sets the returnedBy property value. User who moved the status of this submission to returned.
      * @param value Value to set for the returnedBy property.
      */
-    public set returnedBy(value: IdentitySet | undefined) {
+    public set returnedBy(value: IdentitySet | AdminMember1 | undefined) {
         this._returnedBy = value;
     };
     /**
@@ -191,7 +189,7 @@ export class EducationSubmission extends Entity implements Parsable {
         writer.writeStringValue("resourcesFolderUrl", this.resourcesFolderUrl);
         writer.writeObjectValue<IdentitySet>("returnedBy", this.returnedBy);
         writer.writeDateValue("returnedDateTime", this.returnedDateTime);
-        writer.writeEnumValue<EducationSubmissionStatus>("status", this.status);
+        writer.writeObjectValue<EducationSubmissionStatus>("status", this.status);
         writer.writeObjectValue<IdentitySet>("submittedBy", this.submittedBy);
         writer.writeDateValue("submittedDateTime", this.submittedDateTime);
         writer.writeCollectionOfObjectValues<EducationSubmissionResource>("submittedResources", this.submittedResources);
@@ -200,7 +198,7 @@ export class EducationSubmission extends Entity implements Parsable {
     };
     /**
      * Gets the status property value. Read-only. Possible values are: working, submitted, released, returned, unknownFutureValue and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.
-     * @returns a educationSubmissionStatus
+     * @returns a admin
      */
     public get status() {
         return this._status;
@@ -209,12 +207,12 @@ export class EducationSubmission extends Entity implements Parsable {
      * Sets the status property value. Read-only. Possible values are: working, submitted, released, returned, unknownFutureValue and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.
      * @param value Value to set for the status property.
      */
-    public set status(value: EducationSubmissionStatus | undefined) {
+    public set status(value: EducationSubmissionStatus | AdminMember1 | undefined) {
         this._status = value;
     };
     /**
      * Gets the submittedBy property value. User who moved the resource into the submitted state.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get submittedBy() {
         return this._submittedBy;
@@ -223,7 +221,7 @@ export class EducationSubmission extends Entity implements Parsable {
      * Sets the submittedBy property value. User who moved the resource into the submitted state.
      * @param value Value to set for the submittedBy property.
      */
-    public set submittedBy(value: IdentitySet | undefined) {
+    public set submittedBy(value: IdentitySet | AdminMember1 | undefined) {
         this._submittedBy = value;
     };
     /**
@@ -241,14 +239,14 @@ export class EducationSubmission extends Entity implements Parsable {
         this._submittedDateTime = value;
     };
     /**
-     * Gets the submittedResources property value. Read-only. Nullable.
+     * Gets the submittedResources property value. The submittedResources property
      * @returns a educationSubmissionResource
      */
     public get submittedResources() {
         return this._submittedResources;
     };
     /**
-     * Sets the submittedResources property value. Read-only. Nullable.
+     * Sets the submittedResources property value. The submittedResources property
      * @param value Value to set for the submittedResources property.
      */
     public set submittedResources(value: EducationSubmissionResource[] | undefined) {
@@ -256,7 +254,7 @@ export class EducationSubmission extends Entity implements Parsable {
     };
     /**
      * Gets the unsubmittedBy property value. User who moved the resource from submitted into the working state.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get unsubmittedBy() {
         return this._unsubmittedBy;
@@ -265,7 +263,7 @@ export class EducationSubmission extends Entity implements Parsable {
      * Sets the unsubmittedBy property value. User who moved the resource from submitted into the working state.
      * @param value Value to set for the unsubmittedBy property.
      */
-    public set unsubmittedBy(value: IdentitySet | undefined) {
+    public set unsubmittedBy(value: IdentitySet | AdminMember1 | undefined) {
         this._unsubmittedBy = value;
     };
     /**

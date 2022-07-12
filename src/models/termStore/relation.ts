@@ -1,20 +1,18 @@
 import {Entity} from '../';
-import {createSetFromDiscriminatorValue} from './createSetFromDiscriminatorValue';
-import {createTermFromDiscriminatorValue} from './createTermFromDiscriminatorValue';
-import {Set, Term} from './index';
+import {AdminMember1, Set, Term} from './index';
 import {RelationType} from './relationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class Relation extends Entity implements Parsable {
     /** The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set]. */
-    private _fromTerm?: Term | undefined;
+    private _fromTerm?: Term | AdminMember1 | undefined;
     /** The type of relation. Possible values are: pin, reuse. */
-    private _relationship?: RelationType | undefined;
+    private _relationship?: RelationType | AdminMember1 | undefined;
     /** The [set] in which the relation is relevant. */
-    private _set?: Set | undefined;
+    private _set?: Set | AdminMember1 | undefined;
     /** The to [term] of the relation. The term to which the relationship is defined. */
-    private _toTerm?: Term | undefined;
+    private _toTerm?: Term | AdminMember1 | undefined;
     /**
      * Instantiates a new relation and sets the default values.
      */
@@ -23,7 +21,7 @@ export class Relation extends Entity implements Parsable {
     };
     /**
      * Gets the fromTerm property value. The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set].
-     * @returns a term
+     * @returns a admin
      */
     public get fromTerm() {
         return this._fromTerm;
@@ -32,7 +30,7 @@ export class Relation extends Entity implements Parsable {
      * Sets the fromTerm property value. The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set].
      * @param value Value to set for the fromTerm property.
      */
-    public set fromTerm(value: Term | undefined) {
+    public set fromTerm(value: Term | AdminMember1 | undefined) {
         this._fromTerm = value;
     };
     /**
@@ -42,14 +40,14 @@ export class Relation extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "fromTerm": n => { this.fromTerm = n.getObjectValue<Term>(createTermFromDiscriminatorValue); },
-            "relationship": n => { this.relationship = n.getEnumValue<RelationType>(RelationType); },
+            "relationship": n => { this.relationship = n.getObjectValue<RelationType>(createRelationTypeFromDiscriminatorValue); },
             "set": n => { this.set = n.getObjectValue<Set>(createSetFromDiscriminatorValue); },
             "toTerm": n => { this.toTerm = n.getObjectValue<Term>(createTermFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the relationship property value. The type of relation. Possible values are: pin, reuse.
-     * @returns a relationType
+     * @returns a admin
      */
     public get relationship() {
         return this._relationship;
@@ -58,7 +56,7 @@ export class Relation extends Entity implements Parsable {
      * Sets the relationship property value. The type of relation. Possible values are: pin, reuse.
      * @param value Value to set for the relationship property.
      */
-    public set relationship(value: RelationType | undefined) {
+    public set relationship(value: RelationType | AdminMember1 | undefined) {
         this._relationship = value;
     };
     /**
@@ -69,13 +67,13 @@ export class Relation extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeObjectValue<Term>("fromTerm", this.fromTerm);
-        writer.writeEnumValue<RelationType>("relationship", this.relationship);
+        writer.writeObjectValue<RelationType>("relationship", this.relationship);
         writer.writeObjectValue<Set>("set", this.set);
         writer.writeObjectValue<Term>("toTerm", this.toTerm);
     };
     /**
      * Gets the set property value. The [set] in which the relation is relevant.
-     * @returns a set
+     * @returns a admin
      */
     public get set() {
         return this._set;
@@ -84,12 +82,12 @@ export class Relation extends Entity implements Parsable {
      * Sets the set property value. The [set] in which the relation is relevant.
      * @param value Value to set for the set property.
      */
-    public set set(value: Set | undefined) {
+    public set set(value: Set | AdminMember1 | undefined) {
         this._set = value;
     };
     /**
      * Gets the toTerm property value. The to [term] of the relation. The term to which the relationship is defined.
-     * @returns a term
+     * @returns a admin
      */
     public get toTerm() {
         return this._toTerm;
@@ -98,7 +96,7 @@ export class Relation extends Entity implements Parsable {
      * Sets the toTerm property value. The to [term] of the relation. The term to which the relationship is defined.
      * @param value Value to set for the toTerm property.
      */
-    public set toTerm(value: Term | undefined) {
+    public set toTerm(value: Term | AdminMember1 | undefined) {
         this._toTerm = value;
     };
 }

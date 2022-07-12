@@ -1,11 +1,9 @@
-import {createMimeContentFromDiscriminatorValue} from './createMimeContentFromDiscriminatorValue';
 import {createMobileAppAssignmentFromDiscriminatorValue} from './createMobileAppAssignmentFromDiscriminatorValue';
 import {createMobileAppCategoryFromDiscriminatorValue} from './createMobileAppCategoryFromDiscriminatorValue';
-import {Entity, MimeContent, MobileAppAssignment, MobileAppCategory} from './index';
+import {AdminMember1, Entity, MimeContent, MobileAppAssignment, MobileAppCategory} from './index';
 import {MobileAppPublishingState} from './mobileAppPublishingState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** An abstract class containing the base properties for Intune mobile apps. */
 export class MobileApp extends Entity implements Parsable {
     /** The list of group assignments for this mobile app. */
     private _assignments?: MobileAppAssignment[] | undefined;
@@ -24,7 +22,7 @@ export class MobileApp extends Entity implements Parsable {
     /** The value indicating whether the app is marked as featured by the admin. */
     private _isFeatured?: boolean | undefined;
     /** The large icon, to be displayed in the app details and used for upload of the icon. */
-    private _largeIcon?: MimeContent | undefined;
+    private _largeIcon?: MimeContent | AdminMember1 | undefined;
     /** The date and time the app was last modified. */
     private _lastModifiedDateTime?: Date | undefined;
     /** Notes for the app. */
@@ -35,7 +33,7 @@ export class MobileApp extends Entity implements Parsable {
     private _privacyInformationUrl?: string | undefined;
     /** The publisher of the app. */
     private _publisher?: string | undefined;
-    /** The publishing state for the app. The app cannot be assigned unless the app is published. Possible values are: notPublished, processing, published. */
+    /** Indicates the publishing state of an app. */
     private _publishingState?: MobileAppPublishingState | undefined;
     /**
      * Gets the assignments property value. The list of group assignments for this mobile app.
@@ -66,10 +64,11 @@ export class MobileApp extends Entity implements Parsable {
         this._categories = value;
     };
     /**
-     * Instantiates a new mobileApp and sets the default values.
+     * Instantiates a new MobileApp and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.mobileApp";
     };
     /**
      * Gets the createdDateTime property value. The date and time the app was created.
@@ -180,7 +179,7 @@ export class MobileApp extends Entity implements Parsable {
     };
     /**
      * Gets the largeIcon property value. The large icon, to be displayed in the app details and used for upload of the icon.
-     * @returns a mimeContent
+     * @returns a admin
      */
     public get largeIcon() {
         return this._largeIcon;
@@ -189,7 +188,7 @@ export class MobileApp extends Entity implements Parsable {
      * Sets the largeIcon property value. The large icon, to be displayed in the app details and used for upload of the icon.
      * @param value Value to set for the largeIcon property.
      */
-    public set largeIcon(value: MimeContent | undefined) {
+    public set largeIcon(value: MimeContent | AdminMember1 | undefined) {
         this._largeIcon = value;
     };
     /**
@@ -263,14 +262,14 @@ export class MobileApp extends Entity implements Parsable {
         this._publisher = value;
     };
     /**
-     * Gets the publishingState property value. The publishing state for the app. The app cannot be assigned unless the app is published. Possible values are: notPublished, processing, published.
+     * Gets the publishingState property value. Indicates the publishing state of an app.
      * @returns a mobileAppPublishingState
      */
     public get publishingState() {
         return this._publishingState;
     };
     /**
-     * Sets the publishingState property value. The publishing state for the app. The app cannot be assigned unless the app is published. Possible values are: notPublished, processing, published.
+     * Sets the publishingState property value. Indicates the publishing state of an app.
      * @param value Value to set for the publishingState property.
      */
     public set publishingState(value: MobileAppPublishingState | undefined) {

@@ -1,9 +1,7 @@
-import {createLicenseUnitsDetailFromDiscriminatorValue} from './createLicenseUnitsDetailFromDiscriminatorValue';
 import {createServicePlanInfoFromDiscriminatorValue} from './createServicePlanInfoFromDiscriminatorValue';
-import {Entity, LicenseUnitsDetail, ServicePlanInfo} from './index';
+import {AdminMember1, Entity, LicenseUnitsDetail, ServicePlanInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of subscribedSku entities. */
 export class SubscribedSku extends Entity implements Parsable {
     /** For example, 'User' or 'Company'. */
     private _appliesTo?: string | undefined;
@@ -12,7 +10,7 @@ export class SubscribedSku extends Entity implements Parsable {
     /** The number of licenses that have been assigned. */
     private _consumedUnits?: number | undefined;
     /** Information about the number and status of prepaid licenses. */
-    private _prepaidUnits?: LicenseUnitsDetail | undefined;
+    private _prepaidUnits?: LicenseUnitsDetail | AdminMember1 | undefined;
     /** Information about the service plans that are available with the SKU. Not nullable */
     private _servicePlans?: ServicePlanInfo[] | undefined;
     /** The unique identifier (GUID) for the service SKU. */
@@ -48,7 +46,7 @@ export class SubscribedSku extends Entity implements Parsable {
         this._capabilityStatus = value;
     };
     /**
-     * Instantiates a new subscribedSku and sets the default values.
+     * Instantiates a new SubscribedSku and sets the default values.
      */
     public constructor() {
         super();
@@ -84,7 +82,7 @@ export class SubscribedSku extends Entity implements Parsable {
     };
     /**
      * Gets the prepaidUnits property value. Information about the number and status of prepaid licenses.
-     * @returns a licenseUnitsDetail
+     * @returns a admin
      */
     public get prepaidUnits() {
         return this._prepaidUnits;
@@ -93,7 +91,7 @@ export class SubscribedSku extends Entity implements Parsable {
      * Sets the prepaidUnits property value. Information about the number and status of prepaid licenses.
      * @param value Value to set for the prepaidUnits property.
      */
-    public set prepaidUnits(value: LicenseUnitsDetail | undefined) {
+    public set prepaidUnits(value: LicenseUnitsDetail | AdminMember1 | undefined) {
         this._prepaidUnits = value;
     };
     /**

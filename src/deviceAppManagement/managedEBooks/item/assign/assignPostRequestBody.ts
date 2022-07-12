@@ -1,5 +1,5 @@
 import {ManagedEBookAssignment} from '../../../../models/';
-import {createManagedEBookAssignmentFromDiscriminatorValue} from '../../../../models/createManagedEBookAssignmentFromDiscriminatorValue';
+import {AssignMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the assign method. */
@@ -7,7 +7,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The managedEBookAssignments property */
-    private _managedEBookAssignments?: ManagedEBookAssignment[] | undefined;
+    private _managedEBookAssignments?: ManagedEBookAssignment | AssignMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,12 +34,12 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "managedEBookAssignments": n => { this.managedEBookAssignments = n.getCollectionOfObjectValues<ManagedEBookAssignment>(createManagedEBookAssignmentFromDiscriminatorValue); },
+            "managedEBookAssignments": n => { this.managedEBookAssignments = n.getObjectValue<ManagedEBookAssignment>(createManagedEBookAssignmentFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the managedEBookAssignments property value. The managedEBookAssignments property
-     * @returns a managedEBookAssignment
+     * @returns a assign
      */
     public get managedEBookAssignments() {
         return this._managedEBookAssignments;
@@ -48,7 +48,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
      * Sets the managedEBookAssignments property value. The managedEBookAssignments property
      * @param value Value to set for the managedEBookAssignments property.
      */
-    public set managedEBookAssignments(value: ManagedEBookAssignment[] | undefined) {
+    public set managedEBookAssignments(value: ManagedEBookAssignment | AssignMember1[] | undefined) {
         this._managedEBookAssignments = value;
     };
     /**
@@ -57,7 +57,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<ManagedEBookAssignment>("managedEBookAssignments", this.managedEBookAssignments);
+        writer.writeObjectValue<ManagedEBookAssignment>("managedEBookAssignments", this.managedEBookAssignments);
         writer.writeAdditionalData(this.additionalData);
     };
 }

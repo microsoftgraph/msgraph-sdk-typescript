@@ -1,6 +1,5 @@
 import {ChatInfo, MeetingParticipants} from '../../../../models/';
-import {createChatInfoFromDiscriminatorValue} from '../../../../models/createChatInfoFromDiscriminatorValue';
-import {createMeetingParticipantsFromDiscriminatorValue} from '../../../../models/createMeetingParticipantsFromDiscriminatorValue';
+import {CreateOrGetMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the createOrGet method. */
@@ -8,13 +7,13 @@ export class CreateOrGetPostRequestBody implements AdditionalDataHolder, Parsabl
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The chatInfo property */
-    private _chatInfo?: ChatInfo | undefined;
+    private _chatInfo?: ChatInfo | CreateOrGetMember1 | undefined;
     /** The endDateTime property */
     private _endDateTime?: Date | undefined;
     /** The externalId property */
     private _externalId?: string | undefined;
     /** The participants property */
-    private _participants?: MeetingParticipants | undefined;
+    private _participants?: MeetingParticipants | CreateOrGetMember1 | undefined;
     /** The startDateTime property */
     private _startDateTime?: Date | undefined;
     /** The subject property */
@@ -35,7 +34,7 @@ export class CreateOrGetPostRequestBody implements AdditionalDataHolder, Parsabl
     };
     /**
      * Gets the chatInfo property value. The chatInfo property
-     * @returns a chatInfo
+     * @returns a createOrGet
      */
     public get chatInfo() {
         return this._chatInfo;
@@ -44,7 +43,7 @@ export class CreateOrGetPostRequestBody implements AdditionalDataHolder, Parsabl
      * Sets the chatInfo property value. The chatInfo property
      * @param value Value to set for the chatInfo property.
      */
-    public set chatInfo(value: ChatInfo | undefined) {
+    public set chatInfo(value: ChatInfo | CreateOrGetMember1 | undefined) {
         this._chatInfo = value;
     };
     /**
@@ -97,7 +96,7 @@ export class CreateOrGetPostRequestBody implements AdditionalDataHolder, Parsabl
     };
     /**
      * Gets the participants property value. The participants property
-     * @returns a meetingParticipants
+     * @returns a createOrGet
      */
     public get participants() {
         return this._participants;
@@ -106,7 +105,7 @@ export class CreateOrGetPostRequestBody implements AdditionalDataHolder, Parsabl
      * Sets the participants property value. The participants property
      * @param value Value to set for the participants property.
      */
-    public set participants(value: MeetingParticipants | undefined) {
+    public set participants(value: MeetingParticipants | CreateOrGetMember1 | undefined) {
         this._participants = value;
     };
     /**

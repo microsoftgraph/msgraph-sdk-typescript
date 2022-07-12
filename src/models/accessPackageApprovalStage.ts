@@ -1,5 +1,4 @@
-import {createSubjectSetFromDiscriminatorValue} from './createSubjectSetFromDiscriminatorValue';
-import {SubjectSet} from './index';
+import {AdminMember1, SubjectSet} from './index';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsable {
@@ -10,17 +9,17 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
     /** If escalation is required, the time a request can be pending a response from a primary approver. */
     private _durationBeforeEscalation?: Duration | undefined;
     /** If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests. */
-    private _escalationApprovers?: SubjectSet[] | undefined;
+    private _escalationApprovers?: SubjectSet | AdminMember1[] | undefined;
     /** The subjects, typically users, who are the fallback escalation approvers. */
-    private _fallbackEscalationApprovers?: SubjectSet[] | undefined;
+    private _fallbackEscalationApprovers?: SubjectSet | AdminMember1[] | undefined;
     /** The subjects, typically users, who are the fallback primary approvers. */
-    private _fallbackPrimaryApprovers?: SubjectSet[] | undefined;
+    private _fallbackPrimaryApprovers?: SubjectSet | AdminMember1[] | undefined;
     /** Indicates whether the approver is required to provide a justification for approving a request. */
     private _isApproverJustificationRequired?: boolean | undefined;
     /** If true, then one or more escalationApprovers are configured in this approval stage. */
     private _isEscalationEnabled?: boolean | undefined;
     /** The subjects, typically users, who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors or externalSponsors. */
-    private _primaryApprovers?: SubjectSet[] | undefined;
+    private _primaryApprovers?: SubjectSet | AdminMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -71,7 +70,7 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
     };
     /**
      * Gets the escalationApprovers property value. If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests.
-     * @returns a subjectSet
+     * @returns a admin
      */
     public get escalationApprovers() {
         return this._escalationApprovers;
@@ -80,12 +79,12 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
      * Sets the escalationApprovers property value. If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests.
      * @param value Value to set for the escalationApprovers property.
      */
-    public set escalationApprovers(value: SubjectSet[] | undefined) {
+    public set escalationApprovers(value: SubjectSet | AdminMember1[] | undefined) {
         this._escalationApprovers = value;
     };
     /**
      * Gets the fallbackEscalationApprovers property value. The subjects, typically users, who are the fallback escalation approvers.
-     * @returns a subjectSet
+     * @returns a admin
      */
     public get fallbackEscalationApprovers() {
         return this._fallbackEscalationApprovers;
@@ -94,12 +93,12 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
      * Sets the fallbackEscalationApprovers property value. The subjects, typically users, who are the fallback escalation approvers.
      * @param value Value to set for the fallbackEscalationApprovers property.
      */
-    public set fallbackEscalationApprovers(value: SubjectSet[] | undefined) {
+    public set fallbackEscalationApprovers(value: SubjectSet | AdminMember1[] | undefined) {
         this._fallbackEscalationApprovers = value;
     };
     /**
      * Gets the fallbackPrimaryApprovers property value. The subjects, typically users, who are the fallback primary approvers.
-     * @returns a subjectSet
+     * @returns a admin
      */
     public get fallbackPrimaryApprovers() {
         return this._fallbackPrimaryApprovers;
@@ -108,7 +107,7 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
      * Sets the fallbackPrimaryApprovers property value. The subjects, typically users, who are the fallback primary approvers.
      * @param value Value to set for the fallbackPrimaryApprovers property.
      */
-    public set fallbackPrimaryApprovers(value: SubjectSet[] | undefined) {
+    public set fallbackPrimaryApprovers(value: SubjectSet | AdminMember1[] | undefined) {
         this._fallbackPrimaryApprovers = value;
     };
     /**
@@ -119,12 +118,12 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
         return {
             "durationBeforeAutomaticDenial": n => { this.durationBeforeAutomaticDenial = n.getDurationValue(); },
             "durationBeforeEscalation": n => { this.durationBeforeEscalation = n.getDurationValue(); },
-            "escalationApprovers": n => { this.escalationApprovers = n.getCollectionOfObjectValues<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
-            "fallbackEscalationApprovers": n => { this.fallbackEscalationApprovers = n.getCollectionOfObjectValues<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
-            "fallbackPrimaryApprovers": n => { this.fallbackPrimaryApprovers = n.getCollectionOfObjectValues<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
+            "escalationApprovers": n => { this.escalationApprovers = n.getObjectValue<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
+            "fallbackEscalationApprovers": n => { this.fallbackEscalationApprovers = n.getObjectValue<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
+            "fallbackPrimaryApprovers": n => { this.fallbackPrimaryApprovers = n.getObjectValue<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
             "isApproverJustificationRequired": n => { this.isApproverJustificationRequired = n.getBooleanValue(); },
             "isEscalationEnabled": n => { this.isEscalationEnabled = n.getBooleanValue(); },
-            "primaryApprovers": n => { this.primaryApprovers = n.getCollectionOfObjectValues<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
+            "primaryApprovers": n => { this.primaryApprovers = n.getObjectValue<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
         };
     };
     /**
@@ -157,7 +156,7 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
     };
     /**
      * Gets the primaryApprovers property value. The subjects, typically users, who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors or externalSponsors.
-     * @returns a subjectSet
+     * @returns a admin
      */
     public get primaryApprovers() {
         return this._primaryApprovers;
@@ -166,7 +165,7 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
      * Sets the primaryApprovers property value. The subjects, typically users, who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors or externalSponsors.
      * @param value Value to set for the primaryApprovers property.
      */
-    public set primaryApprovers(value: SubjectSet[] | undefined) {
+    public set primaryApprovers(value: SubjectSet | AdminMember1[] | undefined) {
         this._primaryApprovers = value;
     };
     /**
@@ -177,12 +176,12 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeDurationValue("durationBeforeAutomaticDenial", this.durationBeforeAutomaticDenial);
         writer.writeDurationValue("durationBeforeEscalation", this.durationBeforeEscalation);
-        writer.writeCollectionOfObjectValues<SubjectSet>("escalationApprovers", this.escalationApprovers);
-        writer.writeCollectionOfObjectValues<SubjectSet>("fallbackEscalationApprovers", this.fallbackEscalationApprovers);
-        writer.writeCollectionOfObjectValues<SubjectSet>("fallbackPrimaryApprovers", this.fallbackPrimaryApprovers);
+        writer.writeObjectValue<SubjectSet>("escalationApprovers", this.escalationApprovers);
+        writer.writeObjectValue<SubjectSet>("fallbackEscalationApprovers", this.fallbackEscalationApprovers);
+        writer.writeObjectValue<SubjectSet>("fallbackPrimaryApprovers", this.fallbackPrimaryApprovers);
         writer.writeBooleanValue("isApproverJustificationRequired", this.isApproverJustificationRequired);
         writer.writeBooleanValue("isEscalationEnabled", this.isEscalationEnabled);
-        writer.writeCollectionOfObjectValues<SubjectSet>("primaryApprovers", this.primaryApprovers);
+        writer.writeObjectValue<SubjectSet>("primaryApprovers", this.primaryApprovers);
         writer.writeAdditionalData(this.additionalData);
     };
 }

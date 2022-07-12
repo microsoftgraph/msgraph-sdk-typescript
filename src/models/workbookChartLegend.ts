@@ -1,11 +1,9 @@
-import {createWorkbookChartLegendFormatFromDiscriminatorValue} from './createWorkbookChartLegendFormatFromDiscriminatorValue';
-import {Entity, WorkbookChartLegendFormat} from './index';
+import {AdminMember1, Entity, WorkbookChartLegendFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartLegend extends Entity implements Parsable {
     /** Represents the formatting of a chart legend, which includes fill and font formatting. Read-only. */
-    private _format?: WorkbookChartLegendFormat | undefined;
+    private _format?: WorkbookChartLegendFormat | AdminMember1 | undefined;
     /** Boolean value for whether the chart legend should overlap with the main body of the chart. */
     private _overlay?: boolean | undefined;
     /** Represents the position of the legend on the chart. The possible values are: Top, Bottom, Left, Right, Corner, Custom. */
@@ -20,7 +18,7 @@ export class WorkbookChartLegend extends Entity implements Parsable {
     };
     /**
      * Gets the format property value. Represents the formatting of a chart legend, which includes fill and font formatting. Read-only.
-     * @returns a workbookChartLegendFormat
+     * @returns a admin
      */
     public get format() {
         return this._format;
@@ -29,7 +27,7 @@ export class WorkbookChartLegend extends Entity implements Parsable {
      * Sets the format property value. Represents the formatting of a chart legend, which includes fill and font formatting. Read-only.
      * @param value Value to set for the format property.
      */
-    public set format(value: WorkbookChartLegendFormat | undefined) {
+    public set format(value: WorkbookChartLegendFormat | AdminMember1 | undefined) {
         this._format = value;
     };
     /**

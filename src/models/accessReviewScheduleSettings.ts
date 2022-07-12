@@ -1,15 +1,15 @@
-import {createAccessReviewApplyActionFromDiscriminatorValue} from './createAccessReviewApplyActionFromDiscriminatorValue';
-import {createPatternedRecurrenceFromDiscriminatorValue} from './createPatternedRecurrenceFromDiscriminatorValue';
-import {AccessReviewApplyAction, PatternedRecurrence} from './index';
+import {AccessReviewApplyAction, AdminMember1, PatternedRecurrence} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction. */
-    private _applyActions?: AccessReviewApplyAction[] | undefined;
+    private _applyActions?: AccessReviewApplyAction | AdminMember1[] | undefined;
     /** Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false. */
     private _autoApplyDecisionsEnabled?: boolean | undefined;
+    /** Indicates whether decisions on previous access review stages are available for reviewers on an accessReviewInstance with multiple subsequent stages. If not provided, the default is disabled (false). */
+    private _decisionHistoriesForReviewersEnabled?: boolean | undefined;
     /** Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation. */
     private _defaultDecision?: string | undefined;
     /** Indicates whether the default decision is enabled or disabled when reviewers do not respond. Default value is false. */
@@ -23,7 +23,7 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
     /** Indicates whether decision recommendations are enabled or disabled. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationsEnabled setting will be used instead of the value of this property. */
     private _recommendationsEnabled?: boolean | undefined;
     /** Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts. */
-    private _recurrence?: PatternedRecurrence | undefined;
+    private _recurrence?: PatternedRecurrence | AdminMember1 | undefined;
     /** Indicates whether reminders are enabled or disabled. Default value is false. */
     private _reminderNotificationsEnabled?: boolean | undefined;
     /**
@@ -42,7 +42,7 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
     };
     /**
      * Gets the applyActions property value. Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction.
-     * @returns a accessReviewApplyAction
+     * @returns a admin
      */
     public get applyActions() {
         return this._applyActions;
@@ -51,7 +51,7 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
      * Sets the applyActions property value. Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction.
      * @param value Value to set for the applyActions property.
      */
-    public set applyActions(value: AccessReviewApplyAction[] | undefined) {
+    public set applyActions(value: AccessReviewApplyAction | AdminMember1[] | undefined) {
         this._applyActions = value;
     };
     /**
@@ -73,6 +73,20 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
      */
     public constructor() {
         this._additionalData = {};
+    };
+    /**
+     * Gets the decisionHistoriesForReviewersEnabled property value. Indicates whether decisions on previous access review stages are available for reviewers on an accessReviewInstance with multiple subsequent stages. If not provided, the default is disabled (false).
+     * @returns a boolean
+     */
+    public get decisionHistoriesForReviewersEnabled() {
+        return this._decisionHistoriesForReviewersEnabled;
+    };
+    /**
+     * Sets the decisionHistoriesForReviewersEnabled property value. Indicates whether decisions on previous access review stages are available for reviewers on an accessReviewInstance with multiple subsequent stages. If not provided, the default is disabled (false).
+     * @param value Value to set for the decisionHistoriesForReviewersEnabled property.
+     */
+    public set decisionHistoriesForReviewersEnabled(value: boolean | undefined) {
+        this._decisionHistoriesForReviewersEnabled = value;
     };
     /**
      * Gets the defaultDecision property value. Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.
@@ -108,8 +122,9 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "applyActions": n => { this.applyActions = n.getCollectionOfObjectValues<AccessReviewApplyAction>(createAccessReviewApplyActionFromDiscriminatorValue); },
+            "applyActions": n => { this.applyActions = n.getObjectValue<AccessReviewApplyAction>(createAccessReviewApplyActionFromDiscriminatorValue); },
             "autoApplyDecisionsEnabled": n => { this.autoApplyDecisionsEnabled = n.getBooleanValue(); },
+            "decisionHistoriesForReviewersEnabled": n => { this.decisionHistoriesForReviewersEnabled = n.getBooleanValue(); },
             "defaultDecision": n => { this.defaultDecision = n.getStringValue(); },
             "defaultDecisionEnabled": n => { this.defaultDecisionEnabled = n.getBooleanValue(); },
             "instanceDurationInDays": n => { this.instanceDurationInDays = n.getNumberValue(); },
@@ -178,7 +193,7 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
     };
     /**
      * Gets the recurrence property value. Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.
-     * @returns a patternedRecurrence
+     * @returns a admin
      */
     public get recurrence() {
         return this._recurrence;
@@ -187,7 +202,7 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
      * Sets the recurrence property value. Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.
      * @param value Value to set for the recurrence property.
      */
-    public set recurrence(value: PatternedRecurrence | undefined) {
+    public set recurrence(value: PatternedRecurrence | AdminMember1 | undefined) {
         this._recurrence = value;
     };
     /**
@@ -210,8 +225,9 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<AccessReviewApplyAction>("applyActions", this.applyActions);
+        writer.writeObjectValue<AccessReviewApplyAction>("applyActions", this.applyActions);
         writer.writeBooleanValue("autoApplyDecisionsEnabled", this.autoApplyDecisionsEnabled);
+        writer.writeBooleanValue("decisionHistoriesForReviewersEnabled", this.decisionHistoriesForReviewersEnabled);
         writer.writeStringValue("defaultDecision", this.defaultDecision);
         writer.writeBooleanValue("defaultDecisionEnabled", this.defaultDecisionEnabled);
         writer.writeNumberValue("instanceDurationInDays", this.instanceDurationInDays);

@@ -1,23 +1,17 @@
-import {createEducationAssignmentGradeTypeFromDiscriminatorValue} from './createEducationAssignmentGradeTypeFromDiscriminatorValue';
-import {createEducationAssignmentRecipientFromDiscriminatorValue} from './createEducationAssignmentRecipientFromDiscriminatorValue';
 import {createEducationAssignmentResourceFromDiscriminatorValue} from './createEducationAssignmentResourceFromDiscriminatorValue';
 import {createEducationCategoryFromDiscriminatorValue} from './createEducationCategoryFromDiscriminatorValue';
-import {createEducationItemBodyFromDiscriminatorValue} from './createEducationItemBodyFromDiscriminatorValue';
-import {createEducationRubricFromDiscriminatorValue} from './createEducationRubricFromDiscriminatorValue';
 import {createEducationSubmissionFromDiscriminatorValue} from './createEducationSubmissionFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {EducationAddedStudentAction} from './educationAddedStudentAction';
 import {EducationAddToCalendarOptions} from './educationAddToCalendarOptions';
 import {EducationAssignmentStatus} from './educationAssignmentStatus';
-import {EducationAssignmentGradeType, EducationAssignmentRecipient, EducationAssignmentResource, EducationCategory, EducationItemBody, EducationRubric, EducationSubmission, Entity, IdentitySet} from './index';
+import {AdminMember1, EducationAssignmentGradeType, EducationAssignmentRecipient, EducationAssignmentResource, EducationCategory, EducationItemBody, EducationRubric, EducationSubmission, Entity, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
 export class EducationAssignment extends Entity implements Parsable {
     /** Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen. */
-    private _addedStudentAction?: EducationAddedStudentAction | undefined;
+    private _addedStudentAction?: EducationAddedStudentAction | AdminMember1 | undefined;
     /** Optional field to control the assignment behavior  for adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none. */
-    private _addToCalendarAction?: EducationAddToCalendarOptions | undefined;
+    private _addToCalendarAction?: EducationAddToCalendarOptions | AdminMember1 | undefined;
     /** Identifies whether students can submit after the due date. If this property is not specified during create, it defaults to true. */
     private _allowLateSubmissions?: boolean | undefined;
     /** Identifies whether students can add their own resources to a submission or if they can only modify resources added by the teacher. */
@@ -27,7 +21,7 @@ export class EducationAssignment extends Entity implements Parsable {
     /** The moment that the assignment was published to students and the assignment shows up on the students timeline.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _assignedDateTime?: Date | undefined;
     /** Which users, or whole class should receive a submission object once the assignment is published. */
-    private _assignTo?: EducationAssignmentRecipient | undefined;
+    private _assignTo?: EducationAssignmentRecipient | AdminMember1 | undefined;
     /** When set, enables users to easily find assignments of a given type.  Read-only. Nullable. */
     private _categories?: EducationCategory[] | undefined;
     /** Class which this assignment belongs. */
@@ -35,7 +29,7 @@ export class EducationAssignment extends Entity implements Parsable {
     /** Date when the assignment will be closed for submissions. This is an optional field that can be null if the assignment does not allowLateSubmissions or when the closeDateTime is the same as the dueDateTime. But if specified, then the closeDateTime must be greater than or equal to the dueDateTime. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _closeDateTime?: Date | undefined;
     /** Who created the assignment. */
-    private _createdBy?: IdentitySet | undefined;
+    private _createdBy?: IdentitySet | AdminMember1 | undefined;
     /** Moment when the assignment was created.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _createdDateTime?: Date | undefined;
     /** Name of the assignment. */
@@ -43,11 +37,11 @@ export class EducationAssignment extends Entity implements Parsable {
     /** Date when the students assignment is due.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _dueDateTime?: Date | undefined;
     /** How the assignment will be graded. */
-    private _grading?: EducationAssignmentGradeType | undefined;
+    private _grading?: EducationAssignmentGradeType | AdminMember1 | undefined;
     /** Instructions for the assignment.  This along with the display name tell the student what to do. */
-    private _instructions?: EducationItemBody | undefined;
+    private _instructions?: EducationItemBody | AdminMember1 | undefined;
     /** Who last modified the assignment. */
-    private _lastModifiedBy?: IdentitySet | undefined;
+    private _lastModifiedBy?: IdentitySet | AdminMember1 | undefined;
     /** Moment when the assignment was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _lastModifiedDateTime?: Date | undefined;
     /** Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl is not allowed after the assignment has been published. */
@@ -57,16 +51,16 @@ export class EducationAssignment extends Entity implements Parsable {
     /** Folder URL where all the file resources for this assignment are stored. */
     private _resourcesFolderUrl?: string | undefined;
     /** When set, the grading rubric attached to this assignment. */
-    private _rubric?: EducationRubric | undefined;
+    private _rubric?: EducationRubric | AdminMember1 | undefined;
     /** Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned. */
-    private _status?: EducationAssignmentStatus | undefined;
+    private _status?: EducationAssignmentStatus | AdminMember1 | undefined;
     /** Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable. */
     private _submissions?: EducationSubmission[] | undefined;
     /** The deep link URL for the given assignment. */
     private _webUrl?: string | undefined;
     /**
      * Gets the addedStudentAction property value. Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen.
-     * @returns a educationAddedStudentAction
+     * @returns a admin
      */
     public get addedStudentAction() {
         return this._addedStudentAction;
@@ -75,12 +69,12 @@ export class EducationAssignment extends Entity implements Parsable {
      * Sets the addedStudentAction property value. Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen.
      * @param value Value to set for the addedStudentAction property.
      */
-    public set addedStudentAction(value: EducationAddedStudentAction | undefined) {
+    public set addedStudentAction(value: EducationAddedStudentAction | AdminMember1 | undefined) {
         this._addedStudentAction = value;
     };
     /**
      * Gets the addToCalendarAction property value. Optional field to control the assignment behavior  for adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.
-     * @returns a educationAddToCalendarOptions
+     * @returns a admin
      */
     public get addToCalendarAction() {
         return this._addToCalendarAction;
@@ -89,7 +83,7 @@ export class EducationAssignment extends Entity implements Parsable {
      * Sets the addToCalendarAction property value. Optional field to control the assignment behavior  for adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.
      * @param value Value to set for the addToCalendarAction property.
      */
-    public set addToCalendarAction(value: EducationAddToCalendarOptions | undefined) {
+    public set addToCalendarAction(value: EducationAddToCalendarOptions | AdminMember1 | undefined) {
         this._addToCalendarAction = value;
     };
     /**
@@ -150,7 +144,7 @@ export class EducationAssignment extends Entity implements Parsable {
     };
     /**
      * Gets the assignTo property value. Which users, or whole class should receive a submission object once the assignment is published.
-     * @returns a educationAssignmentRecipient
+     * @returns a admin
      */
     public get assignTo() {
         return this._assignTo;
@@ -159,7 +153,7 @@ export class EducationAssignment extends Entity implements Parsable {
      * Sets the assignTo property value. Which users, or whole class should receive a submission object once the assignment is published.
      * @param value Value to set for the assignTo property.
      */
-    public set assignTo(value: EducationAssignmentRecipient | undefined) {
+    public set assignTo(value: EducationAssignmentRecipient | AdminMember1 | undefined) {
         this._assignTo = value;
     };
     /**
@@ -205,14 +199,14 @@ export class EducationAssignment extends Entity implements Parsable {
         this._closeDateTime = value;
     };
     /**
-     * Instantiates a new educationAssignment and sets the default values.
+     * Instantiates a new EducationAssignment and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
      * Gets the createdBy property value. Who created the assignment.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get createdBy() {
         return this._createdBy;
@@ -221,7 +215,7 @@ export class EducationAssignment extends Entity implements Parsable {
      * Sets the createdBy property value. Who created the assignment.
      * @param value Value to set for the createdBy property.
      */
-    public set createdBy(value: IdentitySet | undefined) {
+    public set createdBy(value: IdentitySet | AdminMember1 | undefined) {
         this._createdBy = value;
     };
     /**
@@ -272,8 +266,8 @@ export class EducationAssignment extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "addedStudentAction": n => { this.addedStudentAction = n.getEnumValue<EducationAddedStudentAction>(EducationAddedStudentAction); },
-            "addToCalendarAction": n => { this.addToCalendarAction = n.getEnumValue<EducationAddToCalendarOptions>(EducationAddToCalendarOptions); },
+            "addedStudentAction": n => { this.addedStudentAction = n.getObjectValue<EducationAddedStudentAction>(createEducationAddedStudentActionFromDiscriminatorValue); },
+            "addToCalendarAction": n => { this.addToCalendarAction = n.getObjectValue<EducationAddToCalendarOptions>(createEducationAddToCalendarOptionsFromDiscriminatorValue); },
             "allowLateSubmissions": n => { this.allowLateSubmissions = n.getBooleanValue(); },
             "allowStudentsToAddResourcesToSubmission": n => { this.allowStudentsToAddResourcesToSubmission = n.getBooleanValue(); },
             "assignDateTime": n => { this.assignDateTime = n.getDateValue(); },
@@ -294,14 +288,14 @@ export class EducationAssignment extends Entity implements Parsable {
             "resources": n => { this.resources = n.getCollectionOfObjectValues<EducationAssignmentResource>(createEducationAssignmentResourceFromDiscriminatorValue); },
             "resourcesFolderUrl": n => { this.resourcesFolderUrl = n.getStringValue(); },
             "rubric": n => { this.rubric = n.getObjectValue<EducationRubric>(createEducationRubricFromDiscriminatorValue); },
-            "status": n => { this.status = n.getEnumValue<EducationAssignmentStatus>(EducationAssignmentStatus); },
+            "status": n => { this.status = n.getObjectValue<EducationAssignmentStatus>(createEducationAssignmentStatusFromDiscriminatorValue); },
             "submissions": n => { this.submissions = n.getCollectionOfObjectValues<EducationSubmission>(createEducationSubmissionFromDiscriminatorValue); },
             "webUrl": n => { this.webUrl = n.getStringValue(); },
         };
     };
     /**
      * Gets the grading property value. How the assignment will be graded.
-     * @returns a educationAssignmentGradeType
+     * @returns a admin
      */
     public get grading() {
         return this._grading;
@@ -310,12 +304,12 @@ export class EducationAssignment extends Entity implements Parsable {
      * Sets the grading property value. How the assignment will be graded.
      * @param value Value to set for the grading property.
      */
-    public set grading(value: EducationAssignmentGradeType | undefined) {
+    public set grading(value: EducationAssignmentGradeType | AdminMember1 | undefined) {
         this._grading = value;
     };
     /**
      * Gets the instructions property value. Instructions for the assignment.  This along with the display name tell the student what to do.
-     * @returns a educationItemBody
+     * @returns a admin
      */
     public get instructions() {
         return this._instructions;
@@ -324,12 +318,12 @@ export class EducationAssignment extends Entity implements Parsable {
      * Sets the instructions property value. Instructions for the assignment.  This along with the display name tell the student what to do.
      * @param value Value to set for the instructions property.
      */
-    public set instructions(value: EducationItemBody | undefined) {
+    public set instructions(value: EducationItemBody | AdminMember1 | undefined) {
         this._instructions = value;
     };
     /**
      * Gets the lastModifiedBy property value. Who last modified the assignment.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get lastModifiedBy() {
         return this._lastModifiedBy;
@@ -338,7 +332,7 @@ export class EducationAssignment extends Entity implements Parsable {
      * Sets the lastModifiedBy property value. Who last modified the assignment.
      * @param value Value to set for the lastModifiedBy property.
      */
-    public set lastModifiedBy(value: IdentitySet | undefined) {
+    public set lastModifiedBy(value: IdentitySet | AdminMember1 | undefined) {
         this._lastModifiedBy = value;
     };
     /**
@@ -399,7 +393,7 @@ export class EducationAssignment extends Entity implements Parsable {
     };
     /**
      * Gets the rubric property value. When set, the grading rubric attached to this assignment.
-     * @returns a educationRubric
+     * @returns a admin
      */
     public get rubric() {
         return this._rubric;
@@ -408,7 +402,7 @@ export class EducationAssignment extends Entity implements Parsable {
      * Sets the rubric property value. When set, the grading rubric attached to this assignment.
      * @param value Value to set for the rubric property.
      */
-    public set rubric(value: EducationRubric | undefined) {
+    public set rubric(value: EducationRubric | AdminMember1 | undefined) {
         this._rubric = value;
     };
     /**
@@ -418,8 +412,8 @@ export class EducationAssignment extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeEnumValue<EducationAddedStudentAction>("addedStudentAction", this.addedStudentAction);
-        writer.writeEnumValue<EducationAddToCalendarOptions>("addToCalendarAction", this.addToCalendarAction);
+        writer.writeObjectValue<EducationAddedStudentAction>("addedStudentAction", this.addedStudentAction);
+        writer.writeObjectValue<EducationAddToCalendarOptions>("addToCalendarAction", this.addToCalendarAction);
         writer.writeBooleanValue("allowLateSubmissions", this.allowLateSubmissions);
         writer.writeBooleanValue("allowStudentsToAddResourcesToSubmission", this.allowStudentsToAddResourcesToSubmission);
         writer.writeDateValue("assignDateTime", this.assignDateTime);
@@ -440,13 +434,13 @@ export class EducationAssignment extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<EducationAssignmentResource>("resources", this.resources);
         writer.writeStringValue("resourcesFolderUrl", this.resourcesFolderUrl);
         writer.writeObjectValue<EducationRubric>("rubric", this.rubric);
-        writer.writeEnumValue<EducationAssignmentStatus>("status", this.status);
+        writer.writeObjectValue<EducationAssignmentStatus>("status", this.status);
         writer.writeCollectionOfObjectValues<EducationSubmission>("submissions", this.submissions);
         writer.writeStringValue("webUrl", this.webUrl);
     };
     /**
      * Gets the status property value. Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned.
-     * @returns a educationAssignmentStatus
+     * @returns a admin
      */
     public get status() {
         return this._status;
@@ -455,7 +449,7 @@ export class EducationAssignment extends Entity implements Parsable {
      * Sets the status property value. Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned.
      * @param value Value to set for the status property.
      */
-    public set status(value: EducationAssignmentStatus | undefined) {
+    public set status(value: EducationAssignmentStatus | AdminMember1 | undefined) {
         this._status = value;
     };
     /**

@@ -1,18 +1,16 @@
-import {createMessageRuleActionsFromDiscriminatorValue} from './createMessageRuleActionsFromDiscriminatorValue';
-import {createMessageRulePredicatesFromDiscriminatorValue} from './createMessageRulePredicatesFromDiscriminatorValue';
-import {Entity, MessageRuleActions, MessageRulePredicates} from './index';
+import {AdminMember1, Entity, MessageRuleActions, MessageRulePredicates} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class MessageRule extends Entity implements Parsable {
     /** Actions to be taken on a message when the corresponding conditions are fulfilled. */
-    private _actions?: MessageRuleActions | undefined;
+    private _actions?: MessageRuleActions | AdminMember1 | undefined;
     /** Conditions that when fulfilled, will trigger the corresponding actions for that rule. */
-    private _conditions?: MessageRulePredicates | undefined;
+    private _conditions?: MessageRulePredicates | AdminMember1 | undefined;
     /** The display name of the rule. */
     private _displayName?: string | undefined;
     /** Exception conditions for the rule. */
-    private _exceptions?: MessageRulePredicates | undefined;
+    private _exceptions?: MessageRulePredicates | AdminMember1 | undefined;
     /** Indicates whether the rule is in an error condition. Read-only. */
     private _hasError?: boolean | undefined;
     /** Indicates whether the rule is enabled to be applied to messages. */
@@ -23,7 +21,7 @@ export class MessageRule extends Entity implements Parsable {
     private _sequence?: number | undefined;
     /**
      * Gets the actions property value. Actions to be taken on a message when the corresponding conditions are fulfilled.
-     * @returns a messageRuleActions
+     * @returns a admin
      */
     public get actions() {
         return this._actions;
@@ -32,12 +30,12 @@ export class MessageRule extends Entity implements Parsable {
      * Sets the actions property value. Actions to be taken on a message when the corresponding conditions are fulfilled.
      * @param value Value to set for the actions property.
      */
-    public set actions(value: MessageRuleActions | undefined) {
+    public set actions(value: MessageRuleActions | AdminMember1 | undefined) {
         this._actions = value;
     };
     /**
      * Gets the conditions property value. Conditions that when fulfilled, will trigger the corresponding actions for that rule.
-     * @returns a messageRulePredicates
+     * @returns a admin
      */
     public get conditions() {
         return this._conditions;
@@ -46,7 +44,7 @@ export class MessageRule extends Entity implements Parsable {
      * Sets the conditions property value. Conditions that when fulfilled, will trigger the corresponding actions for that rule.
      * @param value Value to set for the conditions property.
      */
-    public set conditions(value: MessageRulePredicates | undefined) {
+    public set conditions(value: MessageRulePredicates | AdminMember1 | undefined) {
         this._conditions = value;
     };
     /**
@@ -71,7 +69,7 @@ export class MessageRule extends Entity implements Parsable {
     };
     /**
      * Gets the exceptions property value. Exception conditions for the rule.
-     * @returns a messageRulePredicates
+     * @returns a admin
      */
     public get exceptions() {
         return this._exceptions;
@@ -80,7 +78,7 @@ export class MessageRule extends Entity implements Parsable {
      * Sets the exceptions property value. Exception conditions for the rule.
      * @param value Value to set for the exceptions property.
      */
-    public set exceptions(value: MessageRulePredicates | undefined) {
+    public set exceptions(value: MessageRulePredicates | AdminMember1 | undefined) {
         this._exceptions = value;
     };
     /**

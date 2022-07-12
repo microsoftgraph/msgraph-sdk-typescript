@@ -1,3 +1,4 @@
+import {AdminMember1} from './index';
 import {ProvisioningStatusErrorCategory} from './provisioningStatusErrorCategory';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -7,7 +8,7 @@ export class ProvisioningErrorInfo implements AdditionalDataHolder, Parsable {
     /** Additional details in case of error. */
     private _additionalDetails?: string | undefined;
     /** Categorizes the error code. Possible values are failure, nonServiceFailure, success, unknownFutureValue */
-    private _errorCategory?: ProvisioningStatusErrorCategory | undefined;
+    private _errorCategory?: ProvisioningStatusErrorCategory | AdminMember1 | undefined;
     /** Unique error code if any occurred. Learn more */
     private _errorCode?: string | undefined;
     /** Summarizes the status and describes why the status happened. */
@@ -50,7 +51,7 @@ export class ProvisioningErrorInfo implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the errorCategory property value. Categorizes the error code. Possible values are failure, nonServiceFailure, success, unknownFutureValue
-     * @returns a provisioningStatusErrorCategory
+     * @returns a admin
      */
     public get errorCategory() {
         return this._errorCategory;
@@ -59,7 +60,7 @@ export class ProvisioningErrorInfo implements AdditionalDataHolder, Parsable {
      * Sets the errorCategory property value. Categorizes the error code. Possible values are failure, nonServiceFailure, success, unknownFutureValue
      * @param value Value to set for the errorCategory property.
      */
-    public set errorCategory(value: ProvisioningStatusErrorCategory | undefined) {
+    public set errorCategory(value: ProvisioningStatusErrorCategory | AdminMember1 | undefined) {
         this._errorCategory = value;
     };
     /**
@@ -83,7 +84,7 @@ export class ProvisioningErrorInfo implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "additionalDetails": n => { this.additionalDetails = n.getStringValue(); },
-            "errorCategory": n => { this.errorCategory = n.getEnumValue<ProvisioningStatusErrorCategory>(ProvisioningStatusErrorCategory); },
+            "errorCategory": n => { this.errorCategory = n.getObjectValue<ProvisioningStatusErrorCategory>(createProvisioningStatusErrorCategoryFromDiscriminatorValue); },
             "errorCode": n => { this.errorCode = n.getStringValue(); },
             "reason": n => { this.reason = n.getStringValue(); },
             "recommendedAction": n => { this.recommendedAction = n.getStringValue(); },
@@ -124,7 +125,7 @@ export class ProvisioningErrorInfo implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("additionalDetails", this.additionalDetails);
-        writer.writeEnumValue<ProvisioningStatusErrorCategory>("errorCategory", this.errorCategory);
+        writer.writeObjectValue<ProvisioningStatusErrorCategory>("errorCategory", this.errorCategory);
         writer.writeStringValue("errorCode", this.errorCode);
         writer.writeStringValue("reason", this.reason);
         writer.writeStringValue("recommendedAction", this.recommendedAction);

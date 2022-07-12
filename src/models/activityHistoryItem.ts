@@ -1,9 +1,9 @@
 import {createUserActivityFromDiscriminatorValue} from './createUserActivityFromDiscriminatorValue';
-import {Entity, UserActivity} from './index';
+import {AdminMember1, Entity, UserActivity} from './index';
 import {Status} from './status';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class ActivityHistoryItem extends Entity implements Parsable {
     /** Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime. */
     private _activeDurationSeconds?: number | undefined;
@@ -20,7 +20,7 @@ export class ActivityHistoryItem extends Entity implements Parsable {
     /** Required. UTC DateTime when the historyItem (activity session) was started. Required for timeline history. */
     private _startedDateTime?: Date | undefined;
     /** Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored. */
-    private _status?: Status | undefined;
+    private _status?: Status | AdminMember1 | undefined;
     /** Optional. The timezone in which the user's device used to generate the activity was located at activity creation time. Values supplied as Olson IDs in order to support cross-platform representation. */
     private _userTimezone?: string | undefined;
     /**
@@ -98,7 +98,7 @@ export class ActivityHistoryItem extends Entity implements Parsable {
             "lastActiveDateTime": n => { this.lastActiveDateTime = n.getDateValue(); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "startedDateTime": n => { this.startedDateTime = n.getDateValue(); },
-            "status": n => { this.status = n.getEnumValue<Status>(Status); },
+            "status": n => { this.status = n.getObjectValue<Status>(createStatusFromDiscriminatorValue); },
             "userTimezone": n => { this.userTimezone = n.getStringValue(); },
         };
     };
@@ -144,7 +144,7 @@ export class ActivityHistoryItem extends Entity implements Parsable {
         writer.writeDateValue("lastActiveDateTime", this.lastActiveDateTime);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeDateValue("startedDateTime", this.startedDateTime);
-        writer.writeEnumValue<Status>("status", this.status);
+        writer.writeObjectValue<Status>("status", this.status);
         writer.writeStringValue("userTimezone", this.userTimezone);
     };
     /**
@@ -163,7 +163,7 @@ export class ActivityHistoryItem extends Entity implements Parsable {
     };
     /**
      * Gets the status property value. Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
-     * @returns a status
+     * @returns a admin
      */
     public get status() {
         return this._status;
@@ -172,7 +172,7 @@ export class ActivityHistoryItem extends Entity implements Parsable {
      * Sets the status property value. Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
      * @param value Value to set for the status property.
      */
-    public set status(value: Status | undefined) {
+    public set status(value: Status | AdminMember1 | undefined) {
         this._status = value;
     };
     /**

@@ -1,4 +1,5 @@
 import {DayOfWeek} from './dayOfWeek';
+import {AdminMember1} from './index';
 import {RecurrencePatternType} from './recurrencePatternType';
 import {WeekIndex} from './weekIndex';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -11,15 +12,15 @@ export class RecurrencePattern implements AdditionalDataHolder, Parsable {
     /** A collection of the days of the week on which the event occurs. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type is weekly, relativeMonthly, or relativeYearly. */
     private _daysOfWeek?: string[] | undefined;
     /** The first day of the week. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. Default is sunday. Required if type is weekly. */
-    private _firstDayOfWeek?: DayOfWeek | undefined;
+    private _firstDayOfWeek?: DayOfWeek | AdminMember1 | undefined;
     /** Specifies on which instance of the allowed days specified in daysOfWeek the event occurs, counted from the first instance in the month. The possible values are: first, second, third, fourth, last. Default is first. Optional and used if type is relativeMonthly or relativeYearly. */
-    private _index?: WeekIndex | undefined;
+    private _index?: WeekIndex | AdminMember1 | undefined;
     /** The number of units between occurrences, where units can be in days, weeks, months, or years, depending on the type. Required. */
     private _interval?: number | undefined;
     /** The month in which the event occurs.  This is a number from 1 to 12. */
     private _month?: number | undefined;
     /** The recurrence pattern type: daily, weekly, absoluteMonthly, relativeMonthly, absoluteYearly, relativeYearly. Required. For more information, see values of type property. */
-    private _type?: RecurrencePatternType | undefined;
+    private _type?: RecurrencePatternType | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -70,7 +71,7 @@ export class RecurrencePattern implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the firstDayOfWeek property value. The first day of the week. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. Default is sunday. Required if type is weekly.
-     * @returns a dayOfWeek
+     * @returns a admin
      */
     public get firstDayOfWeek() {
         return this._firstDayOfWeek;
@@ -79,7 +80,7 @@ export class RecurrencePattern implements AdditionalDataHolder, Parsable {
      * Sets the firstDayOfWeek property value. The first day of the week. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. Default is sunday. Required if type is weekly.
      * @param value Value to set for the firstDayOfWeek property.
      */
-    public set firstDayOfWeek(value: DayOfWeek | undefined) {
+    public set firstDayOfWeek(value: DayOfWeek | AdminMember1 | undefined) {
         this._firstDayOfWeek = value;
     };
     /**
@@ -90,16 +91,16 @@ export class RecurrencePattern implements AdditionalDataHolder, Parsable {
         return {
             "dayOfMonth": n => { this.dayOfMonth = n.getNumberValue(); },
             "daysOfWeek": n => { this.daysOfWeek = n.getCollectionOfPrimitiveValues<string>(); },
-            "firstDayOfWeek": n => { this.firstDayOfWeek = n.getEnumValue<DayOfWeek>(DayOfWeek); },
-            "index": n => { this.index = n.getEnumValue<WeekIndex>(WeekIndex); },
+            "firstDayOfWeek": n => { this.firstDayOfWeek = n.getObjectValue<DayOfWeek>(createDayOfWeekFromDiscriminatorValue); },
+            "index": n => { this.index = n.getObjectValue<WeekIndex>(createWeekIndexFromDiscriminatorValue); },
             "interval": n => { this.interval = n.getNumberValue(); },
             "month": n => { this.month = n.getNumberValue(); },
-            "type": n => { this.type = n.getEnumValue<RecurrencePatternType>(RecurrencePatternType); },
+            "type": n => { this.type = n.getObjectValue<RecurrencePatternType>(createRecurrencePatternTypeFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the index property value. Specifies on which instance of the allowed days specified in daysOfWeek the event occurs, counted from the first instance in the month. The possible values are: first, second, third, fourth, last. Default is first. Optional and used if type is relativeMonthly or relativeYearly.
-     * @returns a weekIndex
+     * @returns a admin
      */
     public get index() {
         return this._index;
@@ -108,7 +109,7 @@ export class RecurrencePattern implements AdditionalDataHolder, Parsable {
      * Sets the index property value. Specifies on which instance of the allowed days specified in daysOfWeek the event occurs, counted from the first instance in the month. The possible values are: first, second, third, fourth, last. Default is first. Optional and used if type is relativeMonthly or relativeYearly.
      * @param value Value to set for the index property.
      */
-    public set index(value: WeekIndex | undefined) {
+    public set index(value: WeekIndex | AdminMember1 | undefined) {
         this._index = value;
     };
     /**
@@ -147,16 +148,16 @@ export class RecurrencePattern implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeNumberValue("dayOfMonth", this.dayOfMonth);
         writer.writeCollectionOfPrimitiveValues<string>("daysOfWeek", this.daysOfWeek);
-        writer.writeEnumValue<DayOfWeek>("firstDayOfWeek", this.firstDayOfWeek);
-        writer.writeEnumValue<WeekIndex>("index", this.index);
+        writer.writeObjectValue<DayOfWeek>("firstDayOfWeek", this.firstDayOfWeek);
+        writer.writeObjectValue<WeekIndex>("index", this.index);
         writer.writeNumberValue("interval", this.interval);
         writer.writeNumberValue("month", this.month);
-        writer.writeEnumValue<RecurrencePatternType>("type", this.type);
+        writer.writeObjectValue<RecurrencePatternType>("type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the type property value. The recurrence pattern type: daily, weekly, absoluteMonthly, relativeMonthly, absoluteYearly, relativeYearly. Required. For more information, see values of type property.
-     * @returns a recurrencePatternType
+     * @returns a admin
      */
     public get type() {
         return this._type;
@@ -165,7 +166,7 @@ export class RecurrencePattern implements AdditionalDataHolder, Parsable {
      * Sets the type property value. The recurrence pattern type: daily, weekly, absoluteMonthly, relativeMonthly, absoluteYearly, relativeYearly. Required. For more information, see values of type property.
      * @param value Value to set for the type property.
      */
-    public set type(value: RecurrencePatternType | undefined) {
+    public set type(value: RecurrencePatternType | AdminMember1 | undefined) {
         this._type = value;
     };
 }

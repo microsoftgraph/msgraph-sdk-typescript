@@ -1,24 +1,22 @@
-import {createTimeOffItemFromDiscriminatorValue} from './createTimeOffItemFromDiscriminatorValue';
-import {ChangeTrackedEntity, TimeOffItem} from './index';
+import {AdminMember1, ChangeTrackedEntity, TimeOffItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class TimeOff extends ChangeTrackedEntity implements Parsable {
     /** The draft version of this timeOff that is viewable by managers. Required. */
-    private _draftTimeOff?: TimeOffItem | undefined;
+    private _draftTimeOff?: TimeOffItem | AdminMember1 | undefined;
     /** The shared version of this timeOff that is viewable by both employees and managers. Required. */
-    private _sharedTimeOff?: TimeOffItem | undefined;
+    private _sharedTimeOff?: TimeOffItem | AdminMember1 | undefined;
     /** ID of the user assigned to the timeOff. Required. */
     private _userId?: string | undefined;
     /**
-     * Instantiates a new timeOff and sets the default values.
+     * Instantiates a new TimeOff and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
      * Gets the draftTimeOff property value. The draft version of this timeOff that is viewable by managers. Required.
-     * @returns a timeOffItem
+     * @returns a admin
      */
     public get draftTimeOff() {
         return this._draftTimeOff;
@@ -27,7 +25,7 @@ export class TimeOff extends ChangeTrackedEntity implements Parsable {
      * Sets the draftTimeOff property value. The draft version of this timeOff that is viewable by managers. Required.
      * @param value Value to set for the draftTimeOff property.
      */
-    public set draftTimeOff(value: TimeOffItem | undefined) {
+    public set draftTimeOff(value: TimeOffItem | AdminMember1 | undefined) {
         this._draftTimeOff = value;
     };
     /**
@@ -54,7 +52,7 @@ export class TimeOff extends ChangeTrackedEntity implements Parsable {
     };
     /**
      * Gets the sharedTimeOff property value. The shared version of this timeOff that is viewable by both employees and managers. Required.
-     * @returns a timeOffItem
+     * @returns a admin
      */
     public get sharedTimeOff() {
         return this._sharedTimeOff;
@@ -63,7 +61,7 @@ export class TimeOff extends ChangeTrackedEntity implements Parsable {
      * Sets the sharedTimeOff property value. The shared version of this timeOff that is viewable by both employees and managers. Required.
      * @param value Value to set for the sharedTimeOff property.
      */
-    public set sharedTimeOff(value: TimeOffItem | undefined) {
+    public set sharedTimeOff(value: TimeOffItem | AdminMember1 | undefined) {
         this._sharedTimeOff = value;
     };
     /**

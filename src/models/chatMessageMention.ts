@@ -1,5 +1,4 @@
-import {createChatMessageMentionedIdentitySetFromDiscriminatorValue} from './createChatMessageMentionedIdentitySetFromDiscriminatorValue';
-import {ChatMessageMentionedIdentitySet} from './index';
+import {AdminMember1, ChatMessageMentionedIdentitySet} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ChatMessageMention implements AdditionalDataHolder, Parsable {
@@ -8,7 +7,7 @@ export class ChatMessageMention implements AdditionalDataHolder, Parsable {
     /** Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the corresponding <at id='{index}'> tag in the message body. */
     private _id?: number | undefined;
     /** The entity (user, application, team, or channel) that was @mentioned. */
-    private _mentioned?: ChatMessageMentionedIdentitySet | undefined;
+    private _mentioned?: ChatMessageMentionedIdentitySet | AdminMember1 | undefined;
     /** String used to represent the mention. For example, a user's display name, a team name. */
     private _mentionText?: string | undefined;
     /**
@@ -58,7 +57,7 @@ export class ChatMessageMention implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the mentioned property value. The entity (user, application, team, or channel) that was @mentioned.
-     * @returns a chatMessageMentionedIdentitySet
+     * @returns a admin
      */
     public get mentioned() {
         return this._mentioned;
@@ -67,7 +66,7 @@ export class ChatMessageMention implements AdditionalDataHolder, Parsable {
      * Sets the mentioned property value. The entity (user, application, team, or channel) that was @mentioned.
      * @param value Value to set for the mentioned property.
      */
-    public set mentioned(value: ChatMessageMentionedIdentitySet | undefined) {
+    public set mentioned(value: ChatMessageMentionedIdentitySet | AdminMember1 | undefined) {
         this._mentioned = value;
     };
     /**

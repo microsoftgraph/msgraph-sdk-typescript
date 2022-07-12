@@ -1,9 +1,8 @@
 import {AllowInvitesFrom} from './allowInvitesFrom';
 import {createDefaultUserRolePermissionsFromDiscriminatorValue} from './createDefaultUserRolePermissionsFromDiscriminatorValue';
-import {DefaultUserRolePermissions, PolicyBase} from './index';
+import {ApplicationsMember1, DefaultUserRolePermissions, PolicyBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
 export class AuthorizationPolicy extends PolicyBase implements Parsable {
     /** Indicates whether users can sign up for email based subscriptions. */
     private _allowedToSignUpEmailBasedSubscriptions?: boolean | undefined;
@@ -12,7 +11,7 @@ export class AuthorizationPolicy extends PolicyBase implements Parsable {
     /** Indicates whether a user can join the tenant by email validation. */
     private _allowEmailVerifiedUsersToJoinOrganization?: boolean | undefined;
     /** Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. See more in the table below. */
-    private _allowInvitesFrom?: AllowInvitesFrom | undefined;
+    private _allowInvitesFrom?: AllowInvitesFrom | ApplicationsMember1 | undefined;
     /** To disable the use of MSOL PowerShell set this property to true. This will also disable user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure AD Connect or Microsoft Graph. */
     private _blockMsolPowerShell?: boolean | undefined;
     /** The defaultUserRolePermissions property */
@@ -63,7 +62,7 @@ export class AuthorizationPolicy extends PolicyBase implements Parsable {
     };
     /**
      * Gets the allowInvitesFrom property value. Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. See more in the table below.
-     * @returns a allowInvitesFrom
+     * @returns a applications
      */
     public get allowInvitesFrom() {
         return this._allowInvitesFrom;
@@ -72,7 +71,7 @@ export class AuthorizationPolicy extends PolicyBase implements Parsable {
      * Sets the allowInvitesFrom property value. Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. See more in the table below.
      * @param value Value to set for the allowInvitesFrom property.
      */
-    public set allowInvitesFrom(value: AllowInvitesFrom | undefined) {
+    public set allowInvitesFrom(value: AllowInvitesFrom | ApplicationsMember1 | undefined) {
         this._allowInvitesFrom = value;
     };
     /**
@@ -90,7 +89,7 @@ export class AuthorizationPolicy extends PolicyBase implements Parsable {
         this._blockMsolPowerShell = value;
     };
     /**
-     * Instantiates a new authorizationPolicy and sets the default values.
+     * Instantiates a new AuthorizationPolicy and sets the default values.
      */
     public constructor() {
         super();
@@ -118,7 +117,7 @@ export class AuthorizationPolicy extends PolicyBase implements Parsable {
             "allowedToSignUpEmailBasedSubscriptions": n => { this.allowedToSignUpEmailBasedSubscriptions = n.getBooleanValue(); },
             "allowedToUseSSPR": n => { this.allowedToUseSSPR = n.getBooleanValue(); },
             "allowEmailVerifiedUsersToJoinOrganization": n => { this.allowEmailVerifiedUsersToJoinOrganization = n.getBooleanValue(); },
-            "allowInvitesFrom": n => { this.allowInvitesFrom = n.getEnumValue<AllowInvitesFrom>(AllowInvitesFrom); },
+            "allowInvitesFrom": n => { this.allowInvitesFrom = n.getObjectValue<AllowInvitesFrom>(createAllowInvitesFromFromDiscriminatorValue); },
             "blockMsolPowerShell": n => { this.blockMsolPowerShell = n.getBooleanValue(); },
             "defaultUserRolePermissions": n => { this.defaultUserRolePermissions = n.getObjectValue<DefaultUserRolePermissions>(createDefaultUserRolePermissionsFromDiscriminatorValue); },
             "guestUserRoleId": n => { this.guestUserRoleId = n.getStringValue(); },
@@ -148,7 +147,7 @@ export class AuthorizationPolicy extends PolicyBase implements Parsable {
         writer.writeBooleanValue("allowedToSignUpEmailBasedSubscriptions", this.allowedToSignUpEmailBasedSubscriptions);
         writer.writeBooleanValue("allowedToUseSSPR", this.allowedToUseSSPR);
         writer.writeBooleanValue("allowEmailVerifiedUsersToJoinOrganization", this.allowEmailVerifiedUsersToJoinOrganization);
-        writer.writeEnumValue<AllowInvitesFrom>("allowInvitesFrom", this.allowInvitesFrom);
+        writer.writeObjectValue<AllowInvitesFrom>("allowInvitesFrom", this.allowInvitesFrom);
         writer.writeBooleanValue("blockMsolPowerShell", this.blockMsolPowerShell);
         writer.writeObjectValue<DefaultUserRolePermissions>("defaultUserRolePermissions", this.defaultUserRolePermissions);
         writer.writeStringValue("guestUserRoleId", this.guestUserRoleId);

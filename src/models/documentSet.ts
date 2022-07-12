@@ -1,16 +1,14 @@
 import {createColumnDefinitionFromDiscriminatorValue} from './createColumnDefinitionFromDiscriminatorValue';
-import {createContentTypeInfoFromDiscriminatorValue} from './createContentTypeInfoFromDiscriminatorValue';
-import {createDocumentSetContentFromDiscriminatorValue} from './createDocumentSetContentFromDiscriminatorValue';
-import {ColumnDefinition, ContentTypeInfo, DocumentSetContent} from './index';
+import {AdminMember1, ColumnDefinition, ContentTypeInfo, DocumentSetContent} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DocumentSet implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Content types allowed in document set. */
-    private _allowedContentTypes?: ContentTypeInfo[] | undefined;
+    private _allowedContentTypes?: ContentTypeInfo | AdminMember1[] | undefined;
     /** Default contents of document set. */
-    private _defaultContents?: DocumentSetContent[] | undefined;
+    private _defaultContents?: DocumentSetContent | AdminMember1[] | undefined;
     /** Indicates whether to add the name of the document set to each file name. */
     private _propagateWelcomePageChanges?: boolean | undefined;
     /** The sharedColumns property */
@@ -37,7 +35,7 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the allowedContentTypes property value. Content types allowed in document set.
-     * @returns a contentTypeInfo
+     * @returns a admin
      */
     public get allowedContentTypes() {
         return this._allowedContentTypes;
@@ -46,7 +44,7 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
      * Sets the allowedContentTypes property value. Content types allowed in document set.
      * @param value Value to set for the allowedContentTypes property.
      */
-    public set allowedContentTypes(value: ContentTypeInfo[] | undefined) {
+    public set allowedContentTypes(value: ContentTypeInfo | AdminMember1[] | undefined) {
         this._allowedContentTypes = value;
     };
     /**
@@ -57,7 +55,7 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the defaultContents property value. Default contents of document set.
-     * @returns a documentSetContent
+     * @returns a admin
      */
     public get defaultContents() {
         return this._defaultContents;
@@ -66,7 +64,7 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
      * Sets the defaultContents property value. Default contents of document set.
      * @param value Value to set for the defaultContents property.
      */
-    public set defaultContents(value: DocumentSetContent[] | undefined) {
+    public set defaultContents(value: DocumentSetContent | AdminMember1[] | undefined) {
         this._defaultContents = value;
     };
     /**
@@ -75,8 +73,8 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "allowedContentTypes": n => { this.allowedContentTypes = n.getCollectionOfObjectValues<ContentTypeInfo>(createContentTypeInfoFromDiscriminatorValue); },
-            "defaultContents": n => { this.defaultContents = n.getCollectionOfObjectValues<DocumentSetContent>(createDocumentSetContentFromDiscriminatorValue); },
+            "allowedContentTypes": n => { this.allowedContentTypes = n.getObjectValue<ContentTypeInfo>(createContentTypeInfoFromDiscriminatorValue); },
+            "defaultContents": n => { this.defaultContents = n.getObjectValue<DocumentSetContent>(createDocumentSetContentFromDiscriminatorValue); },
             "propagateWelcomePageChanges": n => { this.propagateWelcomePageChanges = n.getBooleanValue(); },
             "sharedColumns": n => { this.sharedColumns = n.getCollectionOfObjectValues<ColumnDefinition>(createColumnDefinitionFromDiscriminatorValue); },
             "shouldPrefixNameToFile": n => { this.shouldPrefixNameToFile = n.getBooleanValue(); },
@@ -104,8 +102,8 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<ContentTypeInfo>("allowedContentTypes", this.allowedContentTypes);
-        writer.writeCollectionOfObjectValues<DocumentSetContent>("defaultContents", this.defaultContents);
+        writer.writeObjectValue<ContentTypeInfo>("allowedContentTypes", this.allowedContentTypes);
+        writer.writeObjectValue<DocumentSetContent>("defaultContents", this.defaultContents);
         writer.writeBooleanValue("propagateWelcomePageChanges", this.propagateWelcomePageChanges);
         writer.writeCollectionOfObjectValues<ColumnDefinition>("sharedColumns", this.sharedColumns);
         writer.writeBooleanValue("shouldPrefixNameToFile", this.shouldPrefixNameToFile);

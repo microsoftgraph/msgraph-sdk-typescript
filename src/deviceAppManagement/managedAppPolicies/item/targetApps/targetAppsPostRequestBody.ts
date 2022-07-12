@@ -1,5 +1,5 @@
 import {ManagedMobileApp} from '../../../../models/';
-import {createManagedMobileAppFromDiscriminatorValue} from '../../../../models/createManagedMobileAppFromDiscriminatorValue';
+import {TargetAppsMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the targetApps method. */
@@ -7,7 +7,7 @@ export class TargetAppsPostRequestBody implements AdditionalDataHolder, Parsable
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The apps property */
-    private _apps?: ManagedMobileApp[] | undefined;
+    private _apps?: ManagedMobileApp | TargetAppsMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -24,7 +24,7 @@ export class TargetAppsPostRequestBody implements AdditionalDataHolder, Parsable
     };
     /**
      * Gets the apps property value. The apps property
-     * @returns a managedMobileApp
+     * @returns a targetApps
      */
     public get apps() {
         return this._apps;
@@ -33,7 +33,7 @@ export class TargetAppsPostRequestBody implements AdditionalDataHolder, Parsable
      * Sets the apps property value. The apps property
      * @param value Value to set for the apps property.
      */
-    public set apps(value: ManagedMobileApp[] | undefined) {
+    public set apps(value: ManagedMobileApp | TargetAppsMember1[] | undefined) {
         this._apps = value;
     };
     /**
@@ -48,7 +48,7 @@ export class TargetAppsPostRequestBody implements AdditionalDataHolder, Parsable
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "apps": n => { this.apps = n.getCollectionOfObjectValues<ManagedMobileApp>(createManagedMobileAppFromDiscriminatorValue); },
+            "apps": n => { this.apps = n.getObjectValue<ManagedMobileApp>(createManagedMobileAppFromDiscriminatorValue); },
         };
     };
     /**
@@ -57,7 +57,7 @@ export class TargetAppsPostRequestBody implements AdditionalDataHolder, Parsable
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", this.apps);
+        writer.writeObjectValue<ManagedMobileApp>("apps", this.apps);
         writer.writeAdditionalData(this.additionalData);
     };
 }

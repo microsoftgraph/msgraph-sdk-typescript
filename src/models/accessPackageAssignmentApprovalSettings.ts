@@ -1,5 +1,4 @@
-import {createAccessPackageApprovalStageFromDiscriminatorValue} from './createAccessPackageApprovalStageFromDiscriminatorValue';
-import {AccessPackageApprovalStage} from './index';
+import {AccessPackageApprovalStage, AdminMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageAssignmentApprovalSettings implements AdditionalDataHolder, Parsable {
@@ -10,7 +9,7 @@ export class AccessPackageAssignmentApprovalSettings implements AdditionalDataHo
     /** If false, then approval is not required for updates to requests in this policy. */
     private _isApprovalRequiredForUpdate?: boolean | undefined;
     /** If approval is required, the one, two or three elements of this collection define each of the stages of approval. An empty array is present if no approval is required. */
-    private _stages?: AccessPackageApprovalStage[] | undefined;
+    private _stages?: AccessPackageApprovalStage | AdminMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -39,7 +38,7 @@ export class AccessPackageAssignmentApprovalSettings implements AdditionalDataHo
         return {
             "isApprovalRequiredForAdd": n => { this.isApprovalRequiredForAdd = n.getBooleanValue(); },
             "isApprovalRequiredForUpdate": n => { this.isApprovalRequiredForUpdate = n.getBooleanValue(); },
-            "stages": n => { this.stages = n.getCollectionOfObjectValues<AccessPackageApprovalStage>(createAccessPackageApprovalStageFromDiscriminatorValue); },
+            "stages": n => { this.stages = n.getObjectValue<AccessPackageApprovalStage>(createAccessPackageApprovalStageFromDiscriminatorValue); },
         };
     };
     /**
@@ -78,12 +77,12 @@ export class AccessPackageAssignmentApprovalSettings implements AdditionalDataHo
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("isApprovalRequiredForAdd", this.isApprovalRequiredForAdd);
         writer.writeBooleanValue("isApprovalRequiredForUpdate", this.isApprovalRequiredForUpdate);
-        writer.writeCollectionOfObjectValues<AccessPackageApprovalStage>("stages", this.stages);
+        writer.writeObjectValue<AccessPackageApprovalStage>("stages", this.stages);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the stages property value. If approval is required, the one, two or three elements of this collection define each of the stages of approval. An empty array is present if no approval is required.
-     * @returns a accessPackageApprovalStage
+     * @returns a admin
      */
     public get stages() {
         return this._stages;
@@ -92,7 +91,7 @@ export class AccessPackageAssignmentApprovalSettings implements AdditionalDataHo
      * Sets the stages property value. If approval is required, the one, two or three elements of this collection define each of the stages of approval. An empty array is present if no approval is required.
      * @param value Value to set for the stages property.
      */
-    public set stages(value: AccessPackageApprovalStage[] | undefined) {
+    public set stages(value: AccessPackageApprovalStage | AdminMember1[] | undefined) {
         this._stages = value;
     };
 }

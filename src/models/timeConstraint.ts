@@ -1,18 +1,17 @@
 import {ActivityDomain} from './activityDomain';
-import {createTimeSlotFromDiscriminatorValue} from './createTimeSlotFromDiscriminatorValue';
-import {TimeSlot} from './index';
+import {FindMeetingTimesMember1, TimeSlot} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TimeConstraint implements AdditionalDataHolder, Parsable {
     /** The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown. */
-    private _activityDomain?: ActivityDomain | undefined;
+    private _activityDomain?: ActivityDomain | FindMeetingTimesMember1 | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The timeSlots property */
-    private _timeSlots?: TimeSlot[] | undefined;
+    private _timeSlots?: TimeSlot | FindMeetingTimesMember1[] | undefined;
     /**
      * Gets the activityDomain property value. The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.
-     * @returns a activityDomain
+     * @returns a findMeetingTimes
      */
     public get activityDomain() {
         return this._activityDomain;
@@ -21,7 +20,7 @@ export class TimeConstraint implements AdditionalDataHolder, Parsable {
      * Sets the activityDomain property value. The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.
      * @param value Value to set for the activityDomain property.
      */
-    public set activityDomain(value: ActivityDomain | undefined) {
+    public set activityDomain(value: ActivityDomain | FindMeetingTimesMember1 | undefined) {
         this._activityDomain = value;
     };
     /**
@@ -50,8 +49,8 @@ export class TimeConstraint implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "activityDomain": n => { this.activityDomain = n.getEnumValue<ActivityDomain>(ActivityDomain); },
-            "timeSlots": n => { this.timeSlots = n.getCollectionOfObjectValues<TimeSlot>(createTimeSlotFromDiscriminatorValue); },
+            "activityDomain": n => { this.activityDomain = n.getObjectValue<ActivityDomain>(createActivityDomainFromDiscriminatorValue); },
+            "timeSlots": n => { this.timeSlots = n.getObjectValue<TimeSlot>(createTimeSlotFromDiscriminatorValue); },
         };
     };
     /**
@@ -60,13 +59,13 @@ export class TimeConstraint implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeEnumValue<ActivityDomain>("activityDomain", this.activityDomain);
-        writer.writeCollectionOfObjectValues<TimeSlot>("timeSlots", this.timeSlots);
+        writer.writeObjectValue<ActivityDomain>("activityDomain", this.activityDomain);
+        writer.writeObjectValue<TimeSlot>("timeSlots", this.timeSlots);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the timeSlots property value. The timeSlots property
-     * @returns a timeSlot
+     * @returns a findMeetingTimes
      */
     public get timeSlots() {
         return this._timeSlots;
@@ -75,7 +74,7 @@ export class TimeConstraint implements AdditionalDataHolder, Parsable {
      * Sets the timeSlots property value. The timeSlots property
      * @param value Value to set for the timeSlots property.
      */
-    public set timeSlots(value: TimeSlot[] | undefined) {
+    public set timeSlots(value: TimeSlot | FindMeetingTimesMember1[] | undefined) {
         this._timeSlots = value;
     };
 }

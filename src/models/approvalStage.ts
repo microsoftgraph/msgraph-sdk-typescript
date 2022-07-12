@@ -1,8 +1,7 @@
-import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {Entity, Identity} from './index';
+import {AdminMember1, Entity, Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the admin singleton. */
 export class ApprovalStage extends Entity implements Parsable {
     /** Indicates whether the stage is assigned to the calling user to review. Read-only. */
     private _assignedToMe?: boolean | undefined;
@@ -11,7 +10,7 @@ export class ApprovalStage extends Entity implements Parsable {
     /** The justification associated with the approval stage decision. */
     private _justification?: string | undefined;
     /** The identifier of the reviewer. Read-only. */
-    private _reviewedBy?: Identity | undefined;
+    private _reviewedBy?: Identity | AdminMember1 | undefined;
     /** The date and time when a decision was recorded. The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _reviewedDateTime?: Date | undefined;
     /** The result of this approval record. Possible values include: NotReviewed, Approved, Denied. */
@@ -83,7 +82,7 @@ export class ApprovalStage extends Entity implements Parsable {
     };
     /**
      * Gets the reviewedBy property value. The identifier of the reviewer. Read-only.
-     * @returns a identity
+     * @returns a admin
      */
     public get reviewedBy() {
         return this._reviewedBy;
@@ -92,7 +91,7 @@ export class ApprovalStage extends Entity implements Parsable {
      * Sets the reviewedBy property value. The identifier of the reviewer. Read-only.
      * @param value Value to set for the reviewedBy property.
      */
-    public set reviewedBy(value: Identity | undefined) {
+    public set reviewedBy(value: Identity | AdminMember1 | undefined) {
         this._reviewedBy = value;
     };
     /**

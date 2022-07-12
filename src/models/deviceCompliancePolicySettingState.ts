@@ -1,6 +1,5 @@
 import {ComplianceStatus} from './complianceStatus';
-import {createSettingSourceFromDiscriminatorValue} from './createSettingSourceFromDiscriminatorValue';
-import {SettingSource} from './index';
+import {AdminMember1, SettingSource} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device Compilance Policy Setting State for a given device. */
@@ -20,8 +19,8 @@ export class DeviceCompliancePolicySettingState implements AdditionalDataHolder,
     /** Localized/user friendly setting name that is being reported */
     private _settingName?: string | undefined;
     /** Contributing policies */
-    private _sources?: SettingSource[] | undefined;
-    /** The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
+    private _sources?: SettingSource | AdminMember1[] | undefined;
+    /** The state property */
     private _state?: ComplianceStatus | undefined;
     /** UserEmail */
     private _userEmail?: string | undefined;
@@ -105,7 +104,7 @@ export class DeviceCompliancePolicySettingState implements AdditionalDataHolder,
             "instanceDisplayName": n => { this.instanceDisplayName = n.getStringValue(); },
             "setting": n => { this.setting = n.getStringValue(); },
             "settingName": n => { this.settingName = n.getStringValue(); },
-            "sources": n => { this.sources = n.getCollectionOfObjectValues<SettingSource>(createSettingSourceFromDiscriminatorValue); },
+            "sources": n => { this.sources = n.getObjectValue<SettingSource>(createSettingSourceFromDiscriminatorValue); },
             "state": n => { this.state = n.getEnumValue<ComplianceStatus>(ComplianceStatus); },
             "userEmail": n => { this.userEmail = n.getStringValue(); },
             "userId": n => { this.userId = n.getStringValue(); },
@@ -139,7 +138,7 @@ export class DeviceCompliancePolicySettingState implements AdditionalDataHolder,
         writer.writeStringValue("instanceDisplayName", this.instanceDisplayName);
         writer.writeStringValue("setting", this.setting);
         writer.writeStringValue("settingName", this.settingName);
-        writer.writeCollectionOfObjectValues<SettingSource>("sources", this.sources);
+        writer.writeObjectValue<SettingSource>("sources", this.sources);
         writer.writeEnumValue<ComplianceStatus>("state", this.state);
         writer.writeStringValue("userEmail", this.userEmail);
         writer.writeStringValue("userId", this.userId);
@@ -177,7 +176,7 @@ export class DeviceCompliancePolicySettingState implements AdditionalDataHolder,
     };
     /**
      * Gets the sources property value. Contributing policies
-     * @returns a settingSource
+     * @returns a admin
      */
     public get sources() {
         return this._sources;
@@ -186,18 +185,18 @@ export class DeviceCompliancePolicySettingState implements AdditionalDataHolder,
      * Sets the sources property value. Contributing policies
      * @param value Value to set for the sources property.
      */
-    public set sources(value: SettingSource[] | undefined) {
+    public set sources(value: SettingSource | AdminMember1[] | undefined) {
         this._sources = value;
     };
     /**
-     * Gets the state property value. The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * Gets the state property value. The state property
      * @returns a complianceStatus
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * Sets the state property value. The state property
      * @param value Value to set for the state property.
      */
     public set state(value: ComplianceStatus | undefined) {

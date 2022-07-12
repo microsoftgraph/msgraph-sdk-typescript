@@ -1,17 +1,16 @@
-import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFromDiscriminatorValue';
-import {EmailAddress, Entity} from './index';
+import {AdminMember1, EmailAddress, Entity} from './index';
 import {InferenceClassificationType} from './inferenceClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class InferenceClassificationOverride extends Entity implements Parsable {
     /** Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other. */
-    private _classifyAs?: InferenceClassificationType | undefined;
+    private _classifyAs?: InferenceClassificationType | AdminMember1 | undefined;
     /** The email address information of the sender for whom the override is created. */
-    private _senderEmailAddress?: EmailAddress | undefined;
+    private _senderEmailAddress?: EmailAddress | AdminMember1 | undefined;
     /**
      * Gets the classifyAs property value. Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other.
-     * @returns a inferenceClassificationType
+     * @returns a admin
      */
     public get classifyAs() {
         return this._classifyAs;
@@ -20,7 +19,7 @@ export class InferenceClassificationOverride extends Entity implements Parsable 
      * Sets the classifyAs property value. Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other.
      * @param value Value to set for the classifyAs property.
      */
-    public set classifyAs(value: InferenceClassificationType | undefined) {
+    public set classifyAs(value: InferenceClassificationType | AdminMember1 | undefined) {
         this._classifyAs = value;
     };
     /**
@@ -35,13 +34,13 @@ export class InferenceClassificationOverride extends Entity implements Parsable 
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "classifyAs": n => { this.classifyAs = n.getEnumValue<InferenceClassificationType>(InferenceClassificationType); },
+            "classifyAs": n => { this.classifyAs = n.getObjectValue<InferenceClassificationType>(createInferenceClassificationTypeFromDiscriminatorValue); },
             "senderEmailAddress": n => { this.senderEmailAddress = n.getObjectValue<EmailAddress>(createEmailAddressFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the senderEmailAddress property value. The email address information of the sender for whom the override is created.
-     * @returns a emailAddress
+     * @returns a admin
      */
     public get senderEmailAddress() {
         return this._senderEmailAddress;
@@ -50,7 +49,7 @@ export class InferenceClassificationOverride extends Entity implements Parsable 
      * Sets the senderEmailAddress property value. The email address information of the sender for whom the override is created.
      * @param value Value to set for the senderEmailAddress property.
      */
-    public set senderEmailAddress(value: EmailAddress | undefined) {
+    public set senderEmailAddress(value: EmailAddress | AdminMember1 | undefined) {
         this._senderEmailAddress = value;
     };
     /**
@@ -60,7 +59,7 @@ export class InferenceClassificationOverride extends Entity implements Parsable 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeEnumValue<InferenceClassificationType>("classifyAs", this.classifyAs);
+        writer.writeObjectValue<InferenceClassificationType>("classifyAs", this.classifyAs);
         writer.writeObjectValue<EmailAddress>("senderEmailAddress", this.senderEmailAddress);
     };
 }

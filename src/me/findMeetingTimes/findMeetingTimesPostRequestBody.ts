@@ -1,7 +1,5 @@
 import {AttendeeBase, LocationConstraint, TimeConstraint} from '../../models/';
-import {createAttendeeBaseFromDiscriminatorValue} from '../../models/createAttendeeBaseFromDiscriminatorValue';
-import {createLocationConstraintFromDiscriminatorValue} from '../../models/createLocationConstraintFromDiscriminatorValue';
-import {createTimeConstraintFromDiscriminatorValue} from '../../models/createTimeConstraintFromDiscriminatorValue';
+import {FindMeetingTimesMember1} from './index';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the findMeetingTimes method. */
@@ -9,11 +7,11 @@ export class FindMeetingTimesPostRequestBody implements AdditionalDataHolder, Pa
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The attendees property */
-    private _attendees?: AttendeeBase[] | undefined;
+    private _attendees?: AttendeeBase | FindMeetingTimesMember1[] | undefined;
     /** The isOrganizerOptional property */
     private _isOrganizerOptional?: boolean | undefined;
     /** The locationConstraint property */
-    private _locationConstraint?: LocationConstraint | undefined;
+    private _locationConstraint?: LocationConstraint | FindMeetingTimesMember1 | undefined;
     /** The maxCandidates property */
     private _maxCandidates?: number | undefined;
     /** The meetingDuration property */
@@ -23,7 +21,7 @@ export class FindMeetingTimesPostRequestBody implements AdditionalDataHolder, Pa
     /** The returnSuggestionReasons property */
     private _returnSuggestionReasons?: boolean | undefined;
     /** The timeConstraint property */
-    private _timeConstraint?: TimeConstraint | undefined;
+    private _timeConstraint?: TimeConstraint | FindMeetingTimesMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -40,7 +38,7 @@ export class FindMeetingTimesPostRequestBody implements AdditionalDataHolder, Pa
     };
     /**
      * Gets the attendees property value. The attendees property
-     * @returns a attendeeBase
+     * @returns a findMeetingTimes
      */
     public get attendees() {
         return this._attendees;
@@ -49,7 +47,7 @@ export class FindMeetingTimesPostRequestBody implements AdditionalDataHolder, Pa
      * Sets the attendees property value. The attendees property
      * @param value Value to set for the attendees property.
      */
-    public set attendees(value: AttendeeBase[] | undefined) {
+    public set attendees(value: AttendeeBase | FindMeetingTimesMember1[] | undefined) {
         this._attendees = value;
     };
     /**
@@ -64,7 +62,7 @@ export class FindMeetingTimesPostRequestBody implements AdditionalDataHolder, Pa
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "attendees": n => { this.attendees = n.getCollectionOfObjectValues<AttendeeBase>(createAttendeeBaseFromDiscriminatorValue); },
+            "attendees": n => { this.attendees = n.getObjectValue<AttendeeBase>(createAttendeeBaseFromDiscriminatorValue); },
             "isOrganizerOptional": n => { this.isOrganizerOptional = n.getBooleanValue(); },
             "locationConstraint": n => { this.locationConstraint = n.getObjectValue<LocationConstraint>(createLocationConstraintFromDiscriminatorValue); },
             "maxCandidates": n => { this.maxCandidates = n.getNumberValue(); },
@@ -90,7 +88,7 @@ export class FindMeetingTimesPostRequestBody implements AdditionalDataHolder, Pa
     };
     /**
      * Gets the locationConstraint property value. The locationConstraint property
-     * @returns a locationConstraint
+     * @returns a findMeetingTimes
      */
     public get locationConstraint() {
         return this._locationConstraint;
@@ -99,7 +97,7 @@ export class FindMeetingTimesPostRequestBody implements AdditionalDataHolder, Pa
      * Sets the locationConstraint property value. The locationConstraint property
      * @param value Value to set for the locationConstraint property.
      */
-    public set locationConstraint(value: LocationConstraint | undefined) {
+    public set locationConstraint(value: LocationConstraint | FindMeetingTimesMember1 | undefined) {
         this._locationConstraint = value;
     };
     /**
@@ -164,7 +162,7 @@ export class FindMeetingTimesPostRequestBody implements AdditionalDataHolder, Pa
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<AttendeeBase>("attendees", this.attendees);
+        writer.writeObjectValue<AttendeeBase>("attendees", this.attendees);
         writer.writeBooleanValue("isOrganizerOptional", this.isOrganizerOptional);
         writer.writeObjectValue<LocationConstraint>("locationConstraint", this.locationConstraint);
         writer.writeNumberValue("maxCandidates", this.maxCandidates);
@@ -176,7 +174,7 @@ export class FindMeetingTimesPostRequestBody implements AdditionalDataHolder, Pa
     };
     /**
      * Gets the timeConstraint property value. The timeConstraint property
-     * @returns a timeConstraint
+     * @returns a findMeetingTimes
      */
     public get timeConstraint() {
         return this._timeConstraint;
@@ -185,7 +183,7 @@ export class FindMeetingTimesPostRequestBody implements AdditionalDataHolder, Pa
      * Sets the timeConstraint property value. The timeConstraint property
      * @param value Value to set for the timeConstraint property.
      */
-    public set timeConstraint(value: TimeConstraint | undefined) {
+    public set timeConstraint(value: TimeConstraint | FindMeetingTimesMember1 | undefined) {
         this._timeConstraint = value;
     };
 }

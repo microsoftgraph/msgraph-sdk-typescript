@@ -1,8 +1,6 @@
 import {createAgreementAcceptanceFromDiscriminatorValue} from './createAgreementAcceptanceFromDiscriminatorValue';
-import {createAgreementFileFromDiscriminatorValue} from './createAgreementFileFromDiscriminatorValue';
 import {createAgreementFileLocalizationFromDiscriminatorValue} from './createAgreementFileLocalizationFromDiscriminatorValue';
-import {createTermsExpirationFromDiscriminatorValue} from './createTermsExpirationFromDiscriminatorValue';
-import {AgreementAcceptance, AgreementFile, AgreementFileLocalization, Entity, TermsExpiration} from './index';
+import {AgreementAcceptance, AgreementFile, AgreementFileLocalization, AgreementsMember1, Entity, TermsExpiration} from './index';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of agreement entities. */
@@ -12,7 +10,7 @@ export class Agreement extends Entity implements Parsable {
     /** Display name of the agreement. The display name is used for internal tracking of the agreement but is not shown to end users who view the agreement. Supports $filter (eq). */
     private _displayName?: string | undefined;
     /** Default PDF linked to this agreement. */
-    private _file?: AgreementFile | undefined;
+    private _file?: AgreementFile | AgreementsMember1 | undefined;
     /** PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead. */
     private _files?: AgreementFileLocalization[] | undefined;
     /** This setting enables you to require end users to accept this agreement on every device that they are accessing it from. The end user will be required to register their device in Azure AD, if they haven't already done so. Supports $filter (eq). */
@@ -20,7 +18,7 @@ export class Agreement extends Entity implements Parsable {
     /** Indicates whether the user has to expand the agreement before accepting. Supports $filter (eq). */
     private _isViewingBeforeAcceptanceRequired?: boolean | undefined;
     /** Expiration schedule and frequency of agreement for all users.  Supports $filter (eq). */
-    private _termsExpiration?: TermsExpiration | undefined;
+    private _termsExpiration?: TermsExpiration | AgreementsMember1 | undefined;
     /** The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations. */
     private _userReacceptRequiredFrequency?: Duration | undefined;
     /**
@@ -59,7 +57,7 @@ export class Agreement extends Entity implements Parsable {
     };
     /**
      * Gets the file property value. Default PDF linked to this agreement.
-     * @returns a agreementFile
+     * @returns a agreements
      */
     public get file() {
         return this._file;
@@ -68,7 +66,7 @@ export class Agreement extends Entity implements Parsable {
      * Sets the file property value. Default PDF linked to this agreement.
      * @param value Value to set for the file property.
      */
-    public set file(value: AgreementFile | undefined) {
+    public set file(value: AgreementFile | AgreementsMember1 | undefined) {
         this._file = value;
     };
     /**
@@ -147,7 +145,7 @@ export class Agreement extends Entity implements Parsable {
     };
     /**
      * Gets the termsExpiration property value. Expiration schedule and frequency of agreement for all users.  Supports $filter (eq).
-     * @returns a termsExpiration
+     * @returns a agreements
      */
     public get termsExpiration() {
         return this._termsExpiration;
@@ -156,7 +154,7 @@ export class Agreement extends Entity implements Parsable {
      * Sets the termsExpiration property value. Expiration schedule and frequency of agreement for all users.  Supports $filter (eq).
      * @param value Value to set for the termsExpiration property.
      */
-    public set termsExpiration(value: TermsExpiration | undefined) {
+    public set termsExpiration(value: TermsExpiration | AgreementsMember1 | undefined) {
         this._termsExpiration = value;
     };
     /**

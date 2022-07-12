@@ -1,21 +1,18 @@
-import {createOutlookGeoCoordinatesFromDiscriminatorValue} from './createOutlookGeoCoordinatesFromDiscriminatorValue';
-import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddressFromDiscriminatorValue';
-import {Entity, OutlookGeoCoordinates, PhysicalAddress} from './index';
+import {AdminMember1, Entity, OutlookGeoCoordinates, PhysicalAddress} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of place entities. */
 export class Place extends Entity implements Parsable {
     /** The street address of the place. */
-    private _address?: PhysicalAddress | undefined;
+    private _address?: PhysicalAddress | AdminMember1 | undefined;
     /** The name associated with the place. */
     private _displayName?: string | undefined;
     /** Specifies the place location in latitude, longitude and (optionally) altitude coordinates. */
-    private _geoCoordinates?: OutlookGeoCoordinates | undefined;
+    private _geoCoordinates?: OutlookGeoCoordinates | AdminMember1 | undefined;
     /** The phone number of the place. */
     private _phone?: string | undefined;
     /**
      * Gets the address property value. The street address of the place.
-     * @returns a physicalAddress
+     * @returns a admin
      */
     public get address() {
         return this._address;
@@ -24,14 +21,15 @@ export class Place extends Entity implements Parsable {
      * Sets the address property value. The street address of the place.
      * @param value Value to set for the address property.
      */
-    public set address(value: PhysicalAddress | undefined) {
+    public set address(value: PhysicalAddress | AdminMember1 | undefined) {
         this._address = value;
     };
     /**
-     * Instantiates a new place and sets the default values.
+     * Instantiates a new Place and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.place";
     };
     /**
      * Gets the displayName property value. The name associated with the place.
@@ -49,7 +47,7 @@ export class Place extends Entity implements Parsable {
     };
     /**
      * Gets the geoCoordinates property value. Specifies the place location in latitude, longitude and (optionally) altitude coordinates.
-     * @returns a outlookGeoCoordinates
+     * @returns a admin
      */
     public get geoCoordinates() {
         return this._geoCoordinates;
@@ -58,7 +56,7 @@ export class Place extends Entity implements Parsable {
      * Sets the geoCoordinates property value. Specifies the place location in latitude, longitude and (optionally) altitude coordinates.
      * @param value Value to set for the geoCoordinates property.
      */
-    public set geoCoordinates(value: OutlookGeoCoordinates | undefined) {
+    public set geoCoordinates(value: OutlookGeoCoordinates | AdminMember1 | undefined) {
         this._geoCoordinates = value;
     };
     /**

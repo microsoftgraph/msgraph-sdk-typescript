@@ -1,5 +1,4 @@
-import {createWorkbookIconFromDiscriminatorValue} from './createWorkbookIconFromDiscriminatorValue';
-import {WorkbookIcon} from './index';
+import {AdminMember1, WorkbookIcon} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookSortField implements AdditionalDataHolder, Parsable {
@@ -12,7 +11,7 @@ export class WorkbookSortField implements AdditionalDataHolder, Parsable {
     /** Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber. */
     private _dataOption?: string | undefined;
     /** Represents the icon that is the target of the condition if the sorting is on the cell's icon. */
-    private _icon?: WorkbookIcon | undefined;
+    private _icon?: WorkbookIcon | AdminMember1 | undefined;
     /** Represents the column (or row, depending on the sort orientation) that the condition is on. Represented as an offset from the first column (or row). */
     private _key?: number | undefined;
     /** Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon. */
@@ -95,7 +94,7 @@ export class WorkbookSortField implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the icon property value. Represents the icon that is the target of the condition if the sorting is on the cell's icon.
-     * @returns a workbookIcon
+     * @returns a admin
      */
     public get icon() {
         return this._icon;
@@ -104,7 +103,7 @@ export class WorkbookSortField implements AdditionalDataHolder, Parsable {
      * Sets the icon property value. Represents the icon that is the target of the condition if the sorting is on the cell's icon.
      * @param value Value to set for the icon property.
      */
-    public set icon(value: WorkbookIcon | undefined) {
+    public set icon(value: WorkbookIcon | AdminMember1 | undefined) {
         this._icon = value;
     };
     /**

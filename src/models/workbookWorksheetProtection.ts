@@ -1,11 +1,9 @@
-import {createWorkbookWorksheetProtectionOptionsFromDiscriminatorValue} from './createWorkbookWorksheetProtectionOptionsFromDiscriminatorValue';
-import {Entity, WorkbookWorksheetProtectionOptions} from './index';
+import {AdminMember1, Entity, WorkbookWorksheetProtectionOptions} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookWorksheetProtection extends Entity implements Parsable {
     /** Sheet protection options. Read-only. */
-    private _options?: WorkbookWorksheetProtectionOptions | undefined;
+    private _options?: WorkbookWorksheetProtectionOptions | AdminMember1 | undefined;
     /** Indicates if the worksheet is protected.  Read-only. */
     private _protected?: boolean | undefined;
     /**
@@ -26,7 +24,7 @@ export class WorkbookWorksheetProtection extends Entity implements Parsable {
     };
     /**
      * Gets the options property value. Sheet protection options. Read-only.
-     * @returns a workbookWorksheetProtectionOptions
+     * @returns a admin
      */
     public get options() {
         return this._options;
@@ -35,7 +33,7 @@ export class WorkbookWorksheetProtection extends Entity implements Parsable {
      * Sets the options property value. Sheet protection options. Read-only.
      * @param value Value to set for the options property.
      */
-    public set options(value: WorkbookWorksheetProtectionOptions | undefined) {
+    public set options(value: WorkbookWorksheetProtectionOptions | AdminMember1 | undefined) {
         this._options = value;
     };
     /**

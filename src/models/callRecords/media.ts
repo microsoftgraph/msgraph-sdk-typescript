@@ -1,24 +1,21 @@
-import {createDeviceInfoFromDiscriminatorValue} from './createDeviceInfoFromDiscriminatorValue';
-import {createMediaStreamFromDiscriminatorValue} from './createMediaStreamFromDiscriminatorValue';
-import {createNetworkInfoFromDiscriminatorValue} from './createNetworkInfoFromDiscriminatorValue';
-import {DeviceInfo, MediaStream, NetworkInfo} from './index';
+import {CommunicationsMember1, DeviceInfo, MediaStream, NetworkInfo} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Media implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Device information associated with the callee endpoint of this media. */
-    private _calleeDevice?: DeviceInfo | undefined;
+    private _calleeDevice?: DeviceInfo | CommunicationsMember1 | undefined;
     /** Network information associated with the callee endpoint of this media. */
-    private _calleeNetwork?: NetworkInfo | undefined;
+    private _calleeNetwork?: NetworkInfo | CommunicationsMember1 | undefined;
     /** Device information associated with the caller endpoint of this media. */
-    private _callerDevice?: DeviceInfo | undefined;
+    private _callerDevice?: DeviceInfo | CommunicationsMember1 | undefined;
     /** Network information associated with the caller endpoint of this media. */
-    private _callerNetwork?: NetworkInfo | undefined;
+    private _callerNetwork?: NetworkInfo | CommunicationsMember1 | undefined;
     /** How the media was identified during media negotiation stage. */
     private _label?: string | undefined;
     /** Network streams associated with this media. */
-    private _streams?: MediaStream[] | undefined;
+    private _streams?: MediaStream | CommunicationsMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -35,7 +32,7 @@ export class Media implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the calleeDevice property value. Device information associated with the callee endpoint of this media.
-     * @returns a deviceInfo
+     * @returns a communications
      */
     public get calleeDevice() {
         return this._calleeDevice;
@@ -44,12 +41,12 @@ export class Media implements AdditionalDataHolder, Parsable {
      * Sets the calleeDevice property value. Device information associated with the callee endpoint of this media.
      * @param value Value to set for the calleeDevice property.
      */
-    public set calleeDevice(value: DeviceInfo | undefined) {
+    public set calleeDevice(value: DeviceInfo | CommunicationsMember1 | undefined) {
         this._calleeDevice = value;
     };
     /**
      * Gets the calleeNetwork property value. Network information associated with the callee endpoint of this media.
-     * @returns a networkInfo
+     * @returns a communications
      */
     public get calleeNetwork() {
         return this._calleeNetwork;
@@ -58,12 +55,12 @@ export class Media implements AdditionalDataHolder, Parsable {
      * Sets the calleeNetwork property value. Network information associated with the callee endpoint of this media.
      * @param value Value to set for the calleeNetwork property.
      */
-    public set calleeNetwork(value: NetworkInfo | undefined) {
+    public set calleeNetwork(value: NetworkInfo | CommunicationsMember1 | undefined) {
         this._calleeNetwork = value;
     };
     /**
      * Gets the callerDevice property value. Device information associated with the caller endpoint of this media.
-     * @returns a deviceInfo
+     * @returns a communications
      */
     public get callerDevice() {
         return this._callerDevice;
@@ -72,12 +69,12 @@ export class Media implements AdditionalDataHolder, Parsable {
      * Sets the callerDevice property value. Device information associated with the caller endpoint of this media.
      * @param value Value to set for the callerDevice property.
      */
-    public set callerDevice(value: DeviceInfo | undefined) {
+    public set callerDevice(value: DeviceInfo | CommunicationsMember1 | undefined) {
         this._callerDevice = value;
     };
     /**
      * Gets the callerNetwork property value. Network information associated with the caller endpoint of this media.
-     * @returns a networkInfo
+     * @returns a communications
      */
     public get callerNetwork() {
         return this._callerNetwork;
@@ -86,7 +83,7 @@ export class Media implements AdditionalDataHolder, Parsable {
      * Sets the callerNetwork property value. Network information associated with the caller endpoint of this media.
      * @param value Value to set for the callerNetwork property.
      */
-    public set callerNetwork(value: NetworkInfo | undefined) {
+    public set callerNetwork(value: NetworkInfo | CommunicationsMember1 | undefined) {
         this._callerNetwork = value;
     };
     /**
@@ -106,7 +103,7 @@ export class Media implements AdditionalDataHolder, Parsable {
             "callerDevice": n => { this.callerDevice = n.getObjectValue<DeviceInfo>(createDeviceInfoFromDiscriminatorValue); },
             "callerNetwork": n => { this.callerNetwork = n.getObjectValue<NetworkInfo>(createNetworkInfoFromDiscriminatorValue); },
             "label": n => { this.label = n.getStringValue(); },
-            "streams": n => { this.streams = n.getCollectionOfObjectValues<MediaStream>(createMediaStreamFromDiscriminatorValue); },
+            "streams": n => { this.streams = n.getObjectValue<MediaStream>(createMediaStreamFromDiscriminatorValue); },
         };
     };
     /**
@@ -134,12 +131,12 @@ export class Media implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue<DeviceInfo>("callerDevice", this.callerDevice);
         writer.writeObjectValue<NetworkInfo>("callerNetwork", this.callerNetwork);
         writer.writeStringValue("label", this.label);
-        writer.writeCollectionOfObjectValues<MediaStream>("streams", this.streams);
+        writer.writeObjectValue<MediaStream>("streams", this.streams);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the streams property value. Network streams associated with this media.
-     * @returns a mediaStream
+     * @returns a communications
      */
     public get streams() {
         return this._streams;
@@ -148,7 +145,7 @@ export class Media implements AdditionalDataHolder, Parsable {
      * Sets the streams property value. Network streams associated with this media.
      * @param value Value to set for the streams property.
      */
-    public set streams(value: MediaStream[] | undefined) {
+    public set streams(value: MediaStream | CommunicationsMember1[] | undefined) {
         this._streams = value;
     };
 }

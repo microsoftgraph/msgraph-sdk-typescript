@@ -1,6 +1,6 @@
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {EndpointType} from './endpointType';
-import {IdentitySet} from './index';
+import {CommunicationsMember1, IdentitySet} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ParticipantInfo implements AdditionalDataHolder, Parsable {
@@ -9,7 +9,7 @@ export class ParticipantInfo implements AdditionalDataHolder, Parsable {
     /** The ISO 3166-1 Alpha-2 country code of the participant's best estimated physical location at the start of the call. Read-only. */
     private _countryCode?: string | undefined;
     /** The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only. */
-    private _endpointType?: EndpointType | undefined;
+    private _endpointType?: EndpointType | CommunicationsMember1 | undefined;
     /** The identity property */
     private _identity?: IdentitySet | undefined;
     /** The language culture string. Read-only. */
@@ -54,7 +54,7 @@ export class ParticipantInfo implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the endpointType property value. The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only.
-     * @returns a endpointType
+     * @returns a communications
      */
     public get endpointType() {
         return this._endpointType;
@@ -63,7 +63,7 @@ export class ParticipantInfo implements AdditionalDataHolder, Parsable {
      * Sets the endpointType property value. The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only.
      * @param value Value to set for the endpointType property.
      */
-    public set endpointType(value: EndpointType | undefined) {
+    public set endpointType(value: EndpointType | CommunicationsMember1 | undefined) {
         this._endpointType = value;
     };
     /**
@@ -73,7 +73,7 @@ export class ParticipantInfo implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "countryCode": n => { this.countryCode = n.getStringValue(); },
-            "endpointType": n => { this.endpointType = n.getEnumValue<EndpointType>(EndpointType); },
+            "endpointType": n => { this.endpointType = n.getObjectValue<EndpointType>(createEndpointTypeFromDiscriminatorValue); },
             "identity": n => { this.identity = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "languageId": n => { this.languageId = n.getStringValue(); },
             "participantId": n => { this.participantId = n.getStringValue(); },
@@ -143,7 +143,7 @@ export class ParticipantInfo implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("countryCode", this.countryCode);
-        writer.writeEnumValue<EndpointType>("endpointType", this.endpointType);
+        writer.writeObjectValue<EndpointType>("endpointType", this.endpointType);
         writer.writeObjectValue<IdentitySet>("identity", this.identity);
         writer.writeStringValue("languageId", this.languageId);
         writer.writeStringValue("participantId", this.participantId);

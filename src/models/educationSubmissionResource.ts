@@ -1,13 +1,12 @@
-import {createEducationResourceFromDiscriminatorValue} from './createEducationResourceFromDiscriminatorValue';
-import {EducationResource, Entity} from './index';
+import {AdminMember1, EducationResource, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the admin singleton. */
 export class EducationSubmissionResource extends Entity implements Parsable {
     /** Pointer to the assignment from which this resource was copied. If this is null, the student uploaded the resource. */
     private _assignmentResourceUrl?: string | undefined;
     /** Resource object. */
-    private _resource?: EducationResource | undefined;
+    private _resource?: EducationResource | AdminMember1 | undefined;
     /**
      * Gets the assignmentResourceUrl property value. Pointer to the assignment from which this resource was copied. If this is null, the student uploaded the resource.
      * @returns a string
@@ -40,7 +39,7 @@ export class EducationSubmissionResource extends Entity implements Parsable {
     };
     /**
      * Gets the resource property value. Resource object.
-     * @returns a educationResource
+     * @returns a admin
      */
     public get resource() {
         return this._resource;
@@ -49,7 +48,7 @@ export class EducationSubmissionResource extends Entity implements Parsable {
      * Sets the resource property value. Resource object.
      * @param value Value to set for the resource property.
      */
-    public set resource(value: EducationResource | undefined) {
+    public set resource(value: EducationResource | AdminMember1 | undefined) {
         this._resource = value;
     };
     /**

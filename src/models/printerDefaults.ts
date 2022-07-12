@@ -1,3 +1,4 @@
+import {AdminMember1} from './index';
 import {PrintColorMode} from './printColorMode';
 import {PrintDuplexMode} from './printDuplexMode';
 import {PrintMultipageLayout} from './printMultipageLayout';
@@ -10,7 +11,7 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The default color mode to use when printing the document. Valid values are described in the following table. */
-    private _colorMode?: PrintColorMode | undefined;
+    private _colorMode?: PrintColorMode | AdminMember1 | undefined;
     /** The default content (MIME) type to use when processing documents. */
     private _contentType?: string | undefined;
     /** The default number of copies printed per job. */
@@ -18,7 +19,7 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
     /** The default resolution in DPI to use when printing the job. */
     private _dpi?: number | undefined;
     /** The default duplex (double-sided) configuration to use when printing a document. Valid values are described in the following table. */
-    private _duplexMode?: PrintDuplexMode | undefined;
+    private _duplexMode?: PrintDuplexMode | AdminMember1 | undefined;
     /** The default set of finishings to apply to print jobs. Valid values are described in the following table. */
     private _finishings?: string[] | undefined;
     /** The default fitPdfToPage setting. True to fit each page of a PDF document to a physical sheet of media; false to let the printer decide how to lay out impressions. */
@@ -32,17 +33,17 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
     /** The default media (such as paper) type to print the document on. */
     private _mediaType?: string | undefined;
     /** The default direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table. */
-    private _multipageLayout?: PrintMultipageLayout | undefined;
+    private _multipageLayout?: PrintMultipageLayout | AdminMember1 | undefined;
     /** The default orientation to use when printing the document. Valid values are described in the following table. */
-    private _orientation?: PrintOrientation | undefined;
+    private _orientation?: PrintOrientation | AdminMember1 | undefined;
     /** The default output bin to place completed prints into. See the printer's capabilities for a list of supported output bins. */
     private _outputBin?: string | undefined;
     /** The default number of document pages to print on each sheet. */
     private _pagesPerSheet?: number | undefined;
     /** The default quality to use when printing the document. Valid values are described in the following table. */
-    private _quality?: PrintQuality | undefined;
+    private _quality?: PrintQuality | AdminMember1 | undefined;
     /** Specifies how the printer scales the document data to fit the requested media. Valid values are described in the following table. */
-    private _scaling?: PrintScaling | undefined;
+    private _scaling?: PrintScaling | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -59,7 +60,7 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the colorMode property value. The default color mode to use when printing the document. Valid values are described in the following table.
-     * @returns a printColorMode
+     * @returns a admin
      */
     public get colorMode() {
         return this._colorMode;
@@ -68,7 +69,7 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
      * Sets the colorMode property value. The default color mode to use when printing the document. Valid values are described in the following table.
      * @param value Value to set for the colorMode property.
      */
-    public set colorMode(value: PrintColorMode | undefined) {
+    public set colorMode(value: PrintColorMode | AdminMember1 | undefined) {
         this._colorMode = value;
     };
     /**
@@ -121,7 +122,7 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the duplexMode property value. The default duplex (double-sided) configuration to use when printing a document. Valid values are described in the following table.
-     * @returns a printDuplexMode
+     * @returns a admin
      */
     public get duplexMode() {
         return this._duplexMode;
@@ -130,7 +131,7 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
      * Sets the duplexMode property value. The default duplex (double-sided) configuration to use when printing a document. Valid values are described in the following table.
      * @param value Value to set for the duplexMode property.
      */
-    public set duplexMode(value: PrintDuplexMode | undefined) {
+    public set duplexMode(value: PrintDuplexMode | AdminMember1 | undefined) {
         this._duplexMode = value;
     };
     /**
@@ -167,23 +168,23 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "colorMode": n => { this.colorMode = n.getEnumValue<PrintColorMode>(PrintColorMode); },
+            "colorMode": n => { this.colorMode = n.getObjectValue<PrintColorMode>(createPrintColorModeFromDiscriminatorValue); },
             "contentType": n => { this.contentType = n.getStringValue(); },
             "copiesPerJob": n => { this.copiesPerJob = n.getNumberValue(); },
             "dpi": n => { this.dpi = n.getNumberValue(); },
-            "duplexMode": n => { this.duplexMode = n.getEnumValue<PrintDuplexMode>(PrintDuplexMode); },
+            "duplexMode": n => { this.duplexMode = n.getObjectValue<PrintDuplexMode>(createPrintDuplexModeFromDiscriminatorValue); },
             "finishings": n => { this.finishings = n.getCollectionOfPrimitiveValues<string>(); },
             "fitPdfToPage": n => { this.fitPdfToPage = n.getBooleanValue(); },
             "inputBin": n => { this.inputBin = n.getStringValue(); },
             "mediaColor": n => { this.mediaColor = n.getStringValue(); },
             "mediaSize": n => { this.mediaSize = n.getStringValue(); },
             "mediaType": n => { this.mediaType = n.getStringValue(); },
-            "multipageLayout": n => { this.multipageLayout = n.getEnumValue<PrintMultipageLayout>(PrintMultipageLayout); },
-            "orientation": n => { this.orientation = n.getEnumValue<PrintOrientation>(PrintOrientation); },
+            "multipageLayout": n => { this.multipageLayout = n.getObjectValue<PrintMultipageLayout>(createPrintMultipageLayoutFromDiscriminatorValue); },
+            "orientation": n => { this.orientation = n.getObjectValue<PrintOrientation>(createPrintOrientationFromDiscriminatorValue); },
             "outputBin": n => { this.outputBin = n.getStringValue(); },
             "pagesPerSheet": n => { this.pagesPerSheet = n.getNumberValue(); },
-            "quality": n => { this.quality = n.getEnumValue<PrintQuality>(PrintQuality); },
-            "scaling": n => { this.scaling = n.getEnumValue<PrintScaling>(PrintScaling); },
+            "quality": n => { this.quality = n.getObjectValue<PrintQuality>(createPrintQualityFromDiscriminatorValue); },
+            "scaling": n => { this.scaling = n.getObjectValue<PrintScaling>(createPrintScalingFromDiscriminatorValue); },
         };
     };
     /**
@@ -244,7 +245,7 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the multipageLayout property value. The default direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.
-     * @returns a printMultipageLayout
+     * @returns a admin
      */
     public get multipageLayout() {
         return this._multipageLayout;
@@ -253,12 +254,12 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
      * Sets the multipageLayout property value. The default direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.
      * @param value Value to set for the multipageLayout property.
      */
-    public set multipageLayout(value: PrintMultipageLayout | undefined) {
+    public set multipageLayout(value: PrintMultipageLayout | AdminMember1 | undefined) {
         this._multipageLayout = value;
     };
     /**
      * Gets the orientation property value. The default orientation to use when printing the document. Valid values are described in the following table.
-     * @returns a printOrientation
+     * @returns a admin
      */
     public get orientation() {
         return this._orientation;
@@ -267,7 +268,7 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
      * Sets the orientation property value. The default orientation to use when printing the document. Valid values are described in the following table.
      * @param value Value to set for the orientation property.
      */
-    public set orientation(value: PrintOrientation | undefined) {
+    public set orientation(value: PrintOrientation | AdminMember1 | undefined) {
         this._orientation = value;
     };
     /**
@@ -300,7 +301,7 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the quality property value. The default quality to use when printing the document. Valid values are described in the following table.
-     * @returns a printQuality
+     * @returns a admin
      */
     public get quality() {
         return this._quality;
@@ -309,12 +310,12 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
      * Sets the quality property value. The default quality to use when printing the document. Valid values are described in the following table.
      * @param value Value to set for the quality property.
      */
-    public set quality(value: PrintQuality | undefined) {
+    public set quality(value: PrintQuality | AdminMember1 | undefined) {
         this._quality = value;
     };
     /**
      * Gets the scaling property value. Specifies how the printer scales the document data to fit the requested media. Valid values are described in the following table.
-     * @returns a printScaling
+     * @returns a admin
      */
     public get scaling() {
         return this._scaling;
@@ -323,7 +324,7 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
      * Sets the scaling property value. Specifies how the printer scales the document data to fit the requested media. Valid values are described in the following table.
      * @param value Value to set for the scaling property.
      */
-    public set scaling(value: PrintScaling | undefined) {
+    public set scaling(value: PrintScaling | AdminMember1 | undefined) {
         this._scaling = value;
     };
     /**
@@ -332,23 +333,23 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeEnumValue<PrintColorMode>("colorMode", this.colorMode);
+        writer.writeObjectValue<PrintColorMode>("colorMode", this.colorMode);
         writer.writeStringValue("contentType", this.contentType);
         writer.writeNumberValue("copiesPerJob", this.copiesPerJob);
         writer.writeNumberValue("dpi", this.dpi);
-        writer.writeEnumValue<PrintDuplexMode>("duplexMode", this.duplexMode);
+        writer.writeObjectValue<PrintDuplexMode>("duplexMode", this.duplexMode);
         writer.writeCollectionOfPrimitiveValues<string>("finishings", this.finishings);
         writer.writeBooleanValue("fitPdfToPage", this.fitPdfToPage);
         writer.writeStringValue("inputBin", this.inputBin);
         writer.writeStringValue("mediaColor", this.mediaColor);
         writer.writeStringValue("mediaSize", this.mediaSize);
         writer.writeStringValue("mediaType", this.mediaType);
-        writer.writeEnumValue<PrintMultipageLayout>("multipageLayout", this.multipageLayout);
-        writer.writeEnumValue<PrintOrientation>("orientation", this.orientation);
+        writer.writeObjectValue<PrintMultipageLayout>("multipageLayout", this.multipageLayout);
+        writer.writeObjectValue<PrintOrientation>("orientation", this.orientation);
         writer.writeStringValue("outputBin", this.outputBin);
         writer.writeNumberValue("pagesPerSheet", this.pagesPerSheet);
-        writer.writeEnumValue<PrintQuality>("quality", this.quality);
-        writer.writeEnumValue<PrintScaling>("scaling", this.scaling);
+        writer.writeObjectValue<PrintQuality>("quality", this.quality);
+        writer.writeObjectValue<PrintScaling>("scaling", this.scaling);
         writer.writeAdditionalData(this.additionalData);
     };
 }

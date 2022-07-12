@@ -1,11 +1,9 @@
-import {createWorkbookChartDataLabelFormatFromDiscriminatorValue} from './createWorkbookChartDataLabelFormatFromDiscriminatorValue';
-import {Entity, WorkbookChartDataLabelFormat} from './index';
+import {AdminMember1, Entity, WorkbookChartDataLabelFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartDataLabels extends Entity implements Parsable {
     /** Represents the format of chart data labels, which includes fill and font formatting. Read-only. */
-    private _format?: WorkbookChartDataLabelFormat | undefined;
+    private _format?: WorkbookChartDataLabelFormat | AdminMember1 | undefined;
     /** DataLabelPosition value that represents the position of the data label. The possible values are: None, Center, InsideEnd, InsideBase, OutsideEnd, Left, Right, Top, Bottom, BestFit, Callout. */
     private _position?: string | undefined;
     /** String representing the separator used for the data labels on a chart. */
@@ -30,7 +28,7 @@ export class WorkbookChartDataLabels extends Entity implements Parsable {
     };
     /**
      * Gets the format property value. Represents the format of chart data labels, which includes fill and font formatting. Read-only.
-     * @returns a workbookChartDataLabelFormat
+     * @returns a admin
      */
     public get format() {
         return this._format;
@@ -39,7 +37,7 @@ export class WorkbookChartDataLabels extends Entity implements Parsable {
      * Sets the format property value. Represents the format of chart data labels, which includes fill and font formatting. Read-only.
      * @param value Value to set for the format property.
      */
-    public set format(value: WorkbookChartDataLabelFormat | undefined) {
+    public set format(value: WorkbookChartDataLabelFormat | AdminMember1 | undefined) {
         this._format = value;
     };
     /**

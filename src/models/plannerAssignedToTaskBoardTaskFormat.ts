@@ -1,11 +1,9 @@
-import {createPlannerOrderHintsByAssigneeFromDiscriminatorValue} from './createPlannerOrderHintsByAssigneeFromDiscriminatorValue';
-import {Entity, PlannerOrderHintsByAssignee} from './index';
+import {AdminMember1, Entity, PlannerOrderHintsByAssignee} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class PlannerAssignedToTaskBoardTaskFormat extends Entity implements Parsable {
     /** Dictionary of hints used to order tasks on the AssignedTo view of the Task Board. The key of each entry is one of the users the task is assigned to and the value is the order hint. The format of each value is defined as outlined here. */
-    private _orderHintsByAssignee?: PlannerOrderHintsByAssignee | undefined;
+    private _orderHintsByAssignee?: PlannerOrderHintsByAssignee | AdminMember1 | undefined;
     /** Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here. */
     private _unassignedOrderHint?: string | undefined;
     /**
@@ -26,7 +24,7 @@ export class PlannerAssignedToTaskBoardTaskFormat extends Entity implements Pars
     };
     /**
      * Gets the orderHintsByAssignee property value. Dictionary of hints used to order tasks on the AssignedTo view of the Task Board. The key of each entry is one of the users the task is assigned to and the value is the order hint. The format of each value is defined as outlined here.
-     * @returns a plannerOrderHintsByAssignee
+     * @returns a admin
      */
     public get orderHintsByAssignee() {
         return this._orderHintsByAssignee;
@@ -35,7 +33,7 @@ export class PlannerAssignedToTaskBoardTaskFormat extends Entity implements Pars
      * Sets the orderHintsByAssignee property value. Dictionary of hints used to order tasks on the AssignedTo view of the Task Board. The key of each entry is one of the users the task is assigned to and the value is the order hint. The format of each value is defined as outlined here.
      * @param value Value to set for the orderHintsByAssignee property.
      */
-    public set orderHintsByAssignee(value: PlannerOrderHintsByAssignee | undefined) {
+    public set orderHintsByAssignee(value: PlannerOrderHintsByAssignee | AdminMember1 | undefined) {
         this._orderHintsByAssignee = value;
     };
     /**

@@ -1,10 +1,7 @@
-import {createComplianceInformationFromDiscriminatorValue} from './createComplianceInformationFromDiscriminatorValue';
-import {createSecureScoreControlStateUpdateFromDiscriminatorValue} from './createSecureScoreControlStateUpdateFromDiscriminatorValue';
-import {createSecurityVendorInformationFromDiscriminatorValue} from './createSecurityVendorInformationFromDiscriminatorValue';
-import {ComplianceInformation, Entity, SecureScoreControlStateUpdate, SecurityVendorInformation} from './index';
+import {AdminMember1, ComplianceInformation, Entity, SecureScoreControlStateUpdate, SecurityVendorInformation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the security singleton. */
+/** Provides operations to manage the admin singleton. */
 export class SecureScoreControlProfile extends Entity implements Parsable {
     /** Control action type (Config, Review, Behavior). */
     private _actionType?: string | undefined;
@@ -13,11 +10,11 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
     /** GUID string for tenant ID. */
     private _azureTenantId?: string | undefined;
     /** The collection of compliance information associated with secure score control */
-    private _complianceInformation?: ComplianceInformation[] | undefined;
+    private _complianceInformation?: ComplianceInformation | AdminMember1[] | undefined;
     /** Control action category (Account, Data, Device, Apps, Infrastructure). */
     private _controlCategory?: string | undefined;
     /** Flag to indicate where the tenant has marked a control (ignore, thirdParty, reviewed) (supports update). */
-    private _controlStateUpdates?: SecureScoreControlStateUpdate[] | undefined;
+    private _controlStateUpdates?: SecureScoreControlStateUpdate | AdminMember1[] | undefined;
     /** Flag to indicate if a control is depreciated. */
     private _deprecated?: boolean | undefined;
     /** Resource cost of implemmentating control (low, moderate, high). */
@@ -43,7 +40,7 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
     /** User impact of implementing control (low, moderate, high). */
     private _userImpact?: string | undefined;
     /** The vendorInformation property */
-    private _vendorInformation?: SecurityVendorInformation | undefined;
+    private _vendorInformation?: SecurityVendorInformation | AdminMember1 | undefined;
     /**
      * Gets the actionType property value. Control action type (Config, Review, Behavior).
      * @returns a string
@@ -88,7 +85,7 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
     };
     /**
      * Gets the complianceInformation property value. The collection of compliance information associated with secure score control
-     * @returns a complianceInformation
+     * @returns a admin
      */
     public get complianceInformation() {
         return this._complianceInformation;
@@ -97,7 +94,7 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
      * Sets the complianceInformation property value. The collection of compliance information associated with secure score control
      * @param value Value to set for the complianceInformation property.
      */
-    public set complianceInformation(value: ComplianceInformation[] | undefined) {
+    public set complianceInformation(value: ComplianceInformation | AdminMember1[] | undefined) {
         this._complianceInformation = value;
     };
     /**
@@ -122,7 +119,7 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
     };
     /**
      * Gets the controlStateUpdates property value. Flag to indicate where the tenant has marked a control (ignore, thirdParty, reviewed) (supports update).
-     * @returns a secureScoreControlStateUpdate
+     * @returns a admin
      */
     public get controlStateUpdates() {
         return this._controlStateUpdates;
@@ -131,7 +128,7 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
      * Sets the controlStateUpdates property value. Flag to indicate where the tenant has marked a control (ignore, thirdParty, reviewed) (supports update).
      * @param value Value to set for the controlStateUpdates property.
      */
-    public set controlStateUpdates(value: SecureScoreControlStateUpdate[] | undefined) {
+    public set controlStateUpdates(value: SecureScoreControlStateUpdate | AdminMember1[] | undefined) {
         this._controlStateUpdates = value;
     };
     /**
@@ -157,9 +154,9 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
             "actionType": n => { this.actionType = n.getStringValue(); },
             "actionUrl": n => { this.actionUrl = n.getStringValue(); },
             "azureTenantId": n => { this.azureTenantId = n.getStringValue(); },
-            "complianceInformation": n => { this.complianceInformation = n.getCollectionOfObjectValues<ComplianceInformation>(createComplianceInformationFromDiscriminatorValue); },
+            "complianceInformation": n => { this.complianceInformation = n.getObjectValue<ComplianceInformation>(createComplianceInformationFromDiscriminatorValue); },
             "controlCategory": n => { this.controlCategory = n.getStringValue(); },
-            "controlStateUpdates": n => { this.controlStateUpdates = n.getCollectionOfObjectValues<SecureScoreControlStateUpdate>(createSecureScoreControlStateUpdateFromDiscriminatorValue); },
+            "controlStateUpdates": n => { this.controlStateUpdates = n.getObjectValue<SecureScoreControlStateUpdate>(createSecureScoreControlStateUpdateFromDiscriminatorValue); },
             "deprecated": n => { this.deprecated = n.getBooleanValue(); },
             "implementationCost": n => { this.implementationCost = n.getStringValue(); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
@@ -269,9 +266,9 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
         writer.writeStringValue("actionType", this.actionType);
         writer.writeStringValue("actionUrl", this.actionUrl);
         writer.writeStringValue("azureTenantId", this.azureTenantId);
-        writer.writeCollectionOfObjectValues<ComplianceInformation>("complianceInformation", this.complianceInformation);
+        writer.writeObjectValue<ComplianceInformation>("complianceInformation", this.complianceInformation);
         writer.writeStringValue("controlCategory", this.controlCategory);
-        writer.writeCollectionOfObjectValues<SecureScoreControlStateUpdate>("controlStateUpdates", this.controlStateUpdates);
+        writer.writeObjectValue<SecureScoreControlStateUpdate>("controlStateUpdates", this.controlStateUpdates);
         writer.writeBooleanValue("deprecated", this.deprecated);
         writer.writeStringValue("implementationCost", this.implementationCost);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
@@ -358,7 +355,7 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
     };
     /**
      * Gets the vendorInformation property value. The vendorInformation property
-     * @returns a securityVendorInformation
+     * @returns a admin
      */
     public get vendorInformation() {
         return this._vendorInformation;
@@ -367,7 +364,7 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
      * Sets the vendorInformation property value. The vendorInformation property
      * @param value Value to set for the vendorInformation property.
      */
-    public set vendorInformation(value: SecurityVendorInformation | undefined) {
+    public set vendorInformation(value: SecurityVendorInformation | AdminMember1 | undefined) {
         this._vendorInformation = value;
     };
 }

@@ -1,5 +1,4 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {IdentitySet} from './index';
+import {AdminMember1, IdentitySet} from './index';
 import {OnlineMeetingRole} from './onlineMeetingRole';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -7,9 +6,9 @@ export class MeetingParticipantInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Identity information of the participant. */
-    private _identity?: IdentitySet | undefined;
+    private _identity?: IdentitySet | AdminMember1 | undefined;
     /** Specifies the participant's role in the meeting. */
-    private _role?: OnlineMeetingRole | undefined;
+    private _role?: OnlineMeetingRole | AdminMember1 | undefined;
     /** User principal name of the participant. */
     private _upn?: string | undefined;
     /**
@@ -39,13 +38,13 @@ export class MeetingParticipantInfo implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "identity": n => { this.identity = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
-            "role": n => { this.role = n.getEnumValue<OnlineMeetingRole>(OnlineMeetingRole); },
+            "role": n => { this.role = n.getObjectValue<OnlineMeetingRole>(createOnlineMeetingRoleFromDiscriminatorValue); },
             "upn": n => { this.upn = n.getStringValue(); },
         };
     };
     /**
      * Gets the identity property value. Identity information of the participant.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get identity() {
         return this._identity;
@@ -54,12 +53,12 @@ export class MeetingParticipantInfo implements AdditionalDataHolder, Parsable {
      * Sets the identity property value. Identity information of the participant.
      * @param value Value to set for the identity property.
      */
-    public set identity(value: IdentitySet | undefined) {
+    public set identity(value: IdentitySet | AdminMember1 | undefined) {
         this._identity = value;
     };
     /**
      * Gets the role property value. Specifies the participant's role in the meeting.
-     * @returns a onlineMeetingRole
+     * @returns a admin
      */
     public get role() {
         return this._role;
@@ -68,7 +67,7 @@ export class MeetingParticipantInfo implements AdditionalDataHolder, Parsable {
      * Sets the role property value. Specifies the participant's role in the meeting.
      * @param value Value to set for the role property.
      */
-    public set role(value: OnlineMeetingRole | undefined) {
+    public set role(value: OnlineMeetingRole | AdminMember1 | undefined) {
         this._role = value;
     };
     /**
@@ -78,7 +77,7 @@ export class MeetingParticipantInfo implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<IdentitySet>("identity", this.identity);
-        writer.writeEnumValue<OnlineMeetingRole>("role", this.role);
+        writer.writeObjectValue<OnlineMeetingRole>("role", this.role);
         writer.writeStringValue("upn", this.upn);
         writer.writeAdditionalData(this.additionalData);
     };

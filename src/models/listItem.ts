@@ -1,29 +1,23 @@
-import {createContentTypeInfoFromDiscriminatorValue} from './createContentTypeInfoFromDiscriminatorValue';
-import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscriminatorValue';
-import {createFieldValueSetFromDiscriminatorValue} from './createFieldValueSetFromDiscriminatorValue';
-import {createItemAnalyticsFromDiscriminatorValue} from './createItemAnalyticsFromDiscriminatorValue';
 import {createListItemVersionFromDiscriminatorValue} from './createListItemVersionFromDiscriminatorValue';
-import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFromDiscriminatorValue';
-import {BaseItem, ContentTypeInfo, DriveItem, FieldValueSet, ItemAnalytics, ListItemVersion, SharepointIds} from './index';
+import {AdminMember1, BaseItem, ContentTypeInfo, DriveItem, FieldValueSet, ItemAnalytics, ListItemVersion, SharepointIds} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class ListItem extends BaseItem implements Parsable {
     /** Analytics about the view activities that took place on this item. */
-    private _analytics?: ItemAnalytics | undefined;
+    private _analytics?: ItemAnalytics | AdminMember1 | undefined;
     /** The content type of this list item */
-    private _contentType?: ContentTypeInfo | undefined;
+    private _contentType?: ContentTypeInfo | AdminMember1 | undefined;
     /** For document libraries, the driveItem relationship exposes the listItem as a [driveItem][] */
-    private _driveItem?: DriveItem | undefined;
+    private _driveItem?: DriveItem | AdminMember1 | undefined;
     /** The values of the columns set on this list item. */
-    private _fields?: FieldValueSet | undefined;
+    private _fields?: FieldValueSet | AdminMember1 | undefined;
     /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
-    private _sharepointIds?: SharepointIds | undefined;
+    private _sharepointIds?: SharepointIds | AdminMember1 | undefined;
     /** The list of previous versions of the list item. */
     private _versions?: ListItemVersion[] | undefined;
     /**
      * Gets the analytics property value. Analytics about the view activities that took place on this item.
-     * @returns a itemAnalytics
+     * @returns a admin
      */
     public get analytics() {
         return this._analytics;
@@ -32,7 +26,7 @@ export class ListItem extends BaseItem implements Parsable {
      * Sets the analytics property value. Analytics about the view activities that took place on this item.
      * @param value Value to set for the analytics property.
      */
-    public set analytics(value: ItemAnalytics | undefined) {
+    public set analytics(value: ItemAnalytics | AdminMember1 | undefined) {
         this._analytics = value;
     };
     /**
@@ -43,7 +37,7 @@ export class ListItem extends BaseItem implements Parsable {
     };
     /**
      * Gets the contentType property value. The content type of this list item
-     * @returns a contentTypeInfo
+     * @returns a admin
      */
     public get contentType() {
         return this._contentType;
@@ -52,12 +46,12 @@ export class ListItem extends BaseItem implements Parsable {
      * Sets the contentType property value. The content type of this list item
      * @param value Value to set for the contentType property.
      */
-    public set contentType(value: ContentTypeInfo | undefined) {
+    public set contentType(value: ContentTypeInfo | AdminMember1 | undefined) {
         this._contentType = value;
     };
     /**
      * Gets the driveItem property value. For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
-     * @returns a driveItem
+     * @returns a admin
      */
     public get driveItem() {
         return this._driveItem;
@@ -66,12 +60,12 @@ export class ListItem extends BaseItem implements Parsable {
      * Sets the driveItem property value. For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
      * @param value Value to set for the driveItem property.
      */
-    public set driveItem(value: DriveItem | undefined) {
+    public set driveItem(value: DriveItem | AdminMember1 | undefined) {
         this._driveItem = value;
     };
     /**
      * Gets the fields property value. The values of the columns set on this list item.
-     * @returns a fieldValueSet
+     * @returns a admin
      */
     public get fields() {
         return this._fields;
@@ -80,7 +74,7 @@ export class ListItem extends BaseItem implements Parsable {
      * Sets the fields property value. The values of the columns set on this list item.
      * @param value Value to set for the fields property.
      */
-    public set fields(value: FieldValueSet | undefined) {
+    public set fields(value: FieldValueSet | AdminMember1 | undefined) {
         this._fields = value;
     };
     /**
@@ -113,7 +107,7 @@ export class ListItem extends BaseItem implements Parsable {
     };
     /**
      * Gets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
-     * @returns a sharepointIds
+     * @returns a admin
      */
     public get sharepointIds() {
         return this._sharepointIds;
@@ -122,7 +116,7 @@ export class ListItem extends BaseItem implements Parsable {
      * Sets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
      * @param value Value to set for the sharepointIds property.
      */
-    public set sharepointIds(value: SharepointIds | undefined) {
+    public set sharepointIds(value: SharepointIds | AdminMember1 | undefined) {
         this._sharepointIds = value;
     };
     /**

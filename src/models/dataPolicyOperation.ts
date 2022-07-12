@@ -1,5 +1,5 @@
 import {DataPolicyOperationStatus} from './dataPolicyOperationStatus';
-import {Entity} from './index';
+import {DataPolicyOperationsMember1, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of dataPolicyOperation entities. */
@@ -9,7 +9,7 @@ export class DataPolicyOperation extends Entity implements Parsable {
     /** Specifies the progress of an operation. */
     private _progress?: number | undefined;
     /** Possible values are: notStarted, running, complete, failed, unknownFutureValue. */
-    private _status?: DataPolicyOperationStatus | undefined;
+    private _status?: DataPolicyOperationStatus | DataPolicyOperationsMember1 | undefined;
     /** The URL location to where data is being exported for export requests. */
     private _storageLocation?: string | undefined;
     /** Represents when the request for this data operation was submitted, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
@@ -44,7 +44,7 @@ export class DataPolicyOperation extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "completedDateTime": n => { this.completedDateTime = n.getDateValue(); },
             "progress": n => { this.progress = n.getNumberValue(); },
-            "status": n => { this.status = n.getEnumValue<DataPolicyOperationStatus>(DataPolicyOperationStatus); },
+            "status": n => { this.status = n.getObjectValue<DataPolicyOperationStatus>(createDataPolicyOperationStatusFromDiscriminatorValue); },
             "storageLocation": n => { this.storageLocation = n.getStringValue(); },
             "submittedDateTime": n => { this.submittedDateTime = n.getDateValue(); },
             "userId": n => { this.userId = n.getStringValue(); },
@@ -73,14 +73,14 @@ export class DataPolicyOperation extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeDateValue("completedDateTime", this.completedDateTime);
         writer.writeNumberValue("progress", this.progress);
-        writer.writeEnumValue<DataPolicyOperationStatus>("status", this.status);
+        writer.writeObjectValue<DataPolicyOperationStatus>("status", this.status);
         writer.writeStringValue("storageLocation", this.storageLocation);
         writer.writeDateValue("submittedDateTime", this.submittedDateTime);
         writer.writeStringValue("userId", this.userId);
     };
     /**
      * Gets the status property value. Possible values are: notStarted, running, complete, failed, unknownFutureValue.
-     * @returns a dataPolicyOperationStatus
+     * @returns a dataPolicyOperations
      */
     public get status() {
         return this._status;
@@ -89,7 +89,7 @@ export class DataPolicyOperation extends Entity implements Parsable {
      * Sets the status property value. Possible values are: notStarted, running, complete, failed, unknownFutureValue.
      * @param value Value to set for the status property.
      */
-    public set status(value: DataPolicyOperationStatus | undefined) {
+    public set status(value: DataPolicyOperationStatus | DataPolicyOperationsMember1 | undefined) {
         this._status = value;
     };
     /**

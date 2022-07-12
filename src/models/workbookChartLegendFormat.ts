@@ -1,14 +1,11 @@
-import {createWorkbookChartFillFromDiscriminatorValue} from './createWorkbookChartFillFromDiscriminatorValue';
-import {createWorkbookChartFontFromDiscriminatorValue} from './createWorkbookChartFontFromDiscriminatorValue';
-import {Entity, WorkbookChartFill, WorkbookChartFont} from './index';
+import {AdminMember1, Entity, WorkbookChartFill, WorkbookChartFont} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartLegendFormat extends Entity implements Parsable {
     /** Represents the fill format of an object, which includes background formating information. Read-only. */
-    private _fill?: WorkbookChartFill | undefined;
+    private _fill?: WorkbookChartFill | AdminMember1 | undefined;
     /** Represents the font attributes such as font name, font size, color, etc. of a chart legend. Read-only. */
-    private _font?: WorkbookChartFont | undefined;
+    private _font?: WorkbookChartFont | AdminMember1 | undefined;
     /**
      * Instantiates a new workbookChartLegendFormat and sets the default values.
      */
@@ -17,7 +14,7 @@ export class WorkbookChartLegendFormat extends Entity implements Parsable {
     };
     /**
      * Gets the fill property value. Represents the fill format of an object, which includes background formating information. Read-only.
-     * @returns a workbookChartFill
+     * @returns a admin
      */
     public get fill() {
         return this._fill;
@@ -26,12 +23,12 @@ export class WorkbookChartLegendFormat extends Entity implements Parsable {
      * Sets the fill property value. Represents the fill format of an object, which includes background formating information. Read-only.
      * @param value Value to set for the fill property.
      */
-    public set fill(value: WorkbookChartFill | undefined) {
+    public set fill(value: WorkbookChartFill | AdminMember1 | undefined) {
         this._fill = value;
     };
     /**
      * Gets the font property value. Represents the font attributes such as font name, font size, color, etc. of a chart legend. Read-only.
-     * @returns a workbookChartFont
+     * @returns a admin
      */
     public get font() {
         return this._font;
@@ -40,7 +37,7 @@ export class WorkbookChartLegendFormat extends Entity implements Parsable {
      * Sets the font property value. Represents the font attributes such as font name, font size, color, etc. of a chart legend. Read-only.
      * @param value Value to set for the font property.
      */
-    public set font(value: WorkbookChartFont | undefined) {
+    public set font(value: WorkbookChartFont | AdminMember1 | undefined) {
         this._font = value;
     };
     /**

@@ -1,7 +1,5 @@
-import {createMediaStreamFromDiscriminatorValue} from './createMediaStreamFromDiscriminatorValue';
 import {createParticipantInfoFromDiscriminatorValue} from './createParticipantInfoFromDiscriminatorValue';
-import {createRecordingInfoFromDiscriminatorValue} from './createRecordingInfoFromDiscriminatorValue';
-import {Entity, MediaStream, ParticipantInfo, RecordingInfo} from './index';
+import {CommunicationsMember1, Entity, MediaStream, ParticipantInfo, RecordingInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
@@ -13,11 +11,11 @@ export class Participant extends Entity implements Parsable {
     /** true if the participant is muted (client or server muted). */
     private _isMuted?: boolean | undefined;
     /** The list of media streams. */
-    private _mediaStreams?: MediaStream[] | undefined;
+    private _mediaStreams?: MediaStream | CommunicationsMember1[] | undefined;
     /** A blob of data provided by the participant in the roster. */
     private _metadata?: string | undefined;
     /** Information on whether the participant has recording capability. */
-    private _recordingInfo?: RecordingInfo | undefined;
+    private _recordingInfo?: RecordingInfo | CommunicationsMember1 | undefined;
     /**
      * Instantiates a new participant and sets the default values.
      */
@@ -33,7 +31,7 @@ export class Participant extends Entity implements Parsable {
             "info": n => { this.info = n.getObjectValue<ParticipantInfo>(createParticipantInfoFromDiscriminatorValue); },
             "isInLobby": n => { this.isInLobby = n.getBooleanValue(); },
             "isMuted": n => { this.isMuted = n.getBooleanValue(); },
-            "mediaStreams": n => { this.mediaStreams = n.getCollectionOfObjectValues<MediaStream>(createMediaStreamFromDiscriminatorValue); },
+            "mediaStreams": n => { this.mediaStreams = n.getObjectValue<MediaStream>(createMediaStreamFromDiscriminatorValue); },
             "metadata": n => { this.metadata = n.getStringValue(); },
             "recordingInfo": n => { this.recordingInfo = n.getObjectValue<RecordingInfo>(createRecordingInfoFromDiscriminatorValue); },
         };
@@ -82,7 +80,7 @@ export class Participant extends Entity implements Parsable {
     };
     /**
      * Gets the mediaStreams property value. The list of media streams.
-     * @returns a mediaStream
+     * @returns a communications
      */
     public get mediaStreams() {
         return this._mediaStreams;
@@ -91,7 +89,7 @@ export class Participant extends Entity implements Parsable {
      * Sets the mediaStreams property value. The list of media streams.
      * @param value Value to set for the mediaStreams property.
      */
-    public set mediaStreams(value: MediaStream[] | undefined) {
+    public set mediaStreams(value: MediaStream | CommunicationsMember1[] | undefined) {
         this._mediaStreams = value;
     };
     /**
@@ -110,7 +108,7 @@ export class Participant extends Entity implements Parsable {
     };
     /**
      * Gets the recordingInfo property value. Information on whether the participant has recording capability.
-     * @returns a recordingInfo
+     * @returns a communications
      */
     public get recordingInfo() {
         return this._recordingInfo;
@@ -119,7 +117,7 @@ export class Participant extends Entity implements Parsable {
      * Sets the recordingInfo property value. Information on whether the participant has recording capability.
      * @param value Value to set for the recordingInfo property.
      */
-    public set recordingInfo(value: RecordingInfo | undefined) {
+    public set recordingInfo(value: RecordingInfo | CommunicationsMember1 | undefined) {
         this._recordingInfo = value;
     };
     /**
@@ -132,7 +130,7 @@ export class Participant extends Entity implements Parsable {
         writer.writeObjectValue<ParticipantInfo>("info", this.info);
         writer.writeBooleanValue("isInLobby", this.isInLobby);
         writer.writeBooleanValue("isMuted", this.isMuted);
-        writer.writeCollectionOfObjectValues<MediaStream>("mediaStreams", this.mediaStreams);
+        writer.writeObjectValue<MediaStream>("mediaStreams", this.mediaStreams);
         writer.writeStringValue("metadata", this.metadata);
         writer.writeObjectValue<RecordingInfo>("recordingInfo", this.recordingInfo);
     };

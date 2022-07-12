@@ -1,6 +1,6 @@
 import {KeyCredential, PasswordCredential} from '../../../models/';
 import {createKeyCredentialFromDiscriminatorValue} from '../../../models/createKeyCredentialFromDiscriminatorValue';
-import {createPasswordCredentialFromDiscriminatorValue} from '../../../models/createPasswordCredentialFromDiscriminatorValue';
+import {AddKeyMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addKey method. */
@@ -10,7 +10,7 @@ export class KeyCredentialPostRequestBody implements AdditionalDataHolder, Parsa
     /** The keyCredential property */
     private _keyCredential?: KeyCredential | undefined;
     /** The passwordCredential property */
-    private _passwordCredential?: PasswordCredential | undefined;
+    private _passwordCredential?: PasswordCredential | AddKeyMember1 | undefined;
     /** The proof property */
     private _proof?: string | undefined;
     /**
@@ -60,7 +60,7 @@ export class KeyCredentialPostRequestBody implements AdditionalDataHolder, Parsa
     };
     /**
      * Gets the passwordCredential property value. The passwordCredential property
-     * @returns a passwordCredential
+     * @returns a addKey
      */
     public get passwordCredential() {
         return this._passwordCredential;
@@ -69,7 +69,7 @@ export class KeyCredentialPostRequestBody implements AdditionalDataHolder, Parsa
      * Sets the passwordCredential property value. The passwordCredential property
      * @param value Value to set for the passwordCredential property.
      */
-    public set passwordCredential(value: PasswordCredential | undefined) {
+    public set passwordCredential(value: PasswordCredential | AddKeyMember1 | undefined) {
         this._passwordCredential = value;
     };
     /**

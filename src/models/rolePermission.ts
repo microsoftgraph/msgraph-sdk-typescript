@@ -1,5 +1,4 @@
-import {createResourceActionFromDiscriminatorValue} from './createResourceActionFromDiscriminatorValue';
-import {ResourceAction} from './index';
+import {AdminMember1, ResourceAction} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains the set of ResourceActions determining the allowed and not allowed permissions for each role. */
@@ -7,7 +6,7 @@ export class RolePermission implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Resource Actions each containing a set of allowed and not allowed permissions. */
-    private _resourceActions?: ResourceAction[] | undefined;
+    private _resourceActions?: ResourceAction | AdminMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,12 +33,12 @@ export class RolePermission implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "resourceActions": n => { this.resourceActions = n.getCollectionOfObjectValues<ResourceAction>(createResourceActionFromDiscriminatorValue); },
+            "resourceActions": n => { this.resourceActions = n.getObjectValue<ResourceAction>(createResourceActionFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the resourceActions property value. Resource Actions each containing a set of allowed and not allowed permissions.
-     * @returns a resourceAction
+     * @returns a admin
      */
     public get resourceActions() {
         return this._resourceActions;
@@ -48,7 +47,7 @@ export class RolePermission implements AdditionalDataHolder, Parsable {
      * Sets the resourceActions property value. Resource Actions each containing a set of allowed and not allowed permissions.
      * @param value Value to set for the resourceActions property.
      */
-    public set resourceActions(value: ResourceAction[] | undefined) {
+    public set resourceActions(value: ResourceAction | AdminMember1[] | undefined) {
         this._resourceActions = value;
     };
     /**
@@ -57,7 +56,7 @@ export class RolePermission implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<ResourceAction>("resourceActions", this.resourceActions);
+        writer.writeObjectValue<ResourceAction>("resourceActions", this.resourceActions);
         writer.writeAdditionalData(this.additionalData);
     };
 }

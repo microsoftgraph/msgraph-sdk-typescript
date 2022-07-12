@@ -1,20 +1,18 @@
 import {Entity} from '../';
-import {createEndpointFromDiscriminatorValue} from './createEndpointFromDiscriminatorValue';
-import {createFailureInfoFromDiscriminatorValue} from './createFailureInfoFromDiscriminatorValue';
 import {createSegmentFromDiscriminatorValue} from './createSegmentFromDiscriminatorValue';
-import {Endpoint, FailureInfo, Segment} from './index';
+import {CommunicationsMember1, Endpoint, FailureInfo, Segment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class Session extends Entity implements Parsable {
     /** Endpoint that answered the session. */
-    private _callee?: Endpoint | undefined;
+    private _callee?: Endpoint | CommunicationsMember1 | undefined;
     /** Endpoint that initiated the session. */
-    private _caller?: Endpoint | undefined;
+    private _caller?: Endpoint | CommunicationsMember1 | undefined;
     /** UTC time when the last user left the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _endDateTime?: Date | undefined;
     /** Failure information associated with the session if the session failed. */
-    private _failureInfo?: FailureInfo | undefined;
+    private _failureInfo?: FailureInfo | CommunicationsMember1 | undefined;
     /** List of modalities present in the session. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue. */
     private _modalities?: string[] | undefined;
     /** The list of segments involved in the session. Read-only. Nullable. */
@@ -23,7 +21,7 @@ export class Session extends Entity implements Parsable {
     private _startDateTime?: Date | undefined;
     /**
      * Gets the callee property value. Endpoint that answered the session.
-     * @returns a endpoint
+     * @returns a communications
      */
     public get callee() {
         return this._callee;
@@ -32,12 +30,12 @@ export class Session extends Entity implements Parsable {
      * Sets the callee property value. Endpoint that answered the session.
      * @param value Value to set for the callee property.
      */
-    public set callee(value: Endpoint | undefined) {
+    public set callee(value: Endpoint | CommunicationsMember1 | undefined) {
         this._callee = value;
     };
     /**
      * Gets the caller property value. Endpoint that initiated the session.
-     * @returns a endpoint
+     * @returns a communications
      */
     public get caller() {
         return this._caller;
@@ -46,7 +44,7 @@ export class Session extends Entity implements Parsable {
      * Sets the caller property value. Endpoint that initiated the session.
      * @param value Value to set for the caller property.
      */
-    public set caller(value: Endpoint | undefined) {
+    public set caller(value: Endpoint | CommunicationsMember1 | undefined) {
         this._caller = value;
     };
     /**
@@ -71,7 +69,7 @@ export class Session extends Entity implements Parsable {
     };
     /**
      * Gets the failureInfo property value. Failure information associated with the session if the session failed.
-     * @returns a failureInfo
+     * @returns a communications
      */
     public get failureInfo() {
         return this._failureInfo;
@@ -80,7 +78,7 @@ export class Session extends Entity implements Parsable {
      * Sets the failureInfo property value. Failure information associated with the session if the session failed.
      * @param value Value to set for the failureInfo property.
      */
-    public set failureInfo(value: FailureInfo | undefined) {
+    public set failureInfo(value: FailureInfo | CommunicationsMember1 | undefined) {
         this._failureInfo = value;
     };
     /**

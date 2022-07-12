@@ -1,5 +1,4 @@
-import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
-import {ItemBody} from './index';
+import {AdminMember1, ItemBody} from './index';
 import {PostType} from './postType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -9,9 +8,9 @@ export class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable {
     /** The published time of the post. */
     private _createdDateTime?: Date | undefined;
     /** The content of the service issue post. */
-    private _description?: ItemBody | undefined;
+    private _description?: ItemBody | AdminMember1 | undefined;
     /** The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue. */
-    private _postType?: PostType | undefined;
+    private _postType?: PostType | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -48,7 +47,7 @@ export class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the description property value. The content of the service issue post.
-     * @returns a itemBody
+     * @returns a admin
      */
     public get description() {
         return this._description;
@@ -57,7 +56,7 @@ export class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable {
      * Sets the description property value. The content of the service issue post.
      * @param value Value to set for the description property.
      */
-    public set description(value: ItemBody | undefined) {
+    public set description(value: ItemBody | AdminMember1 | undefined) {
         this._description = value;
     };
     /**
@@ -68,12 +67,12 @@ export class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable {
         return {
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "description": n => { this.description = n.getObjectValue<ItemBody>(createItemBodyFromDiscriminatorValue); },
-            "postType": n => { this.postType = n.getEnumValue<PostType>(PostType); },
+            "postType": n => { this.postType = n.getObjectValue<PostType>(createPostTypeFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the postType property value. The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue.
-     * @returns a postType
+     * @returns a admin
      */
     public get postType() {
         return this._postType;
@@ -82,7 +81,7 @@ export class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable {
      * Sets the postType property value. The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue.
      * @param value Value to set for the postType property.
      */
-    public set postType(value: PostType | undefined) {
+    public set postType(value: PostType | AdminMember1 | undefined) {
         this._postType = value;
     };
     /**
@@ -93,7 +92,7 @@ export class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeObjectValue<ItemBody>("description", this.description);
-        writer.writeEnumValue<PostType>("postType", this.postType);
+        writer.writeObjectValue<PostType>("postType", this.postType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,5 +1,4 @@
-import {createDetailsInfoFromDiscriminatorValue} from './createDetailsInfoFromDiscriminatorValue';
-import {DetailsInfo} from './index';
+import {AdminMember1, DetailsInfo} from './index';
 import {ProvisioningResult} from './provisioningResult';
 import {ProvisioningStepType} from './provisioningStepType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -10,13 +9,13 @@ export class ProvisioningStep implements AdditionalDataHolder, Parsable {
     /** Summary of what occurred during the step. */
     private _description?: string | undefined;
     /** Details of what occurred during the step. */
-    private _details?: DetailsInfo | undefined;
+    private _details?: DetailsInfo | AdminMember1 | undefined;
     /** Name of the step. */
     private _name?: string | undefined;
     /** Type of step. Possible values are: import, scoping, matching, processing, referenceResolution, export, unknownFutureValue. */
-    private _provisioningStepType?: ProvisioningStepType | undefined;
+    private _provisioningStepType?: ProvisioningStepType | AdminMember1 | undefined;
     /** Status of the step. Possible values are: success, warning,  failure, skipped, unknownFutureValue. */
-    private _status?: ProvisioningResult | undefined;
+    private _status?: ProvisioningResult | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -53,7 +52,7 @@ export class ProvisioningStep implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the details property value. Details of what occurred during the step.
-     * @returns a detailsInfo
+     * @returns a admin
      */
     public get details() {
         return this._details;
@@ -62,7 +61,7 @@ export class ProvisioningStep implements AdditionalDataHolder, Parsable {
      * Sets the details property value. Details of what occurred during the step.
      * @param value Value to set for the details property.
      */
-    public set details(value: DetailsInfo | undefined) {
+    public set details(value: DetailsInfo | AdminMember1 | undefined) {
         this._details = value;
     };
     /**
@@ -74,8 +73,8 @@ export class ProvisioningStep implements AdditionalDataHolder, Parsable {
             "description": n => { this.description = n.getStringValue(); },
             "details": n => { this.details = n.getObjectValue<DetailsInfo>(createDetailsInfoFromDiscriminatorValue); },
             "name": n => { this.name = n.getStringValue(); },
-            "provisioningStepType": n => { this.provisioningStepType = n.getEnumValue<ProvisioningStepType>(ProvisioningStepType); },
-            "status": n => { this.status = n.getEnumValue<ProvisioningResult>(ProvisioningResult); },
+            "provisioningStepType": n => { this.provisioningStepType = n.getObjectValue<ProvisioningStepType>(createProvisioningStepTypeFromDiscriminatorValue); },
+            "status": n => { this.status = n.getObjectValue<ProvisioningResult>(createProvisioningResultFromDiscriminatorValue); },
         };
     };
     /**
@@ -94,7 +93,7 @@ export class ProvisioningStep implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the provisioningStepType property value. Type of step. Possible values are: import, scoping, matching, processing, referenceResolution, export, unknownFutureValue.
-     * @returns a provisioningStepType
+     * @returns a admin
      */
     public get provisioningStepType() {
         return this._provisioningStepType;
@@ -103,7 +102,7 @@ export class ProvisioningStep implements AdditionalDataHolder, Parsable {
      * Sets the provisioningStepType property value. Type of step. Possible values are: import, scoping, matching, processing, referenceResolution, export, unknownFutureValue.
      * @param value Value to set for the provisioningStepType property.
      */
-    public set provisioningStepType(value: ProvisioningStepType | undefined) {
+    public set provisioningStepType(value: ProvisioningStepType | AdminMember1 | undefined) {
         this._provisioningStepType = value;
     };
     /**
@@ -115,13 +114,13 @@ export class ProvisioningStep implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("description", this.description);
         writer.writeObjectValue<DetailsInfo>("details", this.details);
         writer.writeStringValue("name", this.name);
-        writer.writeEnumValue<ProvisioningStepType>("provisioningStepType", this.provisioningStepType);
-        writer.writeEnumValue<ProvisioningResult>("status", this.status);
+        writer.writeObjectValue<ProvisioningStepType>("provisioningStepType", this.provisioningStepType);
+        writer.writeObjectValue<ProvisioningResult>("status", this.status);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the status property value. Status of the step. Possible values are: success, warning,  failure, skipped, unknownFutureValue.
-     * @returns a provisioningResult
+     * @returns a admin
      */
     public get status() {
         return this._status;
@@ -130,7 +129,7 @@ export class ProvisioningStep implements AdditionalDataHolder, Parsable {
      * Sets the status property value. Status of the step. Possible values are: success, warning,  failure, skipped, unknownFutureValue.
      * @param value Value to set for the status property.
      */
-    public set status(value: ProvisioningResult | undefined) {
+    public set status(value: ProvisioningResult | AdminMember1 | undefined) {
         this._status = value;
     };
 }

@@ -1,35 +1,31 @@
 import {AccessPackageRequestState} from './accessPackageRequestState';
 import {AccessPackageRequestType} from './accessPackageRequestType';
-import {createAccessPackageAssignmentFromDiscriminatorValue} from './createAccessPackageAssignmentFromDiscriminatorValue';
-import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
-import {createAccessPackageSubjectFromDiscriminatorValue} from './createAccessPackageSubjectFromDiscriminatorValue';
-import {createEntitlementManagementScheduleFromDiscriminatorValue} from './createEntitlementManagementScheduleFromDiscriminatorValue';
-import {AccessPackage, AccessPackageAssignment, AccessPackageSubject, EntitlementManagementSchedule, Entity} from './index';
+import {AccessPackage, AccessPackageAssignment, AccessPackageSubject, AdminMember1, EntitlementManagementSchedule, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the admin singleton. */
 export class AccessPackageAssignmentRequest extends Entity implements Parsable {
     /** The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand. */
-    private _accessPackage?: AccessPackage | undefined;
+    private _accessPackage?: AccessPackage | AdminMember1 | undefined;
     /** For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand. */
-    private _assignment?: AccessPackageAssignment | undefined;
+    private _assignment?: AccessPackageAssignment | AdminMember1 | undefined;
     /** The date of the end of processing, either successful or failure, of a request. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _completedDateTime?: Date | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _createdDateTime?: Date | undefined;
     /** The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand. */
-    private _requestor?: AccessPackageSubject | undefined;
+    private _requestor?: AccessPackageSubject | AdminMember1 | undefined;
     /** One of UserAdd, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd or UserRemove. Read-only. */
-    private _requestType?: AccessPackageRequestType | undefined;
+    private _requestType?: AccessPackageRequestType | AdminMember1 | undefined;
     /** The range of dates that access is to be assigned to the requestor. Read-only. */
-    private _schedule?: EntitlementManagementSchedule | undefined;
+    private _schedule?: EntitlementManagementSchedule | AdminMember1 | undefined;
     /** The state of the request. The possible values are: submitted, pendingApproval, delivering, delivered, deliveryFailed, denied, scheduled, canceled, partiallyDelivered, unknownFutureValue. Read-only. */
-    private _state?: AccessPackageRequestState | undefined;
+    private _state?: AccessPackageRequestState | AdminMember1 | undefined;
     /** More information on the request processing status. Read-only. */
     private _status?: string | undefined;
     /**
      * Gets the accessPackage property value. The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand.
-     * @returns a accessPackage
+     * @returns a admin
      */
     public get accessPackage() {
         return this._accessPackage;
@@ -38,12 +34,12 @@ export class AccessPackageAssignmentRequest extends Entity implements Parsable {
      * Sets the accessPackage property value. The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand.
      * @param value Value to set for the accessPackage property.
      */
-    public set accessPackage(value: AccessPackage | undefined) {
+    public set accessPackage(value: AccessPackage | AdminMember1 | undefined) {
         this._accessPackage = value;
     };
     /**
      * Gets the assignment property value. For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.
-     * @returns a accessPackageAssignment
+     * @returns a admin
      */
     public get assignment() {
         return this._assignment;
@@ -52,7 +48,7 @@ export class AccessPackageAssignmentRequest extends Entity implements Parsable {
      * Sets the assignment property value. For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.
      * @param value Value to set for the assignment property.
      */
-    public set assignment(value: AccessPackageAssignment | undefined) {
+    public set assignment(value: AccessPackageAssignment | AdminMember1 | undefined) {
         this._assignment = value;
     };
     /**
@@ -100,15 +96,15 @@ export class AccessPackageAssignmentRequest extends Entity implements Parsable {
             "completedDateTime": n => { this.completedDateTime = n.getDateValue(); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "requestor": n => { this.requestor = n.getObjectValue<AccessPackageSubject>(createAccessPackageSubjectFromDiscriminatorValue); },
-            "requestType": n => { this.requestType = n.getEnumValue<AccessPackageRequestType>(AccessPackageRequestType); },
+            "requestType": n => { this.requestType = n.getObjectValue<AccessPackageRequestType>(createAccessPackageRequestTypeFromDiscriminatorValue); },
             "schedule": n => { this.schedule = n.getObjectValue<EntitlementManagementSchedule>(createEntitlementManagementScheduleFromDiscriminatorValue); },
-            "state": n => { this.state = n.getEnumValue<AccessPackageRequestState>(AccessPackageRequestState); },
+            "state": n => { this.state = n.getObjectValue<AccessPackageRequestState>(createAccessPackageRequestStateFromDiscriminatorValue); },
             "status": n => { this.status = n.getStringValue(); },
         };
     };
     /**
      * Gets the requestor property value. The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand.
-     * @returns a accessPackageSubject
+     * @returns a admin
      */
     public get requestor() {
         return this._requestor;
@@ -117,12 +113,12 @@ export class AccessPackageAssignmentRequest extends Entity implements Parsable {
      * Sets the requestor property value. The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand.
      * @param value Value to set for the requestor property.
      */
-    public set requestor(value: AccessPackageSubject | undefined) {
+    public set requestor(value: AccessPackageSubject | AdminMember1 | undefined) {
         this._requestor = value;
     };
     /**
      * Gets the requestType property value. One of UserAdd, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd or UserRemove. Read-only.
-     * @returns a accessPackageRequestType
+     * @returns a admin
      */
     public get requestType() {
         return this._requestType;
@@ -131,12 +127,12 @@ export class AccessPackageAssignmentRequest extends Entity implements Parsable {
      * Sets the requestType property value. One of UserAdd, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd or UserRemove. Read-only.
      * @param value Value to set for the requestType property.
      */
-    public set requestType(value: AccessPackageRequestType | undefined) {
+    public set requestType(value: AccessPackageRequestType | AdminMember1 | undefined) {
         this._requestType = value;
     };
     /**
      * Gets the schedule property value. The range of dates that access is to be assigned to the requestor. Read-only.
-     * @returns a entitlementManagementSchedule
+     * @returns a admin
      */
     public get schedule() {
         return this._schedule;
@@ -145,7 +141,7 @@ export class AccessPackageAssignmentRequest extends Entity implements Parsable {
      * Sets the schedule property value. The range of dates that access is to be assigned to the requestor. Read-only.
      * @param value Value to set for the schedule property.
      */
-    public set schedule(value: EntitlementManagementSchedule | undefined) {
+    public set schedule(value: EntitlementManagementSchedule | AdminMember1 | undefined) {
         this._schedule = value;
     };
     /**
@@ -160,14 +156,14 @@ export class AccessPackageAssignmentRequest extends Entity implements Parsable {
         writer.writeDateValue("completedDateTime", this.completedDateTime);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeObjectValue<AccessPackageSubject>("requestor", this.requestor);
-        writer.writeEnumValue<AccessPackageRequestType>("requestType", this.requestType);
+        writer.writeObjectValue<AccessPackageRequestType>("requestType", this.requestType);
         writer.writeObjectValue<EntitlementManagementSchedule>("schedule", this.schedule);
-        writer.writeEnumValue<AccessPackageRequestState>("state", this.state);
+        writer.writeObjectValue<AccessPackageRequestState>("state", this.state);
         writer.writeStringValue("status", this.status);
     };
     /**
      * Gets the state property value. The state of the request. The possible values are: submitted, pendingApproval, delivering, delivered, deliveryFailed, denied, scheduled, canceled, partiallyDelivered, unknownFutureValue. Read-only.
-     * @returns a accessPackageRequestState
+     * @returns a admin
      */
     public get state() {
         return this._state;
@@ -176,7 +172,7 @@ export class AccessPackageAssignmentRequest extends Entity implements Parsable {
      * Sets the state property value. The state of the request. The possible values are: submitted, pendingApproval, delivering, delivered, deliveryFailed, denied, scheduled, canceled, partiallyDelivered, unknownFutureValue. Read-only.
      * @param value Value to set for the state property.
      */
-    public set state(value: AccessPackageRequestState | undefined) {
+    public set state(value: AccessPackageRequestState | AdminMember1 | undefined) {
         this._state = value;
     };
     /**

@@ -1,18 +1,16 @@
-import {createWorkbookChartAxisFromDiscriminatorValue} from './createWorkbookChartAxisFromDiscriminatorValue';
-import {Entity, WorkbookChartAxis} from './index';
+import {AdminMember1, Entity, WorkbookChartAxis} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartAxes extends Entity implements Parsable {
     /** Represents the category axis in a chart. Read-only. */
-    private _categoryAxis?: WorkbookChartAxis | undefined;
+    private _categoryAxis?: WorkbookChartAxis | AdminMember1 | undefined;
     /** Represents the series axis of a 3-dimensional chart. Read-only. */
-    private _seriesAxis?: WorkbookChartAxis | undefined;
+    private _seriesAxis?: WorkbookChartAxis | AdminMember1 | undefined;
     /** Represents the value axis in an axis. Read-only. */
-    private _valueAxis?: WorkbookChartAxis | undefined;
+    private _valueAxis?: WorkbookChartAxis | AdminMember1 | undefined;
     /**
      * Gets the categoryAxis property value. Represents the category axis in a chart. Read-only.
-     * @returns a workbookChartAxis
+     * @returns a admin
      */
     public get categoryAxis() {
         return this._categoryAxis;
@@ -21,7 +19,7 @@ export class WorkbookChartAxes extends Entity implements Parsable {
      * Sets the categoryAxis property value. Represents the category axis in a chart. Read-only.
      * @param value Value to set for the categoryAxis property.
      */
-    public set categoryAxis(value: WorkbookChartAxis | undefined) {
+    public set categoryAxis(value: WorkbookChartAxis | AdminMember1 | undefined) {
         this._categoryAxis = value;
     };
     /**
@@ -54,7 +52,7 @@ export class WorkbookChartAxes extends Entity implements Parsable {
     };
     /**
      * Gets the seriesAxis property value. Represents the series axis of a 3-dimensional chart. Read-only.
-     * @returns a workbookChartAxis
+     * @returns a admin
      */
     public get seriesAxis() {
         return this._seriesAxis;
@@ -63,12 +61,12 @@ export class WorkbookChartAxes extends Entity implements Parsable {
      * Sets the seriesAxis property value. Represents the series axis of a 3-dimensional chart. Read-only.
      * @param value Value to set for the seriesAxis property.
      */
-    public set seriesAxis(value: WorkbookChartAxis | undefined) {
+    public set seriesAxis(value: WorkbookChartAxis | AdminMember1 | undefined) {
         this._seriesAxis = value;
     };
     /**
      * Gets the valueAxis property value. Represents the value axis in an axis. Read-only.
-     * @returns a workbookChartAxis
+     * @returns a admin
      */
     public get valueAxis() {
         return this._valueAxis;
@@ -77,7 +75,7 @@ export class WorkbookChartAxes extends Entity implements Parsable {
      * Sets the valueAxis property value. Represents the value axis in an axis. Read-only.
      * @param value Value to set for the valueAxis property.
      */
-    public set valueAxis(value: WorkbookChartAxis | undefined) {
+    public set valueAxis(value: WorkbookChartAxis | AdminMember1 | undefined) {
         this._valueAxis = value;
     };
 }

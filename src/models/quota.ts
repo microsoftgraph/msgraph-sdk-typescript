@@ -1,5 +1,4 @@
-import {createStoragePlanInformationFromDiscriminatorValue} from './createStoragePlanInformationFromDiscriminatorValue';
-import {StoragePlanInformation} from './index';
+import {AdminMember1, StoragePlanInformation} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Quota implements AdditionalDataHolder, Parsable {
@@ -12,7 +11,7 @@ export class Quota implements AdditionalDataHolder, Parsable {
     /** Enumeration value that indicates the state of the storage space. Read-only. */
     private _state?: string | undefined;
     /** Information about the drive's storage quota plans. Only in Personal OneDrive. */
-    private _storagePlanInformation?: StoragePlanInformation | undefined;
+    private _storagePlanInformation?: StoragePlanInformation | AdminMember1 | undefined;
     /** Total allowed storage space, in bytes. Read-only. */
     private _total?: number | undefined;
     /** Total space used, in bytes. Read-only. */
@@ -109,7 +108,7 @@ export class Quota implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the storagePlanInformation property value. Information about the drive's storage quota plans. Only in Personal OneDrive.
-     * @returns a storagePlanInformation
+     * @returns a admin
      */
     public get storagePlanInformation() {
         return this._storagePlanInformation;
@@ -118,7 +117,7 @@ export class Quota implements AdditionalDataHolder, Parsable {
      * Sets the storagePlanInformation property value. Information about the drive's storage quota plans. Only in Personal OneDrive.
      * @param value Value to set for the storagePlanInformation property.
      */
-    public set storagePlanInformation(value: StoragePlanInformation | undefined) {
+    public set storagePlanInformation(value: StoragePlanInformation | AdminMember1 | undefined) {
         this._storagePlanInformation = value;
     };
     /**

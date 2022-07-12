@@ -1,12 +1,11 @@
-import {createFileHashFromDiscriminatorValue} from './createFileHashFromDiscriminatorValue';
-import {FileHash} from './index';
+import {AdminMember1, FileHash} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class FileSecurityState implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Complex type containing file hashes (cryptographic and location-sensitive). */
-    private _fileHash?: FileHash | undefined;
+    private _fileHash?: FileHash | AdminMember1 | undefined;
     /** File name (without path). */
     private _name?: string | undefined;
     /** Full file path of the file/imageFile. */
@@ -35,7 +34,7 @@ export class FileSecurityState implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the fileHash property value. Complex type containing file hashes (cryptographic and location-sensitive).
-     * @returns a fileHash
+     * @returns a admin
      */
     public get fileHash() {
         return this._fileHash;
@@ -44,7 +43,7 @@ export class FileSecurityState implements AdditionalDataHolder, Parsable {
      * Sets the fileHash property value. Complex type containing file hashes (cryptographic and location-sensitive).
      * @param value Value to set for the fileHash property.
      */
-    public set fileHash(value: FileHash | undefined) {
+    public set fileHash(value: FileHash | AdminMember1 | undefined) {
         this._fileHash = value;
     };
     /**

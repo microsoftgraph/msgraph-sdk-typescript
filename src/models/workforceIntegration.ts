@@ -1,20 +1,18 @@
-import {createWorkforceIntegrationEncryptionFromDiscriminatorValue} from './createWorkforceIntegrationEncryptionFromDiscriminatorValue';
-import {ChangeTrackedEntity, WorkforceIntegrationEncryption} from './index';
+import {AdminMember1, ChangeTrackedEntity, WorkforceIntegrationEncryption} from './index';
 import {WorkforceIntegrationSupportedEntities} from './workforceIntegrationSupportedEntities';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the teamwork singleton. */
 export class WorkforceIntegration extends ChangeTrackedEntity implements Parsable {
     /** API version for the call back URL. Start with 1. */
     private _apiVersion?: number | undefined;
     /** Name of the workforce integration. */
     private _displayName?: string | undefined;
     /** The workforce integration encryption resource. */
-    private _encryption?: WorkforceIntegrationEncryption | undefined;
+    private _encryption?: WorkforceIntegrationEncryption | AdminMember1 | undefined;
     /** Indicates whether this workforce integration is currently active and available. */
     private _isActive?: boolean | undefined;
     /** This property has replaced supports in v1.0. We recommend that you use this property instead of supports. The supports property is still supported in beta for the time being. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase. */
-    private _supportedEntities?: WorkforceIntegrationSupportedEntities | undefined;
+    private _supportedEntities?: WorkforceIntegrationSupportedEntities | AdminMember1 | undefined;
     /** Workforce Integration URL for callbacks from the Shifts service. */
     private _url?: string | undefined;
     /**
@@ -32,7 +30,7 @@ export class WorkforceIntegration extends ChangeTrackedEntity implements Parsabl
         this._apiVersion = value;
     };
     /**
-     * Instantiates a new workforceIntegration and sets the default values.
+     * Instantiates a new WorkforceIntegration and sets the default values.
      */
     public constructor() {
         super();
@@ -53,7 +51,7 @@ export class WorkforceIntegration extends ChangeTrackedEntity implements Parsabl
     };
     /**
      * Gets the encryption property value. The workforce integration encryption resource.
-     * @returns a workforceIntegrationEncryption
+     * @returns a admin
      */
     public get encryption() {
         return this._encryption;
@@ -62,7 +60,7 @@ export class WorkforceIntegration extends ChangeTrackedEntity implements Parsabl
      * Sets the encryption property value. The workforce integration encryption resource.
      * @param value Value to set for the encryption property.
      */
-    public set encryption(value: WorkforceIntegrationEncryption | undefined) {
+    public set encryption(value: WorkforceIntegrationEncryption | AdminMember1 | undefined) {
         this._encryption = value;
     };
     /**
@@ -75,7 +73,7 @@ export class WorkforceIntegration extends ChangeTrackedEntity implements Parsabl
             "displayName": n => { this.displayName = n.getStringValue(); },
             "encryption": n => { this.encryption = n.getObjectValue<WorkforceIntegrationEncryption>(createWorkforceIntegrationEncryptionFromDiscriminatorValue); },
             "isActive": n => { this.isActive = n.getBooleanValue(); },
-            "supportedEntities": n => { this.supportedEntities = n.getEnumValue<WorkforceIntegrationSupportedEntities>(WorkforceIntegrationSupportedEntities); },
+            "supportedEntities": n => { this.supportedEntities = n.getObjectValue<WorkforceIntegrationSupportedEntities>(createWorkforceIntegrationSupportedEntitiesFromDiscriminatorValue); },
             "url": n => { this.url = n.getStringValue(); },
         };
     };
@@ -104,12 +102,12 @@ export class WorkforceIntegration extends ChangeTrackedEntity implements Parsabl
         writer.writeStringValue("displayName", this.displayName);
         writer.writeObjectValue<WorkforceIntegrationEncryption>("encryption", this.encryption);
         writer.writeBooleanValue("isActive", this.isActive);
-        writer.writeEnumValue<WorkforceIntegrationSupportedEntities>("supportedEntities", this.supportedEntities);
+        writer.writeObjectValue<WorkforceIntegrationSupportedEntities>("supportedEntities", this.supportedEntities);
         writer.writeStringValue("url", this.url);
     };
     /**
      * Gets the supportedEntities property value. This property has replaced supports in v1.0. We recommend that you use this property instead of supports. The supports property is still supported in beta for the time being. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.
-     * @returns a workforceIntegrationSupportedEntities
+     * @returns a admin
      */
     public get supportedEntities() {
         return this._supportedEntities;
@@ -118,7 +116,7 @@ export class WorkforceIntegration extends ChangeTrackedEntity implements Parsabl
      * Sets the supportedEntities property value. This property has replaced supports in v1.0. We recommend that you use this property instead of supports. The supports property is still supported in beta for the time being. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.
      * @param value Value to set for the supportedEntities property.
      */
-    public set supportedEntities(value: WorkforceIntegrationSupportedEntities | undefined) {
+    public set supportedEntities(value: WorkforceIntegrationSupportedEntities | AdminMember1 | undefined) {
         this._supportedEntities = value;
     };
     /**

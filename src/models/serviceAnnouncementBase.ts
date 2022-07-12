@@ -1,11 +1,10 @@
-import {createKeyValuePairFromDiscriminatorValue} from './createKeyValuePairFromDiscriminatorValue';
-import {Entity, KeyValuePair} from './index';
+import {AdminMember1, Entity, KeyValuePair} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the admin singleton. */
 export class ServiceAnnouncementBase extends Entity implements Parsable {
     /** Additional details about service event. This property doesn't support filters. */
-    private _details?: KeyValuePair[] | undefined;
+    private _details?: KeyValuePair | AdminMember1[] | undefined;
     /** The end time of the service event. */
     private _endDateTime?: Date | undefined;
     /** The last modified time of the service event. */
@@ -19,10 +18,11 @@ export class ServiceAnnouncementBase extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.serviceAnnouncementBase";
     };
     /**
      * Gets the details property value. Additional details about service event. This property doesn't support filters.
-     * @returns a keyValuePair
+     * @returns a admin
      */
     public get details() {
         return this._details;
@@ -31,7 +31,7 @@ export class ServiceAnnouncementBase extends Entity implements Parsable {
      * Sets the details property value. Additional details about service event. This property doesn't support filters.
      * @param value Value to set for the details property.
      */
-    public set details(value: KeyValuePair[] | undefined) {
+    public set details(value: KeyValuePair | AdminMember1[] | undefined) {
         this._details = value;
     };
     /**
@@ -54,7 +54,7 @@ export class ServiceAnnouncementBase extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "details": n => { this.details = n.getCollectionOfObjectValues<KeyValuePair>(createKeyValuePairFromDiscriminatorValue); },
+            "details": n => { this.details = n.getObjectValue<KeyValuePair>(createKeyValuePairFromDiscriminatorValue); },
             "endDateTime": n => { this.endDateTime = n.getDateValue(); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
@@ -82,7 +82,7 @@ export class ServiceAnnouncementBase extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfObjectValues<KeyValuePair>("details", this.details);
+        writer.writeObjectValue<KeyValuePair>("details", this.details);
         writer.writeDateValue("endDateTime", this.endDateTime);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeDateValue("startDateTime", this.startDateTime);

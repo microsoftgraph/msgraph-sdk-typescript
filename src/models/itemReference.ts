@@ -1,5 +1,4 @@
-import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFromDiscriminatorValue';
-import {SharepointIds} from './index';
+import {AdminMember1, SharepointIds} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ItemReference implements AdditionalDataHolder, Parsable {
@@ -18,7 +17,7 @@ export class ItemReference implements AdditionalDataHolder, Parsable {
     /** A unique identifier for a shared resource that can be accessed via the [Shares][] API. */
     private _shareId?: string | undefined;
     /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
-    private _sharepointIds?: SharepointIds | undefined;
+    private _sharepointIds?: SharepointIds | AdminMember1 | undefined;
     /** For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource. The value is the same as the id property of that [site][] resource. It is an opaque string that consists of three identifiers of the site. For OneDrive, this property is not populated. */
     private _siteId?: string | undefined;
     /**
@@ -159,7 +158,7 @@ export class ItemReference implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
-     * @returns a sharepointIds
+     * @returns a admin
      */
     public get sharepointIds() {
         return this._sharepointIds;
@@ -168,7 +167,7 @@ export class ItemReference implements AdditionalDataHolder, Parsable {
      * Sets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
      * @param value Value to set for the sharepointIds property.
      */
-    public set sharepointIds(value: SharepointIds | undefined) {
+    public set sharepointIds(value: SharepointIds | AdminMember1 | undefined) {
         this._sharepointIds = value;
     };
     /**

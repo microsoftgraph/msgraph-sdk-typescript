@@ -1,15 +1,13 @@
-import {createAppIdentityFromDiscriminatorValue} from './createAppIdentityFromDiscriminatorValue';
-import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFromDiscriminatorValue';
-import {AppIdentity, UserIdentity} from './index';
+import {AdminMember1, AppIdentity, UserIdentity} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AuditActivityInitiator implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName. */
-    private _app?: AppIdentity | undefined;
+    private _app?: AppIdentity | AdminMember1 | undefined;
     /** If the actor initiating the activity is a user, this property indicates their identification information including their id, displayName, and userPrincipalName. */
-    private _user?: UserIdentity | undefined;
+    private _user?: UserIdentity | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -26,7 +24,7 @@ export class AuditActivityInitiator implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the app property value. If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName.
-     * @returns a appIdentity
+     * @returns a admin
      */
     public get app() {
         return this._app;
@@ -35,7 +33,7 @@ export class AuditActivityInitiator implements AdditionalDataHolder, Parsable {
      * Sets the app property value. If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName.
      * @param value Value to set for the app property.
      */
-    public set app(value: AppIdentity | undefined) {
+    public set app(value: AppIdentity | AdminMember1 | undefined) {
         this._app = value;
     };
     /**
@@ -66,7 +64,7 @@ export class AuditActivityInitiator implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the user property value. If the actor initiating the activity is a user, this property indicates their identification information including their id, displayName, and userPrincipalName.
-     * @returns a userIdentity
+     * @returns a admin
      */
     public get user() {
         return this._user;
@@ -75,7 +73,7 @@ export class AuditActivityInitiator implements AdditionalDataHolder, Parsable {
      * Sets the user property value. If the actor initiating the activity is a user, this property indicates their identification information including their id, displayName, and userPrincipalName.
      * @param value Value to set for the user property.
      */
-    public set user(value: UserIdentity | undefined) {
+    public set user(value: UserIdentity | AdminMember1 | undefined) {
         this._user = value;
     };
 }

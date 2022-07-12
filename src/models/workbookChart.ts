@@ -1,42 +1,36 @@
-import {createWorkbookChartAreaFormatFromDiscriminatorValue} from './createWorkbookChartAreaFormatFromDiscriminatorValue';
-import {createWorkbookChartAxesFromDiscriminatorValue} from './createWorkbookChartAxesFromDiscriminatorValue';
-import {createWorkbookChartDataLabelsFromDiscriminatorValue} from './createWorkbookChartDataLabelsFromDiscriminatorValue';
-import {createWorkbookChartLegendFromDiscriminatorValue} from './createWorkbookChartLegendFromDiscriminatorValue';
 import {createWorkbookChartSeriesFromDiscriminatorValue} from './createWorkbookChartSeriesFromDiscriminatorValue';
-import {createWorkbookChartTitleFromDiscriminatorValue} from './createWorkbookChartTitleFromDiscriminatorValue';
-import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWorksheetFromDiscriminatorValue';
-import {Entity, WorkbookChartAreaFormat, WorkbookChartAxes, WorkbookChartDataLabels, WorkbookChartLegend, WorkbookChartSeries, WorkbookChartTitle, WorkbookWorksheet} from './index';
+import {AdminMember1, Entity, WorkbookChartAreaFormat, WorkbookChartAxes, WorkbookChartDataLabels, WorkbookChartLegend, WorkbookChartSeries, WorkbookChartTitle, WorkbookWorksheet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookChart extends Entity implements Parsable {
     /** Represents chart axes. Read-only. */
-    private _axes?: WorkbookChartAxes | undefined;
+    private _axes?: WorkbookChartAxes | AdminMember1 | undefined;
     /** Represents the datalabels on the chart. Read-only. */
-    private _dataLabels?: WorkbookChartDataLabels | undefined;
+    private _dataLabels?: WorkbookChartDataLabels | AdminMember1 | undefined;
     /** Encapsulates the format properties for the chart area. Read-only. */
-    private _format?: WorkbookChartAreaFormat | undefined;
+    private _format?: WorkbookChartAreaFormat | AdminMember1 | undefined;
     /** Represents the height, in points, of the chart object. */
     private _height?: number | undefined;
     /** The distance, in points, from the left side of the chart to the worksheet origin. */
     private _left?: number | undefined;
     /** Represents the legend for the chart. Read-only. */
-    private _legend?: WorkbookChartLegend | undefined;
+    private _legend?: WorkbookChartLegend | AdminMember1 | undefined;
     /** Represents the name of a chart object. */
     private _name?: string | undefined;
     /** Represents either a single series or collection of series in the chart. Read-only. */
     private _series?: WorkbookChartSeries[] | undefined;
     /** Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only. */
-    private _title?: WorkbookChartTitle | undefined;
+    private _title?: WorkbookChartTitle | AdminMember1 | undefined;
     /** Represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart). */
     private _top?: number | undefined;
     /** Represents the width, in points, of the chart object. */
     private _width?: number | undefined;
     /** The worksheet containing the current chart. Read-only. */
-    private _worksheet?: WorkbookWorksheet | undefined;
+    private _worksheet?: WorkbookWorksheet | AdminMember1 | undefined;
     /**
      * Gets the axes property value. Represents chart axes. Read-only.
-     * @returns a workbookChartAxes
+     * @returns a admin
      */
     public get axes() {
         return this._axes;
@@ -45,7 +39,7 @@ export class WorkbookChart extends Entity implements Parsable {
      * Sets the axes property value. Represents chart axes. Read-only.
      * @param value Value to set for the axes property.
      */
-    public set axes(value: WorkbookChartAxes | undefined) {
+    public set axes(value: WorkbookChartAxes | AdminMember1 | undefined) {
         this._axes = value;
     };
     /**
@@ -56,7 +50,7 @@ export class WorkbookChart extends Entity implements Parsable {
     };
     /**
      * Gets the dataLabels property value. Represents the datalabels on the chart. Read-only.
-     * @returns a workbookChartDataLabels
+     * @returns a admin
      */
     public get dataLabels() {
         return this._dataLabels;
@@ -65,12 +59,12 @@ export class WorkbookChart extends Entity implements Parsable {
      * Sets the dataLabels property value. Represents the datalabels on the chart. Read-only.
      * @param value Value to set for the dataLabels property.
      */
-    public set dataLabels(value: WorkbookChartDataLabels | undefined) {
+    public set dataLabels(value: WorkbookChartDataLabels | AdminMember1 | undefined) {
         this._dataLabels = value;
     };
     /**
      * Gets the format property value. Encapsulates the format properties for the chart area. Read-only.
-     * @returns a workbookChartAreaFormat
+     * @returns a admin
      */
     public get format() {
         return this._format;
@@ -79,7 +73,7 @@ export class WorkbookChart extends Entity implements Parsable {
      * Sets the format property value. Encapsulates the format properties for the chart area. Read-only.
      * @param value Value to set for the format property.
      */
-    public set format(value: WorkbookChartAreaFormat | undefined) {
+    public set format(value: WorkbookChartAreaFormat | AdminMember1 | undefined) {
         this._format = value;
     };
     /**
@@ -132,7 +126,7 @@ export class WorkbookChart extends Entity implements Parsable {
     };
     /**
      * Gets the legend property value. Represents the legend for the chart. Read-only.
-     * @returns a workbookChartLegend
+     * @returns a admin
      */
     public get legend() {
         return this._legend;
@@ -141,7 +135,7 @@ export class WorkbookChart extends Entity implements Parsable {
      * Sets the legend property value. Represents the legend for the chart. Read-only.
      * @param value Value to set for the legend property.
      */
-    public set legend(value: WorkbookChartLegend | undefined) {
+    public set legend(value: WorkbookChartLegend | AdminMember1 | undefined) {
         this._legend = value;
     };
     /**
@@ -194,7 +188,7 @@ export class WorkbookChart extends Entity implements Parsable {
     };
     /**
      * Gets the title property value. Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only.
-     * @returns a workbookChartTitle
+     * @returns a admin
      */
     public get title() {
         return this._title;
@@ -203,7 +197,7 @@ export class WorkbookChart extends Entity implements Parsable {
      * Sets the title property value. Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only.
      * @param value Value to set for the title property.
      */
-    public set title(value: WorkbookChartTitle | undefined) {
+    public set title(value: WorkbookChartTitle | AdminMember1 | undefined) {
         this._title = value;
     };
     /**
@@ -236,7 +230,7 @@ export class WorkbookChart extends Entity implements Parsable {
     };
     /**
      * Gets the worksheet property value. The worksheet containing the current chart. Read-only.
-     * @returns a workbookWorksheet
+     * @returns a admin
      */
     public get worksheet() {
         return this._worksheet;
@@ -245,7 +239,7 @@ export class WorkbookChart extends Entity implements Parsable {
      * Sets the worksheet property value. The worksheet containing the current chart. Read-only.
      * @param value Value to set for the worksheet property.
      */
-    public set worksheet(value: WorkbookWorksheet | undefined) {
+    public set worksheet(value: WorkbookWorksheet | AdminMember1 | undefined) {
         this._worksheet = value;
     };
 }

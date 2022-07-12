@@ -1,11 +1,9 @@
-import {createWorkbookChartGridlinesFormatFromDiscriminatorValue} from './createWorkbookChartGridlinesFormatFromDiscriminatorValue';
-import {Entity, WorkbookChartGridlinesFormat} from './index';
+import {AdminMember1, Entity, WorkbookChartGridlinesFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartGridlines extends Entity implements Parsable {
     /** Represents the formatting of chart gridlines. Read-only. */
-    private _format?: WorkbookChartGridlinesFormat | undefined;
+    private _format?: WorkbookChartGridlinesFormat | AdminMember1 | undefined;
     /** Boolean value representing if the axis gridlines are visible or not. */
     private _visible?: boolean | undefined;
     /**
@@ -16,7 +14,7 @@ export class WorkbookChartGridlines extends Entity implements Parsable {
     };
     /**
      * Gets the format property value. Represents the formatting of chart gridlines. Read-only.
-     * @returns a workbookChartGridlinesFormat
+     * @returns a admin
      */
     public get format() {
         return this._format;
@@ -25,7 +23,7 @@ export class WorkbookChartGridlines extends Entity implements Parsable {
      * Sets the format property value. Represents the formatting of chart gridlines. Read-only.
      * @param value Value to set for the format property.
      */
-    public set format(value: WorkbookChartGridlinesFormat | undefined) {
+    public set format(value: WorkbookChartGridlinesFormat | AdminMember1 | undefined) {
         this._format = value;
     };
     /**

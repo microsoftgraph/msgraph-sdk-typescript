@@ -1,18 +1,16 @@
-import {createShiftActivityFromDiscriminatorValue} from './createShiftActivityFromDiscriminatorValue';
-import {ScheduleEntity, ShiftActivity} from './index';
+import {AdminMember1, ScheduleEntity, ShiftActivity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class ShiftItem extends ScheduleEntity implements Parsable {
     /** An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required. */
-    private _activities?: ShiftActivity[] | undefined;
+    private _activities?: ShiftActivity | AdminMember1[] | undefined;
     /** The shift label of the shiftItem. */
     private _displayName?: string | undefined;
     /** The shift notes for the shiftItem. */
     private _notes?: string | undefined;
     /**
      * Gets the activities property value. An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
-     * @returns a shiftActivity
+     * @returns a admin
      */
     public get activities() {
         return this._activities;
@@ -21,14 +19,15 @@ export class ShiftItem extends ScheduleEntity implements Parsable {
      * Sets the activities property value. An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
      * @param value Value to set for the activities property.
      */
-    public set activities(value: ShiftActivity[] | undefined) {
+    public set activities(value: ShiftActivity | AdminMember1[] | undefined) {
         this._activities = value;
     };
     /**
-     * Instantiates a new shiftItem and sets the default values.
+     * Instantiates a new ShiftItem and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.shiftItem";
     };
     /**
      * Gets the displayName property value. The shift label of the shiftItem.
@@ -50,7 +49,7 @@ export class ShiftItem extends ScheduleEntity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "activities": n => { this.activities = n.getCollectionOfObjectValues<ShiftActivity>(createShiftActivityFromDiscriminatorValue); },
+            "activities": n => { this.activities = n.getObjectValue<ShiftActivity>(createShiftActivityFromDiscriminatorValue); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "notes": n => { this.notes = n.getStringValue(); },
         };
@@ -76,7 +75,7 @@ export class ShiftItem extends ScheduleEntity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfObjectValues<ShiftActivity>("activities", this.activities);
+        writer.writeObjectValue<ShiftActivity>("activities", this.activities);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("notes", this.notes);
     };

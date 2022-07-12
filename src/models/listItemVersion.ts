@@ -1,20 +1,18 @@
-import {createFieldValueSetFromDiscriminatorValue} from './createFieldValueSetFromDiscriminatorValue';
-import {BaseItemVersion, FieldValueSet} from './index';
+import {AdminMember1, BaseItemVersion, FieldValueSet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class ListItemVersion extends BaseItemVersion implements Parsable {
     /** A collection of the fields and values for this version of the list item. */
-    private _fields?: FieldValueSet | undefined;
+    private _fields?: FieldValueSet | AdminMember1 | undefined;
     /**
-     * Instantiates a new listItemVersion and sets the default values.
+     * Instantiates a new ListItemVersion and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
      * Gets the fields property value. A collection of the fields and values for this version of the list item.
-     * @returns a fieldValueSet
+     * @returns a admin
      */
     public get fields() {
         return this._fields;
@@ -23,7 +21,7 @@ export class ListItemVersion extends BaseItemVersion implements Parsable {
      * Sets the fields property value. A collection of the fields and values for this version of the list item.
      * @param value Value to set for the fields property.
      */
-    public set fields(value: FieldValueSet | undefined) {
+    public set fields(value: FieldValueSet | AdminMember1 | undefined) {
         this._fields = value;
     };
     /**

@@ -1,5 +1,6 @@
 import {AlertFeedback} from './alertFeedback';
 import {AlertStatus} from './alertStatus';
+import {AdminMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AlertHistoryState implements AdditionalDataHolder, Parsable {
@@ -12,9 +13,9 @@ export class AlertHistoryState implements AdditionalDataHolder, Parsable {
     /** Comment entered by signed-in user. */
     private _comments?: string[] | undefined;
     /** Analyst feedback on the alert in this update. Possible values are: unknown, truePositive, falsePositive, benignPositive. */
-    private _feedback?: AlertFeedback | undefined;
+    private _feedback?: AlertFeedback | AdminMember1 | undefined;
     /** Alert status value (if updated). Possible values are: unknown, newAlert, inProgress, resolved, dismissed. */
-    private _status?: AlertStatus | undefined;
+    private _status?: AlertStatus | AdminMember1 | undefined;
     /** Date and time of the alert update. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _updatedDateTime?: Date | undefined;
     /** UPN of the signed-in user that updated the alert (taken from the bearer token - if in user/delegated auth mode). */
@@ -83,7 +84,7 @@ export class AlertHistoryState implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the feedback property value. Analyst feedback on the alert in this update. Possible values are: unknown, truePositive, falsePositive, benignPositive.
-     * @returns a alertFeedback
+     * @returns a admin
      */
     public get feedback() {
         return this._feedback;
@@ -92,7 +93,7 @@ export class AlertHistoryState implements AdditionalDataHolder, Parsable {
      * Sets the feedback property value. Analyst feedback on the alert in this update. Possible values are: unknown, truePositive, falsePositive, benignPositive.
      * @param value Value to set for the feedback property.
      */
-    public set feedback(value: AlertFeedback | undefined) {
+    public set feedback(value: AlertFeedback | AdminMember1 | undefined) {
         this._feedback = value;
     };
     /**
@@ -104,8 +105,8 @@ export class AlertHistoryState implements AdditionalDataHolder, Parsable {
             "appId": n => { this.appId = n.getStringValue(); },
             "assignedTo": n => { this.assignedTo = n.getStringValue(); },
             "comments": n => { this.comments = n.getCollectionOfPrimitiveValues<string>(); },
-            "feedback": n => { this.feedback = n.getEnumValue<AlertFeedback>(AlertFeedback); },
-            "status": n => { this.status = n.getEnumValue<AlertStatus>(AlertStatus); },
+            "feedback": n => { this.feedback = n.getObjectValue<AlertFeedback>(createAlertFeedbackFromDiscriminatorValue); },
+            "status": n => { this.status = n.getObjectValue<AlertStatus>(createAlertStatusFromDiscriminatorValue); },
             "updatedDateTime": n => { this.updatedDateTime = n.getDateValue(); },
             "user": n => { this.user = n.getStringValue(); },
         };
@@ -119,15 +120,15 @@ export class AlertHistoryState implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("appId", this.appId);
         writer.writeStringValue("assignedTo", this.assignedTo);
         writer.writeCollectionOfPrimitiveValues<string>("comments", this.comments);
-        writer.writeEnumValue<AlertFeedback>("feedback", this.feedback);
-        writer.writeEnumValue<AlertStatus>("status", this.status);
+        writer.writeObjectValue<AlertFeedback>("feedback", this.feedback);
+        writer.writeObjectValue<AlertStatus>("status", this.status);
         writer.writeDateValue("updatedDateTime", this.updatedDateTime);
         writer.writeStringValue("user", this.user);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the status property value. Alert status value (if updated). Possible values are: unknown, newAlert, inProgress, resolved, dismissed.
-     * @returns a alertStatus
+     * @returns a admin
      */
     public get status() {
         return this._status;
@@ -136,7 +137,7 @@ export class AlertHistoryState implements AdditionalDataHolder, Parsable {
      * Sets the status property value. Alert status value (if updated). Possible values are: unknown, newAlert, inProgress, resolved, dismissed.
      * @param value Value to set for the status property.
      */
-    public set status(value: AlertStatus | undefined) {
+    public set status(value: AlertStatus | AdminMember1 | undefined) {
         this._status = value;
     };
     /**

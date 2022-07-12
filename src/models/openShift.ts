@@ -1,24 +1,22 @@
-import {createOpenShiftItemFromDiscriminatorValue} from './createOpenShiftItemFromDiscriminatorValue';
-import {ChangeTrackedEntity, OpenShiftItem} from './index';
+import {AdminMember1, ChangeTrackedEntity, OpenShiftItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class OpenShift extends ChangeTrackedEntity implements Parsable {
     /** An unpublished open shift. */
-    private _draftOpenShift?: OpenShiftItem | undefined;
+    private _draftOpenShift?: OpenShiftItem | AdminMember1 | undefined;
     /** ID for the scheduling group that the open shift belongs to. */
     private _schedulingGroupId?: string | undefined;
     /** A published open shift. */
-    private _sharedOpenShift?: OpenShiftItem | undefined;
+    private _sharedOpenShift?: OpenShiftItem | AdminMember1 | undefined;
     /**
-     * Instantiates a new openShift and sets the default values.
+     * Instantiates a new OpenShift and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
      * Gets the draftOpenShift property value. An unpublished open shift.
-     * @returns a openShiftItem
+     * @returns a admin
      */
     public get draftOpenShift() {
         return this._draftOpenShift;
@@ -27,7 +25,7 @@ export class OpenShift extends ChangeTrackedEntity implements Parsable {
      * Sets the draftOpenShift property value. An unpublished open shift.
      * @param value Value to set for the draftOpenShift property.
      */
-    public set draftOpenShift(value: OpenShiftItem | undefined) {
+    public set draftOpenShift(value: OpenShiftItem | AdminMember1 | undefined) {
         this._draftOpenShift = value;
     };
     /**
@@ -68,7 +66,7 @@ export class OpenShift extends ChangeTrackedEntity implements Parsable {
     };
     /**
      * Gets the sharedOpenShift property value. A published open shift.
-     * @returns a openShiftItem
+     * @returns a admin
      */
     public get sharedOpenShift() {
         return this._sharedOpenShift;
@@ -77,7 +75,7 @@ export class OpenShift extends ChangeTrackedEntity implements Parsable {
      * Sets the sharedOpenShift property value. A published open shift.
      * @param value Value to set for the sharedOpenShift property.
      */
-    public set sharedOpenShift(value: OpenShiftItem | undefined) {
+    public set sharedOpenShift(value: OpenShiftItem | AdminMember1 | undefined) {
         this._sharedOpenShift = value;
     };
 }

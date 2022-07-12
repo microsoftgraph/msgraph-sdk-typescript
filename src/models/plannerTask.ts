@@ -1,44 +1,37 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createPlannerAppliedCategoriesFromDiscriminatorValue} from './createPlannerAppliedCategoriesFromDiscriminatorValue';
-import {createPlannerAssignedToTaskBoardTaskFormatFromDiscriminatorValue} from './createPlannerAssignedToTaskBoardTaskFormatFromDiscriminatorValue';
-import {createPlannerAssignmentsFromDiscriminatorValue} from './createPlannerAssignmentsFromDiscriminatorValue';
-import {createPlannerBucketTaskBoardTaskFormatFromDiscriminatorValue} from './createPlannerBucketTaskBoardTaskFormatFromDiscriminatorValue';
-import {createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue} from './createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue';
-import {createPlannerTaskDetailsFromDiscriminatorValue} from './createPlannerTaskDetailsFromDiscriminatorValue';
-import {Entity, IdentitySet, PlannerAppliedCategories, PlannerAssignedToTaskBoardTaskFormat, PlannerAssignments, PlannerBucketTaskBoardTaskFormat, PlannerProgressTaskBoardTaskFormat, PlannerTaskDetails} from './index';
+import {AdminMember1, Entity, IdentitySet, PlannerAppliedCategories, PlannerAssignedToTaskBoardTaskFormat, PlannerAssignments, PlannerBucketTaskBoardTaskFormat, PlannerProgressTaskBoardTaskFormat, PlannerTaskDetails} from './index';
 import {PlannerPreviewType} from './plannerPreviewType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class PlannerTask extends Entity implements Parsable {
     /** Number of checklist items with value set to false, representing incomplete items. */
     private _activeChecklistItemCount?: number | undefined;
     /** The categories to which the task has been applied. See applied Categories for possible values. */
-    private _appliedCategories?: PlannerAppliedCategories | undefined;
+    private _appliedCategories?: PlannerAppliedCategories | AdminMember1 | undefined;
     /** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo. */
-    private _assignedToTaskBoardFormat?: PlannerAssignedToTaskBoardTaskFormat | undefined;
+    private _assignedToTaskBoardFormat?: PlannerAssignedToTaskBoardTaskFormat | AdminMember1 | undefined;
     /** Hint used to order items of this type in a list view. The format is defined as outlined here. */
     private _assigneePriority?: string | undefined;
     /** The set of assignees the task is assigned to. */
-    private _assignments?: PlannerAssignments | undefined;
+    private _assignments?: PlannerAssignments | AdminMember1 | undefined;
     /** Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service. */
     private _bucketId?: string | undefined;
     /** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket. */
-    private _bucketTaskBoardFormat?: PlannerBucketTaskBoardTaskFormat | undefined;
+    private _bucketTaskBoardFormat?: PlannerBucketTaskBoardTaskFormat | AdminMember1 | undefined;
     /** Number of checklist items that are present on the task. */
     private _checklistItemCount?: number | undefined;
     /** Identity of the user that completed the task. */
-    private _completedBy?: IdentitySet | undefined;
+    private _completedBy?: IdentitySet | AdminMember1 | undefined;
     /** Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _completedDateTime?: Date | undefined;
     /** Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group. */
     private _conversationThreadId?: string | undefined;
     /** Identity of the user that created the task. */
-    private _createdBy?: IdentitySet | undefined;
+    private _createdBy?: IdentitySet | AdminMember1 | undefined;
     /** Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _createdDateTime?: Date | undefined;
     /** Read-only. Nullable. Additional details about the task. */
-    private _details?: PlannerTaskDetails | undefined;
+    private _details?: PlannerTaskDetails | AdminMember1 | undefined;
     /** Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _dueDateTime?: Date | undefined;
     /** Read-only. Value is true if the details object of the task has a non-empty description and false otherwise. */
@@ -50,11 +43,11 @@ export class PlannerTask extends Entity implements Parsable {
     /** Plan ID to which the task belongs. */
     private _planId?: string | undefined;
     /** This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. */
-    private _previewType?: PlannerPreviewType | undefined;
+    private _previewType?: PlannerPreviewType | AdminMember1 | undefined;
     /** Priority of the task. Valid range of values is between 0 and 10 (inclusive), with increasing value being lower priority (0 has the highest priority and 10 has the lowest priority).  Currently, Planner interprets values 0 and 1 as 'urgent', 2 and 3 and 4 as 'important', 5, 6, and 7 as 'medium', and 8, 9, and 10 as 'low'.  Currently, Planner sets the value 1 for 'urgent', 3 for 'important', 5 for 'medium', and 9 for 'low'. */
     private _priority?: number | undefined;
     /** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress. */
-    private _progressTaskBoardFormat?: PlannerProgressTaskBoardTaskFormat | undefined;
+    private _progressTaskBoardFormat?: PlannerProgressTaskBoardTaskFormat | AdminMember1 | undefined;
     /** Number of external references that exist on the task. */
     private _referenceCount?: number | undefined;
     /** Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
@@ -77,7 +70,7 @@ export class PlannerTask extends Entity implements Parsable {
     };
     /**
      * Gets the appliedCategories property value. The categories to which the task has been applied. See applied Categories for possible values.
-     * @returns a plannerAppliedCategories
+     * @returns a admin
      */
     public get appliedCategories() {
         return this._appliedCategories;
@@ -86,12 +79,12 @@ export class PlannerTask extends Entity implements Parsable {
      * Sets the appliedCategories property value. The categories to which the task has been applied. See applied Categories for possible values.
      * @param value Value to set for the appliedCategories property.
      */
-    public set appliedCategories(value: PlannerAppliedCategories | undefined) {
+    public set appliedCategories(value: PlannerAppliedCategories | AdminMember1 | undefined) {
         this._appliedCategories = value;
     };
     /**
      * Gets the assignedToTaskBoardFormat property value. Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.
-     * @returns a plannerAssignedToTaskBoardTaskFormat
+     * @returns a admin
      */
     public get assignedToTaskBoardFormat() {
         return this._assignedToTaskBoardFormat;
@@ -100,7 +93,7 @@ export class PlannerTask extends Entity implements Parsable {
      * Sets the assignedToTaskBoardFormat property value. Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.
      * @param value Value to set for the assignedToTaskBoardFormat property.
      */
-    public set assignedToTaskBoardFormat(value: PlannerAssignedToTaskBoardTaskFormat | undefined) {
+    public set assignedToTaskBoardFormat(value: PlannerAssignedToTaskBoardTaskFormat | AdminMember1 | undefined) {
         this._assignedToTaskBoardFormat = value;
     };
     /**
@@ -119,7 +112,7 @@ export class PlannerTask extends Entity implements Parsable {
     };
     /**
      * Gets the assignments property value. The set of assignees the task is assigned to.
-     * @returns a plannerAssignments
+     * @returns a admin
      */
     public get assignments() {
         return this._assignments;
@@ -128,7 +121,7 @@ export class PlannerTask extends Entity implements Parsable {
      * Sets the assignments property value. The set of assignees the task is assigned to.
      * @param value Value to set for the assignments property.
      */
-    public set assignments(value: PlannerAssignments | undefined) {
+    public set assignments(value: PlannerAssignments | AdminMember1 | undefined) {
         this._assignments = value;
     };
     /**
@@ -147,7 +140,7 @@ export class PlannerTask extends Entity implements Parsable {
     };
     /**
      * Gets the bucketTaskBoardFormat property value. Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket.
-     * @returns a plannerBucketTaskBoardTaskFormat
+     * @returns a admin
      */
     public get bucketTaskBoardFormat() {
         return this._bucketTaskBoardFormat;
@@ -156,7 +149,7 @@ export class PlannerTask extends Entity implements Parsable {
      * Sets the bucketTaskBoardFormat property value. Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket.
      * @param value Value to set for the bucketTaskBoardFormat property.
      */
-    public set bucketTaskBoardFormat(value: PlannerBucketTaskBoardTaskFormat | undefined) {
+    public set bucketTaskBoardFormat(value: PlannerBucketTaskBoardTaskFormat | AdminMember1 | undefined) {
         this._bucketTaskBoardFormat = value;
     };
     /**
@@ -175,7 +168,7 @@ export class PlannerTask extends Entity implements Parsable {
     };
     /**
      * Gets the completedBy property value. Identity of the user that completed the task.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get completedBy() {
         return this._completedBy;
@@ -184,7 +177,7 @@ export class PlannerTask extends Entity implements Parsable {
      * Sets the completedBy property value. Identity of the user that completed the task.
      * @param value Value to set for the completedBy property.
      */
-    public set completedBy(value: IdentitySet | undefined) {
+    public set completedBy(value: IdentitySet | AdminMember1 | undefined) {
         this._completedBy = value;
     };
     /**
@@ -223,7 +216,7 @@ export class PlannerTask extends Entity implements Parsable {
     };
     /**
      * Gets the createdBy property value. Identity of the user that created the task.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get createdBy() {
         return this._createdBy;
@@ -232,7 +225,7 @@ export class PlannerTask extends Entity implements Parsable {
      * Sets the createdBy property value. Identity of the user that created the task.
      * @param value Value to set for the createdBy property.
      */
-    public set createdBy(value: IdentitySet | undefined) {
+    public set createdBy(value: IdentitySet | AdminMember1 | undefined) {
         this._createdBy = value;
     };
     /**
@@ -251,7 +244,7 @@ export class PlannerTask extends Entity implements Parsable {
     };
     /**
      * Gets the details property value. Read-only. Nullable. Additional details about the task.
-     * @returns a plannerTaskDetails
+     * @returns a admin
      */
     public get details() {
         return this._details;
@@ -260,7 +253,7 @@ export class PlannerTask extends Entity implements Parsable {
      * Sets the details property value. Read-only. Nullable. Additional details about the task.
      * @param value Value to set for the details property.
      */
-    public set details(value: PlannerTaskDetails | undefined) {
+    public set details(value: PlannerTaskDetails | AdminMember1 | undefined) {
         this._details = value;
     };
     /**
@@ -302,7 +295,7 @@ export class PlannerTask extends Entity implements Parsable {
             "orderHint": n => { this.orderHint = n.getStringValue(); },
             "percentComplete": n => { this.percentComplete = n.getNumberValue(); },
             "planId": n => { this.planId = n.getStringValue(); },
-            "previewType": n => { this.previewType = n.getEnumValue<PlannerPreviewType>(PlannerPreviewType); },
+            "previewType": n => { this.previewType = n.getObjectValue<PlannerPreviewType>(createPlannerPreviewTypeFromDiscriminatorValue); },
             "priority": n => { this.priority = n.getNumberValue(); },
             "progressTaskBoardFormat": n => { this.progressTaskBoardFormat = n.getObjectValue<PlannerProgressTaskBoardTaskFormat>(createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue); },
             "referenceCount": n => { this.referenceCount = n.getNumberValue(); },
@@ -368,7 +361,7 @@ export class PlannerTask extends Entity implements Parsable {
     };
     /**
      * Gets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.
-     * @returns a plannerPreviewType
+     * @returns a admin
      */
     public get previewType() {
         return this._previewType;
@@ -377,7 +370,7 @@ export class PlannerTask extends Entity implements Parsable {
      * Sets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.
      * @param value Value to set for the previewType property.
      */
-    public set previewType(value: PlannerPreviewType | undefined) {
+    public set previewType(value: PlannerPreviewType | AdminMember1 | undefined) {
         this._previewType = value;
     };
     /**
@@ -396,7 +389,7 @@ export class PlannerTask extends Entity implements Parsable {
     };
     /**
      * Gets the progressTaskBoardFormat property value. Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.
-     * @returns a plannerProgressTaskBoardTaskFormat
+     * @returns a admin
      */
     public get progressTaskBoardFormat() {
         return this._progressTaskBoardFormat;
@@ -405,7 +398,7 @@ export class PlannerTask extends Entity implements Parsable {
      * Sets the progressTaskBoardFormat property value. Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.
      * @param value Value to set for the progressTaskBoardFormat property.
      */
-    public set progressTaskBoardFormat(value: PlannerProgressTaskBoardTaskFormat | undefined) {
+    public set progressTaskBoardFormat(value: PlannerProgressTaskBoardTaskFormat | AdminMember1 | undefined) {
         this._progressTaskBoardFormat = value;
     };
     /**
@@ -448,7 +441,7 @@ export class PlannerTask extends Entity implements Parsable {
         writer.writeStringValue("orderHint", this.orderHint);
         writer.writeNumberValue("percentComplete", this.percentComplete);
         writer.writeStringValue("planId", this.planId);
-        writer.writeEnumValue<PlannerPreviewType>("previewType", this.previewType);
+        writer.writeObjectValue<PlannerPreviewType>("previewType", this.previewType);
         writer.writeNumberValue("priority", this.priority);
         writer.writeObjectValue<PlannerProgressTaskBoardTaskFormat>("progressTaskBoardFormat", this.progressTaskBoardFormat);
         writer.writeNumberValue("referenceCount", this.referenceCount);

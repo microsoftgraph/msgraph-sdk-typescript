@@ -1,14 +1,13 @@
-import {createExternalLinkFromDiscriminatorValue} from './createExternalLinkFromDiscriminatorValue';
-import {ExternalLink} from './index';
+import {AdminMember1, ExternalLink} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SectionLinks implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Opens the section in the OneNote native client if it's installed. */
-    private _oneNoteClientUrl?: ExternalLink | undefined;
+    private _oneNoteClientUrl?: ExternalLink | AdminMember1 | undefined;
     /** Opens the section in OneNote on the web. */
-    private _oneNoteWebUrl?: ExternalLink | undefined;
+    private _oneNoteWebUrl?: ExternalLink | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -41,7 +40,7 @@ export class SectionLinks implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the oneNoteClientUrl property value. Opens the section in the OneNote native client if it's installed.
-     * @returns a externalLink
+     * @returns a admin
      */
     public get oneNoteClientUrl() {
         return this._oneNoteClientUrl;
@@ -50,12 +49,12 @@ export class SectionLinks implements AdditionalDataHolder, Parsable {
      * Sets the oneNoteClientUrl property value. Opens the section in the OneNote native client if it's installed.
      * @param value Value to set for the oneNoteClientUrl property.
      */
-    public set oneNoteClientUrl(value: ExternalLink | undefined) {
+    public set oneNoteClientUrl(value: ExternalLink | AdminMember1 | undefined) {
         this._oneNoteClientUrl = value;
     };
     /**
      * Gets the oneNoteWebUrl property value. Opens the section in OneNote on the web.
-     * @returns a externalLink
+     * @returns a admin
      */
     public get oneNoteWebUrl() {
         return this._oneNoteWebUrl;
@@ -64,7 +63,7 @@ export class SectionLinks implements AdditionalDataHolder, Parsable {
      * Sets the oneNoteWebUrl property value. Opens the section in OneNote on the web.
      * @param value Value to set for the oneNoteWebUrl property.
      */
-    public set oneNoteWebUrl(value: ExternalLink | undefined) {
+    public set oneNoteWebUrl(value: ExternalLink | AdminMember1 | undefined) {
         this._oneNoteWebUrl = value;
     };
     /**

@@ -1,5 +1,4 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {IdentitySet} from './index';
+import {CommunicationsMember1, IdentitySet} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IncomingContext implements AdditionalDataHolder, Parsable {
@@ -8,11 +7,11 @@ export class IncomingContext implements AdditionalDataHolder, Parsable {
     /** The id of the participant that is under observation. Read-only. */
     private _observedParticipantId?: string | undefined;
     /** The identity that the call is happening on behalf of. */
-    private _onBehalfOf?: IdentitySet | undefined;
+    private _onBehalfOf?: IdentitySet | CommunicationsMember1 | undefined;
     /** The id of the participant that triggered the incoming call. Read-only. */
     private _sourceParticipantId?: string | undefined;
     /** The identity that transferred the call. */
-    private _transferor?: IdentitySet | undefined;
+    private _transferor?: IdentitySet | CommunicationsMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -61,7 +60,7 @@ export class IncomingContext implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the onBehalfOf property value. The identity that the call is happening on behalf of.
-     * @returns a identitySet
+     * @returns a communications
      */
     public get onBehalfOf() {
         return this._onBehalfOf;
@@ -70,7 +69,7 @@ export class IncomingContext implements AdditionalDataHolder, Parsable {
      * Sets the onBehalfOf property value. The identity that the call is happening on behalf of.
      * @param value Value to set for the onBehalfOf property.
      */
-    public set onBehalfOf(value: IdentitySet | undefined) {
+    public set onBehalfOf(value: IdentitySet | CommunicationsMember1 | undefined) {
         this._onBehalfOf = value;
     };
     /**
@@ -101,7 +100,7 @@ export class IncomingContext implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the transferor property value. The identity that transferred the call.
-     * @returns a identitySet
+     * @returns a communications
      */
     public get transferor() {
         return this._transferor;
@@ -110,7 +109,7 @@ export class IncomingContext implements AdditionalDataHolder, Parsable {
      * Sets the transferor property value. The identity that transferred the call.
      * @param value Value to set for the transferor property.
      */
-    public set transferor(value: IdentitySet | undefined) {
+    public set transferor(value: IdentitySet | CommunicationsMember1 | undefined) {
         this._transferor = value;
     };
 }

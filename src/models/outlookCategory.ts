@@ -1,16 +1,16 @@
 import {CategoryColor} from './categoryColor';
-import {Entity} from './index';
+import {AdminMember1, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class OutlookCategory extends Entity implements Parsable {
     /** A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below. */
-    private _color?: CategoryColor | undefined;
+    private _color?: CategoryColor | AdminMember1 | undefined;
     /** A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only. */
     private _displayName?: string | undefined;
     /**
      * Gets the color property value. A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below.
-     * @returns a categoryColor
+     * @returns a admin
      */
     public get color() {
         return this._color;
@@ -19,7 +19,7 @@ export class OutlookCategory extends Entity implements Parsable {
      * Sets the color property value. A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below.
      * @param value Value to set for the color property.
      */
-    public set color(value: CategoryColor | undefined) {
+    public set color(value: CategoryColor | AdminMember1 | undefined) {
         this._color = value;
     };
     /**
@@ -48,7 +48,7 @@ export class OutlookCategory extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "color": n => { this.color = n.getEnumValue<CategoryColor>(CategoryColor); },
+            "color": n => { this.color = n.getObjectValue<CategoryColor>(createCategoryColorFromDiscriminatorValue); },
             "displayName": n => { this.displayName = n.getStringValue(); },
         };
     };
@@ -59,7 +59,7 @@ export class OutlookCategory extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeEnumValue<CategoryColor>("color", this.color);
+        writer.writeObjectValue<CategoryColor>("color", this.color);
         writer.writeStringValue("displayName", this.displayName);
     };
 }

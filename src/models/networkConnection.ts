@@ -1,5 +1,6 @@
 import {ConnectionDirection} from './connectionDirection';
 import {ConnectionStatus} from './connectionStatus';
+import {AdminMember1} from './index';
 import {SecurityNetworkProtocol} from './securityNetworkProtocol';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -19,7 +20,7 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
     /** Network connection URL/URI string - excluding parameters. (for example 'www.contoso.com/products/default.html') */
     private _destinationUrl?: string | undefined;
     /** Network connection direction. Possible values are: unknown, inbound, outbound. */
-    private _direction?: ConnectionDirection | undefined;
+    private _direction?: ConnectionDirection | AdminMember1 | undefined;
     /** Date when the destination domain was registered. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _domainRegisteredDateTime?: Date | undefined;
     /** The local DNS name resolution as it appears in the host's local DNS cache (for example, in case the 'hosts' file was tampered with). */
@@ -33,7 +34,7 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
     /** Network Address Translation source port. */
     private _natSourcePort?: string | undefined;
     /** Network protocol. Possible values are: unknown, ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII. */
-    private _protocol?: SecurityNetworkProtocol | undefined;
+    private _protocol?: SecurityNetworkProtocol | AdminMember1 | undefined;
     /** Provider generated/calculated risk score of the network connection. Recommended value range of 0-1, which equates to a percentage. */
     private _riskScore?: string | undefined;
     /** Source (i.e. origin) IP address (of the network connection). */
@@ -43,7 +44,7 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
     /** Source (i.e. origin) IP port (of the network connection). */
     private _sourcePort?: string | undefined;
     /** Network connection status. Possible values are: unknown, attempted, succeeded, blocked, failed. */
-    private _status?: ConnectionStatus | undefined;
+    private _status?: ConnectionStatus | AdminMember1 | undefined;
     /** Parameters (suffix) of the destination URL. */
     private _urlParameters?: string | undefined;
     /**
@@ -152,7 +153,7 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the direction property value. Network connection direction. Possible values are: unknown, inbound, outbound.
-     * @returns a connectionDirection
+     * @returns a admin
      */
     public get direction() {
         return this._direction;
@@ -161,7 +162,7 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
      * Sets the direction property value. Network connection direction. Possible values are: unknown, inbound, outbound.
      * @param value Value to set for the direction property.
      */
-    public set direction(value: ConnectionDirection | undefined) {
+    public set direction(value: ConnectionDirection | AdminMember1 | undefined) {
         this._direction = value;
     };
     /**
@@ -190,19 +191,19 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
             "destinationLocation": n => { this.destinationLocation = n.getStringValue(); },
             "destinationPort": n => { this.destinationPort = n.getStringValue(); },
             "destinationUrl": n => { this.destinationUrl = n.getStringValue(); },
-            "direction": n => { this.direction = n.getEnumValue<ConnectionDirection>(ConnectionDirection); },
+            "direction": n => { this.direction = n.getObjectValue<ConnectionDirection>(createConnectionDirectionFromDiscriminatorValue); },
             "domainRegisteredDateTime": n => { this.domainRegisteredDateTime = n.getDateValue(); },
             "localDnsName": n => { this.localDnsName = n.getStringValue(); },
             "natDestinationAddress": n => { this.natDestinationAddress = n.getStringValue(); },
             "natDestinationPort": n => { this.natDestinationPort = n.getStringValue(); },
             "natSourceAddress": n => { this.natSourceAddress = n.getStringValue(); },
             "natSourcePort": n => { this.natSourcePort = n.getStringValue(); },
-            "protocol": n => { this.protocol = n.getEnumValue<SecurityNetworkProtocol>(SecurityNetworkProtocol); },
+            "protocol": n => { this.protocol = n.getObjectValue<SecurityNetworkProtocol>(createSecurityNetworkProtocolFromDiscriminatorValue); },
             "riskScore": n => { this.riskScore = n.getStringValue(); },
             "sourceAddress": n => { this.sourceAddress = n.getStringValue(); },
             "sourceLocation": n => { this.sourceLocation = n.getStringValue(); },
             "sourcePort": n => { this.sourcePort = n.getStringValue(); },
-            "status": n => { this.status = n.getEnumValue<ConnectionStatus>(ConnectionStatus); },
+            "status": n => { this.status = n.getObjectValue<ConnectionStatus>(createConnectionStatusFromDiscriminatorValue); },
             "urlParameters": n => { this.urlParameters = n.getStringValue(); },
         };
     };
@@ -278,7 +279,7 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the protocol property value. Network protocol. Possible values are: unknown, ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII.
-     * @returns a securityNetworkProtocol
+     * @returns a admin
      */
     public get protocol() {
         return this._protocol;
@@ -287,7 +288,7 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
      * Sets the protocol property value. Network protocol. Possible values are: unknown, ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII.
      * @param value Value to set for the protocol property.
      */
-    public set protocol(value: SecurityNetworkProtocol | undefined) {
+    public set protocol(value: SecurityNetworkProtocol | AdminMember1 | undefined) {
         this._protocol = value;
     };
     /**
@@ -316,19 +317,19 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("destinationLocation", this.destinationLocation);
         writer.writeStringValue("destinationPort", this.destinationPort);
         writer.writeStringValue("destinationUrl", this.destinationUrl);
-        writer.writeEnumValue<ConnectionDirection>("direction", this.direction);
+        writer.writeObjectValue<ConnectionDirection>("direction", this.direction);
         writer.writeDateValue("domainRegisteredDateTime", this.domainRegisteredDateTime);
         writer.writeStringValue("localDnsName", this.localDnsName);
         writer.writeStringValue("natDestinationAddress", this.natDestinationAddress);
         writer.writeStringValue("natDestinationPort", this.natDestinationPort);
         writer.writeStringValue("natSourceAddress", this.natSourceAddress);
         writer.writeStringValue("natSourcePort", this.natSourcePort);
-        writer.writeEnumValue<SecurityNetworkProtocol>("protocol", this.protocol);
+        writer.writeObjectValue<SecurityNetworkProtocol>("protocol", this.protocol);
         writer.writeStringValue("riskScore", this.riskScore);
         writer.writeStringValue("sourceAddress", this.sourceAddress);
         writer.writeStringValue("sourceLocation", this.sourceLocation);
         writer.writeStringValue("sourcePort", this.sourcePort);
-        writer.writeEnumValue<ConnectionStatus>("status", this.status);
+        writer.writeObjectValue<ConnectionStatus>("status", this.status);
         writer.writeStringValue("urlParameters", this.urlParameters);
         writer.writeAdditionalData(this.additionalData);
     };
@@ -376,7 +377,7 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the status property value. Network connection status. Possible values are: unknown, attempted, succeeded, blocked, failed.
-     * @returns a connectionStatus
+     * @returns a admin
      */
     public get status() {
         return this._status;
@@ -385,7 +386,7 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
      * Sets the status property value. Network connection status. Possible values are: unknown, attempted, succeeded, blocked, failed.
      * @param value Value to set for the status property.
      */
-    public set status(value: ConnectionStatus | undefined) {
+    public set status(value: ConnectionStatus | AdminMember1 | undefined) {
         this._status = value;
     };
     /**

@@ -1,5 +1,4 @@
-import {createFolderViewFromDiscriminatorValue} from './createFolderViewFromDiscriminatorValue';
-import {FolderView} from './index';
+import {AdminMember1, FolderView} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Folder implements AdditionalDataHolder, Parsable {
@@ -8,7 +7,7 @@ export class Folder implements AdditionalDataHolder, Parsable {
     /** Number of children contained immediately within this container. */
     private _childCount?: number | undefined;
     /** A collection of properties defining the recommended view for the folder. */
-    private _view?: FolderView | undefined;
+    private _view?: FolderView | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -65,7 +64,7 @@ export class Folder implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the view property value. A collection of properties defining the recommended view for the folder.
-     * @returns a folderView
+     * @returns a admin
      */
     public get view() {
         return this._view;
@@ -74,7 +73,7 @@ export class Folder implements AdditionalDataHolder, Parsable {
      * Sets the view property value. A collection of properties defining the recommended view for the folder.
      * @param value Value to set for the view property.
      */
-    public set view(value: FolderView | undefined) {
+    public set view(value: FolderView | AdminMember1 | undefined) {
         this._view = value;
     };
 }

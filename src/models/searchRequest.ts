@@ -1,9 +1,5 @@
-import {createAggregationOptionFromDiscriminatorValue} from './createAggregationOptionFromDiscriminatorValue';
-import {createResultTemplateOptionFromDiscriminatorValue} from './createResultTemplateOptionFromDiscriminatorValue';
-import {createSearchAlterationOptionsFromDiscriminatorValue} from './createSearchAlterationOptionsFromDiscriminatorValue';
 import {createSearchQueryFromDiscriminatorValue} from './createSearchQueryFromDiscriminatorValue';
-import {createSortPropertyFromDiscriminatorValue} from './createSortPropertyFromDiscriminatorValue';
-import {AggregationOption, ResultTemplateOption, SearchAlterationOptions, SearchQuery, SortProperty} from './index';
+import {AggregationOption, QueryMember1, ResultTemplateOption, SearchAlterationOptions, SearchQuery, SortProperty} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchRequest implements AdditionalDataHolder, Parsable {
@@ -12,7 +8,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
     /** Contains one or more filters to obtain search results aggregated and filtered to a specific value of a field. Optional.Build this filter based on a prior search that aggregates by the same field. From the response of the prior search, identify the searchBucket that filters results to the specific value of the field, use the string in its aggregationFilterToken property, and build an aggregation filter string in the format '{field}:/'{aggregationFilterToken}/''. If multiple values for the same field need to be provided, use the strings in its aggregationFilterToken property and build an aggregation filter string in the format '{field}:or(/'{aggregationFilterToken1}/',/'{aggregationFilterToken2}/')'. For example, searching and aggregating drive items by file type returns a searchBucket for the file type docx in the response. You can conveniently use the aggregationFilterToken returned for this searchBucket in a subsequent search query and filter matches down to drive items of the docx file type. Example 1 and example 2 show the actual requests and responses. */
     private _aggregationFilters?: string[] | undefined;
     /** Specifies aggregations (also known as refiners) to be returned alongside search results. Optional. */
-    private _aggregations?: AggregationOption[] | undefined;
+    private _aggregations?: AggregationOption | QueryMember1[] | undefined;
     /** Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional. */
     private _contentSources?: string[] | undefined;
     /** This triggers hybrid sort for messages: the first 3 messages are the most relevant. This property is only applicable to entityType=message. Optional. */
@@ -26,13 +22,13 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
     /** The query property */
     private _query?: SearchQuery | undefined;
     /** Provides query alteration options formatted as a JSON blob that contains two optional flags related to spelling correction. Optional. */
-    private _queryAlterationOptions?: SearchAlterationOptions | undefined;
+    private _queryAlterationOptions?: SearchAlterationOptions | QueryMember1 | undefined;
     /** Provides the search result templates options for rendering connectors search results. */
-    private _resultTemplateOptions?: ResultTemplateOption | undefined;
+    private _resultTemplateOptions?: ResultTemplateOption | QueryMember1 | undefined;
     /** The size of the page to be retrieved. Optional. */
     private _size?: number | undefined;
     /** Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional. */
-    private _sortProperties?: SortProperty[] | undefined;
+    private _sortProperties?: SortProperty | QueryMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -63,7 +59,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the aggregations property value. Specifies aggregations (also known as refiners) to be returned alongside search results. Optional.
-     * @returns a aggregationOption
+     * @returns a query
      */
     public get aggregations() {
         return this._aggregations;
@@ -72,7 +68,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
      * Sets the aggregations property value. Specifies aggregations (also known as refiners) to be returned alongside search results. Optional.
      * @param value Value to set for the aggregations property.
      */
-    public set aggregations(value: AggregationOption[] | undefined) {
+    public set aggregations(value: AggregationOption | QueryMember1[] | undefined) {
         this._aggregations = value;
     };
     /**
@@ -158,7 +154,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "aggregationFilters": n => { this.aggregationFilters = n.getCollectionOfPrimitiveValues<string>(); },
-            "aggregations": n => { this.aggregations = n.getCollectionOfObjectValues<AggregationOption>(createAggregationOptionFromDiscriminatorValue); },
+            "aggregations": n => { this.aggregations = n.getObjectValue<AggregationOption>(createAggregationOptionFromDiscriminatorValue); },
             "contentSources": n => { this.contentSources = n.getCollectionOfPrimitiveValues<string>(); },
             "enableTopResults": n => { this.enableTopResults = n.getBooleanValue(); },
             "entityTypes": n => { this.entityTypes = n.getCollectionOfPrimitiveValues<string>(); },
@@ -168,7 +164,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
             "queryAlterationOptions": n => { this.queryAlterationOptions = n.getObjectValue<SearchAlterationOptions>(createSearchAlterationOptionsFromDiscriminatorValue); },
             "resultTemplateOptions": n => { this.resultTemplateOptions = n.getObjectValue<ResultTemplateOption>(createResultTemplateOptionFromDiscriminatorValue); },
             "size": n => { this.size = n.getNumberValue(); },
-            "sortProperties": n => { this.sortProperties = n.getCollectionOfObjectValues<SortProperty>(createSortPropertyFromDiscriminatorValue); },
+            "sortProperties": n => { this.sortProperties = n.getObjectValue<SortProperty>(createSortPropertyFromDiscriminatorValue); },
         };
     };
     /**
@@ -187,7 +183,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the queryAlterationOptions property value. Provides query alteration options formatted as a JSON blob that contains two optional flags related to spelling correction. Optional.
-     * @returns a searchAlterationOptions
+     * @returns a query
      */
     public get queryAlterationOptions() {
         return this._queryAlterationOptions;
@@ -196,12 +192,12 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
      * Sets the queryAlterationOptions property value. Provides query alteration options formatted as a JSON blob that contains two optional flags related to spelling correction. Optional.
      * @param value Value to set for the queryAlterationOptions property.
      */
-    public set queryAlterationOptions(value: SearchAlterationOptions | undefined) {
+    public set queryAlterationOptions(value: SearchAlterationOptions | QueryMember1 | undefined) {
         this._queryAlterationOptions = value;
     };
     /**
      * Gets the resultTemplateOptions property value. Provides the search result templates options for rendering connectors search results.
-     * @returns a resultTemplateOption
+     * @returns a query
      */
     public get resultTemplateOptions() {
         return this._resultTemplateOptions;
@@ -210,7 +206,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
      * Sets the resultTemplateOptions property value. Provides the search result templates options for rendering connectors search results.
      * @param value Value to set for the resultTemplateOptions property.
      */
-    public set resultTemplateOptions(value: ResultTemplateOption | undefined) {
+    public set resultTemplateOptions(value: ResultTemplateOption | QueryMember1 | undefined) {
         this._resultTemplateOptions = value;
     };
     /**
@@ -220,7 +216,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfPrimitiveValues<string>("aggregationFilters", this.aggregationFilters);
-        writer.writeCollectionOfObjectValues<AggregationOption>("aggregations", this.aggregations);
+        writer.writeObjectValue<AggregationOption>("aggregations", this.aggregations);
         writer.writeCollectionOfPrimitiveValues<string>("contentSources", this.contentSources);
         writer.writeBooleanValue("enableTopResults", this.enableTopResults);
         writer.writeCollectionOfPrimitiveValues<string>("entityTypes", this.entityTypes);
@@ -230,7 +226,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue<SearchAlterationOptions>("queryAlterationOptions", this.queryAlterationOptions);
         writer.writeObjectValue<ResultTemplateOption>("resultTemplateOptions", this.resultTemplateOptions);
         writer.writeNumberValue("size", this.size);
-        writer.writeCollectionOfObjectValues<SortProperty>("sortProperties", this.sortProperties);
+        writer.writeObjectValue<SortProperty>("sortProperties", this.sortProperties);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -249,7 +245,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the sortProperties property value. Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional.
-     * @returns a sortProperty
+     * @returns a query
      */
     public get sortProperties() {
         return this._sortProperties;
@@ -258,7 +254,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
      * Sets the sortProperties property value. Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional.
      * @param value Value to set for the sortProperties property.
      */
-    public set sortProperties(value: SortProperty[] | undefined) {
+    public set sortProperties(value: SortProperty | QueryMember1[] | undefined) {
         this._sortProperties = value;
     };
 }

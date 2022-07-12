@@ -1,26 +1,19 @@
 import {ChatMessageImportance} from './chatMessageImportance';
 import {ChatMessageType} from './chatMessageType';
-import {createChannelIdentityFromDiscriminatorValue} from './createChannelIdentityFromDiscriminatorValue';
-import {createChatMessageAttachmentFromDiscriminatorValue} from './createChatMessageAttachmentFromDiscriminatorValue';
 import {createChatMessageFromDiscriminatorValue} from './createChatMessageFromDiscriminatorValue';
-import {createChatMessageFromIdentitySetFromDiscriminatorValue} from './createChatMessageFromIdentitySetFromDiscriminatorValue';
 import {createChatMessageHostedContentFromDiscriminatorValue} from './createChatMessageHostedContentFromDiscriminatorValue';
-import {createChatMessageMentionFromDiscriminatorValue} from './createChatMessageMentionFromDiscriminatorValue';
-import {createChatMessagePolicyViolationFromDiscriminatorValue} from './createChatMessagePolicyViolationFromDiscriminatorValue';
-import {createChatMessageReactionFromDiscriminatorValue} from './createChatMessageReactionFromDiscriminatorValue';
-import {createEventMessageDetailFromDiscriminatorValue} from './createEventMessageDetailFromDiscriminatorValue';
 import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
-import {ChannelIdentity, ChatMessageAttachment, ChatMessageFromIdentitySet, ChatMessageHostedContent, ChatMessageMention, ChatMessagePolicyViolation, ChatMessageReaction, Entity, EventMessageDetail, ItemBody} from './index';
+import {AdminMember1, ChannelIdentity, ChatMessageAttachment, ChatMessageFromIdentitySet, ChatMessageHostedContent, ChatMessageMention, ChatMessagePolicyViolation, ChatMessageReaction, Entity, EventMessageDetail, ItemBody} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
+/** Provides operations to manage the admin singleton. */
 export class ChatMessage extends Entity implements Parsable {
     /** References to attached objects like files, tabs, meetings etc. */
-    private _attachments?: ChatMessageAttachment[] | undefined;
+    private _attachments?: ChatMessageAttachment | AdminMember1[] | undefined;
     /** The body property */
     private _body?: ItemBody | undefined;
     /** If the message was sent in a channel, represents identity of the channel. */
-    private _channelIdentity?: ChannelIdentity | undefined;
+    private _channelIdentity?: ChannelIdentity | AdminMember1 | undefined;
     /** If the message was sent in a chat, represents the identity of the chat. */
     private _chatId?: string | undefined;
     /** Timestamp of when the chat message was created. */
@@ -30,12 +23,12 @@ export class ChatMessage extends Entity implements Parsable {
     /** Read-only. Version number of the chat message. */
     private _etag?: string | undefined;
     /** Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage. */
-    private _eventDetail?: EventMessageDetail | undefined;
+    private _eventDetail?: EventMessageDetail | AdminMember1 | undefined;
     /** Details of the sender of the chat message. Can only be set during migration. */
-    private _from?: ChatMessageFromIdentitySet | undefined;
+    private _from?: ChatMessageFromIdentitySet | AdminMember1 | undefined;
     /** Content in a message hosted by Microsoft Teams - for example, images or code snippets. */
     private _hostedContents?: ChatMessageHostedContent[] | undefined;
-    /** The importance of the chat message. The possible values are: normal, high, urgent. */
+    /** The importance property */
     private _importance?: ChatMessageImportance | undefined;
     /** Read only. Timestamp when edits to the chat message were made. Triggers an 'Edited' flag in the Teams UI. If no edits are made the value is null. */
     private _lastEditedDateTime?: Date | undefined;
@@ -44,13 +37,13 @@ export class ChatMessage extends Entity implements Parsable {
     /** Locale of the chat message set by the client. Always set to en-us. */
     private _locale?: string | undefined;
     /** List of entities mentioned in the chat message. Supported entities are: user, bot, team, channel, and tag. */
-    private _mentions?: ChatMessageMention[] | undefined;
-    /** The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage. */
+    private _mentions?: ChatMessageMention | AdminMember1[] | undefined;
+    /** The messageType property */
     private _messageType?: ChatMessageType | undefined;
     /** Defines the properties of a policy violation set by a data loss prevention (DLP) application. */
-    private _policyViolation?: ChatMessagePolicyViolation | undefined;
+    private _policyViolation?: ChatMessagePolicyViolation | AdminMember1 | undefined;
     /** Reactions for this chat message (for example, Like). */
-    private _reactions?: ChatMessageReaction[] | undefined;
+    private _reactions?: ChatMessageReaction | AdminMember1[] | undefined;
     /** Replies for a specified message. Supports $expand for channel messages. */
     private _replies?: ChatMessage[] | undefined;
     /** Read-only. ID of the parent chat message or root chat message of the thread. (Only applies to chat messages in channels, not chats.) */
@@ -63,7 +56,7 @@ export class ChatMessage extends Entity implements Parsable {
     private _webUrl?: string | undefined;
     /**
      * Gets the attachments property value. References to attached objects like files, tabs, meetings etc.
-     * @returns a chatMessageAttachment
+     * @returns a admin
      */
     public get attachments() {
         return this._attachments;
@@ -72,7 +65,7 @@ export class ChatMessage extends Entity implements Parsable {
      * Sets the attachments property value. References to attached objects like files, tabs, meetings etc.
      * @param value Value to set for the attachments property.
      */
-    public set attachments(value: ChatMessageAttachment[] | undefined) {
+    public set attachments(value: ChatMessageAttachment | AdminMember1[] | undefined) {
         this._attachments = value;
     };
     /**
@@ -91,7 +84,7 @@ export class ChatMessage extends Entity implements Parsable {
     };
     /**
      * Gets the channelIdentity property value. If the message was sent in a channel, represents identity of the channel.
-     * @returns a channelIdentity
+     * @returns a admin
      */
     public get channelIdentity() {
         return this._channelIdentity;
@@ -100,7 +93,7 @@ export class ChatMessage extends Entity implements Parsable {
      * Sets the channelIdentity property value. If the message was sent in a channel, represents identity of the channel.
      * @param value Value to set for the channelIdentity property.
      */
-    public set channelIdentity(value: ChannelIdentity | undefined) {
+    public set channelIdentity(value: ChannelIdentity | AdminMember1 | undefined) {
         this._channelIdentity = value;
     };
     /**
@@ -167,7 +160,7 @@ export class ChatMessage extends Entity implements Parsable {
     };
     /**
      * Gets the eventDetail property value. Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage.
-     * @returns a eventMessageDetail
+     * @returns a admin
      */
     public get eventDetail() {
         return this._eventDetail;
@@ -176,12 +169,12 @@ export class ChatMessage extends Entity implements Parsable {
      * Sets the eventDetail property value. Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage.
      * @param value Value to set for the eventDetail property.
      */
-    public set eventDetail(value: EventMessageDetail | undefined) {
+    public set eventDetail(value: EventMessageDetail | AdminMember1 | undefined) {
         this._eventDetail = value;
     };
     /**
      * Gets the from property value. Details of the sender of the chat message. Can only be set during migration.
-     * @returns a chatMessageFromIdentitySet
+     * @returns a admin
      */
     public get from() {
         return this._from;
@@ -190,7 +183,7 @@ export class ChatMessage extends Entity implements Parsable {
      * Sets the from property value. Details of the sender of the chat message. Can only be set during migration.
      * @param value Value to set for the from property.
      */
-    public set from(value: ChatMessageFromIdentitySet | undefined) {
+    public set from(value: ChatMessageFromIdentitySet | AdminMember1 | undefined) {
         this._from = value;
     };
     /**
@@ -199,7 +192,7 @@ export class ChatMessage extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "attachments": n => { this.attachments = n.getCollectionOfObjectValues<ChatMessageAttachment>(createChatMessageAttachmentFromDiscriminatorValue); },
+            "attachments": n => { this.attachments = n.getObjectValue<ChatMessageAttachment>(createChatMessageAttachmentFromDiscriminatorValue); },
             "body": n => { this.body = n.getObjectValue<ItemBody>(createItemBodyFromDiscriminatorValue); },
             "channelIdentity": n => { this.channelIdentity = n.getObjectValue<ChannelIdentity>(createChannelIdentityFromDiscriminatorValue); },
             "chatId": n => { this.chatId = n.getStringValue(); },
@@ -213,10 +206,10 @@ export class ChatMessage extends Entity implements Parsable {
             "lastEditedDateTime": n => { this.lastEditedDateTime = n.getDateValue(); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "locale": n => { this.locale = n.getStringValue(); },
-            "mentions": n => { this.mentions = n.getCollectionOfObjectValues<ChatMessageMention>(createChatMessageMentionFromDiscriminatorValue); },
+            "mentions": n => { this.mentions = n.getObjectValue<ChatMessageMention>(createChatMessageMentionFromDiscriminatorValue); },
             "messageType": n => { this.messageType = n.getEnumValue<ChatMessageType>(ChatMessageType); },
             "policyViolation": n => { this.policyViolation = n.getObjectValue<ChatMessagePolicyViolation>(createChatMessagePolicyViolationFromDiscriminatorValue); },
-            "reactions": n => { this.reactions = n.getCollectionOfObjectValues<ChatMessageReaction>(createChatMessageReactionFromDiscriminatorValue); },
+            "reactions": n => { this.reactions = n.getObjectValue<ChatMessageReaction>(createChatMessageReactionFromDiscriminatorValue); },
             "replies": n => { this.replies = n.getCollectionOfObjectValues<ChatMessage>(createChatMessageFromDiscriminatorValue); },
             "replyToId": n => { this.replyToId = n.getStringValue(); },
             "subject": n => { this.subject = n.getStringValue(); },
@@ -239,14 +232,14 @@ export class ChatMessage extends Entity implements Parsable {
         this._hostedContents = value;
     };
     /**
-     * Gets the importance property value. The importance of the chat message. The possible values are: normal, high, urgent.
+     * Gets the importance property value. The importance property
      * @returns a chatMessageImportance
      */
     public get importance() {
         return this._importance;
     };
     /**
-     * Sets the importance property value. The importance of the chat message. The possible values are: normal, high, urgent.
+     * Sets the importance property value. The importance property
      * @param value Value to set for the importance property.
      */
     public set importance(value: ChatMessageImportance | undefined) {
@@ -296,7 +289,7 @@ export class ChatMessage extends Entity implements Parsable {
     };
     /**
      * Gets the mentions property value. List of entities mentioned in the chat message. Supported entities are: user, bot, team, channel, and tag.
-     * @returns a chatMessageMention
+     * @returns a admin
      */
     public get mentions() {
         return this._mentions;
@@ -305,18 +298,18 @@ export class ChatMessage extends Entity implements Parsable {
      * Sets the mentions property value. List of entities mentioned in the chat message. Supported entities are: user, bot, team, channel, and tag.
      * @param value Value to set for the mentions property.
      */
-    public set mentions(value: ChatMessageMention[] | undefined) {
+    public set mentions(value: ChatMessageMention | AdminMember1[] | undefined) {
         this._mentions = value;
     };
     /**
-     * Gets the messageType property value. The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage.
+     * Gets the messageType property value. The messageType property
      * @returns a chatMessageType
      */
     public get messageType() {
         return this._messageType;
     };
     /**
-     * Sets the messageType property value. The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage.
+     * Sets the messageType property value. The messageType property
      * @param value Value to set for the messageType property.
      */
     public set messageType(value: ChatMessageType | undefined) {
@@ -324,7 +317,7 @@ export class ChatMessage extends Entity implements Parsable {
     };
     /**
      * Gets the policyViolation property value. Defines the properties of a policy violation set by a data loss prevention (DLP) application.
-     * @returns a chatMessagePolicyViolation
+     * @returns a admin
      */
     public get policyViolation() {
         return this._policyViolation;
@@ -333,12 +326,12 @@ export class ChatMessage extends Entity implements Parsable {
      * Sets the policyViolation property value. Defines the properties of a policy violation set by a data loss prevention (DLP) application.
      * @param value Value to set for the policyViolation property.
      */
-    public set policyViolation(value: ChatMessagePolicyViolation | undefined) {
+    public set policyViolation(value: ChatMessagePolicyViolation | AdminMember1 | undefined) {
         this._policyViolation = value;
     };
     /**
      * Gets the reactions property value. Reactions for this chat message (for example, Like).
-     * @returns a chatMessageReaction
+     * @returns a admin
      */
     public get reactions() {
         return this._reactions;
@@ -347,7 +340,7 @@ export class ChatMessage extends Entity implements Parsable {
      * Sets the reactions property value. Reactions for this chat message (for example, Like).
      * @param value Value to set for the reactions property.
      */
-    public set reactions(value: ChatMessageReaction[] | undefined) {
+    public set reactions(value: ChatMessageReaction | AdminMember1[] | undefined) {
         this._reactions = value;
     };
     /**
@@ -385,7 +378,7 @@ export class ChatMessage extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfObjectValues<ChatMessageAttachment>("attachments", this.attachments);
+        writer.writeObjectValue<ChatMessageAttachment>("attachments", this.attachments);
         writer.writeObjectValue<ItemBody>("body", this.body);
         writer.writeObjectValue<ChannelIdentity>("channelIdentity", this.channelIdentity);
         writer.writeStringValue("chatId", this.chatId);
@@ -399,10 +392,10 @@ export class ChatMessage extends Entity implements Parsable {
         writer.writeDateValue("lastEditedDateTime", this.lastEditedDateTime);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeStringValue("locale", this.locale);
-        writer.writeCollectionOfObjectValues<ChatMessageMention>("mentions", this.mentions);
+        writer.writeObjectValue<ChatMessageMention>("mentions", this.mentions);
         writer.writeEnumValue<ChatMessageType>("messageType", this.messageType);
         writer.writeObjectValue<ChatMessagePolicyViolation>("policyViolation", this.policyViolation);
-        writer.writeCollectionOfObjectValues<ChatMessageReaction>("reactions", this.reactions);
+        writer.writeObjectValue<ChatMessageReaction>("reactions", this.reactions);
         writer.writeCollectionOfObjectValues<ChatMessage>("replies", this.replies);
         writer.writeStringValue("replyToId", this.replyToId);
         writer.writeStringValue("subject", this.subject);

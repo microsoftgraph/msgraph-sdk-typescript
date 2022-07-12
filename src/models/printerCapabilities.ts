@@ -1,5 +1,4 @@
-import {createIntegerRangeFromDiscriminatorValue} from './createIntegerRangeFromDiscriminatorValue';
-import {IntegerRange} from './index';
+import {AdminMember1, IntegerRange} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
@@ -14,7 +13,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
     /** A list of supported content (MIME) types that the printer supports. It is not guaranteed that the Universal Print service supports printing all of these MIME types. */
     private _contentTypes?: string[] | undefined;
     /** The range of copies per job supported by the printer. */
-    private _copiesPerJob?: IntegerRange | undefined;
+    private _copiesPerJob?: IntegerRange | AdminMember1 | undefined;
     /** The list of print resolutions in DPI that are supported by the printer. */
     private _dpis?: number[] | undefined;
     /** The list of duplex modes that are supported by the printer. Valid values are described in the following table. */
@@ -133,7 +132,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the copiesPerJob property value. The range of copies per job supported by the printer.
-     * @returns a integerRange
+     * @returns a admin
      */
     public get copiesPerJob() {
         return this._copiesPerJob;
@@ -142,7 +141,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
      * Sets the copiesPerJob property value. The range of copies per job supported by the printer.
      * @param value Value to set for the copiesPerJob property.
      */
-    public set copiesPerJob(value: IntegerRange | undefined) {
+    public set copiesPerJob(value: IntegerRange | AdminMember1 | undefined) {
         this._copiesPerJob = value;
     };
     /**

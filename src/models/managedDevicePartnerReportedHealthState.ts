@@ -1,4 +1,4 @@
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export enum ManagedDevicePartnerReportedHealthState {
     /** Device health state is not yet reported */
     Unknown = "unknown",

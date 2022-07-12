@@ -1,11 +1,12 @@
 import {BroadcastMeetingAudience} from './broadcastMeetingAudience';
+import {AdminMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Defines who can join the Teams live event. Possible values are listed in the following table. */
-    private _allowedAudience?: BroadcastMeetingAudience | undefined;
+    private _allowedAudience?: BroadcastMeetingAudience | AdminMember1 | undefined;
     /** Indicates whether attendee report is enabled for this Teams live event. Default value is false. */
     private _isAttendeeReportEnabled?: boolean | undefined;
     /** Indicates whether Q&A is enabled for this Teams live event. Default value is false. */
@@ -30,7 +31,7 @@ export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable 
     };
     /**
      * Gets the allowedAudience property value. Defines who can join the Teams live event. Possible values are listed in the following table.
-     * @returns a broadcastMeetingAudience
+     * @returns a admin
      */
     public get allowedAudience() {
         return this._allowedAudience;
@@ -39,7 +40,7 @@ export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable 
      * Sets the allowedAudience property value. Defines who can join the Teams live event. Possible values are listed in the following table.
      * @param value Value to set for the allowedAudience property.
      */
-    public set allowedAudience(value: BroadcastMeetingAudience | undefined) {
+    public set allowedAudience(value: BroadcastMeetingAudience | AdminMember1 | undefined) {
         this._allowedAudience = value;
     };
     /**
@@ -54,7 +55,7 @@ export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable 
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "allowedAudience": n => { this.allowedAudience = n.getEnumValue<BroadcastMeetingAudience>(BroadcastMeetingAudience); },
+            "allowedAudience": n => { this.allowedAudience = n.getObjectValue<BroadcastMeetingAudience>(createBroadcastMeetingAudienceFromDiscriminatorValue); },
             "isAttendeeReportEnabled": n => { this.isAttendeeReportEnabled = n.getBooleanValue(); },
             "isQuestionAndAnswerEnabled": n => { this.isQuestionAndAnswerEnabled = n.getBooleanValue(); },
             "isRecordingEnabled": n => { this.isRecordingEnabled = n.getBooleanValue(); },
@@ -123,7 +124,7 @@ export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable 
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeEnumValue<BroadcastMeetingAudience>("allowedAudience", this.allowedAudience);
+        writer.writeObjectValue<BroadcastMeetingAudience>("allowedAudience", this.allowedAudience);
         writer.writeBooleanValue("isAttendeeReportEnabled", this.isAttendeeReportEnabled);
         writer.writeBooleanValue("isQuestionAndAnswerEnabled", this.isQuestionAndAnswerEnabled);
         writer.writeBooleanValue("isRecordingEnabled", this.isRecordingEnabled);

@@ -1,5 +1,4 @@
-import {createGeoCoordinatesFromDiscriminatorValue} from './createGeoCoordinatesFromDiscriminatorValue';
-import {GeoCoordinates} from './index';
+import {AdminMember1, GeoCoordinates} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SignInLocation implements AdditionalDataHolder, Parsable {
@@ -10,7 +9,7 @@ export class SignInLocation implements AdditionalDataHolder, Parsable {
     /** Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity. */
     private _countryOrRegion?: string | undefined;
     /** Provides the latitude, longitude and altitude where the sign-in originated. */
-    private _geoCoordinates?: GeoCoordinates | undefined;
+    private _geoCoordinates?: GeoCoordinates | AdminMember1 | undefined;
     /** Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity. */
     private _state?: string | undefined;
     /**
@@ -63,7 +62,7 @@ export class SignInLocation implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the geoCoordinates property value. Provides the latitude, longitude and altitude where the sign-in originated.
-     * @returns a geoCoordinates
+     * @returns a admin
      */
     public get geoCoordinates() {
         return this._geoCoordinates;
@@ -72,7 +71,7 @@ export class SignInLocation implements AdditionalDataHolder, Parsable {
      * Sets the geoCoordinates property value. Provides the latitude, longitude and altitude where the sign-in originated.
      * @param value Value to set for the geoCoordinates property.
      */
-    public set geoCoordinates(value: GeoCoordinates | undefined) {
+    public set geoCoordinates(value: GeoCoordinates | AdminMember1 | undefined) {
         this._geoCoordinates = value;
     };
     /**

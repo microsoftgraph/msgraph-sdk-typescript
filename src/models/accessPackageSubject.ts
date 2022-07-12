@@ -1,12 +1,10 @@
 import {AccessPackageSubjectType} from './accessPackageSubjectType';
-import {createConnectedOrganizationFromDiscriminatorValue} from './createConnectedOrganizationFromDiscriminatorValue';
-import {ConnectedOrganization, Entity} from './index';
+import {AdminMember1, ConnectedOrganization, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageSubject extends Entity implements Parsable {
     /** The connected organization of the subject. Read-only. Nullable. */
-    private _connectedOrganization?: ConnectedOrganization | undefined;
+    private _connectedOrganization?: ConnectedOrganization | AdminMember1 | undefined;
     /** The display name of the subject. */
     private _displayName?: string | undefined;
     /** The email address of the subject. */
@@ -18,10 +16,10 @@ export class AccessPackageSubject extends Entity implements Parsable {
     /** The principal name, if known, of the subject. */
     private _principalName?: string | undefined;
     /** The resource type of the subject. The possible values are: notSpecified, user, servicePrincipal, unknownFutureValue. */
-    private _subjectType?: AccessPackageSubjectType | undefined;
+    private _subjectType?: AccessPackageSubjectType | AdminMember1 | undefined;
     /**
      * Gets the connectedOrganization property value. The connected organization of the subject. Read-only. Nullable.
-     * @returns a connectedOrganization
+     * @returns a admin
      */
     public get connectedOrganization() {
         return this._connectedOrganization;
@@ -30,7 +28,7 @@ export class AccessPackageSubject extends Entity implements Parsable {
      * Sets the connectedOrganization property value. The connected organization of the subject. Read-only. Nullable.
      * @param value Value to set for the connectedOrganization property.
      */
-    public set connectedOrganization(value: ConnectedOrganization | undefined) {
+    public set connectedOrganization(value: ConnectedOrganization | AdminMember1 | undefined) {
         this._connectedOrganization = value;
     };
     /**
@@ -79,7 +77,7 @@ export class AccessPackageSubject extends Entity implements Parsable {
             "objectId": n => { this.objectId = n.getStringValue(); },
             "onPremisesSecurityIdentifier": n => { this.onPremisesSecurityIdentifier = n.getStringValue(); },
             "principalName": n => { this.principalName = n.getStringValue(); },
-            "subjectType": n => { this.subjectType = n.getEnumValue<AccessPackageSubjectType>(AccessPackageSubjectType); },
+            "subjectType": n => { this.subjectType = n.getObjectValue<AccessPackageSubjectType>(createAccessPackageSubjectTypeFromDiscriminatorValue); },
         };
     };
     /**
@@ -137,11 +135,11 @@ export class AccessPackageSubject extends Entity implements Parsable {
         writer.writeStringValue("objectId", this.objectId);
         writer.writeStringValue("onPremisesSecurityIdentifier", this.onPremisesSecurityIdentifier);
         writer.writeStringValue("principalName", this.principalName);
-        writer.writeEnumValue<AccessPackageSubjectType>("subjectType", this.subjectType);
+        writer.writeObjectValue<AccessPackageSubjectType>("subjectType", this.subjectType);
     };
     /**
      * Gets the subjectType property value. The resource type of the subject. The possible values are: notSpecified, user, servicePrincipal, unknownFutureValue.
-     * @returns a accessPackageSubjectType
+     * @returns a admin
      */
     public get subjectType() {
         return this._subjectType;
@@ -150,7 +148,7 @@ export class AccessPackageSubject extends Entity implements Parsable {
      * Sets the subjectType property value. The resource type of the subject. The possible values are: notSpecified, user, servicePrincipal, unknownFutureValue.
      * @param value Value to set for the subjectType property.
      */
-    public set subjectType(value: AccessPackageSubjectType | undefined) {
+    public set subjectType(value: AccessPackageSubjectType | AdminMember1 | undefined) {
         this._subjectType = value;
     };
 }

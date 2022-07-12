@@ -1,12 +1,11 @@
-import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {Identity} from './index';
+import {AdminMember1, Identity} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SharingLink implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The app the link is associated with. */
-    private _application?: Identity | undefined;
+    private _application?: Identity | AdminMember1 | undefined;
     /** If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint. */
     private _preventsDownload?: boolean | undefined;
     /** The scope of the link represented by this permission. Value anonymous indicates the link is usable by anyone, organization indicates the link is only usable for users signed into the same tenant. */
@@ -33,7 +32,7 @@ export class SharingLink implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the application property value. The app the link is associated with.
-     * @returns a identity
+     * @returns a admin
      */
     public get application() {
         return this._application;
@@ -42,7 +41,7 @@ export class SharingLink implements AdditionalDataHolder, Parsable {
      * Sets the application property value. The app the link is associated with.
      * @param value Value to set for the application property.
      */
-    public set application(value: Identity | undefined) {
+    public set application(value: Identity | AdminMember1 | undefined) {
         this._application = value;
     };
     /**

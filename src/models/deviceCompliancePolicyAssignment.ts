@@ -1,11 +1,10 @@
-import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from './createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue';
-import {DeviceAndAppManagementAssignmentTarget, Entity} from './index';
+import {AdminMember1, DeviceAndAppManagementAssignmentTarget, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device compliance policy assignment. */
 export class DeviceCompliancePolicyAssignment extends Entity implements Parsable {
     /** Target for the compliance policy assignment. */
-    private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    private _target?: DeviceAndAppManagementAssignmentTarget | AdminMember1 | undefined;
     /**
      * Instantiates a new deviceCompliancePolicyAssignment and sets the default values.
      */
@@ -32,7 +31,7 @@ export class DeviceCompliancePolicyAssignment extends Entity implements Parsable
     };
     /**
      * Gets the target property value. Target for the compliance policy assignment.
-     * @returns a deviceAndAppManagementAssignmentTarget
+     * @returns a admin
      */
     public get target() {
         return this._target;
@@ -41,7 +40,7 @@ export class DeviceCompliancePolicyAssignment extends Entity implements Parsable
      * Sets the target property value. Target for the compliance policy assignment.
      * @param value Value to set for the target property.
      */
-    public set target(value: DeviceAndAppManagementAssignmentTarget | undefined) {
+    public set target(value: DeviceAndAppManagementAssignmentTarget | AdminMember1 | undefined) {
         this._target = value;
     };
 }

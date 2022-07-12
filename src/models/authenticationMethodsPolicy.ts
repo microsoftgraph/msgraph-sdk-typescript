@@ -1,6 +1,5 @@
 import {createAuthenticationMethodConfigurationFromDiscriminatorValue} from './createAuthenticationMethodConfigurationFromDiscriminatorValue';
-import {createRegistrationEnforcementFromDiscriminatorValue} from './createRegistrationEnforcementFromDiscriminatorValue';
-import {AuthenticationMethodConfiguration, Entity, RegistrationEnforcement} from './index';
+import {AuthenticationMethodConfiguration, AuthenticationMethodsPolicyMember1, Entity, RegistrationEnforcement} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the authenticationMethodsPolicy singleton. */
@@ -18,7 +17,7 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
     /** The reconfirmationInDays property */
     private _reconfirmationInDays?: number | undefined;
     /** Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods. */
-    private _registrationEnforcement?: RegistrationEnforcement | undefined;
+    private _registrationEnforcement?: RegistrationEnforcement | AuthenticationMethodsPolicyMember1 | undefined;
     /**
      * Gets the authenticationMethodConfigurations property value. Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
      * @returns a authenticationMethodConfiguration
@@ -126,7 +125,7 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
     };
     /**
      * Gets the registrationEnforcement property value. Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods.
-     * @returns a registrationEnforcement
+     * @returns a authenticationMethodsPolicy
      */
     public get registrationEnforcement() {
         return this._registrationEnforcement;
@@ -135,7 +134,7 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
      * Sets the registrationEnforcement property value. Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods.
      * @param value Value to set for the registrationEnforcement property.
      */
-    public set registrationEnforcement(value: RegistrationEnforcement | undefined) {
+    public set registrationEnforcement(value: RegistrationEnforcement | AuthenticationMethodsPolicyMember1 | undefined) {
         this._registrationEnforcement = value;
     };
     /**

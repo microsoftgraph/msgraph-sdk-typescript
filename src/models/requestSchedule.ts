@@ -1,16 +1,14 @@
-import {createExpirationPatternFromDiscriminatorValue} from './createExpirationPatternFromDiscriminatorValue';
-import {createPatternedRecurrenceFromDiscriminatorValue} from './createPatternedRecurrenceFromDiscriminatorValue';
-import {ExpirationPattern, PatternedRecurrence} from './index';
+import {AdminMember1, ExpirationPattern, PatternedRecurrence} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RequestSchedule implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** When the access should expire. */
-    private _expiration?: ExpirationPattern | undefined;
-    /** For recurring access. Not used at present. */
-    private _recurrence?: PatternedRecurrence | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    /** In entitlement management, when the access should expire. */
+    private _expiration?: ExpirationPattern | AdminMember1 | undefined;
+    /** For recurring access, or eligible or active assignment. This property is currently unsupported in both PIM and entitlement management. */
+    private _recurrence?: PatternedRecurrence | AdminMember1 | undefined;
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. In PIM, when the  eligible or active assignment becomes active. */
     private _startDateTime?: Date | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -33,17 +31,17 @@ export class RequestSchedule implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the expiration property value. When the access should expire.
-     * @returns a expirationPattern
+     * Gets the expiration property value. In entitlement management, when the access should expire.
+     * @returns a admin
      */
     public get expiration() {
         return this._expiration;
     };
     /**
-     * Sets the expiration property value. When the access should expire.
+     * Sets the expiration property value. In entitlement management, when the access should expire.
      * @param value Value to set for the expiration property.
      */
-    public set expiration(value: ExpirationPattern | undefined) {
+    public set expiration(value: ExpirationPattern | AdminMember1 | undefined) {
         this._expiration = value;
     };
     /**
@@ -58,17 +56,17 @@ export class RequestSchedule implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the recurrence property value. For recurring access. Not used at present.
-     * @returns a patternedRecurrence
+     * Gets the recurrence property value. For recurring access, or eligible or active assignment. This property is currently unsupported in both PIM and entitlement management.
+     * @returns a admin
      */
     public get recurrence() {
         return this._recurrence;
     };
     /**
-     * Sets the recurrence property value. For recurring access. Not used at present.
+     * Sets the recurrence property value. For recurring access, or eligible or active assignment. This property is currently unsupported in both PIM and entitlement management.
      * @param value Value to set for the recurrence property.
      */
-    public set recurrence(value: PatternedRecurrence | undefined) {
+    public set recurrence(value: PatternedRecurrence | AdminMember1 | undefined) {
         this._recurrence = value;
     };
     /**
@@ -83,14 +81,14 @@ export class RequestSchedule implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the startDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the startDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. In PIM, when the  eligible or active assignment becomes active.
      * @returns a Date
      */
     public get startDateTime() {
         return this._startDateTime;
     };
     /**
-     * Sets the startDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the startDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. In PIM, when the  eligible or active assignment becomes active.
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: Date | undefined) {

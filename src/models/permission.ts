@@ -1,31 +1,26 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createItemReferenceFromDiscriminatorValue} from './createItemReferenceFromDiscriminatorValue';
-import {createSharePointIdentitySetFromDiscriminatorValue} from './createSharePointIdentitySetFromDiscriminatorValue';
-import {createSharingInvitationFromDiscriminatorValue} from './createSharingInvitationFromDiscriminatorValue';
-import {createSharingLinkFromDiscriminatorValue} from './createSharingLinkFromDiscriminatorValue';
-import {Entity, IdentitySet, ItemReference, SharePointIdentitySet, SharingInvitation, SharingLink} from './index';
+import {AdminMember1, Entity, IdentitySet, ItemReference, SharePointIdentitySet, SharingInvitation, SharingLink} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class Permission extends Entity implements Parsable {
     /** A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional. */
     private _expirationDateTime?: Date | undefined;
     /** The grantedTo property */
-    private _grantedTo?: IdentitySet | undefined;
+    private _grantedTo?: IdentitySet | AdminMember1 | undefined;
     /** The grantedToIdentities property */
-    private _grantedToIdentities?: IdentitySet[] | undefined;
+    private _grantedToIdentities?: IdentitySet | AdminMember1[] | undefined;
     /** For link type permissions, the details of the users to whom permission was granted. Read-only. */
-    private _grantedToIdentitiesV2?: SharePointIdentitySet[] | undefined;
+    private _grantedToIdentitiesV2?: SharePointIdentitySet | AdminMember1[] | undefined;
     /** For user type permissions, the details of the users and applications for this permission. Read-only. */
-    private _grantedToV2?: SharePointIdentitySet | undefined;
+    private _grantedToV2?: SharePointIdentitySet | AdminMember1 | undefined;
     /** Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only. */
     private _hasPassword?: boolean | undefined;
     /** Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only. */
-    private _inheritedFrom?: ItemReference | undefined;
+    private _inheritedFrom?: ItemReference | AdminMember1 | undefined;
     /** Details of any associated sharing invitation for this permission. Read-only. */
-    private _invitation?: SharingInvitation | undefined;
+    private _invitation?: SharingInvitation | AdminMember1 | undefined;
     /** Provides the link details of the current permission, if it is a link type permissions. Read-only. */
-    private _link?: SharingLink | undefined;
+    private _link?: SharingLink | AdminMember1 | undefined;
     /** The type of permission, for example, read. See below for the full list of roles. Read-only. */
     private _roles?: string[] | undefined;
     /** A unique token that can be used to access this shared item via the [shares API][]. Read-only. */
@@ -58,8 +53,8 @@ export class Permission extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "expirationDateTime": n => { this.expirationDateTime = n.getDateValue(); },
             "grantedTo": n => { this.grantedTo = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
-            "grantedToIdentities": n => { this.grantedToIdentities = n.getCollectionOfObjectValues<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
-            "grantedToIdentitiesV2": n => { this.grantedToIdentitiesV2 = n.getCollectionOfObjectValues<SharePointIdentitySet>(createSharePointIdentitySetFromDiscriminatorValue); },
+            "grantedToIdentities": n => { this.grantedToIdentities = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
+            "grantedToIdentitiesV2": n => { this.grantedToIdentitiesV2 = n.getObjectValue<SharePointIdentitySet>(createSharePointIdentitySetFromDiscriminatorValue); },
             "grantedToV2": n => { this.grantedToV2 = n.getObjectValue<SharePointIdentitySet>(createSharePointIdentitySetFromDiscriminatorValue); },
             "hasPassword": n => { this.hasPassword = n.getBooleanValue(); },
             "inheritedFrom": n => { this.inheritedFrom = n.getObjectValue<ItemReference>(createItemReferenceFromDiscriminatorValue); },
@@ -71,7 +66,7 @@ export class Permission extends Entity implements Parsable {
     };
     /**
      * Gets the grantedTo property value. The grantedTo property
-     * @returns a identitySet
+     * @returns a admin
      */
     public get grantedTo() {
         return this._grantedTo;
@@ -80,12 +75,12 @@ export class Permission extends Entity implements Parsable {
      * Sets the grantedTo property value. The grantedTo property
      * @param value Value to set for the grantedTo property.
      */
-    public set grantedTo(value: IdentitySet | undefined) {
+    public set grantedTo(value: IdentitySet | AdminMember1 | undefined) {
         this._grantedTo = value;
     };
     /**
      * Gets the grantedToIdentities property value. The grantedToIdentities property
-     * @returns a identitySet
+     * @returns a admin
      */
     public get grantedToIdentities() {
         return this._grantedToIdentities;
@@ -94,12 +89,12 @@ export class Permission extends Entity implements Parsable {
      * Sets the grantedToIdentities property value. The grantedToIdentities property
      * @param value Value to set for the grantedToIdentities property.
      */
-    public set grantedToIdentities(value: IdentitySet[] | undefined) {
+    public set grantedToIdentities(value: IdentitySet | AdminMember1[] | undefined) {
         this._grantedToIdentities = value;
     };
     /**
      * Gets the grantedToIdentitiesV2 property value. For link type permissions, the details of the users to whom permission was granted. Read-only.
-     * @returns a sharePointIdentitySet
+     * @returns a admin
      */
     public get grantedToIdentitiesV2() {
         return this._grantedToIdentitiesV2;
@@ -108,12 +103,12 @@ export class Permission extends Entity implements Parsable {
      * Sets the grantedToIdentitiesV2 property value. For link type permissions, the details of the users to whom permission was granted. Read-only.
      * @param value Value to set for the grantedToIdentitiesV2 property.
      */
-    public set grantedToIdentitiesV2(value: SharePointIdentitySet[] | undefined) {
+    public set grantedToIdentitiesV2(value: SharePointIdentitySet | AdminMember1[] | undefined) {
         this._grantedToIdentitiesV2 = value;
     };
     /**
      * Gets the grantedToV2 property value. For user type permissions, the details of the users and applications for this permission. Read-only.
-     * @returns a sharePointIdentitySet
+     * @returns a admin
      */
     public get grantedToV2() {
         return this._grantedToV2;
@@ -122,7 +117,7 @@ export class Permission extends Entity implements Parsable {
      * Sets the grantedToV2 property value. For user type permissions, the details of the users and applications for this permission. Read-only.
      * @param value Value to set for the grantedToV2 property.
      */
-    public set grantedToV2(value: SharePointIdentitySet | undefined) {
+    public set grantedToV2(value: SharePointIdentitySet | AdminMember1 | undefined) {
         this._grantedToV2 = value;
     };
     /**
@@ -141,7 +136,7 @@ export class Permission extends Entity implements Parsable {
     };
     /**
      * Gets the inheritedFrom property value. Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only.
-     * @returns a itemReference
+     * @returns a admin
      */
     public get inheritedFrom() {
         return this._inheritedFrom;
@@ -150,12 +145,12 @@ export class Permission extends Entity implements Parsable {
      * Sets the inheritedFrom property value. Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only.
      * @param value Value to set for the inheritedFrom property.
      */
-    public set inheritedFrom(value: ItemReference | undefined) {
+    public set inheritedFrom(value: ItemReference | AdminMember1 | undefined) {
         this._inheritedFrom = value;
     };
     /**
      * Gets the invitation property value. Details of any associated sharing invitation for this permission. Read-only.
-     * @returns a sharingInvitation
+     * @returns a admin
      */
     public get invitation() {
         return this._invitation;
@@ -164,12 +159,12 @@ export class Permission extends Entity implements Parsable {
      * Sets the invitation property value. Details of any associated sharing invitation for this permission. Read-only.
      * @param value Value to set for the invitation property.
      */
-    public set invitation(value: SharingInvitation | undefined) {
+    public set invitation(value: SharingInvitation | AdminMember1 | undefined) {
         this._invitation = value;
     };
     /**
      * Gets the link property value. Provides the link details of the current permission, if it is a link type permissions. Read-only.
-     * @returns a sharingLink
+     * @returns a admin
      */
     public get link() {
         return this._link;
@@ -178,7 +173,7 @@ export class Permission extends Entity implements Parsable {
      * Sets the link property value. Provides the link details of the current permission, if it is a link type permissions. Read-only.
      * @param value Value to set for the link property.
      */
-    public set link(value: SharingLink | undefined) {
+    public set link(value: SharingLink | AdminMember1 | undefined) {
         this._link = value;
     };
     /**
@@ -204,8 +199,8 @@ export class Permission extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         writer.writeObjectValue<IdentitySet>("grantedTo", this.grantedTo);
-        writer.writeCollectionOfObjectValues<IdentitySet>("grantedToIdentities", this.grantedToIdentities);
-        writer.writeCollectionOfObjectValues<SharePointIdentitySet>("grantedToIdentitiesV2", this.grantedToIdentitiesV2);
+        writer.writeObjectValue<IdentitySet>("grantedToIdentities", this.grantedToIdentities);
+        writer.writeObjectValue<SharePointIdentitySet>("grantedToIdentitiesV2", this.grantedToIdentitiesV2);
         writer.writeObjectValue<SharePointIdentitySet>("grantedToV2", this.grantedToV2);
         writer.writeBooleanValue("hasPassword", this.hasPassword);
         writer.writeObjectValue<ItemReference>("inheritedFrom", this.inheritedFrom);

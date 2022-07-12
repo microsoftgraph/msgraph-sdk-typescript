@@ -1,32 +1,29 @@
-import {createAppScopeFromDiscriminatorValue} from './createAppScopeFromDiscriminatorValue';
-import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
-import {createUnifiedRoleDefinitionFromDiscriminatorValue} from './createUnifiedRoleDefinitionFromDiscriminatorValue';
-import {AppScope, DirectoryObject, Entity, UnifiedRoleDefinition} from './index';
+import {AdminMember1, AppScope, DirectoryObject, Entity, UnifiedRoleDefinition} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
+/** Provides operations to manage the admin singleton. */
 export class UnifiedRoleAssignment extends Entity implements Parsable {
     /** Details of the app specific scope when the assignment scope is app specific. Containment entity. */
-    private _appScope?: AppScope | undefined;
+    private _appScope?: AppScope | AdminMember1 | undefined;
     /** Identifier of the app specific scope when the assignment scope is app specific. The scope of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only.  For the entitlement management provider, use app scopes to specify a catalog, for example /AccessPackageCatalog/beedadfe-01d5-4025-910b-84abb9369997. */
     private _appScopeId?: string | undefined;
     /** The condition property */
     private _condition?: string | undefined;
     /** The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand. */
-    private _directoryScope?: DirectoryObject | undefined;
+    private _directoryScope?: DirectoryObject | AdminMember1 | undefined;
     /** Identifier of the directory object representing the scope of the assignment. The scope of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. App scopes are scopes that are defined and understood by this application only. */
     private _directoryScopeId?: string | undefined;
     /** The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand. */
-    private _principal?: DirectoryObject | undefined;
+    private _principal?: DirectoryObject | AdminMember1 | undefined;
     /** Identifier of the principal to which the assignment is granted. Supports $filter (eq operator only). */
     private _principalId?: string | undefined;
     /** The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand. */
-    private _roleDefinition?: UnifiedRoleDefinition | undefined;
+    private _roleDefinition?: UnifiedRoleDefinition | AdminMember1 | undefined;
     /** Identifier of the unifiedRoleDefinition the assignment is for. Read-only. Supports $filter (eq operator only). */
     private _roleDefinitionId?: string | undefined;
     /**
      * Gets the appScope property value. Details of the app specific scope when the assignment scope is app specific. Containment entity.
-     * @returns a appScope
+     * @returns a admin
      */
     public get appScope() {
         return this._appScope;
@@ -35,7 +32,7 @@ export class UnifiedRoleAssignment extends Entity implements Parsable {
      * Sets the appScope property value. Details of the app specific scope when the assignment scope is app specific. Containment entity.
      * @param value Value to set for the appScope property.
      */
-    public set appScope(value: AppScope | undefined) {
+    public set appScope(value: AppScope | AdminMember1 | undefined) {
         this._appScope = value;
     };
     /**
@@ -74,7 +71,7 @@ export class UnifiedRoleAssignment extends Entity implements Parsable {
     };
     /**
      * Gets the directoryScope property value. The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
-     * @returns a directoryObject
+     * @returns a admin
      */
     public get directoryScope() {
         return this._directoryScope;
@@ -83,7 +80,7 @@ export class UnifiedRoleAssignment extends Entity implements Parsable {
      * Sets the directoryScope property value. The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
      * @param value Value to set for the directoryScope property.
      */
-    public set directoryScope(value: DirectoryObject | undefined) {
+    public set directoryScope(value: DirectoryObject | AdminMember1 | undefined) {
         this._directoryScope = value;
     };
     /**
@@ -119,7 +116,7 @@ export class UnifiedRoleAssignment extends Entity implements Parsable {
     };
     /**
      * Gets the principal property value. The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
-     * @returns a directoryObject
+     * @returns a admin
      */
     public get principal() {
         return this._principal;
@@ -128,7 +125,7 @@ export class UnifiedRoleAssignment extends Entity implements Parsable {
      * Sets the principal property value. The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
      * @param value Value to set for the principal property.
      */
-    public set principal(value: DirectoryObject | undefined) {
+    public set principal(value: DirectoryObject | AdminMember1 | undefined) {
         this._principal = value;
     };
     /**
@@ -147,7 +144,7 @@ export class UnifiedRoleAssignment extends Entity implements Parsable {
     };
     /**
      * Gets the roleDefinition property value. The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
-     * @returns a unifiedRoleDefinition
+     * @returns a admin
      */
     public get roleDefinition() {
         return this._roleDefinition;
@@ -156,7 +153,7 @@ export class UnifiedRoleAssignment extends Entity implements Parsable {
      * Sets the roleDefinition property value. The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
      * @param value Value to set for the roleDefinition property.
      */
-    public set roleDefinition(value: UnifiedRoleDefinition | undefined) {
+    public set roleDefinition(value: UnifiedRoleDefinition | AdminMember1 | undefined) {
         this._roleDefinition = value;
     };
     /**

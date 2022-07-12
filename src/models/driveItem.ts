@@ -1,42 +1,19 @@
-import {createAudioFromDiscriminatorValue} from './createAudioFromDiscriminatorValue';
-import {createBundleFromDiscriminatorValue} from './createBundleFromDiscriminatorValue';
-import {createDeletedFromDiscriminatorValue} from './createDeletedFromDiscriminatorValue';
 import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscriminatorValue';
 import {createDriveItemVersionFromDiscriminatorValue} from './createDriveItemVersionFromDiscriminatorValue';
-import {createFileFromDiscriminatorValue} from './createFileFromDiscriminatorValue';
-import {createFileSystemInfoFromDiscriminatorValue} from './createFileSystemInfoFromDiscriminatorValue';
-import {createFolderFromDiscriminatorValue} from './createFolderFromDiscriminatorValue';
-import {createGeoCoordinatesFromDiscriminatorValue} from './createGeoCoordinatesFromDiscriminatorValue';
-import {createImageFromDiscriminatorValue} from './createImageFromDiscriminatorValue';
-import {createItemAnalyticsFromDiscriminatorValue} from './createItemAnalyticsFromDiscriminatorValue';
-import {createListItemFromDiscriminatorValue} from './createListItemFromDiscriminatorValue';
-import {createMalwareFromDiscriminatorValue} from './createMalwareFromDiscriminatorValue';
-import {createPackageFromDiscriminatorValue} from './createPackageFromDiscriminatorValue';
-import {createPendingOperationsFromDiscriminatorValue} from './createPendingOperationsFromDiscriminatorValue';
 import {createPermissionFromDiscriminatorValue} from './createPermissionFromDiscriminatorValue';
-import {createPhotoFromDiscriminatorValue} from './createPhotoFromDiscriminatorValue';
-import {createPublicationFacetFromDiscriminatorValue} from './createPublicationFacetFromDiscriminatorValue';
-import {createRemoteItemFromDiscriminatorValue} from './createRemoteItemFromDiscriminatorValue';
-import {createRootFromDiscriminatorValue} from './createRootFromDiscriminatorValue';
-import {createSearchResultFromDiscriminatorValue} from './createSearchResultFromDiscriminatorValue';
-import {createSharedFromDiscriminatorValue} from './createSharedFromDiscriminatorValue';
-import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFromDiscriminatorValue';
-import {createSpecialFolderFromDiscriminatorValue} from './createSpecialFolderFromDiscriminatorValue';
 import {createSubscriptionFromDiscriminatorValue} from './createSubscriptionFromDiscriminatorValue';
 import {createThumbnailSetFromDiscriminatorValue} from './createThumbnailSetFromDiscriminatorValue';
-import {createVideoFromDiscriminatorValue} from './createVideoFromDiscriminatorValue';
-import {createWorkbookFromDiscriminatorValue} from './createWorkbookFromDiscriminatorValue';
-import {Audio, BaseItem, Bundle, Deleted, DriveItemVersion, File, FileSystemInfo, Folder, GeoCoordinates, Image, ItemAnalytics, ListItem, Malware, Package, PendingOperations, Permission, Photo, PublicationFacet, RemoteItem, Root, SearchResult, Shared, SharepointIds, SpecialFolder, Subscription, ThumbnailSet, Video, Workbook} from './index';
+import {AdminMember1, Audio, BaseItem, Bundle, Deleted, DriveItemVersion, File, FileSystemInfo, Folder, GeoCoordinates, Image, ItemAnalytics, ListItem, Malware, Package, PendingOperations, Permission, Photo, PublicationFacet, RemoteItem, Root, SearchResult, Shared, SharepointIds, SpecialFolder, Subscription, ThumbnailSet, Video, Workbook} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class DriveItem extends BaseItem implements Parsable {
     /** Analytics about the view activities that took place on this item. */
-    private _analytics?: ItemAnalytics | undefined;
+    private _analytics?: ItemAnalytics | AdminMember1 | undefined;
     /** Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal. */
-    private _audio?: Audio | undefined;
+    private _audio?: Audio | AdminMember1 | undefined;
     /** Bundle metadata, if the item is a bundle. Read-only. */
-    private _bundle?: Bundle | undefined;
+    private _bundle?: Bundle | AdminMember1 | undefined;
     /** Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable. */
     private _children?: DriveItem[] | undefined;
     /** The content stream, if the item represents a file. */
@@ -44,45 +21,45 @@ export class DriveItem extends BaseItem implements Parsable {
     /** An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only. */
     private _cTag?: string | undefined;
     /** Information about the deleted state of the item. Read-only. */
-    private _deleted?: Deleted | undefined;
+    private _deleted?: Deleted | AdminMember1 | undefined;
     /** File metadata, if the item is a file. Read-only. */
-    private _file?: File | undefined;
+    private _file?: File | AdminMember1 | undefined;
     /** File system information on client. Read-write. */
-    private _fileSystemInfo?: FileSystemInfo | undefined;
+    private _fileSystemInfo?: FileSystemInfo | AdminMember1 | undefined;
     /** Folder metadata, if the item is a folder. Read-only. */
-    private _folder?: Folder | undefined;
+    private _folder?: Folder | AdminMember1 | undefined;
     /** Image metadata, if the item is an image. Read-only. */
-    private _image?: Image | undefined;
+    private _image?: Image | AdminMember1 | undefined;
     /** For drives in SharePoint, the associated document library list item. Read-only. Nullable. */
-    private _listItem?: ListItem | undefined;
+    private _listItem?: ListItem | AdminMember1 | undefined;
     /** Location metadata, if the item has location data. Read-only. */
-    private _location?: GeoCoordinates | undefined;
+    private _location?: GeoCoordinates | AdminMember1 | undefined;
     /** Malware metadata, if the item was detected to contain malware. Read-only. */
-    private _malware?: Malware | undefined;
+    private _malware?: Malware | AdminMember1 | undefined;
     /** If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only. */
-    private _package?: Package | undefined;
+    private _package?: Package | AdminMember1 | undefined;
     /** If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only. */
-    private _pendingOperations?: PendingOperations | undefined;
+    private _pendingOperations?: PendingOperations | AdminMember1 | undefined;
     /** The set of permissions for the item. Read-only. Nullable. */
     private _permissions?: Permission[] | undefined;
     /** Photo metadata, if the item is a photo. Read-only. */
-    private _photo?: Photo | undefined;
+    private _photo?: Photo | AdminMember1 | undefined;
     /** Provides information about the published or checked-out state of an item, in locations that support such actions. This property is not returned by default. Read-only. */
-    private _publication?: PublicationFacet | undefined;
+    private _publication?: PublicationFacet | AdminMember1 | undefined;
     /** Remote item data, if the item is shared from a drive other than the one being accessed. Read-only. */
-    private _remoteItem?: RemoteItem | undefined;
+    private _remoteItem?: RemoteItem | AdminMember1 | undefined;
     /** If this property is non-null, it indicates that the driveItem is the top-most driveItem in the drive. */
-    private _root?: Root | undefined;
+    private _root?: Root | AdminMember1 | undefined;
     /** Search metadata, if the item is from a search result. Read-only. */
-    private _searchResult?: SearchResult | undefined;
+    private _searchResult?: SearchResult | AdminMember1 | undefined;
     /** Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only. */
-    private _shared?: Shared | undefined;
+    private _shared?: Shared | AdminMember1 | undefined;
     /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
-    private _sharepointIds?: SharepointIds | undefined;
+    private _sharepointIds?: SharepointIds | AdminMember1 | undefined;
     /** Size of the item in bytes. Read-only. */
     private _size?: number | undefined;
     /** If the current item is also available as a special folder, this facet is returned. Read-only. */
-    private _specialFolder?: SpecialFolder | undefined;
+    private _specialFolder?: SpecialFolder | AdminMember1 | undefined;
     /** The set of subscriptions on the item. Only supported on the root of a drive. */
     private _subscriptions?: Subscription[] | undefined;
     /** Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. */
@@ -90,14 +67,14 @@ export class DriveItem extends BaseItem implements Parsable {
     /** The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable. */
     private _versions?: DriveItemVersion[] | undefined;
     /** Video metadata, if the item is a video. Read-only. */
-    private _video?: Video | undefined;
+    private _video?: Video | AdminMember1 | undefined;
     /** WebDAV compatible URL for the item. */
     private _webDavUrl?: string | undefined;
     /** For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable. */
-    private _workbook?: Workbook | undefined;
+    private _workbook?: Workbook | AdminMember1 | undefined;
     /**
      * Gets the analytics property value. Analytics about the view activities that took place on this item.
-     * @returns a itemAnalytics
+     * @returns a admin
      */
     public get analytics() {
         return this._analytics;
@@ -106,12 +83,12 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the analytics property value. Analytics about the view activities that took place on this item.
      * @param value Value to set for the analytics property.
      */
-    public set analytics(value: ItemAnalytics | undefined) {
+    public set analytics(value: ItemAnalytics | AdminMember1 | undefined) {
         this._analytics = value;
     };
     /**
      * Gets the audio property value. Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal.
-     * @returns a audio
+     * @returns a admin
      */
     public get audio() {
         return this._audio;
@@ -120,12 +97,12 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the audio property value. Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal.
      * @param value Value to set for the audio property.
      */
-    public set audio(value: Audio | undefined) {
+    public set audio(value: Audio | AdminMember1 | undefined) {
         this._audio = value;
     };
     /**
      * Gets the bundle property value. Bundle metadata, if the item is a bundle. Read-only.
-     * @returns a bundle
+     * @returns a admin
      */
     public get bundle() {
         return this._bundle;
@@ -134,7 +111,7 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the bundle property value. Bundle metadata, if the item is a bundle. Read-only.
      * @param value Value to set for the bundle property.
      */
-    public set bundle(value: Bundle | undefined) {
+    public set bundle(value: Bundle | AdminMember1 | undefined) {
         this._bundle = value;
     };
     /**
@@ -187,7 +164,7 @@ export class DriveItem extends BaseItem implements Parsable {
     };
     /**
      * Gets the deleted property value. Information about the deleted state of the item. Read-only.
-     * @returns a deleted
+     * @returns a admin
      */
     public get deleted() {
         return this._deleted;
@@ -196,12 +173,12 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the deleted property value. Information about the deleted state of the item. Read-only.
      * @param value Value to set for the deleted property.
      */
-    public set deleted(value: Deleted | undefined) {
+    public set deleted(value: Deleted | AdminMember1 | undefined) {
         this._deleted = value;
     };
     /**
      * Gets the file property value. File metadata, if the item is a file. Read-only.
-     * @returns a file
+     * @returns a admin
      */
     public get file() {
         return this._file;
@@ -210,12 +187,12 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the file property value. File metadata, if the item is a file. Read-only.
      * @param value Value to set for the file property.
      */
-    public set file(value: File | undefined) {
+    public set file(value: File | AdminMember1 | undefined) {
         this._file = value;
     };
     /**
      * Gets the fileSystemInfo property value. File system information on client. Read-write.
-     * @returns a fileSystemInfo
+     * @returns a admin
      */
     public get fileSystemInfo() {
         return this._fileSystemInfo;
@@ -224,12 +201,12 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the fileSystemInfo property value. File system information on client. Read-write.
      * @param value Value to set for the fileSystemInfo property.
      */
-    public set fileSystemInfo(value: FileSystemInfo | undefined) {
+    public set fileSystemInfo(value: FileSystemInfo | AdminMember1 | undefined) {
         this._fileSystemInfo = value;
     };
     /**
      * Gets the folder property value. Folder metadata, if the item is a folder. Read-only.
-     * @returns a folder
+     * @returns a admin
      */
     public get folder() {
         return this._folder;
@@ -238,7 +215,7 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the folder property value. Folder metadata, if the item is a folder. Read-only.
      * @param value Value to set for the folder property.
      */
-    public set folder(value: Folder | undefined) {
+    public set folder(value: Folder | AdminMember1 | undefined) {
         this._folder = value;
     };
     /**
@@ -283,7 +260,7 @@ export class DriveItem extends BaseItem implements Parsable {
     };
     /**
      * Gets the image property value. Image metadata, if the item is an image. Read-only.
-     * @returns a image
+     * @returns a admin
      */
     public get image() {
         return this._image;
@@ -292,12 +269,12 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the image property value. Image metadata, if the item is an image. Read-only.
      * @param value Value to set for the image property.
      */
-    public set image(value: Image | undefined) {
+    public set image(value: Image | AdminMember1 | undefined) {
         this._image = value;
     };
     /**
      * Gets the listItem property value. For drives in SharePoint, the associated document library list item. Read-only. Nullable.
-     * @returns a listItem
+     * @returns a admin
      */
     public get listItem() {
         return this._listItem;
@@ -306,12 +283,12 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the listItem property value. For drives in SharePoint, the associated document library list item. Read-only. Nullable.
      * @param value Value to set for the listItem property.
      */
-    public set listItem(value: ListItem | undefined) {
+    public set listItem(value: ListItem | AdminMember1 | undefined) {
         this._listItem = value;
     };
     /**
      * Gets the location property value. Location metadata, if the item has location data. Read-only.
-     * @returns a geoCoordinates
+     * @returns a admin
      */
     public get location() {
         return this._location;
@@ -320,12 +297,12 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the location property value. Location metadata, if the item has location data. Read-only.
      * @param value Value to set for the location property.
      */
-    public set location(value: GeoCoordinates | undefined) {
+    public set location(value: GeoCoordinates | AdminMember1 | undefined) {
         this._location = value;
     };
     /**
      * Gets the malware property value. Malware metadata, if the item was detected to contain malware. Read-only.
-     * @returns a malware
+     * @returns a admin
      */
     public get malware() {
         return this._malware;
@@ -334,12 +311,12 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the malware property value. Malware metadata, if the item was detected to contain malware. Read-only.
      * @param value Value to set for the malware property.
      */
-    public set malware(value: Malware | undefined) {
+    public set malware(value: Malware | AdminMember1 | undefined) {
         this._malware = value;
     };
     /**
      * Gets the package property value. If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
-     * @returns a package
+     * @returns a admin
      */
     public get package() {
         return this._package;
@@ -348,12 +325,12 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the package property value. If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
      * @param value Value to set for the package property.
      */
-    public set package(value: Package | undefined) {
+    public set package(value: Package | AdminMember1 | undefined) {
         this._package = value;
     };
     /**
      * Gets the pendingOperations property value. If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
-     * @returns a pendingOperations
+     * @returns a admin
      */
     public get pendingOperations() {
         return this._pendingOperations;
@@ -362,7 +339,7 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the pendingOperations property value. If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
      * @param value Value to set for the pendingOperations property.
      */
-    public set pendingOperations(value: PendingOperations | undefined) {
+    public set pendingOperations(value: PendingOperations | AdminMember1 | undefined) {
         this._pendingOperations = value;
     };
     /**
@@ -381,7 +358,7 @@ export class DriveItem extends BaseItem implements Parsable {
     };
     /**
      * Gets the photo property value. Photo metadata, if the item is a photo. Read-only.
-     * @returns a photo
+     * @returns a admin
      */
     public get photo() {
         return this._photo;
@@ -390,12 +367,12 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the photo property value. Photo metadata, if the item is a photo. Read-only.
      * @param value Value to set for the photo property.
      */
-    public set photo(value: Photo | undefined) {
+    public set photo(value: Photo | AdminMember1 | undefined) {
         this._photo = value;
     };
     /**
      * Gets the publication property value. Provides information about the published or checked-out state of an item, in locations that support such actions. This property is not returned by default. Read-only.
-     * @returns a publicationFacet
+     * @returns a admin
      */
     public get publication() {
         return this._publication;
@@ -404,12 +381,12 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the publication property value. Provides information about the published or checked-out state of an item, in locations that support such actions. This property is not returned by default. Read-only.
      * @param value Value to set for the publication property.
      */
-    public set publication(value: PublicationFacet | undefined) {
+    public set publication(value: PublicationFacet | AdminMember1 | undefined) {
         this._publication = value;
     };
     /**
      * Gets the remoteItem property value. Remote item data, if the item is shared from a drive other than the one being accessed. Read-only.
-     * @returns a remoteItem
+     * @returns a admin
      */
     public get remoteItem() {
         return this._remoteItem;
@@ -418,12 +395,12 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the remoteItem property value. Remote item data, if the item is shared from a drive other than the one being accessed. Read-only.
      * @param value Value to set for the remoteItem property.
      */
-    public set remoteItem(value: RemoteItem | undefined) {
+    public set remoteItem(value: RemoteItem | AdminMember1 | undefined) {
         this._remoteItem = value;
     };
     /**
      * Gets the root property value. If this property is non-null, it indicates that the driveItem is the top-most driveItem in the drive.
-     * @returns a root
+     * @returns a admin
      */
     public get root() {
         return this._root;
@@ -432,12 +409,12 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the root property value. If this property is non-null, it indicates that the driveItem is the top-most driveItem in the drive.
      * @param value Value to set for the root property.
      */
-    public set root(value: Root | undefined) {
+    public set root(value: Root | AdminMember1 | undefined) {
         this._root = value;
     };
     /**
      * Gets the searchResult property value. Search metadata, if the item is from a search result. Read-only.
-     * @returns a searchResult
+     * @returns a admin
      */
     public get searchResult() {
         return this._searchResult;
@@ -446,7 +423,7 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the searchResult property value. Search metadata, if the item is from a search result. Read-only.
      * @param value Value to set for the searchResult property.
      */
-    public set searchResult(value: SearchResult | undefined) {
+    public set searchResult(value: SearchResult | AdminMember1 | undefined) {
         this._searchResult = value;
     };
     /**
@@ -491,7 +468,7 @@ export class DriveItem extends BaseItem implements Parsable {
     };
     /**
      * Gets the shared property value. Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.
-     * @returns a shared
+     * @returns a admin
      */
     public get shared() {
         return this._shared;
@@ -500,12 +477,12 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the shared property value. Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.
      * @param value Value to set for the shared property.
      */
-    public set shared(value: Shared | undefined) {
+    public set shared(value: Shared | AdminMember1 | undefined) {
         this._shared = value;
     };
     /**
      * Gets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
-     * @returns a sharepointIds
+     * @returns a admin
      */
     public get sharepointIds() {
         return this._sharepointIds;
@@ -514,7 +491,7 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
      * @param value Value to set for the sharepointIds property.
      */
-    public set sharepointIds(value: SharepointIds | undefined) {
+    public set sharepointIds(value: SharepointIds | AdminMember1 | undefined) {
         this._sharepointIds = value;
     };
     /**
@@ -533,7 +510,7 @@ export class DriveItem extends BaseItem implements Parsable {
     };
     /**
      * Gets the specialFolder property value. If the current item is also available as a special folder, this facet is returned. Read-only.
-     * @returns a specialFolder
+     * @returns a admin
      */
     public get specialFolder() {
         return this._specialFolder;
@@ -542,7 +519,7 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the specialFolder property value. If the current item is also available as a special folder, this facet is returned. Read-only.
      * @param value Value to set for the specialFolder property.
      */
-    public set specialFolder(value: SpecialFolder | undefined) {
+    public set specialFolder(value: SpecialFolder | AdminMember1 | undefined) {
         this._specialFolder = value;
     };
     /**
@@ -589,7 +566,7 @@ export class DriveItem extends BaseItem implements Parsable {
     };
     /**
      * Gets the video property value. Video metadata, if the item is a video. Read-only.
-     * @returns a video
+     * @returns a admin
      */
     public get video() {
         return this._video;
@@ -598,7 +575,7 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the video property value. Video metadata, if the item is a video. Read-only.
      * @param value Value to set for the video property.
      */
-    public set video(value: Video | undefined) {
+    public set video(value: Video | AdminMember1 | undefined) {
         this._video = value;
     };
     /**
@@ -617,7 +594,7 @@ export class DriveItem extends BaseItem implements Parsable {
     };
     /**
      * Gets the workbook property value. For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
-     * @returns a workbook
+     * @returns a admin
      */
     public get workbook() {
         return this._workbook;
@@ -626,7 +603,7 @@ export class DriveItem extends BaseItem implements Parsable {
      * Sets the workbook property value. For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
      * @param value Value to set for the workbook property.
      */
-    public set workbook(value: Workbook | undefined) {
+    public set workbook(value: Workbook | AdminMember1 | undefined) {
         this._workbook = value;
     };
 }

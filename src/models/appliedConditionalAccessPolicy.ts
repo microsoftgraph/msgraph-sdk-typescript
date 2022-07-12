@@ -1,4 +1,5 @@
 import {AppliedConditionalAccessPolicyResult} from './appliedConditionalAccessPolicyResult';
+import {AdminMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable {
@@ -13,7 +14,7 @@ export class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Par
     /** Identifier of the conditional access policy. */
     private _id?: string | undefined;
     /** Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. */
-    private _result?: AppliedConditionalAccessPolicyResult | undefined;
+    private _result?: AppliedConditionalAccessPolicyResult | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -86,7 +87,7 @@ export class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Par
             "enforcedGrantControls": n => { this.enforcedGrantControls = n.getCollectionOfPrimitiveValues<string>(); },
             "enforcedSessionControls": n => { this.enforcedSessionControls = n.getCollectionOfPrimitiveValues<string>(); },
             "id": n => { this.id = n.getStringValue(); },
-            "result": n => { this.result = n.getEnumValue<AppliedConditionalAccessPolicyResult>(AppliedConditionalAccessPolicyResult); },
+            "result": n => { this.result = n.getObjectValue<AppliedConditionalAccessPolicyResult>(createAppliedConditionalAccessPolicyResultFromDiscriminatorValue); },
         };
     };
     /**
@@ -105,7 +106,7 @@ export class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Par
     };
     /**
      * Gets the result property value. Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.
-     * @returns a appliedConditionalAccessPolicyResult
+     * @returns a admin
      */
     public get result() {
         return this._result;
@@ -114,7 +115,7 @@ export class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Par
      * Sets the result property value. Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.
      * @param value Value to set for the result property.
      */
-    public set result(value: AppliedConditionalAccessPolicyResult | undefined) {
+    public set result(value: AppliedConditionalAccessPolicyResult | AdminMember1 | undefined) {
         this._result = value;
     };
     /**
@@ -127,7 +128,7 @@ export class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Par
         writer.writeCollectionOfPrimitiveValues<string>("enforcedGrantControls", this.enforcedGrantControls);
         writer.writeCollectionOfPrimitiveValues<string>("enforcedSessionControls", this.enforcedSessionControls);
         writer.writeStringValue("id", this.id);
-        writer.writeEnumValue<AppliedConditionalAccessPolicyResult>("result", this.result);
+        writer.writeObjectValue<AppliedConditionalAccessPolicyResult>("result", this.result);
         writer.writeAdditionalData(this.additionalData);
     };
 }

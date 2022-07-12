@@ -1,6 +1,5 @@
 import {ComplianceStatus} from './complianceStatus';
-import {createDeviceConfigurationSettingStateFromDiscriminatorValue} from './createDeviceConfigurationSettingStateFromDiscriminatorValue';
-import {DeviceConfigurationSettingState, Entity} from './index';
+import {AdminMember1, DeviceConfigurationSettingState, Entity} from './index';
 import {PolicyPlatformType} from './policyPlatformType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -8,13 +7,13 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class DeviceConfigurationState extends Entity implements Parsable {
     /** The name of the policy for this policyBase */
     private _displayName?: string | undefined;
-    /** Platform type that the policy applies to */
+    /** Supported platform types for policies. */
     private _platformType?: PolicyPlatformType | undefined;
     /** Count of how many setting a policy holds */
     private _settingCount?: number | undefined;
     /** The settingStates property */
-    private _settingStates?: DeviceConfigurationSettingState[] | undefined;
-    /** The compliance state of the policy */
+    private _settingStates?: DeviceConfigurationSettingState | AdminMember1[] | undefined;
+    /** The state property */
     private _state?: ComplianceStatus | undefined;
     /** The version of the policy */
     private _version?: number | undefined;
@@ -47,20 +46,20 @@ export class DeviceConfigurationState extends Entity implements Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "platformType": n => { this.platformType = n.getEnumValue<PolicyPlatformType>(PolicyPlatformType); },
             "settingCount": n => { this.settingCount = n.getNumberValue(); },
-            "settingStates": n => { this.settingStates = n.getCollectionOfObjectValues<DeviceConfigurationSettingState>(createDeviceConfigurationSettingStateFromDiscriminatorValue); },
+            "settingStates": n => { this.settingStates = n.getObjectValue<DeviceConfigurationSettingState>(createDeviceConfigurationSettingStateFromDiscriminatorValue); },
             "state": n => { this.state = n.getEnumValue<ComplianceStatus>(ComplianceStatus); },
             "version": n => { this.version = n.getNumberValue(); },
         };
     };
     /**
-     * Gets the platformType property value. Platform type that the policy applies to
+     * Gets the platformType property value. Supported platform types for policies.
      * @returns a policyPlatformType
      */
     public get platformType() {
         return this._platformType;
     };
     /**
-     * Sets the platformType property value. Platform type that the policy applies to
+     * Sets the platformType property value. Supported platform types for policies.
      * @param value Value to set for the platformType property.
      */
     public set platformType(value: PolicyPlatformType | undefined) {
@@ -76,7 +75,7 @@ export class DeviceConfigurationState extends Entity implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeEnumValue<PolicyPlatformType>("platformType", this.platformType);
         writer.writeNumberValue("settingCount", this.settingCount);
-        writer.writeCollectionOfObjectValues<DeviceConfigurationSettingState>("settingStates", this.settingStates);
+        writer.writeObjectValue<DeviceConfigurationSettingState>("settingStates", this.settingStates);
         writer.writeEnumValue<ComplianceStatus>("state", this.state);
         writer.writeNumberValue("version", this.version);
     };
@@ -96,7 +95,7 @@ export class DeviceConfigurationState extends Entity implements Parsable {
     };
     /**
      * Gets the settingStates property value. The settingStates property
-     * @returns a deviceConfigurationSettingState
+     * @returns a admin
      */
     public get settingStates() {
         return this._settingStates;
@@ -105,18 +104,18 @@ export class DeviceConfigurationState extends Entity implements Parsable {
      * Sets the settingStates property value. The settingStates property
      * @param value Value to set for the settingStates property.
      */
-    public set settingStates(value: DeviceConfigurationSettingState[] | undefined) {
+    public set settingStates(value: DeviceConfigurationSettingState | AdminMember1[] | undefined) {
         this._settingStates = value;
     };
     /**
-     * Gets the state property value. The compliance state of the policy
+     * Gets the state property value. The state property
      * @returns a complianceStatus
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The compliance state of the policy
+     * Sets the state property value. The state property
      * @param value Value to set for the state property.
      */
     public set state(value: ComplianceStatus | undefined) {

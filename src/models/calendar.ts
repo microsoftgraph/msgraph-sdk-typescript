@@ -1,14 +1,12 @@
 import {CalendarColor} from './calendarColor';
 import {createCalendarPermissionFromDiscriminatorValue} from './createCalendarPermissionFromDiscriminatorValue';
-import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFromDiscriminatorValue';
 import {createEventFromDiscriminatorValue} from './createEventFromDiscriminatorValue';
 import {createMultiValueLegacyExtendedPropertyFromDiscriminatorValue} from './createMultiValueLegacyExtendedPropertyFromDiscriminatorValue';
 import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './createSingleValueLegacyExtendedPropertyFromDiscriminatorValue';
-import {CalendarPermission, EmailAddress, Entity, Event, MultiValueLegacyExtendedProperty, SingleValueLegacyExtendedProperty} from './index';
+import {AdminMember1, CalendarPermission, EmailAddress, Entity, Event, MultiValueLegacyExtendedProperty, SingleValueLegacyExtendedProperty} from './index';
 import {OnlineMeetingProviderType} from './onlineMeetingProviderType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Calendar extends Entity implements Parsable {
     /** Represent the online meeting service providers that can be used to create online meetings in this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness. */
     private _allowedOnlineMeetingProviders?: string[] | undefined;
@@ -25,9 +23,9 @@ export class Calendar extends Entity implements Parsable {
     /** Identifies the version of the calendar object. Every time the calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only. */
     private _changeKey?: string | undefined;
     /** Specifies the color theme to distinguish the calendar from other calendars in a UI. The property values are: auto, lightBlue, lightGreen, lightOrange, lightGray, lightYellow, lightTeal, lightPink, lightBrown, lightRed, maxColor. */
-    private _color?: CalendarColor | undefined;
+    private _color?: CalendarColor | AdminMember1 | undefined;
     /** The default online meeting provider for meetings sent from this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness. */
-    private _defaultOnlineMeetingProvider?: OnlineMeetingProviderType | undefined;
+    private _defaultOnlineMeetingProvider?: OnlineMeetingProviderType | AdminMember1 | undefined;
     /** The events in the calendar. Navigation property. Read-only. */
     private _events?: Event[] | undefined;
     /** The calendar color, expressed in a hex color code of three hexadecimal values, each ranging from 00 to FF and representing the red, green, or blue components of the color in the RGB color space. If the user has never explicitly set a color for the calendar, this property is  empty. */
@@ -43,7 +41,7 @@ export class Calendar extends Entity implements Parsable {
     /** The calendar name. */
     private _name?: string | undefined;
     /** If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the owner property is set to the user. For a calendar shared with the user, the owner property is set to the person who shared that calendar with the user. Read-only. */
-    private _owner?: EmailAddress | undefined;
+    private _owner?: EmailAddress | AdminMember1 | undefined;
     /** The collection of single-value extended properties defined for the calendar. Read-only. Nullable. */
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
     /**
@@ -146,7 +144,7 @@ export class Calendar extends Entity implements Parsable {
     };
     /**
      * Gets the color property value. Specifies the color theme to distinguish the calendar from other calendars in a UI. The property values are: auto, lightBlue, lightGreen, lightOrange, lightGray, lightYellow, lightTeal, lightPink, lightBrown, lightRed, maxColor.
-     * @returns a calendarColor
+     * @returns a admin
      */
     public get color() {
         return this._color;
@@ -155,7 +153,7 @@ export class Calendar extends Entity implements Parsable {
      * Sets the color property value. Specifies the color theme to distinguish the calendar from other calendars in a UI. The property values are: auto, lightBlue, lightGreen, lightOrange, lightGray, lightYellow, lightTeal, lightPink, lightBrown, lightRed, maxColor.
      * @param value Value to set for the color property.
      */
-    public set color(value: CalendarColor | undefined) {
+    public set color(value: CalendarColor | AdminMember1 | undefined) {
         this._color = value;
     };
     /**
@@ -166,7 +164,7 @@ export class Calendar extends Entity implements Parsable {
     };
     /**
      * Gets the defaultOnlineMeetingProvider property value. The default online meeting provider for meetings sent from this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness.
-     * @returns a onlineMeetingProviderType
+     * @returns a admin
      */
     public get defaultOnlineMeetingProvider() {
         return this._defaultOnlineMeetingProvider;
@@ -175,7 +173,7 @@ export class Calendar extends Entity implements Parsable {
      * Sets the defaultOnlineMeetingProvider property value. The default online meeting provider for meetings sent from this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness.
      * @param value Value to set for the defaultOnlineMeetingProvider property.
      */
-    public set defaultOnlineMeetingProvider(value: OnlineMeetingProviderType | undefined) {
+    public set defaultOnlineMeetingProvider(value: OnlineMeetingProviderType | AdminMember1 | undefined) {
         this._defaultOnlineMeetingProvider = value;
     };
     /**
@@ -205,8 +203,8 @@ export class Calendar extends Entity implements Parsable {
             "canShare": n => { this.canShare = n.getBooleanValue(); },
             "canViewPrivateItems": n => { this.canViewPrivateItems = n.getBooleanValue(); },
             "changeKey": n => { this.changeKey = n.getStringValue(); },
-            "color": n => { this.color = n.getEnumValue<CalendarColor>(CalendarColor); },
-            "defaultOnlineMeetingProvider": n => { this.defaultOnlineMeetingProvider = n.getEnumValue<OnlineMeetingProviderType>(OnlineMeetingProviderType); },
+            "color": n => { this.color = n.getObjectValue<CalendarColor>(createCalendarColorFromDiscriminatorValue); },
+            "defaultOnlineMeetingProvider": n => { this.defaultOnlineMeetingProvider = n.getObjectValue<OnlineMeetingProviderType>(createOnlineMeetingProviderTypeFromDiscriminatorValue); },
             "events": n => { this.events = n.getCollectionOfObjectValues<Event>(createEventFromDiscriminatorValue); },
             "hexColor": n => { this.hexColor = n.getStringValue(); },
             "isDefaultCalendar": n => { this.isDefaultCalendar = n.getBooleanValue(); },
@@ -304,7 +302,7 @@ export class Calendar extends Entity implements Parsable {
     };
     /**
      * Gets the owner property value. If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the owner property is set to the user. For a calendar shared with the user, the owner property is set to the person who shared that calendar with the user. Read-only.
-     * @returns a emailAddress
+     * @returns a admin
      */
     public get owner() {
         return this._owner;
@@ -313,7 +311,7 @@ export class Calendar extends Entity implements Parsable {
      * Sets the owner property value. If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the owner property is set to the user. For a calendar shared with the user, the owner property is set to the person who shared that calendar with the user. Read-only.
      * @param value Value to set for the owner property.
      */
-    public set owner(value: EmailAddress | undefined) {
+    public set owner(value: EmailAddress | AdminMember1 | undefined) {
         this._owner = value;
     };
     /**
@@ -330,8 +328,8 @@ export class Calendar extends Entity implements Parsable {
         writer.writeBooleanValue("canShare", this.canShare);
         writer.writeBooleanValue("canViewPrivateItems", this.canViewPrivateItems);
         writer.writeStringValue("changeKey", this.changeKey);
-        writer.writeEnumValue<CalendarColor>("color", this.color);
-        writer.writeEnumValue<OnlineMeetingProviderType>("defaultOnlineMeetingProvider", this.defaultOnlineMeetingProvider);
+        writer.writeObjectValue<CalendarColor>("color", this.color);
+        writer.writeObjectValue<OnlineMeetingProviderType>("defaultOnlineMeetingProvider", this.defaultOnlineMeetingProvider);
         writer.writeCollectionOfObjectValues<Event>("events", this.events);
         writer.writeStringValue("hexColor", this.hexColor);
         writer.writeBooleanValue("isDefaultCalendar", this.isDefaultCalendar);

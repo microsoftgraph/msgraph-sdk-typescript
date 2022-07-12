@@ -1,54 +1,43 @@
-import {createFileFromDiscriminatorValue} from './createFileFromDiscriminatorValue';
-import {createFileSystemInfoFromDiscriminatorValue} from './createFileSystemInfoFromDiscriminatorValue';
-import {createFolderFromDiscriminatorValue} from './createFolderFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createImageFromDiscriminatorValue} from './createImageFromDiscriminatorValue';
-import {createItemReferenceFromDiscriminatorValue} from './createItemReferenceFromDiscriminatorValue';
-import {createPackageFromDiscriminatorValue} from './createPackageFromDiscriminatorValue';
-import {createSharedFromDiscriminatorValue} from './createSharedFromDiscriminatorValue';
-import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFromDiscriminatorValue';
-import {createSpecialFolderFromDiscriminatorValue} from './createSpecialFolderFromDiscriminatorValue';
-import {createVideoFromDiscriminatorValue} from './createVideoFromDiscriminatorValue';
-import {File, FileSystemInfo, Folder, IdentitySet, Image, ItemReference, Package, Shared, SharepointIds, SpecialFolder, Video} from './index';
+import {AdminMember1, File, FileSystemInfo, Folder, IdentitySet, Image, ItemReference, Package, Shared, SharepointIds, SpecialFolder, Video} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RemoteItem implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Identity of the user, device, and application which created the item. Read-only. */
-    private _createdBy?: IdentitySet | undefined;
+    private _createdBy?: IdentitySet | AdminMember1 | undefined;
     /** Date and time of item creation. Read-only. */
     private _createdDateTime?: Date | undefined;
     /** Indicates that the remote item is a file. Read-only. */
-    private _file?: File | undefined;
+    private _file?: File | AdminMember1 | undefined;
     /** Information about the remote item from the local file system. Read-only. */
-    private _fileSystemInfo?: FileSystemInfo | undefined;
+    private _fileSystemInfo?: FileSystemInfo | AdminMember1 | undefined;
     /** Indicates that the remote item is a folder. Read-only. */
-    private _folder?: Folder | undefined;
+    private _folder?: Folder | AdminMember1 | undefined;
     /** Unique identifier for the remote item in its drive. Read-only. */
     private _id?: string | undefined;
     /** Image metadata, if the item is an image. Read-only. */
-    private _image?: Image | undefined;
+    private _image?: Image | AdminMember1 | undefined;
     /** Identity of the user, device, and application which last modified the item. Read-only. */
-    private _lastModifiedBy?: IdentitySet | undefined;
+    private _lastModifiedBy?: IdentitySet | AdminMember1 | undefined;
     /** Date and time the item was last modified. Read-only. */
     private _lastModifiedDateTime?: Date | undefined;
     /** Optional. Filename of the remote item. Read-only. */
     private _name?: string | undefined;
     /** If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only. */
-    private _package?: Package | undefined;
+    private _package?: Package | AdminMember1 | undefined;
     /** Properties of the parent of the remote item. Read-only. */
-    private _parentReference?: ItemReference | undefined;
+    private _parentReference?: ItemReference | AdminMember1 | undefined;
     /** Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only. */
-    private _shared?: Shared | undefined;
+    private _shared?: Shared | AdminMember1 | undefined;
     /** Provides interop between items in OneDrive for Business and SharePoint with the full set of item identifiers. Read-only. */
-    private _sharepointIds?: SharepointIds | undefined;
+    private _sharepointIds?: SharepointIds | AdminMember1 | undefined;
     /** Size of the remote item. Read-only. */
     private _size?: number | undefined;
     /** If the current item is also available as a special folder, this facet is returned. Read-only. */
-    private _specialFolder?: SpecialFolder | undefined;
+    private _specialFolder?: SpecialFolder | AdminMember1 | undefined;
     /** Video metadata, if the item is a video. Read-only. */
-    private _video?: Video | undefined;
+    private _video?: Video | AdminMember1 | undefined;
     /** DAV compatible URL for the item. */
     private _webDavUrl?: string | undefined;
     /** URL that displays the resource in the browser. Read-only. */
@@ -75,7 +64,7 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the createdBy property value. Identity of the user, device, and application which created the item. Read-only.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get createdBy() {
         return this._createdBy;
@@ -84,7 +73,7 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
      * Sets the createdBy property value. Identity of the user, device, and application which created the item. Read-only.
      * @param value Value to set for the createdBy property.
      */
-    public set createdBy(value: IdentitySet | undefined) {
+    public set createdBy(value: IdentitySet | AdminMember1 | undefined) {
         this._createdBy = value;
     };
     /**
@@ -103,7 +92,7 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the file property value. Indicates that the remote item is a file. Read-only.
-     * @returns a file
+     * @returns a admin
      */
     public get file() {
         return this._file;
@@ -112,12 +101,12 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
      * Sets the file property value. Indicates that the remote item is a file. Read-only.
      * @param value Value to set for the file property.
      */
-    public set file(value: File | undefined) {
+    public set file(value: File | AdminMember1 | undefined) {
         this._file = value;
     };
     /**
      * Gets the fileSystemInfo property value. Information about the remote item from the local file system. Read-only.
-     * @returns a fileSystemInfo
+     * @returns a admin
      */
     public get fileSystemInfo() {
         return this._fileSystemInfo;
@@ -126,12 +115,12 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
      * Sets the fileSystemInfo property value. Information about the remote item from the local file system. Read-only.
      * @param value Value to set for the fileSystemInfo property.
      */
-    public set fileSystemInfo(value: FileSystemInfo | undefined) {
+    public set fileSystemInfo(value: FileSystemInfo | AdminMember1 | undefined) {
         this._fileSystemInfo = value;
     };
     /**
      * Gets the folder property value. Indicates that the remote item is a folder. Read-only.
-     * @returns a folder
+     * @returns a admin
      */
     public get folder() {
         return this._folder;
@@ -140,7 +129,7 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
      * Sets the folder property value. Indicates that the remote item is a folder. Read-only.
      * @param value Value to set for the folder property.
      */
-    public set folder(value: Folder | undefined) {
+    public set folder(value: Folder | AdminMember1 | undefined) {
         this._folder = value;
     };
     /**
@@ -186,7 +175,7 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the image property value. Image metadata, if the item is an image. Read-only.
-     * @returns a image
+     * @returns a admin
      */
     public get image() {
         return this._image;
@@ -195,12 +184,12 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
      * Sets the image property value. Image metadata, if the item is an image. Read-only.
      * @param value Value to set for the image property.
      */
-    public set image(value: Image | undefined) {
+    public set image(value: Image | AdminMember1 | undefined) {
         this._image = value;
     };
     /**
      * Gets the lastModifiedBy property value. Identity of the user, device, and application which last modified the item. Read-only.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get lastModifiedBy() {
         return this._lastModifiedBy;
@@ -209,7 +198,7 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
      * Sets the lastModifiedBy property value. Identity of the user, device, and application which last modified the item. Read-only.
      * @param value Value to set for the lastModifiedBy property.
      */
-    public set lastModifiedBy(value: IdentitySet | undefined) {
+    public set lastModifiedBy(value: IdentitySet | AdminMember1 | undefined) {
         this._lastModifiedBy = value;
     };
     /**
@@ -242,7 +231,7 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the package property value. If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
-     * @returns a package
+     * @returns a admin
      */
     public get package() {
         return this._package;
@@ -251,12 +240,12 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
      * Sets the package property value. If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
      * @param value Value to set for the package property.
      */
-    public set package(value: Package | undefined) {
+    public set package(value: Package | AdminMember1 | undefined) {
         this._package = value;
     };
     /**
      * Gets the parentReference property value. Properties of the parent of the remote item. Read-only.
-     * @returns a itemReference
+     * @returns a admin
      */
     public get parentReference() {
         return this._parentReference;
@@ -265,7 +254,7 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
      * Sets the parentReference property value. Properties of the parent of the remote item. Read-only.
      * @param value Value to set for the parentReference property.
      */
-    public set parentReference(value: ItemReference | undefined) {
+    public set parentReference(value: ItemReference | AdminMember1 | undefined) {
         this._parentReference = value;
     };
     /**
@@ -297,7 +286,7 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the shared property value. Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.
-     * @returns a shared
+     * @returns a admin
      */
     public get shared() {
         return this._shared;
@@ -306,12 +295,12 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
      * Sets the shared property value. Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.
      * @param value Value to set for the shared property.
      */
-    public set shared(value: Shared | undefined) {
+    public set shared(value: Shared | AdminMember1 | undefined) {
         this._shared = value;
     };
     /**
      * Gets the sharepointIds property value. Provides interop between items in OneDrive for Business and SharePoint with the full set of item identifiers. Read-only.
-     * @returns a sharepointIds
+     * @returns a admin
      */
     public get sharepointIds() {
         return this._sharepointIds;
@@ -320,7 +309,7 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
      * Sets the sharepointIds property value. Provides interop between items in OneDrive for Business and SharePoint with the full set of item identifiers. Read-only.
      * @param value Value to set for the sharepointIds property.
      */
-    public set sharepointIds(value: SharepointIds | undefined) {
+    public set sharepointIds(value: SharepointIds | AdminMember1 | undefined) {
         this._sharepointIds = value;
     };
     /**
@@ -339,7 +328,7 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the specialFolder property value. If the current item is also available as a special folder, this facet is returned. Read-only.
-     * @returns a specialFolder
+     * @returns a admin
      */
     public get specialFolder() {
         return this._specialFolder;
@@ -348,12 +337,12 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
      * Sets the specialFolder property value. If the current item is also available as a special folder, this facet is returned. Read-only.
      * @param value Value to set for the specialFolder property.
      */
-    public set specialFolder(value: SpecialFolder | undefined) {
+    public set specialFolder(value: SpecialFolder | AdminMember1 | undefined) {
         this._specialFolder = value;
     };
     /**
      * Gets the video property value. Video metadata, if the item is a video. Read-only.
-     * @returns a video
+     * @returns a admin
      */
     public get video() {
         return this._video;
@@ -362,7 +351,7 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
      * Sets the video property value. Video metadata, if the item is a video. Read-only.
      * @param value Value to set for the video property.
      */
-    public set video(value: Video | undefined) {
+    public set video(value: Video | AdminMember1 | undefined) {
         this._video = value;
     };
     /**

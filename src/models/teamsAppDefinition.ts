@@ -1,15 +1,13 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createTeamworkBotFromDiscriminatorValue} from './createTeamworkBotFromDiscriminatorValue';
-import {Entity, IdentitySet, TeamworkBot} from './index';
+import {AppCatalogsMember1, Entity, IdentitySet, TeamworkBot} from './index';
 import {TeamsAppPublishingState} from './teamsAppPublishingState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the appCatalogs singleton. */
 export class TeamsAppDefinition extends Entity implements Parsable {
     /** The details of the bot specified in the Teams app manifest. */
-    private _bot?: TeamworkBot | undefined;
+    private _bot?: TeamworkBot | AppCatalogsMember1 | undefined;
     /** The createdBy property */
-    private _createdBy?: IdentitySet | undefined;
+    private _createdBy?: IdentitySet | AppCatalogsMember1 | undefined;
     /** Verbose description of the application. */
     private _description?: string | undefined;
     /** The name of the app provided by the app developer. */
@@ -17,7 +15,7 @@ export class TeamsAppDefinition extends Entity implements Parsable {
     /** The lastModifiedDateTime property */
     private _lastModifiedDateTime?: Date | undefined;
     /** The published status of a specific version of a Teams app. Possible values are:submitted — The specific version of the Teams app has been submitted and is under review. published  — The request to publish the specific version of the Teams app has been approved by the admin and the app is published.  rejected — The request to publish the specific version of the Teams app was rejected by the admin. */
-    private _publishingState?: TeamsAppPublishingState | undefined;
+    private _publishingState?: TeamsAppPublishingState | AppCatalogsMember1 | undefined;
     /** Short description of the application. */
     private _shortDescription?: string | undefined;
     /** The ID from the Teams app manifest. */
@@ -26,7 +24,7 @@ export class TeamsAppDefinition extends Entity implements Parsable {
     private _version?: string | undefined;
     /**
      * Gets the bot property value. The details of the bot specified in the Teams app manifest.
-     * @returns a teamworkBot
+     * @returns a appCatalogs
      */
     public get bot() {
         return this._bot;
@@ -35,7 +33,7 @@ export class TeamsAppDefinition extends Entity implements Parsable {
      * Sets the bot property value. The details of the bot specified in the Teams app manifest.
      * @param value Value to set for the bot property.
      */
-    public set bot(value: TeamworkBot | undefined) {
+    public set bot(value: TeamworkBot | AppCatalogsMember1 | undefined) {
         this._bot = value;
     };
     /**
@@ -46,7 +44,7 @@ export class TeamsAppDefinition extends Entity implements Parsable {
     };
     /**
      * Gets the createdBy property value. The createdBy property
-     * @returns a identitySet
+     * @returns a appCatalogs
      */
     public get createdBy() {
         return this._createdBy;
@@ -55,7 +53,7 @@ export class TeamsAppDefinition extends Entity implements Parsable {
      * Sets the createdBy property value. The createdBy property
      * @param value Value to set for the createdBy property.
      */
-    public set createdBy(value: IdentitySet | undefined) {
+    public set createdBy(value: IdentitySet | AppCatalogsMember1 | undefined) {
         this._createdBy = value;
     };
     /**
@@ -97,7 +95,7 @@ export class TeamsAppDefinition extends Entity implements Parsable {
             "description": n => { this.description = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
-            "publishingState": n => { this.publishingState = n.getEnumValue<TeamsAppPublishingState>(TeamsAppPublishingState); },
+            "publishingState": n => { this.publishingState = n.getObjectValue<TeamsAppPublishingState>(createTeamsAppPublishingStateFromDiscriminatorValue); },
             "shortDescription": n => { this.shortDescription = n.getStringValue(); },
             "teamsAppId": n => { this.teamsAppId = n.getStringValue(); },
             "version": n => { this.version = n.getStringValue(); },
@@ -119,7 +117,7 @@ export class TeamsAppDefinition extends Entity implements Parsable {
     };
     /**
      * Gets the publishingState property value. The published status of a specific version of a Teams app. Possible values are:submitted — The specific version of the Teams app has been submitted and is under review. published  — The request to publish the specific version of the Teams app has been approved by the admin and the app is published.  rejected — The request to publish the specific version of the Teams app was rejected by the admin.
-     * @returns a teamsAppPublishingState
+     * @returns a appCatalogs
      */
     public get publishingState() {
         return this._publishingState;
@@ -128,7 +126,7 @@ export class TeamsAppDefinition extends Entity implements Parsable {
      * Sets the publishingState property value. The published status of a specific version of a Teams app. Possible values are:submitted — The specific version of the Teams app has been submitted and is under review. published  — The request to publish the specific version of the Teams app has been approved by the admin and the app is published.  rejected — The request to publish the specific version of the Teams app was rejected by the admin.
      * @param value Value to set for the publishingState property.
      */
-    public set publishingState(value: TeamsAppPublishingState | undefined) {
+    public set publishingState(value: TeamsAppPublishingState | AppCatalogsMember1 | undefined) {
         this._publishingState = value;
     };
     /**
@@ -143,7 +141,7 @@ export class TeamsAppDefinition extends Entity implements Parsable {
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-        writer.writeEnumValue<TeamsAppPublishingState>("publishingState", this.publishingState);
+        writer.writeObjectValue<TeamsAppPublishingState>("publishingState", this.publishingState);
         writer.writeStringValue("shortDescription", this.shortDescription);
         writer.writeStringValue("teamsAppId", this.teamsAppId);
         writer.writeStringValue("version", this.version);

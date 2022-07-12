@@ -1,13 +1,10 @@
 import {Entity, KeyValue} from '../';
-import {createKeyValueFromDiscriminatorValue} from '../createKeyValueFromDiscriminatorValue';
 import {createGroupFromDiscriminatorValue} from './createGroupFromDiscriminatorValue';
-import {createLocalizedNameFromDiscriminatorValue} from './createLocalizedNameFromDiscriminatorValue';
 import {createRelationFromDiscriminatorValue} from './createRelationFromDiscriminatorValue';
 import {createTermFromDiscriminatorValue} from './createTermFromDiscriminatorValue';
-import {Group, LocalizedName, Relation, Term} from './index';
+import {AdminMember1, Group, LocalizedName, Relation, Term} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Set extends Entity implements Parsable {
     /** Children terms of set in term [store]. */
     private _children?: Term[] | undefined;
@@ -16,11 +13,11 @@ export class Set extends Entity implements Parsable {
     /** Description giving details on the term usage. */
     private _description?: string | undefined;
     /** Name of the set for each languageTag. */
-    private _localizedNames?: LocalizedName[] | undefined;
+    private _localizedNames?: LocalizedName | AdminMember1[] | undefined;
     /** The parentGroup property */
     private _parentGroup?: Group | undefined;
     /** Custom properties for the set. */
-    private _properties?: KeyValue[] | undefined;
+    private _properties?: KeyValue | AdminMember1[] | undefined;
     /** Indicates which terms have been pinned or reused directly under the set. */
     private _relations?: Relation[] | undefined;
     /** All the terms under the set. */
@@ -82,16 +79,16 @@ export class Set extends Entity implements Parsable {
             "children": n => { this.children = n.getCollectionOfObjectValues<Term>(createTermFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "description": n => { this.description = n.getStringValue(); },
-            "localizedNames": n => { this.localizedNames = n.getCollectionOfObjectValues<LocalizedName>(createLocalizedNameFromDiscriminatorValue); },
+            "localizedNames": n => { this.localizedNames = n.getObjectValue<LocalizedName>(createLocalizedNameFromDiscriminatorValue); },
             "parentGroup": n => { this.parentGroup = n.getObjectValue<Group>(createGroupFromDiscriminatorValue); },
-            "properties": n => { this.properties = n.getCollectionOfObjectValues<KeyValue>(createKeyValueFromDiscriminatorValue); },
+            "properties": n => { this.properties = n.getObjectValue<KeyValue>(createKeyValueFromDiscriminatorValue); },
             "relations": n => { this.relations = n.getCollectionOfObjectValues<Relation>(createRelationFromDiscriminatorValue); },
             "terms": n => { this.terms = n.getCollectionOfObjectValues<Term>(createTermFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the localizedNames property value. Name of the set for each languageTag.
-     * @returns a localizedName
+     * @returns a admin
      */
     public get localizedNames() {
         return this._localizedNames;
@@ -100,7 +97,7 @@ export class Set extends Entity implements Parsable {
      * Sets the localizedNames property value. Name of the set for each languageTag.
      * @param value Value to set for the localizedNames property.
      */
-    public set localizedNames(value: LocalizedName[] | undefined) {
+    public set localizedNames(value: LocalizedName | AdminMember1[] | undefined) {
         this._localizedNames = value;
     };
     /**
@@ -119,7 +116,7 @@ export class Set extends Entity implements Parsable {
     };
     /**
      * Gets the properties property value. Custom properties for the set.
-     * @returns a keyValue
+     * @returns a admin
      */
     public get properties() {
         return this._properties;
@@ -128,7 +125,7 @@ export class Set extends Entity implements Parsable {
      * Sets the properties property value. Custom properties for the set.
      * @param value Value to set for the properties property.
      */
-    public set properties(value: KeyValue[] | undefined) {
+    public set properties(value: KeyValue | AdminMember1[] | undefined) {
         this._properties = value;
     };
     /**
@@ -155,9 +152,9 @@ export class Set extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<Term>("children", this.children);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeStringValue("description", this.description);
-        writer.writeCollectionOfObjectValues<LocalizedName>("localizedNames", this.localizedNames);
+        writer.writeObjectValue<LocalizedName>("localizedNames", this.localizedNames);
         writer.writeObjectValue<Group>("parentGroup", this.parentGroup);
-        writer.writeCollectionOfObjectValues<KeyValue>("properties", this.properties);
+        writer.writeObjectValue<KeyValue>("properties", this.properties);
         writer.writeCollectionOfObjectValues<Relation>("relations", this.relations);
         writer.writeCollectionOfObjectValues<Term>("terms", this.terms);
     };

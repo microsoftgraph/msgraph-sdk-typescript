@@ -1,8 +1,8 @@
-import {Entity} from './index';
+import {AdminMember1, Entity} from './index';
 import {VolumeType} from './volumeType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the informationProtection singleton. */
+/** Provides operations to manage the admin singleton. */
 export class BitlockerRecoveryKey extends Entity implements Parsable {
     /** The date and time when the key was originally backed up to Azure Active Directory. */
     private _createdDateTime?: Date | undefined;
@@ -11,7 +11,7 @@ export class BitlockerRecoveryKey extends Entity implements Parsable {
     /** The BitLocker recovery key. */
     private _key?: string | undefined;
     /** Indicates the type of volume the BitLocker key is associated with. Possible values are: operatingSystemVolume, fixedDataVolume, removableDataVolume, unknownFutureValue. */
-    private _volumeType?: VolumeType | undefined;
+    private _volumeType?: VolumeType | AdminMember1 | undefined;
     /**
      * Instantiates a new bitlockerRecoveryKey and sets the default values.
      */
@@ -55,7 +55,7 @@ export class BitlockerRecoveryKey extends Entity implements Parsable {
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "deviceId": n => { this.deviceId = n.getStringValue(); },
             "key": n => { this.key = n.getStringValue(); },
-            "volumeType": n => { this.volumeType = n.getEnumValue<VolumeType>(VolumeType); },
+            "volumeType": n => { this.volumeType = n.getObjectValue<VolumeType>(createVolumeTypeFromDiscriminatorValue); },
         };
     };
     /**
@@ -82,11 +82,11 @@ export class BitlockerRecoveryKey extends Entity implements Parsable {
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeStringValue("deviceId", this.deviceId);
         writer.writeStringValue("key", this.key);
-        writer.writeEnumValue<VolumeType>("volumeType", this.volumeType);
+        writer.writeObjectValue<VolumeType>("volumeType", this.volumeType);
     };
     /**
      * Gets the volumeType property value. Indicates the type of volume the BitLocker key is associated with. Possible values are: operatingSystemVolume, fixedDataVolume, removableDataVolume, unknownFutureValue.
-     * @returns a volumeType
+     * @returns a admin
      */
     public get volumeType() {
         return this._volumeType;
@@ -95,7 +95,7 @@ export class BitlockerRecoveryKey extends Entity implements Parsable {
      * Sets the volumeType property value. Indicates the type of volume the BitLocker key is associated with. Possible values are: operatingSystemVolume, fixedDataVolume, removableDataVolume, unknownFutureValue.
      * @param value Value to set for the volumeType property.
      */
-    public set volumeType(value: VolumeType | undefined) {
+    public set volumeType(value: VolumeType | AdminMember1 | undefined) {
         this._volumeType = value;
     };
 }

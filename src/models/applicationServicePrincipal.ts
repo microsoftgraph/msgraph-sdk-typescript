@@ -1,15 +1,13 @@
-import {createApplicationFromDiscriminatorValue} from './createApplicationFromDiscriminatorValue';
-import {createServicePrincipalFromDiscriminatorValue} from './createServicePrincipalFromDiscriminatorValue';
-import {Application, ServicePrincipal} from './index';
+import {Application, InstantiateMember1, ServicePrincipal} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ApplicationServicePrincipal implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The application property */
-    private _application?: Application | undefined;
+    private _application?: Application | InstantiateMember1 | undefined;
     /** The servicePrincipal property */
-    private _servicePrincipal?: ServicePrincipal | undefined;
+    private _servicePrincipal?: ServicePrincipal | InstantiateMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -26,7 +24,7 @@ export class ApplicationServicePrincipal implements AdditionalDataHolder, Parsab
     };
     /**
      * Gets the application property value. The application property
-     * @returns a application
+     * @returns a instantiate
      */
     public get application() {
         return this._application;
@@ -35,11 +33,11 @@ export class ApplicationServicePrincipal implements AdditionalDataHolder, Parsab
      * Sets the application property value. The application property
      * @param value Value to set for the application property.
      */
-    public set application(value: Application | undefined) {
+    public set application(value: Application | InstantiateMember1 | undefined) {
         this._application = value;
     };
     /**
-     * Instantiates a new ApplicationServicePrincipal and sets the default values.
+     * Instantiates a new applicationServicePrincipal and sets the default values.
      */
     public constructor() {
         this._additionalData = {};
@@ -66,7 +64,7 @@ export class ApplicationServicePrincipal implements AdditionalDataHolder, Parsab
     };
     /**
      * Gets the servicePrincipal property value. The servicePrincipal property
-     * @returns a servicePrincipal
+     * @returns a instantiate
      */
     public get servicePrincipal() {
         return this._servicePrincipal;
@@ -75,7 +73,7 @@ export class ApplicationServicePrincipal implements AdditionalDataHolder, Parsab
      * Sets the servicePrincipal property value. The servicePrincipal property
      * @param value Value to set for the servicePrincipal property.
      */
-    public set servicePrincipal(value: ServicePrincipal | undefined) {
+    public set servicePrincipal(value: ServicePrincipal | InstantiateMember1 | undefined) {
         this._servicePrincipal = value;
     };
 }

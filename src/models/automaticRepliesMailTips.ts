@@ -1,6 +1,4 @@
-import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
-import {createLocaleInfoFromDiscriminatorValue} from './createLocaleInfoFromDiscriminatorValue';
-import {DateTimeTimeZone, LocaleInfo} from './index';
+import {DateTimeTimeZone, GetMailTipsMember1, LocaleInfo} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AutomaticRepliesMailTips implements AdditionalDataHolder, Parsable {
@@ -9,11 +7,11 @@ export class AutomaticRepliesMailTips implements AdditionalDataHolder, Parsable 
     /** The automatic reply message. */
     private _message?: string | undefined;
     /** The language that the automatic reply message is in. */
-    private _messageLanguage?: LocaleInfo | undefined;
+    private _messageLanguage?: LocaleInfo | GetMailTipsMember1 | undefined;
     /** The date and time that automatic replies are set to end. */
-    private _scheduledEndTime?: DateTimeTimeZone | undefined;
+    private _scheduledEndTime?: DateTimeTimeZone | GetMailTipsMember1 | undefined;
     /** The date and time that automatic replies are set to begin. */
-    private _scheduledStartTime?: DateTimeTimeZone | undefined;
+    private _scheduledStartTime?: DateTimeTimeZone | GetMailTipsMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -62,7 +60,7 @@ export class AutomaticRepliesMailTips implements AdditionalDataHolder, Parsable 
     };
     /**
      * Gets the messageLanguage property value. The language that the automatic reply message is in.
-     * @returns a localeInfo
+     * @returns a getMailTips
      */
     public get messageLanguage() {
         return this._messageLanguage;
@@ -71,12 +69,12 @@ export class AutomaticRepliesMailTips implements AdditionalDataHolder, Parsable 
      * Sets the messageLanguage property value. The language that the automatic reply message is in.
      * @param value Value to set for the messageLanguage property.
      */
-    public set messageLanguage(value: LocaleInfo | undefined) {
+    public set messageLanguage(value: LocaleInfo | GetMailTipsMember1 | undefined) {
         this._messageLanguage = value;
     };
     /**
      * Gets the scheduledEndTime property value. The date and time that automatic replies are set to end.
-     * @returns a dateTimeTimeZone
+     * @returns a getMailTips
      */
     public get scheduledEndTime() {
         return this._scheduledEndTime;
@@ -85,12 +83,12 @@ export class AutomaticRepliesMailTips implements AdditionalDataHolder, Parsable 
      * Sets the scheduledEndTime property value. The date and time that automatic replies are set to end.
      * @param value Value to set for the scheduledEndTime property.
      */
-    public set scheduledEndTime(value: DateTimeTimeZone | undefined) {
+    public set scheduledEndTime(value: DateTimeTimeZone | GetMailTipsMember1 | undefined) {
         this._scheduledEndTime = value;
     };
     /**
      * Gets the scheduledStartTime property value. The date and time that automatic replies are set to begin.
-     * @returns a dateTimeTimeZone
+     * @returns a getMailTips
      */
     public get scheduledStartTime() {
         return this._scheduledStartTime;
@@ -99,7 +97,7 @@ export class AutomaticRepliesMailTips implements AdditionalDataHolder, Parsable 
      * Sets the scheduledStartTime property value. The date and time that automatic replies are set to begin.
      * @param value Value to set for the scheduledStartTime property.
      */
-    public set scheduledStartTime(value: DateTimeTimeZone | undefined) {
+    public set scheduledStartTime(value: DateTimeTimeZone | GetMailTipsMember1 | undefined) {
         this._scheduledStartTime = value;
     };
     /**

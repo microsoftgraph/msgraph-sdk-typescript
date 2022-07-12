@@ -1,5 +1,4 @@
-import {createImportedWindowsAutopilotDeviceIdentityStateFromDiscriminatorValue} from './createImportedWindowsAutopilotDeviceIdentityStateFromDiscriminatorValue';
-import {Entity, ImportedWindowsAutopilotDeviceIdentityState} from './index';
+import {AdminMember1, Entity, ImportedWindowsAutopilotDeviceIdentityState} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Imported windows autopilot devices. */
@@ -17,7 +16,7 @@ export class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Pa
     /** Serial number of the Windows autopilot device. */
     private _serialNumber?: string | undefined;
     /** Current state of the imported device. */
-    private _state?: ImportedWindowsAutopilotDeviceIdentityState | undefined;
+    private _state?: ImportedWindowsAutopilotDeviceIdentityState | AdminMember1 | undefined;
     /**
      * Gets the assignedUserPrincipalName property value. UPN of the user the device will be assigned
      * @returns a string
@@ -140,7 +139,7 @@ export class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Pa
     };
     /**
      * Gets the state property value. Current state of the imported device.
-     * @returns a importedWindowsAutopilotDeviceIdentityState
+     * @returns a admin
      */
     public get state() {
         return this._state;
@@ -149,7 +148,7 @@ export class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Pa
      * Sets the state property value. Current state of the imported device.
      * @param value Value to set for the state property.
      */
-    public set state(value: ImportedWindowsAutopilotDeviceIdentityState | undefined) {
+    public set state(value: ImportedWindowsAutopilotDeviceIdentityState | AdminMember1 | undefined) {
         this._state = value;
     };
 }

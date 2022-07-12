@@ -1,3 +1,4 @@
+import {AdminMember1} from './index';
 import {SecurityResourceType} from './securityResourceType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -7,7 +8,7 @@ export class SecurityResource implements AdditionalDataHolder, Parsable {
     /** Name of the resource that is related to current alert. Required. */
     private _resource?: string | undefined;
     /** Represents type of security resources related to an alert. Possible values are: attacked, related. */
-    private _resourceType?: SecurityResourceType | undefined;
+    private _resourceType?: SecurityResourceType | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -35,7 +36,7 @@ export class SecurityResource implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "resource": n => { this.resource = n.getStringValue(); },
-            "resourceType": n => { this.resourceType = n.getEnumValue<SecurityResourceType>(SecurityResourceType); },
+            "resourceType": n => { this.resourceType = n.getObjectValue<SecurityResourceType>(createSecurityResourceTypeFromDiscriminatorValue); },
         };
     };
     /**
@@ -54,7 +55,7 @@ export class SecurityResource implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the resourceType property value. Represents type of security resources related to an alert. Possible values are: attacked, related.
-     * @returns a securityResourceType
+     * @returns a admin
      */
     public get resourceType() {
         return this._resourceType;
@@ -63,7 +64,7 @@ export class SecurityResource implements AdditionalDataHolder, Parsable {
      * Sets the resourceType property value. Represents type of security resources related to an alert. Possible values are: attacked, related.
      * @param value Value to set for the resourceType property.
      */
-    public set resourceType(value: SecurityResourceType | undefined) {
+    public set resourceType(value: SecurityResourceType | AdminMember1 | undefined) {
         this._resourceType = value;
     };
     /**
@@ -73,7 +74,7 @@ export class SecurityResource implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("resource", this.resource);
-        writer.writeEnumValue<SecurityResourceType>("resourceType", this.resourceType);
+        writer.writeObjectValue<SecurityResourceType>("resourceType", this.resourceType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

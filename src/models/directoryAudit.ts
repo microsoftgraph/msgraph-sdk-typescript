@@ -1,18 +1,16 @@
 import {createAuditActivityInitiatorFromDiscriminatorValue} from './createAuditActivityInitiatorFromDiscriminatorValue';
-import {createKeyValueFromDiscriminatorValue} from './createKeyValueFromDiscriminatorValue';
-import {createTargetResourceFromDiscriminatorValue} from './createTargetResourceFromDiscriminatorValue';
-import {AuditActivityInitiator, Entity, KeyValue, TargetResource} from './index';
+import {AdminMember1, AuditActivityInitiator, Entity, KeyValue, TargetResource} from './index';
 import {OperationResult} from './operationResult';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the admin singleton. */
 export class DirectoryAudit extends Entity implements Parsable {
     /** Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _activityDateTime?: Date | undefined;
     /** Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list. */
     private _activityDisplayName?: string | undefined;
     /** Indicates additional details on the activity. */
-    private _additionalDetails?: KeyValue[] | undefined;
+    private _additionalDetails?: KeyValue | AdminMember1[] | undefined;
     /** Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..) */
     private _category?: string | undefined;
     /** Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services. */
@@ -24,11 +22,11 @@ export class DirectoryAudit extends Entity implements Parsable {
     /** Indicates the type of operation that was performed. The possible values include but are not limited to the following: Add, Assign, Update, Unassign, and Delete. */
     private _operationType?: string | undefined;
     /** Indicates the result of the activity. Possible values are: success, failure, timeout, unknownFutureValue. */
-    private _result?: OperationResult | undefined;
+    private _result?: OperationResult | AdminMember1 | undefined;
     /** Indicates the reason for failure if the result is failure or timeout. */
     private _resultReason?: string | undefined;
     /** Information about the resource that changed due to the activity. */
-    private _targetResources?: TargetResource[] | undefined;
+    private _targetResources?: TargetResource | AdminMember1[] | undefined;
     /**
      * Gets the activityDateTime property value. Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @returns a Date
@@ -59,7 +57,7 @@ export class DirectoryAudit extends Entity implements Parsable {
     };
     /**
      * Gets the additionalDetails property value. Indicates additional details on the activity.
-     * @returns a keyValue
+     * @returns a admin
      */
     public get additionalDetails() {
         return this._additionalDetails;
@@ -68,7 +66,7 @@ export class DirectoryAudit extends Entity implements Parsable {
      * Sets the additionalDetails property value. Indicates additional details on the activity.
      * @param value Value to set for the additionalDetails property.
      */
-    public set additionalDetails(value: KeyValue[] | undefined) {
+    public set additionalDetails(value: KeyValue | AdminMember1[] | undefined) {
         this._additionalDetails = value;
     };
     /**
@@ -113,15 +111,15 @@ export class DirectoryAudit extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "activityDateTime": n => { this.activityDateTime = n.getDateValue(); },
             "activityDisplayName": n => { this.activityDisplayName = n.getStringValue(); },
-            "additionalDetails": n => { this.additionalDetails = n.getCollectionOfObjectValues<KeyValue>(createKeyValueFromDiscriminatorValue); },
+            "additionalDetails": n => { this.additionalDetails = n.getObjectValue<KeyValue>(createKeyValueFromDiscriminatorValue); },
             "category": n => { this.category = n.getStringValue(); },
             "correlationId": n => { this.correlationId = n.getStringValue(); },
             "initiatedBy": n => { this.initiatedBy = n.getObjectValue<AuditActivityInitiator>(createAuditActivityInitiatorFromDiscriminatorValue); },
             "loggedByService": n => { this.loggedByService = n.getStringValue(); },
             "operationType": n => { this.operationType = n.getStringValue(); },
-            "result": n => { this.result = n.getEnumValue<OperationResult>(OperationResult); },
+            "result": n => { this.result = n.getObjectValue<OperationResult>(createOperationResultFromDiscriminatorValue); },
             "resultReason": n => { this.resultReason = n.getStringValue(); },
-            "targetResources": n => { this.targetResources = n.getCollectionOfObjectValues<TargetResource>(createTargetResourceFromDiscriminatorValue); },
+            "targetResources": n => { this.targetResources = n.getObjectValue<TargetResource>(createTargetResourceFromDiscriminatorValue); },
         };
     };
     /**
@@ -168,7 +166,7 @@ export class DirectoryAudit extends Entity implements Parsable {
     };
     /**
      * Gets the result property value. Indicates the result of the activity. Possible values are: success, failure, timeout, unknownFutureValue.
-     * @returns a operationResult
+     * @returns a admin
      */
     public get result() {
         return this._result;
@@ -177,7 +175,7 @@ export class DirectoryAudit extends Entity implements Parsable {
      * Sets the result property value. Indicates the result of the activity. Possible values are: success, failure, timeout, unknownFutureValue.
      * @param value Value to set for the result property.
      */
-    public set result(value: OperationResult | undefined) {
+    public set result(value: OperationResult | AdminMember1 | undefined) {
         this._result = value;
     };
     /**
@@ -203,19 +201,19 @@ export class DirectoryAudit extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeDateValue("activityDateTime", this.activityDateTime);
         writer.writeStringValue("activityDisplayName", this.activityDisplayName);
-        writer.writeCollectionOfObjectValues<KeyValue>("additionalDetails", this.additionalDetails);
+        writer.writeObjectValue<KeyValue>("additionalDetails", this.additionalDetails);
         writer.writeStringValue("category", this.category);
         writer.writeStringValue("correlationId", this.correlationId);
         writer.writeObjectValue<AuditActivityInitiator>("initiatedBy", this.initiatedBy);
         writer.writeStringValue("loggedByService", this.loggedByService);
         writer.writeStringValue("operationType", this.operationType);
-        writer.writeEnumValue<OperationResult>("result", this.result);
+        writer.writeObjectValue<OperationResult>("result", this.result);
         writer.writeStringValue("resultReason", this.resultReason);
-        writer.writeCollectionOfObjectValues<TargetResource>("targetResources", this.targetResources);
+        writer.writeObjectValue<TargetResource>("targetResources", this.targetResources);
     };
     /**
      * Gets the targetResources property value. Information about the resource that changed due to the activity.
-     * @returns a targetResource
+     * @returns a admin
      */
     public get targetResources() {
         return this._targetResources;
@@ -224,7 +222,7 @@ export class DirectoryAudit extends Entity implements Parsable {
      * Sets the targetResources property value. Information about the resource that changed due to the activity.
      * @param value Value to set for the targetResources property.
      */
-    public set targetResources(value: TargetResource[] | undefined) {
+    public set targetResources(value: TargetResource | AdminMember1[] | undefined) {
         this._targetResources = value;
     };
 }

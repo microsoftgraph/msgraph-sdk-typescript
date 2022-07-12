@@ -3,13 +3,12 @@ import {createChatMessageFromDiscriminatorValue} from './createChatMessageFromDi
 import {createConversationMemberFromDiscriminatorValue} from './createConversationMemberFromDiscriminatorValue';
 import {createTeamsAppInstallationFromDiscriminatorValue} from './createTeamsAppInstallationFromDiscriminatorValue';
 import {createTeamsTabFromDiscriminatorValue} from './createTeamsTabFromDiscriminatorValue';
-import {createTeamworkOnlineMeetingInfoFromDiscriminatorValue} from './createTeamworkOnlineMeetingInfoFromDiscriminatorValue';
-import {ChatMessage, ConversationMember, Entity, TeamsAppInstallation, TeamsTab, TeamworkOnlineMeetingInfo} from './index';
+import {AdminMember1, ChatMessage, ConversationMember, Entity, TeamsAppInstallation, TeamsTab, TeamworkOnlineMeetingInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
+/** Provides operations to manage the admin singleton. */
 export class Chat extends Entity implements Parsable {
-    /** Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue. */
+    /** The chatType property */
     private _chatType?: ChatType | undefined;
     /** Date and time at which the chat was created. Read-only. */
     private _createdDateTime?: Date | undefined;
@@ -22,7 +21,7 @@ export class Chat extends Entity implements Parsable {
     /** A collection of all the messages in the chat. Nullable. */
     private _messages?: ChatMessage[] | undefined;
     /** Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only. */
-    private _onlineMeetingInfo?: TeamworkOnlineMeetingInfo | undefined;
+    private _onlineMeetingInfo?: TeamworkOnlineMeetingInfo | AdminMember1 | undefined;
     /** A collection of all the tabs in the chat. Nullable. */
     private _tabs?: TeamsTab[] | undefined;
     /** The identifier of the tenant in which the chat was created. Read-only. */
@@ -32,14 +31,14 @@ export class Chat extends Entity implements Parsable {
     /** The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only. */
     private _webUrl?: string | undefined;
     /**
-     * Gets the chatType property value. Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.
+     * Gets the chatType property value. The chatType property
      * @returns a chatType
      */
     public get chatType() {
         return this._chatType;
     };
     /**
-     * Sets the chatType property value. Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.
+     * Sets the chatType property value. The chatType property
      * @param value Value to set for the chatType property.
      */
     public set chatType(value: ChatType | undefined) {
@@ -142,7 +141,7 @@ export class Chat extends Entity implements Parsable {
     };
     /**
      * Gets the onlineMeetingInfo property value. Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only.
-     * @returns a teamworkOnlineMeetingInfo
+     * @returns a admin
      */
     public get onlineMeetingInfo() {
         return this._onlineMeetingInfo;
@@ -151,7 +150,7 @@ export class Chat extends Entity implements Parsable {
      * Sets the onlineMeetingInfo property value. Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only.
      * @param value Value to set for the onlineMeetingInfo property.
      */
-    public set onlineMeetingInfo(value: TeamworkOnlineMeetingInfo | undefined) {
+    public set onlineMeetingInfo(value: TeamworkOnlineMeetingInfo | AdminMember1 | undefined) {
         this._onlineMeetingInfo = value;
     };
     /**

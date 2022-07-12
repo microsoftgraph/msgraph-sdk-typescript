@@ -1,23 +1,21 @@
-import {createAttendanceIntervalFromDiscriminatorValue} from './createAttendanceIntervalFromDiscriminatorValue';
-import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {AttendanceInterval, Entity, Identity} from './index';
+import {AdminMember1, AttendanceInterval, Entity, Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the admin singleton. */
 export class AttendanceRecord extends Entity implements Parsable {
     /** List of time periods between joining and leaving a meeting. */
-    private _attendanceIntervals?: AttendanceInterval[] | undefined;
+    private _attendanceIntervals?: AttendanceInterval | AdminMember1[] | undefined;
     /** Email address of the user associated with this atttendance record. */
     private _emailAddress?: string | undefined;
     /** Identity of the user associated with this atttendance record. */
-    private _identity?: Identity | undefined;
+    private _identity?: Identity | AdminMember1 | undefined;
     /** Role of the attendee. Possible values are: None, Attendee, Presenter, and Organizer. */
     private _role?: string | undefined;
     /** Total duration of the attendances in seconds. */
     private _totalAttendanceInSeconds?: number | undefined;
     /**
      * Gets the attendanceIntervals property value. List of time periods between joining and leaving a meeting.
-     * @returns a attendanceInterval
+     * @returns a admin
      */
     public get attendanceIntervals() {
         return this._attendanceIntervals;
@@ -26,7 +24,7 @@ export class AttendanceRecord extends Entity implements Parsable {
      * Sets the attendanceIntervals property value. List of time periods between joining and leaving a meeting.
      * @param value Value to set for the attendanceIntervals property.
      */
-    public set attendanceIntervals(value: AttendanceInterval[] | undefined) {
+    public set attendanceIntervals(value: AttendanceInterval | AdminMember1[] | undefined) {
         this._attendanceIntervals = value;
     };
     /**
@@ -55,7 +53,7 @@ export class AttendanceRecord extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "attendanceIntervals": n => { this.attendanceIntervals = n.getCollectionOfObjectValues<AttendanceInterval>(createAttendanceIntervalFromDiscriminatorValue); },
+            "attendanceIntervals": n => { this.attendanceIntervals = n.getObjectValue<AttendanceInterval>(createAttendanceIntervalFromDiscriminatorValue); },
             "emailAddress": n => { this.emailAddress = n.getStringValue(); },
             "identity": n => { this.identity = n.getObjectValue<Identity>(createIdentityFromDiscriminatorValue); },
             "role": n => { this.role = n.getStringValue(); },
@@ -64,7 +62,7 @@ export class AttendanceRecord extends Entity implements Parsable {
     };
     /**
      * Gets the identity property value. Identity of the user associated with this atttendance record.
-     * @returns a identity
+     * @returns a admin
      */
     public get identity() {
         return this._identity;
@@ -73,7 +71,7 @@ export class AttendanceRecord extends Entity implements Parsable {
      * Sets the identity property value. Identity of the user associated with this atttendance record.
      * @param value Value to set for the identity property.
      */
-    public set identity(value: Identity | undefined) {
+    public set identity(value: Identity | AdminMember1 | undefined) {
         this._identity = value;
     };
     /**
@@ -97,7 +95,7 @@ export class AttendanceRecord extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfObjectValues<AttendanceInterval>("attendanceIntervals", this.attendanceIntervals);
+        writer.writeObjectValue<AttendanceInterval>("attendanceIntervals", this.attendanceIntervals);
         writer.writeStringValue("emailAddress", this.emailAddress);
         writer.writeObjectValue<Identity>("identity", this.identity);
         writer.writeStringValue("role", this.role);

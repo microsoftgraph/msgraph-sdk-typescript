@@ -1,5 +1,4 @@
-import {createWindowsDeviceAccountFromDiscriminatorValue} from './createWindowsDeviceAccountFromDiscriminatorValue';
-import {WindowsDeviceAccount} from './index';
+import {UpdateWindowsDeviceAccountMember1, WindowsDeviceAccount} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UpdateWindowsDeviceAccountActionParameter implements AdditionalDataHolder, Parsable {
@@ -8,7 +7,7 @@ export class UpdateWindowsDeviceAccountActionParameter implements AdditionalData
     /** Not yet documented */
     private _calendarSyncEnabled?: boolean | undefined;
     /** Not yet documented */
-    private _deviceAccount?: WindowsDeviceAccount | undefined;
+    private _deviceAccount?: WindowsDeviceAccount | UpdateWindowsDeviceAccountMember1 | undefined;
     /** Not yet documented */
     private _deviceAccountEmail?: string | undefined;
     /** Not yet documented */
@@ -53,7 +52,7 @@ export class UpdateWindowsDeviceAccountActionParameter implements AdditionalData
     };
     /**
      * Gets the deviceAccount property value. Not yet documented
-     * @returns a windowsDeviceAccount
+     * @returns a updateWindowsDeviceAccount
      */
     public get deviceAccount() {
         return this._deviceAccount;
@@ -62,7 +61,7 @@ export class UpdateWindowsDeviceAccountActionParameter implements AdditionalData
      * Sets the deviceAccount property value. Not yet documented
      * @param value Value to set for the deviceAccount property.
      */
-    public set deviceAccount(value: WindowsDeviceAccount | undefined) {
+    public set deviceAccount(value: WindowsDeviceAccount | UpdateWindowsDeviceAccountMember1 | undefined) {
         this._deviceAccount = value;
     };
     /**

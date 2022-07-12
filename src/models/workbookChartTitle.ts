@@ -1,11 +1,9 @@
-import {createWorkbookChartTitleFormatFromDiscriminatorValue} from './createWorkbookChartTitleFormatFromDiscriminatorValue';
-import {Entity, WorkbookChartTitleFormat} from './index';
+import {AdminMember1, Entity, WorkbookChartTitleFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartTitle extends Entity implements Parsable {
     /** Represents the formatting of a chart title, which includes fill and font formatting. Read-only. */
-    private _format?: WorkbookChartTitleFormat | undefined;
+    private _format?: WorkbookChartTitleFormat | AdminMember1 | undefined;
     /** Boolean value representing if the chart title will overlay the chart or not. */
     private _overlay?: boolean | undefined;
     /** Represents the title text of a chart. */
@@ -20,7 +18,7 @@ export class WorkbookChartTitle extends Entity implements Parsable {
     };
     /**
      * Gets the format property value. Represents the formatting of a chart title, which includes fill and font formatting. Read-only.
-     * @returns a workbookChartTitleFormat
+     * @returns a admin
      */
     public get format() {
         return this._format;
@@ -29,7 +27,7 @@ export class WorkbookChartTitle extends Entity implements Parsable {
      * Sets the format property value. Represents the formatting of a chart title, which includes fill and font formatting. Read-only.
      * @param value Value to set for the format property.
      */
-    public set format(value: WorkbookChartTitleFormat | undefined) {
+    public set format(value: WorkbookChartTitleFormat | AdminMember1 | undefined) {
         this._format = value;
     };
     /**

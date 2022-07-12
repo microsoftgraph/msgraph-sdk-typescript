@@ -1,5 +1,4 @@
-import {createSubjectSetFromDiscriminatorValue} from './createSubjectSetFromDiscriminatorValue';
-import {SubjectSet} from './index';
+import {AdminMember1, SubjectSet} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageAssignmentRequestorSettings implements AdditionalDataHolder, Parsable {
@@ -20,7 +19,7 @@ export class AccessPackageAssignmentRequestorSettings implements AdditionalDataH
     /** If true, allows requestors to create a request to update their access. */
     private _enableTargetsToSelfUpdateAccess?: boolean | undefined;
     /** The principals who can request on-behalf-of others. */
-    private _onBehalfRequestors?: SubjectSet[] | undefined;
+    private _onBehalfRequestors?: SubjectSet | AdminMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -152,12 +151,12 @@ export class AccessPackageAssignmentRequestorSettings implements AdditionalDataH
             "enableTargetsToSelfAddAccess": n => { this.enableTargetsToSelfAddAccess = n.getBooleanValue(); },
             "enableTargetsToSelfRemoveAccess": n => { this.enableTargetsToSelfRemoveAccess = n.getBooleanValue(); },
             "enableTargetsToSelfUpdateAccess": n => { this.enableTargetsToSelfUpdateAccess = n.getBooleanValue(); },
-            "onBehalfRequestors": n => { this.onBehalfRequestors = n.getCollectionOfObjectValues<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
+            "onBehalfRequestors": n => { this.onBehalfRequestors = n.getObjectValue<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the onBehalfRequestors property value. The principals who can request on-behalf-of others.
-     * @returns a subjectSet
+     * @returns a admin
      */
     public get onBehalfRequestors() {
         return this._onBehalfRequestors;
@@ -166,7 +165,7 @@ export class AccessPackageAssignmentRequestorSettings implements AdditionalDataH
      * Sets the onBehalfRequestors property value. The principals who can request on-behalf-of others.
      * @param value Value to set for the onBehalfRequestors property.
      */
-    public set onBehalfRequestors(value: SubjectSet[] | undefined) {
+    public set onBehalfRequestors(value: SubjectSet | AdminMember1[] | undefined) {
         this._onBehalfRequestors = value;
     };
     /**
@@ -182,7 +181,7 @@ export class AccessPackageAssignmentRequestorSettings implements AdditionalDataH
         writer.writeBooleanValue("enableTargetsToSelfAddAccess", this.enableTargetsToSelfAddAccess);
         writer.writeBooleanValue("enableTargetsToSelfRemoveAccess", this.enableTargetsToSelfRemoveAccess);
         writer.writeBooleanValue("enableTargetsToSelfUpdateAccess", this.enableTargetsToSelfUpdateAccess);
-        writer.writeCollectionOfObjectValues<SubjectSet>("onBehalfRequestors", this.onBehalfRequestors);
+        writer.writeObjectValue<SubjectSet>("onBehalfRequestors", this.onBehalfRequestors);
         writer.writeAdditionalData(this.additionalData);
     };
 }

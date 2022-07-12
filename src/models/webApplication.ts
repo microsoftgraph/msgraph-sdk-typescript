@@ -1,5 +1,4 @@
-import {createImplicitGrantSettingsFromDiscriminatorValue} from './createImplicitGrantSettingsFromDiscriminatorValue';
-import {ImplicitGrantSettings} from './index';
+import {ApplicationsMember1, ImplicitGrantSettings} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WebApplication implements AdditionalDataHolder, Parsable {
@@ -8,7 +7,7 @@ export class WebApplication implements AdditionalDataHolder, Parsable {
     /** Home page or landing page of the application. */
     private _homePageUrl?: string | undefined;
     /** Specifies whether this web application can request tokens using the OAuth 2.0 implicit flow. */
-    private _implicitGrantSettings?: ImplicitGrantSettings | undefined;
+    private _implicitGrantSettings?: ImplicitGrantSettings | ApplicationsMember1 | undefined;
     /** Specifies the URL that will be used by Microsoft's authorization service to logout an user using front-channel, back-channel or SAML logout protocols. */
     private _logoutUrl?: string | undefined;
     /** Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. */
@@ -61,7 +60,7 @@ export class WebApplication implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the implicitGrantSettings property value. Specifies whether this web application can request tokens using the OAuth 2.0 implicit flow.
-     * @returns a implicitGrantSettings
+     * @returns a applications
      */
     public get implicitGrantSettings() {
         return this._implicitGrantSettings;
@@ -70,7 +69,7 @@ export class WebApplication implements AdditionalDataHolder, Parsable {
      * Sets the implicitGrantSettings property value. Specifies whether this web application can request tokens using the OAuth 2.0 implicit flow.
      * @param value Value to set for the implicitGrantSettings property.
      */
-    public set implicitGrantSettings(value: ImplicitGrantSettings | undefined) {
+    public set implicitGrantSettings(value: ImplicitGrantSettings | ApplicationsMember1 | undefined) {
         this._implicitGrantSettings = value;
     };
     /**

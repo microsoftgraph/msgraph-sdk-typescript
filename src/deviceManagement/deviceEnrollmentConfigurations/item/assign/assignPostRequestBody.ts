@@ -1,5 +1,5 @@
 import {EnrollmentConfigurationAssignment} from '../../../../models/';
-import {createEnrollmentConfigurationAssignmentFromDiscriminatorValue} from '../../../../models/createEnrollmentConfigurationAssignmentFromDiscriminatorValue';
+import {AssignMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the assign method. */
@@ -7,7 +7,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The enrollmentConfigurationAssignments property */
-    private _enrollmentConfigurationAssignments?: EnrollmentConfigurationAssignment[] | undefined;
+    private _enrollmentConfigurationAssignments?: EnrollmentConfigurationAssignment | AssignMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -30,7 +30,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the enrollmentConfigurationAssignments property value. The enrollmentConfigurationAssignments property
-     * @returns a enrollmentConfigurationAssignment
+     * @returns a assign
      */
     public get enrollmentConfigurationAssignments() {
         return this._enrollmentConfigurationAssignments;
@@ -39,7 +39,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
      * Sets the enrollmentConfigurationAssignments property value. The enrollmentConfigurationAssignments property
      * @param value Value to set for the enrollmentConfigurationAssignments property.
      */
-    public set enrollmentConfigurationAssignments(value: EnrollmentConfigurationAssignment[] | undefined) {
+    public set enrollmentConfigurationAssignments(value: EnrollmentConfigurationAssignment | AssignMember1[] | undefined) {
         this._enrollmentConfigurationAssignments = value;
     };
     /**
@@ -48,7 +48,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "enrollmentConfigurationAssignments": n => { this.enrollmentConfigurationAssignments = n.getCollectionOfObjectValues<EnrollmentConfigurationAssignment>(createEnrollmentConfigurationAssignmentFromDiscriminatorValue); },
+            "enrollmentConfigurationAssignments": n => { this.enrollmentConfigurationAssignments = n.getObjectValue<EnrollmentConfigurationAssignment>(createEnrollmentConfigurationAssignmentFromDiscriminatorValue); },
         };
     };
     /**
@@ -57,7 +57,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<EnrollmentConfigurationAssignment>("enrollmentConfigurationAssignments", this.enrollmentConfigurationAssignments);
+        writer.writeObjectValue<EnrollmentConfigurationAssignment>("enrollmentConfigurationAssignments", this.enrollmentConfigurationAssignments);
         writer.writeAdditionalData(this.additionalData);
     };
 }

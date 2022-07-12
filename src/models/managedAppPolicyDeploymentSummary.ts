@@ -1,13 +1,11 @@
-import {createManagedAppPolicyDeploymentSummaryPerAppFromDiscriminatorValue} from './createManagedAppPolicyDeploymentSummaryPerAppFromDiscriminatorValue';
-import {Entity, ManagedAppPolicyDeploymentSummaryPerApp} from './index';
+import {AdminMember1, Entity, ManagedAppPolicyDeploymentSummaryPerApp} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** The ManagedAppEntity is the base entity type for all other entity types under app management workflow. */
 export class ManagedAppPolicyDeploymentSummary extends Entity implements Parsable {
     /** Not yet documented */
     private _configurationDeployedUserCount?: number | undefined;
     /** Not yet documented */
-    private _configurationDeploymentSummaryPerApp?: ManagedAppPolicyDeploymentSummaryPerApp[] | undefined;
+    private _configurationDeploymentSummaryPerApp?: ManagedAppPolicyDeploymentSummaryPerApp | AdminMember1[] | undefined;
     /** Not yet documented */
     private _displayName?: string | undefined;
     /** Not yet documented */
@@ -30,7 +28,7 @@ export class ManagedAppPolicyDeploymentSummary extends Entity implements Parsabl
     };
     /**
      * Gets the configurationDeploymentSummaryPerApp property value. Not yet documented
-     * @returns a managedAppPolicyDeploymentSummaryPerApp
+     * @returns a admin
      */
     public get configurationDeploymentSummaryPerApp() {
         return this._configurationDeploymentSummaryPerApp;
@@ -39,7 +37,7 @@ export class ManagedAppPolicyDeploymentSummary extends Entity implements Parsabl
      * Sets the configurationDeploymentSummaryPerApp property value. Not yet documented
      * @param value Value to set for the configurationDeploymentSummaryPerApp property.
      */
-    public set configurationDeploymentSummaryPerApp(value: ManagedAppPolicyDeploymentSummaryPerApp[] | undefined) {
+    public set configurationDeploymentSummaryPerApp(value: ManagedAppPolicyDeploymentSummaryPerApp | AdminMember1[] | undefined) {
         this._configurationDeploymentSummaryPerApp = value;
     };
     /**
@@ -69,7 +67,7 @@ export class ManagedAppPolicyDeploymentSummary extends Entity implements Parsabl
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "configurationDeployedUserCount": n => { this.configurationDeployedUserCount = n.getNumberValue(); },
-            "configurationDeploymentSummaryPerApp": n => { this.configurationDeploymentSummaryPerApp = n.getCollectionOfObjectValues<ManagedAppPolicyDeploymentSummaryPerApp>(createManagedAppPolicyDeploymentSummaryPerAppFromDiscriminatorValue); },
+            "configurationDeploymentSummaryPerApp": n => { this.configurationDeploymentSummaryPerApp = n.getObjectValue<ManagedAppPolicyDeploymentSummaryPerApp>(createManagedAppPolicyDeploymentSummaryPerAppFromDiscriminatorValue); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "lastRefreshTime": n => { this.lastRefreshTime = n.getDateValue(); },
             "version": n => { this.version = n.getStringValue(); },
@@ -97,7 +95,7 @@ export class ManagedAppPolicyDeploymentSummary extends Entity implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeNumberValue("configurationDeployedUserCount", this.configurationDeployedUserCount);
-        writer.writeCollectionOfObjectValues<ManagedAppPolicyDeploymentSummaryPerApp>("configurationDeploymentSummaryPerApp", this.configurationDeploymentSummaryPerApp);
+        writer.writeObjectValue<ManagedAppPolicyDeploymentSummaryPerApp>("configurationDeploymentSummaryPerApp", this.configurationDeploymentSummaryPerApp);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("lastRefreshTime", this.lastRefreshTime);
         writer.writeStringValue("version", this.version);

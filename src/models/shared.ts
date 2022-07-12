@@ -1,16 +1,15 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {IdentitySet} from './index';
+import {AdminMember1, IdentitySet} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Shared implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The identity of the owner of the shared item. Read-only. */
-    private _owner?: IdentitySet | undefined;
+    private _owner?: IdentitySet | AdminMember1 | undefined;
     /** Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only. */
     private _scope?: string | undefined;
     /** The identity of the user who shared the item. Read-only. */
-    private _sharedBy?: IdentitySet | undefined;
+    private _sharedBy?: IdentitySet | AdminMember1 | undefined;
     /** The UTC date and time when the item was shared. Read-only. */
     private _sharedDateTime?: Date | undefined;
     /**
@@ -47,7 +46,7 @@ export class Shared implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the owner property value. The identity of the owner of the shared item. Read-only.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get owner() {
         return this._owner;
@@ -56,7 +55,7 @@ export class Shared implements AdditionalDataHolder, Parsable {
      * Sets the owner property value. The identity of the owner of the shared item. Read-only.
      * @param value Value to set for the owner property.
      */
-    public set owner(value: IdentitySet | undefined) {
+    public set owner(value: IdentitySet | AdminMember1 | undefined) {
         this._owner = value;
     };
     /**
@@ -87,7 +86,7 @@ export class Shared implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the sharedBy property value. The identity of the user who shared the item. Read-only.
-     * @returns a identitySet
+     * @returns a admin
      */
     public get sharedBy() {
         return this._sharedBy;
@@ -96,7 +95,7 @@ export class Shared implements AdditionalDataHolder, Parsable {
      * Sets the sharedBy property value. The identity of the user who shared the item. Read-only.
      * @param value Value to set for the sharedBy property.
      */
-    public set sharedBy(value: IdentitySet | undefined) {
+    public set sharedBy(value: IdentitySet | AdminMember1 | undefined) {
         this._sharedBy = value;
     };
     /**

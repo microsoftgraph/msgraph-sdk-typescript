@@ -1,11 +1,10 @@
-import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from './createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue';
-import {DeviceAndAppManagementAssignmentTarget, Entity} from './index';
+import {AdminMember1, DeviceAndAppManagementAssignmentTarget, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The type for deployment of groups or apps. */
 export class TargetedManagedAppPolicyAssignment extends Entity implements Parsable {
     /** Identifier for deployment to a group or app */
-    private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    private _target?: DeviceAndAppManagementAssignmentTarget | AdminMember1 | undefined;
     /**
      * Instantiates a new targetedManagedAppPolicyAssignment and sets the default values.
      */
@@ -32,7 +31,7 @@ export class TargetedManagedAppPolicyAssignment extends Entity implements Parsab
     };
     /**
      * Gets the target property value. Identifier for deployment to a group or app
-     * @returns a deviceAndAppManagementAssignmentTarget
+     * @returns a admin
      */
     public get target() {
         return this._target;
@@ -41,7 +40,7 @@ export class TargetedManagedAppPolicyAssignment extends Entity implements Parsab
      * Sets the target property value. Identifier for deployment to a group or app
      * @param value Value to set for the target property.
      */
-    public set target(value: DeviceAndAppManagementAssignmentTarget | undefined) {
+    public set target(value: DeviceAndAppManagementAssignmentTarget | AdminMember1 | undefined) {
         this._target = value;
     };
 }

@@ -1,5 +1,5 @@
 import {RecentNotebook} from '../../../../../models/';
-import {createRecentNotebookFromDiscriminatorValue} from '../../../../../models/createRecentNotebookFromDiscriminatorValue';
+import {GetRecentNotebooksWithIncludePersonalNotebooksMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getRecentNotebooks method. */
@@ -7,7 +7,7 @@ export class GetRecentNotebooksWithIncludePersonalNotebooksResponse implements A
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The value property */
-    private _value?: RecentNotebook[] | undefined;
+    private _value?: RecentNotebook | GetRecentNotebooksWithIncludePersonalNotebooksMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,7 +34,7 @@ export class GetRecentNotebooksWithIncludePersonalNotebooksResponse implements A
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": n => { this.value = n.getCollectionOfObjectValues<RecentNotebook>(createRecentNotebookFromDiscriminatorValue); },
+            "value": n => { this.value = n.getObjectValue<RecentNotebook>(createRecentNotebookFromDiscriminatorValue); },
         };
     };
     /**
@@ -43,12 +43,12 @@ export class GetRecentNotebooksWithIncludePersonalNotebooksResponse implements A
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<RecentNotebook>("value", this.value);
+        writer.writeObjectValue<RecentNotebook>("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the value property value. The value property
-     * @returns a recentNotebook
+     * @returns a getRecentNotebooksWithIncludePersonalNotebooks
      */
     public get value() {
         return this._value;
@@ -57,7 +57,7 @@ export class GetRecentNotebooksWithIncludePersonalNotebooksResponse implements A
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public set value(value: RecentNotebook[] | undefined) {
+    public set value(value: RecentNotebook | GetRecentNotebooksWithIncludePersonalNotebooksMember1[] | undefined) {
         this._value = value;
     };
 }

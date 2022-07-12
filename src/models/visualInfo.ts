@@ -1,17 +1,15 @@
-import {createImageInfoFromDiscriminatorValue} from './createImageInfoFromDiscriminatorValue';
-import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
-import {ImageInfo, Json} from './index';
+import {AdminMember1, ImageInfo, Json} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class VisualInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Optional. JSON object used to represent an icon which represents the application used to generate the activity */
-    private _attribution?: ImageInfo | undefined;
+    private _attribution?: ImageInfo | AdminMember1 | undefined;
     /** Optional. Background color used to render the activity in the UI - brand color for the application source of the activity. Must be a valid hex color */
     private _backgroundColor?: string | undefined;
     /** Optional. Custom piece of data - JSON object used to provide custom content to render the activity in the Windows Shell UI */
-    private _content?: Json | undefined;
+    private _content?: Json | AdminMember1 | undefined;
     /** Optional. Longer text description of the user's unique activity (example: document name, first sentence, and/or metadata) */
     private _description?: string | undefined;
     /** Required. Short text description of the user's unique activity (for example, document name in cases where an activity refers to document creation) */
@@ -32,7 +30,7 @@ export class VisualInfo implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the attribution property value. Optional. JSON object used to represent an icon which represents the application used to generate the activity
-     * @returns a imageInfo
+     * @returns a admin
      */
     public get attribution() {
         return this._attribution;
@@ -41,7 +39,7 @@ export class VisualInfo implements AdditionalDataHolder, Parsable {
      * Sets the attribution property value. Optional. JSON object used to represent an icon which represents the application used to generate the activity
      * @param value Value to set for the attribution property.
      */
-    public set attribution(value: ImageInfo | undefined) {
+    public set attribution(value: ImageInfo | AdminMember1 | undefined) {
         this._attribution = value;
     };
     /**
@@ -66,7 +64,7 @@ export class VisualInfo implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the content property value. Optional. Custom piece of data - JSON object used to provide custom content to render the activity in the Windows Shell UI
-     * @returns a Json
+     * @returns a admin
      */
     public get content() {
         return this._content;
@@ -75,7 +73,7 @@ export class VisualInfo implements AdditionalDataHolder, Parsable {
      * Sets the content property value. Optional. Custom piece of data - JSON object used to provide custom content to render the activity in the Windows Shell UI
      * @param value Value to set for the content property.
      */
-    public set content(value: Json | undefined) {
+    public set content(value: Json | AdminMember1 | undefined) {
         this._content = value;
     };
     /**

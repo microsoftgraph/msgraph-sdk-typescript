@@ -1,17 +1,16 @@
-import {ChangeTrackedEntity} from './index';
+import {AdminMember1, ChangeTrackedEntity} from './index';
 import {TimeOffReasonIconType} from './timeOffReasonIconType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class TimeOffReason extends ChangeTrackedEntity implements Parsable {
     /** The name of the timeOffReason. Required. */
     private _displayName?: string | undefined;
     /** Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required. */
-    private _iconType?: TimeOffReasonIconType | undefined;
+    private _iconType?: TimeOffReasonIconType | AdminMember1 | undefined;
     /** Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required. */
     private _isActive?: boolean | undefined;
     /**
-     * Instantiates a new timeOffReason and sets the default values.
+     * Instantiates a new TimeOffReason and sets the default values.
      */
     public constructor() {
         super();
@@ -37,13 +36,13 @@ export class TimeOffReason extends ChangeTrackedEntity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "displayName": n => { this.displayName = n.getStringValue(); },
-            "iconType": n => { this.iconType = n.getEnumValue<TimeOffReasonIconType>(TimeOffReasonIconType); },
+            "iconType": n => { this.iconType = n.getObjectValue<TimeOffReasonIconType>(createTimeOffReasonIconTypeFromDiscriminatorValue); },
             "isActive": n => { this.isActive = n.getBooleanValue(); },
         };
     };
     /**
      * Gets the iconType property value. Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required.
-     * @returns a timeOffReasonIconType
+     * @returns a admin
      */
     public get iconType() {
         return this._iconType;
@@ -52,7 +51,7 @@ export class TimeOffReason extends ChangeTrackedEntity implements Parsable {
      * Sets the iconType property value. Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required.
      * @param value Value to set for the iconType property.
      */
-    public set iconType(value: TimeOffReasonIconType | undefined) {
+    public set iconType(value: TimeOffReasonIconType | AdminMember1 | undefined) {
         this._iconType = value;
     };
     /**
@@ -77,7 +76,7 @@ export class TimeOffReason extends ChangeTrackedEntity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeEnumValue<TimeOffReasonIconType>("iconType", this.iconType);
+        writer.writeObjectValue<TimeOffReasonIconType>("iconType", this.iconType);
         writer.writeBooleanValue("isActive", this.isActive);
     };
 }

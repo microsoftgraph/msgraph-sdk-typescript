@@ -1,12 +1,11 @@
-import {createConditionalAccessFilterFromDiscriminatorValue} from './createConditionalAccessFilterFromDiscriminatorValue';
-import {ConditionalAccessFilter} from './index';
+import {AdminMember1, ConditionalAccessFilter} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessDevices implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set. */
-    private _deviceFilter?: ConditionalAccessFilter | undefined;
+    private _deviceFilter?: ConditionalAccessFilter | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -29,7 +28,7 @@ export class ConditionalAccessDevices implements AdditionalDataHolder, Parsable 
     };
     /**
      * Gets the deviceFilter property value. Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.
-     * @returns a conditionalAccessFilter
+     * @returns a admin
      */
     public get deviceFilter() {
         return this._deviceFilter;
@@ -38,7 +37,7 @@ export class ConditionalAccessDevices implements AdditionalDataHolder, Parsable 
      * Sets the deviceFilter property value. Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.
      * @param value Value to set for the deviceFilter property.
      */
-    public set deviceFilter(value: ConditionalAccessFilter | undefined) {
+    public set deviceFilter(value: ConditionalAccessFilter | AdminMember1 | undefined) {
         this._deviceFilter = value;
     };
     /**

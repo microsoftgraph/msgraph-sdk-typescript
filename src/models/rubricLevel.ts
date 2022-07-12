@@ -1,17 +1,15 @@
-import {createEducationAssignmentGradeTypeFromDiscriminatorValue} from './createEducationAssignmentGradeTypeFromDiscriminatorValue';
-import {createEducationItemBodyFromDiscriminatorValue} from './createEducationItemBodyFromDiscriminatorValue';
-import {EducationAssignmentGradeType, EducationItemBody} from './index';
+import {AdminMember1, EducationAssignmentGradeType, EducationItemBody} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RubricLevel implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The description of this rubric level. */
-    private _description?: EducationItemBody | undefined;
+    private _description?: EducationItemBody | AdminMember1 | undefined;
     /** The name of this rubric level. */
     private _displayName?: string | undefined;
     /** Null if this is a no-points rubric; educationAssignmentPointsGradeType if it is a points rubric. */
-    private _grading?: EducationAssignmentGradeType | undefined;
+    private _grading?: EducationAssignmentGradeType | AdminMember1 | undefined;
     /** The ID of this resource. */
     private _levelId?: string | undefined;
     /**
@@ -36,7 +34,7 @@ export class RubricLevel implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the description property value. The description of this rubric level.
-     * @returns a educationItemBody
+     * @returns a admin
      */
     public get description() {
         return this._description;
@@ -45,7 +43,7 @@ export class RubricLevel implements AdditionalDataHolder, Parsable {
      * Sets the description property value. The description of this rubric level.
      * @param value Value to set for the description property.
      */
-    public set description(value: EducationItemBody | undefined) {
+    public set description(value: EducationItemBody | AdminMember1 | undefined) {
         this._description = value;
     };
     /**
@@ -76,7 +74,7 @@ export class RubricLevel implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the grading property value. Null if this is a no-points rubric; educationAssignmentPointsGradeType if it is a points rubric.
-     * @returns a educationAssignmentGradeType
+     * @returns a admin
      */
     public get grading() {
         return this._grading;
@@ -85,7 +83,7 @@ export class RubricLevel implements AdditionalDataHolder, Parsable {
      * Sets the grading property value. Null if this is a no-points rubric; educationAssignmentPointsGradeType if it is a points rubric.
      * @param value Value to set for the grading property.
      */
-    public set grading(value: EducationAssignmentGradeType | undefined) {
+    public set grading(value: EducationAssignmentGradeType | AdminMember1 | undefined) {
         this._grading = value;
     };
     /**

@@ -1,4 +1,5 @@
 import {RejectReason} from '../../../../models/rejectReason';
+import {RejectMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the reject method. */
@@ -8,7 +9,7 @@ export class RejectPostRequestBody implements AdditionalDataHolder, Parsable {
     /** The callbackUri property */
     private _callbackUri?: string | undefined;
     /** The reason property */
-    private _reason?: RejectReason | undefined;
+    private _reason?: RejectReason | RejectMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -50,12 +51,12 @@ export class RejectPostRequestBody implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "callbackUri": n => { this.callbackUri = n.getStringValue(); },
-            "reason": n => { this.reason = n.getEnumValue<RejectReason>(RejectReason); },
+            "reason": n => { this.reason = n.getObjectValue<RejectReason>(createRejectReasonFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the reason property value. The reason property
-     * @returns a rejectReason
+     * @returns a reject
      */
     public get reason() {
         return this._reason;
@@ -64,7 +65,7 @@ export class RejectPostRequestBody implements AdditionalDataHolder, Parsable {
      * Sets the reason property value. The reason property
      * @param value Value to set for the reason property.
      */
-    public set reason(value: RejectReason | undefined) {
+    public set reason(value: RejectReason | RejectMember1 | undefined) {
         this._reason = value;
     };
     /**
@@ -74,7 +75,7 @@ export class RejectPostRequestBody implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("callbackUri", this.callbackUri);
-        writer.writeEnumValue<RejectReason>("reason", this.reason);
+        writer.writeObjectValue<RejectReason>("reason", this.reason);
         writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,80 +1,68 @@
 import {CallDirection} from './callDirection';
 import {CallState} from './callState';
 import {createAudioRoutingGroupFromDiscriminatorValue} from './createAudioRoutingGroupFromDiscriminatorValue';
-import {createCallMediaStateFromDiscriminatorValue} from './createCallMediaStateFromDiscriminatorValue';
-import {createCallOptionsFromDiscriminatorValue} from './createCallOptionsFromDiscriminatorValue';
-import {createCallRouteFromDiscriminatorValue} from './createCallRouteFromDiscriminatorValue';
-import {createCallTranscriptionInfoFromDiscriminatorValue} from './createCallTranscriptionInfoFromDiscriminatorValue';
-import {createChatInfoFromDiscriminatorValue} from './createChatInfoFromDiscriminatorValue';
 import {createCommsOperationFromDiscriminatorValue} from './createCommsOperationFromDiscriminatorValue';
-import {createIncomingContextFromDiscriminatorValue} from './createIncomingContextFromDiscriminatorValue';
-import {createInvitationParticipantInfoFromDiscriminatorValue} from './createInvitationParticipantInfoFromDiscriminatorValue';
-import {createMediaConfigFromDiscriminatorValue} from './createMediaConfigFromDiscriminatorValue';
-import {createMeetingInfoFromDiscriminatorValue} from './createMeetingInfoFromDiscriminatorValue';
 import {createParticipantFromDiscriminatorValue} from './createParticipantFromDiscriminatorValue';
-import {createParticipantInfoFromDiscriminatorValue} from './createParticipantInfoFromDiscriminatorValue';
-import {createResultInfoFromDiscriminatorValue} from './createResultInfoFromDiscriminatorValue';
-import {createToneInfoFromDiscriminatorValue} from './createToneInfoFromDiscriminatorValue';
-import {AudioRoutingGroup, CallMediaState, CallOptions, CallRoute, CallTranscriptionInfo, ChatInfo, CommsOperation, Entity, IncomingContext, InvitationParticipantInfo, MediaConfig, MeetingInfo, Participant, ParticipantInfo, ResultInfo, ToneInfo} from './index';
+import {AudioRoutingGroup, CallMediaState, CallOptions, CallRoute, CallTranscriptionInfo, ChatInfo, CommsOperation, CommunicationsMember1, Entity, IncomingContext, InvitationParticipantInfo, MediaConfig, MeetingInfo, Participant, ParticipantInfo, ResultInfo, ToneInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class Call extends Entity implements Parsable {
-    /** Read-only. Nullable. */
+    /** The audioRoutingGroups property */
     private _audioRoutingGroups?: AudioRoutingGroup[] | undefined;
     /** The callback URL on which callbacks will be delivered. Must be https. */
     private _callbackUri?: string | undefined;
     /** A unique identifier for all the participant calls in a conference or a unique identifier for two participant calls in a P2P call.  This needs to be copied over from Microsoft.Graph.Call.CallChainId. */
     private _callChainId?: string | undefined;
     /** Contains the optional features for the call. */
-    private _callOptions?: CallOptions | undefined;
+    private _callOptions?: CallOptions | CommunicationsMember1 | undefined;
     /** The routing information on how the call was retargeted. Read-only. */
-    private _callRoutes?: CallRoute[] | undefined;
+    private _callRoutes?: CallRoute | CommunicationsMember1[] | undefined;
     /** The chat information. Required information for meeting scenarios. */
-    private _chatInfo?: ChatInfo | undefined;
+    private _chatInfo?: ChatInfo | CommunicationsMember1 | undefined;
     /** The direction of the call. The possible value are incoming or outgoing. Read-only. */
-    private _direction?: CallDirection | undefined;
+    private _direction?: CallDirection | CommunicationsMember1 | undefined;
     /** The context associated with an incoming call. Read-only. Server generated. */
-    private _incomingContext?: IncomingContext | undefined;
+    private _incomingContext?: IncomingContext | CommunicationsMember1 | undefined;
     /** The media configuration. Required information for creating peer to peer calls or joining meetings. */
-    private _mediaConfig?: MediaConfig | undefined;
+    private _mediaConfig?: MediaConfig | CommunicationsMember1 | undefined;
     /** Read-only. The call media state. */
-    private _mediaState?: CallMediaState | undefined;
+    private _mediaState?: CallMediaState | CommunicationsMember1 | undefined;
     /** The meeting information. Required information for meeting scenarios. */
-    private _meetingInfo?: MeetingInfo | undefined;
+    private _meetingInfo?: MeetingInfo | CommunicationsMember1 | undefined;
     /** The myParticipantId property */
     private _myParticipantId?: string | undefined;
-    /** Read-only. Nullable. */
+    /** The operations property */
     private _operations?: CommsOperation[] | undefined;
-    /** Read-only. Nullable. */
+    /** The participants property */
     private _participants?: Participant[] | undefined;
     /** The requestedModalities property */
     private _requestedModalities?: string[] | undefined;
     /** The resultInfo property */
-    private _resultInfo?: ResultInfo | undefined;
+    private _resultInfo?: ResultInfo | CommunicationsMember1 | undefined;
     /** The source property */
-    private _source?: ParticipantInfo | undefined;
+    private _source?: ParticipantInfo | CommunicationsMember1 | undefined;
     /** The state property */
-    private _state?: CallState | undefined;
+    private _state?: CallState | CommunicationsMember1 | undefined;
     /** The subject property */
     private _subject?: string | undefined;
     /** The targets property */
-    private _targets?: InvitationParticipantInfo[] | undefined;
+    private _targets?: InvitationParticipantInfo | CommunicationsMember1[] | undefined;
     /** The tenantId property */
     private _tenantId?: string | undefined;
     /** The toneInfo property */
-    private _toneInfo?: ToneInfo | undefined;
+    private _toneInfo?: ToneInfo | CommunicationsMember1 | undefined;
     /** The transcription information for the call. Read-only. */
-    private _transcription?: CallTranscriptionInfo | undefined;
+    private _transcription?: CallTranscriptionInfo | CommunicationsMember1 | undefined;
     /**
-     * Gets the audioRoutingGroups property value. Read-only. Nullable.
+     * Gets the audioRoutingGroups property value. The audioRoutingGroups property
      * @returns a audioRoutingGroup
      */
     public get audioRoutingGroups() {
         return this._audioRoutingGroups;
     };
     /**
-     * Sets the audioRoutingGroups property value. Read-only. Nullable.
+     * Sets the audioRoutingGroups property value. The audioRoutingGroups property
      * @param value Value to set for the audioRoutingGroups property.
      */
     public set audioRoutingGroups(value: AudioRoutingGroup[] | undefined) {
@@ -110,7 +98,7 @@ export class Call extends Entity implements Parsable {
     };
     /**
      * Gets the callOptions property value. Contains the optional features for the call.
-     * @returns a callOptions
+     * @returns a communications
      */
     public get callOptions() {
         return this._callOptions;
@@ -119,12 +107,12 @@ export class Call extends Entity implements Parsable {
      * Sets the callOptions property value. Contains the optional features for the call.
      * @param value Value to set for the callOptions property.
      */
-    public set callOptions(value: CallOptions | undefined) {
+    public set callOptions(value: CallOptions | CommunicationsMember1 | undefined) {
         this._callOptions = value;
     };
     /**
      * Gets the callRoutes property value. The routing information on how the call was retargeted. Read-only.
-     * @returns a callRoute
+     * @returns a communications
      */
     public get callRoutes() {
         return this._callRoutes;
@@ -133,12 +121,12 @@ export class Call extends Entity implements Parsable {
      * Sets the callRoutes property value. The routing information on how the call was retargeted. Read-only.
      * @param value Value to set for the callRoutes property.
      */
-    public set callRoutes(value: CallRoute[] | undefined) {
+    public set callRoutes(value: CallRoute | CommunicationsMember1[] | undefined) {
         this._callRoutes = value;
     };
     /**
      * Gets the chatInfo property value. The chat information. Required information for meeting scenarios.
-     * @returns a chatInfo
+     * @returns a communications
      */
     public get chatInfo() {
         return this._chatInfo;
@@ -147,7 +135,7 @@ export class Call extends Entity implements Parsable {
      * Sets the chatInfo property value. The chat information. Required information for meeting scenarios.
      * @param value Value to set for the chatInfo property.
      */
-    public set chatInfo(value: ChatInfo | undefined) {
+    public set chatInfo(value: ChatInfo | CommunicationsMember1 | undefined) {
         this._chatInfo = value;
     };
     /**
@@ -158,7 +146,7 @@ export class Call extends Entity implements Parsable {
     };
     /**
      * Gets the direction property value. The direction of the call. The possible value are incoming or outgoing. Read-only.
-     * @returns a callDirection
+     * @returns a communications
      */
     public get direction() {
         return this._direction;
@@ -167,7 +155,7 @@ export class Call extends Entity implements Parsable {
      * Sets the direction property value. The direction of the call. The possible value are incoming or outgoing. Read-only.
      * @param value Value to set for the direction property.
      */
-    public set direction(value: CallDirection | undefined) {
+    public set direction(value: CallDirection | CommunicationsMember1 | undefined) {
         this._direction = value;
     };
     /**
@@ -180,9 +168,9 @@ export class Call extends Entity implements Parsable {
             "callbackUri": n => { this.callbackUri = n.getStringValue(); },
             "callChainId": n => { this.callChainId = n.getStringValue(); },
             "callOptions": n => { this.callOptions = n.getObjectValue<CallOptions>(createCallOptionsFromDiscriminatorValue); },
-            "callRoutes": n => { this.callRoutes = n.getCollectionOfObjectValues<CallRoute>(createCallRouteFromDiscriminatorValue); },
+            "callRoutes": n => { this.callRoutes = n.getObjectValue<CallRoute>(createCallRouteFromDiscriminatorValue); },
             "chatInfo": n => { this.chatInfo = n.getObjectValue<ChatInfo>(createChatInfoFromDiscriminatorValue); },
-            "direction": n => { this.direction = n.getEnumValue<CallDirection>(CallDirection); },
+            "direction": n => { this.direction = n.getObjectValue<CallDirection>(createCallDirectionFromDiscriminatorValue); },
             "incomingContext": n => { this.incomingContext = n.getObjectValue<IncomingContext>(createIncomingContextFromDiscriminatorValue); },
             "mediaConfig": n => { this.mediaConfig = n.getObjectValue<MediaConfig>(createMediaConfigFromDiscriminatorValue); },
             "mediaState": n => { this.mediaState = n.getObjectValue<CallMediaState>(createCallMediaStateFromDiscriminatorValue); },
@@ -193,9 +181,9 @@ export class Call extends Entity implements Parsable {
             "requestedModalities": n => { this.requestedModalities = n.getCollectionOfPrimitiveValues<string>(); },
             "resultInfo": n => { this.resultInfo = n.getObjectValue<ResultInfo>(createResultInfoFromDiscriminatorValue); },
             "source": n => { this.source = n.getObjectValue<ParticipantInfo>(createParticipantInfoFromDiscriminatorValue); },
-            "state": n => { this.state = n.getEnumValue<CallState>(CallState); },
+            "state": n => { this.state = n.getObjectValue<CallState>(createCallStateFromDiscriminatorValue); },
             "subject": n => { this.subject = n.getStringValue(); },
-            "targets": n => { this.targets = n.getCollectionOfObjectValues<InvitationParticipantInfo>(createInvitationParticipantInfoFromDiscriminatorValue); },
+            "targets": n => { this.targets = n.getObjectValue<InvitationParticipantInfo>(createInvitationParticipantInfoFromDiscriminatorValue); },
             "tenantId": n => { this.tenantId = n.getStringValue(); },
             "toneInfo": n => { this.toneInfo = n.getObjectValue<ToneInfo>(createToneInfoFromDiscriminatorValue); },
             "transcription": n => { this.transcription = n.getObjectValue<CallTranscriptionInfo>(createCallTranscriptionInfoFromDiscriminatorValue); },
@@ -203,7 +191,7 @@ export class Call extends Entity implements Parsable {
     };
     /**
      * Gets the incomingContext property value. The context associated with an incoming call. Read-only. Server generated.
-     * @returns a incomingContext
+     * @returns a communications
      */
     public get incomingContext() {
         return this._incomingContext;
@@ -212,12 +200,12 @@ export class Call extends Entity implements Parsable {
      * Sets the incomingContext property value. The context associated with an incoming call. Read-only. Server generated.
      * @param value Value to set for the incomingContext property.
      */
-    public set incomingContext(value: IncomingContext | undefined) {
+    public set incomingContext(value: IncomingContext | CommunicationsMember1 | undefined) {
         this._incomingContext = value;
     };
     /**
      * Gets the mediaConfig property value. The media configuration. Required information for creating peer to peer calls or joining meetings.
-     * @returns a mediaConfig
+     * @returns a communications
      */
     public get mediaConfig() {
         return this._mediaConfig;
@@ -226,12 +214,12 @@ export class Call extends Entity implements Parsable {
      * Sets the mediaConfig property value. The media configuration. Required information for creating peer to peer calls or joining meetings.
      * @param value Value to set for the mediaConfig property.
      */
-    public set mediaConfig(value: MediaConfig | undefined) {
+    public set mediaConfig(value: MediaConfig | CommunicationsMember1 | undefined) {
         this._mediaConfig = value;
     };
     /**
      * Gets the mediaState property value. Read-only. The call media state.
-     * @returns a callMediaState
+     * @returns a communications
      */
     public get mediaState() {
         return this._mediaState;
@@ -240,12 +228,12 @@ export class Call extends Entity implements Parsable {
      * Sets the mediaState property value. Read-only. The call media state.
      * @param value Value to set for the mediaState property.
      */
-    public set mediaState(value: CallMediaState | undefined) {
+    public set mediaState(value: CallMediaState | CommunicationsMember1 | undefined) {
         this._mediaState = value;
     };
     /**
      * Gets the meetingInfo property value. The meeting information. Required information for meeting scenarios.
-     * @returns a meetingInfo
+     * @returns a communications
      */
     public get meetingInfo() {
         return this._meetingInfo;
@@ -254,7 +242,7 @@ export class Call extends Entity implements Parsable {
      * Sets the meetingInfo property value. The meeting information. Required information for meeting scenarios.
      * @param value Value to set for the meetingInfo property.
      */
-    public set meetingInfo(value: MeetingInfo | undefined) {
+    public set meetingInfo(value: MeetingInfo | CommunicationsMember1 | undefined) {
         this._meetingInfo = value;
     };
     /**
@@ -272,28 +260,28 @@ export class Call extends Entity implements Parsable {
         this._myParticipantId = value;
     };
     /**
-     * Gets the operations property value. Read-only. Nullable.
+     * Gets the operations property value. The operations property
      * @returns a commsOperation
      */
     public get operations() {
         return this._operations;
     };
     /**
-     * Sets the operations property value. Read-only. Nullable.
+     * Sets the operations property value. The operations property
      * @param value Value to set for the operations property.
      */
     public set operations(value: CommsOperation[] | undefined) {
         this._operations = value;
     };
     /**
-     * Gets the participants property value. Read-only. Nullable.
+     * Gets the participants property value. The participants property
      * @returns a participant
      */
     public get participants() {
         return this._participants;
     };
     /**
-     * Sets the participants property value. Read-only. Nullable.
+     * Sets the participants property value. The participants property
      * @param value Value to set for the participants property.
      */
     public set participants(value: Participant[] | undefined) {
@@ -315,7 +303,7 @@ export class Call extends Entity implements Parsable {
     };
     /**
      * Gets the resultInfo property value. The resultInfo property
-     * @returns a resultInfo
+     * @returns a communications
      */
     public get resultInfo() {
         return this._resultInfo;
@@ -324,7 +312,7 @@ export class Call extends Entity implements Parsable {
      * Sets the resultInfo property value. The resultInfo property
      * @param value Value to set for the resultInfo property.
      */
-    public set resultInfo(value: ResultInfo | undefined) {
+    public set resultInfo(value: ResultInfo | CommunicationsMember1 | undefined) {
         this._resultInfo = value;
     };
     /**
@@ -338,9 +326,9 @@ export class Call extends Entity implements Parsable {
         writer.writeStringValue("callbackUri", this.callbackUri);
         writer.writeStringValue("callChainId", this.callChainId);
         writer.writeObjectValue<CallOptions>("callOptions", this.callOptions);
-        writer.writeCollectionOfObjectValues<CallRoute>("callRoutes", this.callRoutes);
+        writer.writeObjectValue<CallRoute>("callRoutes", this.callRoutes);
         writer.writeObjectValue<ChatInfo>("chatInfo", this.chatInfo);
-        writer.writeEnumValue<CallDirection>("direction", this.direction);
+        writer.writeObjectValue<CallDirection>("direction", this.direction);
         writer.writeObjectValue<IncomingContext>("incomingContext", this.incomingContext);
         writer.writeObjectValue<MediaConfig>("mediaConfig", this.mediaConfig);
         writer.writeObjectValue<CallMediaState>("mediaState", this.mediaState);
@@ -351,16 +339,16 @@ export class Call extends Entity implements Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("requestedModalities", this.requestedModalities);
         writer.writeObjectValue<ResultInfo>("resultInfo", this.resultInfo);
         writer.writeObjectValue<ParticipantInfo>("source", this.source);
-        writer.writeEnumValue<CallState>("state", this.state);
+        writer.writeObjectValue<CallState>("state", this.state);
         writer.writeStringValue("subject", this.subject);
-        writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("targets", this.targets);
+        writer.writeObjectValue<InvitationParticipantInfo>("targets", this.targets);
         writer.writeStringValue("tenantId", this.tenantId);
         writer.writeObjectValue<ToneInfo>("toneInfo", this.toneInfo);
         writer.writeObjectValue<CallTranscriptionInfo>("transcription", this.transcription);
     };
     /**
      * Gets the source property value. The source property
-     * @returns a participantInfo
+     * @returns a communications
      */
     public get source() {
         return this._source;
@@ -369,12 +357,12 @@ export class Call extends Entity implements Parsable {
      * Sets the source property value. The source property
      * @param value Value to set for the source property.
      */
-    public set source(value: ParticipantInfo | undefined) {
+    public set source(value: ParticipantInfo | CommunicationsMember1 | undefined) {
         this._source = value;
     };
     /**
      * Gets the state property value. The state property
-     * @returns a callState
+     * @returns a communications
      */
     public get state() {
         return this._state;
@@ -383,7 +371,7 @@ export class Call extends Entity implements Parsable {
      * Sets the state property value. The state property
      * @param value Value to set for the state property.
      */
-    public set state(value: CallState | undefined) {
+    public set state(value: CallState | CommunicationsMember1 | undefined) {
         this._state = value;
     };
     /**
@@ -402,7 +390,7 @@ export class Call extends Entity implements Parsable {
     };
     /**
      * Gets the targets property value. The targets property
-     * @returns a invitationParticipantInfo
+     * @returns a communications
      */
     public get targets() {
         return this._targets;
@@ -411,7 +399,7 @@ export class Call extends Entity implements Parsable {
      * Sets the targets property value. The targets property
      * @param value Value to set for the targets property.
      */
-    public set targets(value: InvitationParticipantInfo[] | undefined) {
+    public set targets(value: InvitationParticipantInfo | CommunicationsMember1[] | undefined) {
         this._targets = value;
     };
     /**
@@ -430,7 +418,7 @@ export class Call extends Entity implements Parsable {
     };
     /**
      * Gets the toneInfo property value. The toneInfo property
-     * @returns a toneInfo
+     * @returns a communications
      */
     public get toneInfo() {
         return this._toneInfo;
@@ -439,12 +427,12 @@ export class Call extends Entity implements Parsable {
      * Sets the toneInfo property value. The toneInfo property
      * @param value Value to set for the toneInfo property.
      */
-    public set toneInfo(value: ToneInfo | undefined) {
+    public set toneInfo(value: ToneInfo | CommunicationsMember1 | undefined) {
         this._toneInfo = value;
     };
     /**
      * Gets the transcription property value. The transcription information for the call. Read-only.
-     * @returns a callTranscriptionInfo
+     * @returns a communications
      */
     public get transcription() {
         return this._transcription;
@@ -453,7 +441,7 @@ export class Call extends Entity implements Parsable {
      * Sets the transcription property value. The transcription information for the call. Read-only.
      * @param value Value to set for the transcription property.
      */
-    public set transcription(value: CallTranscriptionInfo | undefined) {
+    public set transcription(value: CallTranscriptionInfo | CommunicationsMember1 | undefined) {
         this._transcription = value;
     };
 }

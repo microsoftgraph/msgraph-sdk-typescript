@@ -1,18 +1,18 @@
-import {Entity} from './index';
+import {Entity, InstantiateMember1} from './index';
 import {PermissionClassificationType} from './permissionClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the instantiate method. */
 export class DelegatedPermissionClassification extends Entity implements Parsable {
     /** The classification value being given. Possible value: low. Does not support $filter. */
-    private _classification?: PermissionClassificationType | undefined;
+    private _classification?: PermissionClassificationType | InstantiateMember1 | undefined;
     /** The unique identifier (id) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Required on create. Does not support $filter. */
     private _permissionId?: string | undefined;
     /** The claim value (value) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Does not support $filter. */
     private _permissionName?: string | undefined;
     /**
      * Gets the classification property value. The classification value being given. Possible value: low. Does not support $filter.
-     * @returns a permissionClassificationType
+     * @returns a instantiate
      */
     public get classification() {
         return this._classification;
@@ -21,7 +21,7 @@ export class DelegatedPermissionClassification extends Entity implements Parsabl
      * Sets the classification property value. The classification value being given. Possible value: low. Does not support $filter.
      * @param value Value to set for the classification property.
      */
-    public set classification(value: PermissionClassificationType | undefined) {
+    public set classification(value: PermissionClassificationType | InstantiateMember1 | undefined) {
         this._classification = value;
     };
     /**
@@ -36,7 +36,7 @@ export class DelegatedPermissionClassification extends Entity implements Parsabl
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "classification": n => { this.classification = n.getEnumValue<PermissionClassificationType>(PermissionClassificationType); },
+            "classification": n => { this.classification = n.getObjectValue<PermissionClassificationType>(createPermissionClassificationTypeFromDiscriminatorValue); },
             "permissionId": n => { this.permissionId = n.getStringValue(); },
             "permissionName": n => { this.permissionName = n.getStringValue(); },
         };
@@ -76,7 +76,7 @@ export class DelegatedPermissionClassification extends Entity implements Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeEnumValue<PermissionClassificationType>("classification", this.classification);
+        writer.writeObjectValue<PermissionClassificationType>("classification", this.classification);
         writer.writeStringValue("permissionId", this.permissionId);
         writer.writeStringValue("permissionName", this.permissionName);
     };

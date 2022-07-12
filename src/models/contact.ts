@@ -1,20 +1,16 @@
-import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFromDiscriminatorValue';
 import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscriminatorValue';
 import {createMultiValueLegacyExtendedPropertyFromDiscriminatorValue} from './createMultiValueLegacyExtendedPropertyFromDiscriminatorValue';
-import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddressFromDiscriminatorValue';
-import {createProfilePhotoFromDiscriminatorValue} from './createProfilePhotoFromDiscriminatorValue';
 import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './createSingleValueLegacyExtendedPropertyFromDiscriminatorValue';
-import {EmailAddress, Extension, MultiValueLegacyExtendedProperty, OutlookItem, PhysicalAddress, ProfilePhoto, SingleValueLegacyExtendedProperty} from './index';
+import {AdminMember1, EmailAddress, Extension, MultiValueLegacyExtendedProperty, OutlookItem, PhysicalAddress, ProfilePhoto, SingleValueLegacyExtendedProperty} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Contact extends OutlookItem implements Parsable {
     /** The name of the contact's assistant. */
     private _assistantName?: string | undefined;
     /** The contact's birthday. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _birthday?: Date | undefined;
     /** The contact's business address. */
-    private _businessAddress?: PhysicalAddress | undefined;
+    private _businessAddress?: PhysicalAddress | AdminMember1 | undefined;
     /** The business home page of the contact. */
     private _businessHomePage?: string | undefined;
     /** The contact's business phone numbers. */
@@ -28,7 +24,7 @@ export class Contact extends OutlookItem implements Parsable {
     /** The contact's display name. You can specify the display name in a create or update operation. Note that later updates to other properties may cause an automatically generated value to overwrite the displayName value you have specified. To preserve a pre-existing value, always include it as displayName in an update operation. */
     private _displayName?: string | undefined;
     /** The contact's email addresses. */
-    private _emailAddresses?: EmailAddress[] | undefined;
+    private _emailAddresses?: EmailAddress | AdminMember1[] | undefined;
     /** The collection of open extensions defined for the contact. Nullable. */
     private _extensions?: Extension[] | undefined;
     /** The name the contact is filed under. */
@@ -38,7 +34,7 @@ export class Contact extends OutlookItem implements Parsable {
     /** The contact's given name. */
     private _givenName?: string | undefined;
     /** The contact's home address. */
-    private _homeAddress?: PhysicalAddress | undefined;
+    private _homeAddress?: PhysicalAddress | AdminMember1 | undefined;
     /** The contact's home phone numbers. */
     private _homePhones?: string[] | undefined;
     /** The imAddresses property */
@@ -60,13 +56,13 @@ export class Contact extends OutlookItem implements Parsable {
     /** The officeLocation property */
     private _officeLocation?: string | undefined;
     /** The otherAddress property */
-    private _otherAddress?: PhysicalAddress | undefined;
+    private _otherAddress?: PhysicalAddress | AdminMember1 | undefined;
     /** The parentFolderId property */
     private _parentFolderId?: string | undefined;
     /** The personalNotes property */
     private _personalNotes?: string | undefined;
     /** Optional contact picture. You can get or set a photo for a contact. */
-    private _photo?: ProfilePhoto | undefined;
+    private _photo?: ProfilePhoto | AdminMember1 | undefined;
     /** The profession property */
     private _profession?: string | undefined;
     /** The collection of single-value extended properties defined for the contact. Read-only. Nullable. */
@@ -113,7 +109,7 @@ export class Contact extends OutlookItem implements Parsable {
     };
     /**
      * Gets the businessAddress property value. The contact's business address.
-     * @returns a physicalAddress
+     * @returns a admin
      */
     public get businessAddress() {
         return this._businessAddress;
@@ -122,7 +118,7 @@ export class Contact extends OutlookItem implements Parsable {
      * Sets the businessAddress property value. The contact's business address.
      * @param value Value to set for the businessAddress property.
      */
-    public set businessAddress(value: PhysicalAddress | undefined) {
+    public set businessAddress(value: PhysicalAddress | AdminMember1 | undefined) {
         this._businessAddress = value;
     };
     /**
@@ -182,7 +178,7 @@ export class Contact extends OutlookItem implements Parsable {
         this._companyName = value;
     };
     /**
-     * Instantiates a new contact and sets the default values.
+     * Instantiates a new Contact and sets the default values.
      */
     public constructor() {
         super();
@@ -217,7 +213,7 @@ export class Contact extends OutlookItem implements Parsable {
     };
     /**
      * Gets the emailAddresses property value. The contact's email addresses.
-     * @returns a emailAddress
+     * @returns a admin
      */
     public get emailAddresses() {
         return this._emailAddresses;
@@ -226,7 +222,7 @@ export class Contact extends OutlookItem implements Parsable {
      * Sets the emailAddresses property value. The contact's email addresses.
      * @param value Value to set for the emailAddresses property.
      */
-    public set emailAddresses(value: EmailAddress[] | undefined) {
+    public set emailAddresses(value: EmailAddress | AdminMember1[] | undefined) {
         this._emailAddresses = value;
     };
     /**
@@ -286,7 +282,7 @@ export class Contact extends OutlookItem implements Parsable {
             "companyName": n => { this.companyName = n.getStringValue(); },
             "department": n => { this.department = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
-            "emailAddresses": n => { this.emailAddresses = n.getCollectionOfObjectValues<EmailAddress>(createEmailAddressFromDiscriminatorValue); },
+            "emailAddresses": n => { this.emailAddresses = n.getObjectValue<EmailAddress>(createEmailAddressFromDiscriminatorValue); },
             "extensions": n => { this.extensions = n.getCollectionOfObjectValues<Extension>(createExtensionFromDiscriminatorValue); },
             "fileAs": n => { this.fileAs = n.getStringValue(); },
             "generation": n => { this.generation = n.getStringValue(); },
@@ -332,7 +328,7 @@ export class Contact extends OutlookItem implements Parsable {
     };
     /**
      * Gets the homeAddress property value. The contact's home address.
-     * @returns a physicalAddress
+     * @returns a admin
      */
     public get homeAddress() {
         return this._homeAddress;
@@ -341,7 +337,7 @@ export class Contact extends OutlookItem implements Parsable {
      * Sets the homeAddress property value. The contact's home address.
      * @param value Value to set for the homeAddress property.
      */
-    public set homeAddress(value: PhysicalAddress | undefined) {
+    public set homeAddress(value: PhysicalAddress | AdminMember1 | undefined) {
         this._homeAddress = value;
     };
     /**
@@ -486,7 +482,7 @@ export class Contact extends OutlookItem implements Parsable {
     };
     /**
      * Gets the otherAddress property value. The otherAddress property
-     * @returns a physicalAddress
+     * @returns a admin
      */
     public get otherAddress() {
         return this._otherAddress;
@@ -495,7 +491,7 @@ export class Contact extends OutlookItem implements Parsable {
      * Sets the otherAddress property value. The otherAddress property
      * @param value Value to set for the otherAddress property.
      */
-    public set otherAddress(value: PhysicalAddress | undefined) {
+    public set otherAddress(value: PhysicalAddress | AdminMember1 | undefined) {
         this._otherAddress = value;
     };
     /**
@@ -528,7 +524,7 @@ export class Contact extends OutlookItem implements Parsable {
     };
     /**
      * Gets the photo property value. Optional contact picture. You can get or set a photo for a contact.
-     * @returns a profilePhoto
+     * @returns a admin
      */
     public get photo() {
         return this._photo;
@@ -537,7 +533,7 @@ export class Contact extends OutlookItem implements Parsable {
      * Sets the photo property value. Optional contact picture. You can get or set a photo for a contact.
      * @param value Value to set for the photo property.
      */
-    public set photo(value: ProfilePhoto | undefined) {
+    public set photo(value: ProfilePhoto | AdminMember1 | undefined) {
         this._photo = value;
     };
     /**
@@ -570,7 +566,7 @@ export class Contact extends OutlookItem implements Parsable {
         writer.writeStringValue("companyName", this.companyName);
         writer.writeStringValue("department", this.department);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeCollectionOfObjectValues<EmailAddress>("emailAddresses", this.emailAddresses);
+        writer.writeObjectValue<EmailAddress>("emailAddresses", this.emailAddresses);
         writer.writeCollectionOfObjectValues<Extension>("extensions", this.extensions);
         writer.writeStringValue("fileAs", this.fileAs);
         writer.writeStringValue("generation", this.generation);

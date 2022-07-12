@@ -1,15 +1,14 @@
-import {createNotebookFromDiscriminatorValue} from './createNotebookFromDiscriminatorValue';
 import {createOnenoteSectionFromDiscriminatorValue} from './createOnenoteSectionFromDiscriminatorValue';
 import {createSectionGroupFromDiscriminatorValue} from './createSectionGroupFromDiscriminatorValue';
-import {Notebook, OnenoteEntityHierarchyModel, OnenoteSection} from './index';
+import {AdminMember1, Notebook, OnenoteEntityHierarchyModel, OnenoteSection} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class SectionGroup extends OnenoteEntityHierarchyModel implements Parsable {
     /** The notebook that contains the section group. Read-only. */
-    private _parentNotebook?: Notebook | undefined;
+    private _parentNotebook?: Notebook | AdminMember1 | undefined;
     /** The section group that contains the section group. Read-only. */
-    private _parentSectionGroup?: SectionGroup | undefined;
+    private _parentSectionGroup?: SectionGroup | AdminMember1 | undefined;
     /** The section groups in the section. Read-only. Nullable. */
     private _sectionGroups?: SectionGroup[] | undefined;
     /** The URL for the sectionGroups navigation property, which returns all the section groups in the section group. Read-only. */
@@ -40,7 +39,7 @@ export class SectionGroup extends OnenoteEntityHierarchyModel implements Parsabl
     };
     /**
      * Gets the parentNotebook property value. The notebook that contains the section group. Read-only.
-     * @returns a notebook
+     * @returns a admin
      */
     public get parentNotebook() {
         return this._parentNotebook;
@@ -49,12 +48,12 @@ export class SectionGroup extends OnenoteEntityHierarchyModel implements Parsabl
      * Sets the parentNotebook property value. The notebook that contains the section group. Read-only.
      * @param value Value to set for the parentNotebook property.
      */
-    public set parentNotebook(value: Notebook | undefined) {
+    public set parentNotebook(value: Notebook | AdminMember1 | undefined) {
         this._parentNotebook = value;
     };
     /**
      * Gets the parentSectionGroup property value. The section group that contains the section group. Read-only.
-     * @returns a sectionGroup
+     * @returns a admin
      */
     public get parentSectionGroup() {
         return this._parentSectionGroup;
@@ -63,7 +62,7 @@ export class SectionGroup extends OnenoteEntityHierarchyModel implements Parsabl
      * Sets the parentSectionGroup property value. The section group that contains the section group. Read-only.
      * @param value Value to set for the parentSectionGroup property.
      */
-    public set parentSectionGroup(value: SectionGroup | undefined) {
+    public set parentSectionGroup(value: SectionGroup | AdminMember1 | undefined) {
         this._parentSectionGroup = value;
     };
     /**

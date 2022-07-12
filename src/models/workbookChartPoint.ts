@@ -1,14 +1,12 @@
-import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
-import {createWorkbookChartPointFormatFromDiscriminatorValue} from './createWorkbookChartPointFormatFromDiscriminatorValue';
-import {Entity, Json, WorkbookChartPointFormat} from './index';
+import {AdminMember1, Entity, Json, WorkbookChartPointFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookChartPoint extends Entity implements Parsable {
     /** Encapsulates the format properties chart point. Read-only. */
-    private _format?: WorkbookChartPointFormat | undefined;
+    private _format?: WorkbookChartPointFormat | AdminMember1 | undefined;
     /** Returns the value of a chart point. Read-only. */
-    private _value?: Json | undefined;
+    private _value?: Json | AdminMember1 | undefined;
     /**
      * Instantiates a new workbookChartPoint and sets the default values.
      */
@@ -17,7 +15,7 @@ export class WorkbookChartPoint extends Entity implements Parsable {
     };
     /**
      * Gets the format property value. Encapsulates the format properties chart point. Read-only.
-     * @returns a workbookChartPointFormat
+     * @returns a admin
      */
     public get format() {
         return this._format;
@@ -26,7 +24,7 @@ export class WorkbookChartPoint extends Entity implements Parsable {
      * Sets the format property value. Encapsulates the format properties chart point. Read-only.
      * @param value Value to set for the format property.
      */
-    public set format(value: WorkbookChartPointFormat | undefined) {
+    public set format(value: WorkbookChartPointFormat | AdminMember1 | undefined) {
         this._format = value;
     };
     /**
@@ -51,7 +49,7 @@ export class WorkbookChartPoint extends Entity implements Parsable {
     };
     /**
      * Gets the value property value. Returns the value of a chart point. Read-only.
-     * @returns a Json
+     * @returns a admin
      */
     public get value() {
         return this._value;
@@ -60,7 +58,7 @@ export class WorkbookChartPoint extends Entity implements Parsable {
      * Sets the value property value. Returns the value of a chart point. Read-only.
      * @param value Value to set for the value property.
      */
-    public set value(value: Json | undefined) {
+    public set value(value: Json | AdminMember1 | undefined) {
         this._value = value;
     };
 }

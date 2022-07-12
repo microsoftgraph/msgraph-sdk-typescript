@@ -1,5 +1,5 @@
 import {TargetedManagedAppPolicyAssignment} from '../../../../models/';
-import {createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue} from '../../../../models/createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue';
+import {AssignMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the assign method. */
@@ -7,7 +7,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The assignments property */
-    private _assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
+    private _assignments?: TargetedManagedAppPolicyAssignment | AssignMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -24,7 +24,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the assignments property value. The assignments property
-     * @returns a targetedManagedAppPolicyAssignment
+     * @returns a assign
      */
     public get assignments() {
         return this._assignments;
@@ -33,7 +33,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
      * Sets the assignments property value. The assignments property
      * @param value Value to set for the assignments property.
      */
-    public set assignments(value: TargetedManagedAppPolicyAssignment[] | undefined) {
+    public set assignments(value: TargetedManagedAppPolicyAssignment | AssignMember1[] | undefined) {
         this._assignments = value;
     };
     /**
@@ -48,7 +48,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "assignments": n => { this.assignments = n.getCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>(createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue); },
+            "assignments": n => { this.assignments = n.getObjectValue<TargetedManagedAppPolicyAssignment>(createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue); },
         };
     };
     /**
@@ -57,7 +57,7 @@ export class AssignPostRequestBody implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>("assignments", this.assignments);
+        writer.writeObjectValue<TargetedManagedAppPolicyAssignment>("assignments", this.assignments);
         writer.writeAdditionalData(this.additionalData);
     };
 }

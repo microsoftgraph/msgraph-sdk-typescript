@@ -1,16 +1,13 @@
-import {createResponseStatusFromDiscriminatorValue} from './createResponseStatusFromDiscriminatorValue';
-import {createTimeSlotFromDiscriminatorValue} from './createTimeSlotFromDiscriminatorValue';
-import {AttendeeBase, ResponseStatus, TimeSlot} from './index';
+import {AdminMember1, AttendeeBase, ResponseStatus, TimeSlot} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Attendee extends AttendeeBase implements Parsable {
     /** An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property is not included in a response of a GET event. */
-    private _proposedNewTime?: TimeSlot | undefined;
+    private _proposedNewTime?: TimeSlot | AdminMember1 | undefined;
     /** The attendee's response (none, accepted, declined, etc.) for the event and date-time that the response was sent. */
-    private _status?: ResponseStatus | undefined;
+    private _status?: ResponseStatus | AdminMember1 | undefined;
     /**
-     * Instantiates a new attendee and sets the default values.
+     * Instantiates a new Attendee and sets the default values.
      */
     public constructor() {
         super();
@@ -27,7 +24,7 @@ export class Attendee extends AttendeeBase implements Parsable {
     };
     /**
      * Gets the proposedNewTime property value. An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property is not included in a response of a GET event.
-     * @returns a timeSlot
+     * @returns a admin
      */
     public get proposedNewTime() {
         return this._proposedNewTime;
@@ -36,7 +33,7 @@ export class Attendee extends AttendeeBase implements Parsable {
      * Sets the proposedNewTime property value. An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property is not included in a response of a GET event.
      * @param value Value to set for the proposedNewTime property.
      */
-    public set proposedNewTime(value: TimeSlot | undefined) {
+    public set proposedNewTime(value: TimeSlot | AdminMember1 | undefined) {
         this._proposedNewTime = value;
     };
     /**
@@ -51,7 +48,7 @@ export class Attendee extends AttendeeBase implements Parsable {
     };
     /**
      * Gets the status property value. The attendee's response (none, accepted, declined, etc.) for the event and date-time that the response was sent.
-     * @returns a responseStatus
+     * @returns a admin
      */
     public get status() {
         return this._status;
@@ -60,7 +57,7 @@ export class Attendee extends AttendeeBase implements Parsable {
      * Sets the status property value. The attendee's response (none, accepted, declined, etc.) for the event and date-time that the response was sent.
      * @param value Value to set for the status property.
      */
-    public set status(value: ResponseStatus | undefined) {
+    public set status(value: ResponseStatus | AdminMember1 | undefined) {
         this._status = value;
     };
 }

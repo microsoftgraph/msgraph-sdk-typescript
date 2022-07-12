@@ -1,6 +1,5 @@
+import {AdminMember1} from './index';
 import {Set, Term} from './termStore/';
-import {createSetFromDiscriminatorValue} from './termStore/createSetFromDiscriminatorValue';
-import {createTermFromDiscriminatorValue} from './termStore/createTermFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TermColumn implements AdditionalDataHolder, Parsable {
@@ -9,11 +8,11 @@ export class TermColumn implements AdditionalDataHolder, Parsable {
     /** Specifies whether the column will allow more than one value */
     private _allowMultipleValues?: boolean | undefined;
     /** The parentTerm property */
-    private _parentTerm?: Term | undefined;
+    private _parentTerm?: Term | AdminMember1 | undefined;
     /** Specifies whether to display the entire term path or only the term label. */
     private _showFullyQualifiedName?: boolean | undefined;
     /** The termSet property */
-    private _termSet?: Set | undefined;
+    private _termSet?: Set | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -62,7 +61,7 @@ export class TermColumn implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the parentTerm property value. The parentTerm property
-     * @returns a term
+     * @returns a admin
      */
     public get parentTerm() {
         return this._parentTerm;
@@ -71,7 +70,7 @@ export class TermColumn implements AdditionalDataHolder, Parsable {
      * Sets the parentTerm property value. The parentTerm property
      * @param value Value to set for the parentTerm property.
      */
-    public set parentTerm(value: Term | undefined) {
+    public set parentTerm(value: Term | AdminMember1 | undefined) {
         this._parentTerm = value;
     };
     /**
@@ -102,7 +101,7 @@ export class TermColumn implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the termSet property value. The termSet property
-     * @returns a set
+     * @returns a admin
      */
     public get termSet() {
         return this._termSet;
@@ -111,7 +110,7 @@ export class TermColumn implements AdditionalDataHolder, Parsable {
      * Sets the termSet property value. The termSet property
      * @param value Value to set for the termSet property.
      */
-    public set termSet(value: Set | undefined) {
+    public set termSet(value: Set | AdminMember1 | undefined) {
         this._termSet = value;
     };
 }

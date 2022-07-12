@@ -1,4 +1,5 @@
 import {EmailRole} from './emailRole';
+import {AdminMember1} from './index';
 import {LogonType} from './logonType';
 import {UserAccountSecurityType} from './userAccountSecurityType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -13,7 +14,7 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
     /** NetBIOS/Active Directory domain of user account (that is, domain/account format). */
     private _domainName?: string | undefined;
     /** For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient. */
-    private _emailRole?: EmailRole | undefined;
+    private _emailRole?: EmailRole | AdminMember1 | undefined;
     /** Indicates whether the user logged on through a VPN. */
     private _isVpn?: boolean | undefined;
     /** Time at which the sign-in occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
@@ -25,13 +26,13 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
     /** Location (by IP address mapping) associated with a user sign-in event by this user. */
     private _logonLocation?: string | undefined;
     /** Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service. */
-    private _logonType?: LogonType | undefined;
+    private _logonType?: LogonType | AdminMember1 | undefined;
     /** Active Directory (on-premises) Security Identifier (SID) of the user. */
     private _onPremisesSecurityIdentifier?: string | undefined;
     /** Provider-generated/calculated risk score of the user account. Recommended value range of 0-1, which equates to a percentage. */
     private _riskScore?: string | undefined;
     /** User account type (group membership), per Windows definition. Possible values are: unknown, standard, power, administrator. */
-    private _userAccountType?: UserAccountSecurityType | undefined;
+    private _userAccountType?: UserAccountSecurityType | AdminMember1 | undefined;
     /** User sign-in name - internet format: (user account name)@(user account DNS domain name). */
     private _userPrincipalName?: string | undefined;
     /**
@@ -98,7 +99,7 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the emailRole property value. For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient.
-     * @returns a emailRole
+     * @returns a admin
      */
     public get emailRole() {
         return this._emailRole;
@@ -107,7 +108,7 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
      * Sets the emailRole property value. For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient.
      * @param value Value to set for the emailRole property.
      */
-    public set emailRole(value: EmailRole | undefined) {
+    public set emailRole(value: EmailRole | AdminMember1 | undefined) {
         this._emailRole = value;
     };
     /**
@@ -119,16 +120,16 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
             "aadUserId": n => { this.aadUserId = n.getStringValue(); },
             "accountName": n => { this.accountName = n.getStringValue(); },
             "domainName": n => { this.domainName = n.getStringValue(); },
-            "emailRole": n => { this.emailRole = n.getEnumValue<EmailRole>(EmailRole); },
+            "emailRole": n => { this.emailRole = n.getObjectValue<EmailRole>(createEmailRoleFromDiscriminatorValue); },
             "isVpn": n => { this.isVpn = n.getBooleanValue(); },
             "logonDateTime": n => { this.logonDateTime = n.getDateValue(); },
             "logonId": n => { this.logonId = n.getStringValue(); },
             "logonIp": n => { this.logonIp = n.getStringValue(); },
             "logonLocation": n => { this.logonLocation = n.getStringValue(); },
-            "logonType": n => { this.logonType = n.getEnumValue<LogonType>(LogonType); },
+            "logonType": n => { this.logonType = n.getObjectValue<LogonType>(createLogonTypeFromDiscriminatorValue); },
             "onPremisesSecurityIdentifier": n => { this.onPremisesSecurityIdentifier = n.getStringValue(); },
             "riskScore": n => { this.riskScore = n.getStringValue(); },
-            "userAccountType": n => { this.userAccountType = n.getEnumValue<UserAccountSecurityType>(UserAccountSecurityType); },
+            "userAccountType": n => { this.userAccountType = n.getObjectValue<UserAccountSecurityType>(createUserAccountSecurityTypeFromDiscriminatorValue); },
             "userPrincipalName": n => { this.userPrincipalName = n.getStringValue(); },
         };
     };
@@ -204,7 +205,7 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the logonType property value. Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
-     * @returns a logonType
+     * @returns a admin
      */
     public get logonType() {
         return this._logonType;
@@ -213,7 +214,7 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
      * Sets the logonType property value. Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
      * @param value Value to set for the logonType property.
      */
-    public set logonType(value: LogonType | undefined) {
+    public set logonType(value: LogonType | AdminMember1 | undefined) {
         this._logonType = value;
     };
     /**
@@ -253,22 +254,22 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("aadUserId", this.aadUserId);
         writer.writeStringValue("accountName", this.accountName);
         writer.writeStringValue("domainName", this.domainName);
-        writer.writeEnumValue<EmailRole>("emailRole", this.emailRole);
+        writer.writeObjectValue<EmailRole>("emailRole", this.emailRole);
         writer.writeBooleanValue("isVpn", this.isVpn);
         writer.writeDateValue("logonDateTime", this.logonDateTime);
         writer.writeStringValue("logonId", this.logonId);
         writer.writeStringValue("logonIp", this.logonIp);
         writer.writeStringValue("logonLocation", this.logonLocation);
-        writer.writeEnumValue<LogonType>("logonType", this.logonType);
+        writer.writeObjectValue<LogonType>("logonType", this.logonType);
         writer.writeStringValue("onPremisesSecurityIdentifier", this.onPremisesSecurityIdentifier);
         writer.writeStringValue("riskScore", this.riskScore);
-        writer.writeEnumValue<UserAccountSecurityType>("userAccountType", this.userAccountType);
+        writer.writeObjectValue<UserAccountSecurityType>("userAccountType", this.userAccountType);
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the userAccountType property value. User account type (group membership), per Windows definition. Possible values are: unknown, standard, power, administrator.
-     * @returns a userAccountSecurityType
+     * @returns a admin
      */
     public get userAccountType() {
         return this._userAccountType;
@@ -277,7 +278,7 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
      * Sets the userAccountType property value. User account type (group membership), per Windows definition. Possible values are: unknown, standard, power, administrator.
      * @param value Value to set for the userAccountType property.
      */
-    public set userAccountType(value: UserAccountSecurityType | undefined) {
+    public set userAccountType(value: UserAccountSecurityType | AdminMember1 | undefined) {
         this._userAccountType = value;
     };
     /**

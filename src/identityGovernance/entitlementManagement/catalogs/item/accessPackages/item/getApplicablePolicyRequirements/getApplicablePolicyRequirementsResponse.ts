@@ -1,5 +1,5 @@
 import {AccessPackageAssignmentRequestRequirements} from '../../../../../../../models/';
-import {createAccessPackageAssignmentRequestRequirementsFromDiscriminatorValue} from '../../../../../../../models/createAccessPackageAssignmentRequestRequirementsFromDiscriminatorValue';
+import {GetApplicablePolicyRequirementsMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getApplicablePolicyRequirements method. */
@@ -7,7 +7,7 @@ export class GetApplicablePolicyRequirementsResponse implements AdditionalDataHo
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The value property */
-    private _value?: AccessPackageAssignmentRequestRequirements[] | undefined;
+    private _value?: AccessPackageAssignmentRequestRequirements | GetApplicablePolicyRequirementsMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,7 +34,7 @@ export class GetApplicablePolicyRequirementsResponse implements AdditionalDataHo
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": n => { this.value = n.getCollectionOfObjectValues<AccessPackageAssignmentRequestRequirements>(createAccessPackageAssignmentRequestRequirementsFromDiscriminatorValue); },
+            "value": n => { this.value = n.getObjectValue<AccessPackageAssignmentRequestRequirements>(createAccessPackageAssignmentRequestRequirementsFromDiscriminatorValue); },
         };
     };
     /**
@@ -43,12 +43,12 @@ export class GetApplicablePolicyRequirementsResponse implements AdditionalDataHo
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestRequirements>("value", this.value);
+        writer.writeObjectValue<AccessPackageAssignmentRequestRequirements>("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the value property value. The value property
-     * @returns a accessPackageAssignmentRequestRequirements
+     * @returns a getApplicablePolicyRequirements
      */
     public get value() {
         return this._value;
@@ -57,7 +57,7 @@ export class GetApplicablePolicyRequirementsResponse implements AdditionalDataHo
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public set value(value: AccessPackageAssignmentRequestRequirements[] | undefined) {
+    public set value(value: AccessPackageAssignmentRequestRequirements | GetApplicablePolicyRequirementsMember1[] | undefined) {
         this._value = value;
     };
 }

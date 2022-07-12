@@ -1,16 +1,14 @@
 import {AccessReviewExpirationBehavior} from './accessReviewExpirationBehavior';
-import {createEntitlementManagementScheduleFromDiscriminatorValue} from './createEntitlementManagementScheduleFromDiscriminatorValue';
-import {createSubjectSetFromDiscriminatorValue} from './createSubjectSetFromDiscriminatorValue';
-import {EntitlementManagementSchedule, SubjectSet} from './index';
+import {AdminMember1, EntitlementManagementSchedule, SubjectSet} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageAssignmentReviewSettings implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The default decision to apply if the access is not reviewed. The possible values are: keepAccess, removeAccess, acceptAccessRecommendation, unknownFutureValue. */
-    private _expirationBehavior?: AccessReviewExpirationBehavior | undefined;
+    private _expirationBehavior?: AccessReviewExpirationBehavior | AdminMember1 | undefined;
     /** This collection specifies the users who will be the fallback reviewers when the primary reviewers don't respond. */
-    private _fallbackReviewers?: SubjectSet[] | undefined;
+    private _fallbackReviewers?: SubjectSet | AdminMember1[] | undefined;
     /** If true, access reviews are required for assignments through this policy. */
     private _isEnabled?: boolean | undefined;
     /** Specifies whether to display recommendations to the reviewer. The default value is true. */
@@ -20,9 +18,9 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
     /** Specifies whether the principals can review their own assignments. */
     private _isSelfReview?: boolean | undefined;
     /** This collection specifies the users or group of users who will review the access package assignments. */
-    private _primaryReviewers?: SubjectSet[] | undefined;
+    private _primaryReviewers?: SubjectSet | AdminMember1[] | undefined;
     /** When the first review should start and how often it should recur. */
-    private _schedule?: EntitlementManagementSchedule | undefined;
+    private _schedule?: EntitlementManagementSchedule | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -45,7 +43,7 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
     };
     /**
      * Gets the expirationBehavior property value. The default decision to apply if the access is not reviewed. The possible values are: keepAccess, removeAccess, acceptAccessRecommendation, unknownFutureValue.
-     * @returns a accessReviewExpirationBehavior
+     * @returns a admin
      */
     public get expirationBehavior() {
         return this._expirationBehavior;
@@ -54,12 +52,12 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
      * Sets the expirationBehavior property value. The default decision to apply if the access is not reviewed. The possible values are: keepAccess, removeAccess, acceptAccessRecommendation, unknownFutureValue.
      * @param value Value to set for the expirationBehavior property.
      */
-    public set expirationBehavior(value: AccessReviewExpirationBehavior | undefined) {
+    public set expirationBehavior(value: AccessReviewExpirationBehavior | AdminMember1 | undefined) {
         this._expirationBehavior = value;
     };
     /**
      * Gets the fallbackReviewers property value. This collection specifies the users who will be the fallback reviewers when the primary reviewers don't respond.
-     * @returns a subjectSet
+     * @returns a admin
      */
     public get fallbackReviewers() {
         return this._fallbackReviewers;
@@ -68,7 +66,7 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
      * Sets the fallbackReviewers property value. This collection specifies the users who will be the fallback reviewers when the primary reviewers don't respond.
      * @param value Value to set for the fallbackReviewers property.
      */
-    public set fallbackReviewers(value: SubjectSet[] | undefined) {
+    public set fallbackReviewers(value: SubjectSet | AdminMember1[] | undefined) {
         this._fallbackReviewers = value;
     };
     /**
@@ -77,13 +75,13 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "expirationBehavior": n => { this.expirationBehavior = n.getEnumValue<AccessReviewExpirationBehavior>(AccessReviewExpirationBehavior); },
-            "fallbackReviewers": n => { this.fallbackReviewers = n.getCollectionOfObjectValues<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
+            "expirationBehavior": n => { this.expirationBehavior = n.getObjectValue<AccessReviewExpirationBehavior>(createAccessReviewExpirationBehaviorFromDiscriminatorValue); },
+            "fallbackReviewers": n => { this.fallbackReviewers = n.getObjectValue<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
             "isEnabled": n => { this.isEnabled = n.getBooleanValue(); },
             "isRecommendationEnabled": n => { this.isRecommendationEnabled = n.getBooleanValue(); },
             "isReviewerJustificationRequired": n => { this.isReviewerJustificationRequired = n.getBooleanValue(); },
             "isSelfReview": n => { this.isSelfReview = n.getBooleanValue(); },
-            "primaryReviewers": n => { this.primaryReviewers = n.getCollectionOfObjectValues<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
+            "primaryReviewers": n => { this.primaryReviewers = n.getObjectValue<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
             "schedule": n => { this.schedule = n.getObjectValue<EntitlementManagementSchedule>(createEntitlementManagementScheduleFromDiscriminatorValue); },
         };
     };
@@ -145,7 +143,7 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
     };
     /**
      * Gets the primaryReviewers property value. This collection specifies the users or group of users who will review the access package assignments.
-     * @returns a subjectSet
+     * @returns a admin
      */
     public get primaryReviewers() {
         return this._primaryReviewers;
@@ -154,12 +152,12 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
      * Sets the primaryReviewers property value. This collection specifies the users or group of users who will review the access package assignments.
      * @param value Value to set for the primaryReviewers property.
      */
-    public set primaryReviewers(value: SubjectSet[] | undefined) {
+    public set primaryReviewers(value: SubjectSet | AdminMember1[] | undefined) {
         this._primaryReviewers = value;
     };
     /**
      * Gets the schedule property value. When the first review should start and how often it should recur.
-     * @returns a entitlementManagementSchedule
+     * @returns a admin
      */
     public get schedule() {
         return this._schedule;
@@ -168,7 +166,7 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
      * Sets the schedule property value. When the first review should start and how often it should recur.
      * @param value Value to set for the schedule property.
      */
-    public set schedule(value: EntitlementManagementSchedule | undefined) {
+    public set schedule(value: EntitlementManagementSchedule | AdminMember1 | undefined) {
         this._schedule = value;
     };
     /**
@@ -177,13 +175,13 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeEnumValue<AccessReviewExpirationBehavior>("expirationBehavior", this.expirationBehavior);
-        writer.writeCollectionOfObjectValues<SubjectSet>("fallbackReviewers", this.fallbackReviewers);
+        writer.writeObjectValue<AccessReviewExpirationBehavior>("expirationBehavior", this.expirationBehavior);
+        writer.writeObjectValue<SubjectSet>("fallbackReviewers", this.fallbackReviewers);
         writer.writeBooleanValue("isEnabled", this.isEnabled);
         writer.writeBooleanValue("isRecommendationEnabled", this.isRecommendationEnabled);
         writer.writeBooleanValue("isReviewerJustificationRequired", this.isReviewerJustificationRequired);
         writer.writeBooleanValue("isSelfReview", this.isSelfReview);
-        writer.writeCollectionOfObjectValues<SubjectSet>("primaryReviewers", this.primaryReviewers);
+        writer.writeObjectValue<SubjectSet>("primaryReviewers", this.primaryReviewers);
         writer.writeObjectValue<EntitlementManagementSchedule>("schedule", this.schedule);
         writer.writeAdditionalData(this.additionalData);
     };

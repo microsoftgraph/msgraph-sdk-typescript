@@ -1,11 +1,9 @@
-import {createOnenoteOperationErrorFromDiscriminatorValue} from './createOnenoteOperationErrorFromDiscriminatorValue';
-import {OnenoteOperationError, Operation} from './index';
+import {AdminMember1, OnenoteOperationError, Operation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class OnenoteOperation extends Operation implements Parsable {
     /** The error returned by the operation. */
-    private _error_escaped?: OnenoteOperationError | undefined;
+    private _error_escaped?: OnenoteOperationError | AdminMember1 | undefined;
     /** The operation percent complete if the operation is still in running status. */
     private _percentComplete?: string | undefined;
     /** The resource id. */
@@ -13,14 +11,14 @@ export class OnenoteOperation extends Operation implements Parsable {
     /** The resource URI for the object. For example, the resource URI for a copied page or section. */
     private _resourceLocation?: string | undefined;
     /**
-     * Instantiates a new onenoteOperation and sets the default values.
+     * Instantiates a new OnenoteOperation and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
      * Gets the error property value. The error returned by the operation.
-     * @returns a onenoteOperationError
+     * @returns a admin
      */
     public get error_escaped() {
         return this._error_escaped;
@@ -29,7 +27,7 @@ export class OnenoteOperation extends Operation implements Parsable {
      * Sets the error property value. The error returned by the operation.
      * @param value Value to set for the error_escaped property.
      */
-    public set error_escaped(value: OnenoteOperationError | undefined) {
+    public set error_escaped(value: OnenoteOperationError | AdminMember1 | undefined) {
         this._error_escaped = value;
     };
     /**

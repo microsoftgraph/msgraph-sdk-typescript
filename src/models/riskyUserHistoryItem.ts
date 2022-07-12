@@ -1,18 +1,17 @@
-import {createRiskUserActivityFromDiscriminatorValue} from './createRiskUserActivityFromDiscriminatorValue';
-import {RiskUserActivity, RiskyUser} from './index';
+import {AdminMember1, RiskUserActivity, RiskyUser} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityProtectionRoot singleton. */
+/** Provides operations to manage the admin singleton. */
 export class RiskyUserHistoryItem extends RiskyUser implements Parsable {
     /** The activity related to user risk level change. */
-    private _activity?: RiskUserActivity | undefined;
+    private _activity?: RiskUserActivity | AdminMember1 | undefined;
     /** The id of actor that does the operation. */
     private _initiatedBy?: string | undefined;
     /** The id of the user. */
     private _userId?: string | undefined;
     /**
      * Gets the activity property value. The activity related to user risk level change.
-     * @returns a riskUserActivity
+     * @returns a admin
      */
     public get activity() {
         return this._activity;
@@ -21,7 +20,7 @@ export class RiskyUserHistoryItem extends RiskyUser implements Parsable {
      * Sets the activity property value. The activity related to user risk level change.
      * @param value Value to set for the activity property.
      */
-    public set activity(value: RiskUserActivity | undefined) {
+    public set activity(value: RiskUserActivity | AdminMember1 | undefined) {
         this._activity = value;
     };
     /**

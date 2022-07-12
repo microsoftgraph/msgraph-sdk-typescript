@@ -1,21 +1,18 @@
 import {Entity} from '../';
-import {createAclFromDiscriminatorValue} from './createAclFromDiscriminatorValue';
-import {createExternalItemContentFromDiscriminatorValue} from './createExternalItemContentFromDiscriminatorValue';
-import {createPropertiesFromDiscriminatorValue} from './createPropertiesFromDiscriminatorValue';
-import {Acl, ExternalItemContent, Properties} from './index';
+import {Acl, ConnectionsMember1, ExternalItemContent, Properties} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of externalConnection entities. */
 export class ExternalItem extends Entity implements Parsable {
     /** An array of access control entries. Each entry specifies the access granted to a user or group. Required. */
-    private _acl?: Acl[] | undefined;
+    private _acl?: Acl | ConnectionsMember1[] | undefined;
     /** A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional. */
-    private _content?: ExternalItemContent | undefined;
+    private _content?: ExternalItemContent | ConnectionsMember1 | undefined;
     /** A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required. */
-    private _properties?: Properties | undefined;
+    private _properties?: Properties | ConnectionsMember1 | undefined;
     /**
      * Gets the acl property value. An array of access control entries. Each entry specifies the access granted to a user or group. Required.
-     * @returns a acl
+     * @returns a connections
      */
     public get acl() {
         return this._acl;
@@ -24,7 +21,7 @@ export class ExternalItem extends Entity implements Parsable {
      * Sets the acl property value. An array of access control entries. Each entry specifies the access granted to a user or group. Required.
      * @param value Value to set for the acl property.
      */
-    public set acl(value: Acl[] | undefined) {
+    public set acl(value: Acl | ConnectionsMember1[] | undefined) {
         this._acl = value;
     };
     /**
@@ -35,7 +32,7 @@ export class ExternalItem extends Entity implements Parsable {
     };
     /**
      * Gets the content property value. A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.
-     * @returns a externalItemContent
+     * @returns a connections
      */
     public get content() {
         return this._content;
@@ -44,7 +41,7 @@ export class ExternalItem extends Entity implements Parsable {
      * Sets the content property value. A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.
      * @param value Value to set for the content property.
      */
-    public set content(value: ExternalItemContent | undefined) {
+    public set content(value: ExternalItemContent | ConnectionsMember1 | undefined) {
         this._content = value;
     };
     /**
@@ -53,14 +50,14 @@ export class ExternalItem extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "acl": n => { this.acl = n.getCollectionOfObjectValues<Acl>(createAclFromDiscriminatorValue); },
+            "acl": n => { this.acl = n.getObjectValue<Acl>(createAclFromDiscriminatorValue); },
             "content": n => { this.content = n.getObjectValue<ExternalItemContent>(createExternalItemContentFromDiscriminatorValue); },
             "properties": n => { this.properties = n.getObjectValue<Properties>(createPropertiesFromDiscriminatorValue); },
         };
     };
     /**
      * Gets the properties property value. A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required.
-     * @returns a properties
+     * @returns a connections
      */
     public get properties() {
         return this._properties;
@@ -69,7 +66,7 @@ export class ExternalItem extends Entity implements Parsable {
      * Sets the properties property value. A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required.
      * @param value Value to set for the properties property.
      */
-    public set properties(value: Properties | undefined) {
+    public set properties(value: Properties | ConnectionsMember1 | undefined) {
         this._properties = value;
     };
     /**
@@ -79,7 +76,7 @@ export class ExternalItem extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfObjectValues<Acl>("acl", this.acl);
+        writer.writeObjectValue<Acl>("acl", this.acl);
         writer.writeObjectValue<ExternalItemContent>("content", this.content);
         writer.writeObjectValue<Properties>("properties", this.properties);
     };

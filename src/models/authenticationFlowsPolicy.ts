@@ -1,15 +1,13 @@
-import {createSelfServiceSignUpAuthenticationFlowConfigurationFromDiscriminatorValue} from './createSelfServiceSignUpAuthenticationFlowConfigurationFromDiscriminatorValue';
-import {Entity, SelfServiceSignUpAuthenticationFlowConfiguration} from './index';
+import {AdminMember1, Entity, SelfServiceSignUpAuthenticationFlowConfiguration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
 export class AuthenticationFlowsPolicy extends Entity implements Parsable {
     /** Inherited property. A description of the policy. This property is not a key. Optional. Read-only. */
     private _description?: string | undefined;
     /** Inherited property. The human-readable name of the policy. This property is not a key. Optional. Read-only. */
     private _displayName?: string | undefined;
     /** Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. This property is not a key. Optional. Read-only. */
-    private _selfServiceSignUp?: SelfServiceSignUpAuthenticationFlowConfiguration | undefined;
+    private _selfServiceSignUp?: SelfServiceSignUpAuthenticationFlowConfiguration | AdminMember1 | undefined;
     /**
      * Instantiates a new authenticationFlowsPolicy and sets the default values.
      */
@@ -57,7 +55,7 @@ export class AuthenticationFlowsPolicy extends Entity implements Parsable {
     };
     /**
      * Gets the selfServiceSignUp property value. Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. This property is not a key. Optional. Read-only.
-     * @returns a selfServiceSignUpAuthenticationFlowConfiguration
+     * @returns a admin
      */
     public get selfServiceSignUp() {
         return this._selfServiceSignUp;
@@ -66,7 +64,7 @@ export class AuthenticationFlowsPolicy extends Entity implements Parsable {
      * Sets the selfServiceSignUp property value. Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. This property is not a key. Optional. Read-only.
      * @param value Value to set for the selfServiceSignUp property.
      */
-    public set selfServiceSignUp(value: SelfServiceSignUpAuthenticationFlowConfiguration | undefined) {
+    public set selfServiceSignUp(value: SelfServiceSignUpAuthenticationFlowConfiguration | AdminMember1 | undefined) {
         this._selfServiceSignUp = value;
     };
     /**

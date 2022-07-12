@@ -1,5 +1,4 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {IdentitySet} from './index';
+import {CommunicationsMember1, IdentitySet} from './index';
 import {RecordingStatus} from './recordingStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -7,8 +6,8 @@ export class RecordingInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The identities of recording initiator. */
-    private _initiator?: IdentitySet | undefined;
-    /** Possible values are: unknown, notRecording, recording, or failed. */
+    private _initiator?: IdentitySet | CommunicationsMember1 | undefined;
+    /** The recordingStatus property */
     private _recordingStatus?: RecordingStatus | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -42,7 +41,7 @@ export class RecordingInfo implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the initiator property value. The identities of recording initiator.
-     * @returns a identitySet
+     * @returns a communications
      */
     public get initiator() {
         return this._initiator;
@@ -51,18 +50,18 @@ export class RecordingInfo implements AdditionalDataHolder, Parsable {
      * Sets the initiator property value. The identities of recording initiator.
      * @param value Value to set for the initiator property.
      */
-    public set initiator(value: IdentitySet | undefined) {
+    public set initiator(value: IdentitySet | CommunicationsMember1 | undefined) {
         this._initiator = value;
     };
     /**
-     * Gets the recordingStatus property value. Possible values are: unknown, notRecording, recording, or failed.
+     * Gets the recordingStatus property value. The recordingStatus property
      * @returns a recordingStatus
      */
     public get recordingStatus() {
         return this._recordingStatus;
     };
     /**
-     * Sets the recordingStatus property value. Possible values are: unknown, notRecording, recording, or failed.
+     * Sets the recordingStatus property value. The recordingStatus property
      * @param value Value to set for the recordingStatus property.
      */
     public set recordingStatus(value: RecordingStatus | undefined) {

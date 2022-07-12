@@ -1,20 +1,19 @@
 import {CalendarRoleType} from './calendarRoleType';
-import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFromDiscriminatorValue';
-import {EmailAddress, Entity} from './index';
+import {AdminMember1, EmailAddress, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class CalendarPermission extends Entity implements Parsable {
     /** List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom. */
     private _allowedRoles?: string[] | undefined;
     /** Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only. */
-    private _emailAddress?: EmailAddress | undefined;
+    private _emailAddress?: EmailAddress | AdminMember1 | undefined;
     /** True if the user in context (sharee or delegate) is inside the same organization as the calendar owner. */
     private _isInsideOrganization?: boolean | undefined;
     /** True if the user can be removed from the list of sharees or delegates for the specified calendar, false otherwise. The 'My organization' user determines the permissions other people within your organization have to the given calendar. You cannot remove 'My organization' as a sharee to a calendar. */
     private _isRemovable?: boolean | undefined;
     /** Current permission level of the calendar sharee or delegate. */
-    private _role?: CalendarRoleType | undefined;
+    private _role?: CalendarRoleType | AdminMember1 | undefined;
     /**
      * Gets the allowedRoles property value. List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.
      * @returns a string
@@ -37,7 +36,7 @@ export class CalendarPermission extends Entity implements Parsable {
     };
     /**
      * Gets the emailAddress property value. Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only.
-     * @returns a emailAddress
+     * @returns a admin
      */
     public get emailAddress() {
         return this._emailAddress;
@@ -46,7 +45,7 @@ export class CalendarPermission extends Entity implements Parsable {
      * Sets the emailAddress property value. Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only.
      * @param value Value to set for the emailAddress property.
      */
-    public set emailAddress(value: EmailAddress | undefined) {
+    public set emailAddress(value: EmailAddress | AdminMember1 | undefined) {
         this._emailAddress = value;
     };
     /**
@@ -59,7 +58,7 @@ export class CalendarPermission extends Entity implements Parsable {
             "emailAddress": n => { this.emailAddress = n.getObjectValue<EmailAddress>(createEmailAddressFromDiscriminatorValue); },
             "isInsideOrganization": n => { this.isInsideOrganization = n.getBooleanValue(); },
             "isRemovable": n => { this.isRemovable = n.getBooleanValue(); },
-            "role": n => { this.role = n.getEnumValue<CalendarRoleType>(CalendarRoleType); },
+            "role": n => { this.role = n.getObjectValue<CalendarRoleType>(createCalendarRoleTypeFromDiscriminatorValue); },
         };
     };
     /**
@@ -92,7 +91,7 @@ export class CalendarPermission extends Entity implements Parsable {
     };
     /**
      * Gets the role property value. Current permission level of the calendar sharee or delegate.
-     * @returns a calendarRoleType
+     * @returns a admin
      */
     public get role() {
         return this._role;
@@ -101,7 +100,7 @@ export class CalendarPermission extends Entity implements Parsable {
      * Sets the role property value. Current permission level of the calendar sharee or delegate.
      * @param value Value to set for the role property.
      */
-    public set role(value: CalendarRoleType | undefined) {
+    public set role(value: CalendarRoleType | AdminMember1 | undefined) {
         this._role = value;
     };
     /**
@@ -115,6 +114,6 @@ export class CalendarPermission extends Entity implements Parsable {
         writer.writeObjectValue<EmailAddress>("emailAddress", this.emailAddress);
         writer.writeBooleanValue("isInsideOrganization", this.isInsideOrganization);
         writer.writeBooleanValue("isRemovable", this.isRemovable);
-        writer.writeEnumValue<CalendarRoleType>("role", this.role);
+        writer.writeObjectValue<CalendarRoleType>("role", this.role);
     };
 }

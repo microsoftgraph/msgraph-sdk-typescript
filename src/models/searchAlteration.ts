@@ -1,5 +1,4 @@
-import {createAlteredQueryTokenFromDiscriminatorValue} from './createAlteredQueryTokenFromDiscriminatorValue';
-import {AlteredQueryToken} from './index';
+import {AlteredQueryToken, QueryMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchAlteration implements AdditionalDataHolder, Parsable {
@@ -10,7 +9,7 @@ export class SearchAlteration implements AdditionalDataHolder, Parsable {
     /** Defines the altered query string with spelling correction. */
     private _alteredQueryString?: string | undefined;
     /** Represents changed segments with respect to original query. */
-    private _alteredQueryTokens?: AlteredQueryToken[] | undefined;
+    private _alteredQueryTokens?: AlteredQueryToken | QueryMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -55,7 +54,7 @@ export class SearchAlteration implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the alteredQueryTokens property value. Represents changed segments with respect to original query.
-     * @returns a alteredQueryToken
+     * @returns a query
      */
     public get alteredQueryTokens() {
         return this._alteredQueryTokens;
@@ -64,7 +63,7 @@ export class SearchAlteration implements AdditionalDataHolder, Parsable {
      * Sets the alteredQueryTokens property value. Represents changed segments with respect to original query.
      * @param value Value to set for the alteredQueryTokens property.
      */
-    public set alteredQueryTokens(value: AlteredQueryToken[] | undefined) {
+    public set alteredQueryTokens(value: AlteredQueryToken | QueryMember1[] | undefined) {
         this._alteredQueryTokens = value;
     };
     /**
@@ -81,7 +80,7 @@ export class SearchAlteration implements AdditionalDataHolder, Parsable {
         return {
             "alteredHighlightedQueryString": n => { this.alteredHighlightedQueryString = n.getStringValue(); },
             "alteredQueryString": n => { this.alteredQueryString = n.getStringValue(); },
-            "alteredQueryTokens": n => { this.alteredQueryTokens = n.getCollectionOfObjectValues<AlteredQueryToken>(createAlteredQueryTokenFromDiscriminatorValue); },
+            "alteredQueryTokens": n => { this.alteredQueryTokens = n.getObjectValue<AlteredQueryToken>(createAlteredQueryTokenFromDiscriminatorValue); },
         };
     };
     /**
@@ -92,7 +91,7 @@ export class SearchAlteration implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("alteredHighlightedQueryString", this.alteredHighlightedQueryString);
         writer.writeStringValue("alteredQueryString", this.alteredQueryString);
-        writer.writeCollectionOfObjectValues<AlteredQueryToken>("alteredQueryTokens", this.alteredQueryTokens);
+        writer.writeObjectValue<AlteredQueryToken>("alteredQueryTokens", this.alteredQueryTokens);
         writer.writeAdditionalData(this.additionalData);
     };
 }

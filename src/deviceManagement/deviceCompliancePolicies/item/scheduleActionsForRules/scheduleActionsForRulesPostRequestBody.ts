@@ -1,5 +1,5 @@
 import {DeviceComplianceScheduledActionForRule} from '../../../../models/';
-import {createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue} from '../../../../models/createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue';
+import {ScheduleActionsForRulesMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the scheduleActionsForRules method. */
@@ -7,7 +7,7 @@ export class ScheduleActionsForRulesPostRequestBody implements AdditionalDataHol
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The deviceComplianceScheduledActionForRules property */
-    private _deviceComplianceScheduledActionForRules?: DeviceComplianceScheduledActionForRule[] | undefined;
+    private _deviceComplianceScheduledActionForRules?: DeviceComplianceScheduledActionForRule | ScheduleActionsForRulesMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -30,7 +30,7 @@ export class ScheduleActionsForRulesPostRequestBody implements AdditionalDataHol
     };
     /**
      * Gets the deviceComplianceScheduledActionForRules property value. The deviceComplianceScheduledActionForRules property
-     * @returns a deviceComplianceScheduledActionForRule
+     * @returns a scheduleActionsForRules
      */
     public get deviceComplianceScheduledActionForRules() {
         return this._deviceComplianceScheduledActionForRules;
@@ -39,7 +39,7 @@ export class ScheduleActionsForRulesPostRequestBody implements AdditionalDataHol
      * Sets the deviceComplianceScheduledActionForRules property value. The deviceComplianceScheduledActionForRules property
      * @param value Value to set for the deviceComplianceScheduledActionForRules property.
      */
-    public set deviceComplianceScheduledActionForRules(value: DeviceComplianceScheduledActionForRule[] | undefined) {
+    public set deviceComplianceScheduledActionForRules(value: DeviceComplianceScheduledActionForRule | ScheduleActionsForRulesMember1[] | undefined) {
         this._deviceComplianceScheduledActionForRules = value;
     };
     /**
@@ -48,7 +48,7 @@ export class ScheduleActionsForRulesPostRequestBody implements AdditionalDataHol
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "deviceComplianceScheduledActionForRules": n => { this.deviceComplianceScheduledActionForRules = n.getCollectionOfObjectValues<DeviceComplianceScheduledActionForRule>(createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue); },
+            "deviceComplianceScheduledActionForRules": n => { this.deviceComplianceScheduledActionForRules = n.getObjectValue<DeviceComplianceScheduledActionForRule>(createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue); },
         };
     };
     /**
@@ -57,7 +57,7 @@ export class ScheduleActionsForRulesPostRequestBody implements AdditionalDataHol
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRule>("deviceComplianceScheduledActionForRules", this.deviceComplianceScheduledActionForRules);
+        writer.writeObjectValue<DeviceComplianceScheduledActionForRule>("deviceComplianceScheduledActionForRules", this.deviceComplianceScheduledActionForRules);
         writer.writeAdditionalData(this.additionalData);
     };
 }

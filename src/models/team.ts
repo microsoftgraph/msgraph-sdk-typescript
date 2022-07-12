@@ -1,21 +1,16 @@
 import {createChannelFromDiscriminatorValue} from './createChannelFromDiscriminatorValue';
 import {createConversationMemberFromDiscriminatorValue} from './createConversationMemberFromDiscriminatorValue';
-import {createGroupFromDiscriminatorValue} from './createGroupFromDiscriminatorValue';
-import {createScheduleFromDiscriminatorValue} from './createScheduleFromDiscriminatorValue';
-import {createTeamFunSettingsFromDiscriminatorValue} from './createTeamFunSettingsFromDiscriminatorValue';
-import {createTeamGuestSettingsFromDiscriminatorValue} from './createTeamGuestSettingsFromDiscriminatorValue';
-import {createTeamMemberSettingsFromDiscriminatorValue} from './createTeamMemberSettingsFromDiscriminatorValue';
-import {createTeamMessagingSettingsFromDiscriminatorValue} from './createTeamMessagingSettingsFromDiscriminatorValue';
 import {createTeamsAppInstallationFromDiscriminatorValue} from './createTeamsAppInstallationFromDiscriminatorValue';
 import {createTeamsAsyncOperationFromDiscriminatorValue} from './createTeamsAsyncOperationFromDiscriminatorValue';
-import {createTeamsTemplateFromDiscriminatorValue} from './createTeamsTemplateFromDiscriminatorValue';
-import {Channel, ConversationMember, Entity, Group, Schedule, TeamFunSettings, TeamGuestSettings, TeamMemberSettings, TeamMessagingSettings, TeamsAppInstallation, TeamsAsyncOperation, TeamsTemplate} from './index';
+import {AdminMember1, Channel, ConversationMember, Entity, Group, Schedule, TeamFunSettings, TeamGuestSettings, TeamMemberSettings, TeamMessagingSettings, TeamsAppInstallation, TeamsAsyncOperation, TeamsTemplate, TeamSummary} from './index';
 import {TeamSpecialization} from './teamSpecialization';
 import {TeamVisibilityType} from './teamVisibilityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class Team extends Entity implements Parsable {
+    /** List of channels either hosted in or shared with the team (incoming channels). */
+    private _allChannels?: Channel[] | undefined;
     /** The collection of channels and messages associated with the team. */
     private _channels?: Channel[] | undefined;
     /** An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory. */
@@ -27,11 +22,13 @@ export class Team extends Entity implements Parsable {
     /** The name of the team. */
     private _displayName?: string | undefined;
     /** Settings to configure use of Giphy, memes, and stickers in the team. */
-    private _funSettings?: TeamFunSettings | undefined;
+    private _funSettings?: TeamFunSettings | AdminMember1 | undefined;
     /** The group property */
-    private _group?: Group | undefined;
+    private _group?: Group | AdminMember1 | undefined;
     /** Settings to configure whether guests can create, update, or delete channels in the team. */
-    private _guestSettings?: TeamGuestSettings | undefined;
+    private _guestSettings?: TeamGuestSettings | AdminMember1 | undefined;
+    /** List of channels shared with the team. */
+    private _incomingChannels?: Channel[] | undefined;
     /** The apps installed in this team. */
     private _installedApps?: TeamsAppInstallation[] | undefined;
     /** A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API. */
@@ -41,23 +38,41 @@ export class Team extends Entity implements Parsable {
     /** Members and owners of the team. */
     private _members?: ConversationMember[] | undefined;
     /** Settings to configure whether members can perform certain actions, for example, create channels and add bots, in the team. */
-    private _memberSettings?: TeamMemberSettings | undefined;
+    private _memberSettings?: TeamMemberSettings | AdminMember1 | undefined;
     /** Settings to configure messaging and mentions in the team. */
-    private _messagingSettings?: TeamMessagingSettings | undefined;
+    private _messagingSettings?: TeamMessagingSettings | AdminMember1 | undefined;
     /** The async operations that ran or are running on this team. */
     private _operations?: TeamsAsyncOperation[] | undefined;
     /** The general channel for the team. */
-    private _primaryChannel?: Channel | undefined;
+    private _primaryChannel?: Channel | AdminMember1 | undefined;
     /** The schedule of shifts for this team. */
-    private _schedule?: Schedule | undefined;
+    private _schedule?: Schedule | AdminMember1 | undefined;
     /** Optional. Indicates whether the team is intended for a particular use case.  Each team specialization has access to unique behaviors and experiences targeted to its use case. */
-    private _specialization?: TeamSpecialization | undefined;
+    private _specialization?: TeamSpecialization | AdminMember1 | undefined;
+    /** Contains summary information about the team, including number of owners, members, and guests. */
+    private _summary?: TeamSummary | AdminMember1 | undefined;
     /** The template this team was created from. See available templates. */
-    private _template?: TeamsTemplate | undefined;
+    private _template?: TeamsTemplate | AdminMember1 | undefined;
+    /** The ID of the Azure Active Directory tenant. */
+    private _tenantId?: string | undefined;
     /** The visibility of the group and team. Defaults to Public. */
-    private _visibility?: TeamVisibilityType | undefined;
+    private _visibility?: TeamVisibilityType | AdminMember1 | undefined;
     /** A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed. */
     private _webUrl?: string | undefined;
+    /**
+     * Gets the allChannels property value. List of channels either hosted in or shared with the team (incoming channels).
+     * @returns a channel
+     */
+    public get allChannels() {
+        return this._allChannels;
+    };
+    /**
+     * Sets the allChannels property value. List of channels either hosted in or shared with the team (incoming channels).
+     * @param value Value to set for the allChannels property.
+     */
+    public set allChannels(value: Channel[] | undefined) {
+        this._allChannels = value;
+    };
     /**
      * Gets the channels property value. The collection of channels and messages associated with the team.
      * @returns a channel
@@ -136,7 +151,7 @@ export class Team extends Entity implements Parsable {
     };
     /**
      * Gets the funSettings property value. Settings to configure use of Giphy, memes, and stickers in the team.
-     * @returns a teamFunSettings
+     * @returns a admin
      */
     public get funSettings() {
         return this._funSettings;
@@ -145,7 +160,7 @@ export class Team extends Entity implements Parsable {
      * Sets the funSettings property value. Settings to configure use of Giphy, memes, and stickers in the team.
      * @param value Value to set for the funSettings property.
      */
-    public set funSettings(value: TeamFunSettings | undefined) {
+    public set funSettings(value: TeamFunSettings | AdminMember1 | undefined) {
         this._funSettings = value;
     };
     /**
@@ -154,6 +169,7 @@ export class Team extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
+            "allChannels": n => { this.allChannels = n.getCollectionOfObjectValues<Channel>(createChannelFromDiscriminatorValue); },
             "channels": n => { this.channels = n.getCollectionOfObjectValues<Channel>(createChannelFromDiscriminatorValue); },
             "classification": n => { this.classification = n.getStringValue(); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
@@ -162,6 +178,7 @@ export class Team extends Entity implements Parsable {
             "funSettings": n => { this.funSettings = n.getObjectValue<TeamFunSettings>(createTeamFunSettingsFromDiscriminatorValue); },
             "group": n => { this.group = n.getObjectValue<Group>(createGroupFromDiscriminatorValue); },
             "guestSettings": n => { this.guestSettings = n.getObjectValue<TeamGuestSettings>(createTeamGuestSettingsFromDiscriminatorValue); },
+            "incomingChannels": n => { this.incomingChannels = n.getCollectionOfObjectValues<Channel>(createChannelFromDiscriminatorValue); },
             "installedApps": n => { this.installedApps = n.getCollectionOfObjectValues<TeamsAppInstallation>(createTeamsAppInstallationFromDiscriminatorValue); },
             "internalId": n => { this.internalId = n.getStringValue(); },
             "isArchived": n => { this.isArchived = n.getBooleanValue(); },
@@ -171,15 +188,17 @@ export class Team extends Entity implements Parsable {
             "operations": n => { this.operations = n.getCollectionOfObjectValues<TeamsAsyncOperation>(createTeamsAsyncOperationFromDiscriminatorValue); },
             "primaryChannel": n => { this.primaryChannel = n.getObjectValue<Channel>(createChannelFromDiscriminatorValue); },
             "schedule": n => { this.schedule = n.getObjectValue<Schedule>(createScheduleFromDiscriminatorValue); },
-            "specialization": n => { this.specialization = n.getEnumValue<TeamSpecialization>(TeamSpecialization); },
+            "specialization": n => { this.specialization = n.getObjectValue<TeamSpecialization>(createTeamSpecializationFromDiscriminatorValue); },
+            "summary": n => { this.summary = n.getObjectValue<TeamSummary>(createTeamSummaryFromDiscriminatorValue); },
             "template": n => { this.template = n.getObjectValue<TeamsTemplate>(createTeamsTemplateFromDiscriminatorValue); },
-            "visibility": n => { this.visibility = n.getEnumValue<TeamVisibilityType>(TeamVisibilityType); },
+            "tenantId": n => { this.tenantId = n.getStringValue(); },
+            "visibility": n => { this.visibility = n.getObjectValue<TeamVisibilityType>(createTeamVisibilityTypeFromDiscriminatorValue); },
             "webUrl": n => { this.webUrl = n.getStringValue(); },
         };
     };
     /**
      * Gets the group property value. The group property
-     * @returns a group
+     * @returns a admin
      */
     public get group() {
         return this._group;
@@ -188,12 +207,12 @@ export class Team extends Entity implements Parsable {
      * Sets the group property value. The group property
      * @param value Value to set for the group property.
      */
-    public set group(value: Group | undefined) {
+    public set group(value: Group | AdminMember1 | undefined) {
         this._group = value;
     };
     /**
      * Gets the guestSettings property value. Settings to configure whether guests can create, update, or delete channels in the team.
-     * @returns a teamGuestSettings
+     * @returns a admin
      */
     public get guestSettings() {
         return this._guestSettings;
@@ -202,8 +221,22 @@ export class Team extends Entity implements Parsable {
      * Sets the guestSettings property value. Settings to configure whether guests can create, update, or delete channels in the team.
      * @param value Value to set for the guestSettings property.
      */
-    public set guestSettings(value: TeamGuestSettings | undefined) {
+    public set guestSettings(value: TeamGuestSettings | AdminMember1 | undefined) {
         this._guestSettings = value;
+    };
+    /**
+     * Gets the incomingChannels property value. List of channels shared with the team.
+     * @returns a channel
+     */
+    public get incomingChannels() {
+        return this._incomingChannels;
+    };
+    /**
+     * Sets the incomingChannels property value. List of channels shared with the team.
+     * @param value Value to set for the incomingChannels property.
+     */
+    public set incomingChannels(value: Channel[] | undefined) {
+        this._incomingChannels = value;
     };
     /**
      * Gets the installedApps property value. The apps installed in this team.
@@ -263,7 +296,7 @@ export class Team extends Entity implements Parsable {
     };
     /**
      * Gets the memberSettings property value. Settings to configure whether members can perform certain actions, for example, create channels and add bots, in the team.
-     * @returns a teamMemberSettings
+     * @returns a admin
      */
     public get memberSettings() {
         return this._memberSettings;
@@ -272,12 +305,12 @@ export class Team extends Entity implements Parsable {
      * Sets the memberSettings property value. Settings to configure whether members can perform certain actions, for example, create channels and add bots, in the team.
      * @param value Value to set for the memberSettings property.
      */
-    public set memberSettings(value: TeamMemberSettings | undefined) {
+    public set memberSettings(value: TeamMemberSettings | AdminMember1 | undefined) {
         this._memberSettings = value;
     };
     /**
      * Gets the messagingSettings property value. Settings to configure messaging and mentions in the team.
-     * @returns a teamMessagingSettings
+     * @returns a admin
      */
     public get messagingSettings() {
         return this._messagingSettings;
@@ -286,7 +319,7 @@ export class Team extends Entity implements Parsable {
      * Sets the messagingSettings property value. Settings to configure messaging and mentions in the team.
      * @param value Value to set for the messagingSettings property.
      */
-    public set messagingSettings(value: TeamMessagingSettings | undefined) {
+    public set messagingSettings(value: TeamMessagingSettings | AdminMember1 | undefined) {
         this._messagingSettings = value;
     };
     /**
@@ -305,7 +338,7 @@ export class Team extends Entity implements Parsable {
     };
     /**
      * Gets the primaryChannel property value. The general channel for the team.
-     * @returns a channel
+     * @returns a admin
      */
     public get primaryChannel() {
         return this._primaryChannel;
@@ -314,12 +347,12 @@ export class Team extends Entity implements Parsable {
      * Sets the primaryChannel property value. The general channel for the team.
      * @param value Value to set for the primaryChannel property.
      */
-    public set primaryChannel(value: Channel | undefined) {
+    public set primaryChannel(value: Channel | AdminMember1 | undefined) {
         this._primaryChannel = value;
     };
     /**
      * Gets the schedule property value. The schedule of shifts for this team.
-     * @returns a schedule
+     * @returns a admin
      */
     public get schedule() {
         return this._schedule;
@@ -328,7 +361,7 @@ export class Team extends Entity implements Parsable {
      * Sets the schedule property value. The schedule of shifts for this team.
      * @param value Value to set for the schedule property.
      */
-    public set schedule(value: Schedule | undefined) {
+    public set schedule(value: Schedule | AdminMember1 | undefined) {
         this._schedule = value;
     };
     /**
@@ -338,6 +371,7 @@ export class Team extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeCollectionOfObjectValues<Channel>("allChannels", this.allChannels);
         writer.writeCollectionOfObjectValues<Channel>("channels", this.channels);
         writer.writeStringValue("classification", this.classification);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
@@ -346,6 +380,7 @@ export class Team extends Entity implements Parsable {
         writer.writeObjectValue<TeamFunSettings>("funSettings", this.funSettings);
         writer.writeObjectValue<Group>("group", this.group);
         writer.writeObjectValue<TeamGuestSettings>("guestSettings", this.guestSettings);
+        writer.writeCollectionOfObjectValues<Channel>("incomingChannels", this.incomingChannels);
         writer.writeCollectionOfObjectValues<TeamsAppInstallation>("installedApps", this.installedApps);
         writer.writeStringValue("internalId", this.internalId);
         writer.writeBooleanValue("isArchived", this.isArchived);
@@ -355,14 +390,16 @@ export class Team extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<TeamsAsyncOperation>("operations", this.operations);
         writer.writeObjectValue<Channel>("primaryChannel", this.primaryChannel);
         writer.writeObjectValue<Schedule>("schedule", this.schedule);
-        writer.writeEnumValue<TeamSpecialization>("specialization", this.specialization);
+        writer.writeObjectValue<TeamSpecialization>("specialization", this.specialization);
+        writer.writeObjectValue<TeamSummary>("summary", this.summary);
         writer.writeObjectValue<TeamsTemplate>("template", this.template);
-        writer.writeEnumValue<TeamVisibilityType>("visibility", this.visibility);
+        writer.writeStringValue("tenantId", this.tenantId);
+        writer.writeObjectValue<TeamVisibilityType>("visibility", this.visibility);
         writer.writeStringValue("webUrl", this.webUrl);
     };
     /**
      * Gets the specialization property value. Optional. Indicates whether the team is intended for a particular use case.  Each team specialization has access to unique behaviors and experiences targeted to its use case.
-     * @returns a teamSpecialization
+     * @returns a admin
      */
     public get specialization() {
         return this._specialization;
@@ -371,12 +408,26 @@ export class Team extends Entity implements Parsable {
      * Sets the specialization property value. Optional. Indicates whether the team is intended for a particular use case.  Each team specialization has access to unique behaviors and experiences targeted to its use case.
      * @param value Value to set for the specialization property.
      */
-    public set specialization(value: TeamSpecialization | undefined) {
+    public set specialization(value: TeamSpecialization | AdminMember1 | undefined) {
         this._specialization = value;
     };
     /**
+     * Gets the summary property value. Contains summary information about the team, including number of owners, members, and guests.
+     * @returns a admin
+     */
+    public get summary() {
+        return this._summary;
+    };
+    /**
+     * Sets the summary property value. Contains summary information about the team, including number of owners, members, and guests.
+     * @param value Value to set for the summary property.
+     */
+    public set summary(value: TeamSummary | AdminMember1 | undefined) {
+        this._summary = value;
+    };
+    /**
      * Gets the template property value. The template this team was created from. See available templates.
-     * @returns a teamsTemplate
+     * @returns a admin
      */
     public get template() {
         return this._template;
@@ -385,12 +436,26 @@ export class Team extends Entity implements Parsable {
      * Sets the template property value. The template this team was created from. See available templates.
      * @param value Value to set for the template property.
      */
-    public set template(value: TeamsTemplate | undefined) {
+    public set template(value: TeamsTemplate | AdminMember1 | undefined) {
         this._template = value;
     };
     /**
+     * Gets the tenantId property value. The ID of the Azure Active Directory tenant.
+     * @returns a string
+     */
+    public get tenantId() {
+        return this._tenantId;
+    };
+    /**
+     * Sets the tenantId property value. The ID of the Azure Active Directory tenant.
+     * @param value Value to set for the tenantId property.
+     */
+    public set tenantId(value: string | undefined) {
+        this._tenantId = value;
+    };
+    /**
      * Gets the visibility property value. The visibility of the group and team. Defaults to Public.
-     * @returns a teamVisibilityType
+     * @returns a admin
      */
     public get visibility() {
         return this._visibility;
@@ -399,7 +464,7 @@ export class Team extends Entity implements Parsable {
      * Sets the visibility property value. The visibility of the group and team. Defaults to Public.
      * @param value Value to set for the visibility property.
      */
-    public set visibility(value: TeamVisibilityType | undefined) {
+    public set visibility(value: TeamVisibilityType | AdminMember1 | undefined) {
         this._visibility = value;
     };
     /**

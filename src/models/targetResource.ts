@@ -1,6 +1,5 @@
-import {createModifiedPropertyFromDiscriminatorValue} from './createModifiedPropertyFromDiscriminatorValue';
 import {GroupType} from './groupType';
-import {ModifiedProperty} from './index';
+import {AdminMember1, ModifiedProperty} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TargetResource implements AdditionalDataHolder, Parsable {
@@ -9,11 +8,11 @@ export class TargetResource implements AdditionalDataHolder, Parsable {
     /** Indicates the visible name defined for the resource. Typically specified when the resource is created. */
     private _displayName?: string | undefined;
     /** When type is set to Group, this indicates the group type.  Possible values are: unifiedGroups, azureAD, and unknownFutureValue */
-    private _groupType?: GroupType | undefined;
+    private _groupType?: GroupType | AdminMember1 | undefined;
     /** Indicates the unique ID of the resource. */
     private _id?: string | undefined;
     /** Indicates name, old value and new value of each attribute that changed. Property values depend on the operation type. */
-    private _modifiedProperties?: ModifiedProperty[] | undefined;
+    private _modifiedProperties?: ModifiedProperty | AdminMember1[] | undefined;
     /** Describes the resource type.  Example values include Application, Group, ServicePrincipal, and User. */
     private _type?: string | undefined;
     /** When type is set to User, this includes the user name that initiated the action; null for other types. */
@@ -59,16 +58,16 @@ export class TargetResource implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "displayName": n => { this.displayName = n.getStringValue(); },
-            "groupType": n => { this.groupType = n.getEnumValue<GroupType>(GroupType); },
+            "groupType": n => { this.groupType = n.getObjectValue<GroupType>(createGroupTypeFromDiscriminatorValue); },
             "id": n => { this.id = n.getStringValue(); },
-            "modifiedProperties": n => { this.modifiedProperties = n.getCollectionOfObjectValues<ModifiedProperty>(createModifiedPropertyFromDiscriminatorValue); },
+            "modifiedProperties": n => { this.modifiedProperties = n.getObjectValue<ModifiedProperty>(createModifiedPropertyFromDiscriminatorValue); },
             "type": n => { this.type = n.getStringValue(); },
             "userPrincipalName": n => { this.userPrincipalName = n.getStringValue(); },
         };
     };
     /**
      * Gets the groupType property value. When type is set to Group, this indicates the group type.  Possible values are: unifiedGroups, azureAD, and unknownFutureValue
-     * @returns a groupType
+     * @returns a admin
      */
     public get groupType() {
         return this._groupType;
@@ -77,7 +76,7 @@ export class TargetResource implements AdditionalDataHolder, Parsable {
      * Sets the groupType property value. When type is set to Group, this indicates the group type.  Possible values are: unifiedGroups, azureAD, and unknownFutureValue
      * @param value Value to set for the groupType property.
      */
-    public set groupType(value: GroupType | undefined) {
+    public set groupType(value: GroupType | AdminMember1 | undefined) {
         this._groupType = value;
     };
     /**
@@ -96,7 +95,7 @@ export class TargetResource implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the modifiedProperties property value. Indicates name, old value and new value of each attribute that changed. Property values depend on the operation type.
-     * @returns a modifiedProperty
+     * @returns a admin
      */
     public get modifiedProperties() {
         return this._modifiedProperties;
@@ -105,7 +104,7 @@ export class TargetResource implements AdditionalDataHolder, Parsable {
      * Sets the modifiedProperties property value. Indicates name, old value and new value of each attribute that changed. Property values depend on the operation type.
      * @param value Value to set for the modifiedProperties property.
      */
-    public set modifiedProperties(value: ModifiedProperty[] | undefined) {
+    public set modifiedProperties(value: ModifiedProperty | AdminMember1[] | undefined) {
         this._modifiedProperties = value;
     };
     /**
@@ -115,9 +114,9 @@ export class TargetResource implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeEnumValue<GroupType>("groupType", this.groupType);
+        writer.writeObjectValue<GroupType>("groupType", this.groupType);
         writer.writeStringValue("id", this.id);
-        writer.writeCollectionOfObjectValues<ModifiedProperty>("modifiedProperties", this.modifiedProperties);
+        writer.writeObjectValue<ModifiedProperty>("modifiedProperties", this.modifiedProperties);
         writer.writeStringValue("type", this.type);
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         writer.writeAdditionalData(this.additionalData);

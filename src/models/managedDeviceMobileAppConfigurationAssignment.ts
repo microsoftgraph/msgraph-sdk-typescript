@@ -1,11 +1,10 @@
-import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from './createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue';
-import {DeviceAndAppManagementAssignmentTarget, Entity} from './index';
+import {DeviceAndAppManagementAssignmentTarget, DeviceAppManagementMember1, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Contains the properties used to assign an MDM app configuration to a group. */
 export class ManagedDeviceMobileAppConfigurationAssignment extends Entity implements Parsable {
     /** Assignment target that the T&C policy is assigned to. */
-    private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
+    private _target?: DeviceAndAppManagementAssignmentTarget | DeviceAppManagementMember1 | undefined;
     /**
      * Instantiates a new managedDeviceMobileAppConfigurationAssignment and sets the default values.
      */
@@ -32,7 +31,7 @@ export class ManagedDeviceMobileAppConfigurationAssignment extends Entity implem
     };
     /**
      * Gets the target property value. Assignment target that the T&C policy is assigned to.
-     * @returns a deviceAndAppManagementAssignmentTarget
+     * @returns a deviceAppManagement
      */
     public get target() {
         return this._target;
@@ -41,7 +40,7 @@ export class ManagedDeviceMobileAppConfigurationAssignment extends Entity implem
      * Sets the target property value. Assignment target that the T&C policy is assigned to.
      * @param value Value to set for the target property.
      */
-    public set target(value: DeviceAndAppManagementAssignmentTarget | undefined) {
+    public set target(value: DeviceAndAppManagementAssignmentTarget | DeviceAppManagementMember1 | undefined) {
         this._target = value;
     };
 }

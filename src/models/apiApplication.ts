@@ -1,6 +1,5 @@
 import {createPermissionScopeFromDiscriminatorValue} from './createPermissionScopeFromDiscriminatorValue';
-import {createPreAuthorizedApplicationFromDiscriminatorValue} from './createPreAuthorizedApplicationFromDiscriminatorValue';
-import {PermissionScope, PreAuthorizedApplication} from './index';
+import {ApplicationsMember1, PermissionScope, PreAuthorizedApplication} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ApiApplication implements AdditionalDataHolder, Parsable {
@@ -13,7 +12,7 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
     /** The definition of the delegated permissions exposed by the web API represented by this application registration. These delegated permissions may be requested by a client application, and may be granted by users or administrators during consent. Delegated permissions are sometimes referred to as OAuth 2.0 scopes. */
     private _oauth2PermissionScopes?: PermissionScope[] | undefined;
     /** Lists the client applications that are pre-authorized with the specified delegated permissions to access this application's APIs. Users are not required to consent to any pre-authorized application (for the permissions specified). However, any additional permissions not listed in preAuthorizedApplications (requested through incremental consent for example) will require user consent. */
-    private _preAuthorizedApplications?: PreAuthorizedApplication[] | undefined;
+    private _preAuthorizedApplications?: PreAuthorizedApplication | ApplicationsMember1[] | undefined;
     /** Specifies the access token version expected by this resource. This changes the version and format of the JWT produced independent of the endpoint or client used to request the access token.  The endpoint used, v1.0 or v2.0, is chosen by the client and only impacts the version of id_tokens. Resources need to explicitly configure requestedAccessTokenVersion to indicate the supported access token format.  Possible values for requestedAccessTokenVersion are 1, 2, or null. If the value is null, this defaults to 1, which corresponds to the v1.0 endpoint.  If signInAudience on the application is configured as AzureADandPersonalMicrosoftAccount, the value for this property must be 2 */
     private _requestedAccessTokenVersion?: number | undefined;
     /**
@@ -59,7 +58,7 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
             "acceptMappedClaims": n => { this.acceptMappedClaims = n.getBooleanValue(); },
             "knownClientApplications": n => { this.knownClientApplications = n.getCollectionOfPrimitiveValues<string>(); },
             "oauth2PermissionScopes": n => { this.oauth2PermissionScopes = n.getCollectionOfObjectValues<PermissionScope>(createPermissionScopeFromDiscriminatorValue); },
-            "preAuthorizedApplications": n => { this.preAuthorizedApplications = n.getCollectionOfObjectValues<PreAuthorizedApplication>(createPreAuthorizedApplicationFromDiscriminatorValue); },
+            "preAuthorizedApplications": n => { this.preAuthorizedApplications = n.getObjectValue<PreAuthorizedApplication>(createPreAuthorizedApplicationFromDiscriminatorValue); },
             "requestedAccessTokenVersion": n => { this.requestedAccessTokenVersion = n.getNumberValue(); },
         };
     };
@@ -93,7 +92,7 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the preAuthorizedApplications property value. Lists the client applications that are pre-authorized with the specified delegated permissions to access this application's APIs. Users are not required to consent to any pre-authorized application (for the permissions specified). However, any additional permissions not listed in preAuthorizedApplications (requested through incremental consent for example) will require user consent.
-     * @returns a preAuthorizedApplication
+     * @returns a applications
      */
     public get preAuthorizedApplications() {
         return this._preAuthorizedApplications;
@@ -102,7 +101,7 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
      * Sets the preAuthorizedApplications property value. Lists the client applications that are pre-authorized with the specified delegated permissions to access this application's APIs. Users are not required to consent to any pre-authorized application (for the permissions specified). However, any additional permissions not listed in preAuthorizedApplications (requested through incremental consent for example) will require user consent.
      * @param value Value to set for the preAuthorizedApplications property.
      */
-    public set preAuthorizedApplications(value: PreAuthorizedApplication[] | undefined) {
+    public set preAuthorizedApplications(value: PreAuthorizedApplication | ApplicationsMember1[] | undefined) {
         this._preAuthorizedApplications = value;
     };
     /**
@@ -128,7 +127,7 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("acceptMappedClaims", this.acceptMappedClaims);
         writer.writeCollectionOfPrimitiveValues<string>("knownClientApplications", this.knownClientApplications);
         writer.writeCollectionOfObjectValues<PermissionScope>("oauth2PermissionScopes", this.oauth2PermissionScopes);
-        writer.writeCollectionOfObjectValues<PreAuthorizedApplication>("preAuthorizedApplications", this.preAuthorizedApplications);
+        writer.writeObjectValue<PreAuthorizedApplication>("preAuthorizedApplications", this.preAuthorizedApplications);
         writer.writeNumberValue("requestedAccessTokenVersion", this.requestedAccessTokenVersion);
         writer.writeAdditionalData(this.additionalData);
     };

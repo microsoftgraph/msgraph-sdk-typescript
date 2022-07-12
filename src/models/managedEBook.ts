@@ -1,9 +1,7 @@
 import {createDeviceInstallStateFromDiscriminatorValue} from './createDeviceInstallStateFromDiscriminatorValue';
-import {createEBookInstallSummaryFromDiscriminatorValue} from './createEBookInstallSummaryFromDiscriminatorValue';
 import {createManagedEBookAssignmentFromDiscriminatorValue} from './createManagedEBookAssignmentFromDiscriminatorValue';
-import {createMimeContentFromDiscriminatorValue} from './createMimeContentFromDiscriminatorValue';
 import {createUserInstallStateSummaryFromDiscriminatorValue} from './createUserInstallStateSummaryFromDiscriminatorValue';
-import {DeviceInstallState, EBookInstallSummary, Entity, ManagedEBookAssignment, MimeContent, UserInstallStateSummary} from './index';
+import {DeviceAppManagementMember1, DeviceInstallState, EBookInstallSummary, Entity, ManagedEBookAssignment, MimeContent, UserInstallStateSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** An abstract class containing the base properties for Managed eBook. */
@@ -21,9 +19,9 @@ export class ManagedEBook extends Entity implements Parsable {
     /** The more information Url. */
     private _informationUrl?: string | undefined;
     /** Mobile App Install Summary. */
-    private _installSummary?: EBookInstallSummary | undefined;
+    private _installSummary?: EBookInstallSummary | DeviceAppManagementMember1 | undefined;
     /** Book cover. */
-    private _largeCover?: MimeContent | undefined;
+    private _largeCover?: MimeContent | DeviceAppManagementMember1 | undefined;
     /** The date and time when the eBook was last modified. */
     private _lastModifiedDateTime?: Date | undefined;
     /** The privacy statement Url. */
@@ -53,6 +51,7 @@ export class ManagedEBook extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.managedEBook";
     };
     /**
      * Gets the createdDateTime property value. The date and time when the eBook file was created.
@@ -147,7 +146,7 @@ export class ManagedEBook extends Entity implements Parsable {
     };
     /**
      * Gets the installSummary property value. Mobile App Install Summary.
-     * @returns a eBookInstallSummary
+     * @returns a deviceAppManagement
      */
     public get installSummary() {
         return this._installSummary;
@@ -156,12 +155,12 @@ export class ManagedEBook extends Entity implements Parsable {
      * Sets the installSummary property value. Mobile App Install Summary.
      * @param value Value to set for the installSummary property.
      */
-    public set installSummary(value: EBookInstallSummary | undefined) {
+    public set installSummary(value: EBookInstallSummary | DeviceAppManagementMember1 | undefined) {
         this._installSummary = value;
     };
     /**
      * Gets the largeCover property value. Book cover.
-     * @returns a mimeContent
+     * @returns a deviceAppManagement
      */
     public get largeCover() {
         return this._largeCover;
@@ -170,7 +169,7 @@ export class ManagedEBook extends Entity implements Parsable {
      * Sets the largeCover property value. Book cover.
      * @param value Value to set for the largeCover property.
      */
-    public set largeCover(value: MimeContent | undefined) {
+    public set largeCover(value: MimeContent | DeviceAppManagementMember1 | undefined) {
         this._largeCover = value;
     };
     /**

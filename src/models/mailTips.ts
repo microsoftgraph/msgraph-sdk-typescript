@@ -1,8 +1,4 @@
-import {createAutomaticRepliesMailTipsFromDiscriminatorValue} from './createAutomaticRepliesMailTipsFromDiscriminatorValue';
-import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFromDiscriminatorValue';
-import {createMailTipsErrorFromDiscriminatorValue} from './createMailTipsErrorFromDiscriminatorValue';
-import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscriminatorValue';
-import {AutomaticRepliesMailTips, EmailAddress, MailTipsError, Recipient} from './index';
+import {AutomaticRepliesMailTips, EmailAddress, GetMailTipsMember1, MailTipsError, Recipient} from './index';
 import {RecipientScopeType} from './recipientScopeType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -10,15 +6,15 @@ export class MailTips implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Mail tips for automatic reply if it has been set up by the recipient. */
-    private _automaticReplies?: AutomaticRepliesMailTips | undefined;
+    private _automaticReplies?: AutomaticRepliesMailTips | GetMailTipsMember1 | undefined;
     /** A custom mail tip that can be set on the recipient's mailbox. */
     private _customMailTip?: string | undefined;
     /** Whether the recipient's mailbox is restricted, for example, accepting messages from only a predefined list of senders, rejecting messages from a predefined list of senders, or accepting messages from only authenticated senders. */
     private _deliveryRestricted?: boolean | undefined;
     /** The email address of the recipient to get mailtips for. */
-    private _emailAddress?: EmailAddress | undefined;
+    private _emailAddress?: EmailAddress | GetMailTipsMember1 | undefined;
     /** Errors that occur during the getMailTips action. */
-    private _error_escaped?: MailTipsError | undefined;
+    private _error_escaped?: MailTipsError | GetMailTipsMember1 | undefined;
     /** The number of external members if the recipient is a distribution list. */
     private _externalMemberCount?: number | undefined;
     /** Whether sending messages to the recipient requires approval. For example, if the recipient is a large distribution list and a moderator has been set up to approve messages sent to that distribution list, or if sending messages to a recipient requires approval of the recipient's manager. */
@@ -28,9 +24,9 @@ export class MailTips implements AdditionalDataHolder, Parsable {
     /** The maximum message size that has been configured for the recipient's organization or mailbox. */
     private _maxMessageSize?: number | undefined;
     /** The scope of the recipient. Possible values are: none, internal, external, externalPartner, externalNonParther. For example, an administrator can set another organization to be its 'partner'. The scope is useful if an administrator wants certain mailtips to be accessible to certain scopes. It's also useful to senders to inform them that their message may leave the organization, helping them make the correct decisions about wording, tone and content. */
-    private _recipientScope?: RecipientScopeType | undefined;
+    private _recipientScope?: RecipientScopeType | GetMailTipsMember1 | undefined;
     /** Recipients suggested based on previous contexts where they appear in the same message. */
-    private _recipientSuggestions?: Recipient[] | undefined;
+    private _recipientSuggestions?: Recipient | GetMailTipsMember1[] | undefined;
     /** The number of members if the recipient is a distribution list. */
     private _totalMemberCount?: number | undefined;
     /**
@@ -49,7 +45,7 @@ export class MailTips implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the automaticReplies property value. Mail tips for automatic reply if it has been set up by the recipient.
-     * @returns a automaticRepliesMailTips
+     * @returns a getMailTips
      */
     public get automaticReplies() {
         return this._automaticReplies;
@@ -58,7 +54,7 @@ export class MailTips implements AdditionalDataHolder, Parsable {
      * Sets the automaticReplies property value. Mail tips for automatic reply if it has been set up by the recipient.
      * @param value Value to set for the automaticReplies property.
      */
-    public set automaticReplies(value: AutomaticRepliesMailTips | undefined) {
+    public set automaticReplies(value: AutomaticRepliesMailTips | GetMailTipsMember1 | undefined) {
         this._automaticReplies = value;
     };
     /**
@@ -97,7 +93,7 @@ export class MailTips implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the emailAddress property value. The email address of the recipient to get mailtips for.
-     * @returns a emailAddress
+     * @returns a getMailTips
      */
     public get emailAddress() {
         return this._emailAddress;
@@ -106,12 +102,12 @@ export class MailTips implements AdditionalDataHolder, Parsable {
      * Sets the emailAddress property value. The email address of the recipient to get mailtips for.
      * @param value Value to set for the emailAddress property.
      */
-    public set emailAddress(value: EmailAddress | undefined) {
+    public set emailAddress(value: EmailAddress | GetMailTipsMember1 | undefined) {
         this._emailAddress = value;
     };
     /**
      * Gets the error property value. Errors that occur during the getMailTips action.
-     * @returns a mailTipsError
+     * @returns a getMailTips
      */
     public get error_escaped() {
         return this._error_escaped;
@@ -120,7 +116,7 @@ export class MailTips implements AdditionalDataHolder, Parsable {
      * Sets the error property value. Errors that occur during the getMailTips action.
      * @param value Value to set for the error_escaped property.
      */
-    public set error_escaped(value: MailTipsError | undefined) {
+    public set error_escaped(value: MailTipsError | GetMailTipsMember1 | undefined) {
         this._error_escaped = value;
     };
     /**
@@ -152,8 +148,8 @@ export class MailTips implements AdditionalDataHolder, Parsable {
             "isModerated": n => { this.isModerated = n.getBooleanValue(); },
             "mailboxFull": n => { this.mailboxFull = n.getBooleanValue(); },
             "maxMessageSize": n => { this.maxMessageSize = n.getNumberValue(); },
-            "recipientScope": n => { this.recipientScope = n.getEnumValue<RecipientScopeType>(RecipientScopeType); },
-            "recipientSuggestions": n => { this.recipientSuggestions = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
+            "recipientScope": n => { this.recipientScope = n.getObjectValue<RecipientScopeType>(createRecipientScopeTypeFromDiscriminatorValue); },
+            "recipientSuggestions": n => { this.recipientSuggestions = n.getObjectValue<Recipient>(createRecipientFromDiscriminatorValue); },
             "totalMemberCount": n => { this.totalMemberCount = n.getNumberValue(); },
         };
     };
@@ -201,7 +197,7 @@ export class MailTips implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the recipientScope property value. The scope of the recipient. Possible values are: none, internal, external, externalPartner, externalNonParther. For example, an administrator can set another organization to be its 'partner'. The scope is useful if an administrator wants certain mailtips to be accessible to certain scopes. It's also useful to senders to inform them that their message may leave the organization, helping them make the correct decisions about wording, tone and content.
-     * @returns a recipientScopeType
+     * @returns a getMailTips
      */
     public get recipientScope() {
         return this._recipientScope;
@@ -210,12 +206,12 @@ export class MailTips implements AdditionalDataHolder, Parsable {
      * Sets the recipientScope property value. The scope of the recipient. Possible values are: none, internal, external, externalPartner, externalNonParther. For example, an administrator can set another organization to be its 'partner'. The scope is useful if an administrator wants certain mailtips to be accessible to certain scopes. It's also useful to senders to inform them that their message may leave the organization, helping them make the correct decisions about wording, tone and content.
      * @param value Value to set for the recipientScope property.
      */
-    public set recipientScope(value: RecipientScopeType | undefined) {
+    public set recipientScope(value: RecipientScopeType | GetMailTipsMember1 | undefined) {
         this._recipientScope = value;
     };
     /**
      * Gets the recipientSuggestions property value. Recipients suggested based on previous contexts where they appear in the same message.
-     * @returns a recipient
+     * @returns a getMailTips
      */
     public get recipientSuggestions() {
         return this._recipientSuggestions;
@@ -224,7 +220,7 @@ export class MailTips implements AdditionalDataHolder, Parsable {
      * Sets the recipientSuggestions property value. Recipients suggested based on previous contexts where they appear in the same message.
      * @param value Value to set for the recipientSuggestions property.
      */
-    public set recipientSuggestions(value: Recipient[] | undefined) {
+    public set recipientSuggestions(value: Recipient | GetMailTipsMember1[] | undefined) {
         this._recipientSuggestions = value;
     };
     /**
@@ -242,8 +238,8 @@ export class MailTips implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isModerated", this.isModerated);
         writer.writeBooleanValue("mailboxFull", this.mailboxFull);
         writer.writeNumberValue("maxMessageSize", this.maxMessageSize);
-        writer.writeEnumValue<RecipientScopeType>("recipientScope", this.recipientScope);
-        writer.writeCollectionOfObjectValues<Recipient>("recipientSuggestions", this.recipientSuggestions);
+        writer.writeObjectValue<RecipientScopeType>("recipientScope", this.recipientScope);
+        writer.writeObjectValue<Recipient>("recipientSuggestions", this.recipientSuggestions);
         writer.writeNumberValue("totalMemberCount", this.totalMemberCount);
         writer.writeAdditionalData(this.additionalData);
     };

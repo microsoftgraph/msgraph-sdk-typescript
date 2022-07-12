@@ -1,13 +1,12 @@
-import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWorksheetFromDiscriminatorValue';
-import {Entity, WorkbookWorksheet} from './index';
+import {AdminMember1, Entity, WorkbookWorksheet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookPivotTable extends Entity implements Parsable {
     /** Name of the PivotTable. */
     private _name?: string | undefined;
     /** The worksheet containing the current PivotTable. Read-only. */
-    private _worksheet?: WorkbookWorksheet | undefined;
+    private _worksheet?: WorkbookWorksheet | AdminMember1 | undefined;
     /**
      * Instantiates a new workbookPivotTable and sets the default values.
      */
@@ -50,7 +49,7 @@ export class WorkbookPivotTable extends Entity implements Parsable {
     };
     /**
      * Gets the worksheet property value. The worksheet containing the current PivotTable. Read-only.
-     * @returns a workbookWorksheet
+     * @returns a admin
      */
     public get worksheet() {
         return this._worksheet;
@@ -59,7 +58,7 @@ export class WorkbookPivotTable extends Entity implements Parsable {
      * Sets the worksheet property value. The worksheet containing the current PivotTable. Read-only.
      * @param value Value to set for the worksheet property.
      */
-    public set worksheet(value: WorkbookWorksheet | undefined) {
+    public set worksheet(value: WorkbookWorksheet | AdminMember1 | undefined) {
         this._worksheet = value;
     };
 }

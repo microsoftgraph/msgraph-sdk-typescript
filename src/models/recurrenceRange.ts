@@ -1,3 +1,4 @@
+import {AdminMember1} from './index';
 import {RecurrenceRangeType} from './recurrenceRangeType';
 import {AdditionalDataHolder, DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -13,7 +14,7 @@ export class RecurrenceRange implements AdditionalDataHolder, Parsable {
     /** The date to start applying the recurrence pattern. The first occurrence of the meeting may be this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of the recurring event. Required. */
     private _startDate?: DateOnly | undefined;
     /** The recurrence range. Possible values are: endDate, noEnd, numbered. Required. */
-    private _type?: RecurrenceRangeType | undefined;
+    private _type?: RecurrenceRangeType | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -58,7 +59,7 @@ export class RecurrenceRange implements AdditionalDataHolder, Parsable {
             "numberOfOccurrences": n => { this.numberOfOccurrences = n.getNumberValue(); },
             "recurrenceTimeZone": n => { this.recurrenceTimeZone = n.getStringValue(); },
             "startDate": n => { this.startDate = n.getDateOnlyValue(); },
-            "type": n => { this.type = n.getEnumValue<RecurrenceRangeType>(RecurrenceRangeType); },
+            "type": n => { this.type = n.getObjectValue<RecurrenceRangeType>(createRecurrenceRangeTypeFromDiscriminatorValue); },
         };
     };
     /**
@@ -99,7 +100,7 @@ export class RecurrenceRange implements AdditionalDataHolder, Parsable {
         writer.writeNumberValue("numberOfOccurrences", this.numberOfOccurrences);
         writer.writeStringValue("recurrenceTimeZone", this.recurrenceTimeZone);
         writer.writeDateOnlyValue("startDate", this.startDate);
-        writer.writeEnumValue<RecurrenceRangeType>("type", this.type);
+        writer.writeObjectValue<RecurrenceRangeType>("type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -118,7 +119,7 @@ export class RecurrenceRange implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the type property value. The recurrence range. Possible values are: endDate, noEnd, numbered. Required.
-     * @returns a recurrenceRangeType
+     * @returns a admin
      */
     public get type() {
         return this._type;
@@ -127,7 +128,7 @@ export class RecurrenceRange implements AdditionalDataHolder, Parsable {
      * Sets the type property value. The recurrence range. Possible values are: endDate, noEnd, numbered. Required.
      * @param value Value to set for the type property.
      */
-    public set type(value: RecurrenceRangeType | undefined) {
+    public set type(value: RecurrenceRangeType | AdminMember1 | undefined) {
         this._type = value;
     };
 }

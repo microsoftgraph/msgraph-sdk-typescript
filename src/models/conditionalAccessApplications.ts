@@ -3,9 +3,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ConditionalAccessApplications implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The list of application IDs explicitly excluded from the policy. */
+    /** Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365 */
     private _excludeApplications?: string[] | undefined;
-    /** The list of application IDs the policy applies to, unless explicitly excluded (in excludeApplications). Can also be set to All. */
+    /** Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365 */
     private _includeApplications?: string[] | undefined;
     /** Authentication context class references include. Supported values are c1 through c25. */
     private _includeAuthenticationContextClassReferences?: string[] | undefined;
@@ -32,14 +32,14 @@ export class ConditionalAccessApplications implements AdditionalDataHolder, Pars
         this._additionalData = {};
     };
     /**
-     * Gets the excludeApplications property value. The list of application IDs explicitly excluded from the policy.
+     * Gets the excludeApplications property value. Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
      * @returns a string
      */
     public get excludeApplications() {
         return this._excludeApplications;
     };
     /**
-     * Sets the excludeApplications property value. The list of application IDs explicitly excluded from the policy.
+     * Sets the excludeApplications property value. Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
      * @param value Value to set for the excludeApplications property.
      */
     public set excludeApplications(value: string[] | undefined) {
@@ -58,14 +58,14 @@ export class ConditionalAccessApplications implements AdditionalDataHolder, Pars
         };
     };
     /**
-     * Gets the includeApplications property value. The list of application IDs the policy applies to, unless explicitly excluded (in excludeApplications). Can also be set to All.
+     * Gets the includeApplications property value. Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
      * @returns a string
      */
     public get includeApplications() {
         return this._includeApplications;
     };
     /**
-     * Sets the includeApplications property value. The list of application IDs the policy applies to, unless explicitly excluded (in excludeApplications). Can also be set to All.
+     * Sets the includeApplications property value. Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
      * @param value Value to set for the includeApplications property.
      */
     public set includeApplications(value: string[] | undefined) {

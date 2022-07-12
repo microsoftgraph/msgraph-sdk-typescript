@@ -1,5 +1,5 @@
 import {ImportedWindowsAutopilotDeviceIdentity} from '../../../models/';
-import {createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from '../../../models/createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
+import {ImportMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the import method. */
@@ -7,7 +7,7 @@ export class ImportResponse implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The value property */
-    private _value?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
+    private _value?: ImportedWindowsAutopilotDeviceIdentity | ImportMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,7 +34,7 @@ export class ImportResponse implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": n => { this.value = n.getCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>(createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue); },
+            "value": n => { this.value = n.getObjectValue<ImportedWindowsAutopilotDeviceIdentity>(createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue); },
         };
     };
     /**
@@ -43,12 +43,12 @@ export class ImportResponse implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("value", this.value);
+        writer.writeObjectValue<ImportedWindowsAutopilotDeviceIdentity>("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the value property value. The value property
-     * @returns a importedWindowsAutopilotDeviceIdentity
+     * @returns a import
      */
     public get value() {
         return this._value;
@@ -57,7 +57,7 @@ export class ImportResponse implements AdditionalDataHolder, Parsable {
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public set value(value: ImportedWindowsAutopilotDeviceIdentity[] | undefined) {
+    public set value(value: ImportedWindowsAutopilotDeviceIdentity | ImportMember1[] | undefined) {
         this._value = value;
     };
 }

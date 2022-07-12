@@ -1,22 +1,18 @@
 import {createBookingAppointmentFromDiscriminatorValue} from './createBookingAppointmentFromDiscriminatorValue';
 import {createBookingCustomerBaseFromDiscriminatorValue} from './createBookingCustomerBaseFromDiscriminatorValue';
 import {createBookingCustomQuestionFromDiscriminatorValue} from './createBookingCustomQuestionFromDiscriminatorValue';
-import {createBookingSchedulingPolicyFromDiscriminatorValue} from './createBookingSchedulingPolicyFromDiscriminatorValue';
 import {createBookingServiceFromDiscriminatorValue} from './createBookingServiceFromDiscriminatorValue';
 import {createBookingStaffMemberBaseFromDiscriminatorValue} from './createBookingStaffMemberBaseFromDiscriminatorValue';
-import {createBookingWorkHoursFromDiscriminatorValue} from './createBookingWorkHoursFromDiscriminatorValue';
-import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddressFromDiscriminatorValue';
-import {BookingAppointment, BookingCustomerBase, BookingCustomQuestion, BookingSchedulingPolicy, BookingService, BookingStaffMemberBase, BookingWorkHours, Entity, PhysicalAddress} from './index';
+import {AdminMember1, BookingAppointment, BookingCustomerBase, BookingCustomQuestion, BookingSchedulingPolicy, BookingService, BookingStaffMemberBase, BookingWorkHours, Entity, PhysicalAddress} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Represents a Microsot Bookings Business. */
 export class BookingBusiness extends Entity implements Parsable {
     /** The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. */
-    private _address?: PhysicalAddress | undefined;
+    private _address?: PhysicalAddress | AdminMember1 | undefined;
     /** All the appointments of this business. Read-only. Nullable. */
     private _appointments?: BookingAppointment[] | undefined;
     /** The hours of operation for the business. */
-    private _businessHours?: BookingWorkHours[] | undefined;
+    private _businessHours?: BookingWorkHours | AdminMember1[] | undefined;
     /** The type of business. */
     private _businessType?: string | undefined;
     /** The set of appointments of this business in a specified date range. Read-only. Nullable. */
@@ -38,7 +34,7 @@ export class BookingBusiness extends Entity implements Parsable {
     /** The URL for the scheduling page, which is set after you publish or unpublish the page. Read-only. */
     private _publicUrl?: string | undefined;
     /** Specifies how bookings can be created for this business. */
-    private _schedulingPolicy?: BookingSchedulingPolicy | undefined;
+    private _schedulingPolicy?: BookingSchedulingPolicy | AdminMember1 | undefined;
     /** All the services offered by this business. Read-only. Nullable. */
     private _services?: BookingService[] | undefined;
     /** All the staff members that provide services in this business. Read-only. Nullable. */
@@ -47,7 +43,7 @@ export class BookingBusiness extends Entity implements Parsable {
     private _webSiteUrl?: string | undefined;
     /**
      * Gets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.
-     * @returns a physicalAddress
+     * @returns a admin
      */
     public get address() {
         return this._address;
@@ -56,7 +52,7 @@ export class BookingBusiness extends Entity implements Parsable {
      * Sets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.
      * @param value Value to set for the address property.
      */
-    public set address(value: PhysicalAddress | undefined) {
+    public set address(value: PhysicalAddress | AdminMember1 | undefined) {
         this._address = value;
     };
     /**
@@ -75,7 +71,7 @@ export class BookingBusiness extends Entity implements Parsable {
     };
     /**
      * Gets the businessHours property value. The hours of operation for the business.
-     * @returns a bookingWorkHours
+     * @returns a admin
      */
     public get businessHours() {
         return this._businessHours;
@@ -84,7 +80,7 @@ export class BookingBusiness extends Entity implements Parsable {
      * Sets the businessHours property value. The hours of operation for the business.
      * @param value Value to set for the businessHours property.
      */
-    public set businessHours(value: BookingWorkHours[] | undefined) {
+    public set businessHours(value: BookingWorkHours | AdminMember1[] | undefined) {
         this._businessHours = value;
     };
     /**
@@ -116,7 +112,7 @@ export class BookingBusiness extends Entity implements Parsable {
         this._calendarView = value;
     };
     /**
-     * Instantiates a new bookingBusiness and sets the default values.
+     * Instantiates a new BookingBusiness and sets the default values.
      */
     public constructor() {
         super();
@@ -199,7 +195,7 @@ export class BookingBusiness extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "address": n => { this.address = n.getObjectValue<PhysicalAddress>(createPhysicalAddressFromDiscriminatorValue); },
             "appointments": n => { this.appointments = n.getCollectionOfObjectValues<BookingAppointment>(createBookingAppointmentFromDiscriminatorValue); },
-            "businessHours": n => { this.businessHours = n.getCollectionOfObjectValues<BookingWorkHours>(createBookingWorkHoursFromDiscriminatorValue); },
+            "businessHours": n => { this.businessHours = n.getObjectValue<BookingWorkHours>(createBookingWorkHoursFromDiscriminatorValue); },
             "businessType": n => { this.businessType = n.getStringValue(); },
             "calendarView": n => { this.calendarView = n.getCollectionOfObjectValues<BookingAppointment>(createBookingAppointmentFromDiscriminatorValue); },
             "customers": n => { this.customers = n.getCollectionOfObjectValues<BookingCustomerBase>(createBookingCustomerBaseFromDiscriminatorValue); },
@@ -260,7 +256,7 @@ export class BookingBusiness extends Entity implements Parsable {
     };
     /**
      * Gets the schedulingPolicy property value. Specifies how bookings can be created for this business.
-     * @returns a bookingSchedulingPolicy
+     * @returns a admin
      */
     public get schedulingPolicy() {
         return this._schedulingPolicy;
@@ -269,7 +265,7 @@ export class BookingBusiness extends Entity implements Parsable {
      * Sets the schedulingPolicy property value. Specifies how bookings can be created for this business.
      * @param value Value to set for the schedulingPolicy property.
      */
-    public set schedulingPolicy(value: BookingSchedulingPolicy | undefined) {
+    public set schedulingPolicy(value: BookingSchedulingPolicy | AdminMember1 | undefined) {
         this._schedulingPolicy = value;
     };
     /**
@@ -281,7 +277,7 @@ export class BookingBusiness extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<PhysicalAddress>("address", this.address);
         writer.writeCollectionOfObjectValues<BookingAppointment>("appointments", this.appointments);
-        writer.writeCollectionOfObjectValues<BookingWorkHours>("businessHours", this.businessHours);
+        writer.writeObjectValue<BookingWorkHours>("businessHours", this.businessHours);
         writer.writeStringValue("businessType", this.businessType);
         writer.writeCollectionOfObjectValues<BookingAppointment>("calendarView", this.calendarView);
         writer.writeCollectionOfObjectValues<BookingCustomerBase>("customers", this.customers);

@@ -1,5 +1,5 @@
 import {Presence} from '../../models/';
-import {createPresenceFromDiscriminatorValue} from '../../models/createPresenceFromDiscriminatorValue';
+import {GetPresencesByUserIdMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getPresencesByUserId method. */
@@ -7,7 +7,7 @@ export class GetPresencesByUserIdResponse implements AdditionalDataHolder, Parsa
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The value property */
-    private _value?: Presence[] | undefined;
+    private _value?: Presence | GetPresencesByUserIdMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,7 +34,7 @@ export class GetPresencesByUserIdResponse implements AdditionalDataHolder, Parsa
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": n => { this.value = n.getCollectionOfObjectValues<Presence>(createPresenceFromDiscriminatorValue); },
+            "value": n => { this.value = n.getObjectValue<Presence>(createPresenceFromDiscriminatorValue); },
         };
     };
     /**
@@ -43,12 +43,12 @@ export class GetPresencesByUserIdResponse implements AdditionalDataHolder, Parsa
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<Presence>("value", this.value);
+        writer.writeObjectValue<Presence>("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the value property value. The value property
-     * @returns a presence
+     * @returns a getPresencesByUserId
      */
     public get value() {
         return this._value;
@@ -57,7 +57,7 @@ export class GetPresencesByUserIdResponse implements AdditionalDataHolder, Parsa
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public set value(value: Presence[] | undefined) {
+    public set value(value: Presence | GetPresencesByUserIdMember1[] | undefined) {
         this._value = value;
     };
 }

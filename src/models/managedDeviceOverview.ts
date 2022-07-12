@@ -1,14 +1,11 @@
-import {createDeviceExchangeAccessStateSummaryFromDiscriminatorValue} from './createDeviceExchangeAccessStateSummaryFromDiscriminatorValue';
-import {createDeviceOperatingSystemSummaryFromDiscriminatorValue} from './createDeviceOperatingSystemSummaryFromDiscriminatorValue';
-import {DeviceExchangeAccessStateSummary, DeviceOperatingSystemSummary, Entity} from './index';
+import {AdminMember1, DeviceExchangeAccessStateSummary, DeviceOperatingSystemSummary, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Summary data for managed devices */
 export class ManagedDeviceOverview extends Entity implements Parsable {
     /** Distribution of Exchange Access State in Intune */
-    private _deviceExchangeAccessStateSummary?: DeviceExchangeAccessStateSummary | undefined;
+    private _deviceExchangeAccessStateSummary?: DeviceExchangeAccessStateSummary | AdminMember1 | undefined;
     /** Device operating system summary. */
-    private _deviceOperatingSystemSummary?: DeviceOperatingSystemSummary | undefined;
+    private _deviceOperatingSystemSummary?: DeviceOperatingSystemSummary | AdminMember1 | undefined;
     /** The number of devices enrolled in both MDM and EAS */
     private _dualEnrolledDeviceCount?: number | undefined;
     /** Total enrolled device count. Does not include PC devices managed via Intune PC Agent */
@@ -23,7 +20,7 @@ export class ManagedDeviceOverview extends Entity implements Parsable {
     };
     /**
      * Gets the deviceExchangeAccessStateSummary property value. Distribution of Exchange Access State in Intune
-     * @returns a deviceExchangeAccessStateSummary
+     * @returns a admin
      */
     public get deviceExchangeAccessStateSummary() {
         return this._deviceExchangeAccessStateSummary;
@@ -32,12 +29,12 @@ export class ManagedDeviceOverview extends Entity implements Parsable {
      * Sets the deviceExchangeAccessStateSummary property value. Distribution of Exchange Access State in Intune
      * @param value Value to set for the deviceExchangeAccessStateSummary property.
      */
-    public set deviceExchangeAccessStateSummary(value: DeviceExchangeAccessStateSummary | undefined) {
+    public set deviceExchangeAccessStateSummary(value: DeviceExchangeAccessStateSummary | AdminMember1 | undefined) {
         this._deviceExchangeAccessStateSummary = value;
     };
     /**
      * Gets the deviceOperatingSystemSummary property value. Device operating system summary.
-     * @returns a deviceOperatingSystemSummary
+     * @returns a admin
      */
     public get deviceOperatingSystemSummary() {
         return this._deviceOperatingSystemSummary;
@@ -46,7 +43,7 @@ export class ManagedDeviceOverview extends Entity implements Parsable {
      * Sets the deviceOperatingSystemSummary property value. Device operating system summary.
      * @param value Value to set for the deviceOperatingSystemSummary property.
      */
-    public set deviceOperatingSystemSummary(value: DeviceOperatingSystemSummary | undefined) {
+    public set deviceOperatingSystemSummary(value: DeviceOperatingSystemSummary | AdminMember1 | undefined) {
         this._deviceOperatingSystemSummary = value;
     };
     /**

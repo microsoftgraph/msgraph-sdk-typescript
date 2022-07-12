@@ -1,48 +1,38 @@
-import {createApplePushNotificationCertificateFromDiscriminatorValue} from './createApplePushNotificationCertificateFromDiscriminatorValue';
 import {createComplianceManagementPartnerFromDiscriminatorValue} from './createComplianceManagementPartnerFromDiscriminatorValue';
 import {createDetectedAppFromDiscriminatorValue} from './createDetectedAppFromDiscriminatorValue';
 import {createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue} from './createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue';
 import {createDeviceCategoryFromDiscriminatorValue} from './createDeviceCategoryFromDiscriminatorValue';
-import {createDeviceCompliancePolicyDeviceStateSummaryFromDiscriminatorValue} from './createDeviceCompliancePolicyDeviceStateSummaryFromDiscriminatorValue';
 import {createDeviceCompliancePolicyFromDiscriminatorValue} from './createDeviceCompliancePolicyFromDiscriminatorValue';
 import {createDeviceCompliancePolicySettingStateSummaryFromDiscriminatorValue} from './createDeviceCompliancePolicySettingStateSummaryFromDiscriminatorValue';
-import {createDeviceConfigurationDeviceStateSummaryFromDiscriminatorValue} from './createDeviceConfigurationDeviceStateSummaryFromDiscriminatorValue';
 import {createDeviceConfigurationFromDiscriminatorValue} from './createDeviceConfigurationFromDiscriminatorValue';
 import {createDeviceEnrollmentConfigurationFromDiscriminatorValue} from './createDeviceEnrollmentConfigurationFromDiscriminatorValue';
 import {createDeviceManagementExchangeConnectorFromDiscriminatorValue} from './createDeviceManagementExchangeConnectorFromDiscriminatorValue';
 import {createDeviceManagementPartnerFromDiscriminatorValue} from './createDeviceManagementPartnerFromDiscriminatorValue';
-import {createDeviceManagementReportsFromDiscriminatorValue} from './createDeviceManagementReportsFromDiscriminatorValue';
-import {createDeviceManagementSettingsFromDiscriminatorValue} from './createDeviceManagementSettingsFromDiscriminatorValue';
 import {createDeviceManagementTroubleshootingEventFromDiscriminatorValue} from './createDeviceManagementTroubleshootingEventFromDiscriminatorValue';
 import {createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from './createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
-import {createIntuneBrandFromDiscriminatorValue} from './createIntuneBrandFromDiscriminatorValue';
 import {createIosUpdateDeviceStatusFromDiscriminatorValue} from './createIosUpdateDeviceStatusFromDiscriminatorValue';
 import {createManagedDeviceFromDiscriminatorValue} from './createManagedDeviceFromDiscriminatorValue';
-import {createManagedDeviceOverviewFromDiscriminatorValue} from './createManagedDeviceOverviewFromDiscriminatorValue';
 import {createMobileThreatDefenseConnectorFromDiscriminatorValue} from './createMobileThreatDefenseConnectorFromDiscriminatorValue';
 import {createNotificationMessageTemplateFromDiscriminatorValue} from './createNotificationMessageTemplateFromDiscriminatorValue';
-import {createOnPremisesConditionalAccessSettingsFromDiscriminatorValue} from './createOnPremisesConditionalAccessSettingsFromDiscriminatorValue';
 import {createRemoteAssistancePartnerFromDiscriminatorValue} from './createRemoteAssistancePartnerFromDiscriminatorValue';
 import {createResourceOperationFromDiscriminatorValue} from './createResourceOperationFromDiscriminatorValue';
 import {createRoleDefinitionFromDiscriminatorValue} from './createRoleDefinitionFromDiscriminatorValue';
-import {createSoftwareUpdateStatusSummaryFromDiscriminatorValue} from './createSoftwareUpdateStatusSummaryFromDiscriminatorValue';
 import {createTelecomExpenseManagementPartnerFromDiscriminatorValue} from './createTelecomExpenseManagementPartnerFromDiscriminatorValue';
 import {createTermsAndConditionsFromDiscriminatorValue} from './createTermsAndConditionsFromDiscriminatorValue';
 import {createWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from './createWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
 import {createWindowsInformationProtectionAppLearningSummaryFromDiscriminatorValue} from './createWindowsInformationProtectionAppLearningSummaryFromDiscriminatorValue';
 import {createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue} from './createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue';
 import {DeviceManagementSubscriptionState} from './deviceManagementSubscriptionState';
-import {ApplePushNotificationCertificate, ComplianceManagementPartner, DetectedApp, DeviceAndAppManagementRoleAssignment, DeviceCategory, DeviceCompliancePolicy, DeviceCompliancePolicyDeviceStateSummary, DeviceCompliancePolicySettingStateSummary, DeviceConfiguration, DeviceConfigurationDeviceStateSummary, DeviceEnrollmentConfiguration, DeviceManagementExchangeConnector, DeviceManagementPartner, DeviceManagementReports, DeviceManagementSettings, DeviceManagementTroubleshootingEvent, Entity, ImportedWindowsAutopilotDeviceIdentity, IntuneBrand, IosUpdateDeviceStatus, ManagedDevice, ManagedDeviceOverview, MobileThreatDefenseConnector, NotificationMessageTemplate, OnPremisesConditionalAccessSettings, RemoteAssistancePartner, ResourceOperation, RoleDefinition, SoftwareUpdateStatusSummary, TelecomExpenseManagementPartner, TermsAndConditions, WindowsAutopilotDeviceIdentity, WindowsInformationProtectionAppLearningSummary, WindowsInformationProtectionNetworkLearningSummary} from './index';
+import {AdminMember1, ApplePushNotificationCertificate, ComplianceManagementPartner, DetectedApp, DeviceAndAppManagementRoleAssignment, DeviceCategory, DeviceCompliancePolicy, DeviceCompliancePolicyDeviceStateSummary, DeviceCompliancePolicySettingStateSummary, DeviceConfiguration, DeviceConfigurationDeviceStateSummary, DeviceEnrollmentConfiguration, DeviceManagementExchangeConnector, DeviceManagementPartner, DeviceManagementReports, DeviceManagementSettings, DeviceManagementTroubleshootingEvent, Entity, ImportedWindowsAutopilotDeviceIdentity, IntuneBrand, IosUpdateDeviceStatus, ManagedDevice, ManagedDeviceOverview, MobileThreatDefenseConnector, NotificationMessageTemplate, OnPremisesConditionalAccessSettings, RemoteAssistancePartner, ResourceOperation, RoleDefinition, SoftwareUpdateStatusSummary, TelecomExpenseManagementPartner, TermsAndConditions, WindowsAutopilotDeviceIdentity, WindowsInformationProtectionAppLearningSummary, WindowsInformationProtectionNetworkLearningSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Singleton entity that acts as a container for all device management functionality. */
 export class DeviceManagement extends Entity implements Parsable {
     /** Apple push notification certificate. */
-    private _applePushNotificationCertificate?: ApplePushNotificationCertificate | undefined;
+    private _applePushNotificationCertificate?: ApplePushNotificationCertificate | AdminMember1 | undefined;
     /** The list of Compliance Management Partners configured by the tenant. */
     private _complianceManagementPartners?: ComplianceManagementPartner[] | undefined;
     /** The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access */
-    private _conditionalAccessSettings?: OnPremisesConditionalAccessSettings | undefined;
+    private _conditionalAccessSettings?: OnPremisesConditionalAccessSettings | AdminMember1 | undefined;
     /** The list of detected apps associated with a device. */
     private _detectedApps?: DetectedApp[] | undefined;
     /** The list of device categories with the tenant. */
@@ -50,11 +40,11 @@ export class DeviceManagement extends Entity implements Parsable {
     /** The device compliance policies. */
     private _deviceCompliancePolicies?: DeviceCompliancePolicy[] | undefined;
     /** The device compliance state summary for this account. */
-    private _deviceCompliancePolicyDeviceStateSummary?: DeviceCompliancePolicyDeviceStateSummary | undefined;
+    private _deviceCompliancePolicyDeviceStateSummary?: DeviceCompliancePolicyDeviceStateSummary | AdminMember1 | undefined;
     /** The summary states of compliance policy settings for this account. */
     private _deviceCompliancePolicySettingStateSummaries?: DeviceCompliancePolicySettingStateSummary[] | undefined;
     /** The device configuration device state summary for this account. */
-    private _deviceConfigurationDeviceStateSummaries?: DeviceConfigurationDeviceStateSummary | undefined;
+    private _deviceConfigurationDeviceStateSummaries?: DeviceConfigurationDeviceStateSummary | AdminMember1 | undefined;
     /** The device configurations. */
     private _deviceConfigurations?: DeviceConfiguration[] | undefined;
     /** The list of device enrollment configurations */
@@ -68,11 +58,11 @@ export class DeviceManagement extends Entity implements Parsable {
     /** Intune Account ID for given tenant */
     private _intuneAccountId?: string | undefined;
     /** intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal. */
-    private _intuneBrand?: IntuneBrand | undefined;
+    private _intuneBrand?: IntuneBrand | AdminMember1 | undefined;
     /** The IOS software update installation statuses for this account. */
     private _iosUpdateStatuses?: IosUpdateDeviceStatus[] | undefined;
     /** Device overview */
-    private _managedDeviceOverview?: ManagedDeviceOverview | undefined;
+    private _managedDeviceOverview?: ManagedDeviceOverview | AdminMember1 | undefined;
     /** The list of managed devices. */
     private _managedDevices?: ManagedDevice[] | undefined;
     /** The list of Mobile threat Defense connectors configured by the tenant. */
@@ -82,7 +72,7 @@ export class DeviceManagement extends Entity implements Parsable {
     /** The remote assist partners. */
     private _remoteAssistancePartners?: RemoteAssistancePartner[] | undefined;
     /** Reports singleton */
-    private _reports?: DeviceManagementReports | undefined;
+    private _reports?: DeviceManagementReports | AdminMember1 | undefined;
     /** The Resource Operations. */
     private _resourceOperations?: ResourceOperation[] | undefined;
     /** The Role Assignments. */
@@ -90,10 +80,10 @@ export class DeviceManagement extends Entity implements Parsable {
     /** The Role Definitions. */
     private _roleDefinitions?: RoleDefinition[] | undefined;
     /** Account level settings. */
-    private _settings?: DeviceManagementSettings | undefined;
+    private _settings?: DeviceManagementSettings | AdminMember1 | undefined;
     /** The software update status summary. */
-    private _softwareUpdateStatusSummary?: SoftwareUpdateStatusSummary | undefined;
-    /** Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut. */
+    private _softwareUpdateStatusSummary?: SoftwareUpdateStatusSummary | AdminMember1 | undefined;
+    /** Tenant mobile device management subscription state. */
     private _subscriptionState?: DeviceManagementSubscriptionState | undefined;
     /** The telecom expense management partners. */
     private _telecomExpenseManagementPartners?: TelecomExpenseManagementPartner[] | undefined;
@@ -109,7 +99,7 @@ export class DeviceManagement extends Entity implements Parsable {
     private _windowsInformationProtectionNetworkLearningSummaries?: WindowsInformationProtectionNetworkLearningSummary[] | undefined;
     /**
      * Gets the applePushNotificationCertificate property value. Apple push notification certificate.
-     * @returns a applePushNotificationCertificate
+     * @returns a admin
      */
     public get applePushNotificationCertificate() {
         return this._applePushNotificationCertificate;
@@ -118,7 +108,7 @@ export class DeviceManagement extends Entity implements Parsable {
      * Sets the applePushNotificationCertificate property value. Apple push notification certificate.
      * @param value Value to set for the applePushNotificationCertificate property.
      */
-    public set applePushNotificationCertificate(value: ApplePushNotificationCertificate | undefined) {
+    public set applePushNotificationCertificate(value: ApplePushNotificationCertificate | AdminMember1 | undefined) {
         this._applePushNotificationCertificate = value;
     };
     /**
@@ -137,7 +127,7 @@ export class DeviceManagement extends Entity implements Parsable {
     };
     /**
      * Gets the conditionalAccessSettings property value. The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
-     * @returns a onPremisesConditionalAccessSettings
+     * @returns a admin
      */
     public get conditionalAccessSettings() {
         return this._conditionalAccessSettings;
@@ -146,11 +136,11 @@ export class DeviceManagement extends Entity implements Parsable {
      * Sets the conditionalAccessSettings property value. The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
      * @param value Value to set for the conditionalAccessSettings property.
      */
-    public set conditionalAccessSettings(value: OnPremisesConditionalAccessSettings | undefined) {
+    public set conditionalAccessSettings(value: OnPremisesConditionalAccessSettings | AdminMember1 | undefined) {
         this._conditionalAccessSettings = value;
     };
     /**
-     * Instantiates a new deviceManagement and sets the default values.
+     * Instantiates a new DeviceManagement and sets the default values.
      */
     public constructor() {
         super();
@@ -199,7 +189,7 @@ export class DeviceManagement extends Entity implements Parsable {
     };
     /**
      * Gets the deviceCompliancePolicyDeviceStateSummary property value. The device compliance state summary for this account.
-     * @returns a deviceCompliancePolicyDeviceStateSummary
+     * @returns a admin
      */
     public get deviceCompliancePolicyDeviceStateSummary() {
         return this._deviceCompliancePolicyDeviceStateSummary;
@@ -208,7 +198,7 @@ export class DeviceManagement extends Entity implements Parsable {
      * Sets the deviceCompliancePolicyDeviceStateSummary property value. The device compliance state summary for this account.
      * @param value Value to set for the deviceCompliancePolicyDeviceStateSummary property.
      */
-    public set deviceCompliancePolicyDeviceStateSummary(value: DeviceCompliancePolicyDeviceStateSummary | undefined) {
+    public set deviceCompliancePolicyDeviceStateSummary(value: DeviceCompliancePolicyDeviceStateSummary | AdminMember1 | undefined) {
         this._deviceCompliancePolicyDeviceStateSummary = value;
     };
     /**
@@ -227,7 +217,7 @@ export class DeviceManagement extends Entity implements Parsable {
     };
     /**
      * Gets the deviceConfigurationDeviceStateSummaries property value. The device configuration device state summary for this account.
-     * @returns a deviceConfigurationDeviceStateSummary
+     * @returns a admin
      */
     public get deviceConfigurationDeviceStateSummaries() {
         return this._deviceConfigurationDeviceStateSummaries;
@@ -236,7 +226,7 @@ export class DeviceManagement extends Entity implements Parsable {
      * Sets the deviceConfigurationDeviceStateSummaries property value. The device configuration device state summary for this account.
      * @param value Value to set for the deviceConfigurationDeviceStateSummaries property.
      */
-    public set deviceConfigurationDeviceStateSummaries(value: DeviceConfigurationDeviceStateSummary | undefined) {
+    public set deviceConfigurationDeviceStateSummaries(value: DeviceConfigurationDeviceStateSummary | AdminMember1 | undefined) {
         this._deviceConfigurationDeviceStateSummaries = value;
     };
     /**
@@ -368,7 +358,7 @@ export class DeviceManagement extends Entity implements Parsable {
     };
     /**
      * Gets the intuneBrand property value. intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.
-     * @returns a intuneBrand
+     * @returns a admin
      */
     public get intuneBrand() {
         return this._intuneBrand;
@@ -377,7 +367,7 @@ export class DeviceManagement extends Entity implements Parsable {
      * Sets the intuneBrand property value. intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.
      * @param value Value to set for the intuneBrand property.
      */
-    public set intuneBrand(value: IntuneBrand | undefined) {
+    public set intuneBrand(value: IntuneBrand | AdminMember1 | undefined) {
         this._intuneBrand = value;
     };
     /**
@@ -396,7 +386,7 @@ export class DeviceManagement extends Entity implements Parsable {
     };
     /**
      * Gets the managedDeviceOverview property value. Device overview
-     * @returns a managedDeviceOverview
+     * @returns a admin
      */
     public get managedDeviceOverview() {
         return this._managedDeviceOverview;
@@ -405,7 +395,7 @@ export class DeviceManagement extends Entity implements Parsable {
      * Sets the managedDeviceOverview property value. Device overview
      * @param value Value to set for the managedDeviceOverview property.
      */
-    public set managedDeviceOverview(value: ManagedDeviceOverview | undefined) {
+    public set managedDeviceOverview(value: ManagedDeviceOverview | AdminMember1 | undefined) {
         this._managedDeviceOverview = value;
     };
     /**
@@ -466,7 +456,7 @@ export class DeviceManagement extends Entity implements Parsable {
     };
     /**
      * Gets the reports property value. Reports singleton
-     * @returns a deviceManagementReports
+     * @returns a admin
      */
     public get reports() {
         return this._reports;
@@ -475,7 +465,7 @@ export class DeviceManagement extends Entity implements Parsable {
      * Sets the reports property value. Reports singleton
      * @param value Value to set for the reports property.
      */
-    public set reports(value: DeviceManagementReports | undefined) {
+    public set reports(value: DeviceManagementReports | AdminMember1 | undefined) {
         this._reports = value;
     };
     /**
@@ -565,7 +555,7 @@ export class DeviceManagement extends Entity implements Parsable {
     };
     /**
      * Gets the settings property value. Account level settings.
-     * @returns a deviceManagementSettings
+     * @returns a admin
      */
     public get settings() {
         return this._settings;
@@ -574,12 +564,12 @@ export class DeviceManagement extends Entity implements Parsable {
      * Sets the settings property value. Account level settings.
      * @param value Value to set for the settings property.
      */
-    public set settings(value: DeviceManagementSettings | undefined) {
+    public set settings(value: DeviceManagementSettings | AdminMember1 | undefined) {
         this._settings = value;
     };
     /**
      * Gets the softwareUpdateStatusSummary property value. The software update status summary.
-     * @returns a softwareUpdateStatusSummary
+     * @returns a admin
      */
     public get softwareUpdateStatusSummary() {
         return this._softwareUpdateStatusSummary;
@@ -588,18 +578,18 @@ export class DeviceManagement extends Entity implements Parsable {
      * Sets the softwareUpdateStatusSummary property value. The software update status summary.
      * @param value Value to set for the softwareUpdateStatusSummary property.
      */
-    public set softwareUpdateStatusSummary(value: SoftwareUpdateStatusSummary | undefined) {
+    public set softwareUpdateStatusSummary(value: SoftwareUpdateStatusSummary | AdminMember1 | undefined) {
         this._softwareUpdateStatusSummary = value;
     };
     /**
-     * Gets the subscriptionState property value. Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut.
+     * Gets the subscriptionState property value. Tenant mobile device management subscription state.
      * @returns a deviceManagementSubscriptionState
      */
     public get subscriptionState() {
         return this._subscriptionState;
     };
     /**
-     * Sets the subscriptionState property value. Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut.
+     * Sets the subscriptionState property value. Tenant mobile device management subscription state.
      * @param value Value to set for the subscriptionState property.
      */
     public set subscriptionState(value: DeviceManagementSubscriptionState | undefined) {

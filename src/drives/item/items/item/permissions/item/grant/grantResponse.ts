@@ -1,5 +1,5 @@
 import {Permission} from '../../../../../../../models/';
-import {createPermissionFromDiscriminatorValue} from '../../../../../../../models/createPermissionFromDiscriminatorValue';
+import {GrantMember1} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the grant method. */
@@ -7,7 +7,7 @@ export class GrantResponse implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The value property */
-    private _value?: Permission[] | undefined;
+    private _value?: Permission | GrantMember1[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,7 +34,7 @@ export class GrantResponse implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": n => { this.value = n.getCollectionOfObjectValues<Permission>(createPermissionFromDiscriminatorValue); },
+            "value": n => { this.value = n.getObjectValue<Permission>(createPermissionFromDiscriminatorValue); },
         };
     };
     /**
@@ -43,12 +43,12 @@ export class GrantResponse implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<Permission>("value", this.value);
+        writer.writeObjectValue<Permission>("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the value property value. The value property
-     * @returns a permission
+     * @returns a grant
      */
     public get value() {
         return this._value;
@@ -57,7 +57,7 @@ export class GrantResponse implements AdditionalDataHolder, Parsable {
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public set value(value: Permission[] | undefined) {
+    public set value(value: Permission | GrantMember1[] | undefined) {
         this._value = value;
     };
 }

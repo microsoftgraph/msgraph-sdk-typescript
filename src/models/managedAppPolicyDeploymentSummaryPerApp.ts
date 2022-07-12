@@ -1,5 +1,4 @@
-import {createMobileAppIdentifierFromDiscriminatorValue} from './createMobileAppIdentifierFromDiscriminatorValue';
-import {MobileAppIdentifier} from './index';
+import {AdminMember1, MobileAppIdentifier} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Represents policy deployment summary per app. */
@@ -9,7 +8,7 @@ export class ManagedAppPolicyDeploymentSummaryPerApp implements AdditionalDataHo
     /** Number of users the policy is applied. */
     private _configurationAppliedUserCount?: number | undefined;
     /** Deployment of an app. */
-    private _mobileAppIdentifier?: MobileAppIdentifier | undefined;
+    private _mobileAppIdentifier?: MobileAppIdentifier | AdminMember1 | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -56,7 +55,7 @@ export class ManagedAppPolicyDeploymentSummaryPerApp implements AdditionalDataHo
     };
     /**
      * Gets the mobileAppIdentifier property value. Deployment of an app.
-     * @returns a mobileAppIdentifier
+     * @returns a admin
      */
     public get mobileAppIdentifier() {
         return this._mobileAppIdentifier;
@@ -65,7 +64,7 @@ export class ManagedAppPolicyDeploymentSummaryPerApp implements AdditionalDataHo
      * Sets the mobileAppIdentifier property value. Deployment of an app.
      * @param value Value to set for the mobileAppIdentifier property.
      */
-    public set mobileAppIdentifier(value: MobileAppIdentifier | undefined) {
+    public set mobileAppIdentifier(value: MobileAppIdentifier | AdminMember1 | undefined) {
         this._mobileAppIdentifier = value;
     };
     /**

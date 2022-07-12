@@ -1,19 +1,16 @@
-import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
-import {Entity, Identity, ItemBody} from './index';
+import {AdminMember1, Entity, Identity, ItemBody} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the privacy singleton. */
 export class AuthoredNote extends Entity implements Parsable {
     /** Identity information about the note's author. */
-    private _author?: Identity | undefined;
+    private _author?: Identity | AdminMember1 | undefined;
     /** The content of the note. */
-    private _content?: ItemBody | undefined;
+    private _content?: ItemBody | AdminMember1 | undefined;
     /** The date and time when the entity was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _createdDateTime?: Date | undefined;
     /**
      * Gets the author property value. Identity information about the note's author.
-     * @returns a identity
+     * @returns a admin
      */
     public get author() {
         return this._author;
@@ -22,18 +19,18 @@ export class AuthoredNote extends Entity implements Parsable {
      * Sets the author property value. Identity information about the note's author.
      * @param value Value to set for the author property.
      */
-    public set author(value: Identity | undefined) {
+    public set author(value: Identity | AdminMember1 | undefined) {
         this._author = value;
     };
     /**
-     * Instantiates a new authoredNote and sets the default values.
+     * Instantiates a new AuthoredNote and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
      * Gets the content property value. The content of the note.
-     * @returns a itemBody
+     * @returns a admin
      */
     public get content() {
         return this._content;
@@ -42,7 +39,7 @@ export class AuthoredNote extends Entity implements Parsable {
      * Sets the content property value. The content of the note.
      * @param value Value to set for the content property.
      */
-    public set content(value: ItemBody | undefined) {
+    public set content(value: ItemBody | AdminMember1 | undefined) {
         this._content = value;
     };
     /**

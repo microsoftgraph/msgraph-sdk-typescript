@@ -1,14 +1,11 @@
-import {createWorkbookChartFontFromDiscriminatorValue} from './createWorkbookChartFontFromDiscriminatorValue';
-import {createWorkbookChartLineFormatFromDiscriminatorValue} from './createWorkbookChartLineFormatFromDiscriminatorValue';
-import {Entity, WorkbookChartFont, WorkbookChartLineFormat} from './index';
+import {AdminMember1, Entity, WorkbookChartFont, WorkbookChartLineFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartAxisFormat extends Entity implements Parsable {
     /** Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only. */
-    private _font?: WorkbookChartFont | undefined;
+    private _font?: WorkbookChartFont | AdminMember1 | undefined;
     /** Represents chart line formatting. Read-only. */
-    private _line?: WorkbookChartLineFormat | undefined;
+    private _line?: WorkbookChartLineFormat | AdminMember1 | undefined;
     /**
      * Instantiates a new workbookChartAxisFormat and sets the default values.
      */
@@ -17,7 +14,7 @@ export class WorkbookChartAxisFormat extends Entity implements Parsable {
     };
     /**
      * Gets the font property value. Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.
-     * @returns a workbookChartFont
+     * @returns a admin
      */
     public get font() {
         return this._font;
@@ -26,7 +23,7 @@ export class WorkbookChartAxisFormat extends Entity implements Parsable {
      * Sets the font property value. Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.
      * @param value Value to set for the font property.
      */
-    public set font(value: WorkbookChartFont | undefined) {
+    public set font(value: WorkbookChartFont | AdminMember1 | undefined) {
         this._font = value;
     };
     /**
@@ -41,7 +38,7 @@ export class WorkbookChartAxisFormat extends Entity implements Parsable {
     };
     /**
      * Gets the line property value. Represents chart line formatting. Read-only.
-     * @returns a workbookChartLineFormat
+     * @returns a admin
      */
     public get line() {
         return this._line;
@@ -50,7 +47,7 @@ export class WorkbookChartAxisFormat extends Entity implements Parsable {
      * Sets the line property value. Represents chart line formatting. Read-only.
      * @param value Value to set for the line property.
      */
-    public set line(value: WorkbookChartLineFormat | undefined) {
+    public set line(value: WorkbookChartLineFormat | AdminMember1 | undefined) {
         this._line = value;
     };
     /**
