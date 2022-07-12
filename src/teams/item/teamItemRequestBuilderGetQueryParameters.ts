@@ -1,5 +1,5 @@
 
-/** Retrieve the properties and relationships of the specified [team](../resources/team.md). */
+/** Retrieve the properties and relationships of the specified team. */
 export class TeamItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

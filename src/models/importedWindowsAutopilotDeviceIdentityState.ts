@@ -8,7 +8,7 @@ export class ImportedWindowsAutopilotDeviceIdentityState implements AdditionalDa
     private _deviceErrorCode?: number | undefined;
     /** Device error name reported by Device Directory Service(DDS). */
     private _deviceErrorName?: string | undefined;
-    /** Device status reported by Device Directory Service(DDS). Possible values are: unknown, pending, partial, complete, error. */
+    /** The deviceImportStatus property */
     private _deviceImportStatus?: ImportedWindowsAutopilotDeviceIdentityImportStatus | undefined;
     /** Device Registration ID for successfully added device reported by Device Directory Service(DDS). */
     private _deviceRegistrationId?: string | undefined;
@@ -61,14 +61,14 @@ export class ImportedWindowsAutopilotDeviceIdentityState implements AdditionalDa
         this._deviceErrorName = value;
     };
     /**
-     * Gets the deviceImportStatus property value. Device status reported by Device Directory Service(DDS). Possible values are: unknown, pending, partial, complete, error.
+     * Gets the deviceImportStatus property value. The deviceImportStatus property
      * @returns a importedWindowsAutopilotDeviceIdentityImportStatus
      */
     public get deviceImportStatus() {
         return this._deviceImportStatus;
     };
     /**
-     * Sets the deviceImportStatus property value. Device status reported by Device Directory Service(DDS). Possible values are: unknown, pending, partial, complete, error.
+     * Sets the deviceImportStatus property value. The deviceImportStatus property
      * @param value Value to set for the deviceImportStatus property.
      */
     public set deviceImportStatus(value: ImportedWindowsAutopilotDeviceIdentityImportStatus | undefined) {

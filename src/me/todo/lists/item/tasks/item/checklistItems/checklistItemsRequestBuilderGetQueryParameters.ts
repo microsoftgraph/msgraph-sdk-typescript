@@ -1,5 +1,5 @@
 
-/** Get checklistItems from me */
+/** A collection of smaller subtasks linked to the more complex parent task. */
 export class ChecklistItemsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -21,7 +21,7 @@ export class Report implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Instantiates a new Report and sets the default values.
+     * Instantiates a new report and sets the default values.
      */
     public constructor() {
         this._additionalData = {};

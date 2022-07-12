@@ -2,7 +2,6 @@ import {createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue} from './
 import {ManagedAppProtection, TargetedManagedAppPolicyAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy used to configure detailed management settings targeted to specific security groups */
 export class TargetedManagedAppProtection extends ManagedAppProtection implements Parsable {
     /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */
     private _assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
@@ -23,10 +22,11 @@ export class TargetedManagedAppProtection extends ManagedAppProtection implement
         this._assignments = value;
     };
     /**
-     * Instantiates a new targetedManagedAppProtection and sets the default values.
+     * Instantiates a new TargetedManagedAppProtection and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.targetedManagedAppProtection";
     };
     /**
      * The deserialization information for the current model

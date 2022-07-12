@@ -5,7 +5,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class DeviceActionResult implements AdditionalDataHolder, Parsable {
     /** Action name */
     private _actionName?: string | undefined;
-    /** State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported. */
+    /** State of the action on the device */
     private _actionState?: ActionState | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
@@ -13,6 +13,8 @@ export class DeviceActionResult implements AdditionalDataHolder, Parsable {
     private _lastUpdatedDateTime?: Date | undefined;
     /** Time the action was initiated */
     private _startDateTime?: Date | undefined;
+    /** The type property */
+    private _type?: string | undefined;
     /**
      * Gets the actionName property value. Action name
      * @returns a string
@@ -28,14 +30,14 @@ export class DeviceActionResult implements AdditionalDataHolder, Parsable {
         this._actionName = value;
     };
     /**
-     * Gets the actionState property value. State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     * Gets the actionState property value. State of the action on the device
      * @returns a actionState
      */
     public get actionState() {
         return this._actionState;
     };
     /**
-     * Sets the actionState property value. State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     * Sets the actionState property value. State of the action on the device
      * @param value Value to set for the actionState property.
      */
     public set actionState(value: ActionState | undefined) {
@@ -60,6 +62,7 @@ export class DeviceActionResult implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.type = "#microsoft.graph.deviceActionResult";
     };
     /**
      * The deserialization information for the current model
@@ -71,6 +74,7 @@ export class DeviceActionResult implements AdditionalDataHolder, Parsable {
             "actionState": n => { this.actionState = n.getEnumValue<ActionState>(ActionState); },
             "lastUpdatedDateTime": n => { this.lastUpdatedDateTime = n.getDateValue(); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
@@ -88,6 +92,20 @@ export class DeviceActionResult implements AdditionalDataHolder, Parsable {
         this._lastUpdatedDateTime = value;
     };
     /**
+     * Gets the @odata.type property value. The type property
+     * @returns a string
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Sets the @odata.type property value. The type property
+     * @param value Value to set for the type property.
+     */
+    public set type(value: string | undefined) {
+        this._type = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -97,6 +115,7 @@ export class DeviceActionResult implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue<ActionState>("actionState", this.actionState);
         writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         writer.writeDateValue("startDateTime", this.startDateTime);
+        writer.writeStringValue("@odata.type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

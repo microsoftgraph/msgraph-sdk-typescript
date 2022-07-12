@@ -1,4 +1,3 @@
-import {ColumnTypes} from './columnTypes';
 import {createBooleanColumnFromDiscriminatorValue} from './createBooleanColumnFromDiscriminatorValue';
 import {createCalculatedColumnFromDiscriminatorValue} from './createCalculatedColumnFromDiscriminatorValue';
 import {createChoiceColumnFromDiscriminatorValue} from './createChoiceColumnFromDiscriminatorValue';
@@ -20,7 +19,7 @@ import {createThumbnailColumnFromDiscriminatorValue} from './createThumbnailColu
 import {BooleanColumn, CalculatedColumn, ChoiceColumn, ColumnValidation, ContentApprovalStatusColumn, ContentTypeInfo, CurrencyColumn, DateTimeColumn, DefaultColumnValue, Entity, GeolocationColumn, HyperlinkOrPictureColumn, LookupColumn, NumberColumn, PersonOrGroupColumn, TermColumn, TextColumn, ThumbnailColumn} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class ColumnDefinition extends Entity implements Parsable {
     /** This column stores boolean values. */
     private _boolean?: BooleanColumn | undefined;
@@ -82,8 +81,6 @@ export class ColumnDefinition extends Entity implements Parsable {
     private _text?: TextColumn | undefined;
     /** This column stores thumbnail values. */
     private _thumbnail?: ThumbnailColumn | undefined;
-    /** For site columns, the type of column. Read-only. */
-    private _type?: ColumnTypes | undefined;
     /** This column stores validation formula and message for the column. */
     private _validation?: ColumnValidation | undefined;
     /**
@@ -296,7 +293,6 @@ export class ColumnDefinition extends Entity implements Parsable {
             "term": n => { this.term = n.getObjectValue<TermColumn>(createTermColumnFromDiscriminatorValue); },
             "text": n => { this.text = n.getObjectValue<TextColumn>(createTextColumnFromDiscriminatorValue); },
             "thumbnail": n => { this.thumbnail = n.getObjectValue<ThumbnailColumn>(createThumbnailColumnFromDiscriminatorValue); },
-            "type": n => { this.type = n.getEnumValue<ColumnTypes>(ColumnTypes); },
             "validation": n => { this.validation = n.getObjectValue<ColumnValidation>(createColumnValidationFromDiscriminatorValue); },
         };
     };
@@ -519,7 +515,6 @@ export class ColumnDefinition extends Entity implements Parsable {
         writer.writeObjectValue<TermColumn>("term", this.term);
         writer.writeObjectValue<TextColumn>("text", this.text);
         writer.writeObjectValue<ThumbnailColumn>("thumbnail", this.thumbnail);
-        writer.writeEnumValue<ColumnTypes>("type", this.type);
         writer.writeObjectValue<ColumnValidation>("validation", this.validation);
     };
     /**
@@ -591,20 +586,6 @@ export class ColumnDefinition extends Entity implements Parsable {
      */
     public set thumbnail(value: ThumbnailColumn | undefined) {
         this._thumbnail = value;
-    };
-    /**
-     * Gets the type property value. For site columns, the type of column. Read-only.
-     * @returns a columnTypes
-     */
-    public get type() {
-        return this._type;
-    };
-    /**
-     * Sets the type property value. For site columns, the type of column. Read-only.
-     * @param value Value to set for the type property.
-     */
-    public set type(value: ColumnTypes | undefined) {
-        this._type = value;
     };
     /**
      * Gets the validation property value. This column stores validation formula and message for the column.

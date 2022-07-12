@@ -3,7 +3,6 @@ import {createAgreementFromDiscriminatorValue} from './createAgreementFromDiscri
 import {Agreement, AgreementAcceptance, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class TermsOfUseContainer extends Entity implements Parsable {
     /** Represents the current status of a user's response to a company's customizable terms of use agreement. */
     private _agreementAcceptances?: AgreementAcceptance[] | undefined;
@@ -38,7 +37,7 @@ export class TermsOfUseContainer extends Entity implements Parsable {
         this._agreements = value;
     };
     /**
-     * Instantiates a new termsOfUseContainer and sets the default values.
+     * Instantiates a new TermsOfUseContainer and sets the default values.
      */
     public constructor() {
         super();

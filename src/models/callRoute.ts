@@ -10,7 +10,7 @@ export class CallRoute implements AdditionalDataHolder, Parsable {
     private _final?: IdentitySet | undefined;
     /** The original property */
     private _original?: IdentitySet | undefined;
-    /** Possible values are: forwarded, lookup, selfFork. */
+    /** The routingType property */
     private _routingType?: RoutingType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -72,14 +72,14 @@ export class CallRoute implements AdditionalDataHolder, Parsable {
         this._original = value;
     };
     /**
-     * Gets the routingType property value. Possible values are: forwarded, lookup, selfFork.
+     * Gets the routingType property value. The routingType property
      * @returns a routingType
      */
     public get routingType() {
         return this._routingType;
     };
     /**
-     * Sets the routingType property value. Possible values are: forwarded, lookup, selfFork.
+     * Sets the routingType property value. The routingType property
      * @param value Value to set for the routingType property.
      */
     public set routingType(value: RoutingType | undefined) {

@@ -8,7 +8,7 @@ export class AuthenticationMethodsRegistrationCampaignIncludeTarget implements A
     private _id?: string | undefined;
     /** The authentication method that the user is prompted to register. The value must be microsoftAuthenticator. */
     private _targetedAuthenticationMethod?: string | undefined;
-    /** The type of the authentication method target. Possible values are: user, group, unknownFutureValue. */
+    /** The targetType property */
     private _targetType?: AuthenticationMethodTargetType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -81,14 +81,14 @@ export class AuthenticationMethodsRegistrationCampaignIncludeTarget implements A
         this._targetedAuthenticationMethod = value;
     };
     /**
-     * Gets the targetType property value. The type of the authentication method target. Possible values are: user, group, unknownFutureValue.
+     * Gets the targetType property value. The targetType property
      * @returns a authenticationMethodTargetType
      */
     public get targetType() {
         return this._targetType;
     };
     /**
-     * Sets the targetType property value. The type of the authentication method target. Possible values are: user, group, unknownFutureValue.
+     * Sets the targetType property value. The targetType property
      * @param value Value to set for the targetType property.
      */
     public set targetType(value: AuthenticationMethodTargetType | undefined) {

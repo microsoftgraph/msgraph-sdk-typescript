@@ -5,7 +5,6 @@ import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityProtectionRoot singleton. */
 export class RiskyUser extends Entity implements Parsable {
     /** The activity related to user risk level change */
     private _history?: RiskyUserHistoryItem[] | undefined;
@@ -26,10 +25,11 @@ export class RiskyUser extends Entity implements Parsable {
     /** Risky user principal name. */
     private _userPrincipalName?: string | undefined;
     /**
-     * Instantiates a new riskyUser and sets the default values.
+     * Instantiates a new RiskyUser and sets the default values.
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.riskyUser";
     };
     /**
      * The deserialization information for the current model

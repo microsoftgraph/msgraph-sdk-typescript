@@ -4,7 +4,7 @@ import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFrom
 import {AccessReviewInstanceDecisionItemResource, Entity, Identity, UserIdentity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the admin singleton. */
 export class AccessReviewInstanceDecisionItem extends Entity implements Parsable {
     /** The identifier of the accessReviewInstance parent. Supports $select. Read-only. */
     private _accessReviewId?: string | undefined;

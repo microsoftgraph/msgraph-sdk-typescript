@@ -4,7 +4,7 @@ import {IdentityUserFlowAttributeInputType} from './identityUserFlowAttributeInp
 import {Entity, IdentityUserFlowAttribute, UserAttributeValuesItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the admin singleton. */
 export class IdentityUserFlowAttributeAssignment extends Entity implements Parsable {
     /** The display name of the identityUserFlowAttribute within a user flow. */
     private _displayName?: string | undefined;
@@ -16,7 +16,7 @@ export class IdentityUserFlowAttributeAssignment extends Entity implements Parsa
     private _userAttribute?: IdentityUserFlowAttribute | undefined;
     /** The input options for the user flow attribute. Only applicable when the userInputType is radioSingleSelect, dropdownSingleSelect, or checkboxMultiSelect. */
     private _userAttributeValues?: UserAttributeValuesItem[] | undefined;
-    /** The input type of the user flow attribute. Possible values are: textBox, dateTimeDropdown, radioSingleSelect, dropdownSingleSelect, emailBox, checkboxMultiSelect. */
+    /** The userInputType property */
     private _userInputType?: IdentityUserFlowAttributeInputType | undefined;
     /**
      * Instantiates a new identityUserFlowAttributeAssignment and sets the default values.
@@ -123,14 +123,14 @@ export class IdentityUserFlowAttributeAssignment extends Entity implements Parsa
         this._userAttributeValues = value;
     };
     /**
-     * Gets the userInputType property value. The input type of the user flow attribute. Possible values are: textBox, dateTimeDropdown, radioSingleSelect, dropdownSingleSelect, emailBox, checkboxMultiSelect.
+     * Gets the userInputType property value. The userInputType property
      * @returns a identityUserFlowAttributeInputType
      */
     public get userInputType() {
         return this._userInputType;
     };
     /**
-     * Sets the userInputType property value. The input type of the user flow attribute. Possible values are: textBox, dateTimeDropdown, radioSingleSelect, dropdownSingleSelect, emailBox, checkboxMultiSelect.
+     * Sets the userInputType property value. The userInputType property
      * @param value Value to set for the userInputType property.
      */
     public set userInputType(value: IdentityUserFlowAttributeInputType | undefined) {

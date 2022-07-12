@@ -1,1 +1,2 @@
 export * from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponse'
+export * from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalMember1'

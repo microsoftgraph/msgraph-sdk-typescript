@@ -50,6 +50,7 @@ export class DeviceConfiguration extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.type = "#microsoft.graph.deviceConfiguration";
     };
     /**
      * Gets the createdDateTime property value. DateTime the object was created.

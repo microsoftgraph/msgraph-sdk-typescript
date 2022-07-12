@@ -2,7 +2,6 @@ import {createOnenoteOperationErrorFromDiscriminatorValue} from './createOnenote
 import {OnenoteOperationError, Operation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class OnenoteOperation extends Operation implements Parsable {
     /** The error returned by the operation. */
     private _error_escaped?: OnenoteOperationError | undefined;
@@ -13,7 +12,7 @@ export class OnenoteOperation extends Operation implements Parsable {
     /** The resource URI for the object. For example, the resource URI for a copied page or section. */
     private _resourceLocation?: string | undefined;
     /**
-     * Instantiates a new onenoteOperation and sets the default values.
+     * Instantiates a new OnenoteOperation and sets the default values.
      */
     public constructor() {
         super();

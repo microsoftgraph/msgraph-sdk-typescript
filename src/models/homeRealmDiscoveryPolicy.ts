@@ -1,10 +1,9 @@
 import {StsPolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class HomeRealmDiscoveryPolicy extends StsPolicy implements Parsable {
     /**
-     * Instantiates a new homeRealmDiscoveryPolicy and sets the default values.
+     * Instantiates a new HomeRealmDiscoveryPolicy and sets the default values.
      */
     public constructor() {
         super();

@@ -62,7 +62,7 @@ export class TransitiveMembersRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get transitiveMembers from groups
+     * The direct and transitive members of a group. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -71,6 +71,7 @@ export class TransitiveMembersRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -79,7 +80,7 @@ export class TransitiveMembersRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get transitiveMembers from groups
+     * The direct and transitive members of a group. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryObjectCollectionResponse

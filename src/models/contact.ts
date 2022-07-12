@@ -7,7 +7,6 @@ import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './c
 import {EmailAddress, Extension, MultiValueLegacyExtendedProperty, OutlookItem, PhysicalAddress, ProfilePhoto, SingleValueLegacyExtendedProperty} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Contact extends OutlookItem implements Parsable {
     /** The name of the contact's assistant. */
     private _assistantName?: string | undefined;
@@ -182,7 +181,7 @@ export class Contact extends OutlookItem implements Parsable {
         this._companyName = value;
     };
     /**
-     * Instantiates a new contact and sets the default values.
+     * Instantiates a new Contact and sets the default values.
      */
     public constructor() {
         super();

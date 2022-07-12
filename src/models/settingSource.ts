@@ -8,7 +8,7 @@ export class SettingSource implements AdditionalDataHolder, Parsable {
     private _displayName?: string | undefined;
     /** Not yet documented */
     private _id?: string | undefined;
-    /** Not yet documented. Possible values are: deviceConfiguration, deviceIntent. */
+    /** The sourceType property */
     private _sourceType?: SettingSourceType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -81,14 +81,14 @@ export class SettingSource implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the sourceType property value. Not yet documented. Possible values are: deviceConfiguration, deviceIntent.
+     * Gets the sourceType property value. The sourceType property
      * @returns a settingSourceType
      */
     public get sourceType() {
         return this._sourceType;
     };
     /**
-     * Sets the sourceType property value. Not yet documented. Possible values are: deviceConfiguration, deviceIntent.
+     * Sets the sourceType property value. The sourceType property
      * @param value Value to set for the sourceType property.
      */
     public set sourceType(value: SettingSourceType | undefined) {

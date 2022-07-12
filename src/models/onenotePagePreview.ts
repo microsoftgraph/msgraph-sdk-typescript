@@ -24,7 +24,7 @@ export class OnenotePagePreview implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Instantiates a new OnenotePagePreview and sets the default values.
+     * Instantiates a new onenotePagePreview and sets the default values.
      */
     public constructor() {
         this._additionalData = {};

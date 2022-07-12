@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartFill extends Entity implements Parsable {
     /**
      * Instantiates a new workbookChartFill and sets the default values.

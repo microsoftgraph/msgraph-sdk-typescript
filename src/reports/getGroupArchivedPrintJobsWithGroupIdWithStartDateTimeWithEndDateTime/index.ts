@@ -1,1 +1,2 @@
 export * from './getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponse'
+export * from './getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeMember1'

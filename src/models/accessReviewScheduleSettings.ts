@@ -10,6 +10,8 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
     private _applyActions?: AccessReviewApplyAction[] | undefined;
     /** Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false. */
     private _autoApplyDecisionsEnabled?: boolean | undefined;
+    /** Indicates whether decisions on previous access review stages are available for reviewers on an accessReviewInstance with multiple subsequent stages. If not provided, the default is disabled (false). */
+    private _decisionHistoriesForReviewersEnabled?: boolean | undefined;
     /** Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation. */
     private _defaultDecision?: string | undefined;
     /** Indicates whether the default decision is enabled or disabled when reviewers do not respond. Default value is false. */
@@ -75,6 +77,20 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
         this._additionalData = {};
     };
     /**
+     * Gets the decisionHistoriesForReviewersEnabled property value. Indicates whether decisions on previous access review stages are available for reviewers on an accessReviewInstance with multiple subsequent stages. If not provided, the default is disabled (false).
+     * @returns a boolean
+     */
+    public get decisionHistoriesForReviewersEnabled() {
+        return this._decisionHistoriesForReviewersEnabled;
+    };
+    /**
+     * Sets the decisionHistoriesForReviewersEnabled property value. Indicates whether decisions on previous access review stages are available for reviewers on an accessReviewInstance with multiple subsequent stages. If not provided, the default is disabled (false).
+     * @param value Value to set for the decisionHistoriesForReviewersEnabled property.
+     */
+    public set decisionHistoriesForReviewersEnabled(value: boolean | undefined) {
+        this._decisionHistoriesForReviewersEnabled = value;
+    };
+    /**
      * Gets the defaultDecision property value. Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.
      * @returns a string
      */
@@ -110,6 +126,7 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
         return {
             "applyActions": n => { this.applyActions = n.getCollectionOfObjectValues<AccessReviewApplyAction>(createAccessReviewApplyActionFromDiscriminatorValue); },
             "autoApplyDecisionsEnabled": n => { this.autoApplyDecisionsEnabled = n.getBooleanValue(); },
+            "decisionHistoriesForReviewersEnabled": n => { this.decisionHistoriesForReviewersEnabled = n.getBooleanValue(); },
             "defaultDecision": n => { this.defaultDecision = n.getStringValue(); },
             "defaultDecisionEnabled": n => { this.defaultDecisionEnabled = n.getBooleanValue(); },
             "instanceDurationInDays": n => { this.instanceDurationInDays = n.getNumberValue(); },
@@ -212,6 +229,7 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfObjectValues<AccessReviewApplyAction>("applyActions", this.applyActions);
         writer.writeBooleanValue("autoApplyDecisionsEnabled", this.autoApplyDecisionsEnabled);
+        writer.writeBooleanValue("decisionHistoriesForReviewersEnabled", this.decisionHistoriesForReviewersEnabled);
         writer.writeStringValue("defaultDecision", this.defaultDecision);
         writer.writeBooleanValue("defaultDecisionEnabled", this.defaultDecisionEnabled);
         writer.writeNumberValue("instanceDurationInDays", this.instanceDurationInDays);

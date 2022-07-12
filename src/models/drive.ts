@@ -7,7 +7,6 @@ import {createSystemFacetFromDiscriminatorValue} from './createSystemFacetFromDi
 import {BaseItem, DriveItem, IdentitySet, List, Quota, SharepointIds, SystemFacet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Drive extends BaseItem implements Parsable {
     /** Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive. */
     private _bundles?: DriveItem[] | undefined;
@@ -46,7 +45,7 @@ export class Drive extends BaseItem implements Parsable {
         this._bundles = value;
     };
     /**
-     * Instantiates a new drive and sets the default values.
+     * Instantiates a new Drive and sets the default values.
      */
     public constructor() {
         super();

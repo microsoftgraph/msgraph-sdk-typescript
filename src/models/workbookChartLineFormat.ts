@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartLineFormat extends Entity implements Parsable {
     /** HTML color code representing the color of lines in the chart. */
     private _color?: string | undefined;

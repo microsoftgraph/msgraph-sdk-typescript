@@ -1,4 +1,4 @@
-import {Message} from './index';
+import {CalendarSharingMessage, EventMessage, Message} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createMessageFromDiscriminatorValue(parseNode: ParseNode | undefined) : Message {
@@ -8,8 +8,10 @@ export function createMessageFromDiscriminatorValue(parseNode: ParseNode | undef
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.message":
-                    return new Message();
+                case "#microsoft.graph.calendarSharingMessage":
+                    return new CalendarSharingMessage();
+                case "#microsoft.graph.eventMessage":
+                    return new EventMessage();
             }
         }
     }

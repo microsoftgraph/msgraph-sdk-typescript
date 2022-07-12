@@ -11,9 +11,9 @@ export class DeviceManagementPartner extends Entity implements Parsable {
     private _isConfigured?: boolean | undefined;
     /** Timestamp of last heartbeat after admin enabled option Connect to Device management Partner */
     private _lastHeartbeatDateTime?: Date | undefined;
-    /** Partner App type. Possible values are: unknown, singleTenantApp, multiTenantApp. */
+    /** Partner App Type. */
     private _partnerAppType?: DeviceManagementPartnerAppType | undefined;
-    /** Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive. */
+    /** Partner state of this tenant. */
     private _partnerState?: DeviceManagementPartnerTenantState | undefined;
     /** Partner Single tenant App id */
     private _singleTenantAppId?: string | undefined;
@@ -86,28 +86,28 @@ export class DeviceManagementPartner extends Entity implements Parsable {
         this._lastHeartbeatDateTime = value;
     };
     /**
-     * Gets the partnerAppType property value. Partner App type. Possible values are: unknown, singleTenantApp, multiTenantApp.
+     * Gets the partnerAppType property value. Partner App Type.
      * @returns a deviceManagementPartnerAppType
      */
     public get partnerAppType() {
         return this._partnerAppType;
     };
     /**
-     * Sets the partnerAppType property value. Partner App type. Possible values are: unknown, singleTenantApp, multiTenantApp.
+     * Sets the partnerAppType property value. Partner App Type.
      * @param value Value to set for the partnerAppType property.
      */
     public set partnerAppType(value: DeviceManagementPartnerAppType | undefined) {
         this._partnerAppType = value;
     };
     /**
-     * Gets the partnerState property value. Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive.
+     * Gets the partnerState property value. Partner state of this tenant.
      * @returns a deviceManagementPartnerTenantState
      */
     public get partnerState() {
         return this._partnerState;
     };
     /**
-     * Sets the partnerState property value. Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive.
+     * Sets the partnerState property value. Partner state of this tenant.
      * @param value Value to set for the partnerState property.
      */
     public set partnerState(value: DeviceManagementPartnerTenantState | undefined) {

@@ -2,12 +2,11 @@ import {createWorkforceIntegrationFromDiscriminatorValue} from './createWorkforc
 import {Entity, WorkforceIntegration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the teamwork singleton. */
 export class Teamwork extends Entity implements Parsable {
     /** A workforce integration with shifts. */
     private _workforceIntegrations?: WorkforceIntegration[] | undefined;
     /**
-     * Instantiates a new teamwork and sets the default values.
+     * Instantiates a new Teamwork and sets the default values.
      */
     public constructor() {
         super();

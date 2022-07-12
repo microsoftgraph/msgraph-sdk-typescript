@@ -3,7 +3,6 @@ import {EducationAddToCalendarOptions} from './educationAddToCalendarOptions';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
 export class EducationAssignmentDefaults extends Entity implements Parsable {
     /** Class-level default behavior for handling students who are added after the assignment is published. Possible values are: none, assignIfOpen. */
     private _addedStudentAction?: EducationAddedStudentAction | undefined;
@@ -42,7 +41,7 @@ export class EducationAssignmentDefaults extends Entity implements Parsable {
         this._addToCalendarAction = value;
     };
     /**
-     * Instantiates a new educationAssignmentDefaults and sets the default values.
+     * Instantiates a new EducationAssignmentDefaults and sets the default values.
      */
     public constructor() {
         super();

@@ -1,4 +1,4 @@
-/** Provides operations to manage the security singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum ConnectionDirection {
     Unknown = "unknown",
     Inbound = "inbound",

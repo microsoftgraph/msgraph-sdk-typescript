@@ -3,7 +3,7 @@ import {createWorkbookFilterFromDiscriminatorValue} from './createWorkbookFilter
 import {Entity, Json, WorkbookFilter} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookTableColumn extends Entity implements Parsable {
     /** Retrieve the filter applied to the column. Read-only. */
     private _filter?: WorkbookFilter | undefined;

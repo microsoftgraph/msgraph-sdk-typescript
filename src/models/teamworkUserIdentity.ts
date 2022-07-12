@@ -2,12 +2,11 @@ import {Identity} from './index';
 import {TeamworkUserIdentityType} from './teamworkUserIdentityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
 export class TeamworkUserIdentity extends Identity implements Parsable {
     /** Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser. */
     private _userIdentityType?: TeamworkUserIdentityType | undefined;
     /**
-     * Instantiates a new teamworkUserIdentity and sets the default values.
+     * Instantiates a new TeamworkUserIdentity and sets the default values.
      */
     public constructor() {
         super();

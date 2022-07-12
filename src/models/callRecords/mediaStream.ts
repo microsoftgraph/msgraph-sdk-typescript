@@ -1,9 +1,13 @@
+import {AudioCodec} from './audioCodec';
 import {MediaStreamDirection} from './mediaStreamDirection';
+import {VideoCodec} from './videoCodec';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MediaStream implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** Codec name used to encode audio for transmission on the network. Possible values are: unknown, invalid, cn, pcma, pcmu, amrWide, g722, g7221, g7221c, g729, multiChannelAudio, muchv2, opus, satin, satinFullband, rtAudio8, rtAudio16, silk, silkNarrow, silkWide, siren, xmsRTA, unknownFutureValue. */
+    private _audioCodec?: AudioCodec | undefined;
     /** Average Network Mean Opinion Score degradation for stream. Represents how much the network loss and jitter has impacted the quality of received audio. */
     private _averageAudioDegradation?: number | undefined;
     /** Average jitter for the stream computed as specified in [RFC 3550][], denoted in [ISO 8601][] format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator. */
@@ -48,10 +52,12 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
     private _postForwardErrorCorrectionPacketLossRate?: number | undefined;
     /** UTC time when the stream started. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _startDateTime?: Date | undefined;
-    /** Indicates the direction of the media stream. Possible values are: callerToCallee, calleeToCaller. */
+    /** The streamDirection property */
     private _streamDirection?: MediaStreamDirection | undefined;
     /** Unique identifier for the stream. */
     private _streamId?: string | undefined;
+    /** Codec name used to encode video for transmission on the network. Possible values are: unknown, invalid, av1, h263, h264, h264s, h264uc, h265, rtvc1, rtVideo, xrtvc1, unknownFutureValue. */
+    private _videoCodec?: VideoCodec | undefined;
     /** True if the media stream bypassed the Mediation Server and went straight between client and PSTN Gateway/PBX, false otherwise. */
     private _wasMediaBypassed?: boolean | undefined;
     /**
@@ -67,6 +73,20 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
      */
     public set additionalData(value: Record<string, unknown>) {
         this._additionalData = value;
+    };
+    /**
+     * Gets the audioCodec property value. Codec name used to encode audio for transmission on the network. Possible values are: unknown, invalid, cn, pcma, pcmu, amrWide, g722, g7221, g7221c, g729, multiChannelAudio, muchv2, opus, satin, satinFullband, rtAudio8, rtAudio16, silk, silkNarrow, silkWide, siren, xmsRTA, unknownFutureValue.
+     * @returns a audioCodec
+     */
+    public get audioCodec() {
+        return this._audioCodec;
+    };
+    /**
+     * Sets the audioCodec property value. Codec name used to encode audio for transmission on the network. Possible values are: unknown, invalid, cn, pcma, pcmu, amrWide, g722, g7221, g7221c, g729, multiChannelAudio, muchv2, opus, satin, satinFullband, rtAudio8, rtAudio16, silk, silkNarrow, silkWide, siren, xmsRTA, unknownFutureValue.
+     * @param value Value to set for the audioCodec property.
+     */
+    public set audioCodec(value: AudioCodec | undefined) {
+        this._audioCodec = value;
     };
     /**
      * Gets the averageAudioDegradation property value. Average Network Mean Opinion Score degradation for stream. Represents how much the network loss and jitter has impacted the quality of received audio.
@@ -248,6 +268,7 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "audioCodec": n => { this.audioCodec = n.getEnumValue<AudioCodec>(AudioCodec); },
             "averageAudioDegradation": n => { this.averageAudioDegradation = n.getNumberValue(); },
             "averageAudioNetworkJitter": n => { this.averageAudioNetworkJitter = n.getDurationValue(); },
             "averageBandwidthEstimate": n => { this.averageBandwidthEstimate = n.getNumberValue(); },
@@ -272,6 +293,7 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
             "streamDirection": n => { this.streamDirection = n.getEnumValue<MediaStreamDirection>(MediaStreamDirection); },
             "streamId": n => { this.streamId = n.getStringValue(); },
+            "videoCodec": n => { this.videoCodec = n.getEnumValue<VideoCodec>(VideoCodec); },
             "wasMediaBypassed": n => { this.wasMediaBypassed = n.getBooleanValue(); },
         };
     };
@@ -407,6 +429,7 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeEnumValue<AudioCodec>("audioCodec", this.audioCodec);
         writer.writeNumberValue("averageAudioDegradation", this.averageAudioDegradation);
         writer.writeDurationValue("averageAudioNetworkJitter", this.averageAudioNetworkJitter);
         writer.writeNumberValue("averageBandwidthEstimate", this.averageBandwidthEstimate);
@@ -431,6 +454,7 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeEnumValue<MediaStreamDirection>("streamDirection", this.streamDirection);
         writer.writeStringValue("streamId", this.streamId);
+        writer.writeEnumValue<VideoCodec>("videoCodec", this.videoCodec);
         writer.writeBooleanValue("wasMediaBypassed", this.wasMediaBypassed);
         writer.writeAdditionalData(this.additionalData);
     };
@@ -449,14 +473,14 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
         this._startDateTime = value;
     };
     /**
-     * Gets the streamDirection property value. Indicates the direction of the media stream. Possible values are: callerToCallee, calleeToCaller.
+     * Gets the streamDirection property value. The streamDirection property
      * @returns a mediaStreamDirection
      */
     public get streamDirection() {
         return this._streamDirection;
     };
     /**
-     * Sets the streamDirection property value. Indicates the direction of the media stream. Possible values are: callerToCallee, calleeToCaller.
+     * Sets the streamDirection property value. The streamDirection property
      * @param value Value to set for the streamDirection property.
      */
     public set streamDirection(value: MediaStreamDirection | undefined) {
@@ -475,6 +499,20 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
      */
     public set streamId(value: string | undefined) {
         this._streamId = value;
+    };
+    /**
+     * Gets the videoCodec property value. Codec name used to encode video for transmission on the network. Possible values are: unknown, invalid, av1, h263, h264, h264s, h264uc, h265, rtvc1, rtVideo, xrtvc1, unknownFutureValue.
+     * @returns a videoCodec
+     */
+    public get videoCodec() {
+        return this._videoCodec;
+    };
+    /**
+     * Sets the videoCodec property value. Codec name used to encode video for transmission on the network. Possible values are: unknown, invalid, av1, h263, h264, h264s, h264uc, h265, rtvc1, rtVideo, xrtvc1, unknownFutureValue.
+     * @param value Value to set for the videoCodec property.
+     */
+    public set videoCodec(value: VideoCodec | undefined) {
+        this._videoCodec = value;
     };
     /**
      * Gets the wasMediaBypassed property value. True if the media stream bypassed the Mediation Server and went straight between client and PSTN Gateway/PBX, false otherwise.

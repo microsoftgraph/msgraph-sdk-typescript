@@ -1,5 +1,5 @@
 
-/** Get transitiveMemberOf from groups */
+/** The groups that a group is a member of, either directly and through nested membership. Nullable. */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

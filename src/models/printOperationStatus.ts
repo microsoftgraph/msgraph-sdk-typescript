@@ -6,7 +6,7 @@ export class PrintOperationStatus implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** A human-readable description of the printOperation's current processing state. Read-only. */
     private _description?: string | undefined;
-    /** The printOperation's current processing state. Valid values are described in the following table. Read-only. */
+    /** The state property */
     private _state?: PrintOperationProcessingState | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -63,14 +63,14 @@ export class PrintOperationStatus implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the state property value. The printOperation's current processing state. Valid values are described in the following table. Read-only.
+     * Gets the state property value. The state property
      * @returns a printOperationProcessingState
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The printOperation's current processing state. Valid values are described in the following table. Read-only.
+     * Sets the state property value. The state property
      * @param value Value to set for the state property.
      */
     public set state(value: PrintOperationProcessingState | undefined) {

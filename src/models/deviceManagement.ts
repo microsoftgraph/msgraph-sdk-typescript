@@ -35,7 +35,6 @@ import {DeviceManagementSubscriptionState} from './deviceManagementSubscriptionS
 import {ApplePushNotificationCertificate, ComplianceManagementPartner, DetectedApp, DeviceAndAppManagementRoleAssignment, DeviceCategory, DeviceCompliancePolicy, DeviceCompliancePolicyDeviceStateSummary, DeviceCompliancePolicySettingStateSummary, DeviceConfiguration, DeviceConfigurationDeviceStateSummary, DeviceEnrollmentConfiguration, DeviceManagementExchangeConnector, DeviceManagementPartner, DeviceManagementReports, DeviceManagementSettings, DeviceManagementTroubleshootingEvent, Entity, ImportedWindowsAutopilotDeviceIdentity, IntuneBrand, IosUpdateDeviceStatus, ManagedDevice, ManagedDeviceOverview, MobileThreatDefenseConnector, NotificationMessageTemplate, OnPremisesConditionalAccessSettings, RemoteAssistancePartner, ResourceOperation, RoleDefinition, SoftwareUpdateStatusSummary, TelecomExpenseManagementPartner, TermsAndConditions, WindowsAutopilotDeviceIdentity, WindowsInformationProtectionAppLearningSummary, WindowsInformationProtectionNetworkLearningSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Singleton entity that acts as a container for all device management functionality. */
 export class DeviceManagement extends Entity implements Parsable {
     /** Apple push notification certificate. */
     private _applePushNotificationCertificate?: ApplePushNotificationCertificate | undefined;
@@ -93,7 +92,7 @@ export class DeviceManagement extends Entity implements Parsable {
     private _settings?: DeviceManagementSettings | undefined;
     /** The software update status summary. */
     private _softwareUpdateStatusSummary?: SoftwareUpdateStatusSummary | undefined;
-    /** Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut. */
+    /** Tenant mobile device management subscription state. */
     private _subscriptionState?: DeviceManagementSubscriptionState | undefined;
     /** The telecom expense management partners. */
     private _telecomExpenseManagementPartners?: TelecomExpenseManagementPartner[] | undefined;
@@ -150,7 +149,7 @@ export class DeviceManagement extends Entity implements Parsable {
         this._conditionalAccessSettings = value;
     };
     /**
-     * Instantiates a new deviceManagement and sets the default values.
+     * Instantiates a new DeviceManagement and sets the default values.
      */
     public constructor() {
         super();
@@ -592,14 +591,14 @@ export class DeviceManagement extends Entity implements Parsable {
         this._softwareUpdateStatusSummary = value;
     };
     /**
-     * Gets the subscriptionState property value. Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut.
+     * Gets the subscriptionState property value. Tenant mobile device management subscription state.
      * @returns a deviceManagementSubscriptionState
      */
     public get subscriptionState() {
         return this._subscriptionState;
     };
     /**
-     * Sets the subscriptionState property value. Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut.
+     * Sets the subscriptionState property value. Tenant mobile device management subscription state.
      * @param value Value to set for the subscriptionState property.
      */
     public set subscriptionState(value: DeviceManagementSubscriptionState | undefined) {

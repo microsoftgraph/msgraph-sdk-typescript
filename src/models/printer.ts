@@ -4,7 +4,6 @@ import {createPrintTaskTriggerFromDiscriminatorValue} from './createPrintTaskTri
 import {PrintConnector, PrinterBase, PrinterShare, PrintTaskTrigger} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
 export class Printer extends PrinterBase implements Parsable {
     /** The connectors that are associated with the printer. */
     private _connectors?: PrintConnector[] | undefined;
@@ -35,7 +34,7 @@ export class Printer extends PrinterBase implements Parsable {
         this._connectors = value;
     };
     /**
-     * Instantiates a new printer and sets the default values.
+     * Instantiates a new Printer and sets the default values.
      */
     public constructor() {
         super();

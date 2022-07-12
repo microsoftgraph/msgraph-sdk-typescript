@@ -2,13 +2,13 @@ import {ComplianceStatus} from './complianceStatus';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the deviceManagement singleton. */
+/** Provides operations to manage the admin singleton. */
 export class DeviceComplianceUserStatus extends Entity implements Parsable {
     /** Devices count for that user. */
     private _devicesCount?: number | undefined;
     /** Last modified date time of the policy report. */
     private _lastReportedDateTime?: Date | undefined;
-    /** Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
+    /** The status property */
     private _status?: ComplianceStatus | undefined;
     /** User name of the DevicePolicyStatus. */
     private _userDisplayName?: string | undefined;
@@ -75,14 +75,14 @@ export class DeviceComplianceUserStatus extends Entity implements Parsable {
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
     };
     /**
-     * Gets the status property value. Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * Gets the status property value. The status property
      * @returns a complianceStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * Sets the status property value. The status property
      * @param value Value to set for the status property.
      */
     public set status(value: ComplianceStatus | undefined) {

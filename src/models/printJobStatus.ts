@@ -10,7 +10,7 @@ export class PrintJobStatus implements AdditionalDataHolder, Parsable {
     private _details?: string[] | undefined;
     /** True if the job was acknowledged by a printer; false otherwise. Read-only. */
     private _isAcquiredByPrinter?: boolean | undefined;
-    /** The print job's current processing state. Valid values are described in the following table. Read-only. */
+    /** The state property */
     private _state?: PrintJobProcessingState | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -99,14 +99,14 @@ export class PrintJobStatus implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the state property value. The print job's current processing state. Valid values are described in the following table. Read-only.
+     * Gets the state property value. The state property
      * @returns a printJobProcessingState
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The print job's current processing state. Valid values are described in the following table. Read-only.
+     * Sets the state property value. The state property
      * @param value Value to set for the state property.
      */
     public set state(value: PrintJobProcessingState | undefined) {

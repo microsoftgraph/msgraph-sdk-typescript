@@ -4,7 +4,6 @@ import {createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue} from './
 import {ManagedAppConfiguration, ManagedAppPolicyDeploymentSummary, ManagedMobileApp, TargetedManagedAppPolicyAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Configuration used to deliver a set of custom settings as-is to all users in the targeted security group */
 export class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements Parsable {
     /** List of apps to which the policy is deployed. */
     private _apps?: ManagedMobileApp[] | undefined;
@@ -45,7 +44,7 @@ export class TargetedManagedAppConfiguration extends ManagedAppConfiguration imp
         this._assignments = value;
     };
     /**
-     * Instantiates a new targetedManagedAppConfiguration and sets the default values.
+     * Instantiates a new TargetedManagedAppConfiguration and sets the default values.
      */
     public constructor() {
         super();

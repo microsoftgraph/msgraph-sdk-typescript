@@ -1,5 +1,5 @@
 
-/** Retrieve the properties and relationships of a subscription. See the table in the [Permissions](#permissions) section for the list of resources that support subscribing to change notifications. */
+/** Retrieve the properties and relationships of a subscription. See the table in the Permissions section for the list of resources that support subscribing to change notifications. */
 export class SubscriptionItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;
