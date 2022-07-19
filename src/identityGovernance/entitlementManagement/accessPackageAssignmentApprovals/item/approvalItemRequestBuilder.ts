@@ -51,7 +51,7 @@ export class ApprovalItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Approval stages for assignment requests.
+     * Approval stages for decisions associated with access package assignment requests.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -60,6 +60,7 @@ export class ApprovalItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -102,7 +103,7 @@ export class ApprovalItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Approval stages for assignment requests.
+     * Approval stages for decisions associated with access package assignment requests.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Approval
@@ -137,7 +138,7 @@ export class ApprovalItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.accessPackageAssignmentApprovals.item.stages.item collection
      * @param id Unique identifier of the item
-     * @returns a approvalStageItemRequestBuilder
+     * @returns a ApprovalStageItemRequestBuilder
      */
     public stagesById(id: string) : ApprovalStageItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

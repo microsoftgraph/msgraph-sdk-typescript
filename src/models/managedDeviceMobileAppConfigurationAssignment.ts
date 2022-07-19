@@ -11,6 +11,7 @@ export class ManagedDeviceMobileAppConfigurationAssignment extends Entity implem
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.managedDeviceMobileAppConfigurationAssignment";
     };
     /**
      * The deserialization information for the current model

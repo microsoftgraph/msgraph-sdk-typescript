@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get groups from connections */
 export class ExternalGroupItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

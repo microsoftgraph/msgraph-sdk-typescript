@@ -4,7 +4,6 @@ import {createItemActivityFromDiscriminatorValue} from './createItemActivityFrom
 import {Entity, IncompleteData, ItemActionStat, ItemActivity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class ItemActivityStat extends Entity implements Parsable {
     /** Statistics about the access actions in this interval. Read-only. */
     private _access?: ItemActionStat | undefined;
@@ -59,6 +58,7 @@ export class ItemActivityStat extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.itemActivityStat";
     };
     /**
      * Gets the create property value. Statistics about the create actions in this interval. Read-only.

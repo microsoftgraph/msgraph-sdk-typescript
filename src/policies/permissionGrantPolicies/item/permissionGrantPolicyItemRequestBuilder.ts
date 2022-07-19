@@ -3,9 +3,9 @@ import {createPermissionGrantPolicyFromDiscriminatorValue} from '../../../models
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ExcludesRequestBuilder} from './excludes/excludesRequestBuilder';
-import {PermissionGrantConditionSetItemRequestBuilder as i9edd8e4de9412285275a765d06f54ff6478fce722d4aca09d1af5dabf18daa5a} from './excludes/item/permissionGrantConditionSetItemRequestBuilder';
+import {PermissionGrantConditionSetItemRequestBuilder as i1de425db59fc7a06aa6b53fd64ff14ab529beb4d0ae123c9d20ff450221dc84c} from './excludes/item/permissionGrantConditionSetItemRequestBuilder';
 import {IncludesRequestBuilder} from './includes/includesRequestBuilder';
-import {PermissionGrantConditionSetItemRequestBuilder as if9859889de051bd4455dfb7953bbf113c7f3d3ec253cfedc2ce81fadb8e20e22} from './includes/item/permissionGrantConditionSetItemRequestBuilder';
+import {PermissionGrantConditionSetItemRequestBuilder as i9067e26394e951d2b2b0e68ce6a008b8c038bd570d8dff07053a60f58777011f} from './includes/item/permissionGrantConditionSetItemRequestBuilder';
 import {PermissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration} from './permissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {PermissionGrantPolicyItemRequestBuilderGetRequestConfiguration} from './permissionGrantPolicyItemRequestBuilderGetRequestConfiguration';
 import {PermissionGrantPolicyItemRequestBuilderPatchRequestConfiguration} from './permissionGrantPolicyItemRequestBuilderPatchRequestConfiguration';
@@ -66,6 +66,7 @@ export class PermissionGrantPolicyItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -110,13 +111,13 @@ export class PermissionGrantPolicyItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.permissionGrantPolicies.item.excludes.item collection
      * @param id Unique identifier of the item
-     * @returns a permissionGrantConditionSetItemRequestBuilder
+     * @returns a PermissionGrantConditionSetItemRequestBuilder
      */
-    public excludesById(id: string) : i9edd8e4de9412285275a765d06f54ff6478fce722d4aca09d1af5dabf18daa5a {
+    public excludesById(id: string) : i1de425db59fc7a06aa6b53fd64ff14ab529beb4d0ae123c9d20ff450221dc84c {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["permissionGrantConditionSet%2Did"] = id
-        return new i9edd8e4de9412285275a765d06f54ff6478fce722d4aca09d1af5dabf18daa5a(urlTplParams, this.requestAdapter);
+        return new i1de425db59fc7a06aa6b53fd64ff14ab529beb4d0ae123c9d20ff450221dc84c(urlTplParams, this.requestAdapter);
     };
     /**
      * The policy that specifies the conditions under which consent can be granted.
@@ -137,13 +138,13 @@ export class PermissionGrantPolicyItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.permissionGrantPolicies.item.includes.item collection
      * @param id Unique identifier of the item
-     * @returns a permissionGrantConditionSetItemRequestBuilder
+     * @returns a PermissionGrantConditionSetItemRequestBuilder
      */
-    public includesById(id: string) : if9859889de051bd4455dfb7953bbf113c7f3d3ec253cfedc2ce81fadb8e20e22 {
+    public includesById(id: string) : i9067e26394e951d2b2b0e68ce6a008b8c038bd570d8dff07053a60f58777011f {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["permissionGrantConditionSet%2Did"] = id
-        return new if9859889de051bd4455dfb7953bbf113c7f3d3ec253cfedc2ce81fadb8e20e22(urlTplParams, this.requestAdapter);
+        return new i9067e26394e951d2b2b0e68ce6a008b8c038bd570d8dff07053a60f58777011f(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property permissionGrantPolicies in policies

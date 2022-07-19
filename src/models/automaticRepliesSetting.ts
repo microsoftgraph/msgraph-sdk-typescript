@@ -13,6 +13,8 @@ export class AutomaticRepliesSetting implements AdditionalDataHolder, Parsable {
     private _externalReplyMessage?: string | undefined;
     /** The automatic reply to send to the audience internal to the signed-in user's organization, if Status is AlwaysEnabled or Scheduled. */
     private _internalReplyMessage?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The date and time that automatic replies are set to end, if Status is set to Scheduled. */
     private _scheduledEndDateTime?: DateTimeTimeZone | undefined;
     /** The date and time that automatic replies are set to begin, if Status is set to Scheduled. */
@@ -38,6 +40,7 @@ export class AutomaticRepliesSetting implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.automaticRepliesSetting";
     };
     /**
      * Gets the externalAudience property value. The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. Possible values are: none, contactsOnly, all.
@@ -76,6 +79,7 @@ export class AutomaticRepliesSetting implements AdditionalDataHolder, Parsable {
             "externalAudience": n => { this.externalAudience = n.getEnumValue<ExternalAudienceScope>(ExternalAudienceScope); },
             "externalReplyMessage": n => { this.externalReplyMessage = n.getStringValue(); },
             "internalReplyMessage": n => { this.internalReplyMessage = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "scheduledEndDateTime": n => { this.scheduledEndDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
             "scheduledStartDateTime": n => { this.scheduledStartDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
             "status": n => { this.status = n.getEnumValue<AutomaticRepliesStatus>(AutomaticRepliesStatus); },
@@ -94,6 +98,20 @@ export class AutomaticRepliesSetting implements AdditionalDataHolder, Parsable {
      */
     public set internalReplyMessage(value: string | undefined) {
         this._internalReplyMessage = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the scheduledEndDateTime property value. The date and time that automatic replies are set to end, if Status is set to Scheduled.
@@ -132,6 +150,7 @@ export class AutomaticRepliesSetting implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue<ExternalAudienceScope>("externalAudience", this.externalAudience);
         writer.writeStringValue("externalReplyMessage", this.externalReplyMessage);
         writer.writeStringValue("internalReplyMessage", this.internalReplyMessage);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<DateTimeTimeZone>("scheduledEndDateTime", this.scheduledEndDateTime);
         writer.writeObjectValue<DateTimeTimeZone>("scheduledStartDateTime", this.scheduledStartDateTime);
         writer.writeEnumValue<AutomaticRepliesStatus>("status", this.status);

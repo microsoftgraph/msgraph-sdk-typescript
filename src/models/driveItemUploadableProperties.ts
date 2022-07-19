@@ -13,6 +13,8 @@ export class DriveItemUploadableProperties implements AdditionalDataHolder, Pars
     private _fileSystemInfo?: FileSystemInfo | undefined;
     /** The name of the item (filename and extension). Read-write. */
     private _name?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -32,6 +34,7 @@ export class DriveItemUploadableProperties implements AdditionalDataHolder, Pars
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.driveItemUploadableProperties";
     };
     /**
      * Gets the description property value. Provides a user-visible description of the item. Read-write. Only on OneDrive Personal.
@@ -85,6 +88,7 @@ export class DriveItemUploadableProperties implements AdditionalDataHolder, Pars
             "fileSize": n => { this.fileSize = n.getNumberValue(); },
             "fileSystemInfo": n => { this.fileSystemInfo = n.getObjectValue<FileSystemInfo>(createFileSystemInfoFromDiscriminatorValue); },
             "name": n => { this.name = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -102,6 +106,20 @@ export class DriveItemUploadableProperties implements AdditionalDataHolder, Pars
         this._name = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -111,6 +129,7 @@ export class DriveItemUploadableProperties implements AdditionalDataHolder, Pars
         writer.writeNumberValue("fileSize", this.fileSize);
         writer.writeObjectValue<FileSystemInfo>("fileSystemInfo", this.fileSystemInfo);
         writer.writeStringValue("name", this.name);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

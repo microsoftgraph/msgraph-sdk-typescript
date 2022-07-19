@@ -65,6 +65,7 @@ export class NotificationMessageTemplateItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -125,7 +126,7 @@ export class NotificationMessageTemplateItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.notificationMessageTemplates.item.localizedNotificationMessages.item collection
      * @param id Unique identifier of the item
-     * @returns a localizedNotificationMessageItemRequestBuilder
+     * @returns a LocalizedNotificationMessageItemRequestBuilder
      */
     public localizedNotificationMessagesById(id: string) : LocalizedNotificationMessageItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

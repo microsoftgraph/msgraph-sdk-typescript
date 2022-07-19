@@ -5,12 +5,14 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class MediaStream implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The direction. The possible values are inactive, sendOnly, receiveOnly, sendReceive. */
+    /** The direction property */
     private _direction?: MediaDirection | undefined;
     /** The media stream label. */
     private _label?: string | undefined;
-    /** The media type. The possible value are unknown, audio, video, videoBasedScreenSharing, data. */
+    /** The mediaType property */
     private _mediaType?: Modality | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Indicates whether the media is muted by the server. */
     private _serverMuted?: boolean | undefined;
     /** The source ID. */
@@ -34,16 +36,17 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.mediaStream";
     };
     /**
-     * Gets the direction property value. The direction. The possible values are inactive, sendOnly, receiveOnly, sendReceive.
+     * Gets the direction property value. The direction property
      * @returns a mediaDirection
      */
     public get direction() {
         return this._direction;
     };
     /**
-     * Sets the direction property value. The direction. The possible values are inactive, sendOnly, receiveOnly, sendReceive.
+     * Sets the direction property value. The direction property
      * @param value Value to set for the direction property.
      */
     public set direction(value: MediaDirection | undefined) {
@@ -58,6 +61,7 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
             "direction": n => { this.direction = n.getEnumValue<MediaDirection>(MediaDirection); },
             "label": n => { this.label = n.getStringValue(); },
             "mediaType": n => { this.mediaType = n.getEnumValue<Modality>(Modality); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "serverMuted": n => { this.serverMuted = n.getBooleanValue(); },
             "sourceId": n => { this.sourceId = n.getStringValue(); },
         };
@@ -77,18 +81,32 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
         this._label = value;
     };
     /**
-     * Gets the mediaType property value. The media type. The possible value are unknown, audio, video, videoBasedScreenSharing, data.
+     * Gets the mediaType property value. The mediaType property
      * @returns a modality
      */
     public get mediaType() {
         return this._mediaType;
     };
     /**
-     * Sets the mediaType property value. The media type. The possible value are unknown, audio, video, videoBasedScreenSharing, data.
+     * Sets the mediaType property value. The mediaType property
      * @param value Value to set for the mediaType property.
      */
     public set mediaType(value: Modality | undefined) {
         this._mediaType = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -99,6 +117,7 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue<MediaDirection>("direction", this.direction);
         writer.writeStringValue("label", this.label);
         writer.writeEnumValue<Modality>("mediaType", this.mediaType);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeBooleanValue("serverMuted", this.serverMuted);
         writer.writeStringValue("sourceId", this.sourceId);
         writer.writeAdditionalData(this.additionalData);

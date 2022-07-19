@@ -9,7 +9,6 @@ import {AssignedPlan, CertificateBasedAuthConfiguration, DirectoryObject, Extens
 import {MdmAuthority} from './mdmAuthority';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of organization entities. */
 export class Organization extends DirectoryObject implements Parsable {
     /** The collection of service plans associated with the tenant. Not nullable. */
     private _assignedPlans?: AssignedPlan[] | undefined;
@@ -33,7 +32,7 @@ export class Organization extends DirectoryObject implements Parsable {
     private _extensions?: Extension[] | undefined;
     /** Not nullable. */
     private _marketingNotificationEmails?: string[] | undefined;
-    /** Mobile device management authority. Possible values are: unknown, intune, sccm, office365. */
+    /** Mobile device management authority. */
     private _mobileDeviceManagementAuthority?: MdmAuthority | undefined;
     /** The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _onPremisesLastSyncDateTime?: Date | undefined;
@@ -132,10 +131,11 @@ export class Organization extends DirectoryObject implements Parsable {
         this._city = value;
     };
     /**
-     * Instantiates a new organization and sets the default values.
+     * Instantiates a new Organization and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.organization";
     };
     /**
      * Gets the country property value. Country/region name of the address for the organization.
@@ -255,14 +255,14 @@ export class Organization extends DirectoryObject implements Parsable {
         this._marketingNotificationEmails = value;
     };
     /**
-     * Gets the mobileDeviceManagementAuthority property value. Mobile device management authority. Possible values are: unknown, intune, sccm, office365.
+     * Gets the mobileDeviceManagementAuthority property value. Mobile device management authority.
      * @returns a mdmAuthority
      */
     public get mobileDeviceManagementAuthority() {
         return this._mobileDeviceManagementAuthority;
     };
     /**
-     * Sets the mobileDeviceManagementAuthority property value. Mobile device management authority. Possible values are: unknown, intune, sccm, office365.
+     * Sets the mobileDeviceManagementAuthority property value. Mobile device management authority.
      * @param value Value to set for the mobileDeviceManagementAuthority property.
      */
     public set mobileDeviceManagementAuthority(value: MdmAuthority | undefined) {

@@ -5,15 +5,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The caller for the policy rule target. Allowed values are: None, Admin, EndUser. */
+    /** The type of caller that's the target of the policy rule. Allowed values are: None, Admin, EndUser. */
     private _caller?: string | undefined;
-    /** The list of settings which are enforced and cannot be overridden by child scopes. Use All for all settings. */
+    /** The list of role settings that are enforced and cannot be overridden by child scopes. Use All for all settings. */
     private _enforcedSettings?: string[] | undefined;
-    /** The list of settings which can be inherited by child scopes. Use All for all settings. */
+    /** The list of role settings that can be inherited by child scopes. Use All for all settings. */
     private _inheritableSettings?: string[] | undefined;
-    /** The level for the policy rule target. Allowed values are: Eligibility, Assignment. */
+    /** The role assignment type that's the target of policy rule. Allowed values are: Eligibility, Assignment. */
     private _level?: string | undefined;
-    /** The operations for policy rule target. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** The role management operations that are the target of the policy rule. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew. */
     private _operations?: string[] | undefined;
     /** The targetObjects property */
     private _targetObjects?: DirectoryObject[] | undefined;
@@ -32,14 +34,14 @@ export class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHold
         this._additionalData = value;
     };
     /**
-     * Gets the caller property value. The caller for the policy rule target. Allowed values are: None, Admin, EndUser.
+     * Gets the caller property value. The type of caller that's the target of the policy rule. Allowed values are: None, Admin, EndUser.
      * @returns a string
      */
     public get caller() {
         return this._caller;
     };
     /**
-     * Sets the caller property value. The caller for the policy rule target. Allowed values are: None, Admin, EndUser.
+     * Sets the caller property value. The type of caller that's the target of the policy rule. Allowed values are: None, Admin, EndUser.
      * @param value Value to set for the caller property.
      */
     public set caller(value: string | undefined) {
@@ -50,16 +52,17 @@ export class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHold
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.unifiedRoleManagementPolicyRuleTarget";
     };
     /**
-     * Gets the enforcedSettings property value. The list of settings which are enforced and cannot be overridden by child scopes. Use All for all settings.
+     * Gets the enforcedSettings property value. The list of role settings that are enforced and cannot be overridden by child scopes. Use All for all settings.
      * @returns a string
      */
     public get enforcedSettings() {
         return this._enforcedSettings;
     };
     /**
-     * Sets the enforcedSettings property value. The list of settings which are enforced and cannot be overridden by child scopes. Use All for all settings.
+     * Sets the enforcedSettings property value. The list of role settings that are enforced and cannot be overridden by child scopes. Use All for all settings.
      * @param value Value to set for the enforcedSettings property.
      */
     public set enforcedSettings(value: string[] | undefined) {
@@ -75,47 +78,62 @@ export class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHold
             "enforcedSettings": n => { this.enforcedSettings = n.getCollectionOfPrimitiveValues<string>(); },
             "inheritableSettings": n => { this.inheritableSettings = n.getCollectionOfPrimitiveValues<string>(); },
             "level": n => { this.level = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "operations": n => { this.operations = n.getCollectionOfPrimitiveValues<string>(); },
             "targetObjects": n => { this.targetObjects = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
         };
     };
     /**
-     * Gets the inheritableSettings property value. The list of settings which can be inherited by child scopes. Use All for all settings.
+     * Gets the inheritableSettings property value. The list of role settings that can be inherited by child scopes. Use All for all settings.
      * @returns a string
      */
     public get inheritableSettings() {
         return this._inheritableSettings;
     };
     /**
-     * Sets the inheritableSettings property value. The list of settings which can be inherited by child scopes. Use All for all settings.
+     * Sets the inheritableSettings property value. The list of role settings that can be inherited by child scopes. Use All for all settings.
      * @param value Value to set for the inheritableSettings property.
      */
     public set inheritableSettings(value: string[] | undefined) {
         this._inheritableSettings = value;
     };
     /**
-     * Gets the level property value. The level for the policy rule target. Allowed values are: Eligibility, Assignment.
+     * Gets the level property value. The role assignment type that's the target of policy rule. Allowed values are: Eligibility, Assignment.
      * @returns a string
      */
     public get level() {
         return this._level;
     };
     /**
-     * Sets the level property value. The level for the policy rule target. Allowed values are: Eligibility, Assignment.
+     * Sets the level property value. The role assignment type that's the target of policy rule. Allowed values are: Eligibility, Assignment.
      * @param value Value to set for the level property.
      */
     public set level(value: string | undefined) {
         this._level = value;
     };
     /**
-     * Gets the operations property value. The operations for policy rule target. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
+     * Gets the operations property value. The role management operations that are the target of the policy rule. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
      * @returns a string
      */
     public get operations() {
         return this._operations;
     };
     /**
-     * Sets the operations property value. The operations for policy rule target. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
+     * Sets the operations property value. The role management operations that are the target of the policy rule. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
      * @param value Value to set for the operations property.
      */
     public set operations(value: string[] | undefined) {
@@ -131,6 +149,7 @@ export class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHold
         writer.writeCollectionOfPrimitiveValues<string>("enforcedSettings", this.enforcedSettings);
         writer.writeCollectionOfPrimitiveValues<string>("inheritableSettings", this.inheritableSettings);
         writer.writeStringValue("level", this.level);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfPrimitiveValues<string>("operations", this.operations);
         writer.writeCollectionOfObjectValues<DirectoryObject>("targetObjects", this.targetObjects);
         writer.writeAdditionalData(this.additionalData);

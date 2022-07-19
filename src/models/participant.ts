@@ -23,6 +23,7 @@ export class Participant extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.participant";
     };
     /**
      * The deserialization information for the current model

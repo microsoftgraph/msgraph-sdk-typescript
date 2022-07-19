@@ -21,6 +21,8 @@ export class MessageSecurityState implements AdditionalDataHolder, Parsable {
     private _messageSubject?: string | undefined;
     /** The networkMessageId property */
     private _networkMessageId?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -54,6 +56,7 @@ export class MessageSecurityState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.messageSecurityState";
     };
     /**
      * Gets the deliveryAction property value. The deliveryAction property
@@ -112,6 +115,7 @@ export class MessageSecurityState implements AdditionalDataHolder, Parsable {
             "messageReceivedDateTime": n => { this.messageReceivedDateTime = n.getDateValue(); },
             "messageSubject": n => { this.messageSubject = n.getStringValue(); },
             "networkMessageId": n => { this.networkMessageId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -185,6 +189,20 @@ export class MessageSecurityState implements AdditionalDataHolder, Parsable {
         this._networkMessageId = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -199,6 +217,7 @@ export class MessageSecurityState implements AdditionalDataHolder, Parsable {
         writer.writeDateValue("messageReceivedDateTime", this.messageReceivedDateTime);
         writer.writeStringValue("messageSubject", this.messageSubject);
         writer.writeStringValue("networkMessageId", this.networkMessageId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

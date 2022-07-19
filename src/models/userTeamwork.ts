@@ -1,16 +1,33 @@
+import {createAssociatedTeamInfoFromDiscriminatorValue} from './createAssociatedTeamInfoFromDiscriminatorValue';
 import {createUserScopeTeamsAppInstallationFromDiscriminatorValue} from './createUserScopeTeamsAppInstallationFromDiscriminatorValue';
-import {Entity, UserScopeTeamsAppInstallation} from './index';
+import {AssociatedTeamInfo, Entity, UserScopeTeamsAppInstallation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class UserTeamwork extends Entity implements Parsable {
+    /** The list of associatedTeamInfo objects that a user is associated with. */
+    private _associatedTeams?: AssociatedTeamInfo[] | undefined;
     /** The apps installed in the personal scope of this user. */
     private _installedApps?: UserScopeTeamsAppInstallation[] | undefined;
+    /**
+     * Gets the associatedTeams property value. The list of associatedTeamInfo objects that a user is associated with.
+     * @returns a associatedTeamInfo
+     */
+    public get associatedTeams() {
+        return this._associatedTeams;
+    };
+    /**
+     * Sets the associatedTeams property value. The list of associatedTeamInfo objects that a user is associated with.
+     * @param value Value to set for the associatedTeams property.
+     */
+    public set associatedTeams(value: AssociatedTeamInfo[] | undefined) {
+        this._associatedTeams = value;
+    };
     /**
      * Instantiates a new userTeamwork and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.userTeamwork";
     };
     /**
      * The deserialization information for the current model
@@ -18,6 +35,7 @@ export class UserTeamwork extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
+            "associatedTeams": n => { this.associatedTeams = n.getCollectionOfObjectValues<AssociatedTeamInfo>(createAssociatedTeamInfoFromDiscriminatorValue); },
             "installedApps": n => { this.installedApps = n.getCollectionOfObjectValues<UserScopeTeamsAppInstallation>(createUserScopeTeamsAppInstallationFromDiscriminatorValue); },
         };
     };
@@ -42,6 +60,7 @@ export class UserTeamwork extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeCollectionOfObjectValues<AssociatedTeamInfo>("associatedTeams", this.associatedTeams);
         writer.writeCollectionOfObjectValues<UserScopeTeamsAppInstallation>("installedApps", this.installedApps);
     };
 }

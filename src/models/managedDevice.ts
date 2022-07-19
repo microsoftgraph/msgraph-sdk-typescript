@@ -27,7 +27,7 @@ export class ManagedDevice extends Entity implements Parsable {
     private _azureADRegistered?: boolean | undefined;
     /** The DateTime when device compliance grace period expires. This property is read-only. */
     private _complianceGracePeriodExpirationDateTime?: Date | undefined;
-    /** Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager. */
+    /** Compliance state. */
     private _complianceState?: ComplianceState | undefined;
     /** ConfigrMgr client enabled features. This property is read-only. */
     private _configurationManagerClientEnabledFeatures?: ConfigurationManagerClientEnabledFeatures | undefined;
@@ -41,13 +41,13 @@ export class ManagedDevice extends Entity implements Parsable {
     private _deviceCompliancePolicyStates?: DeviceCompliancePolicyState[] | undefined;
     /** Device configuration states for this device. */
     private _deviceConfigurationStates?: DeviceConfigurationState[] | undefined;
-    /** Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile. */
+    /** Possible ways of adding a mobile device to management. */
     private _deviceEnrollmentType?: DeviceEnrollmentType | undefined;
     /** The device health attestation state. This property is read-only. */
     private _deviceHealthAttestationState?: DeviceHealthAttestationState | undefined;
     /** Name of the device. This property is read-only. */
     private _deviceName?: string | undefined;
-    /** Device registration state. This property is read-only. Possible values are: notRegistered, registered, revoked, keyConflict, approvalPending, certificateReset, notRegisteredPendingEnrollment, unknown. */
+    /** Device registration status. */
     private _deviceRegistrationState?: DeviceRegistrationState | undefined;
     /** Whether the device is Exchange ActiveSync activated. This property is read-only. */
     private _easActivated?: boolean | undefined;
@@ -61,9 +61,9 @@ export class ManagedDevice extends Entity implements Parsable {
     private _enrolledDateTime?: Date | undefined;
     /** Ethernet MAC. This property is read-only. */
     private _ethernetMacAddress?: string | undefined;
-    /** The Access State of the device in Exchange. This property is read-only. Possible values are: none, unknown, allowed, blocked, quarantined. */
+    /** Device Exchange Access State. */
     private _exchangeAccessState?: DeviceManagementExchangeAccessState | undefined;
-    /** The reason for the device's access state in Exchange. This property is read-only. Possible values are: none, unknown, exchangeGlobalRule, exchangeIndividualRule, exchangeDeviceRule, exchangeUpgrade, exchangeMailboxPolicy, other, compliant, notCompliant, notEnrolled, unknownLocation, mfaRequired, azureADBlockDueToAccessPolicy, compromisedPassword, deviceNotKnownWithManagedApp. */
+    /** Device Exchange Access State Reason. */
     private _exchangeAccessStateReason?: DeviceManagementExchangeAccessStateReason | undefined;
     /** Last time the device contacted Exchange. This property is read-only. */
     private _exchangeLastSuccessfulSyncDateTime?: Date | undefined;
@@ -83,9 +83,9 @@ export class ManagedDevice extends Entity implements Parsable {
     private _lastSyncDateTime?: Date | undefined;
     /** Automatically generated name to identify a device. Can be overwritten to a user friendly name. */
     private _managedDeviceName?: string | undefined;
-    /** Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal. */
+    /** Owner type of device. */
     private _managedDeviceOwnerType?: ManagedDeviceOwnerType | undefined;
-    /** Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp. */
+    /** The managementAgent property */
     private _managementAgent?: ManagementAgentType | undefined;
     /** Manufacturer of the device. This property is read-only. */
     private _manufacturer?: string | undefined;
@@ -99,7 +99,7 @@ export class ManagedDevice extends Entity implements Parsable {
     private _operatingSystem?: string | undefined;
     /** Operating system version of the device. This property is read-only. */
     private _osVersion?: string | undefined;
-    /** Indicates the threat state of a device when a Mobile Threat Defense partner is in use by the account and device. Read Only. This property is read-only. Possible values are: unknown, activated, deactivated, secured, lowSeverity, mediumSeverity, highSeverity, unresponsive, compromised, misconfigured. */
+    /** Available health states for the Device Health API */
     private _partnerReportedThreatState?: ManagedDevicePartnerReportedHealthState | undefined;
     /** Phone number of the device. This property is read-only. */
     private _phoneNumber?: string | undefined;
@@ -196,14 +196,14 @@ export class ManagedDevice extends Entity implements Parsable {
         this._complianceGracePeriodExpirationDateTime = value;
     };
     /**
-     * Gets the complianceState property value. Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager.
+     * Gets the complianceState property value. Compliance state.
      * @returns a complianceState
      */
     public get complianceState() {
         return this._complianceState;
     };
     /**
-     * Sets the complianceState property value. Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager.
+     * Sets the complianceState property value. Compliance state.
      * @param value Value to set for the complianceState property.
      */
     public set complianceState(value: ComplianceState | undefined) {
@@ -228,6 +228,7 @@ export class ManagedDevice extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.managedDevice";
     };
     /**
      * Gets the deviceActionResults property value. List of ComplexType deviceActionResult objects. This property is read-only.
@@ -300,14 +301,14 @@ export class ManagedDevice extends Entity implements Parsable {
         this._deviceConfigurationStates = value;
     };
     /**
-     * Gets the deviceEnrollmentType property value. Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile.
+     * Gets the deviceEnrollmentType property value. Possible ways of adding a mobile device to management.
      * @returns a deviceEnrollmentType
      */
     public get deviceEnrollmentType() {
         return this._deviceEnrollmentType;
     };
     /**
-     * Sets the deviceEnrollmentType property value. Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile.
+     * Sets the deviceEnrollmentType property value. Possible ways of adding a mobile device to management.
      * @param value Value to set for the deviceEnrollmentType property.
      */
     public set deviceEnrollmentType(value: DeviceEnrollmentType | undefined) {
@@ -342,14 +343,14 @@ export class ManagedDevice extends Entity implements Parsable {
         this._deviceName = value;
     };
     /**
-     * Gets the deviceRegistrationState property value. Device registration state. This property is read-only. Possible values are: notRegistered, registered, revoked, keyConflict, approvalPending, certificateReset, notRegisteredPendingEnrollment, unknown.
+     * Gets the deviceRegistrationState property value. Device registration status.
      * @returns a deviceRegistrationState
      */
     public get deviceRegistrationState() {
         return this._deviceRegistrationState;
     };
     /**
-     * Sets the deviceRegistrationState property value. Device registration state. This property is read-only. Possible values are: notRegistered, registered, revoked, keyConflict, approvalPending, certificateReset, notRegisteredPendingEnrollment, unknown.
+     * Sets the deviceRegistrationState property value. Device registration status.
      * @param value Value to set for the deviceRegistrationState property.
      */
     public set deviceRegistrationState(value: DeviceRegistrationState | undefined) {
@@ -440,28 +441,28 @@ export class ManagedDevice extends Entity implements Parsable {
         this._ethernetMacAddress = value;
     };
     /**
-     * Gets the exchangeAccessState property value. The Access State of the device in Exchange. This property is read-only. Possible values are: none, unknown, allowed, blocked, quarantined.
+     * Gets the exchangeAccessState property value. Device Exchange Access State.
      * @returns a deviceManagementExchangeAccessState
      */
     public get exchangeAccessState() {
         return this._exchangeAccessState;
     };
     /**
-     * Sets the exchangeAccessState property value. The Access State of the device in Exchange. This property is read-only. Possible values are: none, unknown, allowed, blocked, quarantined.
+     * Sets the exchangeAccessState property value. Device Exchange Access State.
      * @param value Value to set for the exchangeAccessState property.
      */
     public set exchangeAccessState(value: DeviceManagementExchangeAccessState | undefined) {
         this._exchangeAccessState = value;
     };
     /**
-     * Gets the exchangeAccessStateReason property value. The reason for the device's access state in Exchange. This property is read-only. Possible values are: none, unknown, exchangeGlobalRule, exchangeIndividualRule, exchangeDeviceRule, exchangeUpgrade, exchangeMailboxPolicy, other, compliant, notCompliant, notEnrolled, unknownLocation, mfaRequired, azureADBlockDueToAccessPolicy, compromisedPassword, deviceNotKnownWithManagedApp.
+     * Gets the exchangeAccessStateReason property value. Device Exchange Access State Reason.
      * @returns a deviceManagementExchangeAccessStateReason
      */
     public get exchangeAccessStateReason() {
         return this._exchangeAccessStateReason;
     };
     /**
-     * Sets the exchangeAccessStateReason property value. The reason for the device's access state in Exchange. This property is read-only. Possible values are: none, unknown, exchangeGlobalRule, exchangeIndividualRule, exchangeDeviceRule, exchangeUpgrade, exchangeMailboxPolicy, other, compliant, notCompliant, notEnrolled, unknownLocation, mfaRequired, azureADBlockDueToAccessPolicy, compromisedPassword, deviceNotKnownWithManagedApp.
+     * Sets the exchangeAccessStateReason property value. Device Exchange Access State Reason.
      * @param value Value to set for the exchangeAccessStateReason property.
      */
     public set exchangeAccessStateReason(value: DeviceManagementExchangeAccessStateReason | undefined) {
@@ -656,28 +657,28 @@ export class ManagedDevice extends Entity implements Parsable {
         this._managedDeviceName = value;
     };
     /**
-     * Gets the managedDeviceOwnerType property value. Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal.
+     * Gets the managedDeviceOwnerType property value. Owner type of device.
      * @returns a managedDeviceOwnerType
      */
     public get managedDeviceOwnerType() {
         return this._managedDeviceOwnerType;
     };
     /**
-     * Sets the managedDeviceOwnerType property value. Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal.
+     * Sets the managedDeviceOwnerType property value. Owner type of device.
      * @param value Value to set for the managedDeviceOwnerType property.
      */
     public set managedDeviceOwnerType(value: ManagedDeviceOwnerType | undefined) {
         this._managedDeviceOwnerType = value;
     };
     /**
-     * Gets the managementAgent property value. Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
+     * Gets the managementAgent property value. The managementAgent property
      * @returns a managementAgentType
      */
     public get managementAgent() {
         return this._managementAgent;
     };
     /**
-     * Sets the managementAgent property value. Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
+     * Sets the managementAgent property value. The managementAgent property
      * @param value Value to set for the managementAgent property.
      */
     public set managementAgent(value: ManagementAgentType | undefined) {
@@ -768,14 +769,14 @@ export class ManagedDevice extends Entity implements Parsable {
         this._osVersion = value;
     };
     /**
-     * Gets the partnerReportedThreatState property value. Indicates the threat state of a device when a Mobile Threat Defense partner is in use by the account and device. Read Only. This property is read-only. Possible values are: unknown, activated, deactivated, secured, lowSeverity, mediumSeverity, highSeverity, unresponsive, compromised, misconfigured.
+     * Gets the partnerReportedThreatState property value. Available health states for the Device Health API
      * @returns a managedDevicePartnerReportedHealthState
      */
     public get partnerReportedThreatState() {
         return this._partnerReportedThreatState;
     };
     /**
-     * Sets the partnerReportedThreatState property value. Indicates the threat state of a device when a Mobile Threat Defense partner is in use by the account and device. Read Only. This property is read-only. Possible values are: unknown, activated, deactivated, secured, lowSeverity, mediumSeverity, highSeverity, unresponsive, compromised, misconfigured.
+     * Sets the partnerReportedThreatState property value. Available health states for the Device Health API
      * @param value Value to set for the partnerReportedThreatState property.
      */
     public set partnerReportedThreatState(value: ManagedDevicePartnerReportedHealthState | undefined) {

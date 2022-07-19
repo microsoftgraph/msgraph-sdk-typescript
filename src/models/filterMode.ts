@@ -1,4 +1,4 @@
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum FilterMode {
     Include = "include",
     Exclude = "exclude",

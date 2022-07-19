@@ -18,6 +18,7 @@ export class ServiceAnnouncementAttachment extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.serviceAnnouncementAttachment";
     };
     /**
      * Gets the content property value. The attachment content.

@@ -32,6 +32,7 @@ export class ExtensionProperty extends DirectoryObject implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.extensionProperty";
     };
     /**
      * Gets the dataType property value. Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum

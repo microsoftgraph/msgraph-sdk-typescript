@@ -2,19 +2,22 @@ import {AllowedTargetScope} from './allowedTargetScope';
 import {createAccessPackageAssignmentApprovalSettingsFromDiscriminatorValue} from './createAccessPackageAssignmentApprovalSettingsFromDiscriminatorValue';
 import {createAccessPackageAssignmentRequestorSettingsFromDiscriminatorValue} from './createAccessPackageAssignmentRequestorSettingsFromDiscriminatorValue';
 import {createAccessPackageAssignmentReviewSettingsFromDiscriminatorValue} from './createAccessPackageAssignmentReviewSettingsFromDiscriminatorValue';
+import {createAccessPackageAutomaticRequestSettingsFromDiscriminatorValue} from './createAccessPackageAutomaticRequestSettingsFromDiscriminatorValue';
 import {createAccessPackageCatalogFromDiscriminatorValue} from './createAccessPackageCatalogFromDiscriminatorValue';
 import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
 import {createExpirationPatternFromDiscriminatorValue} from './createExpirationPatternFromDiscriminatorValue';
 import {createSubjectSetFromDiscriminatorValue} from './createSubjectSetFromDiscriminatorValue';
-import {AccessPackage, AccessPackageAssignmentApprovalSettings, AccessPackageAssignmentRequestorSettings, AccessPackageAssignmentReviewSettings, AccessPackageCatalog, Entity, ExpirationPattern, SubjectSet} from './index';
+import {AccessPackage, AccessPackageAssignmentApprovalSettings, AccessPackageAssignmentRequestorSettings, AccessPackageAssignmentReviewSettings, AccessPackageAutomaticRequestSettings, AccessPackageCatalog, Entity, ExpirationPattern, SubjectSet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the admin singleton. */
 export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
     /** The access package with this policy. Read-only. Nullable. Supports $expand. */
     private _accessPackage?: AccessPackage | undefined;
     /** Principals that can be assigned the access package through this policy. The possible values are: notSpecified, specificDirectoryUsers, specificConnectedOrganizationUsers, specificDirectoryServicePrincipals, allMemberUsers, allDirectoryUsers, allDirectoryServicePrincipals, allConfiguredConnectedOrganizationUsers, allExternalUsers, unknownFutureValue. */
     private _allowedTargetScope?: AllowedTargetScope | undefined;
+    /** The automaticRequestSettings property */
+    private _automaticRequestSettings?: AccessPackageAutomaticRequestSettings | undefined;
     /** Catalog of the access package containing this policy. Read-only. */
     private _catalog?: AccessPackageCatalog | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
@@ -64,6 +67,20 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
         this._allowedTargetScope = value;
     };
     /**
+     * Gets the automaticRequestSettings property value. The automaticRequestSettings property
+     * @returns a accessPackageAutomaticRequestSettings
+     */
+    public get automaticRequestSettings() {
+        return this._automaticRequestSettings;
+    };
+    /**
+     * Sets the automaticRequestSettings property value. The automaticRequestSettings property
+     * @param value Value to set for the automaticRequestSettings property.
+     */
+    public set automaticRequestSettings(value: AccessPackageAutomaticRequestSettings | undefined) {
+        this._automaticRequestSettings = value;
+    };
+    /**
      * Gets the catalog property value. Catalog of the access package containing this policy. Read-only.
      * @returns a accessPackageCatalog
      */
@@ -82,6 +99,7 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.accessPackageAssignmentPolicy";
     };
     /**
      * Gets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -147,6 +165,7 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "accessPackage": n => { this.accessPackage = n.getObjectValue<AccessPackage>(createAccessPackageFromDiscriminatorValue); },
             "allowedTargetScope": n => { this.allowedTargetScope = n.getEnumValue<AllowedTargetScope>(AllowedTargetScope); },
+            "automaticRequestSettings": n => { this.automaticRequestSettings = n.getObjectValue<AccessPackageAutomaticRequestSettings>(createAccessPackageAutomaticRequestSettingsFromDiscriminatorValue); },
             "catalog": n => { this.catalog = n.getObjectValue<AccessPackageCatalog>(createAccessPackageCatalogFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "description": n => { this.description = n.getStringValue(); },
@@ -224,6 +243,7 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<AccessPackage>("accessPackage", this.accessPackage);
         writer.writeEnumValue<AllowedTargetScope>("allowedTargetScope", this.allowedTargetScope);
+        writer.writeObjectValue<AccessPackageAutomaticRequestSettings>("automaticRequestSettings", this.automaticRequestSettings);
         writer.writeObjectValue<AccessPackageCatalog>("catalog", this.catalog);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeStringValue("description", this.description);

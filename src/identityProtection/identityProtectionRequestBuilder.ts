@@ -49,6 +49,7 @@ export class IdentityProtectionRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -111,7 +112,7 @@ export class IdentityProtectionRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityProtection.riskDetections.item collection
      * @param id Unique identifier of the item
-     * @returns a riskDetectionItemRequestBuilder
+     * @returns a RiskDetectionItemRequestBuilder
      */
     public riskDetectionsById(id: string) : RiskDetectionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -122,7 +123,7 @@ export class IdentityProtectionRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityProtection.riskyUsers.item collection
      * @param id Unique identifier of the item
-     * @returns a riskyUserItemRequestBuilder
+     * @returns a RiskyUserItemRequestBuilder
      */
     public riskyUsersById(id: string) : RiskyUserItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

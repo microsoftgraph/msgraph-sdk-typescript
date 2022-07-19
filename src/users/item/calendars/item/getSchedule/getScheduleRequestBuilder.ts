@@ -1,3 +1,5 @@
+import {ODataError} from '../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createGetScheduleResponseFromDiscriminatorValue} from './createGetScheduleResponseFromDiscriminatorValue';
 import {GetScheduleRequestBuilderPostRequestConfiguration} from './getScheduleRequestBuilderPostRequestConfiguration';
 import {GetSchedulePostRequestBody, GetScheduleResponse} from './index';
@@ -36,6 +38,7 @@ export class GetScheduleRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -55,6 +58,10 @@ export class GetScheduleRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetScheduleResponse>(requestInfo, createGetScheduleResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<GetScheduleResponse>(requestInfo, createGetScheduleResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -29,7 +29,7 @@ export class SolutionsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item collection
      * @param id Unique identifier of the item
-     * @returns a bookingBusinessItemRequestBuilder
+     * @returns a BookingBusinessItemRequestBuilder
      */
     public bookingBusinessesById(id: string) : BookingBusinessItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -40,7 +40,7 @@ export class SolutionsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingCurrencies.item collection
      * @param id Unique identifier of the item
-     * @returns a bookingCurrencyItemRequestBuilder
+     * @returns a BookingCurrencyItemRequestBuilder
      */
     public bookingCurrenciesById(id: string) : BookingCurrencyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -71,6 +71,7 @@ export class SolutionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

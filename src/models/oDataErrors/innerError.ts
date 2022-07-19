@@ -7,6 +7,8 @@ export class InnerError implements AdditionalDataHolder, Parsable {
     private _clientRequestId?: string | undefined;
     /** Date when the error occured. */
     private _date?: Date | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Request Id as tracked internally by the service */
     private _requestId?: string | undefined;
     /**
@@ -42,6 +44,7 @@ export class InnerError implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.InnerError";
     };
     /**
      * Gets the date property value. Date when the error occured.
@@ -65,8 +68,23 @@ export class InnerError implements AdditionalDataHolder, Parsable {
         return {
             "client-request-id": n => { this.clientRequestId = n.getStringValue(); },
             "date": n => { this.date = n.getDateValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "request-id": n => { this.requestId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the request-id property value. Request Id as tracked internally by the service
@@ -90,6 +108,7 @@ export class InnerError implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("client-request-id", this.clientRequestId);
         writer.writeDateValue("date", this.date);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("request-id", this.requestId);
         writer.writeAdditionalData(this.additionalData);
     };

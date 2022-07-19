@@ -13,6 +13,7 @@ export class ManagedMobileApp extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.managedMobileApp";
     };
     /**
      * The deserialization information for the current model

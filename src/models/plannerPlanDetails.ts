@@ -3,7 +3,6 @@ import {createPlannerUserIdsFromDiscriminatorValue} from './createPlannerUserIds
 import {Entity, PlannerCategoryDescriptions, PlannerUserIds} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class PlannerPlanDetails extends Entity implements Parsable {
     /** An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan */
     private _categoryDescriptions?: PlannerCategoryDescriptions | undefined;
@@ -28,6 +27,7 @@ export class PlannerPlanDetails extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.plannerPlanDetails";
     };
     /**
      * The deserialization information for the current model

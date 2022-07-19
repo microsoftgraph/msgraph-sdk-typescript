@@ -11,6 +11,8 @@ export class SearchAlteration implements AdditionalDataHolder, Parsable {
     private _alteredQueryString?: string | undefined;
     /** Represents changed segments with respect to original query. */
     private _alteredQueryTokens?: AlteredQueryToken[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -72,6 +74,7 @@ export class SearchAlteration implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.searchAlteration";
     };
     /**
      * The deserialization information for the current model
@@ -82,7 +85,22 @@ export class SearchAlteration implements AdditionalDataHolder, Parsable {
             "alteredHighlightedQueryString": n => { this.alteredHighlightedQueryString = n.getStringValue(); },
             "alteredQueryString": n => { this.alteredQueryString = n.getStringValue(); },
             "alteredQueryTokens": n => { this.alteredQueryTokens = n.getCollectionOfObjectValues<AlteredQueryToken>(createAlteredQueryTokenFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -93,6 +111,7 @@ export class SearchAlteration implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("alteredHighlightedQueryString", this.alteredHighlightedQueryString);
         writer.writeStringValue("alteredQueryString", this.alteredQueryString);
         writer.writeCollectionOfObjectValues<AlteredQueryToken>("alteredQueryTokens", this.alteredQueryTokens);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

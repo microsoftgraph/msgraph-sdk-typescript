@@ -10,7 +10,7 @@ export class DeviceInstallState extends Entity implements Parsable {
     private _deviceName?: string | undefined;
     /** The error code for install failures. */
     private _errorCode?: string | undefined;
-    /** The install state of the eBook. Possible values are: notApplicable, installed, failed, notInstalled, uninstallFailed, unknown. */
+    /** Possible values for install state. */
     private _installState?: InstallState | undefined;
     /** Last sync date and time. */
     private _lastSyncDateTime?: Date | undefined;
@@ -25,6 +25,7 @@ export class DeviceInstallState extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.deviceInstallState";
     };
     /**
      * Gets the deviceId property value. Device Id.
@@ -85,14 +86,14 @@ export class DeviceInstallState extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the installState property value. The install state of the eBook. Possible values are: notApplicable, installed, failed, notInstalled, uninstallFailed, unknown.
+     * Gets the installState property value. Possible values for install state.
      * @returns a installState
      */
     public get installState() {
         return this._installState;
     };
     /**
-     * Sets the installState property value. The install state of the eBook. Possible values are: notApplicable, installed, failed, notInstalled, uninstallFailed, unknown.
+     * Sets the installState property value. Possible values for install state.
      * @param value Value to set for the installState property.
      */
     public set installState(value: InstallState | undefined) {

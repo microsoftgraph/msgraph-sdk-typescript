@@ -5,6 +5,8 @@ export class Configuration implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** A collection of application IDs for registered Azure Active Directory apps that are allowed to manage the externalConnection and to index content in the externalConnection. */
     private _authorizedAppIds?: string[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -38,6 +40,7 @@ export class Configuration implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.externalConnectors.configuration";
     };
     /**
      * The deserialization information for the current model
@@ -46,7 +49,22 @@ export class Configuration implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "authorizedAppIds": n => { this.authorizedAppIds = n.getCollectionOfPrimitiveValues<string>(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -55,6 +73,7 @@ export class Configuration implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfPrimitiveValues<string>("authorizedAppIds", this.authorizedAppIds);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

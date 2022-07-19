@@ -6,11 +6,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class RequestSchedule implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** When the access should expire. */
+    /** In entitlement management, when the access should expire. */
     private _expiration?: ExpirationPattern | undefined;
-    /** For recurring access. Not used at present. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** For recurring access, or eligible or active assignment. This property is currently unsupported in both PIM and entitlement management. */
     private _recurrence?: PatternedRecurrence | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. In PIM, when the  eligible or active assignment becomes active. */
     private _startDateTime?: Date | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -31,16 +33,17 @@ export class RequestSchedule implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.requestSchedule";
     };
     /**
-     * Gets the expiration property value. When the access should expire.
+     * Gets the expiration property value. In entitlement management, when the access should expire.
      * @returns a expirationPattern
      */
     public get expiration() {
         return this._expiration;
     };
     /**
-     * Sets the expiration property value. When the access should expire.
+     * Sets the expiration property value. In entitlement management, when the access should expire.
      * @param value Value to set for the expiration property.
      */
     public set expiration(value: ExpirationPattern | undefined) {
@@ -53,19 +56,34 @@ export class RequestSchedule implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "expiration": n => { this.expiration = n.getObjectValue<ExpirationPattern>(createExpirationPatternFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "recurrence": n => { this.recurrence = n.getObjectValue<PatternedRecurrence>(createPatternedRecurrenceFromDiscriminatorValue); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
         };
     };
     /**
-     * Gets the recurrence property value. For recurring access. Not used at present.
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
+     * Gets the recurrence property value. For recurring access, or eligible or active assignment. This property is currently unsupported in both PIM and entitlement management.
      * @returns a patternedRecurrence
      */
     public get recurrence() {
         return this._recurrence;
     };
     /**
-     * Sets the recurrence property value. For recurring access. Not used at present.
+     * Sets the recurrence property value. For recurring access, or eligible or active assignment. This property is currently unsupported in both PIM and entitlement management.
      * @param value Value to set for the recurrence property.
      */
     public set recurrence(value: PatternedRecurrence | undefined) {
@@ -78,19 +96,20 @@ export class RequestSchedule implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<ExpirationPattern>("expiration", this.expiration);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<PatternedRecurrence>("recurrence", this.recurrence);
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the startDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the startDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. In PIM, when the  eligible or active assignment becomes active.
      * @returns a Date
      */
     public get startDateTime() {
         return this._startDateTime;
     };
     /**
-     * Sets the startDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the startDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. In PIM, when the  eligible or active assignment becomes active.
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: Date | undefined) {

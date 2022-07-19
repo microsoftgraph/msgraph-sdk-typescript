@@ -9,6 +9,8 @@ export class AccessReviewNotificationRecipientItem implements AdditionalDataHold
     private _notificationRecipientScope?: AccessReviewNotificationRecipientScope | undefined;
     /** Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients. */
     private _notificationTemplateType?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -28,6 +30,7 @@ export class AccessReviewNotificationRecipientItem implements AdditionalDataHold
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.accessReviewNotificationRecipientItem";
     };
     /**
      * The deserialization information for the current model
@@ -37,6 +40,7 @@ export class AccessReviewNotificationRecipientItem implements AdditionalDataHold
         return {
             "notificationRecipientScope": n => { this.notificationRecipientScope = n.getObjectValue<AccessReviewNotificationRecipientScope>(createAccessReviewNotificationRecipientScopeFromDiscriminatorValue); },
             "notificationTemplateType": n => { this.notificationTemplateType = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -68,6 +72,20 @@ export class AccessReviewNotificationRecipientItem implements AdditionalDataHold
         this._notificationTemplateType = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -75,6 +93,7 @@ export class AccessReviewNotificationRecipientItem implements AdditionalDataHold
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<AccessReviewNotificationRecipientScope>("notificationRecipientScope", this.notificationRecipientScope);
         writer.writeStringValue("notificationTemplateType", this.notificationTemplateType);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

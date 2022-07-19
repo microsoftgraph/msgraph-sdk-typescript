@@ -5,6 +5,8 @@ export class Hashes implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The CRC32 value of the file (if available). Read-only. */
     private _crc32Hash?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** A proprietary hash of the file that can be used to determine if the contents of the file have changed (if available). Read-only. */
     private _quickXorHash?: string | undefined;
     /** SHA1 hash for the contents of the file (if available). Read-only. */
@@ -30,6 +32,7 @@ export class Hashes implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.hashes";
     };
     /**
      * Gets the crc32Hash property value. The CRC32 value of the file (if available). Read-only.
@@ -52,10 +55,25 @@ export class Hashes implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "crc32Hash": n => { this.crc32Hash = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "quickXorHash": n => { this.quickXorHash = n.getStringValue(); },
             "sha1Hash": n => { this.sha1Hash = n.getStringValue(); },
             "sha256Hash": n => { this.sha256Hash = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the quickXorHash property value. A proprietary hash of the file that can be used to determine if the contents of the file have changed (if available). Read-only.
@@ -78,6 +96,7 @@ export class Hashes implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("crc32Hash", this.crc32Hash);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("quickXorHash", this.quickXorHash);
         writer.writeStringValue("sha1Hash", this.sha1Hash);
         writer.writeStringValue("sha256Hash", this.sha256Hash);

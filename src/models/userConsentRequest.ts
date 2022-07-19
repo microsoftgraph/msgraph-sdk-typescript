@@ -2,7 +2,6 @@ import {createApprovalFromDiscriminatorValue} from './createApprovalFromDiscrimi
 import {Approval, Request} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class UserConsentRequest extends Request implements Parsable {
     /** Approval decisions associated with a request. */
     private _approval?: Approval | undefined;
@@ -23,10 +22,11 @@ export class UserConsentRequest extends Request implements Parsable {
         this._approval = value;
     };
     /**
-     * Instantiates a new userConsentRequest and sets the default values.
+     * Instantiates a new UserConsentRequest and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.userConsentRequest";
     };
     /**
      * The deserialization information for the current model

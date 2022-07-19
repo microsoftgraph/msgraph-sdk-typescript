@@ -2,31 +2,31 @@ import {MobileApp} from './index';
 import {ManagedAppAvailability} from './managedAppAvailability';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Abstract class that contains properties and inherited properties for apps that you can manage with an Intune app protection policy. */
 export class ManagedApp extends MobileApp implements Parsable {
-    /** The Application's availability. Possible values are: global, lineOfBusiness. */
+    /** A managed (MAM) application's availability. */
     private _appAvailability?: ManagedAppAvailability | undefined;
     /** The Application's version. */
     private _version?: string | undefined;
     /**
-     * Gets the appAvailability property value. The Application's availability. Possible values are: global, lineOfBusiness.
+     * Gets the appAvailability property value. A managed (MAM) application's availability.
      * @returns a managedAppAvailability
      */
     public get appAvailability() {
         return this._appAvailability;
     };
     /**
-     * Sets the appAvailability property value. The Application's availability. Possible values are: global, lineOfBusiness.
+     * Sets the appAvailability property value. A managed (MAM) application's availability.
      * @param value Value to set for the appAvailability property.
      */
     public set appAvailability(value: ManagedAppAvailability | undefined) {
         this._appAvailability = value;
     };
     /**
-     * Instantiates a new managedApp and sets the default values.
+     * Instantiates a new ManagedApp and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.managedApp";
     };
     /**
      * The deserialization information for the current model
