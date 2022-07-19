@@ -7,6 +7,8 @@ export class PhysicalOfficeAddress implements AdditionalDataHolder, Parsable {
     private _city?: string | undefined;
     /** The country or region. It's a free-format string value, for example, 'United States'. */
     private _countryOrRegion?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Office location such as building and office number for an organizational contact. */
     private _officeLocation?: string | undefined;
     /** The postal code. */
@@ -48,6 +50,7 @@ export class PhysicalOfficeAddress implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.physicalOfficeAddress";
     };
     /**
      * Gets the countryOrRegion property value. The country or region. It's a free-format string value, for example, 'United States'.
@@ -71,11 +74,26 @@ export class PhysicalOfficeAddress implements AdditionalDataHolder, Parsable {
         return {
             "city": n => { this.city = n.getStringValue(); },
             "countryOrRegion": n => { this.countryOrRegion = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "officeLocation": n => { this.officeLocation = n.getStringValue(); },
             "postalCode": n => { this.postalCode = n.getStringValue(); },
             "state": n => { this.state = n.getStringValue(); },
             "street": n => { this.street = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the officeLocation property value. Office location such as building and office number for an organizational contact.
@@ -113,6 +131,7 @@ export class PhysicalOfficeAddress implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("city", this.city);
         writer.writeStringValue("countryOrRegion", this.countryOrRegion);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("officeLocation", this.officeLocation);
         writer.writeStringValue("postalCode", this.postalCode);
         writer.writeStringValue("state", this.state);

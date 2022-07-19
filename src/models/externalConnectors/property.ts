@@ -18,7 +18,9 @@ export class Property implements AdditionalDataHolder, Parsable {
     private _labels?: string[] | undefined;
     /** The name of the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &, ?, @, #, /, ~, ', ', <, >, `, ^.  Required. */
     private _name?: string | undefined;
-    /** The data type of the property. Possible values are: string, int64, double, dateTime, boolean, stringCollection, int64Collection, doubleCollection, dateTimeCollection, unknownFutureValue. Required. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** The type property */
     private _type?: PropertyType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -53,6 +55,7 @@ export class Property implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.externalConnectors.property";
     };
     /**
      * The deserialization information for the current model
@@ -67,6 +70,7 @@ export class Property implements AdditionalDataHolder, Parsable {
             "isSearchable": n => { this.isSearchable = n.getBooleanValue(); },
             "labels": n => { this.labels = n.getCollectionOfPrimitiveValues<string>(); },
             "name": n => { this.name = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "type": n => { this.type = n.getEnumValue<PropertyType>(PropertyType); },
         };
     };
@@ -155,6 +159,20 @@ export class Property implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -167,18 +185,19 @@ export class Property implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isSearchable", this.isSearchable);
         writer.writeCollectionOfPrimitiveValues<string>("labels", this.labels);
         writer.writeStringValue("name", this.name);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<PropertyType>("type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. The data type of the property. Possible values are: string, int64, double, dateTime, boolean, stringCollection, int64Collection, doubleCollection, dateTimeCollection, unknownFutureValue. Required.
+     * Gets the type property value. The type property
      * @returns a propertyType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The data type of the property. Possible values are: string, int64, double, dateTime, boolean, stringCollection, int64Collection, doubleCollection, dateTimeCollection, unknownFutureValue. Required.
+     * Sets the type property value. The type property
      * @param value Value to set for the type property.
      */
     public set type(value: PropertyType | undefined) {

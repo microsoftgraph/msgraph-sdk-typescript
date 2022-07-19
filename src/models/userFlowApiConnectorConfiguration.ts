@@ -5,6 +5,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class UserFlowApiConnectorConfiguration implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The postAttributeCollection property */
     private _postAttributeCollection?: IdentityApiConnector | undefined;
     /** The postFederationSignup property */
@@ -28,6 +30,7 @@ export class UserFlowApiConnectorConfiguration implements AdditionalDataHolder, 
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.userFlowApiConnectorConfiguration";
     };
     /**
      * The deserialization information for the current model
@@ -35,9 +38,24 @@ export class UserFlowApiConnectorConfiguration implements AdditionalDataHolder, 
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "postAttributeCollection": n => { this.postAttributeCollection = n.getObjectValue<IdentityApiConnector>(createIdentityApiConnectorFromDiscriminatorValue); },
             "postFederationSignup": n => { this.postFederationSignup = n.getObjectValue<IdentityApiConnector>(createIdentityApiConnectorFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the postAttributeCollection property value. The postAttributeCollection property
@@ -73,6 +91,7 @@ export class UserFlowApiConnectorConfiguration implements AdditionalDataHolder, 
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<IdentityApiConnector>("postAttributeCollection", this.postAttributeCollection);
         writer.writeObjectValue<IdentityApiConnector>("postFederationSignup", this.postFederationSignup);
         writer.writeAdditionalData(this.additionalData);

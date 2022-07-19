@@ -4,7 +4,6 @@ import {createIdentitySourceFromDiscriminatorValue} from './createIdentitySource
 import {DirectoryObject, Entity, IdentitySource} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class ConnectedOrganization extends Entity implements Parsable {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _createdDateTime?: Date | undefined;
@@ -12,11 +11,11 @@ export class ConnectedOrganization extends Entity implements Parsable {
     private _description?: string | undefined;
     /** The display name of the connected organization. Supports $filter (eq). */
     private _displayName?: string | undefined;
-    /** Nullable. */
+    /** The externalSponsors property */
     private _externalSponsors?: DirectoryObject[] | undefined;
-    /** The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Read-only. Nullable. Supports $select and $filter(eq). To filter by the derived types, you must declare the resource using its full OData cast, for example, $filter=identitySources/any(is:is/microsoft.graph.azureActiveDirectoryTenant/tenantId eq 'bcfdfff4-cbc3-43f2-9000-ba7b7515054f'). */
+    /** The identity sources in this connected organization, one of azureActiveDirectoryTenant, crossCloudAzureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Read-only. Nullable. Supports $select and $filter(eq). To filter by the derived types, you must declare the resource using its full OData cast, for example, $filter=identitySources/any(is:is/microsoft.graph.azureActiveDirectoryTenant/tenantId eq 'bcfdfff4-cbc3-43f2-9000-ba7b7515054f'). */
     private _identitySources?: IdentitySource[] | undefined;
-    /** Nullable. */
+    /** The internalSponsors property */
     private _internalSponsors?: DirectoryObject[] | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _modifiedDateTime?: Date | undefined;
@@ -27,6 +26,7 @@ export class ConnectedOrganization extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.connectedOrganization";
     };
     /**
      * Gets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
@@ -71,14 +71,14 @@ export class ConnectedOrganization extends Entity implements Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the externalSponsors property value. Nullable.
+     * Gets the externalSponsors property value. The externalSponsors property
      * @returns a directoryObject
      */
     public get externalSponsors() {
         return this._externalSponsors;
     };
     /**
-     * Sets the externalSponsors property value. Nullable.
+     * Sets the externalSponsors property value. The externalSponsors property
      * @param value Value to set for the externalSponsors property.
      */
     public set externalSponsors(value: DirectoryObject[] | undefined) {
@@ -101,28 +101,28 @@ export class ConnectedOrganization extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the identitySources property value. The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Read-only. Nullable. Supports $select and $filter(eq). To filter by the derived types, you must declare the resource using its full OData cast, for example, $filter=identitySources/any(is:is/microsoft.graph.azureActiveDirectoryTenant/tenantId eq 'bcfdfff4-cbc3-43f2-9000-ba7b7515054f').
+     * Gets the identitySources property value. The identity sources in this connected organization, one of azureActiveDirectoryTenant, crossCloudAzureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Read-only. Nullable. Supports $select and $filter(eq). To filter by the derived types, you must declare the resource using its full OData cast, for example, $filter=identitySources/any(is:is/microsoft.graph.azureActiveDirectoryTenant/tenantId eq 'bcfdfff4-cbc3-43f2-9000-ba7b7515054f').
      * @returns a identitySource
      */
     public get identitySources() {
         return this._identitySources;
     };
     /**
-     * Sets the identitySources property value. The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Read-only. Nullable. Supports $select and $filter(eq). To filter by the derived types, you must declare the resource using its full OData cast, for example, $filter=identitySources/any(is:is/microsoft.graph.azureActiveDirectoryTenant/tenantId eq 'bcfdfff4-cbc3-43f2-9000-ba7b7515054f').
+     * Sets the identitySources property value. The identity sources in this connected organization, one of azureActiveDirectoryTenant, crossCloudAzureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Read-only. Nullable. Supports $select and $filter(eq). To filter by the derived types, you must declare the resource using its full OData cast, for example, $filter=identitySources/any(is:is/microsoft.graph.azureActiveDirectoryTenant/tenantId eq 'bcfdfff4-cbc3-43f2-9000-ba7b7515054f').
      * @param value Value to set for the identitySources property.
      */
     public set identitySources(value: IdentitySource[] | undefined) {
         this._identitySources = value;
     };
     /**
-     * Gets the internalSponsors property value. Nullable.
+     * Gets the internalSponsors property value. The internalSponsors property
      * @returns a directoryObject
      */
     public get internalSponsors() {
         return this._internalSponsors;
     };
     /**
-     * Sets the internalSponsors property value. Nullable.
+     * Sets the internalSponsors property value. The internalSponsors property
      * @param value Value to set for the internalSponsors property.
      */
     public set internalSponsors(value: DirectoryObject[] | undefined) {

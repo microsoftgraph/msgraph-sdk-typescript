@@ -3,17 +3,18 @@ import {Entity, PrintTaskDefinition} from './index';
 import {PrintEvent} from './printEvent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
+/** Provides operations to manage the admin singleton. */
 export class PrintTaskTrigger extends Entity implements Parsable {
     /** The definition property */
     private _definition?: PrintTaskDefinition | undefined;
-    /** The Universal Print event that will cause a new printTask to be triggered. Valid values are described in the following table. */
+    /** The event property */
     private _event?: PrintEvent | undefined;
     /**
      * Instantiates a new printTaskTrigger and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.printTaskTrigger";
     };
     /**
      * Gets the definition property value. The definition property
@@ -30,14 +31,14 @@ export class PrintTaskTrigger extends Entity implements Parsable {
         this._definition = value;
     };
     /**
-     * Gets the event property value. The Universal Print event that will cause a new printTask to be triggered. Valid values are described in the following table.
+     * Gets the event property value. The event property
      * @returns a printEvent
      */
     public get event() {
         return this._event;
     };
     /**
-     * Sets the event property value. The Universal Print event that will cause a new printTask to be triggered. Valid values are described in the following table.
+     * Sets the event property value. The event property
      * @param value Value to set for the event property.
      */
     public set event(value: PrintEvent | undefined) {

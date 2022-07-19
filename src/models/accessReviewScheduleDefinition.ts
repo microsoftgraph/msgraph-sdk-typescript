@@ -3,11 +3,11 @@ import {createAccessReviewNotificationRecipientItemFromDiscriminatorValue} from 
 import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAccessReviewReviewerScopeFromDiscriminatorValue';
 import {createAccessReviewScheduleSettingsFromDiscriminatorValue} from './createAccessReviewScheduleSettingsFromDiscriminatorValue';
 import {createAccessReviewScopeFromDiscriminatorValue} from './createAccessReviewScopeFromDiscriminatorValue';
+import {createAccessReviewStageSettingsFromDiscriminatorValue} from './createAccessReviewStageSettingsFromDiscriminatorValue';
 import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFromDiscriminatorValue';
-import {AccessReviewInstance, AccessReviewNotificationRecipientItem, AccessReviewReviewerScope, AccessReviewScheduleSettings, AccessReviewScope, Entity, UserIdentity} from './index';
+import {AccessReviewInstance, AccessReviewNotificationRecipientItem, AccessReviewReviewerScope, AccessReviewScheduleSettings, AccessReviewScope, AccessReviewStageSettings, Entity, UserIdentity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewScheduleDefinition extends Entity implements Parsable {
     /** Defines the list of additional users or group members to be notified of the access review progress. */
     private _additionalNotificationRecipients?: AccessReviewNotificationRecipientItem[] | undefined;
@@ -35,6 +35,8 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
     private _scope?: AccessReviewScope | undefined;
     /** The settings for an access review series, see type definition below. Supports $select. Required on create. */
     private _settings?: AccessReviewScheduleSettings | undefined;
+    /** Required only for a multi-stage access review to define the stages and their settings. You can break down each review instance into up to three sequential stages, where each stage can have a different set of reviewers, fallback reviewers, and settings. Stages will be created sequentially based on the dependsOn property. Optional.  When this property is defined, its settings are used instead of the corresponding settings in the accessReviewScheduleDefinition object and its settings, reviewers, and fallbackReviewers properties. */
+    private _stageSettings?: AccessReviewStageSettings[] | undefined;
     /** This read-only field specifies the status of an access review. The typical states include Initializing, NotStarted, Starting, InProgress, Completing, Completed, AutoReviewing, and AutoReviewed.  Supports $select, $orderby, and $filter (eq only). Read-only. */
     private _status?: string | undefined;
     /**
@@ -52,10 +54,11 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
         this._additionalNotificationRecipients = value;
     };
     /**
-     * Instantiates a new accessReviewScheduleDefinition and sets the default values.
+     * Instantiates a new AccessReviewScheduleDefinition and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.accessReviewScheduleDefinition";
     };
     /**
      * Gets the createdBy property value. User who created this review. Read-only.
@@ -160,6 +163,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
             "reviewers": n => { this.reviewers = n.getCollectionOfObjectValues<AccessReviewReviewerScope>(createAccessReviewReviewerScopeFromDiscriminatorValue); },
             "scope": n => { this.scope = n.getObjectValue<AccessReviewScope>(createAccessReviewScopeFromDiscriminatorValue); },
             "settings": n => { this.settings = n.getObjectValue<AccessReviewScheduleSettings>(createAccessReviewScheduleSettingsFromDiscriminatorValue); },
+            "stageSettings": n => { this.stageSettings = n.getCollectionOfObjectValues<AccessReviewStageSettings>(createAccessReviewStageSettingsFromDiscriminatorValue); },
             "status": n => { this.status = n.getStringValue(); },
         };
     };
@@ -253,6 +257,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("reviewers", this.reviewers);
         writer.writeObjectValue<AccessReviewScope>("scope", this.scope);
         writer.writeObjectValue<AccessReviewScheduleSettings>("settings", this.settings);
+        writer.writeCollectionOfObjectValues<AccessReviewStageSettings>("stageSettings", this.stageSettings);
         writer.writeStringValue("status", this.status);
     };
     /**
@@ -268,6 +273,20 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
      */
     public set settings(value: AccessReviewScheduleSettings | undefined) {
         this._settings = value;
+    };
+    /**
+     * Gets the stageSettings property value. Required only for a multi-stage access review to define the stages and their settings. You can break down each review instance into up to three sequential stages, where each stage can have a different set of reviewers, fallback reviewers, and settings. Stages will be created sequentially based on the dependsOn property. Optional.  When this property is defined, its settings are used instead of the corresponding settings in the accessReviewScheduleDefinition object and its settings, reviewers, and fallbackReviewers properties.
+     * @returns a accessReviewStageSettings
+     */
+    public get stageSettings() {
+        return this._stageSettings;
+    };
+    /**
+     * Sets the stageSettings property value. Required only for a multi-stage access review to define the stages and their settings. You can break down each review instance into up to three sequential stages, where each stage can have a different set of reviewers, fallback reviewers, and settings. Stages will be created sequentially based on the dependsOn property. Optional.  When this property is defined, its settings are used instead of the corresponding settings in the accessReviewScheduleDefinition object and its settings, reviewers, and fallbackReviewers properties.
+     * @param value Value to set for the stageSettings property.
+     */
+    public set stageSettings(value: AccessReviewStageSettings[] | undefined) {
+        this._stageSettings = value;
     };
     /**
      * Gets the status property value. This read-only field specifies the status of an access review. The typical states include Initializing, NotStarted, Starting, InProgress, Completing, Completed, AutoReviewing, and AutoReviewed.  Supports $select, $orderby, and $filter (eq only). Read-only.

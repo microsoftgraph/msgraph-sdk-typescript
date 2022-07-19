@@ -7,7 +7,7 @@ import {ParentSectionGroupRequestBuilder} from './parentSectionGroup/parentSecti
 import {SectionGroupItemRequestBuilderDeleteRequestConfiguration} from './sectionGroupItemRequestBuilderDeleteRequestConfiguration';
 import {SectionGroupItemRequestBuilderGetRequestConfiguration} from './sectionGroupItemRequestBuilderGetRequestConfiguration';
 import {SectionGroupItemRequestBuilderPatchRequestConfiguration} from './sectionGroupItemRequestBuilderPatchRequestConfiguration';
-import {SectionGroupItemRequestBuilder as ibdc1b5fc17b14c7b83a99eec7eded2ce47bfa1dc9cd331d3a536b220122fec61} from './sectionGroups/item/sectionGroupItemRequestBuilder';
+import {SectionGroupItemRequestBuilder as i297dea001485cc85ef06b1fd8c010406c3f9fa82a357a17d0c1ce5ed3ff8a6f6} from './sectionGroups/item/sectionGroupItemRequestBuilder';
 import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
 import {OnenoteSectionItemRequestBuilder} from './sections/item/onenoteSectionItemRequestBuilder';
 import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
@@ -76,6 +76,7 @@ export class SectionGroupItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -153,18 +154,18 @@ export class SectionGroupItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.onenote.notebooks.item.sectionGroups.item.sectionGroups.item collection
      * @param id Unique identifier of the item
-     * @returns a sectionGroupItemRequestBuilder
+     * @returns a SectionGroupItemRequestBuilder
      */
-    public sectionGroupsById(id: string) : ibdc1b5fc17b14c7b83a99eec7eded2ce47bfa1dc9cd331d3a536b220122fec61 {
+    public sectionGroupsById(id: string) : i297dea001485cc85ef06b1fd8c010406c3f9fa82a357a17d0c1ce5ed3ff8a6f6 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["sectionGroup%2Did1"] = id
-        return new ibdc1b5fc17b14c7b83a99eec7eded2ce47bfa1dc9cd331d3a536b220122fec61(urlTplParams, this.requestAdapter);
+        return new i297dea001485cc85ef06b1fd8c010406c3f9fa82a357a17d0c1ce5ed3ff8a6f6(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.onenote.notebooks.item.sectionGroups.item.sections.item collection
      * @param id Unique identifier of the item
-     * @returns a onenoteSectionItemRequestBuilder
+     * @returns a OnenoteSectionItemRequestBuilder
      */
     public sectionsById(id: string) : OnenoteSectionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

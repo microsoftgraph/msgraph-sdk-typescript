@@ -2,7 +2,6 @@ import {createWorkbookChartTitleFormatFromDiscriminatorValue} from './createWork
 import {Entity, WorkbookChartTitleFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartTitle extends Entity implements Parsable {
     /** Represents the formatting of a chart title, which includes fill and font formatting. Read-only. */
     private _format?: WorkbookChartTitleFormat | undefined;
@@ -17,6 +16,7 @@ export class WorkbookChartTitle extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.workbookChartTitle";
     };
     /**
      * Gets the format property value. Represents the formatting of a chart title, which includes fill and font formatting. Read-only.

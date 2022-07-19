@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get photos from users */
 export class PhotosRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

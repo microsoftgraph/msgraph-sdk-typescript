@@ -1,5 +1,5 @@
 
-/** Get transitiveMemberOf from users */
+/** The groups, including nested groups, and directory roles that a user is a member of. Nullable. */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

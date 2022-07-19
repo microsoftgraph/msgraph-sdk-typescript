@@ -1,4 +1,4 @@
-import {UnifiedRoleManagementPolicyRule} from './index';
+import {UnifiedRoleManagementPolicyApprovalRule, UnifiedRoleManagementPolicyAuthenticationContextRule, UnifiedRoleManagementPolicyEnablementRule, UnifiedRoleManagementPolicyExpirationRule, UnifiedRoleManagementPolicyNotificationRule, UnifiedRoleManagementPolicyRule} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnifiedRoleManagementPolicyRule {
@@ -8,8 +8,16 @@ export function createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue(pars
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.unifiedRoleManagementPolicyRule":
-                    return new UnifiedRoleManagementPolicyRule();
+                case "#microsoft.graph.unifiedRoleManagementPolicyApprovalRule":
+                    return new UnifiedRoleManagementPolicyApprovalRule();
+                case "#microsoft.graph.unifiedRoleManagementPolicyAuthenticationContextRule":
+                    return new UnifiedRoleManagementPolicyAuthenticationContextRule();
+                case "#microsoft.graph.unifiedRoleManagementPolicyEnablementRule":
+                    return new UnifiedRoleManagementPolicyEnablementRule();
+                case "#microsoft.graph.unifiedRoleManagementPolicyExpirationRule":
+                    return new UnifiedRoleManagementPolicyExpirationRule();
+                case "#microsoft.graph.unifiedRoleManagementPolicyNotificationRule":
+                    return new UnifiedRoleManagementPolicyNotificationRule();
             }
         }
     }

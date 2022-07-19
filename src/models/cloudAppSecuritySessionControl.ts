@@ -2,7 +2,6 @@ import {CloudAppSecuritySessionControlType} from './cloudAppSecuritySessionContr
 import {ConditionalAccessSessionControl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class CloudAppSecuritySessionControl extends ConditionalAccessSessionControl implements Parsable {
     /** Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps. */
     private _cloudAppSecurityType?: CloudAppSecuritySessionControlType | undefined;
@@ -21,10 +20,11 @@ export class CloudAppSecuritySessionControl extends ConditionalAccessSessionCont
         this._cloudAppSecurityType = value;
     };
     /**
-     * Instantiates a new cloudAppSecuritySessionControl and sets the default values.
+     * Instantiates a new CloudAppSecuritySessionControl and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.cloudAppSecuritySessionControl";
     };
     /**
      * The deserialization information for the current model

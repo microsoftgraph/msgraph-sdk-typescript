@@ -2,12 +2,15 @@ import {createAlertFromDiscriminatorValue} from './createAlertFromDiscriminatorV
 import {createSecureScoreControlProfileFromDiscriminatorValue} from './createSecureScoreControlProfileFromDiscriminatorValue';
 import {createSecureScoreFromDiscriminatorValue} from './createSecureScoreFromDiscriminatorValue';
 import {Alert, Entity, SecureScore, SecureScoreControlProfile} from './index';
+import {CasesRoot} from './security/';
+import {createCasesRootFromDiscriminatorValue} from './security/createCasesRootFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the security singleton. */
 export class Security extends Entity implements Parsable {
     /** Notifications for suspicious or potential security issues in a customer’s tenant. */
     private _alerts?: Alert[] | undefined;
+    /** The cases property */
+    private _cases?: CasesRoot | undefined;
     /** The secureScoreControlProfiles property */
     private _secureScoreControlProfiles?: SecureScoreControlProfile[] | undefined;
     /** The secureScores property */
@@ -27,10 +30,25 @@ export class Security extends Entity implements Parsable {
         this._alerts = value;
     };
     /**
-     * Instantiates a new security and sets the default values.
+     * Gets the cases property value. The cases property
+     * @returns a casesRoot
+     */
+    public get cases() {
+        return this._cases;
+    };
+    /**
+     * Sets the cases property value. The cases property
+     * @param value Value to set for the cases property.
+     */
+    public set cases(value: CasesRoot | undefined) {
+        this._cases = value;
+    };
+    /**
+     * Instantiates a new Security and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.security";
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +57,7 @@ export class Security extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "alerts": n => { this.alerts = n.getCollectionOfObjectValues<Alert>(createAlertFromDiscriminatorValue); },
+            "cases": n => { this.cases = n.getObjectValue<CasesRoot>(createCasesRootFromDiscriminatorValue); },
             "secureScoreControlProfiles": n => { this.secureScoreControlProfiles = n.getCollectionOfObjectValues<SecureScoreControlProfile>(createSecureScoreControlProfileFromDiscriminatorValue); },
             "secureScores": n => { this.secureScores = n.getCollectionOfObjectValues<SecureScore>(createSecureScoreFromDiscriminatorValue); },
         };
@@ -79,6 +98,7 @@ export class Security extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<Alert>("alerts", this.alerts);
+        writer.writeObjectValue<CasesRoot>("cases", this.cases);
         writer.writeCollectionOfObjectValues<SecureScoreControlProfile>("secureScoreControlProfiles", this.secureScoreControlProfiles);
         writer.writeCollectionOfObjectValues<SecureScore>("secureScores", this.secureScores);
     };

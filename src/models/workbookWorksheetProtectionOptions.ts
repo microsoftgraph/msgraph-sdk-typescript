@@ -25,6 +25,8 @@ export class WorkbookWorksheetProtectionOptions implements AdditionalDataHolder,
     private _allowPivotTables?: boolean | undefined;
     /** Represents the worksheet protection option of allowing using sort feature. */
     private _allowSort?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -198,6 +200,7 @@ export class WorkbookWorksheetProtectionOptions implements AdditionalDataHolder,
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.workbookWorksheetProtectionOptions";
     };
     /**
      * The deserialization information for the current model
@@ -216,7 +219,22 @@ export class WorkbookWorksheetProtectionOptions implements AdditionalDataHolder,
             "allowInsertRows": n => { this.allowInsertRows = n.getBooleanValue(); },
             "allowPivotTables": n => { this.allowPivotTables = n.getBooleanValue(); },
             "allowSort": n => { this.allowSort = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -235,6 +253,7 @@ export class WorkbookWorksheetProtectionOptions implements AdditionalDataHolder,
         writer.writeBooleanValue("allowInsertRows", this.allowInsertRows);
         writer.writeBooleanValue("allowPivotTables", this.allowPivotTables);
         writer.writeBooleanValue("allowSort", this.allowSort);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

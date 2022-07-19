@@ -11,6 +11,7 @@ export class TargetedManagedAppPolicyAssignment extends Entity implements Parsab
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.targetedManagedAppPolicyAssignment";
     };
     /**
      * The deserialization information for the current model

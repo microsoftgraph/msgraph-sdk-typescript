@@ -35,7 +35,7 @@ export class PlannerPlanItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.planner.plans.item.buckets.item collection
      * @param id Unique identifier of the item
-     * @returns a plannerBucketItemRequestBuilder
+     * @returns a PlannerBucketItemRequestBuilder
      */
     public bucketsById(id: string) : PlannerBucketItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -82,6 +82,7 @@ export class PlannerPlanItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -159,7 +160,7 @@ export class PlannerPlanItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.planner.plans.item.tasks.item collection
      * @param id Unique identifier of the item
-     * @returns a plannerTaskItemRequestBuilder
+     * @returns a PlannerTaskItemRequestBuilder
      */
     public tasksById(id: string) : PlannerTaskItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -11,6 +11,8 @@ export class SignInLocation implements AdditionalDataHolder, Parsable {
     private _countryOrRegion?: string | undefined;
     /** Provides the latitude, longitude and altitude where the sign-in originated. */
     private _geoCoordinates?: GeoCoordinates | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity. */
     private _state?: string | undefined;
     /**
@@ -46,6 +48,7 @@ export class SignInLocation implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.signInLocation";
     };
     /**
      * Gets the countryOrRegion property value. Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.
@@ -84,8 +87,23 @@ export class SignInLocation implements AdditionalDataHolder, Parsable {
             "city": n => { this.city = n.getStringValue(); },
             "countryOrRegion": n => { this.countryOrRegion = n.getStringValue(); },
             "geoCoordinates": n => { this.geoCoordinates = n.getObjectValue<GeoCoordinates>(createGeoCoordinatesFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "state": n => { this.state = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -96,6 +114,7 @@ export class SignInLocation implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("city", this.city);
         writer.writeStringValue("countryOrRegion", this.countryOrRegion);
         writer.writeObjectValue<GeoCoordinates>("geoCoordinates", this.geoCoordinates);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("state", this.state);
         writer.writeAdditionalData(this.additionalData);
     };

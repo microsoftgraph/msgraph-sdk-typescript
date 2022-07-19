@@ -1,5 +1,5 @@
 
-/** Get checklistItems from me */
+/** A collection of smaller subtasks linked to the more complex parent task. */
 export class ChecklistItemItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

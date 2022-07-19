@@ -1,13 +1,13 @@
 import {CommsOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the unmute method. */
 export class UnmuteParticipantOperation extends CommsOperation implements Parsable {
     /**
-     * Instantiates a new unmuteParticipantOperation and sets the default values.
+     * Instantiates a new UnmuteParticipantOperation and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.unmuteParticipantOperation";
     };
     /**
      * The deserialization information for the current model

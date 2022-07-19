@@ -4,7 +4,7 @@ import {createSecurityVendorInformationFromDiscriminatorValue} from './createSec
 import {ComplianceInformation, Entity, SecureScoreControlStateUpdate, SecurityVendorInformation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the security singleton. */
+/** Provides operations to manage the admin singleton. */
 export class SecureScoreControlProfile extends Entity implements Parsable {
     /** Control action type (Config, Review, Behavior). */
     private _actionType?: string | undefined;
@@ -105,6 +105,7 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.secureScoreControlProfile";
     };
     /**
      * Gets the controlCategory property value. Control action category (Account, Data, Device, Apps, Infrastructure).

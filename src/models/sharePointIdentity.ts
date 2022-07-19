@@ -1,15 +1,15 @@
 import {Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class SharePointIdentity extends Identity implements Parsable {
     /** The sign in name of the SharePoint identity. */
     private _loginName?: string | undefined;
     /**
-     * Instantiates a new sharePointIdentity and sets the default values.
+     * Instantiates a new SharePointIdentity and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.sharePointIdentity";
     };
     /**
      * The deserialization information for the current model

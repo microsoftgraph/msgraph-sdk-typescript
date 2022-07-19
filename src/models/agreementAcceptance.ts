@@ -63,6 +63,7 @@ export class AgreementAcceptance extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.agreementAcceptance";
     };
     /**
      * Gets the deviceDisplayName property value. The display name of the device used for accepting the agreement.

@@ -13,6 +13,8 @@ export class ProvisioningStep implements AdditionalDataHolder, Parsable {
     private _details?: DetailsInfo | undefined;
     /** Name of the step. */
     private _name?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Type of step. Possible values are: import, scoping, matching, processing, referenceResolution, export, unknownFutureValue. */
     private _provisioningStepType?: ProvisioningStepType | undefined;
     /** Status of the step. Possible values are: success, warning,  failure, skipped, unknownFutureValue. */
@@ -36,6 +38,7 @@ export class ProvisioningStep implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.provisioningStep";
     };
     /**
      * Gets the description property value. Summary of what occurred during the step.
@@ -74,6 +77,7 @@ export class ProvisioningStep implements AdditionalDataHolder, Parsable {
             "description": n => { this.description = n.getStringValue(); },
             "details": n => { this.details = n.getObjectValue<DetailsInfo>(createDetailsInfoFromDiscriminatorValue); },
             "name": n => { this.name = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "provisioningStepType": n => { this.provisioningStepType = n.getEnumValue<ProvisioningStepType>(ProvisioningStepType); },
             "status": n => { this.status = n.getEnumValue<ProvisioningResult>(ProvisioningResult); },
         };
@@ -91,6 +95,20 @@ export class ProvisioningStep implements AdditionalDataHolder, Parsable {
      */
     public set name(value: string | undefined) {
         this._name = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the provisioningStepType property value. Type of step. Possible values are: import, scoping, matching, processing, referenceResolution, export, unknownFutureValue.
@@ -115,6 +133,7 @@ export class ProvisioningStep implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("description", this.description);
         writer.writeObjectValue<DetailsInfo>("details", this.details);
         writer.writeStringValue("name", this.name);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<ProvisioningStepType>("provisioningStepType", this.provisioningStepType);
         writer.writeEnumValue<ProvisioningResult>("status", this.status);
         writer.writeAdditionalData(this.additionalData);

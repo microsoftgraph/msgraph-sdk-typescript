@@ -1,4 +1,4 @@
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum OperationResult {
     Success = "success",
     Failure = "failure",

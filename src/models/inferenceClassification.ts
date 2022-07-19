@@ -2,7 +2,6 @@ import {createInferenceClassificationOverrideFromDiscriminatorValue} from './cre
 import {Entity, InferenceClassificationOverride} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class InferenceClassification extends Entity implements Parsable {
     /** A set of overrides for a user to always classify messages from specific senders in certain ways: focused, or other. Read-only. Nullable. */
     private _overrides?: InferenceClassificationOverride[] | undefined;
@@ -11,6 +10,7 @@ export class InferenceClassification extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.inferenceClassification";
     };
     /**
      * The deserialization information for the current model

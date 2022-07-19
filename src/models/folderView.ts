@@ -3,6 +3,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class FolderView implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The method by which the folder should be sorted. */
     private _sortBy?: string | undefined;
     /** If true, indicates that items should be sorted in descending order. Otherwise, items should be sorted ascending. */
@@ -28,6 +30,7 @@ export class FolderView implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.folderView";
     };
     /**
      * The deserialization information for the current model
@@ -35,10 +38,25 @@ export class FolderView implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "sortBy": n => { this.sortBy = n.getStringValue(); },
             "sortOrder": n => { this.sortOrder = n.getStringValue(); },
             "viewType": n => { this.viewType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -46,6 +64,7 @@ export class FolderView implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("sortBy", this.sortBy);
         writer.writeStringValue("sortOrder", this.sortOrder);
         writer.writeStringValue("viewType", this.viewType);

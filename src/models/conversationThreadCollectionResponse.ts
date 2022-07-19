@@ -5,8 +5,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ConversationThreadCollectionResponse implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The nextLink property */
-    private _nextLink?: string | undefined;
+    /** The OdataNextLink property */
+    private _odataNextLink?: string | undefined;
     /** The value property */
     private _value?: ConversationThread[] | undefined;
     /**
@@ -35,23 +35,23 @@ export class ConversationThreadCollectionResponse implements AdditionalDataHolde
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "@odata.nextLink": n => { this.nextLink = n.getStringValue(); },
+            "@odata.nextLink": n => { this.odataNextLink = n.getStringValue(); },
             "value": n => { this.value = n.getCollectionOfObjectValues<ConversationThread>(createConversationThreadFromDiscriminatorValue); },
         };
     };
     /**
-     * Gets the @odata.nextLink property value. The nextLink property
+     * Gets the @odata.nextLink property value. The OdataNextLink property
      * @returns a string
      */
-    public get nextLink() {
-        return this._nextLink;
+    public get odataNextLink() {
+        return this._odataNextLink;
     };
     /**
-     * Sets the @odata.nextLink property value. The nextLink property
-     * @param value Value to set for the nextLink property.
+     * Sets the @odata.nextLink property value. The OdataNextLink property
+     * @param value Value to set for the OdataNextLink property.
      */
-    public set nextLink(value: string | undefined) {
-        this._nextLink = value;
+    public set odataNextLink(value: string | undefined) {
+        this._odataNextLink = value;
     };
     /**
      * Serializes information the current object
@@ -59,7 +59,7 @@ export class ConversationThreadCollectionResponse implements AdditionalDataHolde
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeStringValue("@odata.nextLink", this.nextLink);
+        writer.writeStringValue("@odata.nextLink", this.odataNextLink);
         writer.writeCollectionOfObjectValues<ConversationThread>("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };

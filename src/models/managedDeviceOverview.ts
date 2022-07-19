@@ -3,7 +3,6 @@ import {createDeviceOperatingSystemSummaryFromDiscriminatorValue} from './create
 import {DeviceExchangeAccessStateSummary, DeviceOperatingSystemSummary, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Summary data for managed devices */
 export class ManagedDeviceOverview extends Entity implements Parsable {
     /** Distribution of Exchange Access State in Intune */
     private _deviceExchangeAccessStateSummary?: DeviceExchangeAccessStateSummary | undefined;
@@ -20,6 +19,7 @@ export class ManagedDeviceOverview extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.managedDeviceOverview";
     };
     /**
      * Gets the deviceExchangeAccessStateSummary property value. Distribution of Exchange Access State in Intune

@@ -4,6 +4,7 @@ import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AlertsRequestBuilder} from './alerts/alertsRequestBuilder';
 import {AlertItemRequestBuilder} from './alerts/item/alertItemRequestBuilder';
+import {CasesRequestBuilder} from './cases/casesRequestBuilder';
 import {SecureScoreControlProfileItemRequestBuilder} from './secureScoreControlProfiles/item/secureScoreControlProfileItemRequestBuilder';
 import {SecureScoreControlProfilesRequestBuilder} from './secureScoreControlProfiles/secureScoreControlProfilesRequestBuilder';
 import {SecureScoreItemRequestBuilder} from './secureScores/item/secureScoreItemRequestBuilder';
@@ -17,6 +18,10 @@ export class SecurityRequestBuilder {
     /** The alerts property */
     public get alerts(): AlertsRequestBuilder {
         return new AlertsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The cases property */
+    public get cases(): CasesRequestBuilder {
+        return new CasesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
@@ -35,7 +40,7 @@ export class SecurityRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.alerts.item collection
      * @param id Unique identifier of the item
-     * @returns a alertItemRequestBuilder
+     * @returns a AlertItemRequestBuilder
      */
     public alertsById(id: string) : AlertItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -57,7 +62,7 @@ export class SecurityRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The security resource is the entry point for the Security object model. It returns a singleton security resource. It doesn't contain any usable properties.
+     * Get security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -66,6 +71,7 @@ export class SecurityRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -93,7 +99,7 @@ export class SecurityRequestBuilder {
         return requestInfo;
     };
     /**
-     * The security resource is the entry point for the Security object model. It returns a singleton security resource. It doesn't contain any usable properties.
+     * Get security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Security
@@ -128,7 +134,7 @@ export class SecurityRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.secureScoreControlProfiles.item collection
      * @param id Unique identifier of the item
-     * @returns a secureScoreControlProfileItemRequestBuilder
+     * @returns a SecureScoreControlProfileItemRequestBuilder
      */
     public secureScoreControlProfilesById(id: string) : SecureScoreControlProfileItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -139,7 +145,7 @@ export class SecurityRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.secureScores.item collection
      * @param id Unique identifier of the item
-     * @returns a secureScoreItemRequestBuilder
+     * @returns a SecureScoreItemRequestBuilder
      */
     public secureScoresById(id: string) : SecureScoreItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

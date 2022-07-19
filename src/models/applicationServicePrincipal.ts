@@ -8,6 +8,8 @@ export class ApplicationServicePrincipal implements AdditionalDataHolder, Parsab
     private _additionalData: Record<string, unknown>;
     /** The application property */
     private _application?: Application | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The servicePrincipal property */
     private _servicePrincipal?: ServicePrincipal | undefined;
     /**
@@ -39,10 +41,11 @@ export class ApplicationServicePrincipal implements AdditionalDataHolder, Parsab
         this._application = value;
     };
     /**
-     * Instantiates a new ApplicationServicePrincipal and sets the default values.
+     * Instantiates a new applicationServicePrincipal and sets the default values.
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.applicationServicePrincipal";
     };
     /**
      * The deserialization information for the current model
@@ -51,8 +54,23 @@ export class ApplicationServicePrincipal implements AdditionalDataHolder, Parsab
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "application": n => { this.application = n.getObjectValue<Application>(createApplicationFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "servicePrincipal": n => { this.servicePrincipal = n.getObjectValue<ServicePrincipal>(createServicePrincipalFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -61,6 +79,7 @@ export class ApplicationServicePrincipal implements AdditionalDataHolder, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<Application>("application", this.application);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<ServicePrincipal>("servicePrincipal", this.servicePrincipal);
         writer.writeAdditionalData(this.additionalData);
     };

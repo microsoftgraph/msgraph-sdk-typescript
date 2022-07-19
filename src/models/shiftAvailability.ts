@@ -6,6 +6,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ShiftAvailability implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Specifies the pattern for recurrence */
     private _recurrence?: PatternedRecurrence | undefined;
     /** The time slot(s) preferred by the user. */
@@ -31,6 +33,7 @@ export class ShiftAvailability implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.shiftAvailability";
     };
     /**
      * The deserialization information for the current model
@@ -38,10 +41,25 @@ export class ShiftAvailability implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "recurrence": n => { this.recurrence = n.getObjectValue<PatternedRecurrence>(createPatternedRecurrenceFromDiscriminatorValue); },
             "timeSlots": n => { this.timeSlots = n.getCollectionOfObjectValues<TimeRange>(createTimeRangeFromDiscriminatorValue); },
             "timeZone": n => { this.timeZone = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the recurrence property value. Specifies the pattern for recurrence
@@ -63,6 +81,7 @@ export class ShiftAvailability implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<PatternedRecurrence>("recurrence", this.recurrence);
         writer.writeCollectionOfObjectValues<TimeRange>("timeSlots", this.timeSlots);
         writer.writeStringValue("timeZone", this.timeZone);

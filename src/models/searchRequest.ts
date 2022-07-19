@@ -23,6 +23,8 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
     private _fields?: string[] | undefined;
     /** Specifies the offset for the search results. Offset 0 returns the very first result. Optional. */
     private _from?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The query property */
     private _query?: SearchQuery | undefined;
     /** Provides query alteration options formatted as a JSON blob that contains two optional flags related to spelling correction. Optional. */
@@ -80,6 +82,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.searchRequest";
     };
     /**
      * Gets the contentSources property value. Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.
@@ -164,12 +167,27 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
             "entityTypes": n => { this.entityTypes = n.getCollectionOfPrimitiveValues<string>(); },
             "fields": n => { this.fields = n.getCollectionOfPrimitiveValues<string>(); },
             "from": n => { this.from = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "query": n => { this.query = n.getObjectValue<SearchQuery>(createSearchQueryFromDiscriminatorValue); },
             "queryAlterationOptions": n => { this.queryAlterationOptions = n.getObjectValue<SearchAlterationOptions>(createSearchAlterationOptionsFromDiscriminatorValue); },
             "resultTemplateOptions": n => { this.resultTemplateOptions = n.getObjectValue<ResultTemplateOption>(createResultTemplateOptionFromDiscriminatorValue); },
             "size": n => { this.size = n.getNumberValue(); },
             "sortProperties": n => { this.sortProperties = n.getCollectionOfObjectValues<SortProperty>(createSortPropertyFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the query property value. The query property
@@ -226,6 +244,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("entityTypes", this.entityTypes);
         writer.writeCollectionOfPrimitiveValues<string>("fields", this.fields);
         writer.writeNumberValue("from", this.from);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<SearchQuery>("query", this.query);
         writer.writeObjectValue<SearchAlterationOptions>("queryAlterationOptions", this.queryAlterationOptions);
         writer.writeObjectValue<ResultTemplateOption>("resultTemplateOptions", this.resultTemplateOptions);

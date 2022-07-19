@@ -3,20 +3,20 @@ import {createDriveFromDiscriminatorValue} from '../../models/createDriveFromDis
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {BundlesRequestBuilder} from './bundles/bundlesRequestBuilder';
-import {DriveItemItemRequestBuilder as iec6540cb1b85c361f7498e16b8ff950ff6195284a7c81ff665b7e1f6d0a6467f} from './bundles/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as ic17766c894fe9c47c72c35e0c51c01c59ff6a482bcd7f82dc38d2cb9be761d19} from './bundles/item/driveItemItemRequestBuilder';
 import {DriveItemRequestBuilderDeleteRequestConfiguration} from './driveItemRequestBuilderDeleteRequestConfiguration';
 import {DriveItemRequestBuilderGetRequestConfiguration} from './driveItemRequestBuilderGetRequestConfiguration';
 import {DriveItemRequestBuilderPatchRequestConfiguration} from './driveItemRequestBuilderPatchRequestConfiguration';
 import {FollowingRequestBuilder} from './following/followingRequestBuilder';
-import {DriveItemItemRequestBuilder as ia433b3c4b605213b36a6f31cdeafb12f94f5c69196f54ddda4db73ad976d1de5} from './following/item/driveItemItemRequestBuilder';
-import {DriveItemItemRequestBuilder as i002cedadeca1aa85247aeaa257298200371bfb79bc47ad91e1ee91fb9267685a} from './items/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as i7f5f4145310d9edad52ec20c81824966b63d1306babe6aaf454d97b05369ed09} from './following/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as ic919f0371ab1a51b15716e78a986527bb8d26e115e43915d5fba38e698a04897} from './items/item/driveItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListRequestBuilder} from './list/listRequestBuilder';
 import {RecentRequestBuilder} from './recent/recentRequestBuilder';
 import {RootRequestBuilder} from './root/rootRequestBuilder';
 import {SearchWithQRequestBuilder} from './searchWithQ/searchWithQRequestBuilder';
 import {SharedWithMeRequestBuilder} from './sharedWithMe/sharedWithMeRequestBuilder';
-import {DriveItemItemRequestBuilder as i9eefba1d233a2d7ded037a6d83666626c509c52c7315f140eec8cae30add088b} from './special/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as i1ef832aeaa20ced832dac75e4dfcfda159a73096b13d18aa63497da50840af3a} from './special/item/driveItemItemRequestBuilder';
 import {SpecialRequestBuilder} from './special/specialRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -55,13 +55,13 @@ export class DriveItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.bundles.item collection
      * @param id Unique identifier of the item
-     * @returns a driveItemItemRequestBuilder
+     * @returns a DriveItemItemRequestBuilder
      */
-    public bundlesById(id: string) : iec6540cb1b85c361f7498e16b8ff950ff6195284a7c81ff665b7e1f6d0a6467f {
+    public bundlesById(id: string) : ic17766c894fe9c47c72c35e0c51c01c59ff6a482bcd7f82dc38d2cb9be761d19 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new iec6540cb1b85c361f7498e16b8ff950ff6195284a7c81ff665b7e1f6d0a6467f(urlTplParams, this.requestAdapter);
+        return new ic17766c894fe9c47c72c35e0c51c01c59ff6a482bcd7f82dc38d2cb9be761d19(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new DriveItemRequestBuilder and sets the default values.
@@ -92,11 +92,17 @@ export class DriveItemRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
     public createGetRequestInformation(requestConfiguration?: DriveItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -141,14 +147,20 @@ export class DriveItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.following.item collection
      * @param id Unique identifier of the item
-     * @returns a driveItemItemRequestBuilder
+     * @returns a DriveItemItemRequestBuilder
      */
-    public followingById(id: string) : ia433b3c4b605213b36a6f31cdeafb12f94f5c69196f54ddda4db73ad976d1de5 {
+    public followingById(id: string) : i7f5f4145310d9edad52ec20c81824966b63d1306babe6aaf454d97b05369ed09 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new ia433b3c4b605213b36a6f31cdeafb12f94f5c69196f54ddda4db73ad976d1de5(urlTplParams, this.requestAdapter);
+        return new i7f5f4145310d9edad52ec20c81824966b63d1306babe6aaf454d97b05369ed09(urlTplParams, this.requestAdapter);
     };
+    /**
+     * Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Drive
+     */
     public get(requestConfiguration?: DriveItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Drive | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
@@ -162,13 +174,13 @@ export class DriveItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item collection
      * @param id Unique identifier of the item
-     * @returns a driveItemItemRequestBuilder
+     * @returns a DriveItemItemRequestBuilder
      */
-    public itemsById(id: string) : i002cedadeca1aa85247aeaa257298200371bfb79bc47ad91e1ee91fb9267685a {
+    public itemsById(id: string) : ic919f0371ab1a51b15716e78a986527bb8d26e115e43915d5fba38e698a04897 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new i002cedadeca1aa85247aeaa257298200371bfb79bc47ad91e1ee91fb9267685a(urlTplParams, this.requestAdapter);
+        return new ic919f0371ab1a51b15716e78a986527bb8d26e115e43915d5fba38e698a04897(urlTplParams, this.requestAdapter);
     };
     /**
      * Update entity in drives
@@ -213,12 +225,12 @@ export class DriveItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.special.item collection
      * @param id Unique identifier of the item
-     * @returns a driveItemItemRequestBuilder
+     * @returns a DriveItemItemRequestBuilder
      */
-    public specialById(id: string) : i9eefba1d233a2d7ded037a6d83666626c509c52c7315f140eec8cae30add088b {
+    public specialById(id: string) : i1ef832aeaa20ced832dac75e4dfcfda159a73096b13d18aa63497da50840af3a {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new i9eefba1d233a2d7ded037a6d83666626c509c52c7315f140eec8cae30add088b(urlTplParams, this.requestAdapter);
+        return new i1ef832aeaa20ced832dac75e4dfcfda159a73096b13d18aa63497da50840af3a(urlTplParams, this.requestAdapter);
     };
 }

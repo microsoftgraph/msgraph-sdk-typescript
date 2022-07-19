@@ -13,6 +13,8 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
     private _key?: string | undefined;
     /** The unique identifier for the key. */
     private _keyId?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _startDateTime?: Date | undefined;
     /** The type of key credential; for example, Symmetric, AsymmetricX509Cert. */
@@ -38,6 +40,7 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.keyCredential";
     };
     /**
      * Gets the customKeyIdentifier property value. Custom key identifier
@@ -92,6 +95,7 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
             "endDateTime": n => { this.endDateTime = n.getDateValue(); },
             "key": n => { this.key = n.getStringValue(); },
             "keyId": n => { this.keyId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
             "type": n => { this.type = n.getStringValue(); },
             "usage": n => { this.usage = n.getStringValue(); },
@@ -126,6 +130,20 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
         this._keyId = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -136,6 +154,7 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
         writer.writeDateValue("endDateTime", this.endDateTime);
         writer.writeStringValue("key", this.key);
         writer.writeStringValue("keyId", this.keyId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeStringValue("type", this.type);
         writer.writeStringValue("usage", this.usage);

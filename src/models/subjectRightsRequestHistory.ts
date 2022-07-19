@@ -11,6 +11,8 @@ export class SubjectRightsRequestHistory implements AdditionalDataHolder, Parsab
     private _changedBy?: IdentitySet | undefined;
     /** Data and time when the entity was changed. */
     private _eventDateTime?: Date | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The stage when the entity was changed. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue. */
     private _stage?: SubjectRightsRequestStage | undefined;
     /** The status of the stage when the entity was changed. Possible values are: notStarted, current, completed, failed, unknownFutureValue. */
@@ -50,6 +52,7 @@ export class SubjectRightsRequestHistory implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.subjectRightsRequestHistory";
     };
     /**
      * Gets the eventDateTime property value. Data and time when the entity was changed.
@@ -73,10 +76,25 @@ export class SubjectRightsRequestHistory implements AdditionalDataHolder, Parsab
         return {
             "changedBy": n => { this.changedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "eventDateTime": n => { this.eventDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "stage": n => { this.stage = n.getEnumValue<SubjectRightsRequestStage>(SubjectRightsRequestStage); },
             "stageStatus": n => { this.stageStatus = n.getEnumValue<SubjectRightsRequestStageStatus>(SubjectRightsRequestStageStatus); },
             "type": n => { this.type = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -86,6 +104,7 @@ export class SubjectRightsRequestHistory implements AdditionalDataHolder, Parsab
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<IdentitySet>("changedBy", this.changedBy);
         writer.writeDateValue("eventDateTime", this.eventDateTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<SubjectRightsRequestStage>("stage", this.stage);
         writer.writeEnumValue<SubjectRightsRequestStageStatus>("stageStatus", this.stageStatus);
         writer.writeStringValue("type", this.type);

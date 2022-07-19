@@ -3,16 +3,17 @@ import {createBookingBusinessFromDiscriminatorValue} from '../../../models/creat
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppointmentsRequestBuilder} from './appointments/appointmentsRequestBuilder';
-import {BookingAppointmentItemRequestBuilder as i549df13af914f5d18415b6b2e317bb0de2c91be54aaca79fb0e27b0aa2649626} from './appointments/item/bookingAppointmentItemRequestBuilder';
+import {BookingAppointmentItemRequestBuilder as if8492a98c98902c4f6ba4863614de95da278d3415d72f020e0e93895216cb97d} from './appointments/item/bookingAppointmentItemRequestBuilder';
 import {BookingBusinessItemRequestBuilderDeleteRequestConfiguration} from './bookingBusinessItemRequestBuilderDeleteRequestConfiguration';
 import {BookingBusinessItemRequestBuilderGetRequestConfiguration} from './bookingBusinessItemRequestBuilderGetRequestConfiguration';
 import {BookingBusinessItemRequestBuilderPatchRequestConfiguration} from './bookingBusinessItemRequestBuilderPatchRequestConfiguration';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {BookingAppointmentItemRequestBuilder as i286c0648ce5b2f5904e9046a9ca0cb117fe36890723bbbf3f391f7bbdb3c085b} from './calendarView/item/bookingAppointmentItemRequestBuilder';
+import {BookingAppointmentItemRequestBuilder as ibaa5b72e3646c195719ac2d5f1bdd23edfb26f61b42918c45bc195a6229375c4} from './calendarView/item/bookingAppointmentItemRequestBuilder';
 import {CustomersRequestBuilder} from './customers/customersRequestBuilder';
 import {BookingCustomerBaseItemRequestBuilder} from './customers/item/bookingCustomerBaseItemRequestBuilder';
 import {CustomQuestionsRequestBuilder} from './customQuestions/customQuestionsRequestBuilder';
 import {BookingCustomQuestionItemRequestBuilder} from './customQuestions/item/bookingCustomQuestionItemRequestBuilder';
+import {GetStaffAvailabilityRequestBuilder} from './getStaffAvailability/getStaffAvailabilityRequestBuilder';
 import {PublishRequestBuilder} from './publish/publishRequestBuilder';
 import {BookingServiceItemRequestBuilder} from './services/item/bookingServiceItemRequestBuilder';
 import {ServicesRequestBuilder} from './services/servicesRequestBuilder';
@@ -39,6 +40,10 @@ export class BookingBusinessItemRequestBuilder {
     public get customQuestions(): CustomQuestionsRequestBuilder {
         return new CustomQuestionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The getStaffAvailability property */
+    public get getStaffAvailability(): GetStaffAvailabilityRequestBuilder {
+        return new GetStaffAvailabilityRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
     /** The publish property */
@@ -64,24 +69,24 @@ export class BookingBusinessItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.appointments.item collection
      * @param id Unique identifier of the item
-     * @returns a bookingAppointmentItemRequestBuilder
+     * @returns a BookingAppointmentItemRequestBuilder
      */
-    public appointmentsById(id: string) : i549df13af914f5d18415b6b2e317bb0de2c91be54aaca79fb0e27b0aa2649626 {
+    public appointmentsById(id: string) : if8492a98c98902c4f6ba4863614de95da278d3415d72f020e0e93895216cb97d {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bookingAppointment%2Did"] = id
-        return new i549df13af914f5d18415b6b2e317bb0de2c91be54aaca79fb0e27b0aa2649626(urlTplParams, this.requestAdapter);
+        return new if8492a98c98902c4f6ba4863614de95da278d3415d72f020e0e93895216cb97d(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.calendarView.item collection
      * @param id Unique identifier of the item
-     * @returns a bookingAppointmentItemRequestBuilder
+     * @returns a BookingAppointmentItemRequestBuilder
      */
-    public calendarViewById(id: string) : i286c0648ce5b2f5904e9046a9ca0cb117fe36890723bbbf3f391f7bbdb3c085b {
+    public calendarViewById(id: string) : ibaa5b72e3646c195719ac2d5f1bdd23edfb26f61b42918c45bc195a6229375c4 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bookingAppointment%2Did"] = id
-        return new i286c0648ce5b2f5904e9046a9ca0cb117fe36890723bbbf3f391f7bbdb3c085b(urlTplParams, this.requestAdapter);
+        return new ibaa5b72e3646c195719ac2d5f1bdd23edfb26f61b42918c45bc195a6229375c4(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new BookingBusinessItemRequestBuilder and sets the default values.
@@ -122,6 +127,7 @@ export class BookingBusinessItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -151,7 +157,7 @@ export class BookingBusinessItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.customers.item collection
      * @param id Unique identifier of the item
-     * @returns a bookingCustomerBaseItemRequestBuilder
+     * @returns a BookingCustomerBaseItemRequestBuilder
      */
     public customersById(id: string) : BookingCustomerBaseItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -162,7 +168,7 @@ export class BookingBusinessItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.customQuestions.item collection
      * @param id Unique identifier of the item
-     * @returns a bookingCustomQuestionItemRequestBuilder
+     * @returns a BookingCustomQuestionItemRequestBuilder
      */
     public customQuestionsById(id: string) : BookingCustomQuestionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -221,7 +227,7 @@ export class BookingBusinessItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.services.item collection
      * @param id Unique identifier of the item
-     * @returns a bookingServiceItemRequestBuilder
+     * @returns a BookingServiceItemRequestBuilder
      */
     public servicesById(id: string) : BookingServiceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -232,7 +238,7 @@ export class BookingBusinessItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.staffMembers.item collection
      * @param id Unique identifier of the item
-     * @returns a bookingStaffMemberBaseItemRequestBuilder
+     * @returns a BookingStaffMemberBaseItemRequestBuilder
      */
     public staffMembersById(id: string) : BookingStaffMemberBaseItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

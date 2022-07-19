@@ -8,6 +8,8 @@ export class EntitlementManagementSchedule implements AdditionalDataHolder, Pars
     private _additionalData: Record<string, unknown>;
     /** When the access should expire. */
     private _expiration?: ExpirationPattern | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** For recurring access reviews.  Not used in access requests. */
     private _recurrence?: PatternedRecurrence | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
@@ -31,6 +33,7 @@ export class EntitlementManagementSchedule implements AdditionalDataHolder, Pars
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.entitlementManagementSchedule";
     };
     /**
      * Gets the expiration property value. When the access should expire.
@@ -53,9 +56,24 @@ export class EntitlementManagementSchedule implements AdditionalDataHolder, Pars
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "expiration": n => { this.expiration = n.getObjectValue<ExpirationPattern>(createExpirationPatternFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "recurrence": n => { this.recurrence = n.getObjectValue<PatternedRecurrence>(createPatternedRecurrenceFromDiscriminatorValue); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the recurrence property value. For recurring access reviews.  Not used in access requests.
@@ -78,6 +96,7 @@ export class EntitlementManagementSchedule implements AdditionalDataHolder, Pars
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<ExpirationPattern>("expiration", this.expiration);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<PatternedRecurrence>("recurrence", this.recurrence);
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeAdditionalData(this.additionalData);

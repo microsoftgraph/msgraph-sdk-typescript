@@ -3,7 +3,6 @@ import {createPlannerTaskFromDiscriminatorValue} from './createPlannerTaskFromDi
 import {Entity, PlannerPlan, PlannerTask} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class PlannerUser extends Entity implements Parsable {
     /** Read-only. Nullable. Returns the plannerTasks assigned to the user. */
     private _plans?: PlannerPlan[] | undefined;
@@ -14,6 +13,7 @@ export class PlannerUser extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.plannerUser";
     };
     /**
      * The deserialization information for the current model

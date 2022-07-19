@@ -7,6 +7,8 @@ export class AssignedPlan implements AdditionalDataHolder, Parsable {
     private _assignedDateTime?: Date | undefined;
     /** Condition of the capability assignment. The possible values are Enabled, Warning, Suspended, Deleted, LockedOut. */
     private _capabilityStatus?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The name of the service; for example, exchange. */
     private _service?: string | undefined;
     /** A GUID that identifies the service plan. For a complete list of GUIDs and their equivalent friendly service names, see Product names and service plan identifiers for licensing. */
@@ -58,6 +60,7 @@ export class AssignedPlan implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.assignedPlan";
     };
     /**
      * The deserialization information for the current model
@@ -67,9 +70,24 @@ export class AssignedPlan implements AdditionalDataHolder, Parsable {
         return {
             "assignedDateTime": n => { this.assignedDateTime = n.getDateValue(); },
             "capabilityStatus": n => { this.capabilityStatus = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "service": n => { this.service = n.getStringValue(); },
             "servicePlanId": n => { this.servicePlanId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -79,6 +97,7 @@ export class AssignedPlan implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeDateValue("assignedDateTime", this.assignedDateTime);
         writer.writeStringValue("capabilityStatus", this.capabilityStatus);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("service", this.service);
         writer.writeStringValue("servicePlanId", this.servicePlanId);
         writer.writeAdditionalData(this.additionalData);

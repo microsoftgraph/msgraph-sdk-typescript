@@ -161,6 +161,7 @@ export class ManagedDeviceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -205,7 +206,7 @@ export class ManagedDeviceItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.managedDevices.item.deviceCompliancePolicyStates.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceCompliancePolicyStateItemRequestBuilder
+     * @returns a DeviceCompliancePolicyStateItemRequestBuilder
      */
     public deviceCompliancePolicyStatesById(id: string) : DeviceCompliancePolicyStateItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -216,7 +217,7 @@ export class ManagedDeviceItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.managedDevices.item.deviceConfigurationStates.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceConfigurationStateItemRequestBuilder
+     * @returns a DeviceConfigurationStateItemRequestBuilder
      */
     public deviceConfigurationStatesById(id: string) : DeviceConfigurationStateItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

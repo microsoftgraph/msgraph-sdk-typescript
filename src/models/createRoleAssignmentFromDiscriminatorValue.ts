@@ -1,4 +1,4 @@
-import {RoleAssignment} from './index';
+import {DeviceAndAppManagementRoleAssignment, RoleAssignment} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createRoleAssignmentFromDiscriminatorValue(parseNode: ParseNode | undefined) : RoleAssignment {
@@ -8,8 +8,8 @@ export function createRoleAssignmentFromDiscriminatorValue(parseNode: ParseNode 
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.roleAssignment":
-                    return new RoleAssignment();
+                case "#microsoft.graph.deviceAndAppManagementRoleAssignment":
+                    return new DeviceAndAppManagementRoleAssignment();
             }
         }
     }

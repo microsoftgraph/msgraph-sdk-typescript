@@ -10,6 +10,8 @@ export class WindowsInformationProtectionDataRecoveryCertificate implements Addi
     private _description?: string | undefined;
     /** Data recovery Certificate expiration datetime */
     private _expirationDateTime?: Date | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Data recovery Certificate subject name */
     private _subjectName?: string | undefined;
     /**
@@ -45,6 +47,7 @@ export class WindowsInformationProtectionDataRecoveryCertificate implements Addi
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.windowsInformationProtectionDataRecoveryCertificate";
     };
     /**
      * Gets the description property value. Data recovery Certificate description
@@ -83,8 +86,23 @@ export class WindowsInformationProtectionDataRecoveryCertificate implements Addi
             "certificate": n => { this.certificate = n.getStringValue(); },
             "description": n => { this.description = n.getStringValue(); },
             "expirationDateTime": n => { this.expirationDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "subjectName": n => { this.subjectName = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -95,6 +113,7 @@ export class WindowsInformationProtectionDataRecoveryCertificate implements Addi
         writer.writeStringValue("certificate", this.certificate);
         writer.writeStringValue("description", this.description);
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("subjectName", this.subjectName);
         writer.writeAdditionalData(this.additionalData);
     };

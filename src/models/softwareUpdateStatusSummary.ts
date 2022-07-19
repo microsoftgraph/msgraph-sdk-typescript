@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the deviceManagement singleton. */
 export class SoftwareUpdateStatusSummary extends Entity implements Parsable {
     /** Number of compliant devices. */
     private _compliantDeviceCount?: number | undefined;
@@ -94,6 +93,7 @@ export class SoftwareUpdateStatusSummary extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.softwareUpdateStatusSummary";
     };
     /**
      * Gets the displayName property value. The name of the policy.

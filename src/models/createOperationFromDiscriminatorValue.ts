@@ -1,4 +1,4 @@
-import {Operation} from './index';
+import {OnenoteOperation, Operation} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : Operation {
@@ -8,8 +8,8 @@ export function createOperationFromDiscriminatorValue(parseNode: ParseNode | und
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.operation":
-                    return new Operation();
+                case "#microsoft.graph.onenoteOperation":
+                    return new OnenoteOperation();
             }
         }
     }

@@ -29,7 +29,7 @@ export class ServiceUpdateMessageItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.messages.item.attachments.item collection
      * @param id Unique identifier of the item
-     * @returns a serviceAnnouncementAttachmentItemRequestBuilder
+     * @returns a ServiceAnnouncementAttachmentItemRequestBuilder
      */
     public attachmentsById(id: string) : ServiceAnnouncementAttachmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -76,6 +76,7 @@ export class ServiceUpdateMessageItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

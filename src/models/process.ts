@@ -20,6 +20,8 @@ export class Process implements AdditionalDataHolder, Parsable {
     private _isElevated?: boolean | undefined;
     /** The name of the process' Image file. */
     private _name?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** DateTime at which the parent process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _parentProcessCreatedDateTime?: Date | undefined;
     /** The Process ID (PID) of the parent process. */
@@ -77,6 +79,7 @@ export class Process implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.process";
     };
     /**
      * Gets the createdDateTime property value. Time at which the process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
@@ -119,6 +122,7 @@ export class Process implements AdditionalDataHolder, Parsable {
             "integrityLevel": n => { this.integrityLevel = n.getEnumValue<ProcessIntegrityLevel>(ProcessIntegrityLevel); },
             "isElevated": n => { this.isElevated = n.getBooleanValue(); },
             "name": n => { this.name = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "parentProcessCreatedDateTime": n => { this.parentProcessCreatedDateTime = n.getDateValue(); },
             "parentProcessId": n => { this.parentProcessId = n.getNumberValue(); },
             "parentProcessName": n => { this.parentProcessName = n.getStringValue(); },
@@ -167,6 +171,20 @@ export class Process implements AdditionalDataHolder, Parsable {
      */
     public set name(value: string | undefined) {
         this._name = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the parentProcessCreatedDateTime property value. DateTime at which the parent process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
@@ -251,6 +269,7 @@ export class Process implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue<ProcessIntegrityLevel>("integrityLevel", this.integrityLevel);
         writer.writeBooleanValue("isElevated", this.isElevated);
         writer.writeStringValue("name", this.name);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeDateValue("parentProcessCreatedDateTime", this.parentProcessCreatedDateTime);
         writer.writeNumberValue("parentProcessId", this.parentProcessId);
         writer.writeStringValue("parentProcessName", this.parentProcessName);

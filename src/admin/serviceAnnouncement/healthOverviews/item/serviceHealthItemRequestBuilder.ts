@@ -60,6 +60,7 @@ export class ServiceHealthItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -120,7 +121,7 @@ export class ServiceHealthItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.healthOverviews.item.issues.item collection
      * @param id Unique identifier of the item
-     * @returns a serviceHealthIssueItemRequestBuilder
+     * @returns a ServiceHealthIssueItemRequestBuilder
      */
     public issuesById(id: string) : ServiceHealthIssueItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

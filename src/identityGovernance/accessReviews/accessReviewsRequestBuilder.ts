@@ -66,6 +66,7 @@ export class AccessReviewsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -95,7 +96,7 @@ export class AccessReviewsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.accessReviews.definitions.item collection
      * @param id Unique identifier of the item
-     * @returns a accessReviewScheduleDefinitionItemRequestBuilder
+     * @returns a AccessReviewScheduleDefinitionItemRequestBuilder
      */
     public definitionsById(id: string) : AccessReviewScheduleDefinitionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -137,7 +138,7 @@ export class AccessReviewsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.accessReviews.historyDefinitions.item collection
      * @param id Unique identifier of the item
-     * @returns a accessReviewHistoryDefinitionItemRequestBuilder
+     * @returns a AccessReviewHistoryDefinitionItemRequestBuilder
      */
     public historyDefinitionsById(id: string) : AccessReviewHistoryDefinitionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

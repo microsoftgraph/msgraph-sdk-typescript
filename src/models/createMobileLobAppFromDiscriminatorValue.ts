@@ -1,4 +1,4 @@
-import {MobileLobApp} from './index';
+import {AndroidLobApp, IosLobApp, MobileLobApp, Win32LobApp, WindowsMobileMSI, WindowsUniversalAppX} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createMobileLobAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : MobileLobApp {
@@ -8,8 +8,16 @@ export function createMobileLobAppFromDiscriminatorValue(parseNode: ParseNode | 
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.mobileLobApp":
-                    return new MobileLobApp();
+                case "#microsoft.graph.androidLobApp":
+                    return new AndroidLobApp();
+                case "#microsoft.graph.iosLobApp":
+                    return new IosLobApp();
+                case "#microsoft.graph.win32LobApp":
+                    return new Win32LobApp();
+                case "#microsoft.graph.windowsMobileMSI":
+                    return new WindowsMobileMSI();
+                case "#microsoft.graph.windowsUniversalAppX":
+                    return new WindowsUniversalAppX();
             }
         }
     }

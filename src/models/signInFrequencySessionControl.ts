@@ -2,17 +2,17 @@ import {ConditionalAccessSessionControl} from './index';
 import {SigninFrequencyType} from './signinFrequencyType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class SignInFrequencySessionControl extends ConditionalAccessSessionControl implements Parsable {
-    /** Possible values are: days, hours. */
+    /** Possible values are: days, hours, or null if frequencyInterval is everyTime . */
     private _type?: SigninFrequencyType | undefined;
     /** The number of days or hours. */
     private _value?: number | undefined;
     /**
-     * Instantiates a new signInFrequencySessionControl and sets the default values.
+     * Instantiates a new SignInFrequencySessionControl and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.signInFrequencySessionControl";
     };
     /**
      * The deserialization information for the current model
@@ -35,14 +35,14 @@ export class SignInFrequencySessionControl extends ConditionalAccessSessionContr
         writer.writeNumberValue("value", this.value);
     };
     /**
-     * Gets the type property value. Possible values are: days, hours.
+     * Gets the type property value. Possible values are: days, hours, or null if frequencyInterval is everyTime .
      * @returns a signinFrequencyType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. Possible values are: days, hours.
+     * Sets the type property value. Possible values are: days, hours, or null if frequencyInterval is everyTime .
      * @param value Value to set for the type property.
      */
     public set type(value: SigninFrequencyType | undefined) {

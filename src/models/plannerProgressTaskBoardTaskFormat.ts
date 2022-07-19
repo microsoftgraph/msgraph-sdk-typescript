@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class PlannerProgressTaskBoardTaskFormat extends Entity implements Parsable {
     /** Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here. */
     private _orderHint?: string | undefined;
@@ -10,6 +9,7 @@ export class PlannerProgressTaskBoardTaskFormat extends Entity implements Parsab
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.plannerProgressTaskBoardTaskFormat";
     };
     /**
      * The deserialization information for the current model

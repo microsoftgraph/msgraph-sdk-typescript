@@ -25,6 +25,8 @@ export class DeviceInfo implements AdditionalDataHolder, Parsable {
     private _lowSpeechToNoiseEventRatio?: number | undefined;
     /** Glitches per 5 minute interval for the media endpoint's microphone. */
     private _micGlitchRate?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Average energy level of received audio for audio classified as mono noise or left channel of stereo noise by the media endpoint. */
     private _receivedNoiseLevel?: number | undefined;
     /** Average energy level of received audio for audio classified as mono speech, or left channel of stereo speech by the media endpoint. */
@@ -106,6 +108,7 @@ export class DeviceInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.callRecords.deviceInfo";
     };
     /**
      * Gets the cpuInsufficentEventRatio property value. Fraction of the call that the media endpoint detected the CPU resources available were insufficient and caused poor quality of the audio sent and received.
@@ -166,6 +169,7 @@ export class DeviceInfo implements AdditionalDataHolder, Parsable {
             "lowSpeechLevelEventRatio": n => { this.lowSpeechLevelEventRatio = n.getNumberValue(); },
             "lowSpeechToNoiseEventRatio": n => { this.lowSpeechToNoiseEventRatio = n.getNumberValue(); },
             "micGlitchRate": n => { this.micGlitchRate = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "receivedNoiseLevel": n => { this.receivedNoiseLevel = n.getNumberValue(); },
             "receivedSignalLevel": n => { this.receivedSignalLevel = n.getNumberValue(); },
             "renderDeviceDriver": n => { this.renderDeviceDriver = n.getStringValue(); },
@@ -247,6 +251,20 @@ export class DeviceInfo implements AdditionalDataHolder, Parsable {
      */
     public set micGlitchRate(value: number | undefined) {
         this._micGlitchRate = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the receivedNoiseLevel property value. Average energy level of received audio for audio classified as mono noise or left channel of stereo noise by the media endpoint.
@@ -391,6 +409,7 @@ export class DeviceInfo implements AdditionalDataHolder, Parsable {
         writer.writeNumberValue("lowSpeechLevelEventRatio", this.lowSpeechLevelEventRatio);
         writer.writeNumberValue("lowSpeechToNoiseEventRatio", this.lowSpeechToNoiseEventRatio);
         writer.writeNumberValue("micGlitchRate", this.micGlitchRate);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("receivedNoiseLevel", this.receivedNoiseLevel);
         writer.writeNumberValue("receivedSignalLevel", this.receivedSignalLevel);
         writer.writeStringValue("renderDeviceDriver", this.renderDeviceDriver);

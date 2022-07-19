@@ -1,13 +1,14 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class Extension extends Entity implements Parsable {
     /**
      * Instantiates a new extension and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.extension";
     };
     /**
      * The deserialization information for the current model

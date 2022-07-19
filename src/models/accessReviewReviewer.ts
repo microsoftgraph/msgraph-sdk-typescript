@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the admin singleton. */
 export class AccessReviewReviewer extends Entity implements Parsable {
     /** The date when the reviewer was added for the access review. */
     private _createdDateTime?: Date | undefined;
@@ -14,6 +14,7 @@ export class AccessReviewReviewer extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.accessReviewReviewer";
     };
     /**
      * Gets the createdDateTime property value. The date when the reviewer was added for the access review.

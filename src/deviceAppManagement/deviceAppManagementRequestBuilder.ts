@@ -106,7 +106,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.androidManagedAppProtections.item collection
      * @param id Unique identifier of the item
-     * @returns a androidManagedAppProtectionItemRequestBuilder
+     * @returns a AndroidManagedAppProtectionItemRequestBuilder
      */
     public androidManagedAppProtectionsById(id: string) : AndroidManagedAppProtectionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -137,6 +137,7 @@ export class DeviceAppManagementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -166,7 +167,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.defaultManagedAppProtections.item collection
      * @param id Unique identifier of the item
-     * @returns a defaultManagedAppProtectionItemRequestBuilder
+     * @returns a DefaultManagedAppProtectionItemRequestBuilder
      */
     public defaultManagedAppProtectionsById(id: string) : DefaultManagedAppProtectionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -193,7 +194,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.iosManagedAppProtections.item collection
      * @param id Unique identifier of the item
-     * @returns a iosManagedAppProtectionItemRequestBuilder
+     * @returns a IosManagedAppProtectionItemRequestBuilder
      */
     public iosManagedAppProtectionsById(id: string) : IosManagedAppProtectionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -204,7 +205,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedAppPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a managedAppPolicyItemRequestBuilder
+     * @returns a ManagedAppPolicyItemRequestBuilder
      */
     public managedAppPoliciesById(id: string) : ManagedAppPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -215,7 +216,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedAppRegistrations.item collection
      * @param id Unique identifier of the item
-     * @returns a managedAppRegistrationItemRequestBuilder
+     * @returns a ManagedAppRegistrationItemRequestBuilder
      */
     public managedAppRegistrationsById(id: string) : ManagedAppRegistrationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -226,7 +227,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedAppStatuses.item collection
      * @param id Unique identifier of the item
-     * @returns a managedAppStatusItemRequestBuilder
+     * @returns a ManagedAppStatusItemRequestBuilder
      */
     public managedAppStatusesById(id: string) : ManagedAppStatusItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -237,7 +238,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedEBooks.item collection
      * @param id Unique identifier of the item
-     * @returns a managedEBookItemRequestBuilder
+     * @returns a ManagedEBookItemRequestBuilder
      */
     public managedEBooksById(id: string) : ManagedEBookItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -248,7 +249,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mdmWindowsInformationProtectionPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a mdmWindowsInformationProtectionPolicyItemRequestBuilder
+     * @returns a MdmWindowsInformationProtectionPolicyItemRequestBuilder
      */
     public mdmWindowsInformationProtectionPoliciesById(id: string) : MdmWindowsInformationProtectionPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -259,7 +260,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mobileAppCategories.item collection
      * @param id Unique identifier of the item
-     * @returns a mobileAppCategoryItemRequestBuilder
+     * @returns a MobileAppCategoryItemRequestBuilder
      */
     public mobileAppCategoriesById(id: string) : MobileAppCategoryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -270,7 +271,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mobileAppConfigurations.item collection
      * @param id Unique identifier of the item
-     * @returns a managedDeviceMobileAppConfigurationItemRequestBuilder
+     * @returns a ManagedDeviceMobileAppConfigurationItemRequestBuilder
      */
     public mobileAppConfigurationsById(id: string) : ManagedDeviceMobileAppConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -281,7 +282,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mobileApps.item collection
      * @param id Unique identifier of the item
-     * @returns a mobileAppItemRequestBuilder
+     * @returns a MobileAppItemRequestBuilder
      */
     public mobileAppsById(id: string) : MobileAppItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -309,7 +310,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.targetedManagedAppConfigurations.item collection
      * @param id Unique identifier of the item
-     * @returns a targetedManagedAppConfigurationItemRequestBuilder
+     * @returns a TargetedManagedAppConfigurationItemRequestBuilder
      */
     public targetedManagedAppConfigurationsById(id: string) : TargetedManagedAppConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -320,7 +321,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.vppTokens.item collection
      * @param id Unique identifier of the item
-     * @returns a vppTokenItemRequestBuilder
+     * @returns a VppTokenItemRequestBuilder
      */
     public vppTokensById(id: string) : VppTokenItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -331,7 +332,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.windowsInformationProtectionPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a windowsInformationProtectionPolicyItemRequestBuilder
+     * @returns a WindowsInformationProtectionPolicyItemRequestBuilder
      */
     public windowsInformationProtectionPoliciesById(id: string) : WindowsInformationProtectionPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

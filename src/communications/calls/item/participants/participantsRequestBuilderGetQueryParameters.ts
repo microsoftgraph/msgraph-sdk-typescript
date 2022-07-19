@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get participants from communications */
 export class ParticipantsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

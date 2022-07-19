@@ -1,15 +1,15 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
 export class EducationAssignmentSettings extends Entity implements Parsable {
     /** Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false. */
     private _submissionAnimationDisabled?: boolean | undefined;
     /**
-     * Instantiates a new educationAssignmentSettings and sets the default values.
+     * Instantiates a new EducationAssignmentSettings and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.educationAssignmentSettings";
     };
     /**
      * The deserialization information for the current model

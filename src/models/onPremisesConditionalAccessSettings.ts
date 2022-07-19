@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Singleton entity which represents the Exchange OnPremises Conditional Access Settings for a tenant. */
 export class OnPremisesConditionalAccessSettings extends Entity implements Parsable {
     /** Indicates if on premises conditional access is enabled for this organization */
     private _enabled?: boolean | undefined;
@@ -16,6 +15,7 @@ export class OnPremisesConditionalAccessSettings extends Entity implements Parsa
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.onPremisesConditionalAccessSettings";
     };
     /**
      * Gets the enabled property value. Indicates if on premises conditional access is enabled for this organization

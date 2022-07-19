@@ -16,6 +16,7 @@ export class ExternalGroup extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.externalConnectors.externalGroup";
     };
     /**
      * Gets the description property value. The description of the external group. Optional.

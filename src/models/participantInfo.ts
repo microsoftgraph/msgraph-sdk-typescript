@@ -14,6 +14,8 @@ export class ParticipantInfo implements AdditionalDataHolder, Parsable {
     private _identity?: IdentitySet | undefined;
     /** The language culture string. Read-only. */
     private _languageId?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The participant ID of the participant. Read-only. */
     private _participantId?: string | undefined;
     /** The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location, unlike countryCode. Read-only. */
@@ -37,6 +39,7 @@ export class ParticipantInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.participantInfo";
     };
     /**
      * Gets the countryCode property value. The ISO 3166-1 Alpha-2 country code of the participant's best estimated physical location at the start of the call. Read-only.
@@ -76,6 +79,7 @@ export class ParticipantInfo implements AdditionalDataHolder, Parsable {
             "endpointType": n => { this.endpointType = n.getEnumValue<EndpointType>(EndpointType); },
             "identity": n => { this.identity = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "languageId": n => { this.languageId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "participantId": n => { this.participantId = n.getStringValue(); },
             "region": n => { this.region = n.getStringValue(); },
         };
@@ -107,6 +111,20 @@ export class ParticipantInfo implements AdditionalDataHolder, Parsable {
      */
     public set languageId(value: string | undefined) {
         this._languageId = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the participantId property value. The participant ID of the participant. Read-only.
@@ -146,6 +164,7 @@ export class ParticipantInfo implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue<EndpointType>("endpointType", this.endpointType);
         writer.writeObjectValue<IdentitySet>("identity", this.identity);
         writer.writeStringValue("languageId", this.languageId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("participantId", this.participantId);
         writer.writeStringValue("region", this.region);
         writer.writeAdditionalData(this.additionalData);

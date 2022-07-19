@@ -2,7 +2,7 @@ import {AccessReviewHistoryStatus} from './accessReviewHistoryStatus';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the admin singleton. */
 export class AccessReviewHistoryInstance extends Entity implements Parsable {
     /** Uri which can be used to retrieve review history data. This URI will be active for 24 hours after being generated. Required. */
     private _downloadUri?: string | undefined;
@@ -23,6 +23,7 @@ export class AccessReviewHistoryInstance extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.accessReviewHistoryInstance";
     };
     /**
      * Gets the downloadUri property value. Uri which can be used to retrieve review history data. This URI will be active for 24 hours after being generated. Required.

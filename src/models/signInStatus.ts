@@ -9,6 +9,8 @@ export class SignInStatus implements AdditionalDataHolder, Parsable {
     private _errorCode?: number | undefined;
     /** Provides the error message or the reason for failure for the corresponding sign-in activity. Check out the list of error codes and messages. */
     private _failureReason?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -42,6 +44,7 @@ export class SignInStatus implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.signInStatus";
     };
     /**
      * Gets the errorCode property value. Provides the 5-6 digit error code that's generated during a sign-in failure. Check out the list of error codes and messages.
@@ -80,7 +83,22 @@ export class SignInStatus implements AdditionalDataHolder, Parsable {
             "additionalDetails": n => { this.additionalDetails = n.getStringValue(); },
             "errorCode": n => { this.errorCode = n.getNumberValue(); },
             "failureReason": n => { this.failureReason = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -91,6 +109,7 @@ export class SignInStatus implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("additionalDetails", this.additionalDetails);
         writer.writeNumberValue("errorCode", this.errorCode);
         writer.writeStringValue("failureReason", this.failureReason);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

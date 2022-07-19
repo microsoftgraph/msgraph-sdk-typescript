@@ -1,4 +1,4 @@
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum BroadcastMeetingAudience {
     RoleIsAttendee = "roleIsAttendee",
     Organization = "organization",

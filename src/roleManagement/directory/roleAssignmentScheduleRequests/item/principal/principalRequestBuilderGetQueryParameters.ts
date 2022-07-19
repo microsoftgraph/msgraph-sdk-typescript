@@ -1,5 +1,5 @@
 
-/** Property referencing the principal that is getting a role assignment through the request. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. */
+/** The principal that's getting a role assignment through the request. Supports $expand. */
 export class PrincipalRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

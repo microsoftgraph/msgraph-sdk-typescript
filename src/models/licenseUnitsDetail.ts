@@ -5,6 +5,8 @@ export class LicenseUnitsDetail implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The number of units that are enabled for the active subscription of the service SKU. */
     private _enabled?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The number of units that are suspended because the subscription of the service SKU has been cancelled. The units cannot be assigned but can still be reactivated before they are deleted. */
     private _suspended?: number | undefined;
     /** The number of units that are in warning status. When the subscription of the service SKU has expired, the customer has a grace period to renew their subscription before it is cancelled (moved to a suspended state). */
@@ -28,6 +30,7 @@ export class LicenseUnitsDetail implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.licenseUnitsDetail";
     };
     /**
      * Gets the enabled property value. The number of units that are enabled for the active subscription of the service SKU.
@@ -50,9 +53,24 @@ export class LicenseUnitsDetail implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "enabled": n => { this.enabled = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "suspended": n => { this.suspended = n.getNumberValue(); },
             "warning": n => { this.warning = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -61,6 +79,7 @@ export class LicenseUnitsDetail implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeNumberValue("enabled", this.enabled);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("suspended", this.suspended);
         writer.writeNumberValue("warning", this.warning);
         writer.writeAdditionalData(this.additionalData);

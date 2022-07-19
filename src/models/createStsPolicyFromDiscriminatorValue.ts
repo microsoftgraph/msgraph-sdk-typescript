@@ -1,4 +1,4 @@
-import {StsPolicy} from './index';
+import {ActivityBasedTimeoutPolicy, ClaimsMappingPolicy, HomeRealmDiscoveryPolicy, StsPolicy, TokenIssuancePolicy, TokenLifetimePolicy} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createStsPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : StsPolicy {
@@ -8,8 +8,16 @@ export function createStsPolicyFromDiscriminatorValue(parseNode: ParseNode | und
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.stsPolicy":
-                    return new StsPolicy();
+                case "#microsoft.graph.activityBasedTimeoutPolicy":
+                    return new ActivityBasedTimeoutPolicy();
+                case "#microsoft.graph.claimsMappingPolicy":
+                    return new ClaimsMappingPolicy();
+                case "#microsoft.graph.homeRealmDiscoveryPolicy":
+                    return new HomeRealmDiscoveryPolicy();
+                case "#microsoft.graph.tokenIssuancePolicy":
+                    return new TokenIssuancePolicy();
+                case "#microsoft.graph.tokenLifetimePolicy":
+                    return new TokenLifetimePolicy();
             }
         }
     }

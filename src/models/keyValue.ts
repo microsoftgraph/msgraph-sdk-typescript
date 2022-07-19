@@ -5,6 +5,8 @@ export class KeyValue implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present. */
     private _key?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false. */
     private _value?: string | undefined;
     /**
@@ -26,6 +28,7 @@ export class KeyValue implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.keyValue";
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +37,7 @@ export class KeyValue implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "key": n => { this.key = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "value": n => { this.value = n.getStringValue(); },
         };
     };
@@ -52,12 +56,27 @@ export class KeyValue implements AdditionalDataHolder, Parsable {
         this._key = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("key", this.key);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };

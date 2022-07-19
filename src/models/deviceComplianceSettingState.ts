@@ -16,7 +16,7 @@ export class DeviceComplianceSettingState extends Entity implements Parsable {
     private _setting?: string | undefined;
     /** The Setting Name that is being reported */
     private _settingName?: string | undefined;
-    /** The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
+    /** The state property */
     private _state?: ComplianceStatus | undefined;
     /** The User email address that is being reported */
     private _userEmail?: string | undefined;
@@ -45,6 +45,7 @@ export class DeviceComplianceSettingState extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.deviceComplianceSettingState";
     };
     /**
      * Gets the deviceId property value. The Device Id that is being reported
@@ -155,14 +156,14 @@ export class DeviceComplianceSettingState extends Entity implements Parsable {
         this._settingName = value;
     };
     /**
-     * Gets the state property value. The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * Gets the state property value. The state property
      * @returns a complianceStatus
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * Sets the state property value. The state property
      * @param value Value to set for the state property.
      */
     public set state(value: ComplianceStatus | undefined) {

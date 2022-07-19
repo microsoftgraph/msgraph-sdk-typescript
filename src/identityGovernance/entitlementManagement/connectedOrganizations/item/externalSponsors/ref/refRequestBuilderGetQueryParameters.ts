@@ -1,5 +1,5 @@
 
-/** Nullable. */
+/** Get ref of externalSponsors from identityGovernance */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

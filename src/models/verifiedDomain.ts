@@ -11,6 +11,8 @@ export class VerifiedDomain implements AdditionalDataHolder, Parsable {
     private _isInitial?: boolean | undefined;
     /** The domain name; for example, contoso.onmicrosoft.com. */
     private _name?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** For example, Managed. */
     private _type?: string | undefined;
     /**
@@ -46,6 +48,7 @@ export class VerifiedDomain implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.verifiedDomain";
     };
     /**
      * The deserialization information for the current model
@@ -57,6 +60,7 @@ export class VerifiedDomain implements AdditionalDataHolder, Parsable {
             "isDefault": n => { this.isDefault = n.getBooleanValue(); },
             "isInitial": n => { this.isInitial = n.getBooleanValue(); },
             "name": n => { this.name = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "type": n => { this.type = n.getStringValue(); },
         };
     };
@@ -103,6 +107,20 @@ export class VerifiedDomain implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -112,6 +130,7 @@ export class VerifiedDomain implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isDefault", this.isDefault);
         writer.writeBooleanValue("isInitial", this.isInitial);
         writer.writeStringValue("name", this.name);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };

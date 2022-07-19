@@ -1,4 +1,4 @@
-/** Provides operations to manage the privacy singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum SubjectRightsRequestStage {
     ContentRetrieval = "contentRetrieval",
     ContentReview = "contentReview",

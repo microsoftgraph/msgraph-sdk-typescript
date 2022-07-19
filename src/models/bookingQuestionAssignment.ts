@@ -5,6 +5,8 @@ export class BookingQuestionAssignment implements AdditionalDataHolder, Parsable
     private _additionalData: Record<string, unknown>;
     /** Indicates whether it is mandatory to answer the custom question. */
     private _isRequired?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** If it is mandatory to answer the custom question. */
     private _questionId?: string | undefined;
     /**
@@ -26,6 +28,7 @@ export class BookingQuestionAssignment implements AdditionalDataHolder, Parsable
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.bookingQuestionAssignment";
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +37,7 @@ export class BookingQuestionAssignment implements AdditionalDataHolder, Parsable
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "isRequired": n => { this.isRequired = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "questionId": n => { this.questionId = n.getStringValue(); },
         };
     };
@@ -50,6 +54,20 @@ export class BookingQuestionAssignment implements AdditionalDataHolder, Parsable
      */
     public set isRequired(value: boolean | undefined) {
         this._isRequired = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the questionId property value. If it is mandatory to answer the custom question.
@@ -72,6 +90,7 @@ export class BookingQuestionAssignment implements AdditionalDataHolder, Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("isRequired", this.isRequired);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("questionId", this.questionId);
         writer.writeAdditionalData(this.additionalData);
     };

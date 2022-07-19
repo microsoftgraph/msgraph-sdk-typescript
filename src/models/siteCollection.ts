@@ -9,6 +9,8 @@ export class SiteCollection implements AdditionalDataHolder, Parsable {
     private _dataLocationCode?: string | undefined;
     /** The hostname for the site collection. Read-only. */
     private _hostname?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** If present, indicates that this is a root site collection in SharePoint. Read-only. */
     private _root?: Root | undefined;
     /**
@@ -30,6 +32,7 @@ export class SiteCollection implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.siteCollection";
     };
     /**
      * Gets the dataLocationCode property value. The geographic region code for where this site collection resides. Read-only.
@@ -53,6 +56,7 @@ export class SiteCollection implements AdditionalDataHolder, Parsable {
         return {
             "dataLocationCode": n => { this.dataLocationCode = n.getStringValue(); },
             "hostname": n => { this.hostname = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "root": n => { this.root = n.getObjectValue<Root>(createRootFromDiscriminatorValue); },
         };
     };
@@ -69,6 +73,20 @@ export class SiteCollection implements AdditionalDataHolder, Parsable {
      */
     public set hostname(value: string | undefined) {
         this._hostname = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the root property value. If present, indicates that this is a root site collection in SharePoint. Read-only.
@@ -92,6 +110,7 @@ export class SiteCollection implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("dataLocationCode", this.dataLocationCode);
         writer.writeStringValue("hostname", this.hostname);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<Root>("root", this.root);
         writer.writeAdditionalData(this.additionalData);
     };

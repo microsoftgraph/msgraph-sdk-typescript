@@ -15,6 +15,8 @@ export class CertificateAuthority implements AdditionalDataHolder, Parsable {
     private _issuer?: string | undefined;
     /** The subject key identifier of the certificate, calculated from the certificate value. Read-only. */
     private _issuerSki?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -62,6 +64,7 @@ export class CertificateAuthority implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.certificateAuthority";
     };
     /**
      * Gets the deltaCertificateRevocationListUrl property value. The URL contains the list of all revoked certificates since the last time a full certificate revocaton list was created.
@@ -89,6 +92,7 @@ export class CertificateAuthority implements AdditionalDataHolder, Parsable {
             "isRootAuthority": n => { this.isRootAuthority = n.getBooleanValue(); },
             "issuer": n => { this.issuer = n.getStringValue(); },
             "issuerSki": n => { this.issuerSki = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -134,6 +138,20 @@ export class CertificateAuthority implements AdditionalDataHolder, Parsable {
         this._issuerSki = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -145,6 +163,7 @@ export class CertificateAuthority implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isRootAuthority", this.isRootAuthority);
         writer.writeStringValue("issuer", this.issuer);
         writer.writeStringValue("issuerSki", this.issuerSki);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

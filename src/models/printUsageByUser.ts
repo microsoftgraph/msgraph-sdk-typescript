@@ -1,15 +1,15 @@
 import {PrintUsage} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the reportRoot singleton. */
 export class PrintUsageByUser extends PrintUsage implements Parsable {
     /** The UPN of the user represented by these statistics. */
     private _userPrincipalName?: string | undefined;
     /**
-     * Instantiates a new printUsageByUser and sets the default values.
+     * Instantiates a new PrintUsageByUser and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.printUsageByUser";
     };
     /**
      * The deserialization information for the current model

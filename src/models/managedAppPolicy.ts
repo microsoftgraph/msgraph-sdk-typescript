@@ -18,6 +18,7 @@ export class ManagedAppPolicy extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.managedAppPolicy";
     };
     /**
      * Gets the createdDateTime property value. The date and time the policy was created.

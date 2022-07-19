@@ -5,6 +5,8 @@ export class PrivacyProfile implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** A valid smtp email address for the privacy statement contact. Not required. */
     private _contactEmail?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** A valid URL format that begins with http:// or https://. Maximum length is 255 characters. The URL that directs to the company's privacy statement. Not required. */
     private _statementUrl?: string | undefined;
     /**
@@ -26,6 +28,7 @@ export class PrivacyProfile implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.privacyProfile";
     };
     /**
      * Gets the contactEmail property value. A valid smtp email address for the privacy statement contact. Not required.
@@ -48,8 +51,23 @@ export class PrivacyProfile implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "contactEmail": n => { this.contactEmail = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "statementUrl": n => { this.statementUrl = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -58,6 +76,7 @@ export class PrivacyProfile implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("contactEmail", this.contactEmail);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("statementUrl", this.statementUrl);
         writer.writeAdditionalData(this.additionalData);
     };

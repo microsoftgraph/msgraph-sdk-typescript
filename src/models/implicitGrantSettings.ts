@@ -7,6 +7,8 @@ export class ImplicitGrantSettings implements AdditionalDataHolder, Parsable {
     private _enableAccessTokenIssuance?: boolean | undefined;
     /** Specifies whether this web application can request an ID token using the OAuth 2.0 implicit flow. */
     private _enableIdTokenIssuance?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -26,6 +28,7 @@ export class ImplicitGrantSettings implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.implicitGrantSettings";
     };
     /**
      * Gets the enableAccessTokenIssuance property value. Specifies whether this web application can request an access token using the OAuth 2.0 implicit flow.
@@ -63,7 +66,22 @@ export class ImplicitGrantSettings implements AdditionalDataHolder, Parsable {
         return {
             "enableAccessTokenIssuance": n => { this.enableAccessTokenIssuance = n.getBooleanValue(); },
             "enableIdTokenIssuance": n => { this.enableIdTokenIssuance = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -73,6 +91,7 @@ export class ImplicitGrantSettings implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("enableAccessTokenIssuance", this.enableAccessTokenIssuance);
         writer.writeBooleanValue("enableIdTokenIssuance", this.enableIdTokenIssuance);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

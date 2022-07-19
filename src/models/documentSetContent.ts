@@ -11,6 +11,8 @@ export class DocumentSetContent implements AdditionalDataHolder, Parsable {
     private _fileName?: string | undefined;
     /** Folder name in which the file will be placed when a new document set is created in the library. */
     private _folderName?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -30,6 +32,7 @@ export class DocumentSetContent implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.documentSetContent";
     };
     /**
      * Gets the contentType property value. Content type information of the file.
@@ -82,7 +85,22 @@ export class DocumentSetContent implements AdditionalDataHolder, Parsable {
             "contentType": n => { this.contentType = n.getObjectValue<ContentTypeInfo>(createContentTypeInfoFromDiscriminatorValue); },
             "fileName": n => { this.fileName = n.getStringValue(); },
             "folderName": n => { this.folderName = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -93,6 +111,7 @@ export class DocumentSetContent implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue<ContentTypeInfo>("contentType", this.contentType);
         writer.writeStringValue("fileName", this.fileName);
         writer.writeStringValue("folderName", this.folderName);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

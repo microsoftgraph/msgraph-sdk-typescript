@@ -34,7 +34,7 @@ export class AccessPackageItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.catalogs.item.accessPackages.item.assignmentPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a accessPackageAssignmentPolicyItemRequestBuilder
+     * @returns a AccessPackageAssignmentPolicyItemRequestBuilder
      */
     public assignmentPoliciesById(id: string) : AccessPackageAssignmentPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -81,6 +81,7 @@ export class AccessPackageItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

@@ -20,6 +20,8 @@ export class Reminder implements AdditionalDataHolder, Parsable {
     private _eventSubject?: string | undefined;
     /** The URL to open the event in Outlook on the web.The event will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame. */
     private _eventWebLink?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The date, time, and time zone that the reminder is set to occur. */
     private _reminderFireTime?: DateTimeTimeZone | undefined;
     /**
@@ -55,6 +57,7 @@ export class Reminder implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.reminder";
     };
     /**
      * Gets the eventEndTime property value. The date, time and time zone that the event ends.
@@ -153,8 +156,23 @@ export class Reminder implements AdditionalDataHolder, Parsable {
             "eventStartTime": n => { this.eventStartTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
             "eventSubject": n => { this.eventSubject = n.getStringValue(); },
             "eventWebLink": n => { this.eventWebLink = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "reminderFireTime": n => { this.reminderFireTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the reminderFireTime property value. The date, time, and time zone that the reminder is set to occur.
@@ -183,6 +201,7 @@ export class Reminder implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue<DateTimeTimeZone>("eventStartTime", this.eventStartTime);
         writer.writeStringValue("eventSubject", this.eventSubject);
         writer.writeStringValue("eventWebLink", this.eventWebLink);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<DateTimeTimeZone>("reminderFireTime", this.reminderFireTime);
         writer.writeAdditionalData(this.additionalData);
     };

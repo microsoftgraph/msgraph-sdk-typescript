@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Apple push notification certificate. */
 export class ApplePushNotificationCertificate extends Entity implements Parsable {
     /** Apple Id of the account used to create the MDM push certificate. */
     private _appleIdentifier?: string | undefined;
@@ -62,6 +61,7 @@ export class ApplePushNotificationCertificate extends Entity implements Parsable
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.applePushNotificationCertificate";
     };
     /**
      * Gets the expirationDateTime property value. The expiration date and time for Apple push notification certificate.

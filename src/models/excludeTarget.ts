@@ -6,7 +6,9 @@ export class ExcludeTarget implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The object identifier of an Azure AD user or group. */
     private _id?: string | undefined;
-    /** The type of the authentication method target. Possible values are: user, group, unknownFutureValue. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** The targetType property */
     private _targetType?: AuthenticationMethodTargetType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -27,6 +29,7 @@ export class ExcludeTarget implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.excludeTarget";
     };
     /**
      * The deserialization information for the current model
@@ -35,6 +38,7 @@ export class ExcludeTarget implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "id": n => { this.id = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "targetType": n => { this.targetType = n.getEnumValue<AuthenticationMethodTargetType>(AuthenticationMethodTargetType); },
         };
     };
@@ -53,24 +57,39 @@ export class ExcludeTarget implements AdditionalDataHolder, Parsable {
         this._id = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("id", this.id);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<AuthenticationMethodTargetType>("targetType", this.targetType);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the targetType property value. The type of the authentication method target. Possible values are: user, group, unknownFutureValue.
+     * Gets the targetType property value. The targetType property
      * @returns a authenticationMethodTargetType
      */
     public get targetType() {
         return this._targetType;
     };
     /**
-     * Sets the targetType property value. The type of the authentication method target. Possible values are: user, group, unknownFutureValue.
+     * Sets the targetType property value. The targetType property
      * @param value Value to set for the targetType property.
      */
     public set targetType(value: AuthenticationMethodTargetType | undefined) {

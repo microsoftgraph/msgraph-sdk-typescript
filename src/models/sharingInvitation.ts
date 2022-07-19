@@ -9,6 +9,8 @@ export class SharingInvitation implements AdditionalDataHolder, Parsable {
     private _email?: string | undefined;
     /** Provides information about who sent the invitation that created this permission, if that information is available. Read-only. */
     private _invitedBy?: IdentitySet | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The redeemedBy property */
     private _redeemedBy?: string | undefined;
     /** If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only. */
@@ -32,6 +34,7 @@ export class SharingInvitation implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.sharingInvitation";
     };
     /**
      * Gets the email property value. The email address provided for the recipient of the sharing invitation. Read-only.
@@ -55,6 +58,7 @@ export class SharingInvitation implements AdditionalDataHolder, Parsable {
         return {
             "email": n => { this.email = n.getStringValue(); },
             "invitedBy": n => { this.invitedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "redeemedBy": n => { this.redeemedBy = n.getStringValue(); },
             "signInRequired": n => { this.signInRequired = n.getBooleanValue(); },
         };
@@ -72,6 +76,20 @@ export class SharingInvitation implements AdditionalDataHolder, Parsable {
      */
     public set invitedBy(value: IdentitySet | undefined) {
         this._invitedBy = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the redeemedBy property value. The redeemedBy property
@@ -95,6 +113,7 @@ export class SharingInvitation implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("email", this.email);
         writer.writeObjectValue<IdentitySet>("invitedBy", this.invitedBy);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("redeemedBy", this.redeemedBy);
         writer.writeBooleanValue("signInRequired", this.signInRequired);
         writer.writeAdditionalData(this.additionalData);

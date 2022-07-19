@@ -19,6 +19,8 @@ export class PrinterLocation implements AdditionalDataHolder, Parsable {
     private _latitude?: number | undefined;
     /** The longitude that the printer is located at. */
     private _longitude?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The organizational hierarchy that the printer belongs to. The elements should be in hierarchical order. */
     private _organization?: string[] | undefined;
     /** The postal code that the printer is located in. */
@@ -98,6 +100,7 @@ export class PrinterLocation implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.printerLocation";
     };
     /**
      * Gets the countryOrRegion property value. The country or region that the printer is located in.
@@ -155,6 +158,7 @@ export class PrinterLocation implements AdditionalDataHolder, Parsable {
             "floorDescription": n => { this.floorDescription = n.getStringValue(); },
             "latitude": n => { this.latitude = n.getNumberValue(); },
             "longitude": n => { this.longitude = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "organization": n => { this.organization = n.getCollectionOfPrimitiveValues<string>(); },
             "postalCode": n => { this.postalCode = n.getStringValue(); },
             "roomDescription": n => { this.roomDescription = n.getStringValue(); },
@@ -193,6 +197,20 @@ export class PrinterLocation implements AdditionalDataHolder, Parsable {
      */
     public set longitude(value: number | undefined) {
         this._longitude = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the organization property value. The organizational hierarchy that the printer belongs to. The elements should be in hierarchical order.
@@ -264,6 +282,7 @@ export class PrinterLocation implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("floorDescription", this.floorDescription);
         writer.writeNumberValue("latitude", this.latitude);
         writer.writeNumberValue("longitude", this.longitude);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfPrimitiveValues<string>("organization", this.organization);
         writer.writeStringValue("postalCode", this.postalCode);
         writer.writeStringValue("roomDescription", this.roomDescription);

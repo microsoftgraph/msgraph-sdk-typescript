@@ -14,7 +14,7 @@ export class MobileThreatDefenseConnector extends Entity implements Parsable {
     private _iosEnabled?: boolean | undefined;
     /** DateTime of last Heartbeat recieved from the Data Sync Partner */
     private _lastHeartbeatDateTime?: Date | undefined;
-    /** Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive. */
+    /** Partner state of this tenant. */
     private _partnerState?: MobileThreatPartnerTenantState | undefined;
     /** Get or Set days the per tenant tolerance to unresponsiveness for this partner integration */
     private _partnerUnresponsivenessThresholdInDays?: number | undefined;
@@ -53,6 +53,7 @@ export class MobileThreatDefenseConnector extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.mobileThreatDefenseConnector";
     };
     /**
      * The deserialization information for the current model
@@ -113,14 +114,14 @@ export class MobileThreatDefenseConnector extends Entity implements Parsable {
         this._lastHeartbeatDateTime = value;
     };
     /**
-     * Gets the partnerState property value. Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive.
+     * Gets the partnerState property value. Partner state of this tenant.
      * @returns a mobileThreatPartnerTenantState
      */
     public get partnerState() {
         return this._partnerState;
     };
     /**
-     * Sets the partnerState property value. Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive.
+     * Sets the partnerState property value. Partner state of this tenant.
      * @param value Value to set for the partnerState property.
      */
     public set partnerState(value: MobileThreatPartnerTenantState | undefined) {

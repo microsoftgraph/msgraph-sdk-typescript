@@ -36,7 +36,7 @@ export class TodoTaskItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.todo.lists.item.tasks.item.checklistItems.item collection
      * @param id Unique identifier of the item
-     * @returns a checklistItemItemRequestBuilder
+     * @returns a ChecklistItemItemRequestBuilder
      */
     public checklistItemsById(id: string) : ChecklistItemItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -83,6 +83,7 @@ export class TodoTaskItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -127,7 +128,7 @@ export class TodoTaskItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.todo.lists.item.tasks.item.extensions.item collection
      * @param id Unique identifier of the item
-     * @returns a extensionItemRequestBuilder
+     * @returns a ExtensionItemRequestBuilder
      */
     public extensionsById(id: string) : ExtensionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -154,7 +155,7 @@ export class TodoTaskItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.todo.lists.item.tasks.item.linkedResources.item collection
      * @param id Unique identifier of the item
-     * @returns a linkedResourceItemRequestBuilder
+     * @returns a LinkedResourceItemRequestBuilder
      */
     public linkedResourcesById(id: string) : LinkedResourceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

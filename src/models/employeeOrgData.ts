@@ -7,6 +7,8 @@ export class EmployeeOrgData implements AdditionalDataHolder, Parsable {
     private _costCenter?: string | undefined;
     /** The name of the division in which the user works. Returned only on $select. Supports $filter. */
     private _division?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -26,6 +28,7 @@ export class EmployeeOrgData implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.employeeOrgData";
     };
     /**
      * Gets the costCenter property value. The cost center associated with the user. Returned only on $select. Supports $filter.
@@ -63,7 +66,22 @@ export class EmployeeOrgData implements AdditionalDataHolder, Parsable {
         return {
             "costCenter": n => { this.costCenter = n.getStringValue(); },
             "division": n => { this.division = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -73,6 +91,7 @@ export class EmployeeOrgData implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("costCenter", this.costCenter);
         writer.writeStringValue("division", this.division);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

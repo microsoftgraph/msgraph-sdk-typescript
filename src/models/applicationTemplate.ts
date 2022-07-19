@@ -38,6 +38,7 @@ export class ApplicationTemplate extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.applicationTemplate";
     };
     /**
      * Gets the description property value. A description of the application.

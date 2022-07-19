@@ -6,7 +6,9 @@ export class PrintOperationStatus implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** A human-readable description of the printOperation's current processing state. Read-only. */
     private _description?: string | undefined;
-    /** The printOperation's current processing state. Valid values are described in the following table. Read-only. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** The state property */
     private _state?: PrintOperationProcessingState | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -27,6 +29,7 @@ export class PrintOperationStatus implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.printOperationStatus";
     };
     /**
      * Gets the description property value. A human-readable description of the printOperation's current processing state. Read-only.
@@ -49,8 +52,23 @@ export class PrintOperationStatus implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "description": n => { this.description = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "state": n => { this.state = n.getEnumValue<PrintOperationProcessingState>(PrintOperationProcessingState); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -59,18 +77,19 @@ export class PrintOperationStatus implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("description", this.description);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<PrintOperationProcessingState>("state", this.state);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the state property value. The printOperation's current processing state. Valid values are described in the following table. Read-only.
+     * Gets the state property value. The state property
      * @returns a printOperationProcessingState
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The printOperation's current processing state. Valid values are described in the following table. Read-only.
+     * Sets the state property value. The state property
      * @param value Value to set for the state property.
      */
     public set state(value: PrintOperationProcessingState | undefined) {

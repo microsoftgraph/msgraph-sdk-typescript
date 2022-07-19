@@ -3,7 +3,6 @@ import {createUnifiedRolePermissionFromDiscriminatorValue} from './createUnified
 import {Entity, UnifiedRolePermission} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleDefinition extends Entity implements Parsable {
     /** The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true. */
     private _description?: string | undefined;
@@ -28,6 +27,7 @@ export class UnifiedRoleDefinition extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.unifiedRoleDefinition";
     };
     /**
      * Gets the description property value. The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true.

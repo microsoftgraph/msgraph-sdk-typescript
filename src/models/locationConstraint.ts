@@ -9,6 +9,8 @@ export class LocationConstraint implements AdditionalDataHolder, Parsable {
     private _isRequired?: boolean | undefined;
     /** Constraint information for one or more locations that the client requests for the meeting. */
     private _locations?: LocationConstraintItem[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The client requests the service to suggest one or more meeting locations. */
     private _suggestLocation?: boolean | undefined;
     /**
@@ -30,6 +32,7 @@ export class LocationConstraint implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.locationConstraint";
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +42,7 @@ export class LocationConstraint implements AdditionalDataHolder, Parsable {
         return {
             "isRequired": n => { this.isRequired = n.getBooleanValue(); },
             "locations": n => { this.locations = n.getCollectionOfObjectValues<LocationConstraintItem>(createLocationConstraintItemFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "suggestLocation": n => { this.suggestLocation = n.getBooleanValue(); },
         };
     };
@@ -71,6 +75,20 @@ export class LocationConstraint implements AdditionalDataHolder, Parsable {
         this._locations = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -78,6 +96,7 @@ export class LocationConstraint implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("isRequired", this.isRequired);
         writer.writeCollectionOfObjectValues<LocationConstraintItem>("locations", this.locations);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeBooleanValue("suggestLocation", this.suggestLocation);
         writer.writeAdditionalData(this.additionalData);
     };

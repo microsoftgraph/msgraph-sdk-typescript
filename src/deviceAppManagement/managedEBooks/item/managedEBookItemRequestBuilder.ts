@@ -46,7 +46,7 @@ export class ManagedEBookItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedEBooks.item.assignments.item collection
      * @param id Unique identifier of the item
-     * @returns a managedEBookAssignmentItemRequestBuilder
+     * @returns a ManagedEBookAssignmentItemRequestBuilder
      */
     public assignmentsById(id: string) : ManagedEBookAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -93,6 +93,7 @@ export class ManagedEBookItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -137,7 +138,7 @@ export class ManagedEBookItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedEBooks.item.deviceStates.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceInstallStateItemRequestBuilder
+     * @returns a DeviceInstallStateItemRequestBuilder
      */
     public deviceStatesById(id: string) : DeviceInstallStateItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -181,7 +182,7 @@ export class ManagedEBookItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedEBooks.item.userStateSummary.item collection
      * @param id Unique identifier of the item
-     * @returns a userInstallStateSummaryItemRequestBuilder
+     * @returns a UserInstallStateSummaryItemRequestBuilder
      */
     public userStateSummaryById(id: string) : UserInstallStateSummaryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

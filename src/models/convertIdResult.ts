@@ -7,6 +7,8 @@ export class ConvertIdResult implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** An error object indicating the reason for the conversion failure. This value is not present if the conversion succeeded. */
     private _errorDetails?: GenericError | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The identifier that was converted. This value is the original, un-converted identifier. */
     private _sourceId?: string | undefined;
     /** The converted identifier. This value is not present if the conversion failed. */
@@ -30,6 +32,7 @@ export class ConvertIdResult implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.convertIdResult";
     };
     /**
      * Gets the errorDetails property value. An error object indicating the reason for the conversion failure. This value is not present if the conversion succeeded.
@@ -52,9 +55,24 @@ export class ConvertIdResult implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "errorDetails": n => { this.errorDetails = n.getObjectValue<GenericError>(createGenericErrorFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "sourceId": n => { this.sourceId = n.getStringValue(); },
             "targetId": n => { this.targetId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -63,6 +81,7 @@ export class ConvertIdResult implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<GenericError>("errorDetails", this.errorDetails);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("sourceId", this.sourceId);
         writer.writeStringValue("targetId", this.targetId);
         writer.writeAdditionalData(this.additionalData);

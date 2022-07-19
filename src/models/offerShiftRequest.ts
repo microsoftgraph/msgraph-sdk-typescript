@@ -1,7 +1,6 @@
 import {ScheduleChangeRequest} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class OfferShiftRequest extends ScheduleChangeRequest implements Parsable {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _recipientActionDateTime?: Date | undefined;
@@ -12,10 +11,11 @@ export class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
     /** User id of the sender of the offer shift request. */
     private _senderShiftId?: string | undefined;
     /**
-     * Instantiates a new offerShiftRequest and sets the default values.
+     * Instantiates a new OfferShiftRequest and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.offerShiftRequest";
     };
     /**
      * The deserialization information for the current model

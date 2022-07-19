@@ -32,6 +32,7 @@ export class TeamsApp extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.teamsApp";
     };
     /**
      * Gets the displayName property value. The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.

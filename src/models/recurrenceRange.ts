@@ -8,6 +8,8 @@ export class RecurrenceRange implements AdditionalDataHolder, Parsable {
     private _endDate?: DateOnly | undefined;
     /** The number of times to repeat the event. Required and must be positive if type is numbered. */
     private _numberOfOccurrences?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Time zone for the startDate and endDate properties. Optional. If not specified, the time zone of the event is used. */
     private _recurrenceTimeZone?: string | undefined;
     /** The date to start applying the recurrence pattern. The first occurrence of the meeting may be this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of the recurring event. Required. */
@@ -33,6 +35,7 @@ export class RecurrenceRange implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.recurrenceRange";
     };
     /**
      * Gets the endDate property value. The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the event, the last occurrence of the meeting may not be this date. Required if type is endDate.
@@ -56,6 +59,7 @@ export class RecurrenceRange implements AdditionalDataHolder, Parsable {
         return {
             "endDate": n => { this.endDate = n.getDateOnlyValue(); },
             "numberOfOccurrences": n => { this.numberOfOccurrences = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "recurrenceTimeZone": n => { this.recurrenceTimeZone = n.getStringValue(); },
             "startDate": n => { this.startDate = n.getDateOnlyValue(); },
             "type": n => { this.type = n.getEnumValue<RecurrenceRangeType>(RecurrenceRangeType); },
@@ -74,6 +78,20 @@ export class RecurrenceRange implements AdditionalDataHolder, Parsable {
      */
     public set numberOfOccurrences(value: number | undefined) {
         this._numberOfOccurrences = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the recurrenceTimeZone property value. Time zone for the startDate and endDate properties. Optional. If not specified, the time zone of the event is used.
@@ -97,6 +115,7 @@ export class RecurrenceRange implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeDateOnlyValue("endDate", this.endDate);
         writer.writeNumberValue("numberOfOccurrences", this.numberOfOccurrences);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("recurrenceTimeZone", this.recurrenceTimeZone);
         writer.writeDateOnlyValue("startDate", this.startDate);
         writer.writeEnumValue<RecurrenceRangeType>("type", this.type);
