@@ -10,11 +10,13 @@ export class BucketAggregationDefinition implements AdditionalDataHolder, Parsab
     private _isDescending?: boolean | undefined;
     /** The minimum number of items that should be present in the aggregation to be returned in a bucket. Optional. */
     private _minimumCount?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** A filter to define a matching criteria. The key should start with the specified prefix to be returned in the response. Optional. */
     private _prefixFilter?: string | undefined;
     /** Specifies the manual ranges to compute the aggregations. This is only valid for non-string refiners of date or numeric type. Optional. */
     private _ranges?: BucketAggregationRange[] | undefined;
-    /** The possible values are count to sort by the number of matches in the aggregation, keyAsStringto sort alphabeticaly based on the key in the aggregation, keyAsNumber for numerical sorting based on the key in the aggregation. Required. */
+    /** The sortBy property */
     private _sortBy?: BucketAggregationSortProperty | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -35,6 +37,7 @@ export class BucketAggregationDefinition implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.bucketAggregationDefinition";
     };
     /**
      * The deserialization information for the current model
@@ -44,6 +47,7 @@ export class BucketAggregationDefinition implements AdditionalDataHolder, Parsab
         return {
             "isDescending": n => { this.isDescending = n.getBooleanValue(); },
             "minimumCount": n => { this.minimumCount = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "prefixFilter": n => { this.prefixFilter = n.getStringValue(); },
             "ranges": n => { this.ranges = n.getCollectionOfObjectValues<BucketAggregationRange>(createBucketAggregationRangeFromDiscriminatorValue); },
             "sortBy": n => { this.sortBy = n.getEnumValue<BucketAggregationSortProperty>(BucketAggregationSortProperty); },
@@ -76,6 +80,20 @@ export class BucketAggregationDefinition implements AdditionalDataHolder, Parsab
      */
     public set minimumCount(value: number | undefined) {
         this._minimumCount = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the prefixFilter property value. A filter to define a matching criteria. The key should start with the specified prefix to be returned in the response. Optional.
@@ -113,20 +131,21 @@ export class BucketAggregationDefinition implements AdditionalDataHolder, Parsab
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("isDescending", this.isDescending);
         writer.writeNumberValue("minimumCount", this.minimumCount);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("prefixFilter", this.prefixFilter);
         writer.writeCollectionOfObjectValues<BucketAggregationRange>("ranges", this.ranges);
         writer.writeEnumValue<BucketAggregationSortProperty>("sortBy", this.sortBy);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the sortBy property value. The possible values are count to sort by the number of matches in the aggregation, keyAsStringto sort alphabeticaly based on the key in the aggregation, keyAsNumber for numerical sorting based on the key in the aggregation. Required.
+     * Gets the sortBy property value. The sortBy property
      * @returns a bucketAggregationSortProperty
      */
     public get sortBy() {
         return this._sortBy;
     };
     /**
-     * Sets the sortBy property value. The possible values are count to sort by the number of matches in the aggregation, keyAsStringto sort alphabeticaly based on the key in the aggregation, keyAsNumber for numerical sorting based on the key in the aggregation. Required.
+     * Sets the sortBy property value. The sortBy property
      * @param value Value to set for the sortBy property.
      */
     public set sortBy(value: BucketAggregationSortProperty | undefined) {

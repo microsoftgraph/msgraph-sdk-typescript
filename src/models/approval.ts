@@ -2,7 +2,6 @@ import {createApprovalStageFromDiscriminatorValue} from './createApprovalStageFr
 import {ApprovalStage, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class Approval extends Entity implements Parsable {
     /** Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage. */
     private _stages?: ApprovalStage[] | undefined;
@@ -11,6 +10,7 @@ export class Approval extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.approval";
     };
     /**
      * The deserialization information for the current model

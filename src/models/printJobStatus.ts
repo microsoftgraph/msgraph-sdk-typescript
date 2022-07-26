@@ -10,7 +10,9 @@ export class PrintJobStatus implements AdditionalDataHolder, Parsable {
     private _details?: string[] | undefined;
     /** True if the job was acknowledged by a printer; false otherwise. Read-only. */
     private _isAcquiredByPrinter?: boolean | undefined;
-    /** The print job's current processing state. Valid values are described in the following table. Read-only. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** The state property */
     private _state?: PrintJobProcessingState | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -31,6 +33,7 @@ export class PrintJobStatus implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.printJobStatus";
     };
     /**
      * Gets the description property value. A human-readable description of the print job's current processing state. Read-only.
@@ -69,6 +72,7 @@ export class PrintJobStatus implements AdditionalDataHolder, Parsable {
             "description": n => { this.description = n.getStringValue(); },
             "details": n => { this.details = n.getCollectionOfPrimitiveValues<string>(); },
             "isAcquiredByPrinter": n => { this.isAcquiredByPrinter = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "state": n => { this.state = n.getEnumValue<PrintJobProcessingState>(PrintJobProcessingState); },
         };
     };
@@ -87,6 +91,20 @@ export class PrintJobStatus implements AdditionalDataHolder, Parsable {
         this._isAcquiredByPrinter = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -95,18 +113,19 @@ export class PrintJobStatus implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("description", this.description);
         writer.writeCollectionOfPrimitiveValues<string>("details", this.details);
         writer.writeBooleanValue("isAcquiredByPrinter", this.isAcquiredByPrinter);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<PrintJobProcessingState>("state", this.state);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the state property value. The print job's current processing state. Valid values are described in the following table. Read-only.
+     * Gets the state property value. The state property
      * @returns a printJobProcessingState
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The print job's current processing state. Valid values are described in the following table. Read-only.
+     * Sets the state property value. The state property
      * @param value Value to set for the state property.
      */
     public set state(value: PrintJobProcessingState | undefined) {

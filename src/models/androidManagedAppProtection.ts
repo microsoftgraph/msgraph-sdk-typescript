@@ -3,7 +3,6 @@ import {createManagedMobileAppFromDiscriminatorValue} from './createManagedMobil
 import {ManagedAppPolicyDeploymentSummary, ManagedMobileApp, TargetedManagedAppProtection} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an Android device */
 export class AndroidManagedAppProtection extends TargetedManagedAppProtection implements Parsable {
     /** List of apps to which the policy is deployed. */
     private _apps?: ManagedMobileApp[] | undefined;
@@ -40,10 +39,11 @@ export class AndroidManagedAppProtection extends TargetedManagedAppProtection im
         this._apps = value;
     };
     /**
-     * Instantiates a new androidManagedAppProtection and sets the default values.
+     * Instantiates a new AndroidManagedAppProtection and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.androidManagedAppProtection";
     };
     /**
      * Gets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android.

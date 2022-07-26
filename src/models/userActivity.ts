@@ -5,7 +5,7 @@ import {ActivityHistoryItem, Entity, Json, VisualInfo} from './index';
 import {Status} from './status';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class UserActivity extends Entity implements Parsable {
     /** Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists. */
     private _activationUrl?: string | undefined;
@@ -96,6 +96,7 @@ export class UserActivity extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.userActivity";
     };
     /**
      * Gets the contentInfo property value. Optional. A custom piece of data - JSON-LD extensible description of content according to schema.org syntax.

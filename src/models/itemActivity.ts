@@ -4,7 +4,7 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import {AccessAction, DriveItem, Entity, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class ItemActivity extends Entity implements Parsable {
     /** An item was accessed. */
     private _access?: AccessAction | undefined;
@@ -61,6 +61,7 @@ export class ItemActivity extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.itemActivity";
     };
     /**
      * Gets the driveItem property value. Exposes the driveItem that was the target of this activity.

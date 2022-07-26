@@ -8,6 +8,8 @@ export class AuditActivityInitiator implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName. */
     private _app?: AppIdentity | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** If the actor initiating the activity is a user, this property indicates their identification information including their id, displayName, and userPrincipalName. */
     private _user?: UserIdentity | undefined;
     /**
@@ -43,6 +45,7 @@ export class AuditActivityInitiator implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.auditActivityInitiator";
     };
     /**
      * The deserialization information for the current model
@@ -51,8 +54,23 @@ export class AuditActivityInitiator implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "app": n => { this.app = n.getObjectValue<AppIdentity>(createAppIdentityFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "user": n => { this.user = n.getObjectValue<UserIdentity>(createUserIdentityFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -61,6 +79,7 @@ export class AuditActivityInitiator implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<AppIdentity>("app", this.app);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<UserIdentity>("user", this.user);
         writer.writeAdditionalData(this.additionalData);
     };

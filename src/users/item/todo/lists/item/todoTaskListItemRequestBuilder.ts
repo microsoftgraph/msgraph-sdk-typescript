@@ -66,6 +66,7 @@ export class TodoTaskListItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -110,7 +111,7 @@ export class TodoTaskListItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.todo.lists.item.extensions.item collection
      * @param id Unique identifier of the item
-     * @returns a extensionItemRequestBuilder
+     * @returns a ExtensionItemRequestBuilder
      */
     public extensionsById(id: string) : ExtensionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -154,7 +155,7 @@ export class TodoTaskListItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.todo.lists.item.tasks.item collection
      * @param id Unique identifier of the item
-     * @returns a todoTaskItemRequestBuilder
+     * @returns a TodoTaskItemRequestBuilder
      */
     public tasksById(id: string) : TodoTaskItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

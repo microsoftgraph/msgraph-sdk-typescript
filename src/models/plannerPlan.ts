@@ -6,7 +6,7 @@ import {createPlannerTaskFromDiscriminatorValue} from './createPlannerTaskFromDi
 import {Entity, IdentitySet, PlannerBucket, PlannerPlanContainer, PlannerPlanDetails, PlannerTask} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class PlannerPlan extends Entity implements Parsable {
     /** Collection of buckets in the plan. Read-only. Nullable. */
     private _buckets?: PlannerBucket[] | undefined;
@@ -43,6 +43,7 @@ export class PlannerPlan extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.plannerPlan";
     };
     /**
      * Gets the container property value. Identifies the container of the plan. After it is set, this property can’t be updated. Required.

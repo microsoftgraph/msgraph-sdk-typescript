@@ -19,6 +19,8 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
     private _isApproverJustificationRequired?: boolean | undefined;
     /** If true, then one or more escalationApprovers are configured in this approval stage. */
     private _isEscalationEnabled?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The subjects, typically users, who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors or externalSponsors. */
     private _primaryApprovers?: SubjectSet[] | undefined;
     /**
@@ -40,6 +42,7 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.accessPackageApprovalStage";
     };
     /**
      * Gets the durationBeforeAutomaticDenial property value. The number of days that a request can be pending a response before it is automatically denied.
@@ -124,6 +127,7 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
             "fallbackPrimaryApprovers": n => { this.fallbackPrimaryApprovers = n.getCollectionOfObjectValues<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
             "isApproverJustificationRequired": n => { this.isApproverJustificationRequired = n.getBooleanValue(); },
             "isEscalationEnabled": n => { this.isEscalationEnabled = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "primaryApprovers": n => { this.primaryApprovers = n.getCollectionOfObjectValues<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
         };
     };
@@ -156,6 +160,20 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
         this._isEscalationEnabled = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the primaryApprovers property value. The subjects, typically users, who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors or externalSponsors.
      * @returns a subjectSet
      */
@@ -182,6 +200,7 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
         writer.writeCollectionOfObjectValues<SubjectSet>("fallbackPrimaryApprovers", this.fallbackPrimaryApprovers);
         writer.writeBooleanValue("isApproverJustificationRequired", this.isApproverJustificationRequired);
         writer.writeBooleanValue("isEscalationEnabled", this.isEscalationEnabled);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<SubjectSet>("primaryApprovers", this.primaryApprovers);
         writer.writeAdditionalData(this.additionalData);
     };

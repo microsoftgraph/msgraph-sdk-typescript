@@ -3,7 +3,7 @@ import {createMailFolderFromDiscriminatorValue} from '../../../models/createMail
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ChildFoldersRequestBuilder} from './childFolders/childFoldersRequestBuilder';
-import {MailFolderItemRequestBuilder as id55003352a9d727e63885c576a007953c8ca3d539b3393da487b556fa646e35b} from './childFolders/item/mailFolderItemRequestBuilder';
+import {MailFolderItemRequestBuilder as i81520d24bedf5ecd79b6319021e07609a29618a762ae4ba311ea8ac5a468eaeb} from './childFolders/item/mailFolderItemRequestBuilder';
 import {CopyRequestBuilder} from './copy/copyRequestBuilder';
 import {MailFolderItemRequestBuilderDeleteRequestConfiguration} from './mailFolderItemRequestBuilderDeleteRequestConfiguration';
 import {MailFolderItemRequestBuilderGetRequestConfiguration} from './mailFolderItemRequestBuilderGetRequestConfiguration';
@@ -58,13 +58,13 @@ export class MailFolderItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.mailFolders.item.childFolders.item collection
      * @param id Unique identifier of the item
-     * @returns a mailFolderItemRequestBuilder
+     * @returns a MailFolderItemRequestBuilder
      */
-    public childFoldersById(id: string) : id55003352a9d727e63885c576a007953c8ca3d539b3393da487b556fa646e35b {
+    public childFoldersById(id: string) : i81520d24bedf5ecd79b6319021e07609a29618a762ae4ba311ea8ac5a468eaeb {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["mailFolder%2Did1"] = id
-        return new id55003352a9d727e63885c576a007953c8ca3d539b3393da487b556fa646e35b(urlTplParams, this.requestAdapter);
+        return new i81520d24bedf5ecd79b6319021e07609a29618a762ae4ba311ea8ac5a468eaeb(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new MailFolderItemRequestBuilder and sets the default values.
@@ -105,6 +105,7 @@ export class MailFolderItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -165,7 +166,7 @@ export class MailFolderItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.mailFolders.item.messageRules.item collection
      * @param id Unique identifier of the item
-     * @returns a messageRuleItemRequestBuilder
+     * @returns a MessageRuleItemRequestBuilder
      */
     public messageRulesById(id: string) : MessageRuleItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -176,7 +177,7 @@ export class MailFolderItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.mailFolders.item.messages.item collection
      * @param id Unique identifier of the item
-     * @returns a messageItemRequestBuilder
+     * @returns a MessageItemRequestBuilder
      */
     public messagesById(id: string) : MessageItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -187,7 +188,7 @@ export class MailFolderItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.mailFolders.item.multiValueExtendedProperties.item collection
      * @param id Unique identifier of the item
-     * @returns a multiValueLegacyExtendedPropertyItemRequestBuilder
+     * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
      */
     public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -215,7 +216,7 @@ export class MailFolderItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.mailFolders.item.singleValueExtendedProperties.item collection
      * @param id Unique identifier of the item
-     * @returns a singleValueLegacyExtendedPropertyItemRequestBuilder
+     * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
      */
     public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

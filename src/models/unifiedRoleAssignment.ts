@@ -4,7 +4,7 @@ import {createUnifiedRoleDefinitionFromDiscriminatorValue} from './createUnified
 import {AppScope, DirectoryObject, Entity, UnifiedRoleDefinition} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class UnifiedRoleAssignment extends Entity implements Parsable {
     /** Details of the app specific scope when the assignment scope is app specific. Containment entity. */
     private _appScope?: AppScope | undefined;
@@ -71,6 +71,7 @@ export class UnifiedRoleAssignment extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.unifiedRoleAssignment";
     };
     /**
      * Gets the directoryScope property value. The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.

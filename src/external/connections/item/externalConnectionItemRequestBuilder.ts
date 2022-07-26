@@ -77,6 +77,7 @@ export class ExternalConnectionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -137,7 +138,7 @@ export class ExternalConnectionItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.external.connections.item.groups.item collection
      * @param id Unique identifier of the item
-     * @returns a externalGroupItemRequestBuilder
+     * @returns a ExternalGroupItemRequestBuilder
      */
     public groupsById(id: string) : ExternalGroupItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -148,7 +149,7 @@ export class ExternalConnectionItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.external.connections.item.items.item collection
      * @param id Unique identifier of the item
-     * @returns a externalItemItemRequestBuilder
+     * @returns a ExternalItemItemRequestBuilder
      */
     public itemsById(id: string) : ExternalItemItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -159,7 +160,7 @@ export class ExternalConnectionItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.external.connections.item.operations.item collection
      * @param id Unique identifier of the item
-     * @returns a connectionOperationItemRequestBuilder
+     * @returns a ConnectionOperationItemRequestBuilder
      */
     public operationsById(id: string) : ConnectionOperationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

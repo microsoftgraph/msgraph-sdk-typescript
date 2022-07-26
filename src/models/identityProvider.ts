@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class IdentityProvider extends Entity implements Parsable {
     /** The client ID for the application obtained when registering the application with the identity provider. This is a required field.  Required. Not nullable. */
     private _clientId?: string | undefined;
@@ -44,6 +44,7 @@ export class IdentityProvider extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.identityProvider";
     };
     /**
      * The deserialization information for the current model

@@ -5,6 +5,8 @@ export class AlteredQueryToken implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Defines the length of a changed segment. */
     private _length?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Defines the offset of a changed segment. */
     private _offset?: number | undefined;
     /** Represents the corrected segment string. */
@@ -28,6 +30,7 @@ export class AlteredQueryToken implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.alteredQueryToken";
     };
     /**
      * The deserialization information for the current model
@@ -36,6 +39,7 @@ export class AlteredQueryToken implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "length": n => { this.length = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "offset": n => { this.offset = n.getNumberValue(); },
             "suggestion": n => { this.suggestion = n.getStringValue(); },
         };
@@ -53,6 +57,20 @@ export class AlteredQueryToken implements AdditionalDataHolder, Parsable {
      */
     public set length(value: number | undefined) {
         this._length = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the offset property value. Defines the offset of a changed segment.
@@ -75,6 +93,7 @@ export class AlteredQueryToken implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeNumberValue("length", this.length);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("offset", this.offset);
         writer.writeStringValue("suggestion", this.suggestion);
         writer.writeAdditionalData(this.additionalData);

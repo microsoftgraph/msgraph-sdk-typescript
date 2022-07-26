@@ -1,17 +1,17 @@
 import {CommsOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the recordResponse method. */
 export class RecordOperation extends CommsOperation implements Parsable {
     /** The access token required to retrieve the recording. */
     private _recordingAccessToken?: string | undefined;
     /** The location where the recording is located. */
     private _recordingLocation?: string | undefined;
     /**
-     * Instantiates a new recordOperation and sets the default values.
+     * Instantiates a new RecordOperation and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.recordOperation";
     };
     /**
      * The deserialization information for the current model

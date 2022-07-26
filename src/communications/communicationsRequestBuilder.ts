@@ -46,7 +46,7 @@ export class CommunicationsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.callRecords.item collection
      * @param id Unique identifier of the item
-     * @returns a callRecordItemRequestBuilder
+     * @returns a CallRecordItemRequestBuilder
      */
     public callRecordsById(id: string) : CallRecordItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -57,7 +57,7 @@ export class CommunicationsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.calls.item collection
      * @param id Unique identifier of the item
-     * @returns a callItemRequestBuilder
+     * @returns a CallItemRequestBuilder
      */
     public callsById(id: string) : CallItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -88,6 +88,7 @@ export class CommunicationsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -133,7 +134,7 @@ export class CommunicationsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.onlineMeetings.item collection
      * @param id Unique identifier of the item
-     * @returns a onlineMeetingItemRequestBuilder
+     * @returns a OnlineMeetingItemRequestBuilder
      */
     public onlineMeetingsById(id: string) : OnlineMeetingItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -161,7 +162,7 @@ export class CommunicationsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.presences.item collection
      * @param id Unique identifier of the item
-     * @returns a presenceItemRequestBuilder
+     * @returns a PresenceItemRequestBuilder
      */
     public presencesById(id: string) : PresenceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

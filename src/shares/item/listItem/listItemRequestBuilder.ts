@@ -77,6 +77,7 @@ export class ListItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -174,7 +175,7 @@ export class ListItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.listItem.versions.item collection
      * @param id Unique identifier of the item
-     * @returns a listItemVersionItemRequestBuilder
+     * @returns a ListItemVersionItemRequestBuilder
      */
     public versionsById(id: string) : ListItemVersionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum ManagedAppClipboardSharingLevel {
     /** Sharing is allowed between all apps, managed or not */
     AllApps = "allApps",

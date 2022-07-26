@@ -8,6 +8,8 @@ export class MeetingParticipantInfo implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Identity information of the participant. */
     private _identity?: IdentitySet | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Specifies the participant's role in the meeting. */
     private _role?: OnlineMeetingRole | undefined;
     /** User principal name of the participant. */
@@ -31,6 +33,7 @@ export class MeetingParticipantInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.meetingParticipantInfo";
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +42,7 @@ export class MeetingParticipantInfo implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "identity": n => { this.identity = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "role": n => { this.role = n.getEnumValue<OnlineMeetingRole>(OnlineMeetingRole); },
             "upn": n => { this.upn = n.getStringValue(); },
         };
@@ -56,6 +60,20 @@ export class MeetingParticipantInfo implements AdditionalDataHolder, Parsable {
      */
     public set identity(value: IdentitySet | undefined) {
         this._identity = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the role property value. Specifies the participant's role in the meeting.
@@ -78,6 +96,7 @@ export class MeetingParticipantInfo implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<IdentitySet>("identity", this.identity);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<OnlineMeetingRole>("role", this.role);
         writer.writeStringValue("upn", this.upn);
         writer.writeAdditionalData(this.additionalData);

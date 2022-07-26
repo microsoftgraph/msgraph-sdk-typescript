@@ -4,7 +4,7 @@ import {Set} from './index';
 import {TermGroupScope} from './termGroupScope';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class Group extends Entity implements Parsable {
     /** Date and time of the group creation. Read-only. */
     private _createdDateTime?: Date | undefined;
@@ -23,6 +23,7 @@ export class Group extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.termStore.group";
     };
     /**
      * Gets the createdDateTime property value. Date and time of the group creation. Read-only.

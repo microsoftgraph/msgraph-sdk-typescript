@@ -12,6 +12,8 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
     private _knownClientApplications?: string[] | undefined;
     /** The definition of the delegated permissions exposed by the web API represented by this application registration. These delegated permissions may be requested by a client application, and may be granted by users or administrators during consent. Delegated permissions are sometimes referred to as OAuth 2.0 scopes. */
     private _oauth2PermissionScopes?: PermissionScope[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Lists the client applications that are pre-authorized with the specified delegated permissions to access this application's APIs. Users are not required to consent to any pre-authorized application (for the permissions specified). However, any additional permissions not listed in preAuthorizedApplications (requested through incremental consent for example) will require user consent. */
     private _preAuthorizedApplications?: PreAuthorizedApplication[] | undefined;
     /** Specifies the access token version expected by this resource. This changes the version and format of the JWT produced independent of the endpoint or client used to request the access token.  The endpoint used, v1.0 or v2.0, is chosen by the client and only impacts the version of id_tokens. Resources need to explicitly configure requestedAccessTokenVersion to indicate the supported access token format.  Possible values for requestedAccessTokenVersion are 1, 2, or null. If the value is null, this defaults to 1, which corresponds to the v1.0 endpoint.  If signInAudience on the application is configured as AzureADandPersonalMicrosoftAccount, the value for this property must be 2 */
@@ -49,6 +51,7 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.apiApplication";
     };
     /**
      * The deserialization information for the current model
@@ -59,6 +62,7 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
             "acceptMappedClaims": n => { this.acceptMappedClaims = n.getBooleanValue(); },
             "knownClientApplications": n => { this.knownClientApplications = n.getCollectionOfPrimitiveValues<string>(); },
             "oauth2PermissionScopes": n => { this.oauth2PermissionScopes = n.getCollectionOfObjectValues<PermissionScope>(createPermissionScopeFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "preAuthorizedApplications": n => { this.preAuthorizedApplications = n.getCollectionOfObjectValues<PreAuthorizedApplication>(createPreAuthorizedApplicationFromDiscriminatorValue); },
             "requestedAccessTokenVersion": n => { this.requestedAccessTokenVersion = n.getNumberValue(); },
         };
@@ -90,6 +94,20 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
      */
     public set oauth2PermissionScopes(value: PermissionScope[] | undefined) {
         this._oauth2PermissionScopes = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the preAuthorizedApplications property value. Lists the client applications that are pre-authorized with the specified delegated permissions to access this application's APIs. Users are not required to consent to any pre-authorized application (for the permissions specified). However, any additional permissions not listed in preAuthorizedApplications (requested through incremental consent for example) will require user consent.
@@ -128,6 +146,7 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("acceptMappedClaims", this.acceptMappedClaims);
         writer.writeCollectionOfPrimitiveValues<string>("knownClientApplications", this.knownClientApplications);
         writer.writeCollectionOfObjectValues<PermissionScope>("oauth2PermissionScopes", this.oauth2PermissionScopes);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<PreAuthorizedApplication>("preAuthorizedApplications", this.preAuthorizedApplications);
         writer.writeNumberValue("requestedAccessTokenVersion", this.requestedAccessTokenVersion);
         writer.writeAdditionalData(this.additionalData);

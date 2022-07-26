@@ -2,7 +2,7 @@ import {createRiskUserActivityFromDiscriminatorValue} from './createRiskUserActi
 import {RiskUserActivity, RiskyUser} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityProtectionRoot singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class RiskyUserHistoryItem extends RiskyUser implements Parsable {
     /** The activity related to user risk level change. */
     private _activity?: RiskUserActivity | undefined;
@@ -29,6 +29,7 @@ export class RiskyUserHistoryItem extends RiskyUser implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.riskyUserHistoryItem";
     };
     /**
      * The deserialization information for the current model

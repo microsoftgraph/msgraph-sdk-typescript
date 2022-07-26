@@ -2,15 +2,15 @@ import {createAgreementFileLocalizationFromDiscriminatorValue} from './createAgr
 import {AgreementFileLocalization, AgreementFileProperties} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
 export class AgreementFile extends AgreementFileProperties implements Parsable {
     /** The localized version of the terms of use agreement files attached to the agreement. */
     private _localizations?: AgreementFileLocalization[] | undefined;
     /**
-     * Instantiates a new agreementFile and sets the default values.
+     * Instantiates a new AgreementFile and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.agreementFile";
     };
     /**
      * The deserialization information for the current model

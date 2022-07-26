@@ -1,5 +1,5 @@
 
-/** However, your app might still temporarily require Azure AD Graph permissions to access resources. This article describes the following four methods for configuring required Azure AD Graph permissions for your app registration: */
+/** Retrieve a list of servicePrincipal objects. */
 export class ServicePrincipalsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -5,7 +5,7 @@ import {createConditionalAccessSessionControlsFromDiscriminatorValue} from './cr
 import {ConditionalAccessConditionSet, ConditionalAccessGrantControls, ConditionalAccessSessionControls, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class ConditionalAccessPolicy extends Entity implements Parsable {
     /** The conditions property */
     private _conditions?: ConditionalAccessConditionSet | undefined;
@@ -21,7 +21,7 @@ export class ConditionalAccessPolicy extends Entity implements Parsable {
     private _modifiedDateTime?: Date | undefined;
     /** Specifies the session controls that are enforced after sign-in. */
     private _sessionControls?: ConditionalAccessSessionControls | undefined;
-    /** Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. */
+    /** The state property */
     private _state?: ConditionalAccessPolicyState | undefined;
     /**
      * Gets the conditions property value. The conditions property
@@ -42,6 +42,7 @@ export class ConditionalAccessPolicy extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.conditionalAccessPolicy";
     };
     /**
      * Gets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly.
@@ -160,14 +161,14 @@ export class ConditionalAccessPolicy extends Entity implements Parsable {
         this._sessionControls = value;
     };
     /**
-     * Gets the state property value. Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required.
+     * Gets the state property value. The state property
      * @returns a conditionalAccessPolicyState
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required.
+     * Sets the state property value. The state property
      * @param value Value to set for the state property.
      */
     public set state(value: ConditionalAccessPolicyState | undefined) {

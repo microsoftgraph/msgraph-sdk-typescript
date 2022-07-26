@@ -22,6 +22,8 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
     private _markImportance?: Importance | undefined;
     /** The ID of the folder that a message will be moved to. */
     private _moveToFolder?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Indicates whether a message should be permanently deleted and not saved to the Deleted Items folder. */
     private _permanentDelete?: boolean | undefined;
     /** The email address to which a message should be redirected. */
@@ -61,6 +63,7 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.messageRuleActions";
     };
     /**
      * Gets the copyToFolder property value. The ID of a folder that a message is to be copied to.
@@ -132,6 +135,7 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
             "markAsRead": n => { this.markAsRead = n.getBooleanValue(); },
             "markImportance": n => { this.markImportance = n.getEnumValue<Importance>(Importance); },
             "moveToFolder": n => { this.moveToFolder = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "permanentDelete": n => { this.permanentDelete = n.getBooleanValue(); },
             "redirectTo": n => { this.redirectTo = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
             "stopProcessingRules": n => { this.stopProcessingRules = n.getBooleanValue(); },
@@ -180,6 +184,20 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
         this._moveToFolder = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the permanentDelete property value. Indicates whether a message should be permanently deleted and not saved to the Deleted Items folder.
      * @returns a boolean
      */
@@ -221,6 +239,7 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("markAsRead", this.markAsRead);
         writer.writeEnumValue<Importance>("markImportance", this.markImportance);
         writer.writeStringValue("moveToFolder", this.moveToFolder);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeBooleanValue("permanentDelete", this.permanentDelete);
         writer.writeCollectionOfObjectValues<Recipient>("redirectTo", this.redirectTo);
         writer.writeBooleanValue("stopProcessingRules", this.stopProcessingRules);

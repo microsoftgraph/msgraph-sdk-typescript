@@ -24,7 +24,7 @@ export class CalendarGroupItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.calendarGroups.item.calendars.item collection
      * @param id Unique identifier of the item
-     * @returns a calendarItemRequestBuilder
+     * @returns a CalendarItemRequestBuilder
      */
     public calendarsById(id: string) : CalendarItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -71,6 +71,7 @@ export class CalendarGroupItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

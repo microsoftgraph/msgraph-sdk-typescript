@@ -5,18 +5,34 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {AuthenticationRequestBuilderDeleteRequestConfiguration} from './authenticationRequestBuilderDeleteRequestConfiguration';
 import {AuthenticationRequestBuilderGetRequestConfiguration} from './authenticationRequestBuilderGetRequestConfiguration';
 import {AuthenticationRequestBuilderPatchRequestConfiguration} from './authenticationRequestBuilderPatchRequestConfiguration';
+import {EmailMethodsRequestBuilder} from './emailMethods/emailMethodsRequestBuilder';
+import {EmailAuthenticationMethodItemRequestBuilder} from './emailMethods/item/emailAuthenticationMethodItemRequestBuilder';
 import {Fido2MethodsRequestBuilder} from './fido2Methods/fido2MethodsRequestBuilder';
 import {Fido2AuthenticationMethodItemRequestBuilder} from './fido2Methods/item/fido2AuthenticationMethodItemRequestBuilder';
 import {AuthenticationMethodItemRequestBuilder} from './methods/item/authenticationMethodItemRequestBuilder';
 import {MethodsRequestBuilder} from './methods/methodsRequestBuilder';
 import {MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder} from './microsoftAuthenticatorMethods/item/microsoftAuthenticatorAuthenticationMethodItemRequestBuilder';
 import {MicrosoftAuthenticatorMethodsRequestBuilder} from './microsoftAuthenticatorMethods/microsoftAuthenticatorMethodsRequestBuilder';
+import {LongRunningOperationItemRequestBuilder} from './operations/item/longRunningOperationItemRequestBuilder';
+import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
+import {PasswordAuthenticationMethodItemRequestBuilder} from './passwordMethods/item/passwordAuthenticationMethodItemRequestBuilder';
+import {PasswordMethodsRequestBuilder} from './passwordMethods/passwordMethodsRequestBuilder';
+import {PhoneAuthenticationMethodItemRequestBuilder} from './phoneMethods/item/phoneAuthenticationMethodItemRequestBuilder';
+import {PhoneMethodsRequestBuilder} from './phoneMethods/phoneMethodsRequestBuilder';
+import {SoftwareOathAuthenticationMethodItemRequestBuilder} from './softwareOathMethods/item/softwareOathAuthenticationMethodItemRequestBuilder';
+import {SoftwareOathMethodsRequestBuilder} from './softwareOathMethods/softwareOathMethodsRequestBuilder';
+import {TemporaryAccessPassAuthenticationMethodItemRequestBuilder} from './temporaryAccessPassMethods/item/temporaryAccessPassAuthenticationMethodItemRequestBuilder';
+import {TemporaryAccessPassMethodsRequestBuilder} from './temporaryAccessPassMethods/temporaryAccessPassMethodsRequestBuilder';
 import {WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder} from './windowsHelloForBusinessMethods/item/windowsHelloForBusinessAuthenticationMethodItemRequestBuilder';
 import {WindowsHelloForBusinessMethodsRequestBuilder} from './windowsHelloForBusinessMethods/windowsHelloForBusinessMethodsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the authentication property of the microsoft.graph.user entity. */
 export class AuthenticationRequestBuilder {
+    /** The emailMethods property */
+    public get emailMethods(): EmailMethodsRequestBuilder {
+        return new EmailMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The fido2Methods property */
     public get fido2Methods(): Fido2MethodsRequestBuilder {
         return new Fido2MethodsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -29,10 +45,30 @@ export class AuthenticationRequestBuilder {
     public get microsoftAuthenticatorMethods(): MicrosoftAuthenticatorMethodsRequestBuilder {
         return new MicrosoftAuthenticatorMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The operations property */
+    public get operations(): OperationsRequestBuilder {
+        return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The passwordMethods property */
+    public get passwordMethods(): PasswordMethodsRequestBuilder {
+        return new PasswordMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
+    /** The phoneMethods property */
+    public get phoneMethods(): PhoneMethodsRequestBuilder {
+        return new PhoneMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
+    /** The softwareOathMethods property */
+    public get softwareOathMethods(): SoftwareOathMethodsRequestBuilder {
+        return new SoftwareOathMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The temporaryAccessPassMethods property */
+    public get temporaryAccessPassMethods(): TemporaryAccessPassMethodsRequestBuilder {
+        return new TemporaryAccessPassMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /** The windowsHelloForBusinessMethods property */
@@ -69,7 +105,7 @@ export class AuthenticationRequestBuilder {
         return requestInfo;
     };
     /**
-     * TODO: Add Description
+     * The authentication methods that are supported for the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -78,6 +114,7 @@ export class AuthenticationRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -120,9 +157,20 @@ export class AuthenticationRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.emailMethods.item collection
+     * @param id Unique identifier of the item
+     * @returns a EmailAuthenticationMethodItemRequestBuilder
+     */
+    public emailMethodsById(id: string) : EmailAuthenticationMethodItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["emailAuthenticationMethod%2Did"] = id
+        return new EmailAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.fido2Methods.item collection
      * @param id Unique identifier of the item
-     * @returns a fido2AuthenticationMethodItemRequestBuilder
+     * @returns a Fido2AuthenticationMethodItemRequestBuilder
      */
     public fido2MethodsById(id: string) : Fido2AuthenticationMethodItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -131,7 +179,7 @@ export class AuthenticationRequestBuilder {
         return new Fido2AuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * TODO: Add Description
+     * The authentication methods that are supported for the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Authentication
@@ -149,7 +197,7 @@ export class AuthenticationRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.methods.item collection
      * @param id Unique identifier of the item
-     * @returns a authenticationMethodItemRequestBuilder
+     * @returns a AuthenticationMethodItemRequestBuilder
      */
     public methodsById(id: string) : AuthenticationMethodItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -160,13 +208,35 @@ export class AuthenticationRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.microsoftAuthenticatorMethods.item collection
      * @param id Unique identifier of the item
-     * @returns a microsoftAuthenticatorAuthenticationMethodItemRequestBuilder
+     * @returns a MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder
      */
     public microsoftAuthenticatorMethodsById(id: string) : MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["microsoftAuthenticatorAuthenticationMethod%2Did"] = id
         return new MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.operations.item collection
+     * @param id Unique identifier of the item
+     * @returns a LongRunningOperationItemRequestBuilder
+     */
+    public operationsById(id: string) : LongRunningOperationItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["longRunningOperation%2Did"] = id
+        return new LongRunningOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.passwordMethods.item collection
+     * @param id Unique identifier of the item
+     * @returns a PasswordAuthenticationMethodItemRequestBuilder
+     */
+    public passwordMethodsById(id: string) : PasswordAuthenticationMethodItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["passwordAuthenticationMethod%2Did"] = id
+        return new PasswordAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property authentication in users
@@ -186,9 +256,42 @@ export class AuthenticationRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.phoneMethods.item collection
+     * @param id Unique identifier of the item
+     * @returns a PhoneAuthenticationMethodItemRequestBuilder
+     */
+    public phoneMethodsById(id: string) : PhoneAuthenticationMethodItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["phoneAuthenticationMethod%2Did"] = id
+        return new PhoneAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.softwareOathMethods.item collection
+     * @param id Unique identifier of the item
+     * @returns a SoftwareOathAuthenticationMethodItemRequestBuilder
+     */
+    public softwareOathMethodsById(id: string) : SoftwareOathAuthenticationMethodItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["softwareOathAuthenticationMethod%2Did"] = id
+        return new SoftwareOathAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.temporaryAccessPassMethods.item collection
+     * @param id Unique identifier of the item
+     * @returns a TemporaryAccessPassAuthenticationMethodItemRequestBuilder
+     */
+    public temporaryAccessPassMethodsById(id: string) : TemporaryAccessPassAuthenticationMethodItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["temporaryAccessPassAuthenticationMethod%2Did"] = id
+        return new TemporaryAccessPassAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.windowsHelloForBusinessMethods.item collection
      * @param id Unique identifier of the item
-     * @returns a windowsHelloForBusinessAuthenticationMethodItemRequestBuilder
+     * @returns a WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder
      */
     public windowsHelloForBusinessMethodsById(id: string) : WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -5,6 +5,8 @@ export class ProvisionChannelEmailResult implements AdditionalDataHolder, Parsab
     private _additionalData: Record<string, unknown>;
     /** Represents the provisioned email address. */
     private _email?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -20,10 +22,11 @@ export class ProvisionChannelEmailResult implements AdditionalDataHolder, Parsab
         this._additionalData = value;
     };
     /**
-     * Instantiates a new ProvisionChannelEmailResult and sets the default values.
+     * Instantiates a new provisionChannelEmailResult and sets the default values.
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.provisionChannelEmailResult";
     };
     /**
      * Gets the email property value. Represents the provisioned email address.
@@ -46,7 +49,22 @@ export class ProvisionChannelEmailResult implements AdditionalDataHolder, Parsab
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "email": n => { this.email = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -55,6 +73,7 @@ export class ProvisionChannelEmailResult implements AdditionalDataHolder, Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("email", this.email);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

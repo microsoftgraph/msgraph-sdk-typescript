@@ -60,6 +60,7 @@ export class ParentGroupRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -137,7 +138,7 @@ export class ParentGroupRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.termStores.item.sets.item.parentGroup.sets.item collection
      * @param id Unique identifier of the item
-     * @returns a setItemRequestBuilder
+     * @returns a SetItemRequestBuilder
      */
     public setsById(id: string) : SetItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

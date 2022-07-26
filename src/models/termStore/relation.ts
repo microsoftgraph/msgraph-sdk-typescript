@@ -5,7 +5,7 @@ import {Set, Term} from './index';
 import {RelationType} from './relationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class Relation extends Entity implements Parsable {
     /** The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set]. */
     private _fromTerm?: Term | undefined;
@@ -20,6 +20,7 @@ export class Relation extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.termStore.relation";
     };
     /**
      * Gets the fromTerm property value. The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set].

@@ -65,7 +65,7 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.accessPackageAssignmentApprovals.item collection
      * @param id Unique identifier of the item
-     * @returns a approvalItemRequestBuilder
+     * @returns a ApprovalItemRequestBuilder
      */
     public accessPackageAssignmentApprovalsById(id: string) : ApprovalItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -76,7 +76,7 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.accessPackages.item collection
      * @param id Unique identifier of the item
-     * @returns a accessPackageItemRequestBuilder
+     * @returns a AccessPackageItemRequestBuilder
      */
     public accessPackagesById(id: string) : AccessPackageItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -87,7 +87,7 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.assignmentPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a accessPackageAssignmentPolicyItemRequestBuilder
+     * @returns a AccessPackageAssignmentPolicyItemRequestBuilder
      */
     public assignmentPoliciesById(id: string) : AccessPackageAssignmentPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -98,7 +98,7 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.assignmentRequests.item collection
      * @param id Unique identifier of the item
-     * @returns a accessPackageAssignmentRequestItemRequestBuilder
+     * @returns a AccessPackageAssignmentRequestItemRequestBuilder
      */
     public assignmentRequestsById(id: string) : AccessPackageAssignmentRequestItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -109,7 +109,7 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.assignments.item collection
      * @param id Unique identifier of the item
-     * @returns a accessPackageAssignmentItemRequestBuilder
+     * @returns a AccessPackageAssignmentItemRequestBuilder
      */
     public assignmentsById(id: string) : AccessPackageAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -120,7 +120,7 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.catalogs.item collection
      * @param id Unique identifier of the item
-     * @returns a accessPackageCatalogItemRequestBuilder
+     * @returns a AccessPackageCatalogItemRequestBuilder
      */
     public catalogsById(id: string) : AccessPackageCatalogItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -131,7 +131,7 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.connectedOrganizations.item collection
      * @param id Unique identifier of the item
-     * @returns a connectedOrganizationItemRequestBuilder
+     * @returns a ConnectedOrganizationItemRequestBuilder
      */
     public connectedOrganizationsById(id: string) : ConnectedOrganizationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -178,6 +178,7 @@ export class EntitlementManagementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

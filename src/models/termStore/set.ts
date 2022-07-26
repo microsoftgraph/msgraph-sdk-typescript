@@ -7,7 +7,6 @@ import {createTermFromDiscriminatorValue} from './createTermFromDiscriminatorVal
 import {Group, LocalizedName, Relation, Term} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Set extends Entity implements Parsable {
     /** Children terms of set in term [store]. */
     private _children?: Term[] | undefined;
@@ -44,6 +43,7 @@ export class Set extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.termStore.set";
     };
     /**
      * Gets the createdDateTime property value. Date and time of set creation. Read-only.

@@ -5,6 +5,8 @@ export class BookingWorkTimeSlot implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The time of the day when work stops. For example, 17:00:00.0000000. */
     private _endTime?: TimeOnly | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The time of the day when work starts. For example, 08:00:00.0000000. */
     private _startTime?: TimeOnly | undefined;
     /**
@@ -26,6 +28,7 @@ export class BookingWorkTimeSlot implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.bookingWorkTimeSlot";
     };
     /**
      * Gets the endTime property value. The time of the day when work stops. For example, 17:00:00.0000000.
@@ -48,8 +51,23 @@ export class BookingWorkTimeSlot implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "endTime": n => { this.endTime = n.getTimeOnlyValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "startTime": n => { this.startTime = n.getTimeOnlyValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -58,6 +76,7 @@ export class BookingWorkTimeSlot implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeTimeOnlyValue("endTime", this.endTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeTimeOnlyValue("startTime", this.startTime);
         writer.writeAdditionalData(this.additionalData);
     };

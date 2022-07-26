@@ -27,6 +27,8 @@ export class Audio implements AdditionalDataHolder, Parsable {
     private _hasDrm?: boolean | undefined;
     /** Indicates if the file is encoded with a variable bitrate. */
     private _isVariableBitrate?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The title of the audio file. */
     private _title?: string | undefined;
     /** The number of the track on the original disc for this audio file. */
@@ -124,6 +126,7 @@ export class Audio implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.audio";
     };
     /**
      * Gets the copyright property value. Copyright information for the audio file.
@@ -213,6 +216,7 @@ export class Audio implements AdditionalDataHolder, Parsable {
             "genre": n => { this.genre = n.getStringValue(); },
             "hasDrm": n => { this.hasDrm = n.getBooleanValue(); },
             "isVariableBitrate": n => { this.isVariableBitrate = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "title": n => { this.title = n.getStringValue(); },
             "track": n => { this.track = n.getNumberValue(); },
             "trackCount": n => { this.trackCount = n.getNumberValue(); },
@@ -248,6 +252,20 @@ export class Audio implements AdditionalDataHolder, Parsable {
         this._isVariableBitrate = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -265,6 +283,7 @@ export class Audio implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("genre", this.genre);
         writer.writeBooleanValue("hasDrm", this.hasDrm);
         writer.writeBooleanValue("isVariableBitrate", this.isVariableBitrate);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("title", this.title);
         writer.writeNumberValue("track", this.track);
         writer.writeNumberValue("trackCount", this.trackCount);

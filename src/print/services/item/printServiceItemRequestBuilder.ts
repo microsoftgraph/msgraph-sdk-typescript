@@ -60,6 +60,7 @@ export class PrintServiceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -104,7 +105,7 @@ export class PrintServiceItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.services.item.endpoints.item collection
      * @param id Unique identifier of the item
-     * @returns a printServiceEndpointItemRequestBuilder
+     * @returns a PrintServiceEndpointItemRequestBuilder
      */
     public endpointsById(id: string) : PrintServiceEndpointItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

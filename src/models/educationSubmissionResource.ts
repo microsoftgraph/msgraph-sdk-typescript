@@ -2,7 +2,7 @@ import {createEducationResourceFromDiscriminatorValue} from './createEducationRe
 import {EducationResource, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class EducationSubmissionResource extends Entity implements Parsable {
     /** Pointer to the assignment from which this resource was copied. If this is null, the student uploaded the resource. */
     private _assignmentResourceUrl?: string | undefined;
@@ -27,6 +27,7 @@ export class EducationSubmissionResource extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.educationSubmissionResource";
     };
     /**
      * The deserialization information for the current model

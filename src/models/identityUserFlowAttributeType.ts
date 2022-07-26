@@ -1,4 +1,4 @@
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum IdentityUserFlowAttributeType {
     BuiltIn = "builtIn",
     Custom = "custom",

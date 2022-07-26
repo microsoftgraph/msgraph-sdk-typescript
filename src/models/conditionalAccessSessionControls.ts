@@ -14,6 +14,8 @@ export class ConditionalAccessSessionControls implements AdditionalDataHolder, P
     private _cloudAppSecurity?: CloudAppSecuritySessionControl | undefined;
     /** Session control that determines whether it is acceptable for Azure AD to extend existing sessions based on information collected prior to an outage or not. */
     private _disableResilienceDefaults?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly. */
     private _persistentBrowser?: PersistentBrowserSessionControl | undefined;
     /** Session control to enforce signin frequency. */
@@ -65,6 +67,7 @@ export class ConditionalAccessSessionControls implements AdditionalDataHolder, P
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.conditionalAccessSessionControls";
     };
     /**
      * Gets the disableResilienceDefaults property value. Session control that determines whether it is acceptable for Azure AD to extend existing sessions based on information collected prior to an outage or not.
@@ -89,9 +92,24 @@ export class ConditionalAccessSessionControls implements AdditionalDataHolder, P
             "applicationEnforcedRestrictions": n => { this.applicationEnforcedRestrictions = n.getObjectValue<ApplicationEnforcedRestrictionsSessionControl>(createApplicationEnforcedRestrictionsSessionControlFromDiscriminatorValue); },
             "cloudAppSecurity": n => { this.cloudAppSecurity = n.getObjectValue<CloudAppSecuritySessionControl>(createCloudAppSecuritySessionControlFromDiscriminatorValue); },
             "disableResilienceDefaults": n => { this.disableResilienceDefaults = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "persistentBrowser": n => { this.persistentBrowser = n.getObjectValue<PersistentBrowserSessionControl>(createPersistentBrowserSessionControlFromDiscriminatorValue); },
             "signInFrequency": n => { this.signInFrequency = n.getObjectValue<SignInFrequencySessionControl>(createSignInFrequencySessionControlFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the persistentBrowser property value. Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly.
@@ -116,6 +134,7 @@ export class ConditionalAccessSessionControls implements AdditionalDataHolder, P
         writer.writeObjectValue<ApplicationEnforcedRestrictionsSessionControl>("applicationEnforcedRestrictions", this.applicationEnforcedRestrictions);
         writer.writeObjectValue<CloudAppSecuritySessionControl>("cloudAppSecurity", this.cloudAppSecurity);
         writer.writeBooleanValue("disableResilienceDefaults", this.disableResilienceDefaults);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<PersistentBrowserSessionControl>("persistentBrowser", this.persistentBrowser);
         writer.writeObjectValue<SignInFrequencySessionControl>("signInFrequency", this.signInFrequency);
         writer.writeAdditionalData(this.additionalData);

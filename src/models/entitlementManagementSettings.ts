@@ -2,7 +2,6 @@ import {AccessPackageExternalUserLifecycleAction} from './accessPackageExternalU
 import {Entity} from './index';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class EntitlementManagementSettings extends Entity implements Parsable {
     /** If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted. */
     private _durationUntilExternalUserDeletedAfterBlocked?: Duration | undefined;
@@ -13,6 +12,7 @@ export class EntitlementManagementSettings extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.entitlementManagementSettings";
     };
     /**
      * Gets the durationUntilExternalUserDeletedAfterBlocked property value. If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted.

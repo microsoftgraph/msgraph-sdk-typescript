@@ -6,7 +6,6 @@ import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddre
 import {AdministrativeUnit, EducationClass, EducationOrganization, EducationUser, IdentitySet, PhysicalAddress} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
 export class EducationSchool extends EducationOrganization implements Parsable {
     /** Address of the school. */
     private _address?: PhysicalAddress | undefined;
@@ -79,10 +78,11 @@ export class EducationSchool extends EducationOrganization implements Parsable {
         this._classes = value;
     };
     /**
-     * Instantiates a new educationSchool and sets the default values.
+     * Instantiates a new EducationSchool and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.educationSchool";
     };
     /**
      * Gets the createdBy property value. Entity who created the school.

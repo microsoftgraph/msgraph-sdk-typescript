@@ -1,13 +1,13 @@
 import {StsPolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the instantiate method. */
 export class ClaimsMappingPolicy extends StsPolicy implements Parsable {
     /**
-     * Instantiates a new claimsMappingPolicy and sets the default values.
+     * Instantiates a new ClaimsMappingPolicy and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.claimsMappingPolicy";
     };
     /**
      * The deserialization information for the current model
