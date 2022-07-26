@@ -7,6 +7,8 @@ export class ModifiedProperty implements AdditionalDataHolder, Parsable {
     private _displayName?: string | undefined;
     /** New property value. */
     private _newValue?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Old property value. */
     private _oldValue?: string | undefined;
     /**
@@ -28,6 +30,7 @@ export class ModifiedProperty implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.modifiedProperty";
     };
     /**
      * Gets the displayName property value. Name of property that was modified.
@@ -51,6 +54,7 @@ export class ModifiedProperty implements AdditionalDataHolder, Parsable {
         return {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "newValue": n => { this.newValue = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "oldValue": n => { this.oldValue = n.getStringValue(); },
         };
     };
@@ -67,6 +71,20 @@ export class ModifiedProperty implements AdditionalDataHolder, Parsable {
      */
     public set newValue(value: string | undefined) {
         this._newValue = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the oldValue property value. Old property value.
@@ -90,6 +108,7 @@ export class ModifiedProperty implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("newValue", this.newValue);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("oldValue", this.oldValue);
         writer.writeAdditionalData(this.additionalData);
     };

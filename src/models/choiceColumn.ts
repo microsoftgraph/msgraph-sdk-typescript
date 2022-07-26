@@ -9,6 +9,8 @@ export class ChoiceColumn implements AdditionalDataHolder, Parsable {
     private _choices?: string[] | undefined;
     /** How the choices are to be presented in the UX. Must be one of checkBoxes, dropDownMenu, or radioButtons */
     private _displayAs?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -56,6 +58,7 @@ export class ChoiceColumn implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.choiceColumn";
     };
     /**
      * Gets the displayAs property value. How the choices are to be presented in the UX. Must be one of checkBoxes, dropDownMenu, or radioButtons
@@ -80,7 +83,22 @@ export class ChoiceColumn implements AdditionalDataHolder, Parsable {
             "allowTextEntry": n => { this.allowTextEntry = n.getBooleanValue(); },
             "choices": n => { this.choices = n.getCollectionOfPrimitiveValues<string>(); },
             "displayAs": n => { this.displayAs = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -91,6 +109,7 @@ export class ChoiceColumn implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("allowTextEntry", this.allowTextEntry);
         writer.writeCollectionOfPrimitiveValues<string>("choices", this.choices);
         writer.writeStringValue("displayAs", this.displayAs);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

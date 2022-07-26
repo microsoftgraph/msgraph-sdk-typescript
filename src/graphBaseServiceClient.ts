@@ -393,7 +393,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.agreementAcceptances.item collection
      * @param id Unique identifier of the item
-     * @returns a agreementAcceptanceItemRequestBuilder
+     * @returns a AgreementAcceptanceItemRequestBuilder
      */
     public agreementAcceptancesById(id: string) : AgreementAcceptanceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -404,7 +404,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.agreements.item collection
      * @param id Unique identifier of the item
-     * @returns a agreementItemRequestBuilder
+     * @returns a AgreementItemRequestBuilder
      */
     public agreementsById(id: string) : AgreementItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -415,7 +415,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item collection
      * @param id Unique identifier of the item
-     * @returns a applicationItemRequestBuilder
+     * @returns a ApplicationItemRequestBuilder
      */
     public applicationsById(id: string) : ApplicationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -426,7 +426,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applicationTemplates.item collection
      * @param id Unique identifier of the item
-     * @returns a applicationTemplateItemRequestBuilder
+     * @returns a ApplicationTemplateItemRequestBuilder
      */
     public applicationTemplatesById(id: string) : ApplicationTemplateItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -437,7 +437,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.authenticationMethodConfigurations.item collection
      * @param id Unique identifier of the item
-     * @returns a authenticationMethodConfigurationItemRequestBuilder
+     * @returns a AuthenticationMethodConfigurationItemRequestBuilder
      */
     public authenticationMethodConfigurationsById(id: string) : AuthenticationMethodConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -448,7 +448,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.certificateBasedAuthConfiguration.item collection
      * @param id Unique identifier of the item
-     * @returns a certificateBasedAuthConfigurationItemRequestBuilder
+     * @returns a CertificateBasedAuthConfigurationItemRequestBuilder
      */
     public certificateBasedAuthConfigurationById(id: string) : CertificateBasedAuthConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -459,7 +459,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.chats.item collection
      * @param id Unique identifier of the item
-     * @returns a chatItemRequestBuilder
+     * @returns a ChatItemRequestBuilder
      */
     public chatsById(id: string) : ChatItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -470,7 +470,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.connections.item collection
      * @param id Unique identifier of the item
-     * @returns a externalConnectionItemRequestBuilder
+     * @returns a ExternalConnectionItemRequestBuilder
      */
     public connectionsById(id: string) : ExternalConnectionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -498,7 +498,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.contacts.item collection
      * @param id Unique identifier of the item
-     * @returns a orgContactItemRequestBuilder
+     * @returns a OrgContactItemRequestBuilder
      */
     public contactsById(id: string) : OrgContactItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -509,7 +509,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.contracts.item collection
      * @param id Unique identifier of the item
-     * @returns a contractItemRequestBuilder
+     * @returns a ContractItemRequestBuilder
      */
     public contractsById(id: string) : ContractItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -520,7 +520,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.dataPolicyOperations.item collection
      * @param id Unique identifier of the item
-     * @returns a dataPolicyOperationItemRequestBuilder
+     * @returns a DataPolicyOperationItemRequestBuilder
      */
     public dataPolicyOperationsById(id: string) : DataPolicyOperationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -531,7 +531,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceItemRequestBuilder
+     * @returns a DeviceItemRequestBuilder
      */
     public devicesById(id: string) : DeviceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -542,7 +542,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directoryObjects.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
     public directoryObjectsById(id: string) : DirectoryObjectItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -553,7 +553,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directoryRoles.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryRoleItemRequestBuilder
+     * @returns a DirectoryRoleItemRequestBuilder
      */
     public directoryRolesById(id: string) : DirectoryRoleItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -564,7 +564,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directoryRoleTemplates.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryRoleTemplateItemRequestBuilder
+     * @returns a DirectoryRoleTemplateItemRequestBuilder
      */
     public directoryRoleTemplatesById(id: string) : DirectoryRoleTemplateItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -575,7 +575,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.domainDnsRecords.item collection
      * @param id Unique identifier of the item
-     * @returns a domainDnsRecordItemRequestBuilder
+     * @returns a DomainDnsRecordItemRequestBuilder
      */
     public domainDnsRecordsById(id: string) : DomainDnsRecordItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -586,7 +586,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.domains.item collection
      * @param id Unique identifier of the item
-     * @returns a domainItemRequestBuilder
+     * @returns a DomainItemRequestBuilder
      */
     public domainsById(id: string) : DomainItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -597,7 +597,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item collection
      * @param id Unique identifier of the item
-     * @returns a driveItemRequestBuilder
+     * @returns a DriveItemRequestBuilder
      */
     public drivesById(id: string) : DriveItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -608,7 +608,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groupLifecyclePolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a groupLifecyclePolicyItemRequestBuilder
+     * @returns a GroupLifecyclePolicyItemRequestBuilder
      */
     public groupLifecyclePoliciesById(id: string) : GroupLifecyclePolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -619,7 +619,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item collection
      * @param id Unique identifier of the item
-     * @returns a groupItemRequestBuilder
+     * @returns a GroupItemRequestBuilder
      */
     public groupsById(id: string) : GroupItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -630,7 +630,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groupSettings.item collection
      * @param id Unique identifier of the item
-     * @returns a groupSettingItemRequestBuilder
+     * @returns a GroupSettingItemRequestBuilder
      */
     public groupSettingsById(id: string) : GroupSettingItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -641,7 +641,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groupSettingTemplates.item collection
      * @param id Unique identifier of the item
-     * @returns a groupSettingTemplateItemRequestBuilder
+     * @returns a GroupSettingTemplateItemRequestBuilder
      */
     public groupSettingTemplatesById(id: string) : GroupSettingTemplateItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -652,7 +652,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityProviders.item collection
      * @param id Unique identifier of the item
-     * @returns a identityProviderItemRequestBuilder
+     * @returns a IdentityProviderItemRequestBuilder
      */
     public identityProvidersById(id: string) : IdentityProviderItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -663,7 +663,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.invitations.item collection
      * @param id Unique identifier of the item
-     * @returns a invitationItemRequestBuilder
+     * @returns a InvitationItemRequestBuilder
      */
     public invitationsById(id: string) : InvitationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -674,7 +674,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.localizations.item collection
      * @param id Unique identifier of the item
-     * @returns a organizationalBrandingLocalizationItemRequestBuilder
+     * @returns a OrganizationalBrandingLocalizationItemRequestBuilder
      */
     public localizationsById(id: string) : OrganizationalBrandingLocalizationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -685,7 +685,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.oauth2PermissionGrants.item collection
      * @param id Unique identifier of the item
-     * @returns a oAuth2PermissionGrantItemRequestBuilder
+     * @returns a OAuth2PermissionGrantItemRequestBuilder
      */
     public oauth2PermissionGrantsById(id: string) : OAuth2PermissionGrantItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -696,7 +696,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.organization.item collection
      * @param id Unique identifier of the item
-     * @returns a organizationItemRequestBuilder
+     * @returns a OrganizationItemRequestBuilder
      */
     public organizationById(id: string) : OrganizationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -707,7 +707,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.permissionGrants.item collection
      * @param id Unique identifier of the item
-     * @returns a resourceSpecificPermissionGrantItemRequestBuilder
+     * @returns a ResourceSpecificPermissionGrantItemRequestBuilder
      */
     public permissionGrantsById(id: string) : ResourceSpecificPermissionGrantItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -718,7 +718,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.places.item collection
      * @param id Unique identifier of the item
-     * @returns a placeItemRequestBuilder
+     * @returns a PlaceItemRequestBuilder
      */
     public placesById(id: string) : PlaceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -729,7 +729,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.schemaExtensions.item collection
      * @param id Unique identifier of the item
-     * @returns a schemaExtensionItemRequestBuilder
+     * @returns a SchemaExtensionItemRequestBuilder
      */
     public schemaExtensionsById(id: string) : SchemaExtensionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -740,7 +740,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.scopedRoleMemberships.item collection
      * @param id Unique identifier of the item
-     * @returns a scopedRoleMembershipItemRequestBuilder
+     * @returns a ScopedRoleMembershipItemRequestBuilder
      */
     public scopedRoleMembershipsById(id: string) : ScopedRoleMembershipItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -751,7 +751,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item collection
      * @param id Unique identifier of the item
-     * @returns a servicePrincipalItemRequestBuilder
+     * @returns a ServicePrincipalItemRequestBuilder
      */
     public servicePrincipalsById(id: string) : ServicePrincipalItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -762,7 +762,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item collection
      * @param id Unique identifier of the item
-     * @returns a sharedDriveItemItemRequestBuilder
+     * @returns a SharedDriveItemItemRequestBuilder
      */
     public sharesById(id: string) : SharedDriveItemItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -773,7 +773,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item collection
      * @param id Unique identifier of the item
-     * @returns a siteItemRequestBuilder
+     * @returns a SiteItemRequestBuilder
      */
     public sitesById(id: string) : SiteItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -784,7 +784,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.subscribedSkus.item collection
      * @param id Unique identifier of the item
-     * @returns a subscribedSkuItemRequestBuilder
+     * @returns a SubscribedSkuItemRequestBuilder
      */
     public subscribedSkusById(id: string) : SubscribedSkuItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -795,7 +795,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.subscriptions.item collection
      * @param id Unique identifier of the item
-     * @returns a subscriptionItemRequestBuilder
+     * @returns a SubscriptionItemRequestBuilder
      */
     public subscriptionsById(id: string) : SubscriptionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -806,7 +806,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item collection
      * @param id Unique identifier of the item
-     * @returns a teamItemRequestBuilder
+     * @returns a TeamItemRequestBuilder
      */
     public teamsById(id: string) : TeamItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -817,7 +817,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teamsTemplates.item collection
      * @param id Unique identifier of the item
-     * @returns a teamsTemplateItemRequestBuilder
+     * @returns a TeamsTemplateItemRequestBuilder
      */
     public teamsTemplatesById(id: string) : TeamsTemplateItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -828,7 +828,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item collection
      * @param id Unique identifier of the item
-     * @returns a userItemRequestBuilder
+     * @returns a UserItemRequestBuilder
      */
     public usersById(id: string) : UserItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -839,7 +839,7 @@ export class GraphBaseServiceClient {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.workbooks.item collection
      * @param id Unique identifier of the item
-     * @returns a driveItemItemRequestBuilder
+     * @returns a DriveItemItemRequestBuilder
      */
     public workbooksById(id: string) : DriveItemItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

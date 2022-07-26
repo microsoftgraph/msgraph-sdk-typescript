@@ -16,6 +16,8 @@ export class VisualInfo implements AdditionalDataHolder, Parsable {
     private _description?: string | undefined;
     /** Required. Short text description of the user's unique activity (for example, document name in cases where an activity refers to document creation) */
     private _displayText?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -63,6 +65,7 @@ export class VisualInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.visualInfo";
     };
     /**
      * Gets the content property value. Optional. Custom piece of data - JSON object used to provide custom content to render the activity in the Windows Shell UI
@@ -117,7 +120,22 @@ export class VisualInfo implements AdditionalDataHolder, Parsable {
             "content": n => { this.content = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
             "description": n => { this.description = n.getStringValue(); },
             "displayText": n => { this.displayText = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -130,6 +148,7 @@ export class VisualInfo implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue<Json>("content", this.content);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayText", this.displayText);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

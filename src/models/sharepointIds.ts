@@ -9,6 +9,8 @@ export class SharepointIds implements AdditionalDataHolder, Parsable {
     private _listItemId?: string | undefined;
     /** The unique identifier (guid) for the item within OneDrive for Business or a SharePoint site. */
     private _listItemUniqueId?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The unique identifier (guid) for the item's site collection (SPSite). */
     private _siteId?: string | undefined;
     /** The SharePoint URL for the site that contains the item. */
@@ -36,6 +38,7 @@ export class SharepointIds implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.sharepointIds";
     };
     /**
      * The deserialization information for the current model
@@ -46,6 +49,7 @@ export class SharepointIds implements AdditionalDataHolder, Parsable {
             "listId": n => { this.listId = n.getStringValue(); },
             "listItemId": n => { this.listItemId = n.getStringValue(); },
             "listItemUniqueId": n => { this.listItemUniqueId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "siteId": n => { this.siteId = n.getStringValue(); },
             "siteUrl": n => { this.siteUrl = n.getStringValue(); },
             "tenantId": n => { this.tenantId = n.getStringValue(); },
@@ -95,6 +99,20 @@ export class SharepointIds implements AdditionalDataHolder, Parsable {
         this._listItemUniqueId = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -103,6 +121,7 @@ export class SharepointIds implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("listId", this.listId);
         writer.writeStringValue("listItemId", this.listItemId);
         writer.writeStringValue("listItemUniqueId", this.listItemUniqueId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("siteId", this.siteId);
         writer.writeStringValue("siteUrl", this.siteUrl);
         writer.writeStringValue("tenantId", this.tenantId);

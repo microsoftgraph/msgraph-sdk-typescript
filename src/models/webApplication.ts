@@ -11,6 +11,8 @@ export class WebApplication implements AdditionalDataHolder, Parsable {
     private _implicitGrantSettings?: ImplicitGrantSettings | undefined;
     /** Specifies the URL that will be used by Microsoft's authorization service to logout an user using front-channel, back-channel or SAML logout protocols. */
     private _logoutUrl?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. */
     private _redirectUris?: string[] | undefined;
     /**
@@ -32,6 +34,7 @@ export class WebApplication implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.webApplication";
     };
     /**
      * The deserialization information for the current model
@@ -42,6 +45,7 @@ export class WebApplication implements AdditionalDataHolder, Parsable {
             "homePageUrl": n => { this.homePageUrl = n.getStringValue(); },
             "implicitGrantSettings": n => { this.implicitGrantSettings = n.getObjectValue<ImplicitGrantSettings>(createImplicitGrantSettingsFromDiscriminatorValue); },
             "logoutUrl": n => { this.logoutUrl = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "redirectUris": n => { this.redirectUris = n.getCollectionOfPrimitiveValues<string>(); },
         };
     };
@@ -88,6 +92,20 @@ export class WebApplication implements AdditionalDataHolder, Parsable {
         this._logoutUrl = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the redirectUris property value. Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
      * @returns a string
      */
@@ -110,6 +128,7 @@ export class WebApplication implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("homePageUrl", this.homePageUrl);
         writer.writeObjectValue<ImplicitGrantSettings>("implicitGrantSettings", this.implicitGrantSettings);
         writer.writeStringValue("logoutUrl", this.logoutUrl);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfPrimitiveValues<string>("redirectUris", this.redirectUris);
         writer.writeAdditionalData(this.additionalData);
     };

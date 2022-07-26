@@ -7,7 +7,6 @@ import {createSectionGroupFromDiscriminatorValue} from './createSectionGroupFrom
 import {Entity, Notebook, OnenoteOperation, OnenotePage, OnenoteResource, OnenoteSection, SectionGroup} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Onenote extends Entity implements Parsable {
     /** The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable. */
     private _notebooks?: Notebook[] | undefined;
@@ -26,6 +25,7 @@ export class Onenote extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.onenote";
     };
     /**
      * The deserialization information for the current model

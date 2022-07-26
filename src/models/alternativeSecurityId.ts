@@ -7,6 +7,8 @@ export class AlternativeSecurityId implements AdditionalDataHolder, Parsable {
     private _identityProvider?: string | undefined;
     /** For internal use only */
     private _key?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** For internal use only */
     private _type?: number | undefined;
     /**
@@ -28,6 +30,7 @@ export class AlternativeSecurityId implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.alternativeSecurityId";
     };
     /**
      * The deserialization information for the current model
@@ -37,6 +40,7 @@ export class AlternativeSecurityId implements AdditionalDataHolder, Parsable {
         return {
             "identityProvider": n => { this.identityProvider = n.getStringValue(); },
             "key": n => { this.key = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "type": n => { this.type = n.getNumberValue(); },
         };
     };
@@ -69,6 +73,20 @@ export class AlternativeSecurityId implements AdditionalDataHolder, Parsable {
         this._key = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -76,6 +94,7 @@ export class AlternativeSecurityId implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("identityProvider", this.identityProvider);
         writer.writeStringValue("key", this.key);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };

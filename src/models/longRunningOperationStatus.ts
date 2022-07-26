@@ -1,4 +1,4 @@
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum LongRunningOperationStatus {
     NotStarted = "notStarted",
     Running = "running",

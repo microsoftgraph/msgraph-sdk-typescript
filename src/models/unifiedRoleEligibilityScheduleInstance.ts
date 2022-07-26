@@ -1,7 +1,6 @@
 import {UnifiedRoleScheduleInstanceBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstanceBase implements Parsable {
     /** Time that the roleEligibilityScheduleInstance will expire. */
     private _endDateTime?: Date | undefined;
@@ -16,6 +15,7 @@ export class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleI
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.unifiedRoleEligibilityScheduleInstance";
     };
     /**
      * Gets the endDateTime property value. Time that the roleEligibilityScheduleInstance will expire.

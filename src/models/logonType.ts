@@ -1,4 +1,4 @@
-/** Provides operations to manage the security singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum LogonType {
     Unknown = "unknown",
     Interactive = "interactive",

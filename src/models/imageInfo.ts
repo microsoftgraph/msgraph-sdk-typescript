@@ -11,6 +11,8 @@ export class ImageInfo implements AdditionalDataHolder, Parsable {
     private _alternativeText?: string | undefined;
     /** Optional; URI that points to an icon which represents the application used to generate the activity */
     private _iconUrl?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the addImageQuery property value. Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image
      * @returns a boolean
@@ -72,6 +74,7 @@ export class ImageInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.imageInfo";
     };
     /**
      * The deserialization information for the current model
@@ -83,6 +86,7 @@ export class ImageInfo implements AdditionalDataHolder, Parsable {
             "alternateText": n => { this.alternateText = n.getStringValue(); },
             "alternativeText": n => { this.alternativeText = n.getStringValue(); },
             "iconUrl": n => { this.iconUrl = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -100,6 +104,20 @@ export class ImageInfo implements AdditionalDataHolder, Parsable {
         this._iconUrl = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -109,6 +127,7 @@ export class ImageInfo implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("alternateText", this.alternateText);
         writer.writeStringValue("alternativeText", this.alternativeText);
         writer.writeStringValue("iconUrl", this.iconUrl);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

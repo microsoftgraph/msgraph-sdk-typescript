@@ -13,6 +13,8 @@ export class HostSecurityState implements AdditionalDataHolder, Parsable {
     private _isHybridAzureDomainJoined?: boolean | undefined;
     /** The local host name, without the DNS domain name. */
     private _netBiosName?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Host Operating System. (For example, Windows10, MacOS, RHEL, etc.). */
     private _os?: string | undefined;
     /** Private (not routable) IPv4 or IPv6 address (see RFC 1918) at the time of the alert. */
@@ -40,6 +42,7 @@ export class HostSecurityState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.hostSecurityState";
     };
     /**
      * Gets the fqdn property value. Host FQDN (Fully Qualified Domain Name) (for example, machine.company.com).
@@ -66,6 +69,7 @@ export class HostSecurityState implements AdditionalDataHolder, Parsable {
             "isAzureAdRegistered": n => { this.isAzureAdRegistered = n.getBooleanValue(); },
             "isHybridAzureDomainJoined": n => { this.isHybridAzureDomainJoined = n.getBooleanValue(); },
             "netBiosName": n => { this.netBiosName = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "os": n => { this.os = n.getStringValue(); },
             "privateIpAddress": n => { this.privateIpAddress = n.getStringValue(); },
             "publicIpAddress": n => { this.publicIpAddress = n.getStringValue(); },
@@ -127,6 +131,20 @@ export class HostSecurityState implements AdditionalDataHolder, Parsable {
      */
     public set netBiosName(value: string | undefined) {
         this._netBiosName = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the os property value. Host Operating System. (For example, Windows10, MacOS, RHEL, etc.).
@@ -195,6 +213,7 @@ export class HostSecurityState implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isAzureAdRegistered", this.isAzureAdRegistered);
         writer.writeBooleanValue("isHybridAzureDomainJoined", this.isHybridAzureDomainJoined);
         writer.writeStringValue("netBiosName", this.netBiosName);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("os", this.os);
         writer.writeStringValue("privateIpAddress", this.privateIpAddress);
         writer.writeStringValue("publicIpAddress", this.publicIpAddress);

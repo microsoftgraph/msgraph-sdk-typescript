@@ -13,6 +13,8 @@ export class AppRole implements AdditionalDataHolder, Parsable {
     private _id?: string | undefined;
     /** When creating or updating an app role, this must be set to true (which is the default). To delete a role, this must first be set to false.  At that point, in a subsequent call, this role may be removed. */
     private _isEnabled?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Specifies if the app role is defined on the application object or on the servicePrincipal entity. Must not be included in any POST or PATCH requests. Read-only. */
     private _origin?: string | undefined;
     /** Specifies the value to include in the roles claim in ID tokens and access tokens authenticating an assigned user or service principal. Must not exceed 120 characters in length. Allowed characters are : ! # $ % & ' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, as well as characters in the ranges 0-9, A-Z and a-z. Any other character, including the space character, are not allowed. May not begin with .. */
@@ -50,6 +52,7 @@ export class AppRole implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.appRole";
     };
     /**
      * Gets the description property value. The description for the app role. This is displayed when the app role is being assigned and, if the app role functions as an application permission, during  consent experiences.
@@ -90,6 +93,7 @@ export class AppRole implements AdditionalDataHolder, Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "id": n => { this.id = n.getStringValue(); },
             "isEnabled": n => { this.isEnabled = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "origin": n => { this.origin = n.getStringValue(); },
             "value": n => { this.value = n.getStringValue(); },
         };
@@ -123,6 +127,20 @@ export class AppRole implements AdditionalDataHolder, Parsable {
         this._isEnabled = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the origin property value. Specifies if the app role is defined on the application object or on the servicePrincipal entity. Must not be included in any POST or PATCH requests. Read-only.
      * @returns a string
      */
@@ -147,6 +165,7 @@ export class AppRole implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("id", this.id);
         writer.writeBooleanValue("isEnabled", this.isEnabled);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("origin", this.origin);
         writer.writeStringValue("value", this.value);
         writer.writeAdditionalData(this.additionalData);

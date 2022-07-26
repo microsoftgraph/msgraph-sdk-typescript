@@ -1,3 +1,5 @@
+import {ODataError} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createGetPstnCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue} from './createGetPstnCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue';
 import {GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration} from './getPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration';
 import {GetPstnCallsWithFromDateTimeWithToDateTimeResponse} from './index';
@@ -23,8 +25,8 @@ export class GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/communications/callRecords/microsoft.graph.callRecords.getPstnCalls(fromDateTime='{fromDateTime}',toDateTime='{toDateTime}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = fromDateTime
-        urlTplParams[""] = toDateTime
+        urlTplParams["fromDateTime"] = fromDateTime
+        urlTplParams["toDateTime"] = toDateTime
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -38,6 +40,7 @@ export class GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -54,6 +57,10 @@ export class GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetPstnCallsWithFromDateTimeWithToDateTimeResponse>(requestInfo, createGetPstnCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<GetPstnCallsWithFromDateTimeWithToDateTimeResponse>(requestInfo, createGetPstnCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -24,7 +24,7 @@ export class MeetingAttendanceReportItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.onlineMeetings.item.attendanceReports.item.attendanceRecords.item collection
      * @param id Unique identifier of the item
-     * @returns a attendanceRecordItemRequestBuilder
+     * @returns a AttendanceRecordItemRequestBuilder
      */
     public attendanceRecordsById(id: string) : AttendanceRecordItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -71,6 +71,7 @@ export class MeetingAttendanceReportItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

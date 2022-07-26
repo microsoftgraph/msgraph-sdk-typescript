@@ -13,6 +13,8 @@ export class OutlookGeoCoordinates implements AdditionalDataHolder, Parsable {
     private _latitude?: number | undefined;
     /** The longitude of the location. */
     private _longitude?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the accuracy property value. The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters.
      * @returns a double
@@ -74,6 +76,7 @@ export class OutlookGeoCoordinates implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.outlookGeoCoordinates";
     };
     /**
      * The deserialization information for the current model
@@ -86,6 +89,7 @@ export class OutlookGeoCoordinates implements AdditionalDataHolder, Parsable {
             "altitudeAccuracy": n => { this.altitudeAccuracy = n.getNumberValue(); },
             "latitude": n => { this.latitude = n.getNumberValue(); },
             "longitude": n => { this.longitude = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -117,6 +121,20 @@ export class OutlookGeoCoordinates implements AdditionalDataHolder, Parsable {
         this._longitude = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -127,6 +145,7 @@ export class OutlookGeoCoordinates implements AdditionalDataHolder, Parsable {
         writer.writeNumberValue("altitudeAccuracy", this.altitudeAccuracy);
         writer.writeNumberValue("latitude", this.latitude);
         writer.writeNumberValue("longitude", this.longitude);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

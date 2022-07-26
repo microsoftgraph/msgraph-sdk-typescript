@@ -43,6 +43,7 @@ export class BookingCustomQuestion extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.bookingCustomQuestion";
     };
     /**
      * Gets the displayName property value. Display name of this entity.

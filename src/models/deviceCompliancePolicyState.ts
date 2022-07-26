@@ -8,13 +8,13 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class DeviceCompliancePolicyState extends Entity implements Parsable {
     /** The name of the policy for this policyBase */
     private _displayName?: string | undefined;
-    /** Platform type that the policy applies to */
+    /** Supported platform types for policies. */
     private _platformType?: PolicyPlatformType | undefined;
     /** Count of how many setting a policy holds */
     private _settingCount?: number | undefined;
     /** The settingStates property */
     private _settingStates?: DeviceCompliancePolicySettingState[] | undefined;
-    /** The compliance state of the policy */
+    /** The state property */
     private _state?: ComplianceStatus | undefined;
     /** The version of the policy */
     private _version?: number | undefined;
@@ -23,6 +23,7 @@ export class DeviceCompliancePolicyState extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.deviceCompliancePolicyState";
     };
     /**
      * Gets the displayName property value. The name of the policy for this policyBase
@@ -53,14 +54,14 @@ export class DeviceCompliancePolicyState extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the platformType property value. Platform type that the policy applies to
+     * Gets the platformType property value. Supported platform types for policies.
      * @returns a policyPlatformType
      */
     public get platformType() {
         return this._platformType;
     };
     /**
-     * Sets the platformType property value. Platform type that the policy applies to
+     * Sets the platformType property value. Supported platform types for policies.
      * @param value Value to set for the platformType property.
      */
     public set platformType(value: PolicyPlatformType | undefined) {
@@ -109,14 +110,14 @@ export class DeviceCompliancePolicyState extends Entity implements Parsable {
         this._settingStates = value;
     };
     /**
-     * Gets the state property value. The compliance state of the policy
+     * Gets the state property value. The state property
      * @returns a complianceStatus
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The compliance state of the policy
+     * Sets the state property value. The state property
      * @param value Value to set for the state property.
      */
     public set state(value: ComplianceStatus | undefined) {

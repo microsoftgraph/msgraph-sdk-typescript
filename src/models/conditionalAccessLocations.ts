@@ -7,6 +7,8 @@ export class ConditionalAccessLocations implements AdditionalDataHolder, Parsabl
     private _excludeLocations?: string[] | undefined;
     /** Location IDs in scope of policy unless explicitly excluded, All, or AllTrusted. */
     private _includeLocations?: string[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -26,6 +28,7 @@ export class ConditionalAccessLocations implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.conditionalAccessLocations";
     };
     /**
      * Gets the excludeLocations property value. Location IDs excluded from scope of policy.
@@ -49,6 +52,7 @@ export class ConditionalAccessLocations implements AdditionalDataHolder, Parsabl
         return {
             "excludeLocations": n => { this.excludeLocations = n.getCollectionOfPrimitiveValues<string>(); },
             "includeLocations": n => { this.includeLocations = n.getCollectionOfPrimitiveValues<string>(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -66,6 +70,20 @@ export class ConditionalAccessLocations implements AdditionalDataHolder, Parsabl
         this._includeLocations = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -73,6 +91,7 @@ export class ConditionalAccessLocations implements AdditionalDataHolder, Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfPrimitiveValues<string>("excludeLocations", this.excludeLocations);
         writer.writeCollectionOfPrimitiveValues<string>("includeLocations", this.includeLocations);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -18,7 +18,7 @@ import {EducationUserRole} from './educationUserRole';
 import {AssignedLicense, AssignedPlan, EducationAssignment, EducationClass, EducationOnPremisesInfo, EducationRubric, EducationSchool, EducationStudent, EducationTeacher, Entity, IdentitySet, PasswordProfile, PhysicalAddress, ProvisionedPlan, RelatedContact, User} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class EducationUser extends Entity implements Parsable {
     /** True if the account is enabled; otherwise, false. This property is required when a user is created. Supports /$filter. */
     private _accountEnabled?: boolean | undefined;
@@ -64,7 +64,7 @@ export class EducationUser extends Entity implements Parsable {
     private _passwordProfile?: PasswordProfile | undefined;
     /** The preferred language for the user. Should follow ISO 639-1 Code; for example, 'en-US'. */
     private _preferredLanguage?: string | undefined;
-    /** Default role for a user. The user's role might be different in an individual class. Possible values are: student, teacher, faculty. Supports /$filter. */
+    /** The primaryRole property */
     private _primaryRole?: EducationUserRole | undefined;
     /** The plans that are provisioned for the user. Read-only. Not nullable. */
     private _provisionedPlans?: ProvisionedPlan[] | undefined;
@@ -185,6 +185,7 @@ export class EducationUser extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.educationUser";
     };
     /**
      * Gets the createdBy property value. Entity who created the user.
@@ -457,14 +458,14 @@ export class EducationUser extends Entity implements Parsable {
         this._preferredLanguage = value;
     };
     /**
-     * Gets the primaryRole property value. Default role for a user. The user's role might be different in an individual class. Possible values are: student, teacher, faculty. Supports /$filter.
+     * Gets the primaryRole property value. The primaryRole property
      * @returns a educationUserRole
      */
     public get primaryRole() {
         return this._primaryRole;
     };
     /**
-     * Sets the primaryRole property value. Default role for a user. The user's role might be different in an individual class. Possible values are: student, teacher, faculty. Supports /$filter.
+     * Sets the primaryRole property value. The primaryRole property
      * @param value Value to set for the primaryRole property.
      */
     public set primaryRole(value: EducationUserRole | undefined) {

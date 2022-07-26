@@ -7,6 +7,8 @@ export class TeamsTabConfiguration implements AdditionalDataHolder, Parsable {
     private _contentUrl?: string | undefined;
     /** Identifier for the entity hosted by the tab provider. */
     private _entityId?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Url called by Teams client when a Tab is removed using the Teams Client. */
     private _removeUrl?: string | undefined;
     /** Url for showing tab contents outside of Teams. */
@@ -30,6 +32,7 @@ export class TeamsTabConfiguration implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.teamsTabConfiguration";
     };
     /**
      * Gets the contentUrl property value. Url used for rendering tab contents in Teams. Required.
@@ -67,9 +70,24 @@ export class TeamsTabConfiguration implements AdditionalDataHolder, Parsable {
         return {
             "contentUrl": n => { this.contentUrl = n.getStringValue(); },
             "entityId": n => { this.entityId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "removeUrl": n => { this.removeUrl = n.getStringValue(); },
             "websiteUrl": n => { this.websiteUrl = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the removeUrl property value. Url called by Teams client when a Tab is removed using the Teams Client.
@@ -93,6 +111,7 @@ export class TeamsTabConfiguration implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("contentUrl", this.contentUrl);
         writer.writeStringValue("entityId", this.entityId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("removeUrl", this.removeUrl);
         writer.writeStringValue("websiteUrl", this.websiteUrl);
         writer.writeAdditionalData(this.additionalData);

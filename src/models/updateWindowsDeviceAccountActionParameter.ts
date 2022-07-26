@@ -13,6 +13,8 @@ export class UpdateWindowsDeviceAccountActionParameter implements AdditionalData
     private _deviceAccountEmail?: string | undefined;
     /** Not yet documented */
     private _exchangeServer?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Not yet documented */
     private _passwordRotationEnabled?: boolean | undefined;
     /** Not yet documented */
@@ -50,6 +52,7 @@ export class UpdateWindowsDeviceAccountActionParameter implements AdditionalData
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.updateWindowsDeviceAccountActionParameter";
     };
     /**
      * Gets the deviceAccount property value. Not yet documented
@@ -103,9 +106,24 @@ export class UpdateWindowsDeviceAccountActionParameter implements AdditionalData
             "deviceAccount": n => { this.deviceAccount = n.getObjectValue<WindowsDeviceAccount>(createWindowsDeviceAccountFromDiscriminatorValue); },
             "deviceAccountEmail": n => { this.deviceAccountEmail = n.getStringValue(); },
             "exchangeServer": n => { this.exchangeServer = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "passwordRotationEnabled": n => { this.passwordRotationEnabled = n.getBooleanValue(); },
             "sessionInitiationProtocalAddress": n => { this.sessionInitiationProtocalAddress = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the passwordRotationEnabled property value. Not yet documented
@@ -131,6 +149,7 @@ export class UpdateWindowsDeviceAccountActionParameter implements AdditionalData
         writer.writeObjectValue<WindowsDeviceAccount>("deviceAccount", this.deviceAccount);
         writer.writeStringValue("deviceAccountEmail", this.deviceAccountEmail);
         writer.writeStringValue("exchangeServer", this.exchangeServer);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeBooleanValue("passwordRotationEnabled", this.passwordRotationEnabled);
         writer.writeStringValue("sessionInitiationProtocalAddress", this.sessionInitiationProtocalAddress);
         writer.writeAdditionalData(this.additionalData);

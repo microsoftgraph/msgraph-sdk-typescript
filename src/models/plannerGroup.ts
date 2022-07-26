@@ -2,7 +2,6 @@ import {createPlannerPlanFromDiscriminatorValue} from './createPlannerPlanFromDi
 import {Entity, PlannerPlan} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class PlannerGroup extends Entity implements Parsable {
     /** Read-only. Nullable. Returns the plannerPlans owned by the group. */
     private _plans?: PlannerPlan[] | undefined;
@@ -11,6 +10,7 @@ export class PlannerGroup extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.plannerGroup";
     };
     /**
      * The deserialization information for the current model

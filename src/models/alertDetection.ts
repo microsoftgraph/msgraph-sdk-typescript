@@ -9,6 +9,8 @@ export class AlertDetection implements AdditionalDataHolder, Parsable {
     private _method?: string | undefined;
     /** The name property */
     private _name?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -28,6 +30,7 @@ export class AlertDetection implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.alertDetection";
     };
     /**
      * Gets the detectionType property value. The detectionType property
@@ -52,6 +55,7 @@ export class AlertDetection implements AdditionalDataHolder, Parsable {
             "detectionType": n => { this.detectionType = n.getStringValue(); },
             "method": n => { this.method = n.getStringValue(); },
             "name": n => { this.name = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -83,6 +87,20 @@ export class AlertDetection implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -91,6 +109,7 @@ export class AlertDetection implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("detectionType", this.detectionType);
         writer.writeStringValue("method", this.method);
         writer.writeStringValue("name", this.name);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

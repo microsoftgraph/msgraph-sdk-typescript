@@ -1,4 +1,4 @@
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum TeamsAsyncOperationType {
     Invalid = "invalid",
     CloneTeam = "cloneTeam",
@@ -6,4 +6,6 @@ export enum TeamsAsyncOperationType {
     UnarchiveTeam = "unarchiveTeam",
     CreateTeam = "createTeam",
     UnknownFutureValue = "unknownFutureValue",
+    TeamifyGroup = "teamifyGroup",
+    CreateChannel = "createChannel",
 }

@@ -46,7 +46,7 @@ export class IdentityRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.apiConnectors.item collection
      * @param id Unique identifier of the item
-     * @returns a identityApiConnectorItemRequestBuilder
+     * @returns a IdentityApiConnectorItemRequestBuilder
      */
     public apiConnectorsById(id: string) : IdentityApiConnectorItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -57,7 +57,7 @@ export class IdentityRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item collection
      * @param id Unique identifier of the item
-     * @returns a b2xIdentityUserFlowItemRequestBuilder
+     * @returns a B2xIdentityUserFlowItemRequestBuilder
      */
     public b2xUserFlowsById(id: string) : B2xIdentityUserFlowItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -88,6 +88,7 @@ export class IdentityRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -133,7 +134,7 @@ export class IdentityRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.identityProviders.item collection
      * @param id Unique identifier of the item
-     * @returns a identityProviderBaseItemRequestBuilder
+     * @returns a IdentityProviderBaseItemRequestBuilder
      */
     public identityProvidersById(id: string) : IdentityProviderBaseItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -161,7 +162,7 @@ export class IdentityRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.userFlowAttributes.item collection
      * @param id Unique identifier of the item
-     * @returns a identityUserFlowAttributeItemRequestBuilder
+     * @returns a IdentityUserFlowAttributeItemRequestBuilder
      */
     public userFlowAttributesById(id: string) : IdentityUserFlowAttributeItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

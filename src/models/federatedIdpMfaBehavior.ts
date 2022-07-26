@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of domain entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum FederatedIdpMfaBehavior {
     AcceptIfMfaDoneByFederatedIdp = "acceptIfMfaDoneByFederatedIdp",
     EnforceMfaByFederatedIdp = "enforceMfaByFederatedIdp",

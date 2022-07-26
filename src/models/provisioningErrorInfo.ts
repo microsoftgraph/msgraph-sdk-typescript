@@ -10,6 +10,8 @@ export class ProvisioningErrorInfo implements AdditionalDataHolder, Parsable {
     private _errorCategory?: ProvisioningStatusErrorCategory | undefined;
     /** Unique error code if any occurred. Learn more */
     private _errorCode?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Summarizes the status and describes why the status happened. */
     private _reason?: string | undefined;
     /** Provides the resolution for the corresponding error. */
@@ -47,6 +49,7 @@ export class ProvisioningErrorInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.provisioningErrorInfo";
     };
     /**
      * Gets the errorCategory property value. Categorizes the error code. Possible values are failure, nonServiceFailure, success, unknownFutureValue
@@ -85,9 +88,24 @@ export class ProvisioningErrorInfo implements AdditionalDataHolder, Parsable {
             "additionalDetails": n => { this.additionalDetails = n.getStringValue(); },
             "errorCategory": n => { this.errorCategory = n.getEnumValue<ProvisioningStatusErrorCategory>(ProvisioningStatusErrorCategory); },
             "errorCode": n => { this.errorCode = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "reason": n => { this.reason = n.getStringValue(); },
             "recommendedAction": n => { this.recommendedAction = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the reason property value. Summarizes the status and describes why the status happened.
@@ -126,6 +144,7 @@ export class ProvisioningErrorInfo implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("additionalDetails", this.additionalDetails);
         writer.writeEnumValue<ProvisioningStatusErrorCategory>("errorCategory", this.errorCategory);
         writer.writeStringValue("errorCode", this.errorCode);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("reason", this.reason);
         writer.writeStringValue("recommendedAction", this.recommendedAction);
         writer.writeAdditionalData(this.additionalData);

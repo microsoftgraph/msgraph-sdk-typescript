@@ -5,6 +5,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AccessReviewHistoryScheduleSettings implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The recurrence property */
     private _recurrence?: PatternedRecurrence | undefined;
     /** A duration string in ISO 8601 duration format specifying the lookback period of the generated review history data. For example, if a history definition is scheduled to run on the 1st of every month, the reportRange is P1M. In this case, on the first of every month, access review history data will be collected containing only the previous month's review data. Note: Only years, months, and days ISO 8601 properties are supported. Required. */
@@ -28,6 +30,7 @@ export class AccessReviewHistoryScheduleSettings implements AdditionalDataHolder
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.accessReviewHistoryScheduleSettings";
     };
     /**
      * The deserialization information for the current model
@@ -35,9 +38,24 @@ export class AccessReviewHistoryScheduleSettings implements AdditionalDataHolder
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "recurrence": n => { this.recurrence = n.getObjectValue<PatternedRecurrence>(createPatternedRecurrenceFromDiscriminatorValue); },
             "reportRange": n => { this.reportRange = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the recurrence property value. The recurrence property
@@ -73,6 +91,7 @@ export class AccessReviewHistoryScheduleSettings implements AdditionalDataHolder
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<PatternedRecurrence>("recurrence", this.recurrence);
         writer.writeStringValue("reportRange", this.reportRange);
         writer.writeAdditionalData(this.additionalData);

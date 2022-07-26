@@ -58,6 +58,7 @@ export class BrandingRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -103,7 +104,7 @@ export class BrandingRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.branding.localizations.item collection
      * @param id Unique identifier of the item
-     * @returns a organizationalBrandingLocalizationItemRequestBuilder
+     * @returns a OrganizationalBrandingLocalizationItemRequestBuilder
      */
     public localizationsById(id: string) : OrganizationalBrandingLocalizationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -17,6 +17,8 @@ export class Media implements AdditionalDataHolder, Parsable {
     private _callerNetwork?: NetworkInfo | undefined;
     /** How the media was identified during media negotiation stage. */
     private _label?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Network streams associated with this media. */
     private _streams?: MediaStream[] | undefined;
     /**
@@ -94,6 +96,7 @@ export class Media implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.callRecords.media";
     };
     /**
      * The deserialization information for the current model
@@ -106,6 +109,7 @@ export class Media implements AdditionalDataHolder, Parsable {
             "callerDevice": n => { this.callerDevice = n.getObjectValue<DeviceInfo>(createDeviceInfoFromDiscriminatorValue); },
             "callerNetwork": n => { this.callerNetwork = n.getObjectValue<NetworkInfo>(createNetworkInfoFromDiscriminatorValue); },
             "label": n => { this.label = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "streams": n => { this.streams = n.getCollectionOfObjectValues<MediaStream>(createMediaStreamFromDiscriminatorValue); },
         };
     };
@@ -124,6 +128,20 @@ export class Media implements AdditionalDataHolder, Parsable {
         this._label = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -134,6 +152,7 @@ export class Media implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue<DeviceInfo>("callerDevice", this.callerDevice);
         writer.writeObjectValue<NetworkInfo>("callerNetwork", this.callerNetwork);
         writer.writeStringValue("label", this.label);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<MediaStream>("streams", this.streams);
         writer.writeAdditionalData(this.additionalData);
     };

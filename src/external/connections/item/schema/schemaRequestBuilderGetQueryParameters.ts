@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get schema from external */
 export class SchemaRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

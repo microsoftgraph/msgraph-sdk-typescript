@@ -20,7 +20,7 @@ export class MobileAppContentFile extends Entity implements Parsable {
     private _size?: number | undefined;
     /** The size of the file after encryption. */
     private _sizeEncrypted?: number | undefined;
-    /** The state of the current upload request. Possible values are: success, transientError, error, unknown, azureStorageUriRequestSuccess, azureStorageUriRequestPending, azureStorageUriRequestFailed, azureStorageUriRequestTimedOut, azureStorageUriRenewalSuccess, azureStorageUriRenewalPending, azureStorageUriRenewalFailed, azureStorageUriRenewalTimedOut, commitFileSuccess, commitFilePending, commitFileFailed, commitFileTimedOut. */
+    /** Contains properties for upload request states. */
     private _uploadState?: MobileAppContentFileUploadState | undefined;
     /**
      * Gets the azureStorageUri property value. The Azure Storage URI.
@@ -55,6 +55,7 @@ export class MobileAppContentFile extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.mobileAppContentFile";
     };
     /**
      * Gets the createdDateTime property value. The time the file was created.
@@ -175,14 +176,14 @@ export class MobileAppContentFile extends Entity implements Parsable {
         this._sizeEncrypted = value;
     };
     /**
-     * Gets the uploadState property value. The state of the current upload request. Possible values are: success, transientError, error, unknown, azureStorageUriRequestSuccess, azureStorageUriRequestPending, azureStorageUriRequestFailed, azureStorageUriRequestTimedOut, azureStorageUriRenewalSuccess, azureStorageUriRenewalPending, azureStorageUriRenewalFailed, azureStorageUriRenewalTimedOut, commitFileSuccess, commitFilePending, commitFileFailed, commitFileTimedOut.
+     * Gets the uploadState property value. Contains properties for upload request states.
      * @returns a mobileAppContentFileUploadState
      */
     public get uploadState() {
         return this._uploadState;
     };
     /**
-     * Sets the uploadState property value. The state of the current upload request. Possible values are: success, transientError, error, unknown, azureStorageUriRequestSuccess, azureStorageUriRequestPending, azureStorageUriRequestFailed, azureStorageUriRequestTimedOut, azureStorageUriRenewalSuccess, azureStorageUriRenewalPending, azureStorageUriRenewalFailed, azureStorageUriRenewalTimedOut, commitFileSuccess, commitFilePending, commitFileFailed, commitFileTimedOut.
+     * Sets the uploadState property value. Contains properties for upload request states.
      * @param value Value to set for the uploadState property.
      */
     public set uploadState(value: MobileAppContentFileUploadState | undefined) {

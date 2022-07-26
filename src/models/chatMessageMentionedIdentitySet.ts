@@ -2,15 +2,15 @@ import {createTeamworkConversationIdentityFromDiscriminatorValue} from './create
 import {IdentitySet, TeamworkConversationIdentity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
 export class ChatMessageMentionedIdentitySet extends IdentitySet implements Parsable {
     /** If present, represents a conversation (for example, team or channel) @mentioned in a message. */
     private _conversation?: TeamworkConversationIdentity | undefined;
     /**
-     * Instantiates a new chatMessageMentionedIdentitySet and sets the default values.
+     * Instantiates a new ChatMessageMentionedIdentitySet and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.chatMessageMentionedIdentitySet";
     };
     /**
      * Gets the conversation property value. If present, represents a conversation (for example, team or channel) @mentioned in a message.

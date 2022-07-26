@@ -6,7 +6,9 @@ export class PlannerPlanContainer implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The identifier of the resource that contains the plan. */
     private _containerId?: string | undefined;
-    /** The type of the resource that contains the plan. See the previous table for supported types. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** The type property */
     private _type?: PlannerContainerType | undefined;
     /** The full canonical URL of the container. */
     private _url?: string | undefined;
@@ -29,6 +31,7 @@ export class PlannerPlanContainer implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.plannerPlanContainer";
     };
     /**
      * Gets the containerId property value. The identifier of the resource that contains the plan.
@@ -51,9 +54,24 @@ export class PlannerPlanContainer implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "containerId": n => { this.containerId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "type": n => { this.type = n.getEnumValue<PlannerContainerType>(PlannerContainerType); },
             "url": n => { this.url = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -62,19 +80,20 @@ export class PlannerPlanContainer implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("containerId", this.containerId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<PlannerContainerType>("type", this.type);
         writer.writeStringValue("url", this.url);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. The type of the resource that contains the plan. See the previous table for supported types. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.
+     * Gets the type property value. The type property
      * @returns a plannerContainerType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The type of the resource that contains the plan. See the previous table for supported types. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.
+     * Sets the type property value. The type property
      * @param value Value to set for the type property.
      */
     public set type(value: PlannerContainerType | undefined) {

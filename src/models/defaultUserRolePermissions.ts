@@ -9,6 +9,8 @@ export class DefaultUserRolePermissions implements AdditionalDataHolder, Parsabl
     private _allowedToCreateSecurityGroups?: boolean | undefined;
     /** Indicates whether the default user role can read other users. */
     private _allowedToReadOtherUsers?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Indicates if user consent to apps is allowed, and if it is, which permission to grant consent and which app consent policy (permissionGrantPolicy) govern the permission for users to grant consent. Value should be in the format managePermissionGrantsForSelf.{id}, where {id} is the id of a built-in or custom app consent policy. An empty list indicates user consent to apps is disabled. */
     private _permissionGrantPoliciesAssigned?: string[] | undefined;
     /**
@@ -72,6 +74,7 @@ export class DefaultUserRolePermissions implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.defaultUserRolePermissions";
     };
     /**
      * The deserialization information for the current model
@@ -82,8 +85,23 @@ export class DefaultUserRolePermissions implements AdditionalDataHolder, Parsabl
             "allowedToCreateApps": n => { this.allowedToCreateApps = n.getBooleanValue(); },
             "allowedToCreateSecurityGroups": n => { this.allowedToCreateSecurityGroups = n.getBooleanValue(); },
             "allowedToReadOtherUsers": n => { this.allowedToReadOtherUsers = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "permissionGrantPoliciesAssigned": n => { this.permissionGrantPoliciesAssigned = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the permissionGrantPoliciesAssigned property value. Indicates if user consent to apps is allowed, and if it is, which permission to grant consent and which app consent policy (permissionGrantPolicy) govern the permission for users to grant consent. Value should be in the format managePermissionGrantsForSelf.{id}, where {id} is the id of a built-in or custom app consent policy. An empty list indicates user consent to apps is disabled.
@@ -108,6 +126,7 @@ export class DefaultUserRolePermissions implements AdditionalDataHolder, Parsabl
         writer.writeBooleanValue("allowedToCreateApps", this.allowedToCreateApps);
         writer.writeBooleanValue("allowedToCreateSecurityGroups", this.allowedToCreateSecurityGroups);
         writer.writeBooleanValue("allowedToReadOtherUsers", this.allowedToReadOtherUsers);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfPrimitiveValues<string>("permissionGrantPoliciesAssigned", this.permissionGrantPoliciesAssigned);
         writer.writeAdditionalData(this.additionalData);
     };

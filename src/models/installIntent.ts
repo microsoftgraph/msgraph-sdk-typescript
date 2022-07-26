@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum InstallIntent {
     /** Available install intent. */
     Available = "available",

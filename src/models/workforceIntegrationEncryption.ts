@@ -4,6 +4,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class WorkforceIntegrationEncryption implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Possible values are: sharedSecret, unknownFutureValue. */
     private _protocol?: WorkforceIntegrationEncryptionProtocol | undefined;
     /** Encryption shared secret. */
@@ -27,6 +29,7 @@ export class WorkforceIntegrationEncryption implements AdditionalDataHolder, Par
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.workforceIntegrationEncryption";
     };
     /**
      * The deserialization information for the current model
@@ -34,9 +37,24 @@ export class WorkforceIntegrationEncryption implements AdditionalDataHolder, Par
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "protocol": n => { this.protocol = n.getEnumValue<WorkforceIntegrationEncryptionProtocol>(WorkforceIntegrationEncryptionProtocol); },
             "secret": n => { this.secret = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the protocol property value. Possible values are: sharedSecret, unknownFutureValue.
@@ -72,6 +90,7 @@ export class WorkforceIntegrationEncryption implements AdditionalDataHolder, Par
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<WorkforceIntegrationEncryptionProtocol>("protocol", this.protocol);
         writer.writeStringValue("secret", this.secret);
         writer.writeAdditionalData(this.additionalData);

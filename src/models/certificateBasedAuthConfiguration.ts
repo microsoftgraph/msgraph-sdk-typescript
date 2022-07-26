@@ -2,7 +2,7 @@ import {createCertificateAuthorityFromDiscriminatorValue} from './createCertific
 import {CertificateAuthority, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of certificateBasedAuthConfiguration entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class CertificateBasedAuthConfiguration extends Entity implements Parsable {
     /** Collection of certificate authorities which creates a trusted certificate chain. */
     private _certificateAuthorities?: CertificateAuthority[] | undefined;
@@ -25,6 +25,7 @@ export class CertificateBasedAuthConfiguration extends Entity implements Parsabl
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.certificateBasedAuthConfiguration";
     };
     /**
      * The deserialization information for the current model

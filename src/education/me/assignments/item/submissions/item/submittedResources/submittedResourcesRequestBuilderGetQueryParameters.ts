@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get submittedResources from education */
 export class SubmittedResourcesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

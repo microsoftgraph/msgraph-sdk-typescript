@@ -3,7 +3,7 @@ import {Entity} from './index';
 import {IosUpdatesInstallStatus} from './iosUpdatesInstallStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the deviceManagement singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class IosUpdateDeviceStatus extends Entity implements Parsable {
     /** The DateTime when device compliance grace period expires */
     private _complianceGracePeriodExpirationDateTime?: Date | undefined;
@@ -13,13 +13,13 @@ export class IosUpdateDeviceStatus extends Entity implements Parsable {
     private _deviceId?: string | undefined;
     /** The device model that is being reported */
     private _deviceModel?: string | undefined;
-    /** The installation status of the policy report. Possible values are: success, available, idle, unknown, mdmClientCrashed, timeout, downloading, downloadFailed, downloadRequiresComputer, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installing, installInsufficientSpace, installInsufficientPower, installPhoneCallInProgress, installFailed, notSupportedOperation, sharedDeviceUserLoggedInError, updateError, deviceOsHigherThanDesiredOsVersion, updateScanFailed. */
+    /** The installStatus property */
     private _installStatus?: IosUpdatesInstallStatus | undefined;
     /** Last modified date time of the policy report. */
     private _lastReportedDateTime?: Date | undefined;
     /** The device version that is being reported. */
     private _osVersion?: string | undefined;
-    /** Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
+    /** The status property */
     private _status?: ComplianceStatus | undefined;
     /** The User id that is being reported. */
     private _userId?: string | undefined;
@@ -46,6 +46,7 @@ export class IosUpdateDeviceStatus extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.iosUpdateDeviceStatus";
     };
     /**
      * Gets the deviceDisplayName property value. Device name of the DevicePolicyStatus.
@@ -109,14 +110,14 @@ export class IosUpdateDeviceStatus extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the installStatus property value. The installation status of the policy report. Possible values are: success, available, idle, unknown, mdmClientCrashed, timeout, downloading, downloadFailed, downloadRequiresComputer, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installing, installInsufficientSpace, installInsufficientPower, installPhoneCallInProgress, installFailed, notSupportedOperation, sharedDeviceUserLoggedInError, updateError, deviceOsHigherThanDesiredOsVersion, updateScanFailed.
+     * Gets the installStatus property value. The installStatus property
      * @returns a iosUpdatesInstallStatus
      */
     public get installStatus() {
         return this._installStatus;
     };
     /**
-     * Sets the installStatus property value. The installation status of the policy report. Possible values are: success, available, idle, unknown, mdmClientCrashed, timeout, downloading, downloadFailed, downloadRequiresComputer, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installing, installInsufficientSpace, installInsufficientPower, installPhoneCallInProgress, installFailed, notSupportedOperation, sharedDeviceUserLoggedInError, updateError, deviceOsHigherThanDesiredOsVersion, updateScanFailed.
+     * Sets the installStatus property value. The installStatus property
      * @param value Value to set for the installStatus property.
      */
     public set installStatus(value: IosUpdatesInstallStatus | undefined) {
@@ -170,14 +171,14 @@ export class IosUpdateDeviceStatus extends Entity implements Parsable {
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
     };
     /**
-     * Gets the status property value. Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * Gets the status property value. The status property
      * @returns a complianceStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * Sets the status property value. The status property
      * @param value Value to set for the status property.
      */
     public set status(value: ComplianceStatus | undefined) {

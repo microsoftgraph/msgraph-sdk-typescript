@@ -8,7 +8,7 @@ import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWor
 import {Entity, WorkbookChartAreaFormat, WorkbookChartAxes, WorkbookChartDataLabels, WorkbookChartLegend, WorkbookChartSeries, WorkbookChartTitle, WorkbookWorksheet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class WorkbookChart extends Entity implements Parsable {
     /** Represents chart axes. Read-only. */
     private _axes?: WorkbookChartAxes | undefined;
@@ -53,6 +53,7 @@ export class WorkbookChart extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.workbookChart";
     };
     /**
      * Gets the dataLabels property value. Represents the datalabels on the chart. Read-only.

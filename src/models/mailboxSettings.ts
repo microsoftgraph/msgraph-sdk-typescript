@@ -19,6 +19,8 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
     private _delegateMeetingMessageDeliveryOptions?: DelegateMeetingMessageDeliveryOptions | undefined;
     /** The locale information for the user, including the preferred language and country/region. */
     private _language?: LocaleInfo | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The time format for the user's mailbox. */
     private _timeFormat?: string | undefined;
     /** The default time zone for the user's mailbox. */
@@ -74,6 +76,7 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.mailboxSettings";
     };
     /**
      * Gets the dateFormat property value. The date format for the user's mailbox.
@@ -114,6 +117,7 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
             "dateFormat": n => { this.dateFormat = n.getStringValue(); },
             "delegateMeetingMessageDeliveryOptions": n => { this.delegateMeetingMessageDeliveryOptions = n.getEnumValue<DelegateMeetingMessageDeliveryOptions>(DelegateMeetingMessageDeliveryOptions); },
             "language": n => { this.language = n.getObjectValue<LocaleInfo>(createLocaleInfoFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "timeFormat": n => { this.timeFormat = n.getStringValue(); },
             "timeZone": n => { this.timeZone = n.getStringValue(); },
             "userPurpose": n => { this.userPurpose = n.getEnumValue<UserPurpose>(UserPurpose); },
@@ -135,6 +139,20 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
         this._language = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -145,6 +163,7 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("dateFormat", this.dateFormat);
         writer.writeEnumValue<DelegateMeetingMessageDeliveryOptions>("delegateMeetingMessageDeliveryOptions", this.delegateMeetingMessageDeliveryOptions);
         writer.writeObjectValue<LocaleInfo>("language", this.language);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("timeFormat", this.timeFormat);
         writer.writeStringValue("timeZone", this.timeZone);
         writer.writeEnumValue<UserPurpose>("userPurpose", this.userPurpose);

@@ -1,5 +1,5 @@
 
-/** Nullable. */
+/** Get internalSponsors from identityGovernance */
 export class InternalSponsorsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

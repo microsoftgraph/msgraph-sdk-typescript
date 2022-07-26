@@ -1,4 +1,4 @@
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum ContactRelationship {
     Parent = "parent",
     Relative = "relative",

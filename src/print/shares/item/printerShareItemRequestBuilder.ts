@@ -35,7 +35,7 @@ export class PrinterShareItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.shares.item.allowedGroups.item collection
      * @param id Unique identifier of the item
-     * @returns a groupItemRequestBuilder
+     * @returns a GroupItemRequestBuilder
      */
     public allowedGroupsById(id: string) : GroupItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -46,7 +46,7 @@ export class PrinterShareItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.shares.item.allowedUsers.item collection
      * @param id Unique identifier of the item
-     * @returns a userItemRequestBuilder
+     * @returns a UserItemRequestBuilder
      */
     public allowedUsersById(id: string) : UserItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -93,6 +93,7 @@ export class PrinterShareItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

@@ -5,6 +5,8 @@ export class DateTimeTimeZone implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** A single point of time in a combined date and time representation ({date}T{time}). For example, '2019-04-16T09:00:00'. */
     private _dateTime?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Represents a time zone, for example, 'Pacific Standard Time'. See below for possible values. */
     private _timeZone?: string | undefined;
     /**
@@ -26,6 +28,7 @@ export class DateTimeTimeZone implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.dateTimeTimeZone";
     };
     /**
      * Gets the dateTime property value. A single point of time in a combined date and time representation ({date}T{time}). For example, '2019-04-16T09:00:00'.
@@ -48,8 +51,23 @@ export class DateTimeTimeZone implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "dateTime": n => { this.dateTime = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "timeZone": n => { this.timeZone = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -58,6 +76,7 @@ export class DateTimeTimeZone implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("dateTime", this.dateTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("timeZone", this.timeZone);
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,13 +1,14 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class AuthenticationMethod extends Entity implements Parsable {
     /**
      * Instantiates a new authenticationMethod and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.authenticationMethod";
     };
     /**
      * The deserialization information for the current model

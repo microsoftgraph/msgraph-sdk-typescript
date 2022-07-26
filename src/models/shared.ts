@@ -5,6 +5,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class Shared implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The identity of the owner of the shared item. Read-only. */
     private _owner?: IdentitySet | undefined;
     /** Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only. */
@@ -32,6 +34,7 @@ export class Shared implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.shared";
     };
     /**
      * The deserialization information for the current model
@@ -39,11 +42,26 @@ export class Shared implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "owner": n => { this.owner = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "scope": n => { this.scope = n.getStringValue(); },
             "sharedBy": n => { this.sharedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "sharedDateTime": n => { this.sharedDateTime = n.getDateValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the owner property value. The identity of the owner of the shared item. Read-only.
@@ -79,6 +97,7 @@ export class Shared implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<IdentitySet>("owner", this.owner);
         writer.writeStringValue("scope", this.scope);
         writer.writeObjectValue<IdentitySet>("sharedBy", this.sharedBy);

@@ -7,6 +7,8 @@ export class SecureScoreControlStateUpdate implements AdditionalDataHolder, Pars
     private _assignedTo?: string | undefined;
     /** Provides optional comment about the control. */
     private _comment?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty). */
     private _state?: string | undefined;
     /** ID of the user who updated tenant state. */
@@ -60,6 +62,7 @@ export class SecureScoreControlStateUpdate implements AdditionalDataHolder, Pars
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.secureScoreControlStateUpdate";
     };
     /**
      * The deserialization information for the current model
@@ -69,10 +72,25 @@ export class SecureScoreControlStateUpdate implements AdditionalDataHolder, Pars
         return {
             "assignedTo": n => { this.assignedTo = n.getStringValue(); },
             "comment": n => { this.comment = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "state": n => { this.state = n.getStringValue(); },
             "updatedBy": n => { this.updatedBy = n.getStringValue(); },
             "updatedDateTime": n => { this.updatedDateTime = n.getDateValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -82,6 +100,7 @@ export class SecureScoreControlStateUpdate implements AdditionalDataHolder, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("assignedTo", this.assignedTo);
         writer.writeStringValue("comment", this.comment);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("state", this.state);
         writer.writeStringValue("updatedBy", this.updatedBy);
         writer.writeDateValue("updatedDateTime", this.updatedDateTime);

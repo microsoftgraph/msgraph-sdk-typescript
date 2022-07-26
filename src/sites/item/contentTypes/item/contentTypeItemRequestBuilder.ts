@@ -5,13 +5,13 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {AssociateWithHubSitesRequestBuilder} from './associateWithHubSites/associateWithHubSitesRequestBuilder';
 import {BaseRequestBuilder} from './base/baseRequestBuilder';
 import {BaseTypesRequestBuilder} from './baseTypes/baseTypesRequestBuilder';
-import {ContentTypeItemRequestBuilder as i8b4fad424b75fe6e430ac5c50b7b516930e1a409609507c156f9aa5d279ccb2e} from './baseTypes/item/contentTypeItemRequestBuilder';
+import {ContentTypeItemRequestBuilder as i4b0e1a0df5adc2911508ba13f54a9f7c2c93ea44dc01253f4dbd4c658f5e948c} from './baseTypes/item/contentTypeItemRequestBuilder';
 import {ColumnLinksRequestBuilder} from './columnLinks/columnLinksRequestBuilder';
 import {ColumnLinkItemRequestBuilder} from './columnLinks/item/columnLinkItemRequestBuilder';
 import {ColumnPositionsRequestBuilder} from './columnPositions/columnPositionsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as i0bf3667c34e107cb96e0acc89f81e5d40e5661e1f050186b09ee677576cd9e83} from './columnPositions/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as i7bd9b1dbe26685ab56414146732d70ddbdc4574b15b0d5dbb69b4b861006a549} from './columnPositions/item/columnDefinitionItemRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as i8d97f9d895c18ed43f4328f47b00bcabf6525afdf3bbae7cc039e06c0ad0e0b6} from './columns/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as if2166ec3dcab49037828974499757ea0af0da7918f32d304f62abcb3748a0756} from './columns/item/columnDefinitionItemRequestBuilder';
 import {ContentTypeItemRequestBuilderDeleteRequestConfiguration} from './contentTypeItemRequestBuilderDeleteRequestConfiguration';
 import {ContentTypeItemRequestBuilderGetRequestConfiguration} from './contentTypeItemRequestBuilderGetRequestConfiguration';
 import {ContentTypeItemRequestBuilderPatchRequestConfiguration} from './contentTypeItemRequestBuilderPatchRequestConfiguration';
@@ -68,18 +68,18 @@ export class ContentTypeItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.contentTypes.item.baseTypes.item collection
      * @param id Unique identifier of the item
-     * @returns a contentTypeItemRequestBuilder
+     * @returns a ContentTypeItemRequestBuilder
      */
-    public baseTypesById(id: string) : i8b4fad424b75fe6e430ac5c50b7b516930e1a409609507c156f9aa5d279ccb2e {
+    public baseTypesById(id: string) : i4b0e1a0df5adc2911508ba13f54a9f7c2c93ea44dc01253f4dbd4c658f5e948c {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contentType%2Did1"] = id
-        return new i8b4fad424b75fe6e430ac5c50b7b516930e1a409609507c156f9aa5d279ccb2e(urlTplParams, this.requestAdapter);
+        return new i4b0e1a0df5adc2911508ba13f54a9f7c2c93ea44dc01253f4dbd4c658f5e948c(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.contentTypes.item.columnLinks.item collection
      * @param id Unique identifier of the item
-     * @returns a columnLinkItemRequestBuilder
+     * @returns a ColumnLinkItemRequestBuilder
      */
     public columnLinksById(id: string) : ColumnLinkItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -90,24 +90,24 @@ export class ContentTypeItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.contentTypes.item.columnPositions.item collection
      * @param id Unique identifier of the item
-     * @returns a columnDefinitionItemRequestBuilder
+     * @returns a ColumnDefinitionItemRequestBuilder
      */
-    public columnPositionsById(id: string) : i0bf3667c34e107cb96e0acc89f81e5d40e5661e1f050186b09ee677576cd9e83 {
+    public columnPositionsById(id: string) : i7bd9b1dbe26685ab56414146732d70ddbdc4574b15b0d5dbb69b4b861006a549 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new i0bf3667c34e107cb96e0acc89f81e5d40e5661e1f050186b09ee677576cd9e83(urlTplParams, this.requestAdapter);
+        return new i7bd9b1dbe26685ab56414146732d70ddbdc4574b15b0d5dbb69b4b861006a549(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.contentTypes.item.columns.item collection
      * @param id Unique identifier of the item
-     * @returns a columnDefinitionItemRequestBuilder
+     * @returns a ColumnDefinitionItemRequestBuilder
      */
-    public columnsById(id: string) : i8d97f9d895c18ed43f4328f47b00bcabf6525afdf3bbae7cc039e06c0ad0e0b6 {
+    public columnsById(id: string) : if2166ec3dcab49037828974499757ea0af0da7918f32d304f62abcb3748a0756 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new i8d97f9d895c18ed43f4328f47b00bcabf6525afdf3bbae7cc039e06c0ad0e0b6(urlTplParams, this.requestAdapter);
+        return new if2166ec3dcab49037828974499757ea0af0da7918f32d304f62abcb3748a0756(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new ContentTypeItemRequestBuilder and sets the default values.
@@ -148,6 +148,7 @@ export class ContentTypeItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

@@ -8,7 +8,7 @@ import {createItemReferenceFromDiscriminatorValue} from './createItemReferenceFr
 import {ColumnDefinition, ColumnLink, ContentTypeOrder, DocumentSet, DocumentSetContent, Entity, ItemReference} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class ContentType extends Entity implements Parsable {
     /** List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites. */
     private _associatedHubsUrls?: string[] | undefined;
@@ -137,6 +137,7 @@ export class ContentType extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.contentType";
     };
     /**
      * Gets the description property value. The descriptive text for the item.

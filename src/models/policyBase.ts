@@ -12,6 +12,7 @@ export class PolicyBase extends DirectoryObject implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.policyBase";
     };
     /**
      * Gets the description property value. Description for this policy. Required.

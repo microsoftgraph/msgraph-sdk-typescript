@@ -39,6 +39,8 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
     private _mediaTypes?: string[] | undefined;
     /** The presentation directions supported by the printer. Supported values are described in the following table. */
     private _multipageLayouts?: string[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The print orientations supported by the printer. Valid values are described in the following table. */
     private _orientations?: string[] | undefined;
     /** The printer's supported output bins (trays). */
@@ -116,6 +118,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.printerCapabilities";
     };
     /**
      * Gets the contentTypes property value. A list of supported content (MIME) types that the printer supports. It is not guaranteed that the Universal Print service supports printing all of these MIME types.
@@ -224,6 +227,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
             "mediaSizes": n => { this.mediaSizes = n.getCollectionOfPrimitiveValues<string>(); },
             "mediaTypes": n => { this.mediaTypes = n.getCollectionOfPrimitiveValues<string>(); },
             "multipageLayouts": n => { this.multipageLayouts = n.getCollectionOfPrimitiveValues<string>(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "orientations": n => { this.orientations = n.getCollectionOfPrimitiveValues<string>(); },
             "outputBins": n => { this.outputBins = n.getCollectionOfPrimitiveValues<string>(); },
             "pagesPerSheet": n => { this.pagesPerSheet = n.getCollectionOfPrimitiveValues<number>(); },
@@ -347,6 +351,20 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
         this._multipageLayouts = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the orientations property value. The print orientations supported by the printer. Valid values are described in the following table.
      * @returns a string
      */
@@ -453,6 +471,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("mediaSizes", this.mediaSizes);
         writer.writeCollectionOfPrimitiveValues<string>("mediaTypes", this.mediaTypes);
         writer.writeCollectionOfPrimitiveValues<string>("multipageLayouts", this.multipageLayouts);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfPrimitiveValues<string>("orientations", this.orientations);
         writer.writeCollectionOfPrimitiveValues<string>("outputBins", this.outputBins);
         writer.writeCollectionOfPrimitiveValues<number>("pagesPerSheet", this.pagesPerSheet);

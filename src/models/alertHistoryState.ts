@@ -13,6 +13,8 @@ export class AlertHistoryState implements AdditionalDataHolder, Parsable {
     private _comments?: string[] | undefined;
     /** Analyst feedback on the alert in this update. Possible values are: unknown, truePositive, falsePositive, benignPositive. */
     private _feedback?: AlertFeedback | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Alert status value (if updated). Possible values are: unknown, newAlert, inProgress, resolved, dismissed. */
     private _status?: AlertStatus | undefined;
     /** Date and time of the alert update. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
@@ -80,6 +82,7 @@ export class AlertHistoryState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.alertHistoryState";
     };
     /**
      * Gets the feedback property value. Analyst feedback on the alert in this update. Possible values are: unknown, truePositive, falsePositive, benignPositive.
@@ -105,10 +108,25 @@ export class AlertHistoryState implements AdditionalDataHolder, Parsable {
             "assignedTo": n => { this.assignedTo = n.getStringValue(); },
             "comments": n => { this.comments = n.getCollectionOfPrimitiveValues<string>(); },
             "feedback": n => { this.feedback = n.getEnumValue<AlertFeedback>(AlertFeedback); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "status": n => { this.status = n.getEnumValue<AlertStatus>(AlertStatus); },
             "updatedDateTime": n => { this.updatedDateTime = n.getDateValue(); },
             "user": n => { this.user = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -120,6 +138,7 @@ export class AlertHistoryState implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("assignedTo", this.assignedTo);
         writer.writeCollectionOfPrimitiveValues<string>("comments", this.comments);
         writer.writeEnumValue<AlertFeedback>("feedback", this.feedback);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<AlertStatus>("status", this.status);
         writer.writeDateValue("updatedDateTime", this.updatedDateTime);
         writer.writeStringValue("user", this.user);

@@ -14,6 +14,8 @@ export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable 
     private _isRecordingEnabled?: boolean | undefined;
     /** Indicates whether video on demand is enabled for this Teams live event. Default value is false. */
     private _isVideoOnDemandEnabled?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -47,6 +49,7 @@ export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable 
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.broadcastMeetingSettings";
     };
     /**
      * The deserialization information for the current model
@@ -59,6 +62,7 @@ export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable 
             "isQuestionAndAnswerEnabled": n => { this.isQuestionAndAnswerEnabled = n.getBooleanValue(); },
             "isRecordingEnabled": n => { this.isRecordingEnabled = n.getBooleanValue(); },
             "isVideoOnDemandEnabled": n => { this.isVideoOnDemandEnabled = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -118,6 +122,20 @@ export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable 
         this._isVideoOnDemandEnabled = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -128,6 +146,7 @@ export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable 
         writer.writeBooleanValue("isQuestionAndAnswerEnabled", this.isQuestionAndAnswerEnabled);
         writer.writeBooleanValue("isRecordingEnabled", this.isRecordingEnabled);
         writer.writeBooleanValue("isVideoOnDemandEnabled", this.isVideoOnDemandEnabled);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -7,6 +7,8 @@ export class Folder implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Number of children contained immediately within this container. */
     private _childCount?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** A collection of properties defining the recommended view for the folder. */
     private _view?: FolderView | undefined;
     /**
@@ -42,6 +44,7 @@ export class Folder implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.folder";
     };
     /**
      * The deserialization information for the current model
@@ -50,8 +53,23 @@ export class Folder implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "childCount": n => { this.childCount = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "view": n => { this.view = n.getObjectValue<FolderView>(createFolderViewFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -60,6 +78,7 @@ export class Folder implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeNumberValue("childCount", this.childCount);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<FolderView>("view", this.view);
         writer.writeAdditionalData(this.additionalData);
     };

@@ -3,17 +3,17 @@ import {createTimeSlotFromDiscriminatorValue} from './createTimeSlotFromDiscrimi
 import {AttendeeBase, ResponseStatus, TimeSlot} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Attendee extends AttendeeBase implements Parsable {
     /** An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property is not included in a response of a GET event. */
     private _proposedNewTime?: TimeSlot | undefined;
     /** The attendee's response (none, accepted, declined, etc.) for the event and date-time that the response was sent. */
     private _status?: ResponseStatus | undefined;
     /**
-     * Instantiates a new attendee and sets the default values.
+     * Instantiates a new Attendee and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.attendee";
     };
     /**
      * The deserialization information for the current model

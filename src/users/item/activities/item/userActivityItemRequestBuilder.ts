@@ -60,6 +60,7 @@ export class UserActivityItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -120,7 +121,7 @@ export class UserActivityItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.activities.item.historyItems.item collection
      * @param id Unique identifier of the item
-     * @returns a activityHistoryItemItemRequestBuilder
+     * @returns a ActivityHistoryItemItemRequestBuilder
      */
     public historyItemsById(id: string) : ActivityHistoryItemItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

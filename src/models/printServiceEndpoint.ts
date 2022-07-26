@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class PrintServiceEndpoint extends Entity implements Parsable {
     /** A human-readable display name for the endpoint. */
     private _displayName?: string | undefined;
@@ -12,6 +12,7 @@ export class PrintServiceEndpoint extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.printServiceEndpoint";
     };
     /**
      * Gets the displayName property value. A human-readable display name for the endpoint.

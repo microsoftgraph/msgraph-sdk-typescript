@@ -9,6 +9,8 @@ export class SearchResponse implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** A collection of search results. */
     private _hitsContainers?: SearchHitsContainer[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Provides details of query alteration response for spelling correction. */
     private _queryAlterationResponse?: AlterationResponse | undefined;
     /** A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates. */
@@ -34,6 +36,7 @@ export class SearchResponse implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.searchResponse";
     };
     /**
      * The deserialization information for the current model
@@ -42,6 +45,7 @@ export class SearchResponse implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "hitsContainers": n => { this.hitsContainers = n.getCollectionOfObjectValues<SearchHitsContainer>(createSearchHitsContainerFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "queryAlterationResponse": n => { this.queryAlterationResponse = n.getObjectValue<AlterationResponse>(createAlterationResponseFromDiscriminatorValue); },
             "resultTemplates": n => { this.resultTemplates = n.getObjectValue<ResultTemplateDictionary>(createResultTemplateDictionaryFromDiscriminatorValue); },
             "searchTerms": n => { this.searchTerms = n.getCollectionOfPrimitiveValues<string>(); },
@@ -60,6 +64,20 @@ export class SearchResponse implements AdditionalDataHolder, Parsable {
      */
     public set hitsContainers(value: SearchHitsContainer[] | undefined) {
         this._hitsContainers = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the queryAlterationResponse property value. Provides details of query alteration response for spelling correction.
@@ -110,6 +128,7 @@ export class SearchResponse implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfObjectValues<SearchHitsContainer>("hitsContainers", this.hitsContainers);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<AlterationResponse>("queryAlterationResponse", this.queryAlterationResponse);
         writer.writeObjectValue<ResultTemplateDictionary>("resultTemplates", this.resultTemplates);
         writer.writeCollectionOfPrimitiveValues<string>("searchTerms", this.searchTerms);

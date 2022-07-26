@@ -1,4 +1,4 @@
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum ExpirationPatternType {
     NotSpecified = "notSpecified",
     NoExpiration = "noExpiration",

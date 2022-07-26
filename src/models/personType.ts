@@ -5,6 +5,8 @@ export class PersonType implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The type of data source, such as Person. */
     private _class_escaped?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The secondary type of data source, such as OrganizationUser. */
     private _subclass?: string | undefined;
     /**
@@ -40,6 +42,7 @@ export class PersonType implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.personType";
     };
     /**
      * The deserialization information for the current model
@@ -48,8 +51,23 @@ export class PersonType implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "class": n => { this.class_escaped = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "subclass": n => { this.subclass = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -58,6 +76,7 @@ export class PersonType implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("class", this.class_escaped);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("subclass", this.subclass);
         writer.writeAdditionalData(this.additionalData);
     };

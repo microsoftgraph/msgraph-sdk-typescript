@@ -3,6 +3,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class PendingContentUpdate implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Date and time the pending binary operation was queued in UTC time. Read-only. */
     private _queuedDateTime?: Date | undefined;
     /**
@@ -24,6 +26,7 @@ export class PendingContentUpdate implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.pendingContentUpdate";
     };
     /**
      * The deserialization information for the current model
@@ -31,8 +34,23 @@ export class PendingContentUpdate implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "queuedDateTime": n => { this.queuedDateTime = n.getDateValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the queuedDateTime property value. Date and time the pending binary operation was queued in UTC time. Read-only.
@@ -54,6 +72,7 @@ export class PendingContentUpdate implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeDateValue("queuedDateTime", this.queuedDateTime);
         writer.writeAdditionalData(this.additionalData);
     };

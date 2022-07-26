@@ -7,9 +7,11 @@ export class BookingReminder implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The message in the reminder. */
     private _message?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format. */
     private _offset?: Duration | undefined;
-    /** The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue. */
+    /** The recipients property */
     private _recipients?: BookingReminderRecipients | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -30,6 +32,7 @@ export class BookingReminder implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.bookingReminder";
     };
     /**
      * The deserialization information for the current model
@@ -38,6 +41,7 @@ export class BookingReminder implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "message": n => { this.message = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "offset": n => { this.offset = n.getDurationValue(); },
             "recipients": n => { this.recipients = n.getEnumValue<BookingReminderRecipients>(BookingReminderRecipients); },
         };
@@ -57,6 +61,20 @@ export class BookingReminder implements AdditionalDataHolder, Parsable {
         this._message = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the offset property value. The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format.
      * @returns a Duration
      */
@@ -71,14 +89,14 @@ export class BookingReminder implements AdditionalDataHolder, Parsable {
         this._offset = value;
     };
     /**
-     * Gets the recipients property value. The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue.
+     * Gets the recipients property value. The recipients property
      * @returns a bookingReminderRecipients
      */
     public get recipients() {
         return this._recipients;
     };
     /**
-     * Sets the recipients property value. The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue.
+     * Sets the recipients property value. The recipients property
      * @param value Value to set for the recipients property.
      */
     public set recipients(value: BookingReminderRecipients | undefined) {
@@ -91,6 +109,7 @@ export class BookingReminder implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("message", this.message);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeDurationValue("offset", this.offset);
         writer.writeEnumValue<BookingReminderRecipients>("recipients", this.recipients);
         writer.writeAdditionalData(this.additionalData);

@@ -1,4 +1,4 @@
-import {OnenoteEntityHierarchyModel} from './index';
+import {Notebook, OnenoteEntityHierarchyModel, OnenoteSection, SectionGroup} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createOnenoteEntityHierarchyModelFromDiscriminatorValue(parseNode: ParseNode | undefined) : OnenoteEntityHierarchyModel {
@@ -8,8 +8,12 @@ export function createOnenoteEntityHierarchyModelFromDiscriminatorValue(parseNod
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.onenoteEntityHierarchyModel":
-                    return new OnenoteEntityHierarchyModel();
+                case "#microsoft.graph.notebook":
+                    return new Notebook();
+                case "#microsoft.graph.onenoteSection":
+                    return new OnenoteSection();
+                case "#microsoft.graph.sectionGroup":
+                    return new SectionGroup();
             }
         }
     }

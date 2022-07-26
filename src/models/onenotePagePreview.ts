@@ -7,6 +7,8 @@ export class OnenotePagePreview implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The links property */
     private _links?: OnenotePagePreviewLinks | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The previewText property */
     private _previewText?: string | undefined;
     /**
@@ -24,10 +26,11 @@ export class OnenotePagePreview implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Instantiates a new OnenotePagePreview and sets the default values.
+     * Instantiates a new onenotePagePreview and sets the default values.
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.onenotePagePreview";
     };
     /**
      * The deserialization information for the current model
@@ -36,6 +39,7 @@ export class OnenotePagePreview implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "links": n => { this.links = n.getObjectValue<OnenotePagePreviewLinks>(createOnenotePagePreviewLinksFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "previewText": n => { this.previewText = n.getStringValue(); },
         };
     };
@@ -52,6 +56,20 @@ export class OnenotePagePreview implements AdditionalDataHolder, Parsable {
      */
     public set links(value: OnenotePagePreviewLinks | undefined) {
         this._links = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the previewText property value. The previewText property
@@ -74,6 +92,7 @@ export class OnenotePagePreview implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<OnenotePagePreviewLinks>("links", this.links);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("previewText", this.previewText);
         writer.writeAdditionalData(this.additionalData);
     };

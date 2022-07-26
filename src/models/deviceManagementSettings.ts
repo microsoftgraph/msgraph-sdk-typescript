@@ -7,6 +7,8 @@ export class DeviceManagementSettings implements AdditionalDataHolder, Parsable 
     private _deviceComplianceCheckinThresholdDays?: number | undefined;
     /** Is feature enabled or not for scheduled action for rule. */
     private _isScheduledActionEnabled?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Device should be noncompliant when there is no compliance policy targeted when this is true */
     private _secureByDefault?: boolean | undefined;
     /**
@@ -28,6 +30,7 @@ export class DeviceManagementSettings implements AdditionalDataHolder, Parsable 
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.deviceManagementSettings";
     };
     /**
      * Gets the deviceComplianceCheckinThresholdDays property value. The number of days a device is allowed to go without checking in to remain compliant.
@@ -51,6 +54,7 @@ export class DeviceManagementSettings implements AdditionalDataHolder, Parsable 
         return {
             "deviceComplianceCheckinThresholdDays": n => { this.deviceComplianceCheckinThresholdDays = n.getNumberValue(); },
             "isScheduledActionEnabled": n => { this.isScheduledActionEnabled = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "secureByDefault": n => { this.secureByDefault = n.getBooleanValue(); },
         };
     };
@@ -67,6 +71,20 @@ export class DeviceManagementSettings implements AdditionalDataHolder, Parsable 
      */
     public set isScheduledActionEnabled(value: boolean | undefined) {
         this._isScheduledActionEnabled = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the secureByDefault property value. Device should be noncompliant when there is no compliance policy targeted when this is true
@@ -90,6 +108,7 @@ export class DeviceManagementSettings implements AdditionalDataHolder, Parsable 
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeNumberValue("deviceComplianceCheckinThresholdDays", this.deviceComplianceCheckinThresholdDays);
         writer.writeBooleanValue("isScheduledActionEnabled", this.isScheduledActionEnabled);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeBooleanValue("secureByDefault", this.secureByDefault);
         writer.writeAdditionalData(this.additionalData);
     };

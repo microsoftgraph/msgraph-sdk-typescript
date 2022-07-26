@@ -12,6 +12,8 @@ export class ShiftActivity implements AdditionalDataHolder, Parsable {
     private _endDateTime?: Date | undefined;
     /** Indicates whether the microsoft.graph.user should be paid for the activity during their shift. Required. */
     private _isPaid?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The start date and time for the shiftActivity. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required. */
     private _startDateTime?: Date | undefined;
     /** The theme property */
@@ -49,6 +51,7 @@ export class ShiftActivity implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.shiftActivity";
     };
     /**
      * Gets the displayName property value. The name of the shiftActivity. Required.
@@ -88,6 +91,7 @@ export class ShiftActivity implements AdditionalDataHolder, Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "endDateTime": n => { this.endDateTime = n.getDateValue(); },
             "isPaid": n => { this.isPaid = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
             "theme": n => { this.theme = n.getEnumValue<ScheduleEntityTheme>(ScheduleEntityTheme); },
         };
@@ -107,6 +111,20 @@ export class ShiftActivity implements AdditionalDataHolder, Parsable {
         this._isPaid = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -116,6 +134,7 @@ export class ShiftActivity implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("endDateTime", this.endDateTime);
         writer.writeBooleanValue("isPaid", this.isPaid);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeEnumValue<ScheduleEntityTheme>("theme", this.theme);
         writer.writeAdditionalData(this.additionalData);

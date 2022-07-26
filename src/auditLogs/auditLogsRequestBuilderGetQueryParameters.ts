@@ -1,5 +1,5 @@
 
-/** Contains different types of audit logs. This resources returns a singleton auditLog resource. It doesn't contain any usable properties. */
+/** Get auditLogs */
 export class AuditLogsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

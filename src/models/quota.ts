@@ -7,6 +7,8 @@ export class Quota implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Total space consumed by files in the recycle bin, in bytes. Read-only. */
     private _deleted?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Total space remaining before reaching the quota limit, in bytes. Read-only. */
     private _remaining?: number | undefined;
     /** Enumeration value that indicates the state of the storage space. Read-only. */
@@ -36,6 +38,7 @@ export class Quota implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.quota";
     };
     /**
      * Gets the deleted property value. Total space consumed by files in the recycle bin, in bytes. Read-only.
@@ -58,12 +61,27 @@ export class Quota implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "deleted": n => { this.deleted = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "remaining": n => { this.remaining = n.getNumberValue(); },
             "state": n => { this.state = n.getStringValue(); },
             "storagePlanInformation": n => { this.storagePlanInformation = n.getObjectValue<StoragePlanInformation>(createStoragePlanInformationFromDiscriminatorValue); },
             "total": n => { this.total = n.getNumberValue(); },
             "used": n => { this.used = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the remaining property value. Total space remaining before reaching the quota limit, in bytes. Read-only.
@@ -86,6 +104,7 @@ export class Quota implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeNumberValue("deleted", this.deleted);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("remaining", this.remaining);
         writer.writeStringValue("state", this.state);
         writer.writeObjectValue<StoragePlanInformation>("storagePlanInformation", this.storagePlanInformation);

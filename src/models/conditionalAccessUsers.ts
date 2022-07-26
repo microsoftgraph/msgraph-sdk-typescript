@@ -15,6 +15,8 @@ export class ConditionalAccessUsers implements AdditionalDataHolder, Parsable {
     private _includeRoles?: string[] | undefined;
     /** User IDs in scope of policy unless explicitly excluded, or None or All or GuestsOrExternalUsers. */
     private _includeUsers?: string[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,6 +36,7 @@ export class ConditionalAccessUsers implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.conditionalAccessUsers";
     };
     /**
      * Gets the excludeGroups property value. Group IDs excluded from scope of policy.
@@ -89,6 +92,7 @@ export class ConditionalAccessUsers implements AdditionalDataHolder, Parsable {
             "includeGroups": n => { this.includeGroups = n.getCollectionOfPrimitiveValues<string>(); },
             "includeRoles": n => { this.includeRoles = n.getCollectionOfPrimitiveValues<string>(); },
             "includeUsers": n => { this.includeUsers = n.getCollectionOfPrimitiveValues<string>(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -134,6 +138,20 @@ export class ConditionalAccessUsers implements AdditionalDataHolder, Parsable {
         this._includeUsers = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -145,6 +163,7 @@ export class ConditionalAccessUsers implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("includeGroups", this.includeGroups);
         writer.writeCollectionOfPrimitiveValues<string>("includeRoles", this.includeRoles);
         writer.writeCollectionOfPrimitiveValues<string>("includeUsers", this.includeUsers);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

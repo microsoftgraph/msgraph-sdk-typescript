@@ -1,13 +1,14 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class UserFlowLanguagePage extends Entity implements Parsable {
     /**
      * Instantiates a new userFlowLanguagePage and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.userFlowLanguagePage";
     };
     /**
      * The deserialization information for the current model

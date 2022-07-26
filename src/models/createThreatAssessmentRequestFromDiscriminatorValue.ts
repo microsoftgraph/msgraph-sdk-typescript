@@ -1,4 +1,4 @@
-import {ThreatAssessmentRequest} from './index';
+import {EmailFileAssessmentRequest, FileAssessmentRequest, MailAssessmentRequest, ThreatAssessmentRequest, UrlAssessmentRequest} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createThreatAssessmentRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : ThreatAssessmentRequest {
@@ -8,8 +8,14 @@ export function createThreatAssessmentRequestFromDiscriminatorValue(parseNode: P
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.threatAssessmentRequest":
-                    return new ThreatAssessmentRequest();
+                case "#microsoft.graph.emailFileAssessmentRequest":
+                    return new EmailFileAssessmentRequest();
+                case "#microsoft.graph.fileAssessmentRequest":
+                    return new FileAssessmentRequest();
+                case "#microsoft.graph.mailAssessmentRequest":
+                    return new MailAssessmentRequest();
+                case "#microsoft.graph.urlAssessmentRequest":
+                    return new UrlAssessmentRequest();
             }
         }
     }

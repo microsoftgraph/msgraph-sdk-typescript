@@ -19,6 +19,7 @@ export class ServiceAnnouncementBase extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.serviceAnnouncementBase";
     };
     /**
      * Gets the details property value. Additional details about service event. This property doesn't support filters.

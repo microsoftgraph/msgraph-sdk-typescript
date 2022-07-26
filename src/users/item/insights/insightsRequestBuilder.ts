@@ -63,7 +63,7 @@ export class InsightsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read-only. Nullable.
+     * Get insights from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -72,6 +72,7 @@ export class InsightsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -114,7 +115,7 @@ export class InsightsRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Read-only. Nullable.
+     * Get insights from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OfficeGraphInsights
@@ -149,7 +150,7 @@ export class InsightsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.insights.shared.item collection
      * @param id Unique identifier of the item
-     * @returns a sharedInsightItemRequestBuilder
+     * @returns a SharedInsightItemRequestBuilder
      */
     public sharedById(id: string) : SharedInsightItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -160,7 +161,7 @@ export class InsightsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.insights.trending.item collection
      * @param id Unique identifier of the item
-     * @returns a trendingItemRequestBuilder
+     * @returns a TrendingItemRequestBuilder
      */
     public trendingById(id: string) : TrendingItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -171,7 +172,7 @@ export class InsightsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.insights.used.item collection
      * @param id Unique identifier of the item
-     * @returns a usedInsightItemRequestBuilder
+     * @returns a UsedInsightItemRequestBuilder
      */
     public usedById(id: string) : UsedInsightItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

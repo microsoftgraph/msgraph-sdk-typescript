@@ -6,6 +6,8 @@ export class ManagedAppDiagnosticStatus implements AdditionalDataHolder, Parsabl
     private _additionalData: Record<string, unknown>;
     /** Instruction on how to mitigate a failed validation */
     private _mitigationInstruction?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The state of the operation */
     private _state?: string | undefined;
     /** The validation friendly name */
@@ -29,6 +31,7 @@ export class ManagedAppDiagnosticStatus implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.managedAppDiagnosticStatus";
     };
     /**
      * The deserialization information for the current model
@@ -37,6 +40,7 @@ export class ManagedAppDiagnosticStatus implements AdditionalDataHolder, Parsabl
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "mitigationInstruction": n => { this.mitigationInstruction = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "state": n => { this.state = n.getStringValue(); },
             "validationName": n => { this.validationName = n.getStringValue(); },
         };
@@ -56,12 +60,27 @@ export class ManagedAppDiagnosticStatus implements AdditionalDataHolder, Parsabl
         this._mitigationInstruction = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("mitigationInstruction", this.mitigationInstruction);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("state", this.state);
         writer.writeStringValue("validationName", this.validationName);
         writer.writeAdditionalData(this.additionalData);

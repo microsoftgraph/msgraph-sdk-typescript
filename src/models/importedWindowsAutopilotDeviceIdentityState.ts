@@ -8,10 +8,12 @@ export class ImportedWindowsAutopilotDeviceIdentityState implements AdditionalDa
     private _deviceErrorCode?: number | undefined;
     /** Device error name reported by Device Directory Service(DDS). */
     private _deviceErrorName?: string | undefined;
-    /** Device status reported by Device Directory Service(DDS). Possible values are: unknown, pending, partial, complete, error. */
+    /** The deviceImportStatus property */
     private _deviceImportStatus?: ImportedWindowsAutopilotDeviceIdentityImportStatus | undefined;
     /** Device Registration ID for successfully added device reported by Device Directory Service(DDS). */
     private _deviceRegistrationId?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -31,6 +33,7 @@ export class ImportedWindowsAutopilotDeviceIdentityState implements AdditionalDa
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.importedWindowsAutopilotDeviceIdentityState";
     };
     /**
      * Gets the deviceErrorCode property value. Device error code reported by Device Directory Service(DDS).
@@ -61,14 +64,14 @@ export class ImportedWindowsAutopilotDeviceIdentityState implements AdditionalDa
         this._deviceErrorName = value;
     };
     /**
-     * Gets the deviceImportStatus property value. Device status reported by Device Directory Service(DDS). Possible values are: unknown, pending, partial, complete, error.
+     * Gets the deviceImportStatus property value. The deviceImportStatus property
      * @returns a importedWindowsAutopilotDeviceIdentityImportStatus
      */
     public get deviceImportStatus() {
         return this._deviceImportStatus;
     };
     /**
-     * Sets the deviceImportStatus property value. Device status reported by Device Directory Service(DDS). Possible values are: unknown, pending, partial, complete, error.
+     * Sets the deviceImportStatus property value. The deviceImportStatus property
      * @param value Value to set for the deviceImportStatus property.
      */
     public set deviceImportStatus(value: ImportedWindowsAutopilotDeviceIdentityImportStatus | undefined) {
@@ -98,7 +101,22 @@ export class ImportedWindowsAutopilotDeviceIdentityState implements AdditionalDa
             "deviceErrorName": n => { this.deviceErrorName = n.getStringValue(); },
             "deviceImportStatus": n => { this.deviceImportStatus = n.getEnumValue<ImportedWindowsAutopilotDeviceIdentityImportStatus>(ImportedWindowsAutopilotDeviceIdentityImportStatus); },
             "deviceRegistrationId": n => { this.deviceRegistrationId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -110,6 +128,7 @@ export class ImportedWindowsAutopilotDeviceIdentityState implements AdditionalDa
         writer.writeStringValue("deviceErrorName", this.deviceErrorName);
         writer.writeEnumValue<ImportedWindowsAutopilotDeviceIdentityImportStatus>("deviceImportStatus", this.deviceImportStatus);
         writer.writeStringValue("deviceRegistrationId", this.deviceRegistrationId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

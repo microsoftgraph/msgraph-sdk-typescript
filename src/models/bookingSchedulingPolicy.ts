@@ -10,6 +10,8 @@ export class BookingSchedulingPolicy implements AdditionalDataHolder, Parsable {
     private _maximumAdvance?: Duration | undefined;
     /** The minimum amount of time before which bookings and cancellations must be made. It follows the ISO 8601 format. */
     private _minimumLeadTime?: Duration | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** True to notify the business via email when a booking is created or changed. Use the email address specified in the email property of the bookingBusiness entity for the business. */
     private _sendConfirmationsToOwner?: boolean | undefined;
     /** Duration of each time slot, denoted in ISO 8601 format. */
@@ -47,6 +49,7 @@ export class BookingSchedulingPolicy implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.bookingSchedulingPolicy";
     };
     /**
      * The deserialization information for the current model
@@ -57,6 +60,7 @@ export class BookingSchedulingPolicy implements AdditionalDataHolder, Parsable {
             "allowStaffSelection": n => { this.allowStaffSelection = n.getBooleanValue(); },
             "maximumAdvance": n => { this.maximumAdvance = n.getDurationValue(); },
             "minimumLeadTime": n => { this.minimumLeadTime = n.getDurationValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "sendConfirmationsToOwner": n => { this.sendConfirmationsToOwner = n.getBooleanValue(); },
             "timeSlotInterval": n => { this.timeSlotInterval = n.getDurationValue(); },
         };
@@ -90,6 +94,20 @@ export class BookingSchedulingPolicy implements AdditionalDataHolder, Parsable {
         this._minimumLeadTime = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the sendConfirmationsToOwner property value. True to notify the business via email when a booking is created or changed. Use the email address specified in the email property of the bookingBusiness entity for the business.
      * @returns a boolean
      */
@@ -112,6 +130,7 @@ export class BookingSchedulingPolicy implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("allowStaffSelection", this.allowStaffSelection);
         writer.writeDurationValue("maximumAdvance", this.maximumAdvance);
         writer.writeDurationValue("minimumLeadTime", this.minimumLeadTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeBooleanValue("sendConfirmationsToOwner", this.sendConfirmationsToOwner);
         writer.writeDurationValue("timeSlotInterval", this.timeSlotInterval);
         writer.writeAdditionalData(this.additionalData);

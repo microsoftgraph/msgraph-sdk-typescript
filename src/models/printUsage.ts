@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the reportRoot singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class PrintUsage extends Entity implements Parsable {
     /** The completedBlackAndWhiteJobCount property */
     private _completedBlackAndWhiteJobCount?: number | undefined;
@@ -44,6 +44,7 @@ export class PrintUsage extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.printUsage";
     };
     /**
      * The deserialization information for the current model

@@ -6,7 +6,7 @@ import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './c
 import {Entity, Message, MessageRule, MultiValueLegacyExtendedProperty, SingleValueLegacyExtendedProperty} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class MailFolder extends Entity implements Parsable {
     /** The number of immediate child mailFolders in the current mailFolder. */
     private _childFolderCount?: number | undefined;
@@ -63,6 +63,7 @@ export class MailFolder extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.mailFolder";
     };
     /**
      * Gets the displayName property value. The mailFolder's display name.

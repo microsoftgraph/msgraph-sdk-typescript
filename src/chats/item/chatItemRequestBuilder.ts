@@ -83,6 +83,7 @@ export class ChatItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -143,7 +144,7 @@ export class ChatItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.chats.item.installedApps.item collection
      * @param id Unique identifier of the item
-     * @returns a teamsAppInstallationItemRequestBuilder
+     * @returns a TeamsAppInstallationItemRequestBuilder
      */
     public installedAppsById(id: string) : TeamsAppInstallationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -154,7 +155,7 @@ export class ChatItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.chats.item.members.item collection
      * @param id Unique identifier of the item
-     * @returns a conversationMemberItemRequestBuilder
+     * @returns a ConversationMemberItemRequestBuilder
      */
     public membersById(id: string) : ConversationMemberItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -165,7 +166,7 @@ export class ChatItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.chats.item.messages.item collection
      * @param id Unique identifier of the item
-     * @returns a chatMessageItemRequestBuilder
+     * @returns a ChatMessageItemRequestBuilder
      */
     public messagesById(id: string) : ChatMessageItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -193,7 +194,7 @@ export class ChatItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.chats.item.tabs.item collection
      * @param id Unique identifier of the item
-     * @returns a teamsTabItemRequestBuilder
+     * @returns a TeamsTabItemRequestBuilder
      */
     public tabsById(id: string) : TeamsTabItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

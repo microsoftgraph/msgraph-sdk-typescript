@@ -8,6 +8,8 @@ export class WindowsInformationProtectionIPRangeCollection implements Additional
     private _additionalData: Record<string, unknown>;
     /** Display name */
     private _displayName?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Collection of ip ranges */
     private _ranges?: IpRange[] | undefined;
     /**
@@ -29,6 +31,7 @@ export class WindowsInformationProtectionIPRangeCollection implements Additional
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.windowsInformationProtectionIPRangeCollection";
     };
     /**
      * Gets the displayName property value. Display name
@@ -51,8 +54,23 @@ export class WindowsInformationProtectionIPRangeCollection implements Additional
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "displayName": n => { this.displayName = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "ranges": n => { this.ranges = n.getCollectionOfObjectValues<IpRange>(createIpRangeFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the ranges property value. Collection of ip ranges
@@ -75,6 +93,7 @@ export class WindowsInformationProtectionIPRangeCollection implements Additional
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("displayName", this.displayName);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<IpRange>("ranges", this.ranges);
         writer.writeAdditionalData(this.additionalData);
     };

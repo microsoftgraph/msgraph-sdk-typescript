@@ -33,6 +33,8 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
     private _mediaType?: string | undefined;
     /** The default direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table. */
     private _multipageLayout?: PrintMultipageLayout | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The default orientation to use when printing the document. Valid values are described in the following table. */
     private _orientation?: PrintOrientation | undefined;
     /** The default output bin to place completed prints into. See the printer's capabilities for a list of supported output bins. */
@@ -76,6 +78,7 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.printerDefaults";
     };
     /**
      * Gets the contentType property value. The default content (MIME) type to use when processing documents.
@@ -179,6 +182,7 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
             "mediaSize": n => { this.mediaSize = n.getStringValue(); },
             "mediaType": n => { this.mediaType = n.getStringValue(); },
             "multipageLayout": n => { this.multipageLayout = n.getEnumValue<PrintMultipageLayout>(PrintMultipageLayout); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "orientation": n => { this.orientation = n.getEnumValue<PrintOrientation>(PrintOrientation); },
             "outputBin": n => { this.outputBin = n.getStringValue(); },
             "pagesPerSheet": n => { this.pagesPerSheet = n.getNumberValue(); },
@@ -255,6 +259,20 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
      */
     public set multipageLayout(value: PrintMultipageLayout | undefined) {
         this._multipageLayout = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the orientation property value. The default orientation to use when printing the document. Valid values are described in the following table.
@@ -344,6 +362,7 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("mediaSize", this.mediaSize);
         writer.writeStringValue("mediaType", this.mediaType);
         writer.writeEnumValue<PrintMultipageLayout>("multipageLayout", this.multipageLayout);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<PrintOrientation>("orientation", this.orientation);
         writer.writeStringValue("outputBin", this.outputBin);
         writer.writeNumberValue("pagesPerSheet", this.pagesPerSheet);

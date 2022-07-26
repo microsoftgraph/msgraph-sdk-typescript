@@ -24,7 +24,7 @@ export class AccessPackageCatalogItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.catalogs.item.accessPackages.item collection
      * @param id Unique identifier of the item
-     * @returns a accessPackageItemRequestBuilder
+     * @returns a AccessPackageItemRequestBuilder
      */
     public accessPackagesById(id: string) : AccessPackageItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -62,7 +62,7 @@ export class AccessPackageCatalogItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Represents a collection of access packages.
+     * A container for access packages.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -71,6 +71,7 @@ export class AccessPackageCatalogItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -113,7 +114,7 @@ export class AccessPackageCatalogItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Represents a collection of access packages.
+     * A container for access packages.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageCatalog

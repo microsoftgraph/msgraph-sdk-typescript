@@ -2,15 +2,15 @@ import {createOrganizationalBrandingLocalizationFromDiscriminatorValue} from './
 import {OrganizationalBrandingLocalization, OrganizationalBrandingProperties} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the organizationalBranding singleton. */
 export class OrganizationalBranding extends OrganizationalBrandingProperties implements Parsable {
     /** Add different branding based on a locale. */
     private _localizations?: OrganizationalBrandingLocalization[] | undefined;
     /**
-     * Instantiates a new organizationalBranding and sets the default values.
+     * Instantiates a new OrganizationalBranding and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.organizationalBranding";
     };
     /**
      * The deserialization information for the current model

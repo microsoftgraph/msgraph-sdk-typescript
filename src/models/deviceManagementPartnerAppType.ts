@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum DeviceManagementPartnerAppType {
     /** Partner App type is unknown. */
     Unknown = "unknown",

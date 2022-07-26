@@ -3,6 +3,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AssignmentOrder implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** A list of identityUserFlowAttribute IDs provided to determine the order in which attributes should be collected within a user flow. */
     private _order?: string[] | undefined;
     /**
@@ -20,10 +22,11 @@ export class AssignmentOrder implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Instantiates a new AssignmentOrder and sets the default values.
+     * Instantiates a new assignmentOrder and sets the default values.
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.assignmentOrder";
     };
     /**
      * The deserialization information for the current model
@@ -31,8 +34,23 @@ export class AssignmentOrder implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "order": n => { this.order = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the order property value. A list of identityUserFlowAttribute IDs provided to determine the order in which attributes should be collected within a user flow.
@@ -54,6 +72,7 @@ export class AssignmentOrder implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfPrimitiveValues<string>("order", this.order);
         writer.writeAdditionalData(this.additionalData);
     };
