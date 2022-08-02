@@ -53,6 +53,8 @@ export class PlannerCategoryDescriptions implements AdditionalDataHolder, Parsab
     private _category8?: string | undefined;
     /** The label associated with Category 9 */
     private _category9?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -422,6 +424,7 @@ export class PlannerCategoryDescriptions implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.plannerCategoryDescriptions";
     };
     /**
      * The deserialization information for the current model
@@ -454,7 +457,22 @@ export class PlannerCategoryDescriptions implements AdditionalDataHolder, Parsab
             "category7": n => { this.category7 = n.getStringValue(); },
             "category8": n => { this.category8 = n.getStringValue(); },
             "category9": n => { this.category9 = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -487,6 +505,7 @@ export class PlannerCategoryDescriptions implements AdditionalDataHolder, Parsab
         writer.writeStringValue("category7", this.category7);
         writer.writeStringValue("category8", this.category8);
         writer.writeStringValue("category9", this.category9);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

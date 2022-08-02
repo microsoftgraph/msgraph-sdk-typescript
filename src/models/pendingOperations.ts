@@ -5,6 +5,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class PendingOperations implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** A property that indicates that an operation that might update the binary content of a file is pending completion. */
     private _pendingContentUpdate?: PendingContentUpdate | undefined;
     /**
@@ -26,6 +28,7 @@ export class PendingOperations implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.pendingOperations";
     };
     /**
      * The deserialization information for the current model
@@ -33,8 +36,23 @@ export class PendingOperations implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "pendingContentUpdate": n => { this.pendingContentUpdate = n.getObjectValue<PendingContentUpdate>(createPendingContentUpdateFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the pendingContentUpdate property value. A property that indicates that an operation that might update the binary content of a file is pending completion.
@@ -56,6 +74,7 @@ export class PendingOperations implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<PendingContentUpdate>("pendingContentUpdate", this.pendingContentUpdate);
         writer.writeAdditionalData(this.additionalData);
     };

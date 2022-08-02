@@ -60,6 +60,7 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -137,7 +138,7 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item.scheduledActionsForRule.item.scheduledActionConfigurations.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceComplianceActionItemItemRequestBuilder
+     * @returns a DeviceComplianceActionItemItemRequestBuilder
      */
     public scheduledActionConfigurationsById(id: string) : DeviceComplianceActionItemItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

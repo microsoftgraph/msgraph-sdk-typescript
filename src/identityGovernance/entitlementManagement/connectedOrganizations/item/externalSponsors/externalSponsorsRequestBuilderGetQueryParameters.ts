@@ -1,5 +1,5 @@
 
-/** Nullable. */
+/** Get externalSponsors from identityGovernance */
 export class ExternalSponsorsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

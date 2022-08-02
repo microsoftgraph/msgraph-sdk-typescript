@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../mo
 import {Term} from '../../../../../../../../models/termStore/';
 import {createTermFromDiscriminatorValue} from '../../../../../../../../models/termStore/createTermFromDiscriminatorValue';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {TermItemRequestBuilder as i8e4a2ea2572da41fe29c554098cf450136c43cb940c20cdb146cab9cd23f86bc} from './children/item/termItemRequestBuilder';
+import {TermItemRequestBuilder as i6cec17a9078a844c8cd8128271c82a44ecafdb4b2572af0f1459bffbeee27c2e} from './children/item/termItemRequestBuilder';
 import {RelationItemRequestBuilder} from './relations/item/relationItemRequestBuilder';
 import {RelationsRequestBuilder} from './relations/relationsRequestBuilder';
 import {SetRequestBuilder} from './set/setRequestBuilder';
@@ -35,13 +35,13 @@ export class TermItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.termStores.item.sets.item.terms.item.children.item collection
      * @param id Unique identifier of the item
-     * @returns a termItemRequestBuilder
+     * @returns a TermItemRequestBuilder
      */
-    public childrenById(id: string) : i8e4a2ea2572da41fe29c554098cf450136c43cb940c20cdb146cab9cd23f86bc {
+    public childrenById(id: string) : i6cec17a9078a844c8cd8128271c82a44ecafdb4b2572af0f1459bffbeee27c2e {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["term%2Did1"] = id
-        return new i8e4a2ea2572da41fe29c554098cf450136c43cb940c20cdb146cab9cd23f86bc(urlTplParams, this.requestAdapter);
+        return new i6cec17a9078a844c8cd8128271c82a44ecafdb4b2572af0f1459bffbeee27c2e(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new TermItemRequestBuilder and sets the default values.
@@ -82,6 +82,7 @@ export class TermItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -159,7 +160,7 @@ export class TermItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.termStores.item.sets.item.terms.item.relations.item collection
      * @param id Unique identifier of the item
-     * @returns a relationItemRequestBuilder
+     * @returns a RelationItemRequestBuilder
      */
     public relationsById(id: string) : RelationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

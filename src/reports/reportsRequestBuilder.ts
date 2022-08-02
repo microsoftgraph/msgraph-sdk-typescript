@@ -3,9 +3,9 @@ import {createReportRootFromDiscriminatorValue} from '../models/createReportRoot
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DailyPrintUsageByPrinterRequestBuilder} from './dailyPrintUsageByPrinter/dailyPrintUsageByPrinterRequestBuilder';
-import {PrintUsageByPrinterItemRequestBuilder as iafab10717cb5833856b686ca073f6155a6d5c8d00c99ea4472c1643b1eb10401} from './dailyPrintUsageByPrinter/item/printUsageByPrinterItemRequestBuilder';
+import {PrintUsageByPrinterItemRequestBuilder as i040d432bf097a5c3e088b5b286dc35b17b6fde7ba1189da8ab6b5cbe1c14edd4} from './dailyPrintUsageByPrinter/item/printUsageByPrinterItemRequestBuilder';
 import {DailyPrintUsageByUserRequestBuilder} from './dailyPrintUsageByUser/dailyPrintUsageByUserRequestBuilder';
-import {PrintUsageByUserItemRequestBuilder as i0b2d59ab3f36da4896152d94b03e0a424f89cb680045ac818df7fb6cc23e153c} from './dailyPrintUsageByUser/item/printUsageByUserItemRequestBuilder';
+import {PrintUsageByUserItemRequestBuilder as i0a6ffb5ab17952fcc5b605654a921e4b7048a059232acf91ceb8af666ce0f236} from './dailyPrintUsageByUser/item/printUsageByUserItemRequestBuilder';
 import {DeviceConfigurationDeviceActivityRequestBuilder} from './deviceConfigurationDeviceActivity/deviceConfigurationDeviceActivityRequestBuilder';
 import {DeviceConfigurationUserActivityRequestBuilder} from './deviceConfigurationUserActivity/deviceConfigurationUserActivityRequestBuilder';
 import {GetEmailActivityCountsWithPeriodRequestBuilder} from './getEmailActivityCountsWithPeriod/getEmailActivityCountsWithPeriodRequestBuilder';
@@ -98,9 +98,9 @@ import {ManagedDeviceEnrollmentFailureDetailsRequestBuilder} from './managedDevi
 import {ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder} from './managedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken/managedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder';
 import {ManagedDeviceEnrollmentTopFailuresRequestBuilder} from './managedDeviceEnrollmentTopFailures/managedDeviceEnrollmentTopFailuresRequestBuilder';
 import {ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder} from './managedDeviceEnrollmentTopFailuresWithPeriod/managedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder';
-import {PrintUsageByPrinterItemRequestBuilder as iaccf0da2bb94f1672a9d4b50cb59ac46c2636af941878f04ccda835b4e6bc6df} from './monthlyPrintUsageByPrinter/item/printUsageByPrinterItemRequestBuilder';
+import {PrintUsageByPrinterItemRequestBuilder as i464ef823ccbb3cda573d85f5b690bdfbadd75533d381eee43a717ec4bcf9e9da} from './monthlyPrintUsageByPrinter/item/printUsageByPrinterItemRequestBuilder';
 import {MonthlyPrintUsageByPrinterRequestBuilder} from './monthlyPrintUsageByPrinter/monthlyPrintUsageByPrinterRequestBuilder';
-import {PrintUsageByUserItemRequestBuilder as i01dcdbc56e5bbfc103a10dadf48ed650311b2b37a8a04c85ddabbe6c031fcb3e} from './monthlyPrintUsageByUser/item/printUsageByUserItemRequestBuilder';
+import {PrintUsageByUserItemRequestBuilder as ib890b4082f7b0793dcec266773608fab2228163761130f66570881247e35699c} from './monthlyPrintUsageByUser/item/printUsageByUserItemRequestBuilder';
 import {MonthlyPrintUsageByUserRequestBuilder} from './monthlyPrintUsageByUser/monthlyPrintUsageByUserRequestBuilder';
 import {ReportsRequestBuilderGetRequestConfiguration} from './reportsRequestBuilderGetRequestConfiguration';
 import {ReportsRequestBuilderPatchRequestConfiguration} from './reportsRequestBuilderPatchRequestConfiguration';
@@ -153,6 +153,7 @@ export class ReportsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -182,24 +183,24 @@ export class ReportsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.reports.dailyPrintUsageByPrinter.item collection
      * @param id Unique identifier of the item
-     * @returns a printUsageByPrinterItemRequestBuilder
+     * @returns a PrintUsageByPrinterItemRequestBuilder
      */
-    public dailyPrintUsageByPrinterById(id: string) : iafab10717cb5833856b686ca073f6155a6d5c8d00c99ea4472c1643b1eb10401 {
+    public dailyPrintUsageByPrinterById(id: string) : i040d432bf097a5c3e088b5b286dc35b17b6fde7ba1189da8ab6b5cbe1c14edd4 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printUsageByPrinter%2Did"] = id
-        return new iafab10717cb5833856b686ca073f6155a6d5c8d00c99ea4472c1643b1eb10401(urlTplParams, this.requestAdapter);
+        return new i040d432bf097a5c3e088b5b286dc35b17b6fde7ba1189da8ab6b5cbe1c14edd4(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.reports.dailyPrintUsageByUser.item collection
      * @param id Unique identifier of the item
-     * @returns a printUsageByUserItemRequestBuilder
+     * @returns a PrintUsageByUserItemRequestBuilder
      */
-    public dailyPrintUsageByUserById(id: string) : i0b2d59ab3f36da4896152d94b03e0a424f89cb680045ac818df7fb6cc23e153c {
+    public dailyPrintUsageByUserById(id: string) : i0a6ffb5ab17952fcc5b605654a921e4b7048a059232acf91ceb8af666ce0f236 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printUsageByUser%2Did"] = id
-        return new i0b2d59ab3f36da4896152d94b03e0a424f89cb680045ac818df7fb6cc23e153c(urlTplParams, this.requestAdapter);
+        return new i0a6ffb5ab17952fcc5b605654a921e4b7048a059232acf91ceb8af666ce0f236(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to call the deviceConfigurationDeviceActivity method.
@@ -1052,24 +1053,24 @@ export class ReportsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.reports.monthlyPrintUsageByPrinter.item collection
      * @param id Unique identifier of the item
-     * @returns a printUsageByPrinterItemRequestBuilder
+     * @returns a PrintUsageByPrinterItemRequestBuilder
      */
-    public monthlyPrintUsageByPrinterById(id: string) : iaccf0da2bb94f1672a9d4b50cb59ac46c2636af941878f04ccda835b4e6bc6df {
+    public monthlyPrintUsageByPrinterById(id: string) : i464ef823ccbb3cda573d85f5b690bdfbadd75533d381eee43a717ec4bcf9e9da {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printUsageByPrinter%2Did"] = id
-        return new iaccf0da2bb94f1672a9d4b50cb59ac46c2636af941878f04ccda835b4e6bc6df(urlTplParams, this.requestAdapter);
+        return new i464ef823ccbb3cda573d85f5b690bdfbadd75533d381eee43a717ec4bcf9e9da(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.reports.monthlyPrintUsageByUser.item collection
      * @param id Unique identifier of the item
-     * @returns a printUsageByUserItemRequestBuilder
+     * @returns a PrintUsageByUserItemRequestBuilder
      */
-    public monthlyPrintUsageByUserById(id: string) : i01dcdbc56e5bbfc103a10dadf48ed650311b2b37a8a04c85ddabbe6c031fcb3e {
+    public monthlyPrintUsageByUserById(id: string) : ib890b4082f7b0793dcec266773608fab2228163761130f66570881247e35699c {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printUsageByUser%2Did"] = id
-        return new i01dcdbc56e5bbfc103a10dadf48ed650311b2b37a8a04c85ddabbe6c031fcb3e(urlTplParams, this.requestAdapter);
+        return new ib890b4082f7b0793dcec266773608fab2228163761130f66570881247e35699c(urlTplParams, this.requestAdapter);
     };
     /**
      * Update reports

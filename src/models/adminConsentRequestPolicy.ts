@@ -2,7 +2,6 @@ import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAcc
 import {AccessReviewReviewerScope, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
 export class AdminConsentRequestPolicy extends Entity implements Parsable {
     /** Specifies whether the admin consent request feature is enabled or disabled. Required. */
     private _isEnabled?: boolean | undefined;
@@ -21,6 +20,7 @@ export class AdminConsentRequestPolicy extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.adminConsentRequestPolicy";
     };
     /**
      * The deserialization information for the current model

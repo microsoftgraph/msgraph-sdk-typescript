@@ -18,7 +18,7 @@ export class BookingService extends Entity implements Parsable {
     private _defaultLocation?: Location | undefined;
     /** The default monetary price for the service. */
     private _defaultPrice?: number | undefined;
-    /** The default way the service is charged. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue. */
+    /** Represents the type of pricing of a booking service. */
     private _defaultPriceType?: BookingPriceType | undefined;
     /** The default set of reminders for an appointment of this service. The value of this property is available only when reading this bookingService by its ID. */
     private _defaultReminders?: BookingReminder[] | undefined;
@@ -65,6 +65,7 @@ export class BookingService extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.bookingService";
     };
     /**
      * Gets the customQuestions property value. Contains the set of custom questions associated with a particular service.
@@ -123,14 +124,14 @@ export class BookingService extends Entity implements Parsable {
         this._defaultPrice = value;
     };
     /**
-     * Gets the defaultPriceType property value. The default way the service is charged. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue.
+     * Gets the defaultPriceType property value. Represents the type of pricing of a booking service.
      * @returns a bookingPriceType
      */
     public get defaultPriceType() {
         return this._defaultPriceType;
     };
     /**
-     * Sets the defaultPriceType property value. The default way the service is charged. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue.
+     * Sets the defaultPriceType property value. Represents the type of pricing of a booking service.
      * @param value Value to set for the defaultPriceType property.
      */
     public set defaultPriceType(value: BookingPriceType | undefined) {

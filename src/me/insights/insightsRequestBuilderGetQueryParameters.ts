@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get insights from me */
 export class InsightsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

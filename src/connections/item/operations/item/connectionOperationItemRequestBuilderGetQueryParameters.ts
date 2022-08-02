@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get operations from connections */
 export class ConnectionOperationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

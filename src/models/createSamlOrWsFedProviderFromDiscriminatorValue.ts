@@ -1,4 +1,4 @@
-import {SamlOrWsFedProvider} from './index';
+import {InternalDomainFederation, SamlOrWsFedExternalDomainFederation, SamlOrWsFedProvider} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createSamlOrWsFedProviderFromDiscriminatorValue(parseNode: ParseNode | undefined) : SamlOrWsFedProvider {
@@ -8,8 +8,10 @@ export function createSamlOrWsFedProviderFromDiscriminatorValue(parseNode: Parse
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.samlOrWsFedProvider":
-                    return new SamlOrWsFedProvider();
+                case "#microsoft.graph.internalDomainFederation":
+                    return new InternalDomainFederation();
+                case "#microsoft.graph.samlOrWsFedExternalDomainFederation":
+                    return new SamlOrWsFedExternalDomainFederation();
             }
         }
     }

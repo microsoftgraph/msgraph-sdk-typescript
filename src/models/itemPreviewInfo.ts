@@ -5,6 +5,8 @@ export class ItemPreviewInfo implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The getUrl property */
     private _getUrl?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The postParameters property */
     private _postParameters?: string | undefined;
     /** The postUrl property */
@@ -24,10 +26,11 @@ export class ItemPreviewInfo implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Instantiates a new ItemPreviewInfo and sets the default values.
+     * Instantiates a new itemPreviewInfo and sets the default values.
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.itemPreviewInfo";
     };
     /**
      * The deserialization information for the current model
@@ -36,6 +39,7 @@ export class ItemPreviewInfo implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "getUrl": n => { this.getUrl = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "postParameters": n => { this.postParameters = n.getStringValue(); },
             "postUrl": n => { this.postUrl = n.getStringValue(); },
         };
@@ -53,6 +57,20 @@ export class ItemPreviewInfo implements AdditionalDataHolder, Parsable {
      */
     public set getUrl(value: string | undefined) {
         this._getUrl = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the postParameters property value. The postParameters property
@@ -89,6 +107,7 @@ export class ItemPreviewInfo implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("getUrl", this.getUrl);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("postParameters", this.postParameters);
         writer.writeStringValue("postUrl", this.postUrl);
         writer.writeAdditionalData(this.additionalData);

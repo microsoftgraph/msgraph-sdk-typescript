@@ -7,6 +7,8 @@ export class Thumbnail implements AdditionalDataHolder, Parsable {
     private _content?: string | undefined;
     /** The height of the thumbnail, in pixels. */
     private _height?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The unique identifier of the item that provided the thumbnail. This is only available when a folder thumbnail is requested. */
     private _sourceItemId?: string | undefined;
     /** The URL used to fetch the thumbnail content. */
@@ -32,6 +34,7 @@ export class Thumbnail implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.thumbnail";
     };
     /**
      * Gets the content property value. The content stream for the thumbnail.
@@ -55,6 +58,7 @@ export class Thumbnail implements AdditionalDataHolder, Parsable {
         return {
             "content": n => { this.content = n.getStringValue(); },
             "height": n => { this.height = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "sourceItemId": n => { this.sourceItemId = n.getStringValue(); },
             "url": n => { this.url = n.getStringValue(); },
             "width": n => { this.width = n.getNumberValue(); },
@@ -75,6 +79,20 @@ export class Thumbnail implements AdditionalDataHolder, Parsable {
         this._height = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -82,6 +100,7 @@ export class Thumbnail implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("content", this.content);
         writer.writeNumberValue("height", this.height);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("sourceItemId", this.sourceItemId);
         writer.writeStringValue("url", this.url);
         writer.writeNumberValue("width", this.width);

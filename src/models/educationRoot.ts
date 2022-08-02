@@ -11,6 +11,8 @@ export class EducationRoot implements AdditionalDataHolder, Parsable {
     private _classes?: EducationClass[] | undefined;
     /** The me property */
     private _me?: EducationUser | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The schools property */
     private _schools?: EducationSchool[] | undefined;
     /** The users property */
@@ -48,6 +50,7 @@ export class EducationRoot implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.educationRoot";
     };
     /**
      * The deserialization information for the current model
@@ -57,6 +60,7 @@ export class EducationRoot implements AdditionalDataHolder, Parsable {
         return {
             "classes": n => { this.classes = n.getCollectionOfObjectValues<EducationClass>(createEducationClassFromDiscriminatorValue); },
             "me": n => { this.me = n.getObjectValue<EducationUser>(createEducationUserFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "schools": n => { this.schools = n.getCollectionOfObjectValues<EducationSchool>(createEducationSchoolFromDiscriminatorValue); },
             "users": n => { this.users = n.getCollectionOfObjectValues<EducationUser>(createEducationUserFromDiscriminatorValue); },
         };
@@ -74,6 +78,20 @@ export class EducationRoot implements AdditionalDataHolder, Parsable {
      */
     public set me(value: EducationUser | undefined) {
         this._me = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the schools property value. The schools property
@@ -97,6 +115,7 @@ export class EducationRoot implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfObjectValues<EducationClass>("classes", this.classes);
         writer.writeObjectValue<EducationUser>("me", this.me);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<EducationSchool>("schools", this.schools);
         writer.writeCollectionOfObjectValues<EducationUser>("users", this.users);
         writer.writeAdditionalData(this.additionalData);

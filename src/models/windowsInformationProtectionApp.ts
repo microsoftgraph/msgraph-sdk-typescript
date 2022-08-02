@@ -10,6 +10,8 @@ export class WindowsInformationProtectionApp implements AdditionalDataHolder, Pa
     private _description?: string | undefined;
     /** App display name. */
     private _displayName?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The product name. */
     private _productName?: string | undefined;
     /** The publisher name */
@@ -33,6 +35,7 @@ export class WindowsInformationProtectionApp implements AdditionalDataHolder, Pa
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.windowsInformationProtectionApp";
     };
     /**
      * Gets the denied property value. If true, app is denied protection or exemption.
@@ -85,9 +88,24 @@ export class WindowsInformationProtectionApp implements AdditionalDataHolder, Pa
             "denied": n => { this.denied = n.getBooleanValue(); },
             "description": n => { this.description = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "productName": n => { this.productName = n.getStringValue(); },
             "publisherName": n => { this.publisherName = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the productName property value. The product name.
@@ -126,6 +144,7 @@ export class WindowsInformationProtectionApp implements AdditionalDataHolder, Pa
         writer.writeBooleanValue("denied", this.denied);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("productName", this.productName);
         writer.writeStringValue("publisherName", this.publisherName);
         writer.writeAdditionalData(this.additionalData);

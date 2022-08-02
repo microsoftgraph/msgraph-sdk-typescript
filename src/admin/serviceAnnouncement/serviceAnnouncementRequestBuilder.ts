@@ -72,6 +72,7 @@ export class ServiceAnnouncementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -132,7 +133,7 @@ export class ServiceAnnouncementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.healthOverviews.item collection
      * @param id Unique identifier of the item
-     * @returns a serviceHealthItemRequestBuilder
+     * @returns a ServiceHealthItemRequestBuilder
      */
     public healthOverviewsById(id: string) : ServiceHealthItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -143,7 +144,7 @@ export class ServiceAnnouncementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.issues.item collection
      * @param id Unique identifier of the item
-     * @returns a serviceHealthIssueItemRequestBuilder
+     * @returns a ServiceHealthIssueItemRequestBuilder
      */
     public issuesById(id: string) : ServiceHealthIssueItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -154,7 +155,7 @@ export class ServiceAnnouncementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.messages.item collection
      * @param id Unique identifier of the item
-     * @returns a serviceUpdateMessageItemRequestBuilder
+     * @returns a ServiceUpdateMessageItemRequestBuilder
      */
     public messagesById(id: string) : ServiceUpdateMessageItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

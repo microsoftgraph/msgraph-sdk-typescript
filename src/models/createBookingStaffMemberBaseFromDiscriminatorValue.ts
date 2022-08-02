@@ -1,4 +1,4 @@
-import {BookingStaffMemberBase} from './index';
+import {BookingStaffMember, BookingStaffMemberBase} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createBookingStaffMemberBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingStaffMemberBase {
@@ -8,8 +8,8 @@ export function createBookingStaffMemberBaseFromDiscriminatorValue(parseNode: Pa
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.bookingStaffMemberBase":
-                    return new BookingStaffMemberBase();
+                case "#microsoft.graph.bookingStaffMember":
+                    return new BookingStaffMember();
             }
         }
     }

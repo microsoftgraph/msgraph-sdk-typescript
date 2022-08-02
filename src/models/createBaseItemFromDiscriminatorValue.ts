@@ -1,4 +1,4 @@
-import {BaseItem} from './index';
+import {BaseItem, Drive, DriveItem, List, ListItem, SharedDriveItem, Site} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createBaseItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : BaseItem {
@@ -8,8 +8,18 @@ export function createBaseItemFromDiscriminatorValue(parseNode: ParseNode | unde
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.baseItem":
-                    return new BaseItem();
+                case "#microsoft.graph.drive":
+                    return new Drive();
+                case "#microsoft.graph.driveItem":
+                    return new DriveItem();
+                case "#microsoft.graph.list":
+                    return new List();
+                case "#microsoft.graph.listItem":
+                    return new ListItem();
+                case "#microsoft.graph.sharedDriveItem":
+                    return new SharedDriveItem();
+                case "#microsoft.graph.site":
+                    return new Site();
             }
         }
     }

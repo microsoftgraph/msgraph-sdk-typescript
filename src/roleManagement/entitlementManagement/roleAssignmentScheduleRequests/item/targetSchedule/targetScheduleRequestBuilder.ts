@@ -27,7 +27,7 @@ export class TargetScheduleRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Property indicating the schedule for an eligible role assignment.
+     * The schedule for an eligible role assignment that is referenced through the targetScheduleId property. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -36,6 +36,7 @@ export class TargetScheduleRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -44,7 +45,7 @@ export class TargetScheduleRequestBuilder {
         return requestInfo;
     };
     /**
-     * Property indicating the schedule for an eligible role assignment.
+     * The schedule for an eligible role assignment that is referenced through the targetScheduleId property. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleAssignmentSchedule

@@ -101,7 +101,7 @@ export class CallItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.calls.item.audioRoutingGroups.item collection
      * @param id Unique identifier of the item
-     * @returns a audioRoutingGroupItemRequestBuilder
+     * @returns a AudioRoutingGroupItemRequestBuilder
      */
     public audioRoutingGroupsById(id: string) : AudioRoutingGroupItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -148,6 +148,7 @@ export class CallItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -208,7 +209,7 @@ export class CallItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.calls.item.operations.item collection
      * @param id Unique identifier of the item
-     * @returns a commsOperationItemRequestBuilder
+     * @returns a CommsOperationItemRequestBuilder
      */
     public operationsById(id: string) : CommsOperationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -219,7 +220,7 @@ export class CallItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.calls.item.participants.item collection
      * @param id Unique identifier of the item
-     * @returns a participantItemRequestBuilder
+     * @returns a ParticipantItemRequestBuilder
      */
     public participantsById(id: string) : ParticipantItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

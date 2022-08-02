@@ -1,4 +1,4 @@
-import {ManagedAppProtection} from './index';
+import {AndroidManagedAppProtection, DefaultManagedAppProtection, IosManagedAppProtection, ManagedAppProtection, TargetedManagedAppProtection} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createManagedAppProtectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedAppProtection {
@@ -8,8 +8,14 @@ export function createManagedAppProtectionFromDiscriminatorValue(parseNode: Pars
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.managedAppProtection":
-                    return new ManagedAppProtection();
+                case "#microsoft.graph.androidManagedAppProtection":
+                    return new AndroidManagedAppProtection();
+                case "#microsoft.graph.defaultManagedAppProtection":
+                    return new DefaultManagedAppProtection();
+                case "#microsoft.graph.iosManagedAppProtection":
+                    return new IosManagedAppProtection();
+                case "#microsoft.graph.targetedManagedAppProtection":
+                    return new TargetedManagedAppProtection();
             }
         }
     }

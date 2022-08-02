@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains properties, inherited properties and actions for an MDM mobile app configuration user status summary. */
 export class ManagedDeviceMobileAppConfigurationUserSummary extends Entity implements Parsable {
     /** Version of the policy for that overview */
     private _configurationVersion?: number | undefined;
@@ -36,6 +35,7 @@ export class ManagedDeviceMobileAppConfigurationUserSummary extends Entity imple
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.managedDeviceMobileAppConfigurationUserSummary";
     };
     /**
      * Gets the errorCount property value. Number of error Users

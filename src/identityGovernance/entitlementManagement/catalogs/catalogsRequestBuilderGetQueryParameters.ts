@@ -1,5 +1,5 @@
 
-/** Represents a collection of access packages. */
+/** A container for access packages. */
 export class CatalogsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

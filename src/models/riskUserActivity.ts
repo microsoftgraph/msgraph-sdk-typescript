@@ -6,6 +6,8 @@ export class RiskUserActivity implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue. */
     private _detail?: RiskDetail | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The type of risk event detected. */
     private _riskEventTypes?: string[] | undefined;
     /**
@@ -27,6 +29,7 @@ export class RiskUserActivity implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.riskUserActivity";
     };
     /**
      * Gets the detail property value. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
@@ -49,8 +52,23 @@ export class RiskUserActivity implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "detail": n => { this.detail = n.getEnumValue<RiskDetail>(RiskDetail); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "riskEventTypes": n => { this.riskEventTypes = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the riskEventTypes property value. The type of risk event detected.
@@ -73,6 +91,7 @@ export class RiskUserActivity implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeEnumValue<RiskDetail>("detail", this.detail);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfPrimitiveValues<string>("riskEventTypes", this.riskEventTypes);
         writer.writeAdditionalData(this.additionalData);
     };

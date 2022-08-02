@@ -1,13 +1,13 @@
 import {CommsOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the startHoldMusic method. */
 export class StartHoldMusicOperation extends CommsOperation implements Parsable {
     /**
-     * Instantiates a new startHoldMusicOperation and sets the default values.
+     * Instantiates a new StartHoldMusicOperation and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.startHoldMusicOperation";
     };
     /**
      * The deserialization information for the current model

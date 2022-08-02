@@ -6,7 +6,6 @@ import {createPrintJobFromDiscriminatorValue} from './createPrintJobFromDiscrimi
 import {Entity, PrinterCapabilities, PrinterDefaults, PrinterLocation, PrinterStatus, PrintJob} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
 export class PrinterBase extends Entity implements Parsable {
     /** The capabilities of the printer/printerShare. */
     private _capabilities?: PrinterCapabilities | undefined;
@@ -45,6 +44,7 @@ export class PrinterBase extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.printerBase";
     };
     /**
      * Gets the defaults property value. The default print settings of printer/printerShare.

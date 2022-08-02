@@ -2,7 +2,6 @@ import {createWorkbookFilterCriteriaFromDiscriminatorValue} from './createWorkbo
 import {Entity, WorkbookFilterCriteria} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookFilter extends Entity implements Parsable {
     /** The currently applied filter on the given column. Read-only. */
     private _criteria?: WorkbookFilterCriteria | undefined;
@@ -11,6 +10,7 @@ export class WorkbookFilter extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.workbookFilter";
     };
     /**
      * Gets the criteria property value. The currently applied filter on the given column. Read-only.

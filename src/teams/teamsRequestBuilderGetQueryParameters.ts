@@ -1,5 +1,5 @@
 
-/** List all [teams](../resources/team.md) in an organization. */
+/** List all teams in an organization. */
 export class TeamsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

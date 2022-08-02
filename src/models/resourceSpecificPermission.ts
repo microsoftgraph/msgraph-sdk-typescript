@@ -11,6 +11,8 @@ export class ResourceSpecificPermission implements AdditionalDataHolder, Parsabl
     private _id?: string | undefined;
     /** Indicates whether the permission is enabled. */
     private _isEnabled?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The value of the permission. */
     private _value?: string | undefined;
     /**
@@ -32,6 +34,7 @@ export class ResourceSpecificPermission implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.resourceSpecificPermission";
     };
     /**
      * Gets the description property value. Describes the level of access that the resource-specific permission represents.
@@ -71,6 +74,7 @@ export class ResourceSpecificPermission implements AdditionalDataHolder, Parsabl
             "displayName": n => { this.displayName = n.getStringValue(); },
             "id": n => { this.id = n.getStringValue(); },
             "isEnabled": n => { this.isEnabled = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "value": n => { this.value = n.getStringValue(); },
         };
     };
@@ -103,6 +107,20 @@ export class ResourceSpecificPermission implements AdditionalDataHolder, Parsabl
         this._isEnabled = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -112,6 +130,7 @@ export class ResourceSpecificPermission implements AdditionalDataHolder, Parsabl
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("id", this.id);
         writer.writeBooleanValue("isEnabled", this.isEnabled);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };

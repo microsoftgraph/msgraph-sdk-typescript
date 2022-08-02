@@ -2,7 +2,6 @@ import {createPrinterLocationFromDiscriminatorValue} from './createPrinterLocati
 import {Entity, PrinterLocation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
 export class PrintConnector extends Entity implements Parsable {
     /** The connector's version. */
     private _appVersion?: string | undefined;
@@ -31,10 +30,11 @@ export class PrintConnector extends Entity implements Parsable {
         this._appVersion = value;
     };
     /**
-     * Instantiates a new printConnector and sets the default values.
+     * Instantiates a new PrintConnector and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.printConnector";
     };
     /**
      * Gets the displayName property value. The name of the connector.

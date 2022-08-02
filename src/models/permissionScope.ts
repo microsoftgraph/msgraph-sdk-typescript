@@ -11,6 +11,8 @@ export class PermissionScope implements AdditionalDataHolder, Parsable {
     private _id?: string | undefined;
     /** When creating or updating a permission, this property must be set to true (which is the default). To delete a permission, this property must first be set to false.  At that point, in a subsequent call, the permission may be removed. */
     private _isEnabled?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The origin property */
     private _origin?: string | undefined;
     /** The possible values are: User and Admin. Specifies whether this delegated permission should be considered safe for non-admin users to consent to on behalf of themselves, or whether an administrator consent should always be required. While Microsoft Graph defines the default consent requirement for each permission, the tenant administrator may override the behavior in their organization (by allowing, restricting, or limiting user consent to this delegated permission). For more information, see Configure how users consent to applications. */
@@ -68,6 +70,7 @@ export class PermissionScope implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.permissionScope";
     };
     /**
      * The deserialization information for the current model
@@ -79,6 +82,7 @@ export class PermissionScope implements AdditionalDataHolder, Parsable {
             "adminConsentDisplayName": n => { this.adminConsentDisplayName = n.getStringValue(); },
             "id": n => { this.id = n.getStringValue(); },
             "isEnabled": n => { this.isEnabled = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "origin": n => { this.origin = n.getStringValue(); },
             "type": n => { this.type = n.getStringValue(); },
             "userConsentDescription": n => { this.userConsentDescription = n.getStringValue(); },
@@ -115,6 +119,20 @@ export class PermissionScope implements AdditionalDataHolder, Parsable {
         this._isEnabled = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the origin property value. The origin property
      * @returns a string
      */
@@ -138,6 +156,7 @@ export class PermissionScope implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("adminConsentDisplayName", this.adminConsentDisplayName);
         writer.writeStringValue("id", this.id);
         writer.writeBooleanValue("isEnabled", this.isEnabled);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("origin", this.origin);
         writer.writeStringValue("type", this.type);
         writer.writeStringValue("userConsentDescription", this.userConsentDescription);

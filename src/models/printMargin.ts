@@ -7,6 +7,8 @@ export class PrintMargin implements AdditionalDataHolder, Parsable {
     private _bottom?: number | undefined;
     /** The margin in microns from the left edge. */
     private _left?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The margin in microns from the right edge. */
     private _right?: number | undefined;
     /** The margin in microns from the top edge. */
@@ -44,6 +46,7 @@ export class PrintMargin implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.printMargin";
     };
     /**
      * The deserialization information for the current model
@@ -53,6 +56,7 @@ export class PrintMargin implements AdditionalDataHolder, Parsable {
         return {
             "bottom": n => { this.bottom = n.getNumberValue(); },
             "left": n => { this.left = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "right": n => { this.right = n.getNumberValue(); },
             "top": n => { this.top = n.getNumberValue(); },
         };
@@ -70,6 +74,20 @@ export class PrintMargin implements AdditionalDataHolder, Parsable {
      */
     public set left(value: number | undefined) {
         this._left = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the right property value. The margin in microns from the right edge.
@@ -93,6 +111,7 @@ export class PrintMargin implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeNumberValue("bottom", this.bottom);
         writer.writeNumberValue("left", this.left);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("right", this.right);
         writer.writeNumberValue("top", this.top);
         writer.writeAdditionalData(this.additionalData);

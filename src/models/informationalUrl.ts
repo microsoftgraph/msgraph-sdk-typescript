@@ -7,6 +7,8 @@ export class InformationalUrl implements AdditionalDataHolder, Parsable {
     private _logoUrl?: string | undefined;
     /** Link to the application's marketing page. For example, https://www.contoso.com/app/marketing */
     private _marketingUrl?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Link to the application's privacy statement. For example, https://www.contoso.com/app/privacy */
     private _privacyStatementUrl?: string | undefined;
     /** Link to the application's support page. For example, https://www.contoso.com/app/support */
@@ -32,6 +34,7 @@ export class InformationalUrl implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.informationalUrl";
     };
     /**
      * The deserialization information for the current model
@@ -41,6 +44,7 @@ export class InformationalUrl implements AdditionalDataHolder, Parsable {
         return {
             "logoUrl": n => { this.logoUrl = n.getStringValue(); },
             "marketingUrl": n => { this.marketingUrl = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "privacyStatementUrl": n => { this.privacyStatementUrl = n.getStringValue(); },
             "supportUrl": n => { this.supportUrl = n.getStringValue(); },
             "termsOfServiceUrl": n => { this.termsOfServiceUrl = n.getStringValue(); },
@@ -75,6 +79,20 @@ export class InformationalUrl implements AdditionalDataHolder, Parsable {
         this._marketingUrl = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the privacyStatementUrl property value. Link to the application's privacy statement. For example, https://www.contoso.com/app/privacy
      * @returns a string
      */
@@ -96,6 +114,7 @@ export class InformationalUrl implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("logoUrl", this.logoUrl);
         writer.writeStringValue("marketingUrl", this.marketingUrl);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("privacyStatementUrl", this.privacyStatementUrl);
         writer.writeStringValue("supportUrl", this.supportUrl);
         writer.writeStringValue("termsOfServiceUrl", this.termsOfServiceUrl);

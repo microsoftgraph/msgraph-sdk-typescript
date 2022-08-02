@@ -11,6 +11,8 @@ export class EducationCourse implements AdditionalDataHolder, Parsable {
     private _displayName?: string | undefined;
     /** ID of the course from the syncing system. */
     private _externalId?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Subject of the course. */
     private _subject?: string | undefined;
     /**
@@ -32,6 +34,7 @@ export class EducationCourse implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.educationCourse";
     };
     /**
      * Gets the courseNumber property value. Unique identifier for the course.
@@ -99,8 +102,23 @@ export class EducationCourse implements AdditionalDataHolder, Parsable {
             "description": n => { this.description = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "externalId": n => { this.externalId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "subject": n => { this.subject = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -112,6 +130,7 @@ export class EducationCourse implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("externalId", this.externalId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("subject", this.subject);
         writer.writeAdditionalData(this.additionalData);
     };

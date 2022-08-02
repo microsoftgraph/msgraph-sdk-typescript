@@ -13,6 +13,8 @@ export class DeviceDetail implements AdditionalDataHolder, Parsable {
     private _isCompliant?: boolean | undefined;
     /** Indicates if the device is managed or not. */
     private _isManaged?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Indicates the OS name and version used for signing-in. */
     private _operatingSystem?: string | undefined;
     /** Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined. */
@@ -50,6 +52,7 @@ export class DeviceDetail implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.deviceDetail";
     };
     /**
      * Gets the deviceId property value. Refers to the UniqueID of the device used for signing-in.
@@ -90,6 +93,7 @@ export class DeviceDetail implements AdditionalDataHolder, Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "isCompliant": n => { this.isCompliant = n.getBooleanValue(); },
             "isManaged": n => { this.isManaged = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "operatingSystem": n => { this.operatingSystem = n.getStringValue(); },
             "trustType": n => { this.trustType = n.getStringValue(); },
         };
@@ -123,6 +127,20 @@ export class DeviceDetail implements AdditionalDataHolder, Parsable {
         this._isManaged = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the operatingSystem property value. Indicates the OS name and version used for signing-in.
      * @returns a string
      */
@@ -147,6 +165,7 @@ export class DeviceDetail implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeBooleanValue("isCompliant", this.isCompliant);
         writer.writeBooleanValue("isManaged", this.isManaged);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("operatingSystem", this.operatingSystem);
         writer.writeStringValue("trustType", this.trustType);
         writer.writeAdditionalData(this.additionalData);

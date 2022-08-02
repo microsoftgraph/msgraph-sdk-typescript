@@ -11,14 +11,14 @@ import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i0ebb124b96530fe08eb93f26bd86e265f47c94af705d2cfa5a0c53127776ca6b} from './memberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as ie0b75f67c7ef290f007692aec0cf26b880638734e5f1eb28b2aac305744cb32e} from './memberOf/item/directoryObjectItemRequestBuilder';
 import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i720ad37b97930b80b3f5bbb1b4038448eafad717077bb859fd252be562580268} from './registeredOwners/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i80dfe08d1a2ce539e240e623e425436ce5284e327c094913d616a0fe77e913a1} from './registeredOwners/item/directoryObjectItemRequestBuilder';
 import {RegisteredOwnersRequestBuilder} from './registeredOwners/registeredOwnersRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i1be53fb9da2e6be012ab05199d1fe3393dcc20ebd6426818051576508fe78f50} from './registeredUsers/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i24805e1657cebb359b83b032b97bef5f336c4e3bd1f53deaf63c8bb9254ca92f} from './registeredUsers/item/directoryObjectItemRequestBuilder';
 import {RegisteredUsersRequestBuilder} from './registeredUsers/registeredUsersRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as ia4ba2f426acff50051cf7d673bd053995c3a14a065718acaea9557282dfae069} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i7028dd8c6ec7cb9805791e704300ef26f15d2571cd3d80c75b13b2b8cddf5425} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -100,7 +100,7 @@ export class DeviceItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the properties and relationships of a device object. Since the **device** resource supports [extensions](/graph/extensibility-overview), you can also use the `GET` operation to get custom properties and extension data in a **device** instance.
+     * Get the properties and relationships of a device object. Since the **device** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **device** instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -109,6 +109,7 @@ export class DeviceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -153,7 +154,7 @@ export class DeviceItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.extensions.item collection
      * @param id Unique identifier of the item
-     * @returns a extensionItemRequestBuilder
+     * @returns a ExtensionItemRequestBuilder
      */
     public extensionsById(id: string) : ExtensionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -162,7 +163,7 @@ export class DeviceItemRequestBuilder {
         return new ExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get the properties and relationships of a device object. Since the **device** resource supports [extensions](/graph/extensibility-overview), you can also use the `GET` operation to get custom properties and extension data in a **device** instance.
+     * Get the properties and relationships of a device object. Since the **device** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **device** instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Device
@@ -180,13 +181,13 @@ export class DeviceItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.memberOf.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public memberOfById(id: string) : i0ebb124b96530fe08eb93f26bd86e265f47c94af705d2cfa5a0c53127776ca6b {
+    public memberOfById(id: string) : ie0b75f67c7ef290f007692aec0cf26b880638734e5f1eb28b2aac305744cb32e {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i0ebb124b96530fe08eb93f26bd86e265f47c94af705d2cfa5a0c53127776ca6b(urlTplParams, this.requestAdapter);
+        return new ie0b75f67c7ef290f007692aec0cf26b880638734e5f1eb28b2aac305744cb32e(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the properties of a device. Only certain properties of a device can be updated through approved Mobile Device Management (MDM) apps.
@@ -208,34 +209,34 @@ export class DeviceItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.registeredOwners.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public registeredOwnersById(id: string) : i720ad37b97930b80b3f5bbb1b4038448eafad717077bb859fd252be562580268 {
+    public registeredOwnersById(id: string) : i80dfe08d1a2ce539e240e623e425436ce5284e327c094913d616a0fe77e913a1 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i720ad37b97930b80b3f5bbb1b4038448eafad717077bb859fd252be562580268(urlTplParams, this.requestAdapter);
+        return new i80dfe08d1a2ce539e240e623e425436ce5284e327c094913d616a0fe77e913a1(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.registeredUsers.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public registeredUsersById(id: string) : i1be53fb9da2e6be012ab05199d1fe3393dcc20ebd6426818051576508fe78f50 {
+    public registeredUsersById(id: string) : i24805e1657cebb359b83b032b97bef5f336c4e3bd1f53deaf63c8bb9254ca92f {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i1be53fb9da2e6be012ab05199d1fe3393dcc20ebd6426818051576508fe78f50(urlTplParams, this.requestAdapter);
+        return new i24805e1657cebb359b83b032b97bef5f336c4e3bd1f53deaf63c8bb9254ca92f(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.transitiveMemberOf.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public transitiveMemberOfById(id: string) : ia4ba2f426acff50051cf7d673bd053995c3a14a065718acaea9557282dfae069 {
+    public transitiveMemberOfById(id: string) : i7028dd8c6ec7cb9805791e704300ef26f15d2571cd3d80c75b13b2b8cddf5425 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new ia4ba2f426acff50051cf7d673bd053995c3a14a065718acaea9557282dfae069(urlTplParams, this.requestAdapter);
+        return new i7028dd8c6ec7cb9805791e704300ef26f15d2571cd3d80c75b13b2b8cddf5425(urlTplParams, this.requestAdapter);
     };
 }

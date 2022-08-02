@@ -9,6 +9,8 @@ export class File implements AdditionalDataHolder, Parsable {
     private _hashes?: Hashes | undefined;
     /** The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only. */
     private _mimeType?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The processingMetadata property */
     private _processingMetadata?: boolean | undefined;
     /**
@@ -30,6 +32,7 @@ export class File implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.file";
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +42,7 @@ export class File implements AdditionalDataHolder, Parsable {
         return {
             "hashes": n => { this.hashes = n.getObjectValue<Hashes>(createHashesFromDiscriminatorValue); },
             "mimeType": n => { this.mimeType = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "processingMetadata": n => { this.processingMetadata = n.getBooleanValue(); },
         };
     };
@@ -71,6 +75,20 @@ export class File implements AdditionalDataHolder, Parsable {
         this._mimeType = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the processingMetadata property value. The processingMetadata property
      * @returns a boolean
      */
@@ -92,6 +110,7 @@ export class File implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<Hashes>("hashes", this.hashes);
         writer.writeStringValue("mimeType", this.mimeType);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeBooleanValue("processingMetadata", this.processingMetadata);
         writer.writeAdditionalData(this.additionalData);
     };

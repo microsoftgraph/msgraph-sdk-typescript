@@ -4,9 +4,11 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ToneInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** An incremental identifier used for ordering DTMF events. */
     private _sequenceId?: number | undefined;
-    /** Possible values are: tone0, tone1, tone2, tone3, tone4, tone5, tone6, tone7, tone8, tone9, star, pound, a, b, c, d, flash. */
+    /** The tone property */
     private _tone?: Tone | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -27,6 +29,7 @@ export class ToneInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.toneInfo";
     };
     /**
      * The deserialization information for the current model
@@ -34,9 +37,24 @@ export class ToneInfo implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "sequenceId": n => { this.sequenceId = n.getNumberValue(); },
             "tone": n => { this.tone = n.getEnumValue<Tone>(Tone); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the sequenceId property value. An incremental identifier used for ordering DTMF events.
@@ -58,19 +76,20 @@ export class ToneInfo implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("sequenceId", this.sequenceId);
         writer.writeEnumValue<Tone>("tone", this.tone);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the tone property value. Possible values are: tone0, tone1, tone2, tone3, tone4, tone5, tone6, tone7, tone8, tone9, star, pound, a, b, c, d, flash.
+     * Gets the tone property value. The tone property
      * @returns a tone
      */
     public get tone() {
         return this._tone;
     };
     /**
-     * Sets the tone property value. Possible values are: tone0, tone1, tone2, tone3, tone4, tone5, tone6, tone7, tone8, tone9, star, pound, a, b, c, d, flash.
+     * Sets the tone property value. The tone property
      * @param value Value to set for the tone property.
      */
     public set tone(value: Tone | undefined) {

@@ -8,7 +8,6 @@ import {RiskState} from './riskState';
 import {TokenIssuerType} from './tokenIssuerType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityProtectionRoot singleton. */
 export class RiskDetection extends Entity implements Parsable {
     /** Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue. */
     private _activity?: ActivityType | undefined;
@@ -91,10 +90,11 @@ export class RiskDetection extends Entity implements Parsable {
         this._additionalInfo = value;
     };
     /**
-     * Instantiates a new riskDetection and sets the default values.
+     * Instantiates a new RiskDetection and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.riskDetection";
     };
     /**
      * Gets the correlationId property value. Correlation ID of the sign-in associated with the risk detection. This property is null if the risk detection is not associated with a sign-in.

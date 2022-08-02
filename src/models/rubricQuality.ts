@@ -12,6 +12,8 @@ export class RubricQuality implements AdditionalDataHolder, Parsable {
     private _description?: EducationItemBody | undefined;
     /** The name of this rubric quality. */
     private _displayName?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The ID of this resource. */
     private _qualityId?: string | undefined;
     /** If present, a numerical weight for this quality.  Weights must add up to 100. */
@@ -35,6 +37,7 @@ export class RubricQuality implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.rubricQuality";
     };
     /**
      * Gets the criteria property value. The collection of criteria for this rubric quality.
@@ -87,9 +90,24 @@ export class RubricQuality implements AdditionalDataHolder, Parsable {
             "criteria": n => { this.criteria = n.getCollectionOfObjectValues<RubricCriterion>(createRubricCriterionFromDiscriminatorValue); },
             "description": n => { this.description = n.getObjectValue<EducationItemBody>(createEducationItemBodyFromDiscriminatorValue); },
             "displayName": n => { this.displayName = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "qualityId": n => { this.qualityId = n.getStringValue(); },
             "weight": n => { this.weight = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the qualityId property value. The ID of this resource.
@@ -114,6 +132,7 @@ export class RubricQuality implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfObjectValues<RubricCriterion>("criteria", this.criteria);
         writer.writeObjectValue<EducationItemBody>("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("qualityId", this.qualityId);
         writer.writeNumberValue("weight", this.weight);
         writer.writeAdditionalData(this.additionalData);

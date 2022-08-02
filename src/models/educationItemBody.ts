@@ -8,6 +8,8 @@ export class EducationItemBody implements AdditionalDataHolder, Parsable {
     private _content?: string | undefined;
     /** The contentType property */
     private _contentType?: BodyType | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -27,6 +29,7 @@ export class EducationItemBody implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.educationItemBody";
     };
     /**
      * Gets the content property value. The content property
@@ -64,7 +67,22 @@ export class EducationItemBody implements AdditionalDataHolder, Parsable {
         return {
             "content": n => { this.content = n.getStringValue(); },
             "contentType": n => { this.contentType = n.getEnumValue<BodyType>(BodyType); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -74,6 +92,7 @@ export class EducationItemBody implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("content", this.content);
         writer.writeEnumValue<BodyType>("contentType", this.contentType);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,4 +1,4 @@
-import {PrintOperation} from './index';
+import {PrinterCreateOperation, PrintOperation} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createPrintOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : PrintOperation {
@@ -8,8 +8,8 @@ export function createPrintOperationFromDiscriminatorValue(parseNode: ParseNode 
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.printOperation":
-                    return new PrintOperation();
+                case "#microsoft.graph.printerCreateOperation":
+                    return new PrinterCreateOperation();
             }
         }
     }

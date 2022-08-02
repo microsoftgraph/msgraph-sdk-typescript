@@ -9,6 +9,8 @@ export class UriClickSecurityState implements AdditionalDataHolder, Parsable {
     private _clickDateTime?: Date | undefined;
     /** The id property */
     private _id?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The sourceId property */
     private _sourceId?: string | undefined;
     /** The uriDomain property */
@@ -62,6 +64,7 @@ export class UriClickSecurityState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.uriClickSecurityState";
     };
     /**
      * The deserialization information for the current model
@@ -72,6 +75,7 @@ export class UriClickSecurityState implements AdditionalDataHolder, Parsable {
             "clickAction": n => { this.clickAction = n.getStringValue(); },
             "clickDateTime": n => { this.clickDateTime = n.getDateValue(); },
             "id": n => { this.id = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "sourceId": n => { this.sourceId = n.getStringValue(); },
             "uriDomain": n => { this.uriDomain = n.getStringValue(); },
             "verdict": n => { this.verdict = n.getStringValue(); },
@@ -92,6 +96,20 @@ export class UriClickSecurityState implements AdditionalDataHolder, Parsable {
         this._id = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -100,6 +118,7 @@ export class UriClickSecurityState implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("clickAction", this.clickAction);
         writer.writeDateValue("clickDateTime", this.clickDateTime);
         writer.writeStringValue("id", this.id);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("sourceId", this.sourceId);
         writer.writeStringValue("uriDomain", this.uriDomain);
         writer.writeStringValue("verdict", this.verdict);

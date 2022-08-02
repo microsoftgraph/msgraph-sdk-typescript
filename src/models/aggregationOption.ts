@@ -9,6 +9,8 @@ export class AggregationOption implements AdditionalDataHolder, Parsable {
     private _bucketDefinition?: BucketAggregationDefinition | undefined;
     /** Computes aggregation on the field while the field exists in current entity type. Required. */
     private _field?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The number of searchBucket resources to be returned. This is not required when the range is provided manually in the search request. Optional. */
     private _size?: number | undefined;
     /**
@@ -44,6 +46,7 @@ export class AggregationOption implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.aggregationOption";
     };
     /**
      * Gets the field property value. Computes aggregation on the field while the field exists in current entity type. Required.
@@ -67,8 +70,23 @@ export class AggregationOption implements AdditionalDataHolder, Parsable {
         return {
             "bucketDefinition": n => { this.bucketDefinition = n.getObjectValue<BucketAggregationDefinition>(createBucketAggregationDefinitionFromDiscriminatorValue); },
             "field": n => { this.field = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "size": n => { this.size = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -78,6 +96,7 @@ export class AggregationOption implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<BucketAggregationDefinition>("bucketDefinition", this.bucketDefinition);
         writer.writeStringValue("field", this.field);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("size", this.size);
         writer.writeAdditionalData(this.additionalData);
     };

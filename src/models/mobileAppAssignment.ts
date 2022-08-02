@@ -6,7 +6,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 /** A class containing the properties used for Group Assignment of a Mobile App. */
 export class MobileAppAssignment extends Entity implements Parsable {
-    /** The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
+    /** Possible values for the install intent chosen by the admin. */
     private _intent?: InstallIntent | undefined;
     /** The settings for target assignment defined by the admin. */
     private _settings?: MobileAppAssignmentSettings | undefined;
@@ -17,6 +17,7 @@ export class MobileAppAssignment extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.mobileAppAssignment";
     };
     /**
      * The deserialization information for the current model
@@ -30,14 +31,14 @@ export class MobileAppAssignment extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the intent property value. The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * Gets the intent property value. Possible values for the install intent chosen by the admin.
      * @returns a installIntent
      */
     public get intent() {
         return this._intent;
     };
     /**
-     * Sets the intent property value. The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * Sets the intent property value. Possible values for the install intent chosen by the admin.
      * @param value Value to set for the intent property.
      */
     public set intent(value: InstallIntent | undefined) {

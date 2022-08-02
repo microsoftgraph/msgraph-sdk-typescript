@@ -1,13 +1,13 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookFunctions extends Entity implements Parsable {
     /**
      * Instantiates a new workbookFunctions and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.workbookFunctions";
     };
     /**
      * The deserialization information for the current model

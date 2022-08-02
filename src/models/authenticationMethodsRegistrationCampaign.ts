@@ -11,9 +11,11 @@ export class AuthenticationMethodsRegistrationCampaign implements AdditionalData
     private _excludeTargets?: ExcludeTarget[] | undefined;
     /** Users and groups of users that are prompted to set up the authentication method. */
     private _includeTargets?: AuthenticationMethodsRegistrationCampaignIncludeTarget[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Specifies the number of days that the user sees a prompt again if they select 'Not now' and snoozes the prompt. Minimum 0 days. Maximum: 14 days. If the value is '0' – The user is prompted during every MFA attempt. */
     private _snoozeDurationInDays?: number | undefined;
-    /** Enable or disable the feature. Possible values are: default, enabled, disabled, unknownFutureValue. The default value is used when the configuration hasn't been explicitly set and uses the default behavior of Azure AD for the setting. The default value is disabled. */
+    /** The state property */
     private _state?: AdvancedConfigState | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -34,6 +36,7 @@ export class AuthenticationMethodsRegistrationCampaign implements AdditionalData
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.authenticationMethodsRegistrationCampaign";
     };
     /**
      * Gets the excludeTargets property value. Users and groups of users that are excluded from being prompted to set up the authentication method.
@@ -57,6 +60,7 @@ export class AuthenticationMethodsRegistrationCampaign implements AdditionalData
         return {
             "excludeTargets": n => { this.excludeTargets = n.getCollectionOfObjectValues<ExcludeTarget>(createExcludeTargetFromDiscriminatorValue); },
             "includeTargets": n => { this.includeTargets = n.getCollectionOfObjectValues<AuthenticationMethodsRegistrationCampaignIncludeTarget>(createAuthenticationMethodsRegistrationCampaignIncludeTargetFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "snoozeDurationInDays": n => { this.snoozeDurationInDays = n.getNumberValue(); },
             "state": n => { this.state = n.getEnumValue<AdvancedConfigState>(AdvancedConfigState); },
         };
@@ -76,6 +80,20 @@ export class AuthenticationMethodsRegistrationCampaign implements AdditionalData
         this._includeTargets = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -83,6 +101,7 @@ export class AuthenticationMethodsRegistrationCampaign implements AdditionalData
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfObjectValues<ExcludeTarget>("excludeTargets", this.excludeTargets);
         writer.writeCollectionOfObjectValues<AuthenticationMethodsRegistrationCampaignIncludeTarget>("includeTargets", this.includeTargets);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("snoozeDurationInDays", this.snoozeDurationInDays);
         writer.writeEnumValue<AdvancedConfigState>("state", this.state);
         writer.writeAdditionalData(this.additionalData);
@@ -102,14 +121,14 @@ export class AuthenticationMethodsRegistrationCampaign implements AdditionalData
         this._snoozeDurationInDays = value;
     };
     /**
-     * Gets the state property value. Enable or disable the feature. Possible values are: default, enabled, disabled, unknownFutureValue. The default value is used when the configuration hasn't been explicitly set and uses the default behavior of Azure AD for the setting. The default value is disabled.
+     * Gets the state property value. The state property
      * @returns a advancedConfigState
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. Enable or disable the feature. Possible values are: default, enabled, disabled, unknownFutureValue. The default value is used when the configuration hasn't been explicitly set and uses the default behavior of Azure AD for the setting. The default value is disabled.
+     * Sets the state property value. The state property
      * @param value Value to set for the state property.
      */
     public set state(value: AdvancedConfigState | undefined) {

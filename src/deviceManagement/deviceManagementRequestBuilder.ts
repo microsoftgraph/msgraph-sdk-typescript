@@ -198,7 +198,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.complianceManagementPartners.item collection
      * @param id Unique identifier of the item
-     * @returns a complianceManagementPartnerItemRequestBuilder
+     * @returns a ComplianceManagementPartnerItemRequestBuilder
      */
     public complianceManagementPartnersById(id: string) : ComplianceManagementPartnerItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -229,6 +229,7 @@ export class DeviceManagementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -258,7 +259,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.detectedApps.item collection
      * @param id Unique identifier of the item
-     * @returns a detectedAppItemRequestBuilder
+     * @returns a DetectedAppItemRequestBuilder
      */
     public detectedAppsById(id: string) : DetectedAppItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -269,7 +270,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCategories.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceCategoryItemRequestBuilder
+     * @returns a DeviceCategoryItemRequestBuilder
      */
     public deviceCategoriesById(id: string) : DeviceCategoryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -280,7 +281,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceCompliancePolicyItemRequestBuilder
+     * @returns a DeviceCompliancePolicyItemRequestBuilder
      */
     public deviceCompliancePoliciesById(id: string) : DeviceCompliancePolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -291,7 +292,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicySettingStateSummaries.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceCompliancePolicySettingStateSummaryItemRequestBuilder
+     * @returns a DeviceCompliancePolicySettingStateSummaryItemRequestBuilder
      */
     public deviceCompliancePolicySettingStateSummariesById(id: string) : DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -302,7 +303,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceConfigurations.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceConfigurationItemRequestBuilder
+     * @returns a DeviceConfigurationItemRequestBuilder
      */
     public deviceConfigurationsById(id: string) : DeviceConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -313,7 +314,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceEnrollmentConfigurations.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceEnrollmentConfigurationItemRequestBuilder
+     * @returns a DeviceEnrollmentConfigurationItemRequestBuilder
      */
     public deviceEnrollmentConfigurationsById(id: string) : DeviceEnrollmentConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -324,7 +325,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceManagementPartners.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceManagementPartnerItemRequestBuilder
+     * @returns a DeviceManagementPartnerItemRequestBuilder
      */
     public deviceManagementPartnersById(id: string) : DeviceManagementPartnerItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -335,7 +336,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.exchangeConnectors.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceManagementExchangeConnectorItemRequestBuilder
+     * @returns a DeviceManagementExchangeConnectorItemRequestBuilder
      */
     public exchangeConnectorsById(id: string) : DeviceManagementExchangeConnectorItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -371,7 +372,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.importedWindowsAutopilotDeviceIdentities.item collection
      * @param id Unique identifier of the item
-     * @returns a importedWindowsAutopilotDeviceIdentityItemRequestBuilder
+     * @returns a ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder
      */
     public importedWindowsAutopilotDeviceIdentitiesById(id: string) : ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -382,7 +383,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.iosUpdateStatuses.item collection
      * @param id Unique identifier of the item
-     * @returns a iosUpdateDeviceStatusItemRequestBuilder
+     * @returns a IosUpdateDeviceStatusItemRequestBuilder
      */
     public iosUpdateStatusesById(id: string) : IosUpdateDeviceStatusItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -393,7 +394,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.managedDevices.item collection
      * @param id Unique identifier of the item
-     * @returns a managedDeviceItemRequestBuilder
+     * @returns a ManagedDeviceItemRequestBuilder
      */
     public managedDevicesById(id: string) : ManagedDeviceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -404,7 +405,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.mobileThreatDefenseConnectors.item collection
      * @param id Unique identifier of the item
-     * @returns a mobileThreatDefenseConnectorItemRequestBuilder
+     * @returns a MobileThreatDefenseConnectorItemRequestBuilder
      */
     public mobileThreatDefenseConnectorsById(id: string) : MobileThreatDefenseConnectorItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -415,7 +416,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.notificationMessageTemplates.item collection
      * @param id Unique identifier of the item
-     * @returns a notificationMessageTemplateItemRequestBuilder
+     * @returns a NotificationMessageTemplateItemRequestBuilder
      */
     public notificationMessageTemplatesById(id: string) : NotificationMessageTemplateItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -443,7 +444,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.remoteAssistancePartners.item collection
      * @param id Unique identifier of the item
-     * @returns a remoteAssistancePartnerItemRequestBuilder
+     * @returns a RemoteAssistancePartnerItemRequestBuilder
      */
     public remoteAssistancePartnersById(id: string) : RemoteAssistancePartnerItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -454,7 +455,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.resourceOperations.item collection
      * @param id Unique identifier of the item
-     * @returns a resourceOperationItemRequestBuilder
+     * @returns a ResourceOperationItemRequestBuilder
      */
     public resourceOperationsById(id: string) : ResourceOperationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -465,7 +466,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.roleAssignments.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceAndAppManagementRoleAssignmentItemRequestBuilder
+     * @returns a DeviceAndAppManagementRoleAssignmentItemRequestBuilder
      */
     public roleAssignmentsById(id: string) : DeviceAndAppManagementRoleAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -476,7 +477,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.roleDefinitions.item collection
      * @param id Unique identifier of the item
-     * @returns a roleDefinitionItemRequestBuilder
+     * @returns a RoleDefinitionItemRequestBuilder
      */
     public roleDefinitionsById(id: string) : RoleDefinitionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -487,7 +488,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.telecomExpenseManagementPartners.item collection
      * @param id Unique identifier of the item
-     * @returns a telecomExpenseManagementPartnerItemRequestBuilder
+     * @returns a TelecomExpenseManagementPartnerItemRequestBuilder
      */
     public telecomExpenseManagementPartnersById(id: string) : TelecomExpenseManagementPartnerItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -498,7 +499,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.termsAndConditions.item collection
      * @param id Unique identifier of the item
-     * @returns a termsAndConditionsItemRequestBuilder
+     * @returns a TermsAndConditionsItemRequestBuilder
      */
     public termsAndConditionsById(id: string) : TermsAndConditionsItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -509,7 +510,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.troubleshootingEvents.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceManagementTroubleshootingEventItemRequestBuilder
+     * @returns a DeviceManagementTroubleshootingEventItemRequestBuilder
      */
     public troubleshootingEventsById(id: string) : DeviceManagementTroubleshootingEventItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -529,7 +530,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.windowsAutopilotDeviceIdentities.item collection
      * @param id Unique identifier of the item
-     * @returns a windowsAutopilotDeviceIdentityItemRequestBuilder
+     * @returns a WindowsAutopilotDeviceIdentityItemRequestBuilder
      */
     public windowsAutopilotDeviceIdentitiesById(id: string) : WindowsAutopilotDeviceIdentityItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -540,7 +541,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.windowsInformationProtectionAppLearningSummaries.item collection
      * @param id Unique identifier of the item
-     * @returns a windowsInformationProtectionAppLearningSummaryItemRequestBuilder
+     * @returns a WindowsInformationProtectionAppLearningSummaryItemRequestBuilder
      */
     public windowsInformationProtectionAppLearningSummariesById(id: string) : WindowsInformationProtectionAppLearningSummaryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -551,7 +552,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.windowsInformationProtectionNetworkLearningSummaries.item collection
      * @param id Unique identifier of the item
-     * @returns a windowsInformationProtectionNetworkLearningSummaryItemRequestBuilder
+     * @returns a WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder
      */
     public windowsInformationProtectionNetworkLearningSummariesById(id: string) : WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

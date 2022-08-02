@@ -2,7 +2,6 @@ import {createWorkbookChartDataLabelFormatFromDiscriminatorValue} from './create
 import {Entity, WorkbookChartDataLabelFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartDataLabels extends Entity implements Parsable {
     /** Represents the format of chart data labels, which includes fill and font formatting. Read-only. */
     private _format?: WorkbookChartDataLabelFormat | undefined;
@@ -27,6 +26,7 @@ export class WorkbookChartDataLabels extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.workbookChartDataLabels";
     };
     /**
      * Gets the format property value. Represents the format of chart data labels, which includes fill and font formatting. Read-only.

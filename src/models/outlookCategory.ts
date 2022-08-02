@@ -2,7 +2,7 @@ import {CategoryColor} from './categoryColor';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class OutlookCategory extends Entity implements Parsable {
     /** A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below. */
     private _color?: CategoryColor | undefined;
@@ -27,6 +27,7 @@ export class OutlookCategory extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.outlookCategory";
     };
     /**
      * Gets the displayName property value. A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only.

@@ -80,6 +80,7 @@ export class OnenoteSectionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -140,7 +141,7 @@ export class OnenoteSectionItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.onenote.notebooks.item.sectionGroups.item.sections.item.pages.item collection
      * @param id Unique identifier of the item
-     * @returns a onenotePageItemRequestBuilder
+     * @returns a OnenotePageItemRequestBuilder
      */
     public pagesById(id: string) : OnenotePageItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

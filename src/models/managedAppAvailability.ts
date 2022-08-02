@@ -1,4 +1,4 @@
-/** Casts the previous resource to managedMobileLobApp. */
+/** Provides operations to manage the admin singleton. */
 export enum ManagedAppAvailability {
     /** A globally available app to all tenants. */
     Global = "global",

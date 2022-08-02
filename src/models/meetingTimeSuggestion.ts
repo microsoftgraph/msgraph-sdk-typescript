@@ -16,6 +16,8 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
     private _locations?: Location[] | undefined;
     /** A time period suggested for the meeting. */
     private _meetingTimeSlot?: TimeSlot | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Order of meeting time suggestions sorted by their computed confidence value from high to low, then by chronology if there are suggestions with the same confidence. */
     private _order?: number | undefined;
     /** Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown. */
@@ -69,6 +71,7 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.meetingTimeSuggestion";
     };
     /**
      * The deserialization information for the current model
@@ -80,6 +83,7 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
             "confidence": n => { this.confidence = n.getNumberValue(); },
             "locations": n => { this.locations = n.getCollectionOfObjectValues<Location>(createLocationFromDiscriminatorValue); },
             "meetingTimeSlot": n => { this.meetingTimeSlot = n.getObjectValue<TimeSlot>(createTimeSlotFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "order": n => { this.order = n.getNumberValue(); },
             "organizerAvailability": n => { this.organizerAvailability = n.getEnumValue<FreeBusyStatus>(FreeBusyStatus); },
             "suggestionReason": n => { this.suggestionReason = n.getStringValue(); },
@@ -112,6 +116,20 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
      */
     public set meetingTimeSlot(value: TimeSlot | undefined) {
         this._meetingTimeSlot = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the order property value. Order of meeting time suggestions sorted by their computed confidence value from high to low, then by chronology if there are suggestions with the same confidence.
@@ -151,6 +169,7 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
         writer.writeNumberValue("confidence", this.confidence);
         writer.writeCollectionOfObjectValues<Location>("locations", this.locations);
         writer.writeObjectValue<TimeSlot>("meetingTimeSlot", this.meetingTimeSlot);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("order", this.order);
         writer.writeEnumValue<FreeBusyStatus>("organizerAvailability", this.organizerAvailability);
         writer.writeStringValue("suggestionReason", this.suggestionReason);

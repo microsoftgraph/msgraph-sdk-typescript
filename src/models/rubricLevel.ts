@@ -14,6 +14,8 @@ export class RubricLevel implements AdditionalDataHolder, Parsable {
     private _grading?: EducationAssignmentGradeType | undefined;
     /** The ID of this resource. */
     private _levelId?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -33,6 +35,7 @@ export class RubricLevel implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.rubricLevel";
     };
     /**
      * Gets the description property value. The description of this rubric level.
@@ -72,6 +75,7 @@ export class RubricLevel implements AdditionalDataHolder, Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "grading": n => { this.grading = n.getObjectValue<EducationAssignmentGradeType>(createEducationAssignmentGradeTypeFromDiscriminatorValue); },
             "levelId": n => { this.levelId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -103,6 +107,20 @@ export class RubricLevel implements AdditionalDataHolder, Parsable {
         this._levelId = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -112,6 +130,7 @@ export class RubricLevel implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeObjectValue<EducationAssignmentGradeType>("grading", this.grading);
         writer.writeStringValue("levelId", this.levelId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

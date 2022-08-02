@@ -29,6 +29,7 @@ export class DelegatedPermissionClassification extends Entity implements Parsabl
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.delegatedPermissionClassification";
     };
     /**
      * The deserialization information for the current model

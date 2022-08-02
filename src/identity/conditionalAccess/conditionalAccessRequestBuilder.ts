@@ -66,6 +66,7 @@ export class ConditionalAccessRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -126,7 +127,7 @@ export class ConditionalAccessRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.conditionalAccess.namedLocations.item collection
      * @param id Unique identifier of the item
-     * @returns a namedLocationItemRequestBuilder
+     * @returns a NamedLocationItemRequestBuilder
      */
     public namedLocationsById(id: string) : NamedLocationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -154,7 +155,7 @@ export class ConditionalAccessRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.conditionalAccess.policies.item collection
      * @param id Unique identifier of the item
-     * @returns a conditionalAccessPolicyItemRequestBuilder
+     * @returns a ConditionalAccessPolicyItemRequestBuilder
      */
     public policiesById(id: string) : ConditionalAccessPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

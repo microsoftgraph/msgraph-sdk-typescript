@@ -5,6 +5,7 @@ import {createClaimsMappingPolicyFromDiscriminatorValue} from './createClaimsMap
 import {createDelegatedPermissionClassificationFromDiscriminatorValue} from './createDelegatedPermissionClassificationFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {createEndpointFromDiscriminatorValue} from './createEndpointFromDiscriminatorValue';
+import {createFederatedIdentityCredentialFromDiscriminatorValue} from './createFederatedIdentityCredentialFromDiscriminatorValue';
 import {createHomeRealmDiscoveryPolicyFromDiscriminatorValue} from './createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
 import {createInformationalUrlFromDiscriminatorValue} from './createInformationalUrlFromDiscriminatorValue';
 import {createKeyCredentialFromDiscriminatorValue} from './createKeyCredentialFromDiscriminatorValue';
@@ -15,10 +16,9 @@ import {createResourceSpecificPermissionFromDiscriminatorValue} from './createRe
 import {createSamlSingleSignOnSettingsFromDiscriminatorValue} from './createSamlSingleSignOnSettingsFromDiscriminatorValue';
 import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssuancePolicyFromDiscriminatorValue';
 import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
-import {AddIn, AppRole, AppRoleAssignment, ClaimsMappingPolicy, DelegatedPermissionClassification, DirectoryObject, Endpoint, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OAuth2PermissionGrant, PasswordCredential, PermissionScope, ResourceSpecificPermission, SamlSingleSignOnSettings, TokenIssuancePolicy, TokenLifetimePolicy} from './index';
+import {AddIn, AppRole, AppRoleAssignment, ClaimsMappingPolicy, DelegatedPermissionClassification, DirectoryObject, Endpoint, FederatedIdentityCredential, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OAuth2PermissionGrant, PasswordCredential, PermissionScope, ResourceSpecificPermission, SamlSingleSignOnSettings, TokenIssuancePolicy, TokenLifetimePolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the instantiate method. */
 export class ServicePrincipal extends DirectoryObject implements Parsable {
     /** true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in). */
     private _accountEnabled?: boolean | undefined;
@@ -58,6 +58,8 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     private _displayName?: string | undefined;
     /** Endpoints available for discovery. Services like Sharepoint populate this property with a tenant specific SharePoint endpoints that other applications can discover and use in their experiences. */
     private _endpoints?: Endpoint[] | undefined;
+    /** The federatedIdentityCredentials property */
+    private _federatedIdentityCredentials?: FederatedIdentityCredential[] | undefined;
     /** Home page or landing page of the application. */
     private _homepage?: string | undefined;
     /** The homeRealmDiscoveryPolicies assigned to this service principal. Supports $expand. */
@@ -299,6 +301,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.servicePrincipal";
     };
     /**
      * Gets the createdObjects property value. Directory objects created by this service principal. Read-only. Nullable.
@@ -385,6 +388,20 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._endpoints = value;
     };
     /**
+     * Gets the federatedIdentityCredentials property value. The federatedIdentityCredentials property
+     * @returns a federatedIdentityCredential
+     */
+    public get federatedIdentityCredentials() {
+        return this._federatedIdentityCredentials;
+    };
+    /**
+     * Sets the federatedIdentityCredentials property value. The federatedIdentityCredentials property
+     * @param value Value to set for the federatedIdentityCredentials property.
+     */
+    public set federatedIdentityCredentials(value: FederatedIdentityCredential[] | undefined) {
+        this._federatedIdentityCredentials = value;
+    };
+    /**
      * The deserialization information for the current model
      * @returns a Record<string, (node: ParseNode) => void>
      */
@@ -409,6 +426,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
             "disabledByMicrosoftStatus": n => { this.disabledByMicrosoftStatus = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "endpoints": n => { this.endpoints = n.getCollectionOfObjectValues<Endpoint>(createEndpointFromDiscriminatorValue); },
+            "federatedIdentityCredentials": n => { this.federatedIdentityCredentials = n.getCollectionOfObjectValues<FederatedIdentityCredential>(createFederatedIdentityCredentialFromDiscriminatorValue); },
             "homepage": n => { this.homepage = n.getStringValue(); },
             "homeRealmDiscoveryPolicies": n => { this.homeRealmDiscoveryPolicies = n.getCollectionOfObjectValues<HomeRealmDiscoveryPolicy>(createHomeRealmDiscoveryPolicyFromDiscriminatorValue); },
             "info": n => { this.info = n.getObjectValue<InformationalUrl>(createInformationalUrlFromDiscriminatorValue); },
@@ -730,6 +748,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         writer.writeStringValue("disabledByMicrosoftStatus", this.disabledByMicrosoftStatus);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeCollectionOfObjectValues<Endpoint>("endpoints", this.endpoints);
+        writer.writeCollectionOfObjectValues<FederatedIdentityCredential>("federatedIdentityCredentials", this.federatedIdentityCredentials);
         writer.writeStringValue("homepage", this.homepage);
         writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", this.homeRealmDiscoveryPolicies);
         writer.writeObjectValue<InformationalUrl>("info", this.info);

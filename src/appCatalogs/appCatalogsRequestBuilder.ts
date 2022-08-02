@@ -43,6 +43,7 @@ export class AppCatalogsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -105,7 +106,7 @@ export class AppCatalogsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.appCatalogs.teamsApps.item collection
      * @param id Unique identifier of the item
-     * @returns a teamsAppItemRequestBuilder
+     * @returns a TeamsAppItemRequestBuilder
      */
     public teamsAppsById(id: string) : TeamsAppItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -11,6 +11,8 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
     private _availabilityView?: string | undefined;
     /** Error information from attempting to get the availability of the user, distribution list, or resource. */
     private _error_escaped?: FreeBusyError | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** An SMTP address of the user, distribution list, or resource, identifying an instance of scheduleInformation. */
     private _scheduleId?: string | undefined;
     /** Contains the items that describe the availability of the user or resource. */
@@ -50,6 +52,7 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.scheduleInformation";
     };
     /**
      * Gets the error property value. Error information from attempting to get the availability of the user, distribution list, or resource.
@@ -73,10 +76,25 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
         return {
             "availabilityView": n => { this.availabilityView = n.getStringValue(); },
             "error": n => { this.error_escaped = n.getObjectValue<FreeBusyError>(createFreeBusyErrorFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "scheduleId": n => { this.scheduleId = n.getStringValue(); },
             "scheduleItems": n => { this.scheduleItems = n.getCollectionOfObjectValues<ScheduleItem>(createScheduleItemFromDiscriminatorValue); },
             "workingHours": n => { this.workingHours = n.getObjectValue<WorkingHours>(createWorkingHoursFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the scheduleId property value. An SMTP address of the user, distribution list, or resource, identifying an instance of scheduleInformation.
@@ -114,6 +132,7 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("availabilityView", this.availabilityView);
         writer.writeObjectValue<FreeBusyError>("error", this.error_escaped);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("scheduleId", this.scheduleId);
         writer.writeCollectionOfObjectValues<ScheduleItem>("scheduleItems", this.scheduleItems);
         writer.writeObjectValue<WorkingHours>("workingHours", this.workingHours);

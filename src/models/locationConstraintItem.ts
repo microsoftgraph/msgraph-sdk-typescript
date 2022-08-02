@@ -1,15 +1,15 @@
 import {Location} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the findMeetingTimes method. */
 export class LocationConstraintItem extends Location implements Parsable {
     /** If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true. */
     private _resolveAvailability?: boolean | undefined;
     /**
-     * Instantiates a new locationConstraintItem and sets the default values.
+     * Instantiates a new LocationConstraintItem and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.locationConstraintItem";
     };
     /**
      * The deserialization information for the current model

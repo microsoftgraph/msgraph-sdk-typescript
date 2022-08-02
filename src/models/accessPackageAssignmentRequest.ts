@@ -7,7 +7,7 @@ import {createEntitlementManagementScheduleFromDiscriminatorValue} from './creat
 import {AccessPackage, AccessPackageAssignment, AccessPackageSubject, EntitlementManagementSchedule, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the admin singleton. */
 export class AccessPackageAssignmentRequest extends Entity implements Parsable {
     /** The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand. */
     private _accessPackage?: AccessPackage | undefined;
@@ -74,6 +74,7 @@ export class AccessPackageAssignmentRequest extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.accessPackageAssignmentRequest";
     };
     /**
      * Gets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.

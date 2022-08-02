@@ -3,7 +3,7 @@ import {createWorkbookChartSeriesFormatFromDiscriminatorValue} from './createWor
 import {Entity, WorkbookChartPoint, WorkbookChartSeriesFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookChartSeries extends Entity implements Parsable {
     /** Represents the formatting of a chart series, which includes fill and line formatting. Read-only. */
     private _format?: WorkbookChartSeriesFormat | undefined;
@@ -16,6 +16,7 @@ export class WorkbookChartSeries extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.workbookChartSeries";
     };
     /**
      * Gets the format property value. Represents the formatting of a chart series, which includes fill and line formatting. Read-only.

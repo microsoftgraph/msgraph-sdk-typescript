@@ -20,8 +20,12 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
     private _devices?: ConditionalAccessDevices | undefined;
     /** Locations included in and excluded from the policy. */
     private _locations?: ConditionalAccessLocations | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Platforms included in and excluded from the policy. */
     private _platforms?: ConditionalAccessPlatforms | undefined;
+    /** Service principal risk levels included in the policy. Possible values are: low, medium, high, none, unknownFutureValue. */
+    private _servicePrincipalRiskLevels?: string[] | undefined;
     /** Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required. */
     private _signInRiskLevels?: string[] | undefined;
     /** User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required. */
@@ -89,6 +93,7 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.conditionalAccessConditionSet";
     };
     /**
      * Gets the devices property value. Devices in the policy.
@@ -115,7 +120,9 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
             "clientAppTypes": n => { this.clientAppTypes = n.getCollectionOfPrimitiveValues<string>(); },
             "devices": n => { this.devices = n.getObjectValue<ConditionalAccessDevices>(createConditionalAccessDevicesFromDiscriminatorValue); },
             "locations": n => { this.locations = n.getObjectValue<ConditionalAccessLocations>(createConditionalAccessLocationsFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "platforms": n => { this.platforms = n.getObjectValue<ConditionalAccessPlatforms>(createConditionalAccessPlatformsFromDiscriminatorValue); },
+            "servicePrincipalRiskLevels": n => { this.servicePrincipalRiskLevels = n.getCollectionOfPrimitiveValues<string>(); },
             "signInRiskLevels": n => { this.signInRiskLevels = n.getCollectionOfPrimitiveValues<string>(); },
             "userRiskLevels": n => { this.userRiskLevels = n.getCollectionOfPrimitiveValues<string>(); },
             "users": n => { this.users = n.getObjectValue<ConditionalAccessUsers>(createConditionalAccessUsersFromDiscriminatorValue); },
@@ -134,6 +141,20 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
      */
     public set locations(value: ConditionalAccessLocations | undefined) {
         this._locations = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the platforms property value. Platforms included in and excluded from the policy.
@@ -160,11 +181,27 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
         writer.writeCollectionOfPrimitiveValues<string>("clientAppTypes", this.clientAppTypes);
         writer.writeObjectValue<ConditionalAccessDevices>("devices", this.devices);
         writer.writeObjectValue<ConditionalAccessLocations>("locations", this.locations);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<ConditionalAccessPlatforms>("platforms", this.platforms);
+        writer.writeCollectionOfPrimitiveValues<string>("servicePrincipalRiskLevels", this.servicePrincipalRiskLevels);
         writer.writeCollectionOfPrimitiveValues<string>("signInRiskLevels", this.signInRiskLevels);
         writer.writeCollectionOfPrimitiveValues<string>("userRiskLevels", this.userRiskLevels);
         writer.writeObjectValue<ConditionalAccessUsers>("users", this.users);
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the servicePrincipalRiskLevels property value. Service principal risk levels included in the policy. Possible values are: low, medium, high, none, unknownFutureValue.
+     * @returns a string
+     */
+    public get servicePrincipalRiskLevels() {
+        return this._servicePrincipalRiskLevels;
+    };
+    /**
+     * Sets the servicePrincipalRiskLevels property value. Service principal risk levels included in the policy. Possible values are: low, medium, high, none, unknownFutureValue.
+     * @param value Value to set for the servicePrincipalRiskLevels property.
+     */
+    public set servicePrincipalRiskLevels(value: string[] | undefined) {
+        this._servicePrincipalRiskLevels = value;
     };
     /**
      * Gets the signInRiskLevels property value. Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.

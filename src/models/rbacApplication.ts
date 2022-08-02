@@ -9,7 +9,6 @@ import {createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue} from 
 import {Entity, UnifiedRoleAssignment, UnifiedRoleAssignmentSchedule, UnifiedRoleAssignmentScheduleInstance, UnifiedRoleAssignmentScheduleRequest, UnifiedRoleDefinition, UnifiedRoleEligibilitySchedule, UnifiedRoleEligibilityScheduleInstance, UnifiedRoleEligibilityScheduleRequest} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
 export class RbacApplication extends Entity implements Parsable {
     /** Resource to grant access to users or groups. */
     private _roleAssignments?: UnifiedRoleAssignment[] | undefined;
@@ -28,10 +27,11 @@ export class RbacApplication extends Entity implements Parsable {
     /** Schedules for role eligibility operations. */
     private _roleEligibilitySchedules?: UnifiedRoleEligibilitySchedule[] | undefined;
     /**
-     * Instantiates a new rbacApplication and sets the default values.
+     * Instantiates a new RbacApplication and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.rbacApplication";
     };
     /**
      * The deserialization information for the current model

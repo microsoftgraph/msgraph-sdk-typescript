@@ -1,13 +1,13 @@
 import {IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
 export class ChatMessageReactionIdentitySet extends IdentitySet implements Parsable {
     /**
-     * Instantiates a new chatMessageReactionIdentitySet and sets the default values.
+     * Instantiates a new ChatMessageReactionIdentitySet and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.chatMessageReactionIdentitySet";
     };
     /**
      * The deserialization information for the current model

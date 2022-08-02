@@ -8,7 +8,7 @@ export class RemoteAssistancePartner extends Entity implements Parsable {
     private _displayName?: string | undefined;
     /** Timestamp of the last request sent to Intune by the TEM partner. */
     private _lastConnectionDateTime?: Date | undefined;
-    /** A friendly description of the current TeamViewer connector status. Possible values are: notOnboarded, onboarding, onboarded. */
+    /** The current TeamViewer connector status */
     private _onboardingStatus?: RemoteAssistanceOnboardingStatus | undefined;
     /** URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service. */
     private _onboardingUrl?: string | undefined;
@@ -17,6 +17,7 @@ export class RemoteAssistancePartner extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.remoteAssistancePartner";
     };
     /**
      * Gets the displayName property value. Display name of the partner.
@@ -59,14 +60,14 @@ export class RemoteAssistancePartner extends Entity implements Parsable {
         this._lastConnectionDateTime = value;
     };
     /**
-     * Gets the onboardingStatus property value. A friendly description of the current TeamViewer connector status. Possible values are: notOnboarded, onboarding, onboarded.
+     * Gets the onboardingStatus property value. The current TeamViewer connector status
      * @returns a remoteAssistanceOnboardingStatus
      */
     public get onboardingStatus() {
         return this._onboardingStatus;
     };
     /**
-     * Sets the onboardingStatus property value. A friendly description of the current TeamViewer connector status. Possible values are: notOnboarded, onboarding, onboarded.
+     * Sets the onboardingStatus property value. The current TeamViewer connector status
      * @param value Value to set for the onboardingStatus property.
      */
     public set onboardingStatus(value: RemoteAssistanceOnboardingStatus | undefined) {

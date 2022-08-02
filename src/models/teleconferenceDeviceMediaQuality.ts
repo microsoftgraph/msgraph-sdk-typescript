@@ -39,6 +39,8 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
     private _mediaDuration?: Duration | undefined;
     /** The network link speed in bytes */
     private _networkLinkSpeedInBytes?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The total number of the outbound packets. */
     private _outboundPackets?: number | undefined;
     /** The remote IP address for the media session. */
@@ -162,6 +164,7 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.teleconferenceDeviceMediaQuality";
     };
     /**
      * The deserialization information for the current model
@@ -187,6 +190,7 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
             "maximumOutboundRoundTripDelay": n => { this.maximumOutboundRoundTripDelay = n.getDurationValue(); },
             "mediaDuration": n => { this.mediaDuration = n.getDurationValue(); },
             "networkLinkSpeedInBytes": n => { this.networkLinkSpeedInBytes = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "outboundPackets": n => { this.outboundPackets = n.getNumberValue(); },
             "remoteIPAddress": n => { this.remoteIPAddress = n.getStringValue(); },
             "remotePort": n => { this.remotePort = n.getNumberValue(); },
@@ -347,6 +351,20 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
         this._networkLinkSpeedInBytes = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the outboundPackets property value. The total number of the outbound packets.
      * @returns a int64
      */
@@ -412,6 +430,7 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
         writer.writeDurationValue("maximumOutboundRoundTripDelay", this.maximumOutboundRoundTripDelay);
         writer.writeDurationValue("mediaDuration", this.mediaDuration);
         writer.writeNumberValue("networkLinkSpeedInBytes", this.networkLinkSpeedInBytes);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("outboundPackets", this.outboundPackets);
         writer.writeStringValue("remoteIPAddress", this.remoteIPAddress);
         writer.writeNumberValue("remotePort", this.remotePort);

@@ -41,6 +41,8 @@ export class DeviceHealthAttestationState implements AdditionalDataHolder, Parsa
     private _issuedDateTime?: Date | undefined;
     /** The Timestamp of the last update. */
     private _lastUpdateDateTime?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** When operatingSystemKernelDebugging is enabled, the device is used in development and testing */
     private _operatingSystemKernelDebugging?: string | undefined;
     /** The Operating System Revision List that was loaded during initial boot on the attested device */
@@ -226,6 +228,7 @@ export class DeviceHealthAttestationState implements AdditionalDataHolder, Parsa
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.deviceHealthAttestationState";
     };
     /**
      * Gets the contentNamespaceUrl property value. The DHA report version. (Namespace version)
@@ -322,6 +325,7 @@ export class DeviceHealthAttestationState implements AdditionalDataHolder, Parsa
             "healthStatusMismatchInfo": n => { this.healthStatusMismatchInfo = n.getStringValue(); },
             "issuedDateTime": n => { this.issuedDateTime = n.getDateValue(); },
             "lastUpdateDateTime": n => { this.lastUpdateDateTime = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "operatingSystemKernelDebugging": n => { this.operatingSystemKernelDebugging = n.getStringValue(); },
             "operatingSystemRevListInfo": n => { this.operatingSystemRevListInfo = n.getStringValue(); },
             "pcr0": n => { this.pcr0 = n.getStringValue(); },
@@ -392,6 +396,20 @@ export class DeviceHealthAttestationState implements AdditionalDataHolder, Parsa
      */
     public set lastUpdateDateTime(value: string | undefined) {
         this._lastUpdateDateTime = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the operatingSystemKernelDebugging property value. When operatingSystemKernelDebugging is enabled, the device is used in development and testing
@@ -544,6 +562,7 @@ export class DeviceHealthAttestationState implements AdditionalDataHolder, Parsa
         writer.writeStringValue("healthStatusMismatchInfo", this.healthStatusMismatchInfo);
         writer.writeDateValue("issuedDateTime", this.issuedDateTime);
         writer.writeStringValue("lastUpdateDateTime", this.lastUpdateDateTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("operatingSystemKernelDebugging", this.operatingSystemKernelDebugging);
         writer.writeStringValue("operatingSystemRevListInfo", this.operatingSystemRevListInfo);
         writer.writeStringValue("pcr0", this.pcr0);

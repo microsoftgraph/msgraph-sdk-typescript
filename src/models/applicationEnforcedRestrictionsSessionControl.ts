@@ -1,13 +1,13 @@
 import {ConditionalAccessSessionControl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class ApplicationEnforcedRestrictionsSessionControl extends ConditionalAccessSessionControl implements Parsable {
     /**
-     * Instantiates a new applicationEnforcedRestrictionsSessionControl and sets the default values.
+     * Instantiates a new ApplicationEnforcedRestrictionsSessionControl and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.applicationEnforcedRestrictionsSessionControl";
     };
     /**
      * The deserialization information for the current model

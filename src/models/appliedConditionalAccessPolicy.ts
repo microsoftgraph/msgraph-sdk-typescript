@@ -12,6 +12,8 @@ export class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Par
     private _enforcedSessionControls?: string[] | undefined;
     /** Identifier of the conditional access policy. */
     private _id?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. */
     private _result?: AppliedConditionalAccessPolicyResult | undefined;
     /**
@@ -33,6 +35,7 @@ export class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Par
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.appliedConditionalAccessPolicy";
     };
     /**
      * Gets the displayName property value. Name of the conditional access policy.
@@ -86,6 +89,7 @@ export class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Par
             "enforcedGrantControls": n => { this.enforcedGrantControls = n.getCollectionOfPrimitiveValues<string>(); },
             "enforcedSessionControls": n => { this.enforcedSessionControls = n.getCollectionOfPrimitiveValues<string>(); },
             "id": n => { this.id = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "result": n => { this.result = n.getEnumValue<AppliedConditionalAccessPolicyResult>(AppliedConditionalAccessPolicyResult); },
         };
     };
@@ -102,6 +106,20 @@ export class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Par
      */
     public set id(value: string | undefined) {
         this._id = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the result property value. Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.
@@ -127,6 +145,7 @@ export class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Par
         writer.writeCollectionOfPrimitiveValues<string>("enforcedGrantControls", this.enforcedGrantControls);
         writer.writeCollectionOfPrimitiveValues<string>("enforcedSessionControls", this.enforcedSessionControls);
         writer.writeStringValue("id", this.id);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<AppliedConditionalAccessPolicyResult>("result", this.result);
         writer.writeAdditionalData(this.additionalData);
     };

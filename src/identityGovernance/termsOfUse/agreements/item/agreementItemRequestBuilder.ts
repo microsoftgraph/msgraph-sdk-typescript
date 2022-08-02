@@ -35,7 +35,7 @@ export class AgreementItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.termsOfUse.agreements.item.acceptances.item collection
      * @param id Unique identifier of the item
-     * @returns a agreementAcceptanceItemRequestBuilder
+     * @returns a AgreementAcceptanceItemRequestBuilder
      */
     public acceptancesById(id: string) : AgreementAcceptanceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -82,6 +82,7 @@ export class AgreementItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -126,7 +127,7 @@ export class AgreementItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.termsOfUse.agreements.item.files.item collection
      * @param id Unique identifier of the item
-     * @returns a agreementFileLocalizationItemRequestBuilder
+     * @returns a AgreementFileLocalizationItemRequestBuilder
      */
     public filesById(id: string) : AgreementFileLocalizationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

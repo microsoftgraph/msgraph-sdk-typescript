@@ -3,6 +3,8 @@ import {createListItemFromDiscriminatorValue} from '../../../../../../models/cre
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
+import {DocumentSetVersionsRequestBuilder} from './documentSetVersions/documentSetVersionsRequestBuilder';
+import {DocumentSetVersionItemRequestBuilder} from './documentSetVersions/item/documentSetVersionItemRequestBuilder';
 import {DriveItemRequestBuilder} from './driveItem/driveItemRequestBuilder';
 import {FieldsRequestBuilder} from './fields/fieldsRequestBuilder';
 import {GetActivitiesByIntervalRequestBuilder} from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
@@ -19,6 +21,10 @@ export class ListItemRequestBuilder {
     /** The analytics property */
     public get analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The documentSetVersions property */
+    public get documentSetVersions(): DocumentSetVersionsRequestBuilder {
+        return new DocumentSetVersionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The driveItem property */
     public get driveItem(): DriveItemRequestBuilder {
@@ -77,6 +83,7 @@ export class ListItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -117,6 +124,17 @@ export class ListItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.drives.item.root.listItem.documentSetVersions.item collection
+     * @param id Unique identifier of the item
+     * @returns a DocumentSetVersionItemRequestBuilder
+     */
+    public documentSetVersionsById(id: string) : DocumentSetVersionItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["documentSetVersion%2Did"] = id
+        return new DocumentSetVersionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * For drives in SharePoint, the associated document library list item. Read-only. Nullable.
@@ -174,7 +192,7 @@ export class ListItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.drives.item.root.listItem.versions.item collection
      * @param id Unique identifier of the item
-     * @returns a listItemVersionItemRequestBuilder
+     * @returns a ListItemVersionItemRequestBuilder
      */
     public versionsById(id: string) : ListItemVersionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

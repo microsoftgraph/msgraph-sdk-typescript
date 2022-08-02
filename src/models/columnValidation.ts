@@ -11,6 +11,8 @@ export class ColumnValidation implements AdditionalDataHolder, Parsable {
     private _descriptions?: DisplayNameLocalization[] | undefined;
     /** The formula to validate column value. For examples, see Examples of common formulas in lists */
     private _formula?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -30,6 +32,7 @@ export class ColumnValidation implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.columnValidation";
     };
     /**
      * Gets the defaultLanguage property value. Default BCP 47 language tag for the description.
@@ -82,7 +85,22 @@ export class ColumnValidation implements AdditionalDataHolder, Parsable {
             "defaultLanguage": n => { this.defaultLanguage = n.getStringValue(); },
             "descriptions": n => { this.descriptions = n.getCollectionOfObjectValues<DisplayNameLocalization>(createDisplayNameLocalizationFromDiscriminatorValue); },
             "formula": n => { this.formula = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -93,6 +111,7 @@ export class ColumnValidation implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("defaultLanguage", this.defaultLanguage);
         writer.writeCollectionOfObjectValues<DisplayNameLocalization>("descriptions", this.descriptions);
         writer.writeStringValue("formula", this.formula);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

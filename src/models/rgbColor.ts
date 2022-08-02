@@ -8,6 +8,8 @@ export class RgbColor implements AdditionalDataHolder, Parsable {
     private _b?: number | undefined;
     /** Green value */
     private _g?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Red value */
     private _r?: number | undefined;
     /**
@@ -43,6 +45,7 @@ export class RgbColor implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.rgbColor";
     };
     /**
      * Gets the g property value. Green value
@@ -66,8 +69,23 @@ export class RgbColor implements AdditionalDataHolder, Parsable {
         return {
             "b": n => { this.b = n.getNumberValue(); },
             "g": n => { this.g = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "r": n => { this.r = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the r property value. Red value
@@ -91,6 +109,7 @@ export class RgbColor implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeNumberValue("b", this.b);
         writer.writeNumberValue("g", this.g);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("r", this.r);
         writer.writeAdditionalData(this.additionalData);
     };

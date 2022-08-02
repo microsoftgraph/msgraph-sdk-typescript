@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class Operation extends Entity implements Parsable {
     /** The start time of the operation. */
     private _createdDateTime?: Date | undefined;
@@ -15,6 +15,7 @@ export class Operation extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.operation";
     };
     /**
      * Gets the createdDateTime property value. The start time of the operation.

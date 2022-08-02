@@ -49,6 +49,7 @@ export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsa
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.managedDeviceMobileAppConfiguration";
     };
     /**
      * Gets the createdDateTime property value. DateTime the object was created.

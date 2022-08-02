@@ -5,13 +5,13 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {AssociateWithHubSitesRequestBuilder} from './associateWithHubSites/associateWithHubSitesRequestBuilder';
 import {BaseRequestBuilder} from './base/baseRequestBuilder';
 import {BaseTypesRequestBuilder} from './baseTypes/baseTypesRequestBuilder';
-import {ContentTypeItemRequestBuilder as i3ae1633cdcb83416b7a7defed6c6ac53d17dd59ada0369904731b4723a42df1e} from './baseTypes/item/contentTypeItemRequestBuilder';
+import {ContentTypeItemRequestBuilder as i75d2bf9c83ed792482fdd9b4f345fed430b5ffb92c26fe6c30dd8197abae2390} from './baseTypes/item/contentTypeItemRequestBuilder';
 import {ColumnLinksRequestBuilder} from './columnLinks/columnLinksRequestBuilder';
 import {ColumnLinkItemRequestBuilder} from './columnLinks/item/columnLinkItemRequestBuilder';
 import {ColumnPositionsRequestBuilder} from './columnPositions/columnPositionsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as i3ae648b3271e281a2cabafcf25f1094cf966b006db84dd3df01b85647d74492b} from './columnPositions/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as i4be1e2de9d4ff95544908ed12d00efda07b8abf1f64cbcf5410d2ebe45e45b08} from './columnPositions/item/columnDefinitionItemRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as i413b859d8f81d930254f76079cb6a7bc49be0783c233cb9c0ea3d1eb2e88add4} from './columns/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as i68f1f63a835dd527dcb46da27c4549c26fc0e4dcb7aa33c4aedfb2f39cd24715} from './columns/item/columnDefinitionItemRequestBuilder';
 import {ContentTypeItemRequestBuilderDeleteRequestConfiguration} from './contentTypeItemRequestBuilderDeleteRequestConfiguration';
 import {ContentTypeItemRequestBuilderGetRequestConfiguration} from './contentTypeItemRequestBuilderGetRequestConfiguration';
 import {ContentTypeItemRequestBuilderPatchRequestConfiguration} from './contentTypeItemRequestBuilderPatchRequestConfiguration';
@@ -68,18 +68,18 @@ export class ContentTypeItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.drives.item.list.contentTypes.item.baseTypes.item collection
      * @param id Unique identifier of the item
-     * @returns a contentTypeItemRequestBuilder
+     * @returns a ContentTypeItemRequestBuilder
      */
-    public baseTypesById(id: string) : i3ae1633cdcb83416b7a7defed6c6ac53d17dd59ada0369904731b4723a42df1e {
+    public baseTypesById(id: string) : i75d2bf9c83ed792482fdd9b4f345fed430b5ffb92c26fe6c30dd8197abae2390 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contentType%2Did1"] = id
-        return new i3ae1633cdcb83416b7a7defed6c6ac53d17dd59ada0369904731b4723a42df1e(urlTplParams, this.requestAdapter);
+        return new i75d2bf9c83ed792482fdd9b4f345fed430b5ffb92c26fe6c30dd8197abae2390(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.drives.item.list.contentTypes.item.columnLinks.item collection
      * @param id Unique identifier of the item
-     * @returns a columnLinkItemRequestBuilder
+     * @returns a ColumnLinkItemRequestBuilder
      */
     public columnLinksById(id: string) : ColumnLinkItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -90,24 +90,24 @@ export class ContentTypeItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.drives.item.list.contentTypes.item.columnPositions.item collection
      * @param id Unique identifier of the item
-     * @returns a columnDefinitionItemRequestBuilder
+     * @returns a ColumnDefinitionItemRequestBuilder
      */
-    public columnPositionsById(id: string) : i3ae648b3271e281a2cabafcf25f1094cf966b006db84dd3df01b85647d74492b {
+    public columnPositionsById(id: string) : i4be1e2de9d4ff95544908ed12d00efda07b8abf1f64cbcf5410d2ebe45e45b08 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new i3ae648b3271e281a2cabafcf25f1094cf966b006db84dd3df01b85647d74492b(urlTplParams, this.requestAdapter);
+        return new i4be1e2de9d4ff95544908ed12d00efda07b8abf1f64cbcf5410d2ebe45e45b08(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.drives.item.list.contentTypes.item.columns.item collection
      * @param id Unique identifier of the item
-     * @returns a columnDefinitionItemRequestBuilder
+     * @returns a ColumnDefinitionItemRequestBuilder
      */
-    public columnsById(id: string) : i413b859d8f81d930254f76079cb6a7bc49be0783c233cb9c0ea3d1eb2e88add4 {
+    public columnsById(id: string) : i68f1f63a835dd527dcb46da27c4549c26fc0e4dcb7aa33c4aedfb2f39cd24715 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new i413b859d8f81d930254f76079cb6a7bc49be0783c233cb9c0ea3d1eb2e88add4(urlTplParams, this.requestAdapter);
+        return new i68f1f63a835dd527dcb46da27c4549c26fc0e4dcb7aa33c4aedfb2f39cd24715(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new ContentTypeItemRequestBuilder and sets the default values.
@@ -148,6 +148,7 @@ export class ContentTypeItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

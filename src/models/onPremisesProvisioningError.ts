@@ -7,6 +7,8 @@ export class OnPremisesProvisioningError implements AdditionalDataHolder, Parsab
     private _category?: string | undefined;
     /** The date and time at which the error occurred. */
     private _occurredDateTime?: Date | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Name of the directory property causing the error. Current possible values: UserPrincipalName or ProxyAddress */
     private _propertyCausingError?: string | undefined;
     /** Value of the property causing the error. */
@@ -44,6 +46,7 @@ export class OnPremisesProvisioningError implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.onPremisesProvisioningError";
     };
     /**
      * The deserialization information for the current model
@@ -53,6 +56,7 @@ export class OnPremisesProvisioningError implements AdditionalDataHolder, Parsab
         return {
             "category": n => { this.category = n.getStringValue(); },
             "occurredDateTime": n => { this.occurredDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "propertyCausingError": n => { this.propertyCausingError = n.getStringValue(); },
             "value": n => { this.value = n.getStringValue(); },
         };
@@ -70,6 +74,20 @@ export class OnPremisesProvisioningError implements AdditionalDataHolder, Parsab
      */
     public set occurredDateTime(value: Date | undefined) {
         this._occurredDateTime = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the propertyCausingError property value. Name of the directory property causing the error. Current possible values: UserPrincipalName or ProxyAddress
@@ -93,6 +111,7 @@ export class OnPremisesProvisioningError implements AdditionalDataHolder, Parsab
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("category", this.category);
         writer.writeDateValue("occurredDateTime", this.occurredDateTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("propertyCausingError", this.propertyCausingError);
         writer.writeStringValue("value", this.value);
         writer.writeAdditionalData(this.additionalData);

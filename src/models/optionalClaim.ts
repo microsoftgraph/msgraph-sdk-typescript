@@ -9,6 +9,8 @@ export class OptionalClaim implements AdditionalDataHolder, Parsable {
     private _essential?: boolean | undefined;
     /** The name of the optional claim. */
     private _name?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The source (directory object) of the claim. There are predefined claims and user-defined claims from extension properties. If the source value is null, the claim is a predefined optional claim. If the source value is user, the value in the name property is the extension property from the user object. */
     private _source?: string | undefined;
     /**
@@ -44,6 +46,7 @@ export class OptionalClaim implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.optionalClaim";
     };
     /**
      * Gets the essential property value. If the value is true, the claim specified by the client is necessary to ensure a smooth authorization experience for the specific task requested by the end user. The default value is false.
@@ -68,6 +71,7 @@ export class OptionalClaim implements AdditionalDataHolder, Parsable {
             "additionalProperties": n => { this.additionalProperties = n.getCollectionOfPrimitiveValues<string>(); },
             "essential": n => { this.essential = n.getBooleanValue(); },
             "name": n => { this.name = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "source": n => { this.source = n.getStringValue(); },
         };
     };
@@ -86,6 +90,20 @@ export class OptionalClaim implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -94,6 +112,7 @@ export class OptionalClaim implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("additionalProperties", this.additionalProperties);
         writer.writeBooleanValue("essential", this.essential);
         writer.writeStringValue("name", this.name);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("source", this.source);
         writer.writeAdditionalData(this.additionalData);
     };

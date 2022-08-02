@@ -53,7 +53,7 @@ export class ListRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.drives.item.list.columns.item collection
      * @param id Unique identifier of the item
-     * @returns a columnDefinitionItemRequestBuilder
+     * @returns a ColumnDefinitionItemRequestBuilder
      */
     public columnsById(id: string) : ColumnDefinitionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -77,7 +77,7 @@ export class ListRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.drives.item.list.contentTypes.item collection
      * @param id Unique identifier of the item
-     * @returns a contentTypeItemRequestBuilder
+     * @returns a ContentTypeItemRequestBuilder
      */
     public contentTypesById(id: string) : ContentTypeItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -111,6 +111,7 @@ export class ListRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -171,7 +172,7 @@ export class ListRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.drives.item.list.items.item collection
      * @param id Unique identifier of the item
-     * @returns a listItemItemRequestBuilder
+     * @returns a ListItemItemRequestBuilder
      */
     public itemsById(id: string) : ListItemItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -182,7 +183,7 @@ export class ListRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.drives.item.list.operations.item collection
      * @param id Unique identifier of the item
-     * @returns a richLongRunningOperationItemRequestBuilder
+     * @returns a RichLongRunningOperationItemRequestBuilder
      */
     public operationsById(id: string) : RichLongRunningOperationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -210,7 +211,7 @@ export class ListRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.drives.item.list.subscriptions.item collection
      * @param id Unique identifier of the item
-     * @returns a subscriptionItemRequestBuilder
+     * @returns a SubscriptionItemRequestBuilder
      */
     public subscriptionsById(id: string) : SubscriptionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

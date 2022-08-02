@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
 import {EducationAssignmentItemRequestBuilder} from './assignments/item/educationAssignmentItemRequestBuilder';
 import {ClassesRequestBuilder} from './classes/classesRequestBuilder';
-import {EducationClassItemRequestBuilder as ice1272692f4bc266210a2382c62791c1922a32cec5c73db5e3a5228fa1c8c029} from './classes/item/educationClassItemRequestBuilder';
+import {EducationClassItemRequestBuilder as ib38c390945517a7b644542600be547bfafc5c86c35991a2dc357ce4df1ad55f4} from './classes/item/educationClassItemRequestBuilder';
 import {EducationUserItemRequestBuilderDeleteRequestConfiguration} from './educationUserItemRequestBuilderDeleteRequestConfiguration';
 import {EducationUserItemRequestBuilderGetRequestConfiguration} from './educationUserItemRequestBuilderGetRequestConfiguration';
 import {EducationUserItemRequestBuilderPatchRequestConfiguration} from './educationUserItemRequestBuilderPatchRequestConfiguration';
@@ -13,7 +13,7 @@ import {EducationRubricItemRequestBuilder} from './rubrics/item/educationRubricI
 import {RubricsRequestBuilder} from './rubrics/rubricsRequestBuilder';
 import {EducationSchoolItemRequestBuilder} from './schools/item/educationSchoolItemRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
-import {EducationClassItemRequestBuilder as i2f7a14872a2bd0639c7556619e3a52dc0d62512adbf27d1b6c2d9f3254435dd0} from './taughtClasses/item/educationClassItemRequestBuilder';
+import {EducationClassItemRequestBuilder as ibef8b566bb62d3b8b627805ddf383f9168405569cf36ee75e830ac7faea094ef} from './taughtClasses/item/educationClassItemRequestBuilder';
 import {TaughtClassesRequestBuilder} from './taughtClasses/taughtClassesRequestBuilder';
 import {UserRequestBuilder} from './user/userRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -53,7 +53,7 @@ export class EducationUserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.assignments.item collection
      * @param id Unique identifier of the item
-     * @returns a educationAssignmentItemRequestBuilder
+     * @returns a EducationAssignmentItemRequestBuilder
      */
     public assignmentsById(id: string) : EducationAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -64,13 +64,13 @@ export class EducationUserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.classes.item collection
      * @param id Unique identifier of the item
-     * @returns a educationClassItemRequestBuilder
+     * @returns a EducationClassItemRequestBuilder
      */
-    public classesById(id: string) : ice1272692f4bc266210a2382c62791c1922a32cec5c73db5e3a5228fa1c8c029 {
+    public classesById(id: string) : ib38c390945517a7b644542600be547bfafc5c86c35991a2dc357ce4df1ad55f4 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationClass%2Did"] = id
-        return new ice1272692f4bc266210a2382c62791c1922a32cec5c73db5e3a5228fa1c8c029(urlTplParams, this.requestAdapter);
+        return new ib38c390945517a7b644542600be547bfafc5c86c35991a2dc357ce4df1ad55f4(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new EducationUserItemRequestBuilder and sets the default values.
@@ -111,6 +111,7 @@ export class EducationUserItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -188,7 +189,7 @@ export class EducationUserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.rubrics.item collection
      * @param id Unique identifier of the item
-     * @returns a educationRubricItemRequestBuilder
+     * @returns a EducationRubricItemRequestBuilder
      */
     public rubricsById(id: string) : EducationRubricItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -199,7 +200,7 @@ export class EducationUserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.schools.item collection
      * @param id Unique identifier of the item
-     * @returns a educationSchoolItemRequestBuilder
+     * @returns a EducationSchoolItemRequestBuilder
      */
     public schoolsById(id: string) : EducationSchoolItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -210,12 +211,12 @@ export class EducationUserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.taughtClasses.item collection
      * @param id Unique identifier of the item
-     * @returns a educationClassItemRequestBuilder
+     * @returns a EducationClassItemRequestBuilder
      */
-    public taughtClassesById(id: string) : i2f7a14872a2bd0639c7556619e3a52dc0d62512adbf27d1b6c2d9f3254435dd0 {
+    public taughtClassesById(id: string) : ibef8b566bb62d3b8b627805ddf383f9168405569cf36ee75e830ac7faea094ef {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationClass%2Did"] = id
-        return new i2f7a14872a2bd0639c7556619e3a52dc0d62512adbf27d1b6c2d9f3254435dd0(urlTplParams, this.requestAdapter);
+        return new ibef8b566bb62d3b8b627805ddf383f9168405569cf36ee75e830ac7faea094ef(urlTplParams, this.requestAdapter);
     };
 }

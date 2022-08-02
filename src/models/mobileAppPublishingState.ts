@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum MobileAppPublishingState {
     /** The app is not yet published. */
     NotPublished = "notPublished",

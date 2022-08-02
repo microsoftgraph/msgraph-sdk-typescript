@@ -2,7 +2,6 @@ import {createShiftAvailabilityFromDiscriminatorValue} from './createShiftAvaila
 import {ChangeTrackedEntity, ShiftAvailability} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class ShiftPreferences extends ChangeTrackedEntity implements Parsable {
     /** Availability of the user to be scheduled for work and its recurrence pattern. */
     private _availability?: ShiftAvailability[] | undefined;
@@ -21,10 +20,11 @@ export class ShiftPreferences extends ChangeTrackedEntity implements Parsable {
         this._availability = value;
     };
     /**
-     * Instantiates a new shiftPreferences and sets the default values.
+     * Instantiates a new ShiftPreferences and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.shiftPreferences";
     };
     /**
      * The deserialization information for the current model

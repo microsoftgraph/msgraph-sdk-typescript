@@ -3,7 +3,6 @@ import {createPropertyFromDiscriminatorValue} from './createPropertyFromDiscrimi
 import {Property} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of externalConnection entities. */
 export class Schema extends Entity implements Parsable {
     /** Must be set to microsoft.graph.externalItem. Required. */
     private _baseType?: string | undefined;
@@ -28,6 +27,7 @@ export class Schema extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.externalConnectors.schema";
     };
     /**
      * The deserialization information for the current model

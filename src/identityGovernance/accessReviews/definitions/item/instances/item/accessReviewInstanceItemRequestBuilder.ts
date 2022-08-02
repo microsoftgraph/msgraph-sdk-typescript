@@ -14,6 +14,8 @@ import {DecisionsRequestBuilder} from './decisions/decisionsRequestBuilder';
 import {AccessReviewInstanceDecisionItemItemRequestBuilder} from './decisions/item/accessReviewInstanceDecisionItemItemRequestBuilder';
 import {ResetDecisionsRequestBuilder} from './resetDecisions/resetDecisionsRequestBuilder';
 import {SendReminderRequestBuilder} from './sendReminder/sendReminderRequestBuilder';
+import {AccessReviewStageItemRequestBuilder} from './stages/item/accessReviewStageItemRequestBuilder';
+import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
 import {StopRequestBuilder} from './stop/stopRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -51,6 +53,10 @@ export class AccessReviewInstanceItemRequestBuilder {
     public get sendReminder(): SendReminderRequestBuilder {
         return new SendReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The stages property */
+    public get stages(): StagesRequestBuilder {
+        return new StagesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The stop property */
     public get stop(): StopRequestBuilder {
         return new StopRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -73,7 +79,7 @@ export class AccessReviewInstanceItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.accessReviews.definitions.item.instances.item.contactedReviewers.item collection
      * @param id Unique identifier of the item
-     * @returns a accessReviewReviewerItemRequestBuilder
+     * @returns a AccessReviewReviewerItemRequestBuilder
      */
     public contactedReviewersById(id: string) : AccessReviewReviewerItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -107,6 +113,7 @@ export class AccessReviewInstanceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -136,7 +143,7 @@ export class AccessReviewInstanceItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.accessReviews.definitions.item.instances.item.decisions.item collection
      * @param id Unique identifier of the item
-     * @returns a accessReviewInstanceDecisionItemItemRequestBuilder
+     * @returns a AccessReviewInstanceDecisionItemItemRequestBuilder
      */
     public decisionsById(id: string) : AccessReviewInstanceDecisionItemItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -191,5 +198,16 @@ export class AccessReviewInstanceItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.accessReviews.definitions.item.instances.item.stages.item collection
+     * @param id Unique identifier of the item
+     * @returns a AccessReviewStageItemRequestBuilder
+     */
+    public stagesById(id: string) : AccessReviewStageItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessReviewStage%2Did"] = id
+        return new AccessReviewStageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

@@ -2,7 +2,6 @@ import {createOutlookCategoryFromDiscriminatorValue} from './createOutlookCatego
 import {Entity, OutlookCategory} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class OutlookUser extends Entity implements Parsable {
     /** A list of categories defined for the user. */
     private _masterCategories?: OutlookCategory[] | undefined;
@@ -11,6 +10,7 @@ export class OutlookUser extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.outlookUser";
     };
     /**
      * The deserialization information for the current model

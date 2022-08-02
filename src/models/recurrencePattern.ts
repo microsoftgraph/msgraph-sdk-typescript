@@ -18,6 +18,8 @@ export class RecurrencePattern implements AdditionalDataHolder, Parsable {
     private _interval?: number | undefined;
     /** The month in which the event occurs.  This is a number from 1 to 12. */
     private _month?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The recurrence pattern type: daily, weekly, absoluteMonthly, relativeMonthly, absoluteYearly, relativeYearly. Required. For more information, see values of type property. */
     private _type?: RecurrencePatternType | undefined;
     /**
@@ -39,6 +41,7 @@ export class RecurrencePattern implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.recurrencePattern";
     };
     /**
      * Gets the dayOfMonth property value. The day of the month on which the event occurs. Required if type is absoluteMonthly or absoluteYearly.
@@ -94,6 +97,7 @@ export class RecurrencePattern implements AdditionalDataHolder, Parsable {
             "index": n => { this.index = n.getEnumValue<WeekIndex>(WeekIndex); },
             "interval": n => { this.interval = n.getNumberValue(); },
             "month": n => { this.month = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "type": n => { this.type = n.getEnumValue<RecurrencePatternType>(RecurrencePatternType); },
         };
     };
@@ -140,6 +144,20 @@ export class RecurrencePattern implements AdditionalDataHolder, Parsable {
         this._month = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -151,6 +169,7 @@ export class RecurrencePattern implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue<WeekIndex>("index", this.index);
         writer.writeNumberValue("interval", this.interval);
         writer.writeNumberValue("month", this.month);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<RecurrencePatternType>("type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };

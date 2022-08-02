@@ -2,7 +2,6 @@ import {Bitlocker} from '../../models/';
 import {createBitlockerFromDiscriminatorValue} from '../../models/createBitlockerFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {BitlockerRequestBuilderDeleteRequestConfiguration} from './bitlockerRequestBuilderDeleteRequestConfiguration';
 import {BitlockerRequestBuilderGetRequestConfiguration} from './bitlockerRequestBuilderGetRequestConfiguration';
 import {BitlockerRequestBuilderPatchRequestConfiguration} from './bitlockerRequestBuilderPatchRequestConfiguration';
 import {BitlockerRecoveryKeyItemRequestBuilder} from './recoveryKeys/item/bitlockerRecoveryKeyItemRequestBuilder';
@@ -35,22 +34,6 @@ export class BitlockerRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete navigation property bitlocker for informationProtection
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createDeleteRequestInformation(requestConfiguration?: BitlockerRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        return requestInfo;
-    };
-    /**
      * Get bitlocker from informationProtection
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -60,6 +43,7 @@ export class BitlockerRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -85,21 +69,6 @@ export class BitlockerRequestBuilder {
         }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         return requestInfo;
-    };
-    /**
-     * Delete navigation property bitlocker for informationProtection
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     */
-    public delete(requestConfiguration?: BitlockerRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInformation(
-            requestConfiguration
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Get bitlocker from informationProtection
@@ -137,7 +106,7 @@ export class BitlockerRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.informationProtection.bitlocker.recoveryKeys.item collection
      * @param id Unique identifier of the item
-     * @returns a bitlockerRecoveryKeyItemRequestBuilder
+     * @returns a BitlockerRecoveryKeyItemRequestBuilder
      */
     public recoveryKeysById(id: string) : BitlockerRecoveryKeyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

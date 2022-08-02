@@ -1,4 +1,4 @@
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity. */
 export enum WifiRadioType {
     Unknown = "unknown",
     Wifi80211a = "wifi80211a",

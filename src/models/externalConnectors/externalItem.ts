@@ -32,6 +32,7 @@ export class ExternalItem extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.externalConnectors.externalItem";
     };
     /**
      * Gets the content property value. A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.

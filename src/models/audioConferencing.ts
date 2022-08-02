@@ -7,6 +7,8 @@ export class AudioConferencing implements AdditionalDataHolder, Parsable {
     private _conferenceId?: string | undefined;
     /** A URL to the externally-accessible web page that contains dial-in information. */
     private _dialinUrl?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The tollFreeNumber property */
     private _tollFreeNumber?: string | undefined;
     /** List of toll-free numbers that are displayed in the meeting invite. */
@@ -48,6 +50,7 @@ export class AudioConferencing implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.audioConferencing";
     };
     /**
      * Gets the dialinUrl property value. A URL to the externally-accessible web page that contains dial-in information.
@@ -71,11 +74,26 @@ export class AudioConferencing implements AdditionalDataHolder, Parsable {
         return {
             "conferenceId": n => { this.conferenceId = n.getStringValue(); },
             "dialinUrl": n => { this.dialinUrl = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "tollFreeNumber": n => { this.tollFreeNumber = n.getStringValue(); },
             "tollFreeNumbers": n => { this.tollFreeNumbers = n.getCollectionOfPrimitiveValues<string>(); },
             "tollNumber": n => { this.tollNumber = n.getStringValue(); },
             "tollNumbers": n => { this.tollNumbers = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -85,6 +103,7 @@ export class AudioConferencing implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("conferenceId", this.conferenceId);
         writer.writeStringValue("dialinUrl", this.dialinUrl);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("tollFreeNumber", this.tollFreeNumber);
         writer.writeCollectionOfPrimitiveValues<string>("tollFreeNumbers", this.tollFreeNumbers);
         writer.writeStringValue("tollNumber", this.tollNumber);

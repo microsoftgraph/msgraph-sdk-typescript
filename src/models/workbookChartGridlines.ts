@@ -2,7 +2,6 @@ import {createWorkbookChartGridlinesFormatFromDiscriminatorValue} from './create
 import {Entity, WorkbookChartGridlinesFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartGridlines extends Entity implements Parsable {
     /** Represents the formatting of chart gridlines. Read-only. */
     private _format?: WorkbookChartGridlinesFormat | undefined;
@@ -13,6 +12,7 @@ export class WorkbookChartGridlines extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.workbookChartGridlines";
     };
     /**
      * Gets the format property value. Represents the formatting of chart gridlines. Read-only.

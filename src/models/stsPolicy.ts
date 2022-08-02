@@ -2,7 +2,6 @@ import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObje
 import {DirectoryObject, PolicyBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class StsPolicy extends PolicyBase implements Parsable {
     /** The appliesTo property */
     private _appliesTo?: DirectoryObject[] | undefined;
@@ -25,10 +24,11 @@ export class StsPolicy extends PolicyBase implements Parsable {
         this._appliesTo = value;
     };
     /**
-     * Instantiates a new stsPolicy and sets the default values.
+     * Instantiates a new StsPolicy and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.stsPolicy";
     };
     /**
      * Gets the definition property value. A string collection containing a JSON string that defines the rules and settings for a policy. The syntax for the definition differs for each derived policy type. Required.

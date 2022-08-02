@@ -10,6 +10,8 @@ export class AutomaticRepliesMailTips implements AdditionalDataHolder, Parsable 
     private _message?: string | undefined;
     /** The language that the automatic reply message is in. */
     private _messageLanguage?: LocaleInfo | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The date and time that automatic replies are set to end. */
     private _scheduledEndTime?: DateTimeTimeZone | undefined;
     /** The date and time that automatic replies are set to begin. */
@@ -33,6 +35,7 @@ export class AutomaticRepliesMailTips implements AdditionalDataHolder, Parsable 
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.automaticRepliesMailTips";
     };
     /**
      * The deserialization information for the current model
@@ -42,6 +45,7 @@ export class AutomaticRepliesMailTips implements AdditionalDataHolder, Parsable 
         return {
             "message": n => { this.message = n.getStringValue(); },
             "messageLanguage": n => { this.messageLanguage = n.getObjectValue<LocaleInfo>(createLocaleInfoFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "scheduledEndTime": n => { this.scheduledEndTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
             "scheduledStartTime": n => { this.scheduledStartTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
         };
@@ -73,6 +77,20 @@ export class AutomaticRepliesMailTips implements AdditionalDataHolder, Parsable 
      */
     public set messageLanguage(value: LocaleInfo | undefined) {
         this._messageLanguage = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the scheduledEndTime property value. The date and time that automatic replies are set to end.
@@ -110,6 +128,7 @@ export class AutomaticRepliesMailTips implements AdditionalDataHolder, Parsable 
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("message", this.message);
         writer.writeObjectValue<LocaleInfo>("messageLanguage", this.messageLanguage);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<DateTimeTimeZone>("scheduledEndTime", this.scheduledEndTime);
         writer.writeObjectValue<DateTimeTimeZone>("scheduledStartTime", this.scheduledStartTime);
         writer.writeAdditionalData(this.additionalData);

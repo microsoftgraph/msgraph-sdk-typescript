@@ -4,7 +4,6 @@ import {SamlOrWsFedProvider, SigningCertificateUpdateStatus} from './index';
 import {PromptLoginBehavior} from './promptLoginBehavior';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of domain entities. */
 export class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable {
     /** URL of the endpoint used by active clients when authenticating with federated domains set up for single sign-on in Azure Active Directory (Azure AD). Corresponds to the ActiveLogOnUri property of the Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet. */
     private _activeSignInUri?: string | undefined;
@@ -35,10 +34,11 @@ export class InternalDomainFederation extends SamlOrWsFedProvider implements Par
         this._activeSignInUri = value;
     };
     /**
-     * Instantiates a new internalDomainFederation and sets the default values.
+     * Instantiates a new InternalDomainFederation and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.internalDomainFederation";
     };
     /**
      * Gets the federatedIdpMfaBehavior property value. Determines whether Azure AD accepts the MFA performed by the federated IdP when a federated user accesses an application that is governed by a conditional access policy that requires MFA. The possible values are: acceptIfMfaDoneByFederatedIdp, enforceMfaByFederatedIdp, rejectMfaByFederatedIdp, unknownFutureValue. For more information, see federatedIdpMfaBehavior values.

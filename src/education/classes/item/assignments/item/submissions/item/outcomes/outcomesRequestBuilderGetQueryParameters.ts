@@ -1,5 +1,5 @@
 
-/** Read-Write. Nullable. */
+/** Get outcomes from education */
 export class OutcomesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get groups from external */
 export class GroupsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;
