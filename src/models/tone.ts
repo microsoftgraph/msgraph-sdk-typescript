@@ -1,4 +1,4 @@
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum Tone {
     Tone0 = "tone0",
     Tone1 = "tone1",

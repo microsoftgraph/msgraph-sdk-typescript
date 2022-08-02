@@ -102,6 +102,7 @@ export class EntitlementManagementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -179,7 +180,7 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleAssignments.item collection
      * @param id Unique identifier of the item
-     * @returns a unifiedRoleAssignmentItemRequestBuilder
+     * @returns a UnifiedRoleAssignmentItemRequestBuilder
      */
     public roleAssignmentsById(id: string) : UnifiedRoleAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -190,7 +191,7 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleAssignmentScheduleInstances.item collection
      * @param id Unique identifier of the item
-     * @returns a unifiedRoleAssignmentScheduleInstanceItemRequestBuilder
+     * @returns a UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder
      */
     public roleAssignmentScheduleInstancesById(id: string) : UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -201,7 +202,7 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleAssignmentScheduleRequests.item collection
      * @param id Unique identifier of the item
-     * @returns a unifiedRoleAssignmentScheduleRequestItemRequestBuilder
+     * @returns a UnifiedRoleAssignmentScheduleRequestItemRequestBuilder
      */
     public roleAssignmentScheduleRequestsById(id: string) : UnifiedRoleAssignmentScheduleRequestItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -212,7 +213,7 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleAssignmentSchedules.item collection
      * @param id Unique identifier of the item
-     * @returns a unifiedRoleAssignmentScheduleItemRequestBuilder
+     * @returns a UnifiedRoleAssignmentScheduleItemRequestBuilder
      */
     public roleAssignmentSchedulesById(id: string) : UnifiedRoleAssignmentScheduleItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -223,7 +224,7 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleDefinitions.item collection
      * @param id Unique identifier of the item
-     * @returns a unifiedRoleDefinitionItemRequestBuilder
+     * @returns a UnifiedRoleDefinitionItemRequestBuilder
      */
     public roleDefinitionsById(id: string) : UnifiedRoleDefinitionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -234,7 +235,7 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleEligibilityScheduleInstances.item collection
      * @param id Unique identifier of the item
-     * @returns a unifiedRoleEligibilityScheduleInstanceItemRequestBuilder
+     * @returns a UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder
      */
     public roleEligibilityScheduleInstancesById(id: string) : UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -245,7 +246,7 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleEligibilityScheduleRequests.item collection
      * @param id Unique identifier of the item
-     * @returns a unifiedRoleEligibilityScheduleRequestItemRequestBuilder
+     * @returns a UnifiedRoleEligibilityScheduleRequestItemRequestBuilder
      */
     public roleEligibilityScheduleRequestsById(id: string) : UnifiedRoleEligibilityScheduleRequestItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -256,7 +257,7 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleEligibilitySchedules.item collection
      * @param id Unique identifier of the item
-     * @returns a unifiedRoleEligibilityScheduleItemRequestBuilder
+     * @returns a UnifiedRoleEligibilityScheduleItemRequestBuilder
      */
     public roleEligibilitySchedulesById(id: string) : UnifiedRoleEligibilityScheduleItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

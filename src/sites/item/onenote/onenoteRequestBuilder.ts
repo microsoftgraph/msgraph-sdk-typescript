@@ -90,6 +90,7 @@ export class OnenoteRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -150,7 +151,7 @@ export class OnenoteRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.onenote.notebooks.item collection
      * @param id Unique identifier of the item
-     * @returns a notebookItemRequestBuilder
+     * @returns a NotebookItemRequestBuilder
      */
     public notebooksById(id: string) : NotebookItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -161,7 +162,7 @@ export class OnenoteRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.onenote.operations.item collection
      * @param id Unique identifier of the item
-     * @returns a onenoteOperationItemRequestBuilder
+     * @returns a OnenoteOperationItemRequestBuilder
      */
     public operationsById(id: string) : OnenoteOperationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -172,7 +173,7 @@ export class OnenoteRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.onenote.pages.item collection
      * @param id Unique identifier of the item
-     * @returns a onenotePageItemRequestBuilder
+     * @returns a OnenotePageItemRequestBuilder
      */
     public pagesById(id: string) : OnenotePageItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -200,7 +201,7 @@ export class OnenoteRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.onenote.resources.item collection
      * @param id Unique identifier of the item
-     * @returns a onenoteResourceItemRequestBuilder
+     * @returns a OnenoteResourceItemRequestBuilder
      */
     public resourcesById(id: string) : OnenoteResourceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -211,7 +212,7 @@ export class OnenoteRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.onenote.sectionGroups.item collection
      * @param id Unique identifier of the item
-     * @returns a sectionGroupItemRequestBuilder
+     * @returns a SectionGroupItemRequestBuilder
      */
     public sectionGroupsById(id: string) : SectionGroupItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -222,7 +223,7 @@ export class OnenoteRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.onenote.sections.item collection
      * @param id Unique identifier of the item
-     * @returns a onenoteSectionItemRequestBuilder
+     * @returns a OnenoteSectionItemRequestBuilder
      */
     public sectionsById(id: string) : OnenoteSectionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -1,4 +1,4 @@
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum RiskState {
     None = "none",
     ConfirmedSafe = "confirmedSafe",

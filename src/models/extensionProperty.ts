@@ -11,7 +11,7 @@ export class ExtensionProperty extends DirectoryObject implements Parsable {
     private _isSyncedFromOnPremises?: boolean | undefined;
     /** Name of the extension property. Not nullable. */
     private _name?: string | undefined;
-    /** Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication */
+    /** Following values are supported. Not nullable. UserGroupAdministrativeUnitApplicationDeviceOrganization */
     private _targetObjects?: string[] | undefined;
     /**
      * Gets the appDisplayName property value. Display name of the application object on which this extension property is defined. Read-only.
@@ -32,6 +32,7 @@ export class ExtensionProperty extends DirectoryObject implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.extensionProperty";
     };
     /**
      * Gets the dataType property value. Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum
@@ -102,14 +103,14 @@ export class ExtensionProperty extends DirectoryObject implements Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("targetObjects", this.targetObjects);
     };
     /**
-     * Gets the targetObjects property value. Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication
+     * Gets the targetObjects property value. Following values are supported. Not nullable. UserGroupAdministrativeUnitApplicationDeviceOrganization
      * @returns a string
      */
     public get targetObjects() {
         return this._targetObjects;
     };
     /**
-     * Sets the targetObjects property value. Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication
+     * Sets the targetObjects property value. Following values are supported. Not nullable. UserGroupAdministrativeUnitApplicationDeviceOrganization
      * @param value Value to set for the targetObjects property.
      */
     public set targetObjects(value: string[] | undefined) {

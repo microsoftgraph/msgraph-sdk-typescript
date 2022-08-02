@@ -1,18 +1,20 @@
 import {createContentTypeInfoFromDiscriminatorValue} from './createContentTypeInfoFromDiscriminatorValue';
+import {createDocumentSetVersionFromDiscriminatorValue} from './createDocumentSetVersionFromDiscriminatorValue';
 import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscriminatorValue';
 import {createFieldValueSetFromDiscriminatorValue} from './createFieldValueSetFromDiscriminatorValue';
 import {createItemAnalyticsFromDiscriminatorValue} from './createItemAnalyticsFromDiscriminatorValue';
 import {createListItemVersionFromDiscriminatorValue} from './createListItemVersionFromDiscriminatorValue';
 import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFromDiscriminatorValue';
-import {BaseItem, ContentTypeInfo, DriveItem, FieldValueSet, ItemAnalytics, ListItemVersion, SharepointIds} from './index';
+import {BaseItem, ContentTypeInfo, DocumentSetVersion, DriveItem, FieldValueSet, ItemAnalytics, ListItemVersion, SharepointIds} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class ListItem extends BaseItem implements Parsable {
     /** Analytics about the view activities that took place on this item. */
     private _analytics?: ItemAnalytics | undefined;
     /** The content type of this list item */
     private _contentType?: ContentTypeInfo | undefined;
+    /** Version information for a document set version created by a user. */
+    private _documentSetVersions?: DocumentSetVersion[] | undefined;
     /** For document libraries, the driveItem relationship exposes the listItem as a [driveItem][] */
     private _driveItem?: DriveItem | undefined;
     /** The values of the columns set on this list item. */
@@ -40,6 +42,7 @@ export class ListItem extends BaseItem implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.listItem";
     };
     /**
      * Gets the contentType property value. The content type of this list item
@@ -54,6 +57,20 @@ export class ListItem extends BaseItem implements Parsable {
      */
     public set contentType(value: ContentTypeInfo | undefined) {
         this._contentType = value;
+    };
+    /**
+     * Gets the documentSetVersions property value. Version information for a document set version created by a user.
+     * @returns a documentSetVersion
+     */
+    public get documentSetVersions() {
+        return this._documentSetVersions;
+    };
+    /**
+     * Sets the documentSetVersions property value. Version information for a document set version created by a user.
+     * @param value Value to set for the documentSetVersions property.
+     */
+    public set documentSetVersions(value: DocumentSetVersion[] | undefined) {
+        this._documentSetVersions = value;
     };
     /**
      * Gets the driveItem property value. For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
@@ -91,6 +108,7 @@ export class ListItem extends BaseItem implements Parsable {
         return {...super.getFieldDeserializers(),
             "analytics": n => { this.analytics = n.getObjectValue<ItemAnalytics>(createItemAnalyticsFromDiscriminatorValue); },
             "contentType": n => { this.contentType = n.getObjectValue<ContentTypeInfo>(createContentTypeInfoFromDiscriminatorValue); },
+            "documentSetVersions": n => { this.documentSetVersions = n.getCollectionOfObjectValues<DocumentSetVersion>(createDocumentSetVersionFromDiscriminatorValue); },
             "driveItem": n => { this.driveItem = n.getObjectValue<DriveItem>(createDriveItemFromDiscriminatorValue); },
             "fields": n => { this.fields = n.getObjectValue<FieldValueSet>(createFieldValueSetFromDiscriminatorValue); },
             "sharepointIds": n => { this.sharepointIds = n.getObjectValue<SharepointIds>(createSharepointIdsFromDiscriminatorValue); },
@@ -106,6 +124,7 @@ export class ListItem extends BaseItem implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<ItemAnalytics>("analytics", this.analytics);
         writer.writeObjectValue<ContentTypeInfo>("contentType", this.contentType);
+        writer.writeCollectionOfObjectValues<DocumentSetVersion>("documentSetVersions", this.documentSetVersions);
         writer.writeObjectValue<DriveItem>("driveItem", this.driveItem);
         writer.writeObjectValue<FieldValueSet>("fields", this.fields);
         writer.writeObjectValue<SharepointIds>("sharepointIds", this.sharepointIds);

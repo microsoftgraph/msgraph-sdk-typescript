@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class ProfilePhoto extends Entity implements Parsable {
     /** The height of the photo. Read-only. */
     private _height?: number | undefined;
@@ -12,6 +11,7 @@ export class ProfilePhoto extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.profilePhoto";
     };
     /**
      * The deserialization information for the current model

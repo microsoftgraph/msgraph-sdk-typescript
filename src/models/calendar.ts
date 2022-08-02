@@ -8,7 +8,6 @@ import {CalendarPermission, EmailAddress, Entity, Event, MultiValueLegacyExtende
 import {OnlineMeetingProviderType} from './onlineMeetingProviderType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Calendar extends Entity implements Parsable {
     /** Represent the online meeting service providers that can be used to create online meetings in this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness. */
     private _allowedOnlineMeetingProviders?: string[] | undefined;
@@ -163,6 +162,7 @@ export class Calendar extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.calendar";
     };
     /**
      * Gets the defaultOnlineMeetingProvider property value. The default online meeting provider for meetings sent from this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness.

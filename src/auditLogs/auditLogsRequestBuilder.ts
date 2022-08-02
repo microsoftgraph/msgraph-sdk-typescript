@@ -52,7 +52,7 @@ export class AuditLogsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Contains different types of audit logs. This resources returns a singleton auditLog resource. It doesn't contain any usable properties.
+     * Get auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -61,6 +61,7 @@ export class AuditLogsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -90,7 +91,7 @@ export class AuditLogsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.auditLogs.directoryAudits.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryAuditItemRequestBuilder
+     * @returns a DirectoryAuditItemRequestBuilder
      */
     public directoryAuditsById(id: string) : DirectoryAuditItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -99,7 +100,7 @@ export class AuditLogsRequestBuilder {
         return new DirectoryAuditItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Contains different types of audit logs. This resources returns a singleton auditLog resource. It doesn't contain any usable properties.
+     * Get auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuditLogRoot
@@ -134,7 +135,7 @@ export class AuditLogsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.auditLogs.provisioning.item collection
      * @param id Unique identifier of the item
-     * @returns a provisioningObjectSummaryItemRequestBuilder
+     * @returns a ProvisioningObjectSummaryItemRequestBuilder
      */
     public provisioningById(id: string) : ProvisioningObjectSummaryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -145,7 +146,7 @@ export class AuditLogsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.auditLogs.restrictedSignIns.item collection
      * @param id Unique identifier of the item
-     * @returns a restrictedSignInItemRequestBuilder
+     * @returns a RestrictedSignInItemRequestBuilder
      */
     public restrictedSignInsById(id: string) : RestrictedSignInItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -156,7 +157,7 @@ export class AuditLogsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.auditLogs.signIns.item collection
      * @param id Unique identifier of the item
-     * @returns a signInItemRequestBuilder
+     * @returns a SignInItemRequestBuilder
      */
     public signInsById(id: string) : SignInItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

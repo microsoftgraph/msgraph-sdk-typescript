@@ -1,4 +1,4 @@
-import {EducationOrganization} from './index';
+import {EducationOrganization, EducationSchool} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createEducationOrganizationFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationOrganization {
@@ -8,8 +8,8 @@ export function createEducationOrganizationFromDiscriminatorValue(parseNode: Par
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.educationOrganization":
-                    return new EducationOrganization();
+                case "#microsoft.graph.educationSchool":
+                    return new EducationSchool();
             }
         }
     }

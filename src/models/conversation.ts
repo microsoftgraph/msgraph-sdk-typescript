@@ -2,7 +2,7 @@ import {createConversationThreadFromDiscriminatorValue} from './createConversati
 import {ConversationThread, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class Conversation extends Entity implements Parsable {
     /** Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search. */
     private _hasAttachments?: boolean | undefined;
@@ -21,6 +21,7 @@ export class Conversation extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.conversation";
     };
     /**
      * The deserialization information for the current model

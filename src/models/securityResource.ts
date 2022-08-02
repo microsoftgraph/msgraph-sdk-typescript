@@ -4,6 +4,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class SecurityResource implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Name of the resource that is related to current alert. Required. */
     private _resource?: string | undefined;
     /** Represents type of security resources related to an alert. Possible values are: attacked, related. */
@@ -27,6 +29,7 @@ export class SecurityResource implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.securityResource";
     };
     /**
      * The deserialization information for the current model
@@ -34,9 +37,24 @@ export class SecurityResource implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "resource": n => { this.resource = n.getStringValue(); },
             "resourceType": n => { this.resourceType = n.getEnumValue<SecurityResourceType>(SecurityResourceType); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the resource property value. Name of the resource that is related to current alert. Required.
@@ -72,6 +90,7 @@ export class SecurityResource implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("resource", this.resource);
         writer.writeEnumValue<SecurityResourceType>("resourceType", this.resourceType);
         writer.writeAdditionalData(this.additionalData);

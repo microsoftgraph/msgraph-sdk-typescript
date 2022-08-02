@@ -8,9 +8,11 @@ export class CallRoute implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The final property */
     private _final?: IdentitySet | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The original property */
     private _original?: IdentitySet | undefined;
-    /** Possible values are: forwarded, lookup, selfFork. */
+    /** The routingType property */
     private _routingType?: RoutingType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -31,6 +33,7 @@ export class CallRoute implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.callRoute";
     };
     /**
      * Gets the final property value. The final property
@@ -53,9 +56,24 @@ export class CallRoute implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "final": n => { this.final = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "original": n => { this.original = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "routingType": n => { this.routingType = n.getEnumValue<RoutingType>(RoutingType); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the original property value. The original property
@@ -72,14 +90,14 @@ export class CallRoute implements AdditionalDataHolder, Parsable {
         this._original = value;
     };
     /**
-     * Gets the routingType property value. Possible values are: forwarded, lookup, selfFork.
+     * Gets the routingType property value. The routingType property
      * @returns a routingType
      */
     public get routingType() {
         return this._routingType;
     };
     /**
-     * Sets the routingType property value. Possible values are: forwarded, lookup, selfFork.
+     * Sets the routingType property value. The routingType property
      * @param value Value to set for the routingType property.
      */
     public set routingType(value: RoutingType | undefined) {
@@ -92,6 +110,7 @@ export class CallRoute implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<IdentitySet>("final", this.final);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<IdentitySet>("original", this.original);
         writer.writeEnumValue<RoutingType>("routingType", this.routingType);
         writer.writeAdditionalData(this.additionalData);

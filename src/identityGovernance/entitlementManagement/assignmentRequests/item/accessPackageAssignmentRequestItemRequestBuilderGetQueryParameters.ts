@@ -1,5 +1,5 @@
 
-/** Represents access package assignment requests created by or on behalf of a user. */
+/** Access package assignment requests created by or on behalf of a subject. */
 export class AccessPackageAssignmentRequestItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

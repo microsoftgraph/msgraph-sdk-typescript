@@ -4,7 +4,6 @@ import {Entity, PlannerChecklistItems, PlannerExternalReferences} from './index'
 import {PlannerPreviewType} from './plannerPreviewType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class PlannerTaskDetails extends Entity implements Parsable {
     /** The collection of checklist items on the task. */
     private _checklist?: PlannerChecklistItems | undefined;
@@ -33,6 +32,7 @@ export class PlannerTaskDetails extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.plannerTaskDetails";
     };
     /**
      * Gets the description property value. Description of the task.

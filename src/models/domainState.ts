@@ -5,6 +5,8 @@ export class DomainState implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Timestamp for when the last activity occurred. The value is updated when an operation is scheduled, the asynchronous task starts, and when the operation completes. */
     private _lastActionDateTime?: Date | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Type of asynchronous operation. The values can be ForceDelete or Verification */
     private _operation?: string | undefined;
     /** Current status of the operation.  Scheduled - Operation has been scheduled but has not started.  InProgress - Task has started and is in progress.  Failed - Operation has failed. */
@@ -28,6 +30,7 @@ export class DomainState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.domainState";
     };
     /**
      * The deserialization information for the current model
@@ -36,6 +39,7 @@ export class DomainState implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "lastActionDateTime": n => { this.lastActionDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "operation": n => { this.operation = n.getStringValue(); },
             "status": n => { this.status = n.getStringValue(); },
         };
@@ -53,6 +57,20 @@ export class DomainState implements AdditionalDataHolder, Parsable {
      */
     public set lastActionDateTime(value: Date | undefined) {
         this._lastActionDateTime = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the operation property value. Type of asynchronous operation. The values can be ForceDelete or Verification
@@ -75,6 +93,7 @@ export class DomainState implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("operation", this.operation);
         writer.writeStringValue("status", this.status);
         writer.writeAdditionalData(this.additionalData);

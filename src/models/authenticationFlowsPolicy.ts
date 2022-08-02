@@ -2,7 +2,6 @@ import {createSelfServiceSignUpAuthenticationFlowConfigurationFromDiscriminatorV
 import {Entity, SelfServiceSignUpAuthenticationFlowConfiguration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
 export class AuthenticationFlowsPolicy extends Entity implements Parsable {
     /** Inherited property. A description of the policy. This property is not a key. Optional. Read-only. */
     private _description?: string | undefined;
@@ -15,6 +14,7 @@ export class AuthenticationFlowsPolicy extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.authenticationFlowsPolicy";
     };
     /**
      * Gets the description property value. Inherited property. A description of the policy. This property is not a key. Optional. Read-only.

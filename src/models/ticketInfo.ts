@@ -3,9 +3,11 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class TicketInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Ticket number meta data */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** The ticket number. */
     private _ticketNumber?: string | undefined;
-    /** Ticket system meta data */
+    /** The description of the ticket system. */
     private _ticketSystem?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -26,6 +28,7 @@ export class TicketInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.ticketInfo";
     };
     /**
      * The deserialization information for the current model
@@ -33,9 +36,24 @@ export class TicketInfo implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "ticketNumber": n => { this.ticketNumber = n.getStringValue(); },
             "ticketSystem": n => { this.ticketSystem = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -43,33 +61,34 @@ export class TicketInfo implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("ticketNumber", this.ticketNumber);
         writer.writeStringValue("ticketSystem", this.ticketSystem);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the ticketNumber property value. Ticket number meta data
+     * Gets the ticketNumber property value. The ticket number.
      * @returns a string
      */
     public get ticketNumber() {
         return this._ticketNumber;
     };
     /**
-     * Sets the ticketNumber property value. Ticket number meta data
+     * Sets the ticketNumber property value. The ticket number.
      * @param value Value to set for the ticketNumber property.
      */
     public set ticketNumber(value: string | undefined) {
         this._ticketNumber = value;
     };
     /**
-     * Gets the ticketSystem property value. Ticket system meta data
+     * Gets the ticketSystem property value. The description of the ticket system.
      * @returns a string
      */
     public get ticketSystem() {
         return this._ticketSystem;
     };
     /**
-     * Sets the ticketSystem property value. Ticket system meta data
+     * Sets the ticketSystem property value. The description of the ticket system.
      * @param value Value to set for the ticketSystem property.
      */
     public set ticketSystem(value: string | undefined) {

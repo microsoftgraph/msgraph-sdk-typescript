@@ -1,4 +1,4 @@
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum AccessReviewHistoryStatus {
     Done = "done",
     Inprogress = "inprogress",

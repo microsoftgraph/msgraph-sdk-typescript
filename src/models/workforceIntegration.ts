@@ -3,7 +3,6 @@ import {ChangeTrackedEntity, WorkforceIntegrationEncryption} from './index';
 import {WorkforceIntegrationSupportedEntities} from './workforceIntegrationSupportedEntities';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the teamwork singleton. */
 export class WorkforceIntegration extends ChangeTrackedEntity implements Parsable {
     /** API version for the call back URL. Start with 1. */
     private _apiVersion?: number | undefined;
@@ -32,10 +31,11 @@ export class WorkforceIntegration extends ChangeTrackedEntity implements Parsabl
         this._apiVersion = value;
     };
     /**
-     * Instantiates a new workforceIntegration and sets the default values.
+     * Instantiates a new WorkforceIntegration and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.workforceIntegration";
     };
     /**
      * Gets the displayName property value. Name of the workforce integration.

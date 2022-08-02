@@ -16,7 +16,7 @@ import {CalendarGroupItemRequestBuilder} from './calendarGroups/item/calendarGro
 import {CalendarsRequestBuilder} from './calendars/calendarsRequestBuilder';
 import {CalendarItemRequestBuilder} from './calendars/item/calendarItemRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventItemRequestBuilder as id3b0f8d7750ef07c7c51c3665fd3af3a01ad07e883ee0764d77a38f1b1ba3fdf} from './calendarView/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as i9889f7042ea0c7baeef72c5c5c39ef038b559e5469ac1eedcabb5fe36eb4fe1e} from './calendarView/item/eventItemRequestBuilder';
 import {ChangePasswordRequestBuilder} from './changePassword/changePasswordRequestBuilder';
 import {ChatsRequestBuilder} from './chats/chatsRequestBuilder';
 import {ChatItemRequestBuilder} from './chats/item/chatItemRequestBuilder';
@@ -27,16 +27,16 @@ import {ContactFolderItemRequestBuilder} from './contactFolders/item/contactFold
 import {ContactsRequestBuilder} from './contacts/contactsRequestBuilder';
 import {ContactItemRequestBuilder} from './contacts/item/contactItemRequestBuilder';
 import {CreatedObjectsRequestBuilder} from './createdObjects/createdObjectsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as if3aa3c8c1d4c5b40c695a98805baefd351b0d91d53e7bcb61f08f4534db827d9} from './createdObjects/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i13a05fb66a37b5dfa3567df795d847fae976eccdda038bff5df5faeeb34b1c53} from './createdObjects/item/directoryObjectItemRequestBuilder';
 import {DeviceManagementTroubleshootingEventsRequestBuilder} from './deviceManagementTroubleshootingEvents/deviceManagementTroubleshootingEventsRequestBuilder';
 import {DeviceManagementTroubleshootingEventItemRequestBuilder} from './deviceManagementTroubleshootingEvents/item/deviceManagementTroubleshootingEventItemRequestBuilder';
 import {DirectReportsRequestBuilder} from './directReports/directReportsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as ie4f7a3adc11feb16fc44557a4d5a2e2ae50e64f4641f289eb2036f52124e4dc5} from './directReports/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i4ab1790d36cffc75d13c6872e157e304fb0d57c8dc80ac0eca7835d8089803b5} from './directReports/item/directoryObjectItemRequestBuilder';
 import {DriveRequestBuilder} from './drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
 import {DriveItemRequestBuilder} from './drives/item/driveItemRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventItemRequestBuilder as idff49b5aa167ad3a60a502a055381eb631511ac272b610e97e2ee7f0205633e2} from './events/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as i1875dbe2e0edb9aeff76c4d549b423834624b170a2f600d67c18f55eb6de64c6} from './events/item/eventItemRequestBuilder';
 import {ExportPersonalDataRequestBuilder} from './exportPersonalData/exportPersonalDataRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
@@ -61,7 +61,7 @@ import {ManagedAppRegistrationsRequestBuilder} from './managedAppRegistrations/m
 import {ManagedDeviceItemRequestBuilder} from './managedDevices/item/managedDeviceItemRequestBuilder';
 import {ManagedDevicesRequestBuilder} from './managedDevices/managedDevicesRequestBuilder';
 import {ManagerRequestBuilder} from './manager/managerRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i18f52bf6bc5c1c8b3304492b981916ccf9ebb43631988ec15e02d772cfb00573} from './memberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i720843e239c1ed20e17df69dac6a352aeb0f129a6d3f3195c06030b3d94b6dfe} from './memberOf/item/directoryObjectItemRequestBuilder';
 import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
 import {MessageItemRequestBuilder} from './messages/item/messageItemRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
@@ -71,9 +71,9 @@ import {OnenoteRequestBuilder} from './onenote/onenoteRequestBuilder';
 import {OnlineMeetingItemRequestBuilder} from './onlineMeetings/item/onlineMeetingItemRequestBuilder';
 import {OnlineMeetingsRequestBuilder} from './onlineMeetings/onlineMeetingsRequestBuilder';
 import {OutlookRequestBuilder} from './outlook/outlookRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i2aef51b84a32beb2693af5b7b8a2f55a4fd109a7efad565592698239164d682a} from './ownedDevices/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i4c79e3611486b034b39c2f58da356887eb83a4f200ad4a1f4511507140055f9c} from './ownedDevices/item/directoryObjectItemRequestBuilder';
 import {OwnedDevicesRequestBuilder} from './ownedDevices/ownedDevicesRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i058626e962792aedcea1eb90a3e6876666fcf8731682e43a2bde0e3625fa31da} from './ownedObjects/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i69173b5067053acdcf55feed84283a5de87d54596557a815cd24597de28fcfe2} from './ownedObjects/item/directoryObjectItemRequestBuilder';
 import {OwnedObjectsRequestBuilder} from './ownedObjects/ownedObjectsRequestBuilder';
 import {PersonItemRequestBuilder} from './people/item/personItemRequestBuilder';
 import {PeopleRequestBuilder} from './people/peopleRequestBuilder';
@@ -82,7 +82,7 @@ import {ProfilePhotoItemRequestBuilder} from './photos/item/profilePhotoItemRequ
 import {PhotosRequestBuilder} from './photos/photosRequestBuilder';
 import {PlannerRequestBuilder} from './planner/plannerRequestBuilder';
 import {PresenceRequestBuilder} from './presence/presenceRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i7d79802aaceac043beca51df3db3db8ed8431b0c91cd8325b5b0abf2ead40bcb} from './registeredDevices/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i7689ff8bd62424f33e7f671948c9da2ff4fcdb4f9c3be5b02fba87d981ac0696} from './registeredDevices/item/directoryObjectItemRequestBuilder';
 import {RegisteredDevicesRequestBuilder} from './registeredDevices/registeredDevicesRequestBuilder';
 import {ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder} from './reminderViewWithStartDateTimeWithEndDateTime/reminderViewWithStartDateTimeWithEndDateTimeRequestBuilder';
 import {RemoveAllDevicesFromManagementRequestBuilder} from './removeAllDevicesFromManagement/removeAllDevicesFromManagementRequestBuilder';
@@ -95,7 +95,7 @@ import {SendMailRequestBuilder} from './sendMail/sendMailRequestBuilder';
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
 import {TeamworkRequestBuilder} from './teamwork/teamworkRequestBuilder';
 import {TodoRequestBuilder} from './todo/todoRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as ie63433783ab729cdddec741a9dffe4aaad5418284b12e1dc6e2c6832365f7e14} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i01e9baa1e8bb574e0d26abbb063c7ffdbf71a41941b07ff3da88eb8ef717aec3} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {TranslateExchangeIdsRequestBuilder} from './translateExchangeIds/translateExchangeIdsRequestBuilder';
 import {UserItemRequestBuilderDeleteRequestConfiguration} from './userItemRequestBuilderDeleteRequestConfiguration';
@@ -363,7 +363,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.activities.item collection
      * @param id Unique identifier of the item
-     * @returns a userActivityItemRequestBuilder
+     * @returns a UserActivityItemRequestBuilder
      */
     public activitiesById(id: string) : UserActivityItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -374,7 +374,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.agreementAcceptances.item collection
      * @param id Unique identifier of the item
-     * @returns a agreementAcceptanceItemRequestBuilder
+     * @returns a AgreementAcceptanceItemRequestBuilder
      */
     public agreementAcceptancesById(id: string) : AgreementAcceptanceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -385,7 +385,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.appRoleAssignments.item collection
      * @param id Unique identifier of the item
-     * @returns a appRoleAssignmentItemRequestBuilder
+     * @returns a AppRoleAssignmentItemRequestBuilder
      */
     public appRoleAssignmentsById(id: string) : AppRoleAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -396,7 +396,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.calendarGroups.item collection
      * @param id Unique identifier of the item
-     * @returns a calendarGroupItemRequestBuilder
+     * @returns a CalendarGroupItemRequestBuilder
      */
     public calendarGroupsById(id: string) : CalendarGroupItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -407,7 +407,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.calendars.item collection
      * @param id Unique identifier of the item
-     * @returns a calendarItemRequestBuilder
+     * @returns a CalendarItemRequestBuilder
      */
     public calendarsById(id: string) : CalendarItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -418,18 +418,18 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.calendarView.item collection
      * @param id Unique identifier of the item
-     * @returns a eventItemRequestBuilder
+     * @returns a EventItemRequestBuilder
      */
-    public calendarViewById(id: string) : id3b0f8d7750ef07c7c51c3665fd3af3a01ad07e883ee0764d77a38f1b1ba3fdf {
+    public calendarViewById(id: string) : i9889f7042ea0c7baeef72c5c5c39ef038b559e5469ac1eedcabb5fe36eb4fe1e {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new id3b0f8d7750ef07c7c51c3665fd3af3a01ad07e883ee0764d77a38f1b1ba3fdf(urlTplParams, this.requestAdapter);
+        return new i9889f7042ea0c7baeef72c5c5c39ef038b559e5469ac1eedcabb5fe36eb4fe1e(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.chats.item collection
      * @param id Unique identifier of the item
-     * @returns a chatItemRequestBuilder
+     * @returns a ChatItemRequestBuilder
      */
     public chatsById(id: string) : ChatItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -453,7 +453,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.contactFolders.item collection
      * @param id Unique identifier of the item
-     * @returns a contactFolderItemRequestBuilder
+     * @returns a ContactFolderItemRequestBuilder
      */
     public contactFoldersById(id: string) : ContactFolderItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -464,7 +464,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.contacts.item collection
      * @param id Unique identifier of the item
-     * @returns a contactItemRequestBuilder
+     * @returns a ContactItemRequestBuilder
      */
     public contactsById(id: string) : ContactItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -473,7 +473,7 @@ export class UserItemRequestBuilder {
         return new ContactItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Suppose you use Azure AD security groups to assign identities (also called *principals*) access to resources in your organization. Periodically, you need to attest that all members of the security group need their membership and by extension, their access to the resources assigned to the security group. This tutorial guides you to use the access review API to review access to a security group in your Azure AD tenant. You can use Graph Explorer or Postman to try out and test your access reviews API calls before you automate them into a script or an app. This test environment saves you time by helping you properly define and validate your queries without repeatedly recompiling your application.
+     * Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -491,19 +491,25 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.createdObjects.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public createdObjectsById(id: string) : if3aa3c8c1d4c5b40c695a98805baefd351b0d91d53e7bcb61f08f4534db827d9 {
+    public createdObjectsById(id: string) : i13a05fb66a37b5dfa3567df795d847fae976eccdda038bff5df5faeeb34b1c53 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new if3aa3c8c1d4c5b40c695a98805baefd351b0d91d53e7bcb61f08f4534db827d9(urlTplParams, this.requestAdapter);
+        return new i13a05fb66a37b5dfa3567df795d847fae976eccdda038bff5df5faeeb34b1c53(urlTplParams, this.requestAdapter);
     };
+    /**
+     * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These _default_ properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the user and specify the properties in a `$select` OData query option. Because the **user** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **user** instance.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
     public createGetRequestInformation(requestConfiguration?: UserItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -512,7 +518,7 @@ export class UserItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * This article provides examples of how to assign, update, or remove different types of custom security attributes for users and applications (service principals). Custom security attributes can be assigned or updated only through a `PATCH` operation in an [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) or [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&preserve-view=true) request.
+     * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -531,7 +537,7 @@ export class UserItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Suppose you use Azure AD security groups to assign identities (also called *principals*) access to resources in your organization. Periodically, you need to attest that all members of the security group need their membership and by extension, their access to the resources assigned to the security group. This tutorial guides you to use the access review API to review access to a security group in your Azure AD tenant. You can use Graph Explorer or Postman to try out and test your access reviews API calls before you automate them into a script or an app. This test environment saves you time by helping you properly define and validate your queries without repeatedly recompiling your application.
+     * Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -548,7 +554,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.deviceManagementTroubleshootingEvents.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceManagementTroubleshootingEventItemRequestBuilder
+     * @returns a DeviceManagementTroubleshootingEventItemRequestBuilder
      */
     public deviceManagementTroubleshootingEventsById(id: string) : DeviceManagementTroubleshootingEventItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -559,18 +565,18 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.directReports.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public directReportsById(id: string) : ie4f7a3adc11feb16fc44557a4d5a2e2ae50e64f4641f289eb2036f52124e4dc5 {
+    public directReportsById(id: string) : i4ab1790d36cffc75d13c6872e157e304fb0d57c8dc80ac0eca7835d8089803b5 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new ie4f7a3adc11feb16fc44557a4d5a2e2ae50e64f4641f289eb2036f52124e4dc5(urlTplParams, this.requestAdapter);
+        return new i4ab1790d36cffc75d13c6872e157e304fb0d57c8dc80ac0eca7835d8089803b5(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item collection
      * @param id Unique identifier of the item
-     * @returns a driveItemRequestBuilder
+     * @returns a DriveItemRequestBuilder
      */
     public drivesById(id: string) : DriveItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -581,18 +587,18 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.events.item collection
      * @param id Unique identifier of the item
-     * @returns a eventItemRequestBuilder
+     * @returns a EventItemRequestBuilder
      */
-    public eventsById(id: string) : idff49b5aa167ad3a60a502a055381eb631511ac272b610e97e2ee7f0205633e2 {
+    public eventsById(id: string) : i1875dbe2e0edb9aeff76c4d549b423834624b170a2f600d67c18f55eb6de64c6 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new idff49b5aa167ad3a60a502a055381eb631511ac272b610e97e2ee7f0205633e2(urlTplParams, this.requestAdapter);
+        return new i1875dbe2e0edb9aeff76c4d549b423834624b170a2f600d67c18f55eb6de64c6(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.extensions.item collection
      * @param id Unique identifier of the item
-     * @returns a extensionItemRequestBuilder
+     * @returns a ExtensionItemRequestBuilder
      */
     public extensionsById(id: string) : ExtensionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -603,7 +609,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.followedSites.item collection
      * @param id Unique identifier of the item
-     * @returns a siteItemRequestBuilder
+     * @returns a SiteItemRequestBuilder
      */
     public followedSitesById(id: string) : SiteItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -611,6 +617,12 @@ export class UserItemRequestBuilder {
         urlTplParams["site%2Did"] = id
         return new SiteItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
+    /**
+     * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These _default_ properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the user and specify the properties in a `$select` OData query option. Because the **user** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **user** instance.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of User
+     */
     public get(requestConfiguration?: UserItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<User | undefined> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
@@ -638,7 +650,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item collection
      * @param id Unique identifier of the item
-     * @returns a teamItemRequestBuilder
+     * @returns a TeamItemRequestBuilder
      */
     public joinedTeamsById(id: string) : TeamItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -649,7 +661,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.licenseDetails.item collection
      * @param id Unique identifier of the item
-     * @returns a licenseDetailsItemRequestBuilder
+     * @returns a LicenseDetailsItemRequestBuilder
      */
     public licenseDetailsById(id: string) : LicenseDetailsItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -660,7 +672,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.mailFolders.item collection
      * @param id Unique identifier of the item
-     * @returns a mailFolderItemRequestBuilder
+     * @returns a MailFolderItemRequestBuilder
      */
     public mailFoldersById(id: string) : MailFolderItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -671,7 +683,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.managedAppRegistrations.item collection
      * @param id Unique identifier of the item
-     * @returns a managedAppRegistrationItemRequestBuilder
+     * @returns a ManagedAppRegistrationItemRequestBuilder
      */
     public managedAppRegistrationsById(id: string) : ManagedAppRegistrationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -682,7 +694,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.managedDevices.item collection
      * @param id Unique identifier of the item
-     * @returns a managedDeviceItemRequestBuilder
+     * @returns a ManagedDeviceItemRequestBuilder
      */
     public managedDevicesById(id: string) : ManagedDeviceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -693,18 +705,18 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.memberOf.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public memberOfById(id: string) : i18f52bf6bc5c1c8b3304492b981916ccf9ebb43631988ec15e02d772cfb00573 {
+    public memberOfById(id: string) : i720843e239c1ed20e17df69dac6a352aeb0f129a6d3f3195c06030b3d94b6dfe {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i18f52bf6bc5c1c8b3304492b981916ccf9ebb43631988ec15e02d772cfb00573(urlTplParams, this.requestAdapter);
+        return new i720843e239c1ed20e17df69dac6a352aeb0f129a6d3f3195c06030b3d94b6dfe(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.messages.item collection
      * @param id Unique identifier of the item
-     * @returns a messageItemRequestBuilder
+     * @returns a MessageItemRequestBuilder
      */
     public messagesById(id: string) : MessageItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -715,7 +727,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.oauth2PermissionGrants.item collection
      * @param id Unique identifier of the item
-     * @returns a oAuth2PermissionGrantItemRequestBuilder
+     * @returns a OAuth2PermissionGrantItemRequestBuilder
      */
     public oauth2PermissionGrantsById(id: string) : OAuth2PermissionGrantItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -726,7 +738,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.onlineMeetings.item collection
      * @param id Unique identifier of the item
-     * @returns a onlineMeetingItemRequestBuilder
+     * @returns a OnlineMeetingItemRequestBuilder
      */
     public onlineMeetingsById(id: string) : OnlineMeetingItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -737,27 +749,27 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.ownedDevices.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public ownedDevicesById(id: string) : i2aef51b84a32beb2693af5b7b8a2f55a4fd109a7efad565592698239164d682a {
+    public ownedDevicesById(id: string) : i4c79e3611486b034b39c2f58da356887eb83a4f200ad4a1f4511507140055f9c {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i2aef51b84a32beb2693af5b7b8a2f55a4fd109a7efad565592698239164d682a(urlTplParams, this.requestAdapter);
+        return new i4c79e3611486b034b39c2f58da356887eb83a4f200ad4a1f4511507140055f9c(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.ownedObjects.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public ownedObjectsById(id: string) : i058626e962792aedcea1eb90a3e6876666fcf8731682e43a2bde0e3625fa31da {
+    public ownedObjectsById(id: string) : i69173b5067053acdcf55feed84283a5de87d54596557a815cd24597de28fcfe2 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i058626e962792aedcea1eb90a3e6876666fcf8731682e43a2bde0e3625fa31da(urlTplParams, this.requestAdapter);
+        return new i69173b5067053acdcf55feed84283a5de87d54596557a815cd24597de28fcfe2(urlTplParams, this.requestAdapter);
     };
     /**
-     * This article provides examples of how to assign, update, or remove different types of custom security attributes for users and applications (service principals). Custom security attributes can be assigned or updated only through a `PATCH` operation in an [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) or [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&preserve-view=true) request.
+     * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -776,7 +788,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.people.item collection
      * @param id Unique identifier of the item
-     * @returns a personItemRequestBuilder
+     * @returns a PersonItemRequestBuilder
      */
     public peopleById(id: string) : PersonItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -787,7 +799,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.photos.item collection
      * @param id Unique identifier of the item
-     * @returns a profilePhotoItemRequestBuilder
+     * @returns a ProfilePhotoItemRequestBuilder
      */
     public photosById(id: string) : ProfilePhotoItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -798,13 +810,13 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.registeredDevices.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public registeredDevicesById(id: string) : i7d79802aaceac043beca51df3db3db8ed8431b0c91cd8325b5b0abf2ead40bcb {
+    public registeredDevicesById(id: string) : i7689ff8bd62424f33e7f671948c9da2ff4fcdb4f9c3be5b02fba87d981ac0696 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i7d79802aaceac043beca51df3db3db8ed8431b0c91cd8325b5b0abf2ead40bcb(urlTplParams, this.requestAdapter);
+        return new i7689ff8bd62424f33e7f671948c9da2ff4fcdb4f9c3be5b02fba87d981ac0696(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to call the reminderView method.
@@ -820,7 +832,7 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.scopedRoleMemberOf.item collection
      * @param id Unique identifier of the item
-     * @returns a scopedRoleMembershipItemRequestBuilder
+     * @returns a ScopedRoleMembershipItemRequestBuilder
      */
     public scopedRoleMemberOfById(id: string) : ScopedRoleMembershipItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -831,12 +843,12 @@ export class UserItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.transitiveMemberOf.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public transitiveMemberOfById(id: string) : ie63433783ab729cdddec741a9dffe4aaad5418284b12e1dc6e2c6832365f7e14 {
+    public transitiveMemberOfById(id: string) : i01e9baa1e8bb574e0d26abbb063c7ffdbf71a41941b07ff3da88eb8ef717aec3 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new ie63433783ab729cdddec741a9dffe4aaad5418284b12e1dc6e2c6832365f7e14(urlTplParams, this.requestAdapter);
+        return new i01e9baa1e8bb574e0d26abbb063c7ffdbf71a41941b07ff3da88eb8ef717aec3(urlTplParams, this.requestAdapter);
     };
 }

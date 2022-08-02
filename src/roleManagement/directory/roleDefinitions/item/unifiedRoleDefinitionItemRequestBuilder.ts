@@ -3,7 +3,7 @@ import {createUnifiedRoleDefinitionFromDiscriminatorValue} from '../../../../mod
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {InheritsPermissionsFromRequestBuilder} from './inheritsPermissionsFrom/inheritsPermissionsFromRequestBuilder';
-import {UnifiedRoleDefinitionItemRequestBuilder as iccde082446e8d88061edf6e910fecd0f052edd9058c0cf9b23f8efbc15c1c323} from './inheritsPermissionsFrom/item/unifiedRoleDefinitionItemRequestBuilder';
+import {UnifiedRoleDefinitionItemRequestBuilder as i644ca0d71f24b393735bbe6a2f1ed200b62356298a8e2146df6af63faec47ca7} from './inheritsPermissionsFrom/item/unifiedRoleDefinitionItemRequestBuilder';
 import {UnifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration} from './unifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration';
@@ -60,6 +60,7 @@ export class UnifiedRoleDefinitionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -120,13 +121,13 @@ export class UnifiedRoleDefinitionItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.directory.roleDefinitions.item.inheritsPermissionsFrom.item collection
      * @param id Unique identifier of the item
-     * @returns a unifiedRoleDefinitionItemRequestBuilder
+     * @returns a UnifiedRoleDefinitionItemRequestBuilder
      */
-    public inheritsPermissionsFromById(id: string) : iccde082446e8d88061edf6e910fecd0f052edd9058c0cf9b23f8efbc15c1c323 {
+    public inheritsPermissionsFromById(id: string) : i644ca0d71f24b393735bbe6a2f1ed200b62356298a8e2146df6af63faec47ca7 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleDefinition%2Did1"] = id
-        return new iccde082446e8d88061edf6e910fecd0f052edd9058c0cf9b23f8efbc15c1c323(urlTplParams, this.requestAdapter);
+        return new i644ca0d71f24b393735bbe6a2f1ed200b62356298a8e2146df6af63faec47ca7(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property roleDefinitions in roleManagement

@@ -5,7 +5,7 @@ import {createSessionFromDiscriminatorValue} from './createSessionFromDiscrimina
 import {Session} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity. */
 export class CallRecord extends Entity implements Parsable {
     /** UTC time when the last user left the call. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _endDateTime?: Date | undefined;
@@ -23,7 +23,7 @@ export class CallRecord extends Entity implements Parsable {
     private _sessions?: Session[] | undefined;
     /** UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _startDateTime?: Date | undefined;
-    /** Indicates the type of the call. Possible values are: unknown, groupCall, peerToPeer, unknownFutureValue. */
+    /** The type property */
     private _type?: CallType | undefined;
     /** Monotonically increasing version of the call record. Higher version call records with the same ID includes additional data compared to the lower version. */
     private _version?: number | undefined;
@@ -32,6 +32,7 @@ export class CallRecord extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.callRecords.callRecord";
     };
     /**
      * Gets the endDateTime property value. UTC time when the last user left the call. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -182,14 +183,14 @@ export class CallRecord extends Entity implements Parsable {
         this._startDateTime = value;
     };
     /**
-     * Gets the type property value. Indicates the type of the call. Possible values are: unknown, groupCall, peerToPeer, unknownFutureValue.
+     * Gets the type property value. The type property
      * @returns a callType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. Indicates the type of the call. Possible values are: unknown, groupCall, peerToPeer, unknownFutureValue.
+     * Sets the type property value. The type property
      * @param value Value to set for the type property.
      */
     public set type(value: CallType | undefined) {

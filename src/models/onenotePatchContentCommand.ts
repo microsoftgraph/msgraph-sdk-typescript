@@ -3,25 +3,27 @@ import {OnenotePatchInsertPosition} from './onenotePatchInsertPosition';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenotePatchContentCommand implements AdditionalDataHolder, Parsable {
-    /** The action to perform on the target element. Possible values are: replace, append, delete, insert, or prepend. */
+    /** The action property */
     private _action?: OnenotePatchActionType | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** A string of well-formed HTML to add to the page, and any image or file binary data. If the content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' part. */
     private _content?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The location to add the supplied content, relative to the target element. Possible values are: after (default) or before. */
     private _position?: OnenotePatchInsertPosition | undefined;
     /** The element to update. Must be the #<data-id> or the generated {id} of the element, or the body or title keyword. */
     private _target?: string | undefined;
     /**
-     * Gets the action property value. The action to perform on the target element. Possible values are: replace, append, delete, insert, or prepend.
+     * Gets the action property value. The action property
      * @returns a onenotePatchActionType
      */
     public get action() {
         return this._action;
     };
     /**
-     * Sets the action property value. The action to perform on the target element. Possible values are: replace, append, delete, insert, or prepend.
+     * Sets the action property value. The action property
      * @param value Value to set for the action property.
      */
     public set action(value: OnenotePatchActionType | undefined) {
@@ -46,6 +48,7 @@ export class OnenotePatchContentCommand implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.onenotePatchContentCommand";
     };
     /**
      * Gets the content property value. A string of well-formed HTML to add to the page, and any image or file binary data. If the content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' part.
@@ -69,9 +72,24 @@ export class OnenotePatchContentCommand implements AdditionalDataHolder, Parsabl
         return {
             "action": n => { this.action = n.getEnumValue<OnenotePatchActionType>(OnenotePatchActionType); },
             "content": n => { this.content = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "position": n => { this.position = n.getEnumValue<OnenotePatchInsertPosition>(OnenotePatchInsertPosition); },
             "target": n => { this.target = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the position property value. The location to add the supplied content, relative to the target element. Possible values are: after (default) or before.
@@ -95,6 +113,7 @@ export class OnenotePatchContentCommand implements AdditionalDataHolder, Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeEnumValue<OnenotePatchActionType>("action", this.action);
         writer.writeStringValue("content", this.content);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<OnenotePatchInsertPosition>("position", this.position);
         writer.writeStringValue("target", this.target);
         writer.writeAdditionalData(this.additionalData);

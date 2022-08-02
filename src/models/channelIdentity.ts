@@ -5,6 +5,8 @@ export class ChannelIdentity implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The identity of the channel in which the message was posted. */
     private _channelId?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The identity of the team in which the message was posted. */
     private _teamId?: string | undefined;
     /**
@@ -40,6 +42,7 @@ export class ChannelIdentity implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.channelIdentity";
     };
     /**
      * The deserialization information for the current model
@@ -48,8 +51,23 @@ export class ChannelIdentity implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "channelId": n => { this.channelId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "teamId": n => { this.teamId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -58,6 +76,7 @@ export class ChannelIdentity implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("channelId", this.channelId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("teamId", this.teamId);
         writer.writeAdditionalData(this.additionalData);
     };

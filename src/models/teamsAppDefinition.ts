@@ -43,6 +43,7 @@ export class TeamsAppDefinition extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.teamsAppDefinition";
     };
     /**
      * Gets the createdBy property value. The createdBy property

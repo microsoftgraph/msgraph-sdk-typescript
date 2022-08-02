@@ -2,7 +2,7 @@ import {createUserFlowLanguagePageFromDiscriminatorValue} from './createUserFlow
 import {Entity, UserFlowLanguagePage} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
+/** Provides operations to manage the admin singleton. */
 export class UserFlowLanguageConfiguration extends Entity implements Parsable {
     /** Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification. */
     private _defaultPages?: UserFlowLanguagePage[] | undefined;
@@ -17,6 +17,7 @@ export class UserFlowLanguageConfiguration extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.userFlowLanguageConfiguration";
     };
     /**
      * Gets the defaultPages property value. Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification.

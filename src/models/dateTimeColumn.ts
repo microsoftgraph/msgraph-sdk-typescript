@@ -7,6 +7,8 @@ export class DateTimeColumn implements AdditionalDataHolder, Parsable {
     private _displayAs?: string | undefined;
     /** Indicates whether the value should be presented as a date only or a date and time. Must be one of dateOnly or dateTime */
     private _format?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -26,6 +28,7 @@ export class DateTimeColumn implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.dateTimeColumn";
     };
     /**
      * Gets the displayAs property value. How the value should be presented in the UX. Must be one of default, friendly, or standard. See below for more details. If unspecified, treated as default.
@@ -63,7 +66,22 @@ export class DateTimeColumn implements AdditionalDataHolder, Parsable {
         return {
             "displayAs": n => { this.displayAs = n.getStringValue(); },
             "format": n => { this.format = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -73,6 +91,7 @@ export class DateTimeColumn implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("displayAs", this.displayAs);
         writer.writeStringValue("format", this.format);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

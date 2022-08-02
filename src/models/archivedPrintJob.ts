@@ -20,9 +20,11 @@ export class ArchivedPrintJob implements AdditionalDataHolder, Parsable {
     private _createdDateTime?: Date | undefined;
     /** The archived print job's GUID. Read-only. */
     private _id?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The printer ID that the job was queued for. Read-only. */
     private _printerId?: string | undefined;
-    /** The print job's final processing state. Read-only. */
+    /** The processingState property */
     private _processingState?: PrintJobProcessingState | undefined;
     /**
      * Gets the acquiredByPrinter property value. True if the job was acquired by a printer; false otherwise. Read-only.
@@ -85,6 +87,7 @@ export class ArchivedPrintJob implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.archivedPrintJob";
     };
     /**
      * Gets the copiesPrinted property value. The number of copies that were printed. Read-only.
@@ -141,6 +144,7 @@ export class ArchivedPrintJob implements AdditionalDataHolder, Parsable {
             "createdBy": n => { this.createdBy = n.getObjectValue<UserIdentity>(createUserIdentityFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "id": n => { this.id = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "printerId": n => { this.printerId = n.getStringValue(); },
             "processingState": n => { this.processingState = n.getEnumValue<PrintJobProcessingState>(PrintJobProcessingState); },
         };
@@ -160,6 +164,20 @@ export class ArchivedPrintJob implements AdditionalDataHolder, Parsable {
         this._id = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the printerId property value. The printer ID that the job was queued for. Read-only.
      * @returns a string
      */
@@ -174,14 +192,14 @@ export class ArchivedPrintJob implements AdditionalDataHolder, Parsable {
         this._printerId = value;
     };
     /**
-     * Gets the processingState property value. The print job's final processing state. Read-only.
+     * Gets the processingState property value. The processingState property
      * @returns a printJobProcessingState
      */
     public get processingState() {
         return this._processingState;
     };
     /**
-     * Sets the processingState property value. The print job's final processing state. Read-only.
+     * Sets the processingState property value. The processingState property
      * @param value Value to set for the processingState property.
      */
     public set processingState(value: PrintJobProcessingState | undefined) {
@@ -200,6 +218,7 @@ export class ArchivedPrintJob implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue<UserIdentity>("createdBy", this.createdBy);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeStringValue("id", this.id);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("printerId", this.printerId);
         writer.writeEnumValue<PrintJobProcessingState>("processingState", this.processingState);
         writer.writeAdditionalData(this.additionalData);

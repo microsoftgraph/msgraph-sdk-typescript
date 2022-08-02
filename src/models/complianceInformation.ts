@@ -9,6 +9,8 @@ export class ComplianceInformation implements AdditionalDataHolder, Parsable {
     private _certificationControls?: CertificationControl[] | undefined;
     /** Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST 800-171) */
     private _certificationName?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -56,6 +58,7 @@ export class ComplianceInformation implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.complianceInformation";
     };
     /**
      * The deserialization information for the current model
@@ -65,7 +68,22 @@ export class ComplianceInformation implements AdditionalDataHolder, Parsable {
         return {
             "certificationControls": n => { this.certificationControls = n.getCollectionOfObjectValues<CertificationControl>(createCertificationControlFromDiscriminatorValue); },
             "certificationName": n => { this.certificationName = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -75,6 +93,7 @@ export class ComplianceInformation implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfObjectValues<CertificationControl>("certificationControls", this.certificationControls);
         writer.writeStringValue("certificationName", this.certificationName);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -1,4 +1,4 @@
-import {UnifiedRoleScheduleBase} from './index';
+import {UnifiedRoleAssignmentSchedule, UnifiedRoleEligibilitySchedule, UnifiedRoleScheduleBase} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createUnifiedRoleScheduleBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnifiedRoleScheduleBase {
@@ -8,8 +8,10 @@ export function createUnifiedRoleScheduleBaseFromDiscriminatorValue(parseNode: P
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.unifiedRoleScheduleBase":
-                    return new UnifiedRoleScheduleBase();
+                case "#microsoft.graph.unifiedRoleAssignmentSchedule":
+                    return new UnifiedRoleAssignmentSchedule();
+                case "#microsoft.graph.unifiedRoleEligibilitySchedule":
+                    return new UnifiedRoleEligibilitySchedule();
             }
         }
     }

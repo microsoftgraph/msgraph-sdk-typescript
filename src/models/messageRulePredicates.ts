@@ -49,6 +49,8 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
     private _messageActionFlag?: MessageActionFlag | undefined;
     /** Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply. */
     private _notSentToMe?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Represents the strings that appear in either the toRecipients or ccRecipients properties of an incoming message in order for the condition or exception to apply. */
     private _recipientContains?: string[] | undefined;
     /** Represents the strings that appear in the from property of an incoming message in order for the condition or exception to apply. */
@@ -130,6 +132,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.messageRulePredicates";
     };
     /**
      * Gets the fromAddresses property value. Represents the specific sender email addresses of an incoming message in order for the condition or exception to apply.
@@ -171,6 +174,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
             "isVoicemail": n => { this.isVoicemail = n.getBooleanValue(); },
             "messageActionFlag": n => { this.messageActionFlag = n.getEnumValue<MessageActionFlag>(MessageActionFlag); },
             "notSentToMe": n => { this.notSentToMe = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "recipientContains": n => { this.recipientContains = n.getCollectionOfPrimitiveValues<string>(); },
             "senderContains": n => { this.senderContains = n.getCollectionOfPrimitiveValues<string>(); },
             "sensitivity": n => { this.sensitivity = n.getEnumValue<Sensitivity>(Sensitivity); },
@@ -408,6 +412,20 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
         this._notSentToMe = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the recipientContains property value. Represents the strings that appear in either the toRecipients or ccRecipients properties of an incoming message in order for the condition or exception to apply.
      * @returns a string
      */
@@ -545,6 +563,7 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("isVoicemail", this.isVoicemail);
         writer.writeEnumValue<MessageActionFlag>("messageActionFlag", this.messageActionFlag);
         writer.writeBooleanValue("notSentToMe", this.notSentToMe);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfPrimitiveValues<string>("recipientContains", this.recipientContains);
         writer.writeCollectionOfPrimitiveValues<string>("senderContains", this.senderContains);
         writer.writeEnumValue<Sensitivity>("sensitivity", this.sensitivity);

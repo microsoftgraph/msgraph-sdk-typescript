@@ -67,6 +67,7 @@ export class SubjectRightsRequestItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -141,7 +142,7 @@ export class SubjectRightsRequestItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.privacy.subjectRightsRequests.item.notes.item collection
      * @param id Unique identifier of the item
-     * @returns a authoredNoteItemRequestBuilder
+     * @returns a AuthoredNoteItemRequestBuilder
      */
     public notesById(id: string) : AuthoredNoteItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

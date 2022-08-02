@@ -9,6 +9,8 @@ export class SettingTemplateValue implements AdditionalDataHolder, Parsable {
     private _description?: string | undefined;
     /** Name of the setting. Read-only. */
     private _name?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Type of the setting. Read-only. */
     private _type?: string | undefined;
     /**
@@ -30,6 +32,7 @@ export class SettingTemplateValue implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.settingTemplateValue";
     };
     /**
      * Gets the defaultValue property value. Default value for the setting. Read-only.
@@ -68,6 +71,7 @@ export class SettingTemplateValue implements AdditionalDataHolder, Parsable {
             "defaultValue": n => { this.defaultValue = n.getStringValue(); },
             "description": n => { this.description = n.getStringValue(); },
             "name": n => { this.name = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "type": n => { this.type = n.getStringValue(); },
         };
     };
@@ -86,6 +90,20 @@ export class SettingTemplateValue implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -94,6 +112,7 @@ export class SettingTemplateValue implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("defaultValue", this.defaultValue);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("name", this.name);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
