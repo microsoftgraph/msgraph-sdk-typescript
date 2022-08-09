@@ -31,6 +31,8 @@ export class DirectRoutingLogRow implements AdditionalDataHolder, Parsable {
     private _mediaBypassEnabled?: boolean | undefined;
     /** The datacenter used for media path in non-bypass call. */
     private _mediaPathLocation?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The datacenter used for signaling for both bypass and non-bypass calls. */
     private _signalingLocation?: string | undefined;
     /** Call start time.For failed and unanswered calls, this can be equal to invite or failure time. */
@@ -120,6 +122,7 @@ export class DirectRoutingLogRow implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.callRecords.directRoutingLogRow";
     };
     /**
      * Gets the correlationId property value. Identifier for the call that you can use when calling Microsoft Support. GUID.
@@ -225,6 +228,7 @@ export class DirectRoutingLogRow implements AdditionalDataHolder, Parsable {
             "inviteDateTime": n => { this.inviteDateTime = n.getDateValue(); },
             "mediaBypassEnabled": n => { this.mediaBypassEnabled = n.getBooleanValue(); },
             "mediaPathLocation": n => { this.mediaPathLocation = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "signalingLocation": n => { this.signalingLocation = n.getStringValue(); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
             "successfulCall": n => { this.successfulCall = n.getBooleanValue(); },
@@ -291,6 +295,20 @@ export class DirectRoutingLogRow implements AdditionalDataHolder, Parsable {
         this._mediaPathLocation = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -310,6 +328,7 @@ export class DirectRoutingLogRow implements AdditionalDataHolder, Parsable {
         writer.writeDateValue("inviteDateTime", this.inviteDateTime);
         writer.writeBooleanValue("mediaBypassEnabled", this.mediaBypassEnabled);
         writer.writeStringValue("mediaPathLocation", this.mediaPathLocation);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("signalingLocation", this.signalingLocation);
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeBooleanValue("successfulCall", this.successfulCall);

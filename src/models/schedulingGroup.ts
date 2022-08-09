@@ -1,7 +1,6 @@
 import {ChangeTrackedEntity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class SchedulingGroup extends ChangeTrackedEntity implements Parsable {
     /** The display name for the schedulingGroup. Required. */
     private _displayName?: string | undefined;
@@ -10,10 +9,11 @@ export class SchedulingGroup extends ChangeTrackedEntity implements Parsable {
     /** The list of user IDs that are a member of the schedulingGroup. Required. */
     private _userIds?: string[] | undefined;
     /**
-     * Instantiates a new schedulingGroup and sets the default values.
+     * Instantiates a new SchedulingGroup and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.schedulingGroup";
     };
     /**
      * Gets the displayName property value. The display name for the schedulingGroup. Required.

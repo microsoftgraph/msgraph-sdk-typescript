@@ -19,6 +19,7 @@ export class DetectedApp extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.detectedApp";
     };
     /**
      * Gets the deviceCount property value. The number of devices that have installed this application

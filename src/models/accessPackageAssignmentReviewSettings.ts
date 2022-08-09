@@ -19,6 +19,8 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
     private _isReviewerJustificationRequired?: boolean | undefined;
     /** Specifies whether the principals can review their own assignments. */
     private _isSelfReview?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** This collection specifies the users or group of users who will review the access package assignments. */
     private _primaryReviewers?: SubjectSet[] | undefined;
     /** When the first review should start and how often it should recur. */
@@ -42,6 +44,7 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.accessPackageAssignmentReviewSettings";
     };
     /**
      * Gets the expirationBehavior property value. The default decision to apply if the access is not reviewed. The possible values are: keepAccess, removeAccess, acceptAccessRecommendation, unknownFutureValue.
@@ -83,6 +86,7 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
             "isRecommendationEnabled": n => { this.isRecommendationEnabled = n.getBooleanValue(); },
             "isReviewerJustificationRequired": n => { this.isReviewerJustificationRequired = n.getBooleanValue(); },
             "isSelfReview": n => { this.isSelfReview = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "primaryReviewers": n => { this.primaryReviewers = n.getCollectionOfObjectValues<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
             "schedule": n => { this.schedule = n.getObjectValue<EntitlementManagementSchedule>(createEntitlementManagementScheduleFromDiscriminatorValue); },
         };
@@ -144,6 +148,20 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
         this._isSelfReview = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the primaryReviewers property value. This collection specifies the users or group of users who will review the access package assignments.
      * @returns a subjectSet
      */
@@ -183,6 +201,7 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
         writer.writeBooleanValue("isRecommendationEnabled", this.isRecommendationEnabled);
         writer.writeBooleanValue("isReviewerJustificationRequired", this.isReviewerJustificationRequired);
         writer.writeBooleanValue("isSelfReview", this.isSelfReview);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<SubjectSet>("primaryReviewers", this.primaryReviewers);
         writer.writeObjectValue<EntitlementManagementSchedule>("schedule", this.schedule);
         writer.writeAdditionalData(this.additionalData);

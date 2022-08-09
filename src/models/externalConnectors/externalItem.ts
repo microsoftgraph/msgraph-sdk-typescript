@@ -9,7 +9,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class ExternalItem extends Entity implements Parsable {
     /** An array of access control entries. Each entry specifies the access granted to a user or group. Required. */
     private _acl?: Acl[] | undefined;
-    /** A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional. */
+    /** A plain-text representation of the contents of the item. The text in this property is full-text indexed. Optional. */
     private _content?: ExternalItemContent | undefined;
     /** A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required. */
     private _properties?: Properties | undefined;
@@ -32,16 +32,17 @@ export class ExternalItem extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.externalConnectors.externalItem";
     };
     /**
-     * Gets the content property value. A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.
+     * Gets the content property value. A plain-text representation of the contents of the item. The text in this property is full-text indexed. Optional.
      * @returns a externalItemContent
      */
     public get content() {
         return this._content;
     };
     /**
-     * Sets the content property value. A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.
+     * Sets the content property value. A plain-text representation of the contents of the item. The text in this property is full-text indexed. Optional.
      * @param value Value to set for the content property.
      */
     public set content(value: ExternalItemContent | undefined) {

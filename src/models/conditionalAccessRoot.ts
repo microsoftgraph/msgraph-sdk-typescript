@@ -3,7 +3,6 @@ import {createNamedLocationFromDiscriminatorValue} from './createNamedLocationFr
 import {ConditionalAccessPolicy, Entity, NamedLocation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class ConditionalAccessRoot extends Entity implements Parsable {
     /** Read-only. Nullable. Returns a collection of the specified named locations. */
     private _namedLocations?: NamedLocation[] | undefined;
@@ -14,6 +13,7 @@ export class ConditionalAccessRoot extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.conditionalAccessRoot";
     };
     /**
      * The deserialization information for the current model

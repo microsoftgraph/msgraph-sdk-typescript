@@ -8,6 +8,8 @@ export class Phone implements AdditionalDataHolder, Parsable {
     private _language?: string | undefined;
     /** The phone number. */
     private _number?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The region property */
     private _region?: string | undefined;
     /** The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio. */
@@ -31,6 +33,7 @@ export class Phone implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.phone";
     };
     /**
      * The deserialization information for the current model
@@ -40,6 +43,7 @@ export class Phone implements AdditionalDataHolder, Parsable {
         return {
             "language": n => { this.language = n.getStringValue(); },
             "number": n => { this.number = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "region": n => { this.region = n.getStringValue(); },
             "type": n => { this.type = n.getEnumValue<PhoneType>(PhoneType); },
         };
@@ -73,6 +77,20 @@ export class Phone implements AdditionalDataHolder, Parsable {
         this._number = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the region property value. The region property
      * @returns a string
      */
@@ -94,6 +112,7 @@ export class Phone implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("language", this.language);
         writer.writeStringValue("number", this.number);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("region", this.region);
         writer.writeEnumValue<PhoneType>("type", this.type);
         writer.writeAdditionalData(this.additionalData);

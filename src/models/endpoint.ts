@@ -32,6 +32,7 @@ export class Endpoint extends DirectoryObject implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.endpoint";
     };
     /**
      * The deserialization information for the current model

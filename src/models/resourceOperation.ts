@@ -28,6 +28,7 @@ export class ResourceOperation extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.resourceOperation";
     };
     /**
      * Gets the description property value. Description of the resource operation. The description is used in mouse-over text for the operation when shown in the Azure Portal.

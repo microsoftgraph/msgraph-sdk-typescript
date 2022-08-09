@@ -3,14 +3,16 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ConditionalAccessApplications implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The list of application IDs explicitly excluded from the policy. */
+    /** Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365 */
     private _excludeApplications?: string[] | undefined;
-    /** The list of application IDs the policy applies to, unless explicitly excluded (in excludeApplications). Can also be set to All. */
+    /** Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365 */
     private _includeApplications?: string[] | undefined;
     /** Authentication context class references include. Supported values are c1 through c25. */
     private _includeAuthenticationContextClassReferences?: string[] | undefined;
     /** User actions to include. Supported values are urn:user:registersecurityinfo and urn:user:registerdevice */
     private _includeUserActions?: string[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -30,16 +32,17 @@ export class ConditionalAccessApplications implements AdditionalDataHolder, Pars
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.conditionalAccessApplications";
     };
     /**
-     * Gets the excludeApplications property value. The list of application IDs explicitly excluded from the policy.
+     * Gets the excludeApplications property value. Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
      * @returns a string
      */
     public get excludeApplications() {
         return this._excludeApplications;
     };
     /**
-     * Sets the excludeApplications property value. The list of application IDs explicitly excluded from the policy.
+     * Sets the excludeApplications property value. Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
      * @param value Value to set for the excludeApplications property.
      */
     public set excludeApplications(value: string[] | undefined) {
@@ -55,17 +58,18 @@ export class ConditionalAccessApplications implements AdditionalDataHolder, Pars
             "includeApplications": n => { this.includeApplications = n.getCollectionOfPrimitiveValues<string>(); },
             "includeAuthenticationContextClassReferences": n => { this.includeAuthenticationContextClassReferences = n.getCollectionOfPrimitiveValues<string>(); },
             "includeUserActions": n => { this.includeUserActions = n.getCollectionOfPrimitiveValues<string>(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
-     * Gets the includeApplications property value. The list of application IDs the policy applies to, unless explicitly excluded (in excludeApplications). Can also be set to All.
+     * Gets the includeApplications property value. Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
      * @returns a string
      */
     public get includeApplications() {
         return this._includeApplications;
     };
     /**
-     * Sets the includeApplications property value. The list of application IDs the policy applies to, unless explicitly excluded (in excludeApplications). Can also be set to All.
+     * Sets the includeApplications property value. Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
      * @param value Value to set for the includeApplications property.
      */
     public set includeApplications(value: string[] | undefined) {
@@ -100,6 +104,20 @@ export class ConditionalAccessApplications implements AdditionalDataHolder, Pars
         this._includeUserActions = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -109,6 +127,7 @@ export class ConditionalAccessApplications implements AdditionalDataHolder, Pars
         writer.writeCollectionOfPrimitiveValues<string>("includeApplications", this.includeApplications);
         writer.writeCollectionOfPrimitiveValues<string>("includeAuthenticationContextClassReferences", this.includeAuthenticationContextClassReferences);
         writer.writeCollectionOfPrimitiveValues<string>("includeUserActions", this.includeUserActions);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

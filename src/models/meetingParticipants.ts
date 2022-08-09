@@ -7,6 +7,8 @@ export class MeetingParticipants implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Information of the meeting attendees. */
     private _attendees?: MeetingParticipantInfo[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Information of the meeting organizer. */
     private _organizer?: MeetingParticipantInfo | undefined;
     /**
@@ -42,6 +44,7 @@ export class MeetingParticipants implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.meetingParticipants";
     };
     /**
      * The deserialization information for the current model
@@ -50,8 +53,23 @@ export class MeetingParticipants implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "attendees": n => { this.attendees = n.getCollectionOfObjectValues<MeetingParticipantInfo>(createMeetingParticipantInfoFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "organizer": n => { this.organizer = n.getObjectValue<MeetingParticipantInfo>(createMeetingParticipantInfoFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the organizer property value. Information of the meeting organizer.
@@ -74,6 +92,7 @@ export class MeetingParticipants implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfObjectValues<MeetingParticipantInfo>("attendees", this.attendees);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<MeetingParticipantInfo>("organizer", this.organizer);
         writer.writeAdditionalData(this.additionalData);
     };

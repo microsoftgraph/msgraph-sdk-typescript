@@ -3,7 +3,6 @@ import {createScopedRoleMembershipFromDiscriminatorValue} from './createScopedRo
 import {DirectoryObject, ScopedRoleMembership} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of directoryRole entities. */
 export class DirectoryRole extends DirectoryObject implements Parsable {
     /** The description for the directory role. Read-only. Supports $filter (eq), $search, $select. */
     private _description?: string | undefined;
@@ -16,10 +15,11 @@ export class DirectoryRole extends DirectoryObject implements Parsable {
     /** Members of this directory role that are scoped to administrative units. Read-only. Nullable. */
     private _scopedMembers?: ScopedRoleMembership[] | undefined;
     /**
-     * Instantiates a new directoryRole and sets the default values.
+     * Instantiates a new DirectoryRole and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.directoryRole";
     };
     /**
      * Gets the description property value. The description for the directory role. Read-only. Supports $filter (eq), $search, $select.

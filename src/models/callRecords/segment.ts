@@ -5,7 +5,7 @@ import {createMediaFromDiscriminatorValue} from './createMediaFromDiscriminatorV
 import {Endpoint, FailureInfo, Media} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the admin singleton. */
 export class Segment extends Entity implements Parsable {
     /** Endpoint that answered this segment. */
     private _callee?: Endpoint | undefined;
@@ -52,6 +52,7 @@ export class Segment extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.callRecords.segment";
     };
     /**
      * Gets the endDateTime property value. UTC time when the segment ended. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z

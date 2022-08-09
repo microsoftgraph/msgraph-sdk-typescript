@@ -7,8 +7,10 @@ export class SearchHit implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The name of the content source which the externalItem is part of . */
     private _contentSource?: string | undefined;
-    /** The internal identifier for the item. */
+    /** The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format. */
     private _hitId?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The rank or the order of the result. */
     private _rank?: number | undefined;
     /** The resource property */
@@ -36,6 +38,7 @@ export class SearchHit implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.searchHit";
     };
     /**
      * Gets the contentSource property value. The name of the content source which the externalItem is part of .
@@ -59,6 +62,7 @@ export class SearchHit implements AdditionalDataHolder, Parsable {
         return {
             "contentSource": n => { this.contentSource = n.getStringValue(); },
             "hitId": n => { this.hitId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "rank": n => { this.rank = n.getNumberValue(); },
             "resource": n => { this.resource = n.getObjectValue<Entity>(createEntityFromDiscriminatorValue); },
             "resultTemplateId": n => { this.resultTemplateId = n.getStringValue(); },
@@ -66,18 +70,32 @@ export class SearchHit implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the hitId property value. The internal identifier for the item.
+     * Gets the hitId property value. The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format.
      * @returns a string
      */
     public get hitId() {
         return this._hitId;
     };
     /**
-     * Sets the hitId property value. The internal identifier for the item.
+     * Sets the hitId property value. The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format.
      * @param value Value to set for the hitId property.
      */
     public set hitId(value: string | undefined) {
         this._hitId = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the rank property value. The rank or the order of the result.
@@ -129,6 +147,7 @@ export class SearchHit implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("contentSource", this.contentSource);
         writer.writeStringValue("hitId", this.hitId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("rank", this.rank);
         writer.writeObjectValue<Entity>("resource", this.resource);
         writer.writeStringValue("resultTemplateId", this.resultTemplateId);

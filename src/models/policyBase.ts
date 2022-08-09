@@ -1,7 +1,7 @@
 import {DirectoryObject} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to call the instantiate method. */
 export class PolicyBase extends DirectoryObject implements Parsable {
     /** Description for this policy. Required. */
     private _description?: string | undefined;
@@ -12,6 +12,7 @@ export class PolicyBase extends DirectoryObject implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.policyBase";
     };
     /**
      * Gets the description property value. Description for this policy. Required.

@@ -3,7 +3,6 @@ import {ScheduleChangeRequestActor} from './scheduleChangeRequestActor';
 import {ScheduleChangeState} from './scheduleChangeState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsable {
     /** The assignedTo property */
     private _assignedTo?: ScheduleChangeRequestActor | undefined;
@@ -36,10 +35,11 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
         this._assignedTo = value;
     };
     /**
-     * Instantiates a new scheduleChangeRequest and sets the default values.
+     * Instantiates a new ScheduleChangeRequest and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.scheduleChangeRequest";
     };
     /**
      * The deserialization information for the current model

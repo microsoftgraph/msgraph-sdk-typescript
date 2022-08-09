@@ -9,6 +9,8 @@ export class PersonOrGroupColumn implements AdditionalDataHolder, Parsable {
     private _chooseFromType?: string | undefined;
     /** How to display the information about the person or group chosen. See below. */
     private _displayAs?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -56,6 +58,7 @@ export class PersonOrGroupColumn implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.personOrGroupColumn";
     };
     /**
      * Gets the displayAs property value. How to display the information about the person or group chosen. See below.
@@ -80,7 +83,22 @@ export class PersonOrGroupColumn implements AdditionalDataHolder, Parsable {
             "allowMultipleSelection": n => { this.allowMultipleSelection = n.getBooleanValue(); },
             "chooseFromType": n => { this.chooseFromType = n.getStringValue(); },
             "displayAs": n => { this.displayAs = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -91,6 +109,7 @@ export class PersonOrGroupColumn implements AdditionalDataHolder, Parsable {
         writer.writeBooleanValue("allowMultipleSelection", this.allowMultipleSelection);
         writer.writeStringValue("chooseFromType", this.chooseFromType);
         writer.writeStringValue("displayAs", this.displayAs);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

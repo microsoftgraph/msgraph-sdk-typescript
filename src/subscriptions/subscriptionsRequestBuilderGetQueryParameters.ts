@@ -1,5 +1,5 @@
 
-/** Retrieve a list of webhook subscriptions.  The content of the response depends on the context in which the app is calling; for details, see the scenarios in the [Permissions](#permissions) section. */
+/** Retrieve a list of webhook subscriptions.  The content of the response depends on the context in which the app is calling; for details, see the scenarios in the Permissions section. */
 export class SubscriptionsRequestBuilderGetQueryParameters {
     /** Search items by search phrases */
     public search?: string | undefined;

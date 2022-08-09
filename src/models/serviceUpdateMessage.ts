@@ -6,7 +6,6 @@ import {ServiceUpdateCategory} from './serviceUpdateCategory';
 import {ServiceUpdateSeverity} from './serviceUpdateSeverity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the admin singleton. */
 export class ServiceUpdateMessage extends ServiceAnnouncementBase implements Parsable {
     /** The expected deadline of the action for the message. */
     private _actionRequiredByDateTime?: Date | undefined;
@@ -16,7 +15,7 @@ export class ServiceUpdateMessage extends ServiceAnnouncementBase implements Par
     private _attachmentsArchive?: string | undefined;
     /** The body property */
     private _body?: ItemBody | undefined;
-    /** The service message category. Possible values are: preventOrFixIssue, planForChange, stayInformed, unknownFutureValue. */
+    /** The category property */
     private _category?: ServiceUpdateCategory | undefined;
     /** Indicates whether the message has any attachment. */
     private _hasAttachments?: boolean | undefined;
@@ -24,7 +23,7 @@ export class ServiceUpdateMessage extends ServiceAnnouncementBase implements Par
     private _isMajorChange?: boolean | undefined;
     /** The affected services by the service message. */
     private _services?: string[] | undefined;
-    /** The severity of the service message. Possible values are: normal, high, critical, unknownFutureValue. */
+    /** The severity property */
     private _severity?: ServiceUpdateSeverity | undefined;
     /** A collection of tags for the service message. Tags are provided by the service team/support team who post the message to tell whether this message contains privacy data, or whether this message is for a service new feature update, and so on. */
     private _tags?: string[] | undefined;
@@ -87,24 +86,25 @@ export class ServiceUpdateMessage extends ServiceAnnouncementBase implements Par
         this._body = value;
     };
     /**
-     * Gets the category property value. The service message category. Possible values are: preventOrFixIssue, planForChange, stayInformed, unknownFutureValue.
+     * Gets the category property value. The category property
      * @returns a serviceUpdateCategory
      */
     public get category() {
         return this._category;
     };
     /**
-     * Sets the category property value. The service message category. Possible values are: preventOrFixIssue, planForChange, stayInformed, unknownFutureValue.
+     * Sets the category property value. The category property
      * @param value Value to set for the category property.
      */
     public set category(value: ServiceUpdateCategory | undefined) {
         this._category = value;
     };
     /**
-     * Instantiates a new serviceUpdateMessage and sets the default values.
+     * Instantiates a new ServiceUpdateMessage and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.serviceUpdateMessage";
     };
     /**
      * The deserialization information for the current model
@@ -187,14 +187,14 @@ export class ServiceUpdateMessage extends ServiceAnnouncementBase implements Par
         this._services = value;
     };
     /**
-     * Gets the severity property value. The severity of the service message. Possible values are: normal, high, critical, unknownFutureValue.
+     * Gets the severity property value. The severity property
      * @returns a serviceUpdateSeverity
      */
     public get severity() {
         return this._severity;
     };
     /**
-     * Sets the severity property value. The severity of the service message. Possible values are: normal, high, critical, unknownFutureValue.
+     * Sets the severity property value. The severity property
      * @param value Value to set for the severity property.
      */
     public set severity(value: ServiceUpdateSeverity | undefined) {

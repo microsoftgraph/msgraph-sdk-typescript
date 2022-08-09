@@ -1,4 +1,4 @@
-import {AuthenticationMethodConfiguration} from './index';
+import {AuthenticationMethodConfiguration, EmailAuthenticationMethodConfiguration, Fido2AuthenticationMethodConfiguration, MicrosoftAuthenticatorAuthenticationMethodConfiguration, TemporaryAccessPassAuthenticationMethodConfiguration} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createAuthenticationMethodConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuthenticationMethodConfiguration {
@@ -8,8 +8,14 @@ export function createAuthenticationMethodConfigurationFromDiscriminatorValue(pa
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.authenticationMethodConfiguration":
-                    return new AuthenticationMethodConfiguration();
+                case "#microsoft.graph.emailAuthenticationMethodConfiguration":
+                    return new EmailAuthenticationMethodConfiguration();
+                case "#microsoft.graph.fido2AuthenticationMethodConfiguration":
+                    return new Fido2AuthenticationMethodConfiguration();
+                case "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration":
+                    return new MicrosoftAuthenticatorAuthenticationMethodConfiguration();
+                case "#microsoft.graph.temporaryAccessPassAuthenticationMethodConfiguration":
+                    return new TemporaryAccessPassAuthenticationMethodConfiguration();
             }
         }
     }

@@ -12,6 +12,8 @@ export class ConfigurationManagerClientEnabledFeatures implements AdditionalData
     private _inventory?: boolean | undefined;
     /** Whether modern application is managed by Intune */
     private _modernApps?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Whether resource access is managed by Intune */
     private _resourceAccess?: boolean | undefined;
     /** Whether Windows Update for Business is managed by Intune */
@@ -49,6 +51,7 @@ export class ConfigurationManagerClientEnabledFeatures implements AdditionalData
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.configurationManagerClientEnabledFeatures";
     };
     /**
      * Gets the deviceConfiguration property value. Whether device configuration is managed by Intune
@@ -74,6 +77,7 @@ export class ConfigurationManagerClientEnabledFeatures implements AdditionalData
             "deviceConfiguration": n => { this.deviceConfiguration = n.getBooleanValue(); },
             "inventory": n => { this.inventory = n.getBooleanValue(); },
             "modernApps": n => { this.modernApps = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "resourceAccess": n => { this.resourceAccess = n.getBooleanValue(); },
             "windowsUpdateForBusiness": n => { this.windowsUpdateForBusiness = n.getBooleanValue(); },
         };
@@ -107,6 +111,20 @@ export class ConfigurationManagerClientEnabledFeatures implements AdditionalData
         this._modernApps = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the resourceAccess property value. Whether resource access is managed by Intune
      * @returns a boolean
      */
@@ -130,6 +148,7 @@ export class ConfigurationManagerClientEnabledFeatures implements AdditionalData
         writer.writeBooleanValue("deviceConfiguration", this.deviceConfiguration);
         writer.writeBooleanValue("inventory", this.inventory);
         writer.writeBooleanValue("modernApps", this.modernApps);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeBooleanValue("resourceAccess", this.resourceAccess);
         writer.writeBooleanValue("windowsUpdateForBusiness", this.windowsUpdateForBusiness);
         writer.writeAdditionalData(this.additionalData);

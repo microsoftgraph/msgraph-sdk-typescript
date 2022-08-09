@@ -12,7 +12,6 @@ import {SubjectRightsRequestStatus} from './subjectRightsRequestStatus';
 import {SubjectRightsRequestType} from './subjectRightsRequestType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the privacy singleton. */
 export class SubjectRightsRequest extends Entity implements Parsable {
     /** Identity that the request is assigned to. */
     private _assignedTo?: Identity | undefined;
@@ -81,10 +80,11 @@ export class SubjectRightsRequest extends Entity implements Parsable {
         this._closedDateTime = value;
     };
     /**
-     * Instantiates a new subjectRightsRequest and sets the default values.
+     * Instantiates a new SubjectRightsRequest and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.subjectRightsRequest";
     };
     /**
      * Gets the createdBy property value. Identity information for the entity that created the request.

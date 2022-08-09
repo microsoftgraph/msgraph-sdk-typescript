@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get posts from groups */
 export class PostItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

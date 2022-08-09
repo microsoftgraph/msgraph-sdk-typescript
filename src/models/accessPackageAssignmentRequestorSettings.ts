@@ -19,6 +19,8 @@ export class AccessPackageAssignmentRequestorSettings implements AdditionalDataH
     private _enableTargetsToSelfRemoveAccess?: boolean | undefined;
     /** If true, allows requestors to create a request to update their access. */
     private _enableTargetsToSelfUpdateAccess?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The principals who can request on-behalf-of others. */
     private _onBehalfRequestors?: SubjectSet[] | undefined;
     /**
@@ -54,6 +56,7 @@ export class AccessPackageAssignmentRequestorSettings implements AdditionalDataH
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.accessPackageAssignmentRequestorSettings";
     };
     /**
      * Gets the enableOnBehalfRequestorsToAddAccess property value. If true, allows on-behalf-of requestors to create a request to add access for another principal.
@@ -152,8 +155,23 @@ export class AccessPackageAssignmentRequestorSettings implements AdditionalDataH
             "enableTargetsToSelfAddAccess": n => { this.enableTargetsToSelfAddAccess = n.getBooleanValue(); },
             "enableTargetsToSelfRemoveAccess": n => { this.enableTargetsToSelfRemoveAccess = n.getBooleanValue(); },
             "enableTargetsToSelfUpdateAccess": n => { this.enableTargetsToSelfUpdateAccess = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "onBehalfRequestors": n => { this.onBehalfRequestors = n.getCollectionOfObjectValues<SubjectSet>(createSubjectSetFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the onBehalfRequestors property value. The principals who can request on-behalf-of others.
@@ -182,6 +200,7 @@ export class AccessPackageAssignmentRequestorSettings implements AdditionalDataH
         writer.writeBooleanValue("enableTargetsToSelfAddAccess", this.enableTargetsToSelfAddAccess);
         writer.writeBooleanValue("enableTargetsToSelfRemoveAccess", this.enableTargetsToSelfRemoveAccess);
         writer.writeBooleanValue("enableTargetsToSelfUpdateAccess", this.enableTargetsToSelfUpdateAccess);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<SubjectSet>("onBehalfRequestors", this.onBehalfRequestors);
         writer.writeAdditionalData(this.additionalData);
     };

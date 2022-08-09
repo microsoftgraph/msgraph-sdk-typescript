@@ -10,7 +10,6 @@ import {createSystemFacetFromDiscriminatorValue} from './createSystemFacetFromDi
 import {BaseItem, ColumnDefinition, ContentType, Drive, ListInfo, ListItem, RichLongRunningOperation, SharepointIds, Subscription, SystemFacet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class List extends BaseItem implements Parsable {
     /** The collection of field definitions for this list. */
     private _columns?: ColumnDefinition[] | undefined;
@@ -51,6 +50,7 @@ export class List extends BaseItem implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.list";
     };
     /**
      * Gets the contentTypes property value. The collection of content types present in this list.

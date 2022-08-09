@@ -11,6 +11,8 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
     private _error_escaped?: string | undefined;
     /** The timestamp when the state of the license assignment was last updated. */
     private _lastUpdatedDateTime?: Date | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The unique identifier for the SKU. Read-Only. */
     private _skuId?: string | undefined;
     /** Indicate the current state of this assignment. Read-Only. The possible values are Active, ActiveWithError, Disabled, and Error. */
@@ -48,6 +50,7 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.licenseAssignmentState";
     };
     /**
      * Gets the disabledPlans property value. The service plans that are disabled in this assignment. Read-Only.
@@ -87,6 +90,7 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
             "disabledPlans": n => { this.disabledPlans = n.getCollectionOfPrimitiveValues<string>(); },
             "error": n => { this.error_escaped = n.getStringValue(); },
             "lastUpdatedDateTime": n => { this.lastUpdatedDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "skuId": n => { this.skuId = n.getStringValue(); },
             "state": n => { this.state = n.getStringValue(); },
         };
@@ -106,6 +110,20 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
         this._lastUpdatedDateTime = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -115,6 +133,7 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("disabledPlans", this.disabledPlans);
         writer.writeStringValue("error", this.error_escaped);
         writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("skuId", this.skuId);
         writer.writeStringValue("state", this.state);
         writer.writeAdditionalData(this.additionalData);

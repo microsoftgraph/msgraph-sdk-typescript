@@ -60,6 +60,7 @@ export class PlannerRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -137,7 +138,7 @@ export class PlannerRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.planner.plans.item collection
      * @param id Unique identifier of the item
-     * @returns a plannerPlanItemRequestBuilder
+     * @returns a PlannerPlanItemRequestBuilder
      */
     public plansById(id: string) : PlannerPlanItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

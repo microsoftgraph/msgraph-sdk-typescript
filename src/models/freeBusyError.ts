@@ -5,6 +5,8 @@ export class FreeBusyError implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Describes the error. */
     private _message?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The response code from querying for the availability of the user, distribution list, or resource. */
     private _responseCode?: string | undefined;
     /**
@@ -26,6 +28,7 @@ export class FreeBusyError implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.freeBusyError";
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +37,7 @@ export class FreeBusyError implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "message": n => { this.message = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "responseCode": n => { this.responseCode = n.getStringValue(); },
         };
     };
@@ -50,6 +54,20 @@ export class FreeBusyError implements AdditionalDataHolder, Parsable {
      */
     public set message(value: string | undefined) {
         this._message = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the responseCode property value. The response code from querying for the availability of the user, distribution list, or resource.
@@ -72,6 +90,7 @@ export class FreeBusyError implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("message", this.message);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("responseCode", this.responseCode);
         writer.writeAdditionalData(this.additionalData);
     };

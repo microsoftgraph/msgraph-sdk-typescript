@@ -2,7 +2,6 @@ import {AttestationLevel} from './attestationLevel';
 import {AuthenticationMethod} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable {
     /** Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator. */
     private _aaGuid?: string | undefined;
@@ -59,10 +58,11 @@ export class Fido2AuthenticationMethod extends AuthenticationMethod implements P
         this._attestationLevel = value;
     };
     /**
-     * Instantiates a new fido2AuthenticationMethod and sets the default values.
+     * Instantiates a new Fido2AuthenticationMethod and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.fido2AuthenticationMethod";
     };
     /**
      * Gets the createdDateTime property value. The timestamp when this key was registered to the user.

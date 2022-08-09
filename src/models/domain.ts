@@ -5,7 +5,6 @@ import {createInternalDomainFederationFromDiscriminatorValue} from './createInte
 import {DirectoryObject, DomainDnsRecord, DomainState, Entity, InternalDomainFederation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of domain entities. */
 export class Domain extends Entity implements Parsable {
     /** Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable. */
     private _authenticationType?: string | undefined;
@@ -70,10 +69,11 @@ export class Domain extends Entity implements Parsable {
         this._availabilityStatus = value;
     };
     /**
-     * Instantiates a new domain and sets the default values.
+     * Instantiates a new Domain and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.domain";
     };
     /**
      * Gets the domainNameReferences property value. The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.

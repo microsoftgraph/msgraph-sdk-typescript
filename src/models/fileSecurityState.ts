@@ -9,6 +9,8 @@ export class FileSecurityState implements AdditionalDataHolder, Parsable {
     private _fileHash?: FileHash | undefined;
     /** File name (without path). */
     private _name?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Full file path of the file/imageFile. */
     private _path?: string | undefined;
     /** Provider generated/calculated risk score of the alert file. Recommended value range of 0-1, which equates to a percentage. */
@@ -32,6 +34,7 @@ export class FileSecurityState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.fileSecurityState";
     };
     /**
      * Gets the fileHash property value. Complex type containing file hashes (cryptographic and location-sensitive).
@@ -55,6 +58,7 @@ export class FileSecurityState implements AdditionalDataHolder, Parsable {
         return {
             "fileHash": n => { this.fileHash = n.getObjectValue<FileHash>(createFileHashFromDiscriminatorValue); },
             "name": n => { this.name = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "path": n => { this.path = n.getStringValue(); },
             "riskScore": n => { this.riskScore = n.getStringValue(); },
         };
@@ -72,6 +76,20 @@ export class FileSecurityState implements AdditionalDataHolder, Parsable {
      */
     public set name(value: string | undefined) {
         this._name = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the path property value. Full file path of the file/imageFile.
@@ -109,6 +127,7 @@ export class FileSecurityState implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<FileHash>("fileHash", this.fileHash);
         writer.writeStringValue("name", this.name);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("path", this.path);
         writer.writeStringValue("riskScore", this.riskScore);
         writer.writeAdditionalData(this.additionalData);

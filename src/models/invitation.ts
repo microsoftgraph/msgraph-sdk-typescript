@@ -3,7 +3,6 @@ import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorVal
 import {Entity, InvitedUserMessageInfo, User} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of invitation entities. */
 export class Invitation extends Entity implements Parsable {
     /** The user created as part of the invitation creation. Read-Only */
     private _invitedUser?: User | undefined;
@@ -24,10 +23,11 @@ export class Invitation extends Entity implements Parsable {
     /** The status of the invitation. Possible values: PendingAcceptance, Completed, InProgress, and Error */
     private _status?: string | undefined;
     /**
-     * Instantiates a new invitation and sets the default values.
+     * Instantiates a new Invitation and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.invitation";
     };
     /**
      * The deserialization information for the current model

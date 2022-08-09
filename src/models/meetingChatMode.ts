@@ -1,4 +1,4 @@
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum MeetingChatMode {
     Enabled = "enabled",
     Disabled = "disabled",
