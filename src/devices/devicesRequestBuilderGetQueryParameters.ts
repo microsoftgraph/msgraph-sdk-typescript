@@ -1,5 +1,5 @@
 
-/** Retrieve a list of devices registered in the directory.  */
+/** Retrieve a list of device objects registered in the organization. */
 export class DevicesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

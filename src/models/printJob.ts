@@ -6,15 +6,15 @@ import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFrom
 import {Entity, PrintDocument, PrintJobConfiguration, PrintJobStatus, PrintTask, UserIdentity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class PrintJob extends Entity implements Parsable {
     /** The configuration property */
     private _configuration?: PrintJobConfiguration | undefined;
-    /** Read-only. Nullable. */
+    /** The createdBy property */
     private _createdBy?: UserIdentity | undefined;
     /** The DateTimeOffset when the job was created. Read-only. */
     private _createdDateTime?: Date | undefined;
-    /** Read-only. */
+    /** The documents property */
     private _documents?: PrintDocument[] | undefined;
     /** If true, document can be fetched by printer. */
     private _isFetchable?: boolean | undefined;
@@ -45,16 +45,17 @@ export class PrintJob extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.printJob";
     };
     /**
-     * Gets the createdBy property value. Read-only. Nullable.
+     * Gets the createdBy property value. The createdBy property
      * @returns a userIdentity
      */
     public get createdBy() {
         return this._createdBy;
     };
     /**
-     * Sets the createdBy property value. Read-only. Nullable.
+     * Sets the createdBy property value. The createdBy property
      * @param value Value to set for the createdBy property.
      */
     public set createdBy(value: UserIdentity | undefined) {
@@ -75,14 +76,14 @@ export class PrintJob extends Entity implements Parsable {
         this._createdDateTime = value;
     };
     /**
-     * Gets the documents property value. Read-only.
+     * Gets the documents property value. The documents property
      * @returns a printDocument
      */
     public get documents() {
         return this._documents;
     };
     /**
-     * Sets the documents property value. Read-only.
+     * Sets the documents property value. The documents property
      * @param value Value to set for the documents property.
      */
     public set documents(value: PrintDocument[] | undefined) {

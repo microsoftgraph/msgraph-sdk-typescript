@@ -1,4 +1,4 @@
-/** Provides operations to manage the security singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum ConnectionStatus {
     Unknown = "unknown",
     Attempted = "attempted",

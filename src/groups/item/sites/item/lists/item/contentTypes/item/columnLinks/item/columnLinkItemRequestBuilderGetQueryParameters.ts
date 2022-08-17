@@ -1,5 +1,5 @@
 
-/** The collection of columns that are required by this content type */
+/** The collection of columns that are required by this content type. */
 export class ColumnLinkItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

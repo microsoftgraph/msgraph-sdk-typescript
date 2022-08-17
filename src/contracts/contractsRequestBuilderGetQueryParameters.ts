@@ -1,5 +1,5 @@
 
-/** Retrieve a list of [contract](../resources/contract.md) objects associated to a partner tenant. */
+/** Retrieve a list of contract objects associated to a partner tenant. */
 export class ContractsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

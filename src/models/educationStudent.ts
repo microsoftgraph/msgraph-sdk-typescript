@@ -8,12 +8,14 @@ export class EducationStudent implements AdditionalDataHolder, Parsable {
     private _birthDate?: DateOnly | undefined;
     /** ID of the student in the source system. */
     private _externalId?: string | undefined;
-    /** Possible values are: female, male, other. */
+    /** The possible values are: female, male, other, unknownFutureValue. */
     private _gender?: EducationGender | undefined;
     /** Current grade level of the student. */
     private _grade?: string | undefined;
     /** Year the student is graduating from the school. */
     private _graduationYear?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Student Number. */
     private _studentNumber?: string | undefined;
     /**
@@ -49,6 +51,7 @@ export class EducationStudent implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.educationStudent";
     };
     /**
      * Gets the externalId property value. ID of the student in the source system.
@@ -65,14 +68,14 @@ export class EducationStudent implements AdditionalDataHolder, Parsable {
         this._externalId = value;
     };
     /**
-     * Gets the gender property value. Possible values are: female, male, other.
+     * Gets the gender property value. The possible values are: female, male, other, unknownFutureValue.
      * @returns a educationGender
      */
     public get gender() {
         return this._gender;
     };
     /**
-     * Sets the gender property value. Possible values are: female, male, other.
+     * Sets the gender property value. The possible values are: female, male, other, unknownFutureValue.
      * @param value Value to set for the gender property.
      */
     public set gender(value: EducationGender | undefined) {
@@ -89,6 +92,7 @@ export class EducationStudent implements AdditionalDataHolder, Parsable {
             "gender": n => { this.gender = n.getEnumValue<EducationGender>(EducationGender); },
             "grade": n => { this.grade = n.getStringValue(); },
             "graduationYear": n => { this.graduationYear = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "studentNumber": n => { this.studentNumber = n.getStringValue(); },
         };
     };
@@ -121,6 +125,20 @@ export class EducationStudent implements AdditionalDataHolder, Parsable {
         this._graduationYear = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -131,6 +149,7 @@ export class EducationStudent implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue<EducationGender>("gender", this.gender);
         writer.writeStringValue("grade", this.grade);
         writer.writeStringValue("graduationYear", this.graduationYear);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("studentNumber", this.studentNumber);
         writer.writeAdditionalData(this.additionalData);
     };

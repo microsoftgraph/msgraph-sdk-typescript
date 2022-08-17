@@ -1,4 +1,4 @@
-/** Provides operations to manage the policyRoot singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum StagedFeatureName {
     PassthroughAuthentication = "passthroughAuthentication",
     SeamlessSso = "seamlessSso",

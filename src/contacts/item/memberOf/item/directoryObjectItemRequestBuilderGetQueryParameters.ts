@@ -1,5 +1,5 @@
 
-/** Groups that this contact is a member of. Read-only. Nullable. Supports $expand. */
+/** Get memberOf from contacts */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -68,7 +68,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item.assignments.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceCompliancePolicyAssignmentItemRequestBuilder
+     * @returns a DeviceCompliancePolicyAssignmentItemRequestBuilder
      */
     public assignmentsById(id: string) : DeviceCompliancePolicyAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -115,6 +115,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -159,7 +160,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item.deviceSettingStateSummaries.item collection
      * @param id Unique identifier of the item
-     * @returns a settingStateDeviceSummaryItemRequestBuilder
+     * @returns a SettingStateDeviceSummaryItemRequestBuilder
      */
     public deviceSettingStateSummariesById(id: string) : SettingStateDeviceSummaryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -170,7 +171,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item.deviceStatuses.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceComplianceDeviceStatusItemRequestBuilder
+     * @returns a DeviceComplianceDeviceStatusItemRequestBuilder
      */
     public deviceStatusesById(id: string) : DeviceComplianceDeviceStatusItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -214,7 +215,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item.scheduledActionsForRule.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceComplianceScheduledActionForRuleItemRequestBuilder
+     * @returns a DeviceComplianceScheduledActionForRuleItemRequestBuilder
      */
     public scheduledActionsForRuleById(id: string) : DeviceComplianceScheduledActionForRuleItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -225,7 +226,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item.userStatuses.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceComplianceUserStatusItemRequestBuilder
+     * @returns a DeviceComplianceUserStatusItemRequestBuilder
      */
     public userStatusesById(id: string) : DeviceComplianceUserStatusItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

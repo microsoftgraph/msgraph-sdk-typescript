@@ -1,4 +1,4 @@
-import {DeviceManagementTroubleshootingEvent} from './index';
+import {DeviceManagementTroubleshootingEvent, EnrollmentTroubleshootingEvent} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createDeviceManagementTroubleshootingEventFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceManagementTroubleshootingEvent {
@@ -8,8 +8,8 @@ export function createDeviceManagementTroubleshootingEventFromDiscriminatorValue
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.deviceManagementTroubleshootingEvent":
-                    return new DeviceManagementTroubleshootingEvent();
+                case "#microsoft.graph.enrollmentTroubleshootingEvent":
+                    return new EnrollmentTroubleshootingEvent();
             }
         }
     }

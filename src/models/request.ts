@@ -2,13 +2,13 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import {Entity, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class Request extends Entity implements Parsable {
     /** The identifier of the approval of the request. */
     private _approvalId?: string | undefined;
     /** The request completion date time. */
     private _completedDateTime?: Date | undefined;
-    /** The user who created this request. */
+    /** The principal that created the request. */
     private _createdBy?: IdentitySet | undefined;
     /** The request creation date time. */
     private _createdDateTime?: Date | undefined;
@@ -49,16 +49,17 @@ export class Request extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.request";
     };
     /**
-     * Gets the createdBy property value. The user who created this request.
+     * Gets the createdBy property value. The principal that created the request.
      * @returns a identitySet
      */
     public get createdBy() {
         return this._createdBy;
     };
     /**
-     * Sets the createdBy property value. The user who created this request.
+     * Sets the createdBy property value. The principal that created the request.
      * @param value Value to set for the createdBy property.
      */
     public set createdBy(value: IdentitySet | undefined) {

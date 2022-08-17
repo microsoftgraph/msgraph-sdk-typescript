@@ -8,12 +8,14 @@ export class TargetResource implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Indicates the visible name defined for the resource. Typically specified when the resource is created. */
     private _displayName?: string | undefined;
-    /** When type is set to Group, this indicates the group type.  Possible values are: unifiedGroups, azureAD, and unknownFutureValue */
+    /** When type is set to Group, this indicates the group type. Possible values are: unifiedGroups, azureAD, and unknownFutureValue */
     private _groupType?: GroupType | undefined;
     /** Indicates the unique ID of the resource. */
     private _id?: string | undefined;
     /** Indicates name, old value and new value of each attribute that changed. Property values depend on the operation type. */
     private _modifiedProperties?: ModifiedProperty[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Describes the resource type.  Example values include Application, Group, ServicePrincipal, and User. */
     private _type?: string | undefined;
     /** When type is set to User, this includes the user name that initiated the action; null for other types. */
@@ -37,6 +39,7 @@ export class TargetResource implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.targetResource";
     };
     /**
      * Gets the displayName property value. Indicates the visible name defined for the resource. Typically specified when the resource is created.
@@ -62,19 +65,20 @@ export class TargetResource implements AdditionalDataHolder, Parsable {
             "groupType": n => { this.groupType = n.getEnumValue<GroupType>(GroupType); },
             "id": n => { this.id = n.getStringValue(); },
             "modifiedProperties": n => { this.modifiedProperties = n.getCollectionOfObjectValues<ModifiedProperty>(createModifiedPropertyFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "type": n => { this.type = n.getStringValue(); },
             "userPrincipalName": n => { this.userPrincipalName = n.getStringValue(); },
         };
     };
     /**
-     * Gets the groupType property value. When type is set to Group, this indicates the group type.  Possible values are: unifiedGroups, azureAD, and unknownFutureValue
+     * Gets the groupType property value. When type is set to Group, this indicates the group type. Possible values are: unifiedGroups, azureAD, and unknownFutureValue
      * @returns a groupType
      */
     public get groupType() {
         return this._groupType;
     };
     /**
-     * Sets the groupType property value. When type is set to Group, this indicates the group type.  Possible values are: unifiedGroups, azureAD, and unknownFutureValue
+     * Sets the groupType property value. When type is set to Group, this indicates the group type. Possible values are: unifiedGroups, azureAD, and unknownFutureValue
      * @param value Value to set for the groupType property.
      */
     public set groupType(value: GroupType | undefined) {
@@ -109,6 +113,20 @@ export class TargetResource implements AdditionalDataHolder, Parsable {
         this._modifiedProperties = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -118,6 +136,7 @@ export class TargetResource implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue<GroupType>("groupType", this.groupType);
         writer.writeStringValue("id", this.id);
         writer.writeCollectionOfObjectValues<ModifiedProperty>("modifiedProperties", this.modifiedProperties);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("type", this.type);
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
         writer.writeAdditionalData(this.additionalData);

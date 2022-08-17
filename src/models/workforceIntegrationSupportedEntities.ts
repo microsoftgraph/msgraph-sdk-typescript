@@ -1,4 +1,4 @@
-/** Provides operations to manage the teamwork singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum WorkforceIntegrationSupportedEntities {
     None = "none",
     Shift = "shift",

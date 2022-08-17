@@ -1,5 +1,5 @@
 
-/** Get the properties and relationships of a [place](../resources/place.md) object specified by either its ID or email address.  The **place** object can be one of the following types: Both **room** and **roomList** are derived from the [place](../resources/place.md) object.  */
+/** Get the properties and relationships of a place object specified by either its ID or email address. The **place** object can be one of the following types: Both **room** and **roomList** are derived from the place object. */
 export class PlacesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

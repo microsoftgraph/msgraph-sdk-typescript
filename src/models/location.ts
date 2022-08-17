@@ -16,10 +16,12 @@ export class Location implements AdditionalDataHolder, Parsable {
     private _displayName?: string | undefined;
     /** Optional email address of the location. */
     private _locationEmailAddress?: string | undefined;
-    /** The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only. */
+    /** The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only. */
     private _locationType?: LocationType | undefined;
     /** Optional URI representing the location. */
     private _locationUri?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** For internal use only. */
     private _uniqueId?: string | undefined;
     /** For internal use only. */
@@ -57,6 +59,7 @@ export class Location implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.location";
     };
     /**
      * Gets the coordinates property value. The geographic coordinates and elevation of the location.
@@ -98,6 +101,7 @@ export class Location implements AdditionalDataHolder, Parsable {
             "locationEmailAddress": n => { this.locationEmailAddress = n.getStringValue(); },
             "locationType": n => { this.locationType = n.getEnumValue<LocationType>(LocationType); },
             "locationUri": n => { this.locationUri = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "uniqueId": n => { this.uniqueId = n.getStringValue(); },
             "uniqueIdType": n => { this.uniqueIdType = n.getEnumValue<LocationUniqueIdType>(LocationUniqueIdType); },
         };
@@ -117,14 +121,14 @@ export class Location implements AdditionalDataHolder, Parsable {
         this._locationEmailAddress = value;
     };
     /**
-     * Gets the locationType property value. The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
+     * Gets the locationType property value. The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
      * @returns a locationType
      */
     public get locationType() {
         return this._locationType;
     };
     /**
-     * Sets the locationType property value. The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
+     * Sets the locationType property value. The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
      * @param value Value to set for the locationType property.
      */
     public set locationType(value: LocationType | undefined) {
@@ -145,6 +149,20 @@ export class Location implements AdditionalDataHolder, Parsable {
         this._locationUri = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -156,6 +174,7 @@ export class Location implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("locationEmailAddress", this.locationEmailAddress);
         writer.writeEnumValue<LocationType>("locationType", this.locationType);
         writer.writeStringValue("locationUri", this.locationUri);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("uniqueId", this.uniqueId);
         writer.writeEnumValue<LocationUniqueIdType>("uniqueIdType", this.uniqueIdType);
         writer.writeAdditionalData(this.additionalData);

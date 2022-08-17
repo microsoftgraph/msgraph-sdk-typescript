@@ -7,17 +7,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AutomaticRepliesSetting implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. Possible values are: none, contactsOnly, all. */
+    /** The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. The possible values are: none, contactsOnly, all. */
     private _externalAudience?: ExternalAudienceScope | undefined;
     /** The automatic reply to send to the specified external audience, if Status is AlwaysEnabled or Scheduled. */
     private _externalReplyMessage?: string | undefined;
     /** The automatic reply to send to the audience internal to the signed-in user's organization, if Status is AlwaysEnabled or Scheduled. */
     private _internalReplyMessage?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The date and time that automatic replies are set to end, if Status is set to Scheduled. */
     private _scheduledEndDateTime?: DateTimeTimeZone | undefined;
     /** The date and time that automatic replies are set to begin, if Status is set to Scheduled. */
     private _scheduledStartDateTime?: DateTimeTimeZone | undefined;
-    /** Configurations status for automatic replies. Possible values are: disabled, alwaysEnabled, scheduled. */
+    /** Configurations status for automatic replies. The possible values are: disabled, alwaysEnabled, scheduled. */
     private _status?: AutomaticRepliesStatus | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -38,16 +40,17 @@ export class AutomaticRepliesSetting implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.automaticRepliesSetting";
     };
     /**
-     * Gets the externalAudience property value. The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. Possible values are: none, contactsOnly, all.
+     * Gets the externalAudience property value. The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. The possible values are: none, contactsOnly, all.
      * @returns a externalAudienceScope
      */
     public get externalAudience() {
         return this._externalAudience;
     };
     /**
-     * Sets the externalAudience property value. The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. Possible values are: none, contactsOnly, all.
+     * Sets the externalAudience property value. The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. The possible values are: none, contactsOnly, all.
      * @param value Value to set for the externalAudience property.
      */
     public set externalAudience(value: ExternalAudienceScope | undefined) {
@@ -76,6 +79,7 @@ export class AutomaticRepliesSetting implements AdditionalDataHolder, Parsable {
             "externalAudience": n => { this.externalAudience = n.getEnumValue<ExternalAudienceScope>(ExternalAudienceScope); },
             "externalReplyMessage": n => { this.externalReplyMessage = n.getStringValue(); },
             "internalReplyMessage": n => { this.internalReplyMessage = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "scheduledEndDateTime": n => { this.scheduledEndDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
             "scheduledStartDateTime": n => { this.scheduledStartDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
             "status": n => { this.status = n.getEnumValue<AutomaticRepliesStatus>(AutomaticRepliesStatus); },
@@ -94,6 +98,20 @@ export class AutomaticRepliesSetting implements AdditionalDataHolder, Parsable {
      */
     public set internalReplyMessage(value: string | undefined) {
         this._internalReplyMessage = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the scheduledEndDateTime property value. The date and time that automatic replies are set to end, if Status is set to Scheduled.
@@ -132,20 +150,21 @@ export class AutomaticRepliesSetting implements AdditionalDataHolder, Parsable {
         writer.writeEnumValue<ExternalAudienceScope>("externalAudience", this.externalAudience);
         writer.writeStringValue("externalReplyMessage", this.externalReplyMessage);
         writer.writeStringValue("internalReplyMessage", this.internalReplyMessage);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<DateTimeTimeZone>("scheduledEndDateTime", this.scheduledEndDateTime);
         writer.writeObjectValue<DateTimeTimeZone>("scheduledStartDateTime", this.scheduledStartDateTime);
         writer.writeEnumValue<AutomaticRepliesStatus>("status", this.status);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the status property value. Configurations status for automatic replies. Possible values are: disabled, alwaysEnabled, scheduled.
+     * Gets the status property value. Configurations status for automatic replies. The possible values are: disabled, alwaysEnabled, scheduled.
      * @returns a automaticRepliesStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. Configurations status for automatic replies. Possible values are: disabled, alwaysEnabled, scheduled.
+     * Sets the status property value. Configurations status for automatic replies. The possible values are: disabled, alwaysEnabled, scheduled.
      * @param value Value to set for the status property.
      */
     public set status(value: AutomaticRepliesStatus | undefined) {

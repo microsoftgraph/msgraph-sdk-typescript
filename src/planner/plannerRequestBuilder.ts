@@ -35,7 +35,7 @@ export class PlannerRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.planner.buckets.item collection
      * @param id Unique identifier of the item
-     * @returns a plannerBucketItemRequestBuilder
+     * @returns a PlannerBucketItemRequestBuilder
      */
     public bucketsById(id: string) : PlannerBucketItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -57,7 +57,7 @@ export class PlannerRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The **planner** resource is the entry point for the Planner object model. It returns a singleton **planner** resource.  It doesn't contain any usable properties.
+     * Get planner
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -66,6 +66,7 @@ export class PlannerRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -93,7 +94,7 @@ export class PlannerRequestBuilder {
         return requestInfo;
     };
     /**
-     * The **planner** resource is the entry point for the Planner object model. It returns a singleton **planner** resource.  It doesn't contain any usable properties.
+     * Get planner
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Planner
@@ -128,7 +129,7 @@ export class PlannerRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.planner.plans.item collection
      * @param id Unique identifier of the item
-     * @returns a plannerPlanItemRequestBuilder
+     * @returns a PlannerPlanItemRequestBuilder
      */
     public plansById(id: string) : PlannerPlanItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -139,7 +140,7 @@ export class PlannerRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.planner.tasks.item collection
      * @param id Unique identifier of the item
-     * @returns a plannerTaskItemRequestBuilder
+     * @returns a PlannerTaskItemRequestBuilder
      */
     public tasksById(id: string) : PlannerTaskItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

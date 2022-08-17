@@ -17,9 +17,11 @@ export class Photo implements AdditionalDataHolder, Parsable {
     private _focalLength?: number | undefined;
     /** The ISO value from the camera. Read-only. */
     private _iso?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The orientation value from the camera. Writable on OneDrive Personal. */
     private _orientation?: number | undefined;
-    /** The date and time the photo was taken in UTC time. Read-only. */
+    /** Represents the date and time the photo was taken. Read-only. */
     private _takenDateTime?: Date | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -68,6 +70,7 @@ export class Photo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.photo";
     };
     /**
      * Gets the exposureDenominator property value. The denominator for the exposure time fraction from the camera. Read-only.
@@ -138,6 +141,7 @@ export class Photo implements AdditionalDataHolder, Parsable {
             "fNumber": n => { this.fNumber = n.getNumberValue(); },
             "focalLength": n => { this.focalLength = n.getNumberValue(); },
             "iso": n => { this.iso = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "orientation": n => { this.orientation = n.getNumberValue(); },
             "takenDateTime": n => { this.takenDateTime = n.getDateValue(); },
         };
@@ -155,6 +159,20 @@ export class Photo implements AdditionalDataHolder, Parsable {
      */
     public set iso(value: number | undefined) {
         this._iso = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the orientation property value. The orientation value from the camera. Writable on OneDrive Personal.
@@ -183,19 +201,20 @@ export class Photo implements AdditionalDataHolder, Parsable {
         writer.writeNumberValue("fNumber", this.fNumber);
         writer.writeNumberValue("focalLength", this.focalLength);
         writer.writeNumberValue("iso", this.iso);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("orientation", this.orientation);
         writer.writeDateValue("takenDateTime", this.takenDateTime);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the takenDateTime property value. The date and time the photo was taken in UTC time. Read-only.
+     * Gets the takenDateTime property value. Represents the date and time the photo was taken. Read-only.
      * @returns a Date
      */
     public get takenDateTime() {
         return this._takenDateTime;
     };
     /**
-     * Sets the takenDateTime property value. The date and time the photo was taken in UTC time. Read-only.
+     * Sets the takenDateTime property value. Represents the date and time the photo was taken. Read-only.
      * @param value Value to set for the takenDateTime property.
      */
     public set takenDateTime(value: Date | undefined) {

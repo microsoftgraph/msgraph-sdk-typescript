@@ -3,17 +3,17 @@ import {createPublicErrorFromDiscriminatorValue} from '../createPublicErrorFromD
 import {ConnectionOperationStatus} from './connectionOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of externalConnection entities. */
 export class ConnectionOperation extends Entity implements Parsable {
     /** If status is failed, provides more information about the error that caused the failure. */
     private _error_escaped?: PublicError | undefined;
-    /** Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed. */
+    /** Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed, unknownFutureValue. */
     private _status?: ConnectionOperationStatus | undefined;
     /**
-     * Instantiates a new connectionOperation and sets the default values.
+     * Instantiates a new ConnectionOperation and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.externalConnectors.connectionOperation";
     };
     /**
      * Gets the error property value. If status is failed, provides more information about the error that caused the failure.
@@ -50,14 +50,14 @@ export class ConnectionOperation extends Entity implements Parsable {
         writer.writeEnumValue<ConnectionOperationStatus>("status", this.status);
     };
     /**
-     * Gets the status property value. Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed.
+     * Gets the status property value. Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed, unknownFutureValue.
      * @returns a connectionOperationStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed.
+     * Sets the status property value. Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed, unknownFutureValue.
      * @param value Value to set for the status property.
      */
     public set status(value: ConnectionOperationStatus | undefined) {

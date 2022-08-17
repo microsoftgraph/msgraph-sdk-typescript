@@ -13,15 +13,15 @@ export class Agreement extends Entity implements Parsable {
     private _displayName?: string | undefined;
     /** Default PDF linked to this agreement. */
     private _file?: AgreementFile | undefined;
-    /** PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead. */
+    /** PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead. Supports $expand. */
     private _files?: AgreementFileLocalization[] | undefined;
-    /** This setting enables you to require end users to accept this agreement on every device that they are accessing it from. The end user will be required to register their device in Azure AD, if they haven't already done so. Supports $filter (eq). */
+    /** Indicates whether end users are required to accept this agreement on every device that they access it from. The end user is required to register their device in Azure AD, if they haven't already done so. Supports $filter (eq). */
     private _isPerDeviceAcceptanceRequired?: boolean | undefined;
     /** Indicates whether the user has to expand the agreement before accepting. Supports $filter (eq). */
     private _isViewingBeforeAcceptanceRequired?: boolean | undefined;
-    /** Expiration schedule and frequency of agreement for all users.  Supports $filter (eq). */
+    /** Expiration schedule and frequency of agreement for all users. Supports $filter (eq). */
     private _termsExpiration?: TermsExpiration | undefined;
-    /** The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations. */
+    /** The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations. Supports $filter (eq). */
     private _userReacceptRequiredFrequency?: Duration | undefined;
     /**
      * Gets the acceptances property value. Read-only. Information about acceptances of this agreement.
@@ -42,6 +42,7 @@ export class Agreement extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.agreement";
     };
     /**
      * Gets the displayName property value. Display name of the agreement. The display name is used for internal tracking of the agreement but is not shown to end users who view the agreement. Supports $filter (eq).
@@ -72,14 +73,14 @@ export class Agreement extends Entity implements Parsable {
         this._file = value;
     };
     /**
-     * Gets the files property value. PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+     * Gets the files property value. PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead. Supports $expand.
      * @returns a agreementFileLocalization
      */
     public get files() {
         return this._files;
     };
     /**
-     * Sets the files property value. PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+     * Sets the files property value. PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead. Supports $expand.
      * @param value Value to set for the files property.
      */
     public set files(value: AgreementFileLocalization[] | undefined) {
@@ -102,14 +103,14 @@ export class Agreement extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the isPerDeviceAcceptanceRequired property value. This setting enables you to require end users to accept this agreement on every device that they are accessing it from. The end user will be required to register their device in Azure AD, if they haven't already done so. Supports $filter (eq).
+     * Gets the isPerDeviceAcceptanceRequired property value. Indicates whether end users are required to accept this agreement on every device that they access it from. The end user is required to register their device in Azure AD, if they haven't already done so. Supports $filter (eq).
      * @returns a boolean
      */
     public get isPerDeviceAcceptanceRequired() {
         return this._isPerDeviceAcceptanceRequired;
     };
     /**
-     * Sets the isPerDeviceAcceptanceRequired property value. This setting enables you to require end users to accept this agreement on every device that they are accessing it from. The end user will be required to register their device in Azure AD, if they haven't already done so. Supports $filter (eq).
+     * Sets the isPerDeviceAcceptanceRequired property value. Indicates whether end users are required to accept this agreement on every device that they access it from. The end user is required to register their device in Azure AD, if they haven't already done so. Supports $filter (eq).
      * @param value Value to set for the isPerDeviceAcceptanceRequired property.
      */
     public set isPerDeviceAcceptanceRequired(value: boolean | undefined) {
@@ -146,28 +147,28 @@ export class Agreement extends Entity implements Parsable {
         writer.writeDurationValue("userReacceptRequiredFrequency", this.userReacceptRequiredFrequency);
     };
     /**
-     * Gets the termsExpiration property value. Expiration schedule and frequency of agreement for all users.  Supports $filter (eq).
+     * Gets the termsExpiration property value. Expiration schedule and frequency of agreement for all users. Supports $filter (eq).
      * @returns a termsExpiration
      */
     public get termsExpiration() {
         return this._termsExpiration;
     };
     /**
-     * Sets the termsExpiration property value. Expiration schedule and frequency of agreement for all users.  Supports $filter (eq).
+     * Sets the termsExpiration property value. Expiration schedule and frequency of agreement for all users. Supports $filter (eq).
      * @param value Value to set for the termsExpiration property.
      */
     public set termsExpiration(value: TermsExpiration | undefined) {
         this._termsExpiration = value;
     };
     /**
-     * Gets the userReacceptRequiredFrequency property value. The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations.
+     * Gets the userReacceptRequiredFrequency property value. The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations. Supports $filter (eq).
      * @returns a Duration
      */
     public get userReacceptRequiredFrequency() {
         return this._userReacceptRequiredFrequency;
     };
     /**
-     * Sets the userReacceptRequiredFrequency property value. The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations.
+     * Sets the userReacceptRequiredFrequency property value. The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations. Supports $filter (eq).
      * @param value Value to set for the userReacceptRequiredFrequency property.
      */
     public set userReacceptRequiredFrequency(value: Duration | undefined) {

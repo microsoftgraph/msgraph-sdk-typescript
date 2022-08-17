@@ -2,15 +2,15 @@ import {Identity} from './index';
 import {InitiatorType} from './initiatorType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
 export class Initiator extends Identity implements Parsable {
     /** Type of initiator. Possible values are: user, application, system, unknownFutureValue. */
     private _initiatorType?: InitiatorType | undefined;
     /**
-     * Instantiates a new initiator and sets the default values.
+     * Instantiates a new Initiator and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.initiator";
     };
     /**
      * The deserialization information for the current model

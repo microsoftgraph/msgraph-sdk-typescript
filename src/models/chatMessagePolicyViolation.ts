@@ -12,6 +12,8 @@ export class ChatMessagePolicyViolation implements AdditionalDataHolder, Parsabl
     private _dlpAction?: ChatMessagePolicyViolationDlpActionTypes | undefined;
     /** Justification text provided by the sender of the message when overriding a policy violation. */
     private _justificationText?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Information to display to the message sender about why the message was flagged as a violation. */
     private _policyTip?: ChatMessagePolicyViolationPolicyTip | undefined;
     /** Indicates the action taken by the user on a message blocked by the DLP provider. Supported values are: NoneOverrideReportFalsePositiveWhen the DLP provider is updating the message for blocking sensitive content, userAction is not required. */
@@ -37,6 +39,7 @@ export class ChatMessagePolicyViolation implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.chatMessagePolicyViolation";
     };
     /**
      * Gets the dlpAction property value. The action taken by the DLP provider on the message with sensitive content. Supported values are: NoneNotifySender -- Inform the sender of the violation but allow readers to read the message.BlockAccess -- Block readers from reading the message.BlockAccessExternal -- Block users outside the organization from reading the message, while allowing users within the organization to read the message.
@@ -60,6 +63,7 @@ export class ChatMessagePolicyViolation implements AdditionalDataHolder, Parsabl
         return {
             "dlpAction": n => { this.dlpAction = n.getEnumValue<ChatMessagePolicyViolationDlpActionTypes>(ChatMessagePolicyViolationDlpActionTypes); },
             "justificationText": n => { this.justificationText = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "policyTip": n => { this.policyTip = n.getObjectValue<ChatMessagePolicyViolationPolicyTip>(createChatMessagePolicyViolationPolicyTipFromDiscriminatorValue); },
             "userAction": n => { this.userAction = n.getEnumValue<ChatMessagePolicyViolationUserActionTypes>(ChatMessagePolicyViolationUserActionTypes); },
             "verdictDetails": n => { this.verdictDetails = n.getEnumValue<ChatMessagePolicyViolationVerdictDetailsTypes>(ChatMessagePolicyViolationVerdictDetailsTypes); },
@@ -78,6 +82,20 @@ export class ChatMessagePolicyViolation implements AdditionalDataHolder, Parsabl
      */
     public set justificationText(value: string | undefined) {
         this._justificationText = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the policyTip property value. Information to display to the message sender about why the message was flagged as a violation.
@@ -101,6 +119,7 @@ export class ChatMessagePolicyViolation implements AdditionalDataHolder, Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeEnumValue<ChatMessagePolicyViolationDlpActionTypes>("dlpAction", this.dlpAction);
         writer.writeStringValue("justificationText", this.justificationText);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<ChatMessagePolicyViolationPolicyTip>("policyTip", this.policyTip);
         writer.writeEnumValue<ChatMessagePolicyViolationUserActionTypes>("userAction", this.userAction);
         writer.writeEnumValue<ChatMessagePolicyViolationVerdictDetailsTypes>("verdictDetails", this.verdictDetails);

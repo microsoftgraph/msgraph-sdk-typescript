@@ -3,8 +3,10 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class SettingValue implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Name of the setting (as defined by the directorySettingTemplate). */
+    /** Name of the setting (as defined by the groupSettingTemplate). */
     private _name?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Value of the setting. */
     private _value?: string | undefined;
     /**
@@ -26,6 +28,7 @@ export class SettingValue implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.settingValue";
     };
     /**
      * The deserialization information for the current model
@@ -34,22 +37,37 @@ export class SettingValue implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "name": n => { this.name = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "value": n => { this.value = n.getStringValue(); },
         };
     };
     /**
-     * Gets the name property value. Name of the setting (as defined by the directorySettingTemplate).
+     * Gets the name property value. Name of the setting (as defined by the groupSettingTemplate).
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Sets the name property value. Name of the setting (as defined by the directorySettingTemplate).
+     * Sets the name property value. Name of the setting (as defined by the groupSettingTemplate).
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {
         this._name = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -58,6 +76,7 @@ export class SettingValue implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("name", this.name);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the deviceManagement singleton. */
 export class DeviceConfigurationDeviceStateSummary extends Entity implements Parsable {
     /** Number of compliant devices */
     private _compliantDeviceCount?: number | undefined;
@@ -50,6 +49,7 @@ export class DeviceConfigurationDeviceStateSummary extends Entity implements Par
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.deviceConfigurationDeviceStateSummary";
     };
     /**
      * Gets the errorDeviceCount property value. Number of error devices

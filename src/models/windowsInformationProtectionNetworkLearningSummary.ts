@@ -12,6 +12,7 @@ export class WindowsInformationProtectionNetworkLearningSummary extends Entity i
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.windowsInformationProtectionNetworkLearningSummary";
     };
     /**
      * Gets the deviceCount property value. Device Count

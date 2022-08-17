@@ -5,6 +5,8 @@ export class TimeRange implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** End time for the time range. */
     private _endTime?: TimeOnly | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Start time for the time range. */
     private _startTime?: TimeOnly | undefined;
     /**
@@ -26,6 +28,7 @@ export class TimeRange implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.timeRange";
     };
     /**
      * Gets the endTime property value. End time for the time range.
@@ -48,8 +51,23 @@ export class TimeRange implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "endTime": n => { this.endTime = n.getTimeOnlyValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "startTime": n => { this.startTime = n.getTimeOnlyValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -58,6 +76,7 @@ export class TimeRange implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeTimeOnlyValue("endTime", this.endTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeTimeOnlyValue("startTime", this.startTime);
         writer.writeAdditionalData(this.additionalData);
     };

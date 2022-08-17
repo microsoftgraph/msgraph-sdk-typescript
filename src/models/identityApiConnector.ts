@@ -2,7 +2,6 @@ import {createApiAuthenticationConfigurationBaseFromDiscriminatorValue} from './
 import {ApiAuthenticationConfigurationBase, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class IdentityApiConnector extends Entity implements Parsable {
     /** The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported. */
     private _authenticationConfiguration?: ApiAuthenticationConfigurationBase | undefined;
@@ -25,10 +24,11 @@ export class IdentityApiConnector extends Entity implements Parsable {
         this._authenticationConfiguration = value;
     };
     /**
-     * Instantiates a new identityApiConnector and sets the default values.
+     * Instantiates a new IdentityApiConnector and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.identityApiConnector";
     };
     /**
      * Gets the displayName property value. The name of the API connector.

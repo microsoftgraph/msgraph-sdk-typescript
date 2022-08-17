@@ -1,5 +1,5 @@
 
-/** Retrieve a list of [identityProviders](../resources/identityprovider.md) objects. */
+/** Retrieve all identityProviders in the directory. */
 export class IdentityProvidersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

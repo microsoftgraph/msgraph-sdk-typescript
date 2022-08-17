@@ -3,9 +3,11 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class DateTimeTimeZone implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** A single point of time in a combined date and time representation ({date}T{time}). For example, '2019-04-16T09:00:00'. */
+    /** A single point of time in a combined date and time representation ({date}T{time}; for example, 2017-08-29T04:00:00.0000000). */
     private _dateTime?: string | undefined;
-    /** Represents a time zone, for example, 'Pacific Standard Time'. See below for possible values. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible values. */
     private _timeZone?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -26,16 +28,17 @@ export class DateTimeTimeZone implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.dateTimeTimeZone";
     };
     /**
-     * Gets the dateTime property value. A single point of time in a combined date and time representation ({date}T{time}). For example, '2019-04-16T09:00:00'.
+     * Gets the dateTime property value. A single point of time in a combined date and time representation ({date}T{time}; for example, 2017-08-29T04:00:00.0000000).
      * @returns a string
      */
     public get dateTime() {
         return this._dateTime;
     };
     /**
-     * Sets the dateTime property value. A single point of time in a combined date and time representation ({date}T{time}). For example, '2019-04-16T09:00:00'.
+     * Sets the dateTime property value. A single point of time in a combined date and time representation ({date}T{time}; for example, 2017-08-29T04:00:00.0000000).
      * @param value Value to set for the dateTime property.
      */
     public set dateTime(value: string | undefined) {
@@ -48,8 +51,23 @@ export class DateTimeTimeZone implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "dateTime": n => { this.dateTime = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "timeZone": n => { this.timeZone = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -58,18 +76,19 @@ export class DateTimeTimeZone implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("dateTime", this.dateTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("timeZone", this.timeZone);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the timeZone property value. Represents a time zone, for example, 'Pacific Standard Time'. See below for possible values.
+     * Gets the timeZone property value. Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible values.
      * @returns a string
      */
     public get timeZone() {
         return this._timeZone;
     };
     /**
-     * Sets the timeZone property value. Represents a time zone, for example, 'Pacific Standard Time'. See below for possible values.
+     * Sets the timeZone property value. Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible values.
      * @param value Value to set for the timeZone property.
      */
     public set timeZone(value: string | undefined) {

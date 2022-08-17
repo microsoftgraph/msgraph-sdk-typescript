@@ -1,4 +1,4 @@
-/** Provides operations to manage the authenticationMethodsPolicy singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum AuthenticationMethodTargetType {
     User = "user",
     Group = "group",

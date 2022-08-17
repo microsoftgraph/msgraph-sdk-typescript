@@ -1,5 +1,5 @@
 
-/** A container for Microsoft Teams features available for the user. Read-only. Nullable. */
+/** Get teamwork from users */
 export class TeamworkRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

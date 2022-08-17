@@ -1,13 +1,13 @@
 import {CommsOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the cancelMediaProcessing method. */
 export class CancelMediaProcessingOperation extends CommsOperation implements Parsable {
     /**
-     * Instantiates a new cancelMediaProcessingOperation and sets the default values.
+     * Instantiates a new CancelMediaProcessingOperation and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.cancelMediaProcessingOperation";
     };
     /**
      * The deserialization information for the current model

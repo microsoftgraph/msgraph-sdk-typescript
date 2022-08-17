@@ -1,5 +1,5 @@
 
-/** Represents entry point for identity provider base. */
+/** Get identityProviders from identity */
 export class IdentityProviderBaseItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

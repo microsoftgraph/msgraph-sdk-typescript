@@ -26,6 +26,8 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
     private _logonLocation?: string | undefined;
     /** Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service. */
     private _logonType?: LogonType | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Active Directory (on-premises) Security Identifier (SID) of the user. */
     private _onPremisesSecurityIdentifier?: string | undefined;
     /** Provider-generated/calculated risk score of the user account. Recommended value range of 0-1, which equates to a percentage. */
@@ -81,6 +83,7 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.userSecurityState";
     };
     /**
      * Gets the domainName property value. NetBIOS/Active Directory domain of user account (that is, domain/account format).
@@ -126,6 +129,7 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
             "logonIp": n => { this.logonIp = n.getStringValue(); },
             "logonLocation": n => { this.logonLocation = n.getStringValue(); },
             "logonType": n => { this.logonType = n.getEnumValue<LogonType>(LogonType); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "onPremisesSecurityIdentifier": n => { this.onPremisesSecurityIdentifier = n.getStringValue(); },
             "riskScore": n => { this.riskScore = n.getStringValue(); },
             "userAccountType": n => { this.userAccountType = n.getEnumValue<UserAccountSecurityType>(UserAccountSecurityType); },
@@ -217,6 +221,20 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
         this._logonType = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the onPremisesSecurityIdentifier property value. Active Directory (on-premises) Security Identifier (SID) of the user.
      * @returns a string
      */
@@ -260,6 +278,7 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("logonIp", this.logonIp);
         writer.writeStringValue("logonLocation", this.logonLocation);
         writer.writeEnumValue<LogonType>("logonType", this.logonType);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("onPremisesSecurityIdentifier", this.onPremisesSecurityIdentifier);
         writer.writeStringValue("riskScore", this.riskScore);
         writer.writeEnumValue<UserAccountSecurityType>("userAccountType", this.userAccountType);

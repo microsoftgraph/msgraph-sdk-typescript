@@ -1,5 +1,5 @@
 
-/** Retrieve the list of [chats](../resources/chat.md) that the user is part of. */
+/** Retrieve a single chat (without its messages). */
 export class ChatsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

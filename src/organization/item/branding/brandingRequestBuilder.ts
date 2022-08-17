@@ -66,7 +66,7 @@ export class BrandingRequestBuilder {
         return requestInfo;
     };
     /**
-     * Resource to manage the default branding for the organization. Nullable.
+     * Branding for the organization. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -75,6 +75,7 @@ export class BrandingRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -117,7 +118,7 @@ export class BrandingRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Resource to manage the default branding for the organization. Nullable.
+     * Branding for the organization. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OrganizationalBranding
@@ -135,7 +136,7 @@ export class BrandingRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.organization.item.branding.localizations.item collection
      * @param id Unique identifier of the item
-     * @returns a organizationalBrandingLocalizationItemRequestBuilder
+     * @returns a OrganizationalBrandingLocalizationItemRequestBuilder
      */
     public localizationsById(id: string) : OrganizationalBrandingLocalizationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

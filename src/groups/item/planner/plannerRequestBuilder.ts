@@ -51,7 +51,7 @@ export class PlannerRequestBuilder {
         return requestInfo;
     };
     /**
-     * Selective Planner services available to the group. Read-only. Nullable.
+     * Entry-point to Planner resource that might exist for a Unified Group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -60,6 +60,7 @@ export class PlannerRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -102,7 +103,7 @@ export class PlannerRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Selective Planner services available to the group. Read-only. Nullable.
+     * Entry-point to Planner resource that might exist for a Unified Group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerGroup
@@ -137,7 +138,7 @@ export class PlannerRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.planner.plans.item collection
      * @param id Unique identifier of the item
-     * @returns a plannerPlanItemRequestBuilder
+     * @returns a PlannerPlanItemRequestBuilder
      */
     public plansById(id: string) : PlannerPlanItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

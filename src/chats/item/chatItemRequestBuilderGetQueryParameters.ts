@@ -1,5 +1,5 @@
 
-/** Get entity from chats by key */
+/** Retrieve a single chat (without its messages). */
 export class ChatItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -3,7 +3,7 @@ import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscrimi
 import {AttendanceInterval, Entity, Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class AttendanceRecord extends Entity implements Parsable {
     /** List of time periods between joining and leaving a meeting. */
     private _attendanceIntervals?: AttendanceInterval[] | undefined;
@@ -34,6 +34,7 @@ export class AttendanceRecord extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.attendanceRecord";
     };
     /**
      * Gets the emailAddress property value. Email address of the user associated with this atttendance record.

@@ -2,7 +2,6 @@ import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAcc
 import {AccessReviewReviewerScope, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
 export class AdminConsentRequestPolicy extends Entity implements Parsable {
     /** Specifies whether the admin consent request feature is enabled or disabled. Required. */
     private _isEnabled?: boolean | undefined;
@@ -12,7 +11,7 @@ export class AdminConsentRequestPolicy extends Entity implements Parsable {
     private _remindersEnabled?: boolean | undefined;
     /** Specifies the duration the request is active before it automatically expires if no decision is applied. */
     private _requestDurationInDays?: number | undefined;
-    /** Required. */
+    /** The list of reviewers for the admin consent. Required. */
     private _reviewers?: AccessReviewReviewerScope[] | undefined;
     /** Specifies the version of this policy. When the policy is updated, this version is updated. Read-only. */
     private _version?: number | undefined;
@@ -21,6 +20,7 @@ export class AdminConsentRequestPolicy extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.adminConsentRequestPolicy";
     };
     /**
      * The deserialization information for the current model
@@ -93,14 +93,14 @@ export class AdminConsentRequestPolicy extends Entity implements Parsable {
         this._requestDurationInDays = value;
     };
     /**
-     * Gets the reviewers property value. Required.
+     * Gets the reviewers property value. The list of reviewers for the admin consent. Required.
      * @returns a accessReviewReviewerScope
      */
     public get reviewers() {
         return this._reviewers;
     };
     /**
-     * Sets the reviewers property value. Required.
+     * Sets the reviewers property value. The list of reviewers for the admin consent. Required.
      * @param value Value to set for the reviewers property.
      */
     public set reviewers(value: AccessReviewReviewerScope[] | undefined) {

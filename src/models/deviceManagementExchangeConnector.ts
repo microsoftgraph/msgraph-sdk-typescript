@@ -9,7 +9,7 @@ export class DeviceManagementExchangeConnector extends Entity implements Parsabl
     private _connectorServerName?: string | undefined;
     /** An alias assigned to the Exchange server */
     private _exchangeAlias?: string | undefined;
-    /** The type of Exchange Connector Configured. Possible values are: onPremises, hosted, serviceToService, dedicated. */
+    /** The type of Exchange Connector. */
     private _exchangeConnectorType?: DeviceManagementExchangeConnectorType | undefined;
     /** Exchange Organization to the Exchange server */
     private _exchangeOrganization?: string | undefined;
@@ -19,7 +19,7 @@ export class DeviceManagementExchangeConnector extends Entity implements Parsabl
     private _primarySmtpAddress?: string | undefined;
     /** The name of the Exchange server. */
     private _serverName?: string | undefined;
-    /** Exchange Connector Status. Possible values are: none, connectionPending, connected, disconnected. */
+    /** The current status of the Exchange Connector. */
     private _status?: DeviceManagementExchangeConnectorStatus | undefined;
     /** The version of the ExchangeConnectorAgent */
     private _version?: string | undefined;
@@ -42,6 +42,7 @@ export class DeviceManagementExchangeConnector extends Entity implements Parsabl
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.deviceManagementExchangeConnector";
     };
     /**
      * Gets the exchangeAlias property value. An alias assigned to the Exchange server
@@ -58,14 +59,14 @@ export class DeviceManagementExchangeConnector extends Entity implements Parsabl
         this._exchangeAlias = value;
     };
     /**
-     * Gets the exchangeConnectorType property value. The type of Exchange Connector Configured. Possible values are: onPremises, hosted, serviceToService, dedicated.
+     * Gets the exchangeConnectorType property value. The type of Exchange Connector.
      * @returns a deviceManagementExchangeConnectorType
      */
     public get exchangeConnectorType() {
         return this._exchangeConnectorType;
     };
     /**
-     * Sets the exchangeConnectorType property value. The type of Exchange Connector Configured. Possible values are: onPremises, hosted, serviceToService, dedicated.
+     * Sets the exchangeConnectorType property value. The type of Exchange Connector.
      * @param value Value to set for the exchangeConnectorType property.
      */
     public set exchangeConnectorType(value: DeviceManagementExchangeConnectorType | undefined) {
@@ -162,14 +163,14 @@ export class DeviceManagementExchangeConnector extends Entity implements Parsabl
         this._serverName = value;
     };
     /**
-     * Gets the status property value. Exchange Connector Status. Possible values are: none, connectionPending, connected, disconnected.
+     * Gets the status property value. The current status of the Exchange Connector.
      * @returns a deviceManagementExchangeConnectorStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. Exchange Connector Status. Possible values are: none, connectionPending, connected, disconnected.
+     * Sets the status property value. The current status of the Exchange Connector.
      * @param value Value to set for the status property.
      */
     public set status(value: DeviceManagementExchangeConnectorStatus | undefined) {

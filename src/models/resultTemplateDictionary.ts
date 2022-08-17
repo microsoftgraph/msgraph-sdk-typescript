@@ -1,13 +1,13 @@
 import {Dictionary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the query method. */
 export class ResultTemplateDictionary extends Dictionary implements Parsable {
     /**
-     * Instantiates a new resultTemplateDictionary and sets the default values.
+     * Instantiates a new ResultTemplateDictionary and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.resultTemplateDictionary";
     };
     /**
      * The deserialization information for the current model

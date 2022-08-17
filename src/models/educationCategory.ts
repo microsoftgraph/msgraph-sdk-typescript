@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class EducationCategory extends Entity implements Parsable {
     /** Unique identifier for the category. */
     private _displayName?: string | undefined;
@@ -10,6 +10,7 @@ export class EducationCategory extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.educationCategory";
     };
     /**
      * Gets the displayName property value. Unique identifier for the category.
