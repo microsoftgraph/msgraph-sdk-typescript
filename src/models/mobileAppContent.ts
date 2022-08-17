@@ -11,6 +11,7 @@ export class MobileAppContent extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.mobileAppContent";
     };
     /**
      * Gets the files property value. The list of files for this app content version.

@@ -2,7 +2,6 @@ import {createPublicErrorFromDiscriminatorValue} from './createPublicErrorFromDi
 import {LongRunningOperation, PublicError} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class RichLongRunningOperation extends LongRunningOperation implements Parsable {
     /** Error due to which the operation failed. */
     private _error_escaped?: PublicError | undefined;
@@ -13,10 +12,11 @@ export class RichLongRunningOperation extends LongRunningOperation implements Pa
     /** Type of the operation. */
     private _type?: string | undefined;
     /**
-     * Instantiates a new richLongRunningOperation and sets the default values.
+     * Instantiates a new RichLongRunningOperation and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.richLongRunningOperation";
     };
     /**
      * Gets the error property value. Error due to which the operation failed.

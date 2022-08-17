@@ -1,5 +1,5 @@
 
-/** Approval stages for assignment requests. */
+/** Approval stages for decisions associated with access package assignment requests. */
 export class AccessPackageAssignmentApprovalsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

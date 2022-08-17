@@ -16,6 +16,7 @@ export class Contract extends DirectoryObject implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.contract";
     };
     /**
      * Gets the contractType property value. Type of contract. Possible values are:  SyndicationPartner, BreadthPartner, ResellerPartner. See more in the table below.

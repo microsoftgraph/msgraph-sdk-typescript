@@ -9,6 +9,8 @@ export class DriveRecipient implements AdditionalDataHolder, Parsable {
     private _email?: string | undefined;
     /** The unique identifier for the recipient in the directory. */
     private _objectId?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -42,6 +44,7 @@ export class DriveRecipient implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.driveRecipient";
     };
     /**
      * Gets the email property value. The email address for the recipient, if the recipient has an associated email address.
@@ -66,6 +69,7 @@ export class DriveRecipient implements AdditionalDataHolder, Parsable {
             "alias": n => { this.alias = n.getStringValue(); },
             "email": n => { this.email = n.getStringValue(); },
             "objectId": n => { this.objectId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -83,6 +87,20 @@ export class DriveRecipient implements AdditionalDataHolder, Parsable {
         this._objectId = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -91,6 +109,7 @@ export class DriveRecipient implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("alias", this.alias);
         writer.writeStringValue("email", this.email);
         writer.writeStringValue("objectId", this.objectId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

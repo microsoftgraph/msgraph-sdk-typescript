@@ -4,8 +4,10 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ConditionalAccessFilter implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Mode to use for the filter. Possible values are include or exclude. */
+    /** The mode property */
     private _mode?: FilterMode | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Rule syntax is similar to that used for membership rules for groups in Azure Active Directory. For details, see rules with multiple expressions */
     private _rule?: string | undefined;
     /**
@@ -27,6 +29,7 @@ export class ConditionalAccessFilter implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.conditionalAccessFilter";
     };
     /**
      * The deserialization information for the current model
@@ -35,22 +38,37 @@ export class ConditionalAccessFilter implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "mode": n => { this.mode = n.getEnumValue<FilterMode>(FilterMode); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "rule": n => { this.rule = n.getStringValue(); },
         };
     };
     /**
-     * Gets the mode property value. Mode to use for the filter. Possible values are include or exclude.
+     * Gets the mode property value. The mode property
      * @returns a filterMode
      */
     public get mode() {
         return this._mode;
     };
     /**
-     * Sets the mode property value. Mode to use for the filter. Possible values are include or exclude.
+     * Sets the mode property value. The mode property
      * @param value Value to set for the mode property.
      */
     public set mode(value: FilterMode | undefined) {
         this._mode = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the rule property value. Rule syntax is similar to that used for membership rules for groups in Azure Active Directory. For details, see rules with multiple expressions
@@ -73,6 +91,7 @@ export class ConditionalAccessFilter implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeEnumValue<FilterMode>("mode", this.mode);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("rule", this.rule);
         writer.writeAdditionalData(this.additionalData);
     };

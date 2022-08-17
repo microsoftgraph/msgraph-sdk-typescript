@@ -7,6 +7,8 @@ export class ConditionalAccessClientApplications implements AdditionalDataHolder
     private _excludeServicePrincipals?: string[] | undefined;
     /** Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant. */
     private _includeServicePrincipals?: string[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -26,6 +28,7 @@ export class ConditionalAccessClientApplications implements AdditionalDataHolder
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.conditionalAccessClientApplications";
     };
     /**
      * Gets the excludeServicePrincipals property value. Service principal IDs excluded from the policy scope.
@@ -49,6 +52,7 @@ export class ConditionalAccessClientApplications implements AdditionalDataHolder
         return {
             "excludeServicePrincipals": n => { this.excludeServicePrincipals = n.getCollectionOfPrimitiveValues<string>(); },
             "includeServicePrincipals": n => { this.includeServicePrincipals = n.getCollectionOfPrimitiveValues<string>(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -66,6 +70,20 @@ export class ConditionalAccessClientApplications implements AdditionalDataHolder
         this._includeServicePrincipals = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -73,6 +91,7 @@ export class ConditionalAccessClientApplications implements AdditionalDataHolder
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfPrimitiveValues<string>("excludeServicePrincipals", this.excludeServicePrincipals);
         writer.writeCollectionOfPrimitiveValues<string>("includeServicePrincipals", this.includeServicePrincipals);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

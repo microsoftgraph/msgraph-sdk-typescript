@@ -7,6 +7,8 @@ export class AppIdentity implements AdditionalDataHolder, Parsable {
     private _appId?: string | undefined;
     /** Refers to the Application Name displayed in the Azure Portal. */
     private _displayName?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Refers to the unique identifier indicating Service Principal Id in Azure Active Directory for the corresponding App. */
     private _servicePrincipalId?: string | undefined;
     /** Refers to the Service Principal Name is the Application name in the tenant. */
@@ -44,6 +46,7 @@ export class AppIdentity implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.appIdentity";
     };
     /**
      * Gets the displayName property value. Refers to the Application Name displayed in the Azure Portal.
@@ -67,9 +70,24 @@ export class AppIdentity implements AdditionalDataHolder, Parsable {
         return {
             "appId": n => { this.appId = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "servicePrincipalId": n => { this.servicePrincipalId = n.getStringValue(); },
             "servicePrincipalName": n => { this.servicePrincipalName = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -79,6 +97,7 @@ export class AppIdentity implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("appId", this.appId);
         writer.writeStringValue("displayName", this.displayName);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("servicePrincipalId", this.servicePrincipalId);
         writer.writeStringValue("servicePrincipalName", this.servicePrincipalName);
         writer.writeAdditionalData(this.additionalData);

@@ -1,15 +1,15 @@
 import {OfferShiftRequest} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class SwapShiftsChangeRequest extends OfferShiftRequest implements Parsable {
     /** Shift ID for the recipient user with whom the request is to swap. */
     private _recipientShiftId?: string | undefined;
     /**
-     * Instantiates a new swapShiftsChangeRequest and sets the default values.
+     * Instantiates a new SwapShiftsChangeRequest and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.swapShiftsChangeRequest";
     };
     /**
      * The deserialization information for the current model

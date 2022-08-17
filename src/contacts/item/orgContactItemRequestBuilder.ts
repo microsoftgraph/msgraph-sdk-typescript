@@ -5,17 +5,17 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {DirectReportsRequestBuilder} from './directReports/directReportsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i02d1e88a55e481c88f0d5e7fd2ed778c4c3c02cb87aac3b63b2b41a5293b9476} from './directReports/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as iee145da274f90da30fe6820c5f8a64af13825c71ebf378b7d48b800d0777ebac} from './directReports/item/directoryObjectItemRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
 import {ManagerRequestBuilder} from './manager/managerRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i29fdd6398f481eca0b4940db7aa4c0e213a50cb1d60cdf357df70a569f291cd0} from './memberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i4a5ee1c2bab055f2debd3cfee5a1f5655587fb5f30daf40163cad5ac6cadc4ed} from './memberOf/item/directoryObjectItemRequestBuilder';
 import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
 import {OrgContactItemRequestBuilderDeleteRequestConfiguration} from './orgContactItemRequestBuilderDeleteRequestConfiguration';
 import {OrgContactItemRequestBuilderGetRequestConfiguration} from './orgContactItemRequestBuilderGetRequestConfiguration';
 import {OrgContactItemRequestBuilderPatchRequestConfiguration} from './orgContactItemRequestBuilderPatchRequestConfiguration';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as if5d79a689908078206c84d24031bb3a79a3a7f3149cf3c8b61510ac9a4bdfc42} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i5e2e99a1b0622616292c222076de6d6be0dbe7361b4cbe754854c565683e630d} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -102,6 +102,7 @@ export class OrgContactItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -146,13 +147,13 @@ export class OrgContactItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.contacts.item.directReports.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public directReportsById(id: string) : i02d1e88a55e481c88f0d5e7fd2ed778c4c3c02cb87aac3b63b2b41a5293b9476 {
+    public directReportsById(id: string) : iee145da274f90da30fe6820c5f8a64af13825c71ebf378b7d48b800d0777ebac {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i02d1e88a55e481c88f0d5e7fd2ed778c4c3c02cb87aac3b63b2b41a5293b9476(urlTplParams, this.requestAdapter);
+        return new iee145da274f90da30fe6820c5f8a64af13825c71ebf378b7d48b800d0777ebac(urlTplParams, this.requestAdapter);
     };
     /**
      * Get the properties and relationships of an organizational contact object.
@@ -173,13 +174,13 @@ export class OrgContactItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.contacts.item.memberOf.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public memberOfById(id: string) : i29fdd6398f481eca0b4940db7aa4c0e213a50cb1d60cdf357df70a569f291cd0 {
+    public memberOfById(id: string) : i4a5ee1c2bab055f2debd3cfee5a1f5655587fb5f30daf40163cad5ac6cadc4ed {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i29fdd6398f481eca0b4940db7aa4c0e213a50cb1d60cdf357df70a569f291cd0(urlTplParams, this.requestAdapter);
+        return new i4a5ee1c2bab055f2debd3cfee5a1f5655587fb5f30daf40163cad5ac6cadc4ed(urlTplParams, this.requestAdapter);
     };
     /**
      * Update entity in contacts
@@ -201,12 +202,12 @@ export class OrgContactItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.contacts.item.transitiveMemberOf.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public transitiveMemberOfById(id: string) : if5d79a689908078206c84d24031bb3a79a3a7f3149cf3c8b61510ac9a4bdfc42 {
+    public transitiveMemberOfById(id: string) : i5e2e99a1b0622616292c222076de6d6be0dbe7361b4cbe754854c565683e630d {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new if5d79a689908078206c84d24031bb3a79a3a7f3149cf3c8b61510ac9a4bdfc42(urlTplParams, this.requestAdapter);
+        return new i5e2e99a1b0622616292c222076de6d6be0dbe7361b4cbe754854c565683e630d(urlTplParams, this.requestAdapter);
     };
 }

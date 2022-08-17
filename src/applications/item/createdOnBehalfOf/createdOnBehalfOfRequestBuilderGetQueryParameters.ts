@@ -1,5 +1,5 @@
 
-/** Read-only. */
+/** Supports $filter (eq when counting empty collections). Read-only. */
 export class CreatedOnBehalfOfRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

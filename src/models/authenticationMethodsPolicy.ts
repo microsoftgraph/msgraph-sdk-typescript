@@ -38,6 +38,7 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.authenticationMethodsPolicy";
     };
     /**
      * Gets the description property value. A description of the policy.

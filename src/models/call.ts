@@ -20,7 +20,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class Call extends Entity implements Parsable {
-    /** Read-only. Nullable. */
+    /** The audioRoutingGroups property */
     private _audioRoutingGroups?: AudioRoutingGroup[] | undefined;
     /** The callback URL on which callbacks will be delivered. Must be https. */
     private _callbackUri?: string | undefined;
@@ -44,9 +44,9 @@ export class Call extends Entity implements Parsable {
     private _meetingInfo?: MeetingInfo | undefined;
     /** The myParticipantId property */
     private _myParticipantId?: string | undefined;
-    /** Read-only. Nullable. */
+    /** The operations property */
     private _operations?: CommsOperation[] | undefined;
-    /** Read-only. Nullable. */
+    /** The participants property */
     private _participants?: Participant[] | undefined;
     /** The requestedModalities property */
     private _requestedModalities?: string[] | undefined;
@@ -67,14 +67,14 @@ export class Call extends Entity implements Parsable {
     /** The transcription information for the call. Read-only. */
     private _transcription?: CallTranscriptionInfo | undefined;
     /**
-     * Gets the audioRoutingGroups property value. Read-only. Nullable.
+     * Gets the audioRoutingGroups property value. The audioRoutingGroups property
      * @returns a audioRoutingGroup
      */
     public get audioRoutingGroups() {
         return this._audioRoutingGroups;
     };
     /**
-     * Sets the audioRoutingGroups property value. Read-only. Nullable.
+     * Sets the audioRoutingGroups property value. The audioRoutingGroups property
      * @param value Value to set for the audioRoutingGroups property.
      */
     public set audioRoutingGroups(value: AudioRoutingGroup[] | undefined) {
@@ -155,6 +155,7 @@ export class Call extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.call";
     };
     /**
      * Gets the direction property value. The direction of the call. The possible value are incoming or outgoing. Read-only.
@@ -272,28 +273,28 @@ export class Call extends Entity implements Parsable {
         this._myParticipantId = value;
     };
     /**
-     * Gets the operations property value. Read-only. Nullable.
+     * Gets the operations property value. The operations property
      * @returns a commsOperation
      */
     public get operations() {
         return this._operations;
     };
     /**
-     * Sets the operations property value. Read-only. Nullable.
+     * Sets the operations property value. The operations property
      * @param value Value to set for the operations property.
      */
     public set operations(value: CommsOperation[] | undefined) {
         this._operations = value;
     };
     /**
-     * Gets the participants property value. Read-only. Nullable.
+     * Gets the participants property value. The participants property
      * @returns a participant
      */
     public get participants() {
         return this._participants;
     };
     /**
-     * Sets the participants property value. Read-only. Nullable.
+     * Sets the participants property value. The participants property
      * @param value Value to set for the participants property.
      */
     public set participants(value: Participant[] | undefined) {

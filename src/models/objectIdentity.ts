@@ -7,6 +7,8 @@ export class ObjectIdentity implements AdditionalDataHolder, Parsable {
     private _issuer?: string | undefined;
     /** Specifies the unique identifier assigned to the user by the issuer. The combination of issuer and issuerAssignedId must be unique within the organization. Represents the sign-in name for the user, when signInType is set to emailAddress or userName (also known as local accounts).When signInType is set to: emailAddress, (or a custom string that starts with emailAddress like emailAddress1) issuerAssignedId must be a valid email addressuserName, issuerAssignedId must be a valid local part of an email addressSupports $filter. 100 character limit. */
     private _issuerAssignedId?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Specifies the user sign-in types in your directory, such as emailAddress, userName, federated, or userPrincipalName. federated represents a unique identifier for a user from an issuer, that can be in any format chosen by the issuer. Setting or updating a userPrincipalName identity will update the value of the userPrincipalName property on the user object. The validations performed on the userPrincipalName property on the user object, for example, verified domains and acceptable characters, will be performed when setting or updating a userPrincipalName identity. Additional validation is enforced on issuerAssignedId when the sign-in type is set to emailAddress or userName. This property can also be set to any custom string. */
     private _signInType?: string | undefined;
     /**
@@ -28,6 +30,7 @@ export class ObjectIdentity implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.objectIdentity";
     };
     /**
      * The deserialization information for the current model
@@ -37,6 +40,7 @@ export class ObjectIdentity implements AdditionalDataHolder, Parsable {
         return {
             "issuer": n => { this.issuer = n.getStringValue(); },
             "issuerAssignedId": n => { this.issuerAssignedId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "signInType": n => { this.signInType = n.getStringValue(); },
         };
     };
@@ -69,6 +73,20 @@ export class ObjectIdentity implements AdditionalDataHolder, Parsable {
         this._issuerAssignedId = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -76,6 +94,7 @@ export class ObjectIdentity implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("issuer", this.issuer);
         writer.writeStringValue("issuerAssignedId", this.issuerAssignedId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("signInType", this.signInType);
         writer.writeAdditionalData(this.additionalData);
     };

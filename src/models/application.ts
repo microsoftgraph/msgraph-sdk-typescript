@@ -1,8 +1,10 @@
 import {createAddInFromDiscriminatorValue} from './createAddInFromDiscriminatorValue';
 import {createApiApplicationFromDiscriminatorValue} from './createApiApplicationFromDiscriminatorValue';
 import {createAppRoleFromDiscriminatorValue} from './createAppRoleFromDiscriminatorValue';
+import {createCertificationFromDiscriminatorValue} from './createCertificationFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {createExtensionPropertyFromDiscriminatorValue} from './createExtensionPropertyFromDiscriminatorValue';
+import {createFederatedIdentityCredentialFromDiscriminatorValue} from './createFederatedIdentityCredentialFromDiscriminatorValue';
 import {createHomeRealmDiscoveryPolicyFromDiscriminatorValue} from './createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
 import {createInformationalUrlFromDiscriminatorValue} from './createInformationalUrlFromDiscriminatorValue';
 import {createKeyCredentialFromDiscriminatorValue} from './createKeyCredentialFromDiscriminatorValue';
@@ -16,7 +18,7 @@ import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssu
 import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
 import {createVerifiedPublisherFromDiscriminatorValue} from './createVerifiedPublisherFromDiscriminatorValue';
 import {createWebApplicationFromDiscriminatorValue} from './createWebApplicationFromDiscriminatorValue';
-import {AddIn, ApiApplication, AppRole, DirectoryObject, ExtensionProperty, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OptionalClaims, ParentalControlSettings, PasswordCredential, PublicClientApplication, RequiredResourceAccess, SpaApplication, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher, WebApplication} from './index';
+import {AddIn, ApiApplication, AppRole, Certification, DirectoryObject, ExtensionProperty, FederatedIdentityCredential, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OptionalClaims, ParentalControlSettings, PasswordCredential, PublicClientApplication, RequiredResourceAccess, SpaApplication, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher, WebApplication} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
@@ -25,15 +27,17 @@ export class Application extends DirectoryObject implements Parsable {
     private _addIns?: AddIn[] | undefined;
     /** Specifies settings for an application that implements a web API. */
     private _api?: ApiApplication | undefined;
-    /** The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. */
+    /** The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. Supports $filter (eq). */
     private _appId?: string | undefined;
     /** Unique identifier of the applicationTemplate. Supports $filter (eq, not, ne). */
     private _applicationTemplateId?: string | undefined;
     /** The collection of roles assigned to the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable. */
     private _appRoles?: AppRole[] | undefined;
+    /** Specifies the certification status of the application. */
+    private _certification?: Certification | undefined;
     /** The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderBy. */
     private _createdDateTime?: Date | undefined;
-    /** Read-only. */
+    /** Supports $filter (eq when counting empty collections). Read-only. */
     private _createdOnBehalfOf?: DirectoryObject | undefined;
     /** Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search. */
     private _description?: string | undefined;
@@ -41,8 +45,10 @@ export class Application extends DirectoryObject implements Parsable {
     private _disabledByMicrosoftStatus?: string | undefined;
     /** The display name for the application. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
     private _displayName?: string | undefined;
-    /** Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections). */
+    /** Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters). */
     private _extensionProperties?: ExtensionProperty[] | undefined;
+    /** Federated identities for applications. Supports $expand and $filter (eq when counting empty collections). */
+    private _federatedIdentityCredentials?: FederatedIdentityCredential[] | undefined;
     /** Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of). */
     private _groupMembershipClaims?: string | undefined;
     /** The homeRealmDiscoveryPolicies property */
@@ -65,7 +71,7 @@ export class Application extends DirectoryObject implements Parsable {
     private _oauth2RequirePostResponse?: boolean | undefined;
     /** Application developers can configure optional claims in their Azure AD applications to specify the claims that are sent to their application by the Microsoft security token service. For more information, see How to: Provide optional claims to your app. */
     private _optionalClaims?: OptionalClaims | undefined;
-    /** Directory objects that are owners of the application. Read-only. Nullable. Supports $expand. */
+    /** Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections). */
     private _owners?: DirectoryObject[] | undefined;
     /** Specifies parental control settings for an application. */
     private _parentalControlSettings?: ParentalControlSettings | undefined;
@@ -77,6 +83,8 @@ export class Application extends DirectoryObject implements Parsable {
     private _publisherDomain?: string | undefined;
     /** Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, not, ge, le). */
     private _requiredResourceAccess?: RequiredResourceAccess[] | undefined;
+    /** The URL where the service exposes SAML metadata for federation. This property is valid only for single-tenant applications. Nullable. */
+    private _samlMetadataUrl?: string | undefined;
     /** References application or service contact information from a Service or Asset Management database. Nullable. */
     private _serviceManagementReference?: string | undefined;
     /** Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, not). */
@@ -124,14 +132,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._api = value;
     };
     /**
-     * Gets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only.
+     * Gets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. Supports $filter (eq).
      * @returns a string
      */
     public get appId() {
         return this._appId;
     };
     /**
-     * Sets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only.
+     * Sets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. Supports $filter (eq).
      * @param value Value to set for the appId property.
      */
     public set appId(value: string | undefined) {
@@ -166,10 +174,25 @@ export class Application extends DirectoryObject implements Parsable {
         this._appRoles = value;
     };
     /**
+     * Gets the certification property value. Specifies the certification status of the application.
+     * @returns a certification
+     */
+    public get certification() {
+        return this._certification;
+    };
+    /**
+     * Sets the certification property value. Specifies the certification status of the application.
+     * @param value Value to set for the certification property.
+     */
+    public set certification(value: Certification | undefined) {
+        this._certification = value;
+    };
+    /**
      * Instantiates a new application and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.application";
     };
     /**
      * Gets the createdDateTime property value. The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderBy.
@@ -186,14 +209,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._createdDateTime = value;
     };
     /**
-     * Gets the createdOnBehalfOf property value. Read-only.
+     * Gets the createdOnBehalfOf property value. Supports $filter (eq when counting empty collections). Read-only.
      * @returns a directoryObject
      */
     public get createdOnBehalfOf() {
         return this._createdOnBehalfOf;
     };
     /**
-     * Sets the createdOnBehalfOf property value. Read-only.
+     * Sets the createdOnBehalfOf property value. Supports $filter (eq when counting empty collections). Read-only.
      * @param value Value to set for the createdOnBehalfOf property.
      */
     public set createdOnBehalfOf(value: DirectoryObject | undefined) {
@@ -242,18 +265,32 @@ export class Application extends DirectoryObject implements Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
+     * Gets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
      * @returns a extensionProperty
      */
     public get extensionProperties() {
         return this._extensionProperties;
     };
     /**
-     * Sets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
+     * Sets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
      * @param value Value to set for the extensionProperties property.
      */
     public set extensionProperties(value: ExtensionProperty[] | undefined) {
         this._extensionProperties = value;
+    };
+    /**
+     * Gets the federatedIdentityCredentials property value. Federated identities for applications. Supports $expand and $filter (eq when counting empty collections).
+     * @returns a federatedIdentityCredential
+     */
+    public get federatedIdentityCredentials() {
+        return this._federatedIdentityCredentials;
+    };
+    /**
+     * Sets the federatedIdentityCredentials property value. Federated identities for applications. Supports $expand and $filter (eq when counting empty collections).
+     * @param value Value to set for the federatedIdentityCredentials property.
+     */
+    public set federatedIdentityCredentials(value: FederatedIdentityCredential[] | undefined) {
+        this._federatedIdentityCredentials = value;
     };
     /**
      * The deserialization information for the current model
@@ -266,12 +303,14 @@ export class Application extends DirectoryObject implements Parsable {
             "appId": n => { this.appId = n.getStringValue(); },
             "applicationTemplateId": n => { this.applicationTemplateId = n.getStringValue(); },
             "appRoles": n => { this.appRoles = n.getCollectionOfObjectValues<AppRole>(createAppRoleFromDiscriminatorValue); },
+            "certification": n => { this.certification = n.getObjectValue<Certification>(createCertificationFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "createdOnBehalfOf": n => { this.createdOnBehalfOf = n.getObjectValue<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
             "description": n => { this.description = n.getStringValue(); },
             "disabledByMicrosoftStatus": n => { this.disabledByMicrosoftStatus = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "extensionProperties": n => { this.extensionProperties = n.getCollectionOfObjectValues<ExtensionProperty>(createExtensionPropertyFromDiscriminatorValue); },
+            "federatedIdentityCredentials": n => { this.federatedIdentityCredentials = n.getCollectionOfObjectValues<FederatedIdentityCredential>(createFederatedIdentityCredentialFromDiscriminatorValue); },
             "groupMembershipClaims": n => { this.groupMembershipClaims = n.getStringValue(); },
             "homeRealmDiscoveryPolicies": n => { this.homeRealmDiscoveryPolicies = n.getCollectionOfObjectValues<HomeRealmDiscoveryPolicy>(createHomeRealmDiscoveryPolicyFromDiscriminatorValue); },
             "identifierUris": n => { this.identifierUris = n.getCollectionOfPrimitiveValues<string>(); },
@@ -289,6 +328,7 @@ export class Application extends DirectoryObject implements Parsable {
             "publicClient": n => { this.publicClient = n.getObjectValue<PublicClientApplication>(createPublicClientApplicationFromDiscriminatorValue); },
             "publisherDomain": n => { this.publisherDomain = n.getStringValue(); },
             "requiredResourceAccess": n => { this.requiredResourceAccess = n.getCollectionOfObjectValues<RequiredResourceAccess>(createRequiredResourceAccessFromDiscriminatorValue); },
+            "samlMetadataUrl": n => { this.samlMetadataUrl = n.getStringValue(); },
             "serviceManagementReference": n => { this.serviceManagementReference = n.getStringValue(); },
             "signInAudience": n => { this.signInAudience = n.getStringValue(); },
             "spa": n => { this.spa = n.getObjectValue<SpaApplication>(createSpaApplicationFromDiscriminatorValue); },
@@ -455,14 +495,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._optionalClaims = value;
     };
     /**
-     * Gets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand.
+     * Gets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
      * @returns a directoryObject
      */
     public get owners() {
         return this._owners;
     };
     /**
-     * Sets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand.
+     * Sets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
      * @param value Value to set for the owners property.
      */
     public set owners(value: DirectoryObject[] | undefined) {
@@ -539,6 +579,20 @@ export class Application extends DirectoryObject implements Parsable {
         this._requiredResourceAccess = value;
     };
     /**
+     * Gets the samlMetadataUrl property value. The URL where the service exposes SAML metadata for federation. This property is valid only for single-tenant applications. Nullable.
+     * @returns a string
+     */
+    public get samlMetadataUrl() {
+        return this._samlMetadataUrl;
+    };
+    /**
+     * Sets the samlMetadataUrl property value. The URL where the service exposes SAML metadata for federation. This property is valid only for single-tenant applications. Nullable.
+     * @param value Value to set for the samlMetadataUrl property.
+     */
+    public set samlMetadataUrl(value: string | undefined) {
+        this._samlMetadataUrl = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -550,12 +604,14 @@ export class Application extends DirectoryObject implements Parsable {
         writer.writeStringValue("appId", this.appId);
         writer.writeStringValue("applicationTemplateId", this.applicationTemplateId);
         writer.writeCollectionOfObjectValues<AppRole>("appRoles", this.appRoles);
+        writer.writeObjectValue<Certification>("certification", this.certification);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeObjectValue<DirectoryObject>("createdOnBehalfOf", this.createdOnBehalfOf);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("disabledByMicrosoftStatus", this.disabledByMicrosoftStatus);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeCollectionOfObjectValues<ExtensionProperty>("extensionProperties", this.extensionProperties);
+        writer.writeCollectionOfObjectValues<FederatedIdentityCredential>("federatedIdentityCredentials", this.federatedIdentityCredentials);
         writer.writeStringValue("groupMembershipClaims", this.groupMembershipClaims);
         writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", this.homeRealmDiscoveryPolicies);
         writer.writeCollectionOfPrimitiveValues<string>("identifierUris", this.identifierUris);
@@ -573,6 +629,7 @@ export class Application extends DirectoryObject implements Parsable {
         writer.writeObjectValue<PublicClientApplication>("publicClient", this.publicClient);
         writer.writeStringValue("publisherDomain", this.publisherDomain);
         writer.writeCollectionOfObjectValues<RequiredResourceAccess>("requiredResourceAccess", this.requiredResourceAccess);
+        writer.writeStringValue("samlMetadataUrl", this.samlMetadataUrl);
         writer.writeStringValue("serviceManagementReference", this.serviceManagementReference);
         writer.writeStringValue("signInAudience", this.signInAudience);
         writer.writeObjectValue<SpaApplication>("spa", this.spa);

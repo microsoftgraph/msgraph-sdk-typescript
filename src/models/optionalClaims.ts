@@ -9,6 +9,8 @@ export class OptionalClaims implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The optional claims returned in the JWT ID token. */
     private _idToken?: OptionalClaim[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The optional claims returned in the SAML token. */
     private _saml2Token?: OptionalClaim[] | undefined;
     /**
@@ -44,6 +46,7 @@ export class OptionalClaims implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.optionalClaims";
     };
     /**
      * The deserialization information for the current model
@@ -53,6 +56,7 @@ export class OptionalClaims implements AdditionalDataHolder, Parsable {
         return {
             "accessToken": n => { this.accessToken = n.getCollectionOfObjectValues<OptionalClaim>(createOptionalClaimFromDiscriminatorValue); },
             "idToken": n => { this.idToken = n.getCollectionOfObjectValues<OptionalClaim>(createOptionalClaimFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "saml2Token": n => { this.saml2Token = n.getCollectionOfObjectValues<OptionalClaim>(createOptionalClaimFromDiscriminatorValue); },
         };
     };
@@ -69,6 +73,20 @@ export class OptionalClaims implements AdditionalDataHolder, Parsable {
      */
     public set idToken(value: OptionalClaim[] | undefined) {
         this._idToken = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the saml2Token property value. The optional claims returned in the SAML token.
@@ -92,6 +110,7 @@ export class OptionalClaims implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfObjectValues<OptionalClaim>("accessToken", this.accessToken);
         writer.writeCollectionOfObjectValues<OptionalClaim>("idToken", this.idToken);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<OptionalClaim>("saml2Token", this.saml2Token);
         writer.writeAdditionalData(this.additionalData);
     };

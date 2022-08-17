@@ -1,5 +1,5 @@
 
-/** Retrieve the properties and relationships of a [groupLifecyclePolicies](../resources/grouplifecyclepolicy.md) object. */
+/** Retrieve the properties and relationships of a groupLifecyclePolicies object. */
 export class GroupLifecyclePolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

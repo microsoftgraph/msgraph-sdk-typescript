@@ -1,4 +1,4 @@
-import {MailFolder} from './index';
+import {MailFolder, MailSearchFolder} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createMailFolderFromDiscriminatorValue(parseNode: ParseNode | undefined) : MailFolder {
@@ -8,8 +8,8 @@ export function createMailFolderFromDiscriminatorValue(parseNode: ParseNode | un
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.mailFolder":
-                    return new MailFolder();
+                case "#microsoft.graph.mailSearchFolder":
+                    return new MailSearchFolder();
             }
         }
     }

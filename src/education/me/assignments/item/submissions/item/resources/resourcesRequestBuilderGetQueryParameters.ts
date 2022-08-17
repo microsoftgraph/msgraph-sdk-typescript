@@ -1,5 +1,5 @@
 
-/** Nullable. */
+/** Get resources from education */
 export class ResourcesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

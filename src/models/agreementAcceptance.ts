@@ -2,7 +2,7 @@ import {AgreementAcceptanceState} from './agreementAcceptanceState';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class AgreementAcceptance extends Entity implements Parsable {
     /** ID of the agreement file accepted by the user. */
     private _agreementFileId?: string | undefined;
@@ -63,6 +63,7 @@ export class AgreementAcceptance extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.agreementAcceptance";
     };
     /**
      * Gets the deviceDisplayName property value. The display name of the device used for accepting the agreement.

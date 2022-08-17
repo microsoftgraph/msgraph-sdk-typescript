@@ -1,4 +1,4 @@
-/** Provides operations to manage the policyRoot singleton. */
+/** Provides operations to call the instantiate method. */
 export enum AllowInvitesFrom {
     None = "none",
     AdminsAndGuestInviters = "adminsAndGuestInviters",

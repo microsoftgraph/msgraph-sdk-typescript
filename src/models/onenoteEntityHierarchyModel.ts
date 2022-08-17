@@ -2,7 +2,6 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import {IdentitySet, OnenoteEntitySchemaObjectModel} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel implements Parsable {
     /** Identity of the user, device, and application which created the item. Read-only. */
     private _createdBy?: IdentitySet | undefined;
@@ -13,10 +12,11 @@ export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel 
     /** The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _lastModifiedDateTime?: Date | undefined;
     /**
-     * Instantiates a new onenoteEntityHierarchyModel and sets the default values.
+     * Instantiates a new OnenoteEntityHierarchyModel and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.onenoteEntityHierarchyModel";
     };
     /**
      * Gets the createdBy property value. Identity of the user, device, and application which created the item. Read-only.

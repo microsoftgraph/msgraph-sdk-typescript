@@ -15,6 +15,8 @@ export class EducationResource implements AdditionalDataHolder, Parsable {
     private _lastModifiedBy?: IdentitySet | undefined;
     /** Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _lastModifiedDateTime?: Date | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -34,6 +36,7 @@ export class EducationResource implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.educationResource";
     };
     /**
      * Gets the createdBy property value. Who created the resource.
@@ -88,6 +91,7 @@ export class EducationResource implements AdditionalDataHolder, Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "lastModifiedBy": n => { this.lastModifiedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -119,6 +123,20 @@ export class EducationResource implements AdditionalDataHolder, Parsable {
         this._lastModifiedDateTime = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -129,6 +147,7 @@ export class EducationResource implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeObjectValue<IdentitySet>("lastModifiedBy", this.lastModifiedBy);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

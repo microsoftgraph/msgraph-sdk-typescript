@@ -113,6 +113,7 @@ export class ScheduleRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -173,7 +174,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.offerShiftRequests.item collection
      * @param id Unique identifier of the item
-     * @returns a offerShiftRequestItemRequestBuilder
+     * @returns a OfferShiftRequestItemRequestBuilder
      */
     public offerShiftRequestsById(id: string) : OfferShiftRequestItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -184,7 +185,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.openShiftChangeRequests.item collection
      * @param id Unique identifier of the item
-     * @returns a openShiftChangeRequestItemRequestBuilder
+     * @returns a OpenShiftChangeRequestItemRequestBuilder
      */
     public openShiftChangeRequestsById(id: string) : OpenShiftChangeRequestItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -195,7 +196,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.openShifts.item collection
      * @param id Unique identifier of the item
-     * @returns a openShiftItemRequestBuilder
+     * @returns a OpenShiftItemRequestBuilder
      */
     public openShiftsById(id: string) : OpenShiftItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -223,7 +224,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.schedulingGroups.item collection
      * @param id Unique identifier of the item
-     * @returns a schedulingGroupItemRequestBuilder
+     * @returns a SchedulingGroupItemRequestBuilder
      */
     public schedulingGroupsById(id: string) : SchedulingGroupItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -234,7 +235,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.shifts.item collection
      * @param id Unique identifier of the item
-     * @returns a shiftItemRequestBuilder
+     * @returns a ShiftItemRequestBuilder
      */
     public shiftsById(id: string) : ShiftItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -245,7 +246,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.swapShiftsChangeRequests.item collection
      * @param id Unique identifier of the item
-     * @returns a swapShiftsChangeRequestItemRequestBuilder
+     * @returns a SwapShiftsChangeRequestItemRequestBuilder
      */
     public swapShiftsChangeRequestsById(id: string) : SwapShiftsChangeRequestItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -256,7 +257,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.timeOffReasons.item collection
      * @param id Unique identifier of the item
-     * @returns a timeOffReasonItemRequestBuilder
+     * @returns a TimeOffReasonItemRequestBuilder
      */
     public timeOffReasonsById(id: string) : TimeOffReasonItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -267,7 +268,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.timeOffRequests.item collection
      * @param id Unique identifier of the item
-     * @returns a timeOffRequestItemRequestBuilder
+     * @returns a TimeOffRequestItemRequestBuilder
      */
     public timeOffRequestsById(id: string) : TimeOffRequestItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -278,7 +279,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.timesOff.item collection
      * @param id Unique identifier of the item
-     * @returns a timeOffItemRequestBuilder
+     * @returns a TimeOffItemRequestBuilder
      */
     public timesOffById(id: string) : TimeOffItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
