@@ -8,7 +8,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Casts the previous resource to endpoint. */
 export class EndpointRequestBuilder {
-    /** The count property */
+    /** The Count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -41,6 +41,7 @@ export class EndpointRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

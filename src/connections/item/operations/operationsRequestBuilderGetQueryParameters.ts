@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get operations from connections */
 export class OperationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

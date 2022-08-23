@@ -58,7 +58,7 @@ export class DeviceConfigurationItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceConfigurations.item.assignments.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceConfigurationAssignmentItemRequestBuilder
+     * @returns a DeviceConfigurationAssignmentItemRequestBuilder
      */
     public assignmentsById(id: string) : DeviceConfigurationAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -105,6 +105,7 @@ export class DeviceConfigurationItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -149,7 +150,7 @@ export class DeviceConfigurationItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceConfigurations.item.deviceSettingStateSummaries.item collection
      * @param id Unique identifier of the item
-     * @returns a settingStateDeviceSummaryItemRequestBuilder
+     * @returns a SettingStateDeviceSummaryItemRequestBuilder
      */
     public deviceSettingStateSummariesById(id: string) : SettingStateDeviceSummaryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -160,7 +161,7 @@ export class DeviceConfigurationItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceConfigurations.item.deviceStatuses.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceConfigurationDeviceStatusItemRequestBuilder
+     * @returns a DeviceConfigurationDeviceStatusItemRequestBuilder
      */
     public deviceStatusesById(id: string) : DeviceConfigurationDeviceStatusItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -213,7 +214,7 @@ export class DeviceConfigurationItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceConfigurations.item.userStatuses.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceConfigurationUserStatusItemRequestBuilder
+     * @returns a DeviceConfigurationUserStatusItemRequestBuilder
      */
     public userStatusesById(id: string) : DeviceConfigurationUserStatusItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

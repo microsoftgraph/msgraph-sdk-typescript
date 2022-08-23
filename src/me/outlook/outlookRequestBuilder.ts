@@ -54,7 +54,7 @@ export class OutlookRequestBuilder {
         return requestInfo;
     };
     /**
-     * Selective Outlook services available to the user. Read-only. Nullable.
+     * Get outlook from me
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,6 +63,7 @@ export class OutlookRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -105,7 +106,7 @@ export class OutlookRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Selective Outlook services available to the user. Read-only. Nullable.
+     * Get outlook from me
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OutlookUser
@@ -123,7 +124,7 @@ export class OutlookRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.outlook.masterCategories.item collection
      * @param id Unique identifier of the item
-     * @returns a outlookCategoryItemRequestBuilder
+     * @returns a OutlookCategoryItemRequestBuilder
      */
     public masterCategoriesById(id: string) : OutlookCategoryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

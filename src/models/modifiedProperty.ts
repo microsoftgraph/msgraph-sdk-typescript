@@ -3,11 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ModifiedProperty implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Name of property that was modified. */
+    /** Indicates the property name of the target attribute that was changed. */
     private _displayName?: string | undefined;
-    /** New property value. */
+    /** Indicates the updated value for the propery. */
     private _newValue?: string | undefined;
-    /** Old property value. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** Indicates the previous value (before the update) for the property. */
     private _oldValue?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -28,16 +30,17 @@ export class ModifiedProperty implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.modifiedProperty";
     };
     /**
-     * Gets the displayName property value. Name of property that was modified.
+     * Gets the displayName property value. Indicates the property name of the target attribute that was changed.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. Name of property that was modified.
+     * Sets the displayName property value. Indicates the property name of the target attribute that was changed.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -51,32 +54,47 @@ export class ModifiedProperty implements AdditionalDataHolder, Parsable {
         return {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "newValue": n => { this.newValue = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "oldValue": n => { this.oldValue = n.getStringValue(); },
         };
     };
     /**
-     * Gets the newValue property value. New property value.
+     * Gets the newValue property value. Indicates the updated value for the propery.
      * @returns a string
      */
     public get newValue() {
         return this._newValue;
     };
     /**
-     * Sets the newValue property value. New property value.
+     * Sets the newValue property value. Indicates the updated value for the propery.
      * @param value Value to set for the newValue property.
      */
     public set newValue(value: string | undefined) {
         this._newValue = value;
     };
     /**
-     * Gets the oldValue property value. Old property value.
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
+     * Gets the oldValue property value. Indicates the previous value (before the update) for the property.
      * @returns a string
      */
     public get oldValue() {
         return this._oldValue;
     };
     /**
-     * Sets the oldValue property value. Old property value.
+     * Sets the oldValue property value. Indicates the previous value (before the update) for the property.
      * @param value Value to set for the oldValue property.
      */
     public set oldValue(value: string | undefined) {
@@ -90,6 +108,7 @@ export class ModifiedProperty implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("newValue", this.newValue);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("oldValue", this.oldValue);
         writer.writeAdditionalData(this.additionalData);
     };

@@ -5,8 +5,10 @@ export class UsageDetails implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The date and time the resource was last accessed by the user. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _lastAccessedDateTime?: Date | undefined;
-    /** The date and time the resource was last modified by the user. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
+    /** The date and time the resource was last modified by the user. The timestamp represents date and time information using ISO 8601 format and is always in UTC time.For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _lastModifiedDateTime?: Date | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -26,6 +28,7 @@ export class UsageDetails implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.usageDetails";
     };
     /**
      * The deserialization information for the current model
@@ -35,6 +38,7 @@ export class UsageDetails implements AdditionalDataHolder, Parsable {
         return {
             "lastAccessedDateTime": n => { this.lastAccessedDateTime = n.getDateValue(); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -52,18 +56,32 @@ export class UsageDetails implements AdditionalDataHolder, Parsable {
         this._lastAccessedDateTime = value;
     };
     /**
-     * Gets the lastModifiedDateTime property value. The date and time the resource was last modified by the user. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Gets the lastModifiedDateTime property value. The date and time the resource was last modified by the user. The timestamp represents date and time information using ISO 8601 format and is always in UTC time.For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @returns a Date
      */
     public get lastModifiedDateTime() {
         return this._lastModifiedDateTime;
     };
     /**
-     * Sets the lastModifiedDateTime property value. The date and time the resource was last modified by the user. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Sets the lastModifiedDateTime property value. The date and time the resource was last modified by the user. The timestamp represents date and time information using ISO 8601 format and is always in UTC time.For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @param value Value to set for the lastModifiedDateTime property.
      */
     public set lastModifiedDateTime(value: Date | undefined) {
         this._lastModifiedDateTime = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -73,6 +91,7 @@ export class UsageDetails implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeDateValue("lastAccessedDateTime", this.lastAccessedDateTime);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

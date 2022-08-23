@@ -11,6 +11,7 @@ import {ConversationMemberItemRequestBuilder} from './members/item/conversationM
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {ChatMessageItemRequestBuilder} from './messages/item/chatMessageItemRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
+import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
 import {TeamsTabItemRequestBuilder} from './tabs/item/teamsTabItemRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -33,6 +34,10 @@ export class ChatItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
+    /** The sendActivityNotification property */
+    public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
+        return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The tabs property */
     public get tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -78,6 +83,7 @@ export class ChatItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -138,7 +144,7 @@ export class ChatItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.chats.item.installedApps.item collection
      * @param id Unique identifier of the item
-     * @returns a teamsAppInstallationItemRequestBuilder
+     * @returns a TeamsAppInstallationItemRequestBuilder
      */
     public installedAppsById(id: string) : TeamsAppInstallationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -149,7 +155,7 @@ export class ChatItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.chats.item.members.item collection
      * @param id Unique identifier of the item
-     * @returns a conversationMemberItemRequestBuilder
+     * @returns a ConversationMemberItemRequestBuilder
      */
     public membersById(id: string) : ConversationMemberItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -160,7 +166,7 @@ export class ChatItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.chats.item.messages.item collection
      * @param id Unique identifier of the item
-     * @returns a chatMessageItemRequestBuilder
+     * @returns a ChatMessageItemRequestBuilder
      */
     public messagesById(id: string) : ChatMessageItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -188,7 +194,7 @@ export class ChatItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.chats.item.tabs.item collection
      * @param id Unique identifier of the item
-     * @returns a teamsTabItemRequestBuilder
+     * @returns a TeamsTabItemRequestBuilder
      */
     public tabsById(id: string) : TeamsTabItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

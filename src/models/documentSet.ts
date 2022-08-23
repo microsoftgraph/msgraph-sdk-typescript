@@ -11,11 +11,13 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
     private _allowedContentTypes?: ContentTypeInfo[] | undefined;
     /** Default contents of document set. */
     private _defaultContents?: DocumentSetContent[] | undefined;
-    /** Indicates whether to add the name of the document set to each file name. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** Specifies whether to push welcome page changes to inherited content types. */
     private _propagateWelcomePageChanges?: boolean | undefined;
     /** The sharedColumns property */
     private _sharedColumns?: ColumnDefinition[] | undefined;
-    /** Add the name of the Document Set to each file name. */
+    /** Indicates whether to add the name of the document set to each file name. */
     private _shouldPrefixNameToFile?: boolean | undefined;
     /** The welcomePageColumns property */
     private _welcomePageColumns?: ColumnDefinition[] | undefined;
@@ -54,6 +56,7 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.documentSet";
     };
     /**
      * Gets the defaultContents property value. Default contents of document set.
@@ -77,6 +80,7 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
         return {
             "allowedContentTypes": n => { this.allowedContentTypes = n.getCollectionOfObjectValues<ContentTypeInfo>(createContentTypeInfoFromDiscriminatorValue); },
             "defaultContents": n => { this.defaultContents = n.getCollectionOfObjectValues<DocumentSetContent>(createDocumentSetContentFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "propagateWelcomePageChanges": n => { this.propagateWelcomePageChanges = n.getBooleanValue(); },
             "sharedColumns": n => { this.sharedColumns = n.getCollectionOfObjectValues<ColumnDefinition>(createColumnDefinitionFromDiscriminatorValue); },
             "shouldPrefixNameToFile": n => { this.shouldPrefixNameToFile = n.getBooleanValue(); },
@@ -85,14 +89,28 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the propagateWelcomePageChanges property value. Indicates whether to add the name of the document set to each file name.
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
+     * Gets the propagateWelcomePageChanges property value. Specifies whether to push welcome page changes to inherited content types.
      * @returns a boolean
      */
     public get propagateWelcomePageChanges() {
         return this._propagateWelcomePageChanges;
     };
     /**
-     * Sets the propagateWelcomePageChanges property value. Indicates whether to add the name of the document set to each file name.
+     * Sets the propagateWelcomePageChanges property value. Specifies whether to push welcome page changes to inherited content types.
      * @param value Value to set for the propagateWelcomePageChanges property.
      */
     public set propagateWelcomePageChanges(value: boolean | undefined) {
@@ -106,6 +124,7 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfObjectValues<ContentTypeInfo>("allowedContentTypes", this.allowedContentTypes);
         writer.writeCollectionOfObjectValues<DocumentSetContent>("defaultContents", this.defaultContents);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeBooleanValue("propagateWelcomePageChanges", this.propagateWelcomePageChanges);
         writer.writeCollectionOfObjectValues<ColumnDefinition>("sharedColumns", this.sharedColumns);
         writer.writeBooleanValue("shouldPrefixNameToFile", this.shouldPrefixNameToFile);
@@ -128,14 +147,14 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
         this._sharedColumns = value;
     };
     /**
-     * Gets the shouldPrefixNameToFile property value. Add the name of the Document Set to each file name.
+     * Gets the shouldPrefixNameToFile property value. Indicates whether to add the name of the document set to each file name.
      * @returns a boolean
      */
     public get shouldPrefixNameToFile() {
         return this._shouldPrefixNameToFile;
     };
     /**
-     * Sets the shouldPrefixNameToFile property value. Add the name of the Document Set to each file name.
+     * Sets the shouldPrefixNameToFile property value. Indicates whether to add the name of the document set to each file name.
      * @param value Value to set for the shouldPrefixNameToFile property.
      */
     public set shouldPrefixNameToFile(value: boolean | undefined) {

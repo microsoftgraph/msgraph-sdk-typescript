@@ -7,8 +7,10 @@ export class TeamworkOnlineMeetingInfo implements AdditionalDataHolder, Parsable
     private _additionalData: Record<string, unknown>;
     /** The identifier of the calendar event associated with the meeting. */
     private _calendarEventId?: string | undefined;
-    /** The URL which can be clicked on to join or uniquely identify the meeting. */
+    /** The URL that users click to join or uniquely identify the meeting. */
     private _joinWebUrl?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The organizer of the meeting. */
     private _organizer?: TeamworkUserIdentity | undefined;
     /**
@@ -44,6 +46,7 @@ export class TeamworkOnlineMeetingInfo implements AdditionalDataHolder, Parsable
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.teamworkOnlineMeetingInfo";
     };
     /**
      * The deserialization information for the current model
@@ -53,22 +56,37 @@ export class TeamworkOnlineMeetingInfo implements AdditionalDataHolder, Parsable
         return {
             "calendarEventId": n => { this.calendarEventId = n.getStringValue(); },
             "joinWebUrl": n => { this.joinWebUrl = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "organizer": n => { this.organizer = n.getObjectValue<TeamworkUserIdentity>(createTeamworkUserIdentityFromDiscriminatorValue); },
         };
     };
     /**
-     * Gets the joinWebUrl property value. The URL which can be clicked on to join or uniquely identify the meeting.
+     * Gets the joinWebUrl property value. The URL that users click to join or uniquely identify the meeting.
      * @returns a string
      */
     public get joinWebUrl() {
         return this._joinWebUrl;
     };
     /**
-     * Sets the joinWebUrl property value. The URL which can be clicked on to join or uniquely identify the meeting.
+     * Sets the joinWebUrl property value. The URL that users click to join or uniquely identify the meeting.
      * @param value Value to set for the joinWebUrl property.
      */
     public set joinWebUrl(value: string | undefined) {
         this._joinWebUrl = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the organizer property value. The organizer of the meeting.
@@ -92,6 +110,7 @@ export class TeamworkOnlineMeetingInfo implements AdditionalDataHolder, Parsable
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("calendarEventId", this.calendarEventId);
         writer.writeStringValue("joinWebUrl", this.joinWebUrl);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<TeamworkUserIdentity>("organizer", this.organizer);
         writer.writeAdditionalData(this.additionalData);
     };

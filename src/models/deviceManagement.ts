@@ -65,7 +65,7 @@ export class DeviceManagement extends Entity implements Parsable {
     private _exchangeConnectors?: DeviceManagementExchangeConnector[] | undefined;
     /** Collection of imported Windows autopilot devices. */
     private _importedWindowsAutopilotDeviceIdentities?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
-    /** Intune Account ID for given tenant */
+    /** Intune Account Id for given tenant */
     private _intuneAccountId?: string | undefined;
     /** intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal. */
     private _intuneBrand?: IntuneBrand | undefined;
@@ -93,7 +93,7 @@ export class DeviceManagement extends Entity implements Parsable {
     private _settings?: DeviceManagementSettings | undefined;
     /** The software update status summary. */
     private _softwareUpdateStatusSummary?: SoftwareUpdateStatusSummary | undefined;
-    /** Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut. */
+    /** Tenant mobile device management subscription state. */
     private _subscriptionState?: DeviceManagementSubscriptionState | undefined;
     /** The telecom expense management partners. */
     private _telecomExpenseManagementPartners?: TelecomExpenseManagementPartner[] | undefined;
@@ -154,6 +154,7 @@ export class DeviceManagement extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.deviceManagement";
     };
     /**
      * Gets the detectedApps property value. The list of detected apps associated with a device.
@@ -353,14 +354,14 @@ export class DeviceManagement extends Entity implements Parsable {
         this._importedWindowsAutopilotDeviceIdentities = value;
     };
     /**
-     * Gets the intuneAccountId property value. Intune Account ID for given tenant
+     * Gets the intuneAccountId property value. Intune Account Id for given tenant
      * @returns a string
      */
     public get intuneAccountId() {
         return this._intuneAccountId;
     };
     /**
-     * Sets the intuneAccountId property value. Intune Account ID for given tenant
+     * Sets the intuneAccountId property value. Intune Account Id for given tenant
      * @param value Value to set for the intuneAccountId property.
      */
     public set intuneAccountId(value: string | undefined) {
@@ -592,14 +593,14 @@ export class DeviceManagement extends Entity implements Parsable {
         this._softwareUpdateStatusSummary = value;
     };
     /**
-     * Gets the subscriptionState property value. Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut.
+     * Gets the subscriptionState property value. Tenant mobile device management subscription state.
      * @returns a deviceManagementSubscriptionState
      */
     public get subscriptionState() {
         return this._subscriptionState;
     };
     /**
-     * Sets the subscriptionState property value. Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut.
+     * Sets the subscriptionState property value. Tenant mobile device management subscription state.
      * @param value Value to set for the subscriptionState property.
      */
     public set subscriptionState(value: DeviceManagementSubscriptionState | undefined) {

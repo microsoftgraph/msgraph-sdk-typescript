@@ -9,6 +9,8 @@ export class ChatMessagePolicyViolationPolicyTip implements AdditionalDataHolder
     private _generalText?: string | undefined;
     /** The list of improper data in the message that was detected by the data loss prevention app. Each DLP app defines its own conditions, examples include 'Credit Card Number' and 'Social Security Number'. */
     private _matchedConditionDescriptions?: string[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -42,6 +44,7 @@ export class ChatMessagePolicyViolationPolicyTip implements AdditionalDataHolder
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.chatMessagePolicyViolationPolicyTip";
     };
     /**
      * Gets the generalText property value. Explanatory text shown to the sender of the message.
@@ -66,6 +69,7 @@ export class ChatMessagePolicyViolationPolicyTip implements AdditionalDataHolder
             "complianceUrl": n => { this.complianceUrl = n.getStringValue(); },
             "generalText": n => { this.generalText = n.getStringValue(); },
             "matchedConditionDescriptions": n => { this.matchedConditionDescriptions = n.getCollectionOfPrimitiveValues<string>(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -83,6 +87,20 @@ export class ChatMessagePolicyViolationPolicyTip implements AdditionalDataHolder
         this._matchedConditionDescriptions = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -91,6 +109,7 @@ export class ChatMessagePolicyViolationPolicyTip implements AdditionalDataHolder
         writer.writeStringValue("complianceUrl", this.complianceUrl);
         writer.writeStringValue("generalText", this.generalText);
         writer.writeCollectionOfPrimitiveValues<string>("matchedConditionDescriptions", this.matchedConditionDescriptions);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

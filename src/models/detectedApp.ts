@@ -2,7 +2,6 @@ import {createManagedDeviceFromDiscriminatorValue} from './createManagedDeviceFr
 import {Entity, ManagedDevice} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** A managed or unmanaged app that is installed on a managed device. Unmanaged apps will only appear for devices marked as corporate owned. */
 export class DetectedApp extends Entity implements Parsable {
     /** The number of devices that have installed this application */
     private _deviceCount?: number | undefined;
@@ -15,10 +14,11 @@ export class DetectedApp extends Entity implements Parsable {
     /** Version of the discovered application. Read-only */
     private _version?: string | undefined;
     /**
-     * Instantiates a new detectedApp and sets the default values.
+     * Instantiates a new DetectedApp and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.detectedApp";
     };
     /**
      * Gets the deviceCount property value. The number of devices that have installed this application

@@ -10,7 +10,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity. */
 export class RoleManagementPolicyAssignmentsRequestBuilder {
-    /** The count property */
+    /** The Count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -34,7 +34,7 @@ export class RoleManagementPolicyAssignmentsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Represents the role management policy assignments.
+     * The assignment of a role management policy to a role definition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -43,6 +43,7 @@ export class RoleManagementPolicyAssignmentsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -62,6 +63,7 @@ export class RoleManagementPolicyAssignmentsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -70,7 +72,7 @@ export class RoleManagementPolicyAssignmentsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Represents the role management policy assignments.
+     * The assignment of a role management policy to a role definition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleManagementPolicyAssignmentCollectionResponse

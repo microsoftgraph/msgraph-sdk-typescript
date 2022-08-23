@@ -6,6 +6,8 @@ export class LobbyBypassSettings implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Specifies whether or not to always let dial-in callers bypass the lobby. Optional. */
     private _isDialInBypassEnabled?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional. */
     private _scope?: LobbyBypassScope | undefined;
     /**
@@ -27,6 +29,7 @@ export class LobbyBypassSettings implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.lobbyBypassSettings";
     };
     /**
      * The deserialization information for the current model
@@ -35,6 +38,7 @@ export class LobbyBypassSettings implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "isDialInBypassEnabled": n => { this.isDialInBypassEnabled = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "scope": n => { this.scope = n.getEnumValue<LobbyBypassScope>(LobbyBypassScope); },
         };
     };
@@ -51,6 +55,20 @@ export class LobbyBypassSettings implements AdditionalDataHolder, Parsable {
      */
     public set isDialInBypassEnabled(value: boolean | undefined) {
         this._isDialInBypassEnabled = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the scope property value. Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
@@ -73,6 +91,7 @@ export class LobbyBypassSettings implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("isDialInBypassEnabled", this.isDialInBypassEnabled);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<LobbyBypassScope>("scope", this.scope);
         writer.writeAdditionalData(this.additionalData);
     };

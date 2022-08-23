@@ -7,6 +7,8 @@ export class PublicErrorDetail implements AdditionalDataHolder, Parsable {
     private _code?: string | undefined;
     /** The error message. */
     private _message?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The target of the error. */
     private _target?: string | undefined;
     /**
@@ -42,6 +44,7 @@ export class PublicErrorDetail implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.publicErrorDetail";
     };
     /**
      * The deserialization information for the current model
@@ -51,6 +54,7 @@ export class PublicErrorDetail implements AdditionalDataHolder, Parsable {
         return {
             "code": n => { this.code = n.getStringValue(); },
             "message": n => { this.message = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "target": n => { this.target = n.getStringValue(); },
         };
     };
@@ -69,6 +73,20 @@ export class PublicErrorDetail implements AdditionalDataHolder, Parsable {
         this._message = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -76,6 +94,7 @@ export class PublicErrorDetail implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("code", this.code);
         writer.writeStringValue("message", this.message);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("target", this.target);
         writer.writeAdditionalData(this.additionalData);
     };

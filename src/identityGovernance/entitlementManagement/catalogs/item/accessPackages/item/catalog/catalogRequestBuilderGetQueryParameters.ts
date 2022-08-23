@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get catalog from identityGovernance */
 export class CatalogRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

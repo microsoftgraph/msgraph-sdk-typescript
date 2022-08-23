@@ -33,12 +33,14 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
     private _inputBin?: string | undefined;
     /** The margin settings to use when printing. */
     private _margin?: PrintMargin | undefined;
-    /** The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic. */
+    /** The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic. */
     private _mediaSize?: string | undefined;
     /** The default media (such as paper) type to print the document on. */
     private _mediaType?: string | undefined;
     /** The direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table. */
     private _multipageLayout?: PrintMultipageLayout | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The orientation setting the printer should use when printing the job. Valid values are described in the following table. */
     private _orientation?: PrintOrientation | undefined;
     /** The output bin to place completed prints into. See the printer's capabilities for a list of supported output bins. */
@@ -98,6 +100,7 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.printJobConfiguration";
     };
     /**
      * Gets the copies property value. The number of copies that should be printed. Read-only.
@@ -202,6 +205,7 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
             "mediaSize": n => { this.mediaSize = n.getStringValue(); },
             "mediaType": n => { this.mediaType = n.getStringValue(); },
             "multipageLayout": n => { this.multipageLayout = n.getEnumValue<PrintMultipageLayout>(PrintMultipageLayout); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "orientation": n => { this.orientation = n.getEnumValue<PrintOrientation>(PrintOrientation); },
             "outputBin": n => { this.outputBin = n.getStringValue(); },
             "pageRanges": n => { this.pageRanges = n.getCollectionOfObjectValues<IntegerRange>(createIntegerRangeFromDiscriminatorValue); },
@@ -239,14 +243,14 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
         this._margin = value;
     };
     /**
-     * Gets the mediaSize property value. The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.
+     * Gets the mediaSize property value. The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic.
      * @returns a string
      */
     public get mediaSize() {
         return this._mediaSize;
     };
     /**
-     * Sets the mediaSize property value. The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.
+     * Sets the mediaSize property value. The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic.
      * @param value Value to set for the mediaSize property.
      */
     public set mediaSize(value: string | undefined) {
@@ -279,6 +283,20 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
      */
     public set multipageLayout(value: PrintMultipageLayout | undefined) {
         this._multipageLayout = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the orientation property value. The orientation setting the printer should use when printing the job. Valid values are described in the following table.
@@ -383,6 +401,7 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("mediaSize", this.mediaSize);
         writer.writeStringValue("mediaType", this.mediaType);
         writer.writeEnumValue<PrintMultipageLayout>("multipageLayout", this.multipageLayout);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<PrintOrientation>("orientation", this.orientation);
         writer.writeStringValue("outputBin", this.outputBin);
         writer.writeCollectionOfObjectValues<IntegerRange>("pageRanges", this.pageRanges);

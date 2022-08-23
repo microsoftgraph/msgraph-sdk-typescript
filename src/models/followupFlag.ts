@@ -12,6 +12,8 @@ export class FollowupFlag implements AdditionalDataHolder, Parsable {
     private _dueDateTime?: DateTimeTimeZone | undefined;
     /** The status for follow-up for an item. Possible values are notFlagged, complete, and flagged. */
     private _flagStatus?: FollowupFlagStatus | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The date and time that the follow-up is to begin. */
     private _startDateTime?: DateTimeTimeZone | undefined;
     /**
@@ -47,6 +49,7 @@ export class FollowupFlag implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.followupFlag";
     };
     /**
      * Gets the dueDateTime property value. The date and time that the follow up is to be finished. Note: To set the due date, you must also specify the startDateTime; otherwise, you will get a 400 Bad Request response.
@@ -85,8 +88,23 @@ export class FollowupFlag implements AdditionalDataHolder, Parsable {
             "completedDateTime": n => { this.completedDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
             "dueDateTime": n => { this.dueDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
             "flagStatus": n => { this.flagStatus = n.getEnumValue<FollowupFlagStatus>(FollowupFlagStatus); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "startDateTime": n => { this.startDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -97,6 +115,7 @@ export class FollowupFlag implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue<DateTimeTimeZone>("completedDateTime", this.completedDateTime);
         writer.writeObjectValue<DateTimeTimeZone>("dueDateTime", this.dueDateTime);
         writer.writeEnumValue<FollowupFlagStatus>("flagStatus", this.flagStatus);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<DateTimeTimeZone>("startDateTime", this.startDateTime);
         writer.writeAdditionalData(this.additionalData);
     };

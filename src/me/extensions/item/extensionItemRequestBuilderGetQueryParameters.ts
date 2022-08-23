@@ -1,5 +1,5 @@
 
-/** The collection of open extensions defined for the user. Nullable. */
+/** The collection of open extensions defined for the user. Read-only. Supports $expand. Nullable. */
 export class ExtensionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

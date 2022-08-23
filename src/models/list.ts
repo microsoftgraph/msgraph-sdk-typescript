@@ -10,7 +10,6 @@ import {createSystemFacetFromDiscriminatorValue} from './createSystemFacetFromDi
 import {BaseItem, ColumnDefinition, ContentType, Drive, ListInfo, ListItem, RichLongRunningOperation, SharepointIds, Subscription, SystemFacet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class List extends BaseItem implements Parsable {
     /** The collection of field definitions for this list. */
     private _columns?: ColumnDefinition[] | undefined;
@@ -24,7 +23,7 @@ export class List extends BaseItem implements Parsable {
     private _items?: ListItem[] | undefined;
     /** Provides additional details about the list. */
     private _list?: ListInfo | undefined;
-    /** The collection of long running operations for the list. */
+    /** The collection of long-running operations on the list. */
     private _operations?: RichLongRunningOperation[] | undefined;
     /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
     private _sharepointIds?: SharepointIds | undefined;
@@ -51,6 +50,7 @@ export class List extends BaseItem implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.list";
     };
     /**
      * Gets the contentTypes property value. The collection of content types present in this list.
@@ -141,14 +141,14 @@ export class List extends BaseItem implements Parsable {
         this._list = value;
     };
     /**
-     * Gets the operations property value. The collection of long running operations for the list.
+     * Gets the operations property value. The collection of long-running operations on the list.
      * @returns a richLongRunningOperation
      */
     public get operations() {
         return this._operations;
     };
     /**
-     * Sets the operations property value. The collection of long running operations for the list.
+     * Sets the operations property value. The collection of long-running operations on the list.
      * @param value Value to set for the operations property.
      */
     public set operations(value: RichLongRunningOperation[] | undefined) {

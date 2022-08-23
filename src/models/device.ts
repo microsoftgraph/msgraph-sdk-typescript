@@ -4,9 +4,8 @@ import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscri
 import {AlternativeSecurityId, DirectoryObject, Extension} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Device extends DirectoryObject implements Parsable {
-    /** true if the account is enabled; otherwise, false. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property. */
+    /** true if the account is enabled; otherwise, false. Required. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property. */
     private _accountEnabled?: boolean | undefined;
     /** For internal use only. Not nullable. Supports $filter (eq, not, ge, le). */
     private _alternativeSecurityIds?: AlternativeSecurityId[] | undefined;
@@ -14,7 +13,7 @@ export class Device extends DirectoryObject implements Parsable {
     private _approximateLastSignInDateTime?: Date | undefined;
     /** The timestamp when the device is no longer deemed compliant. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _complianceExpirationDateTime?: Date | undefined;
-    /** Identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith). */
+    /** Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith). */
     private _deviceId?: string | undefined;
     /** For internal use only. Set to null. */
     private _deviceMetadata?: string | undefined;
@@ -38,7 +37,7 @@ export class Device extends DirectoryObject implements Parsable {
     private _onPremisesSyncEnabled?: boolean | undefined;
     /** The type of operating system on the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values). */
     private _operatingSystem?: string | undefined;
-    /** Operating system version of the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values). */
+    /** The version of the operating system on the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values). */
     private _operatingSystemVersion?: string | undefined;
     /** For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections). */
     private _physicalIds?: string[] | undefined;
@@ -50,19 +49,19 @@ export class Device extends DirectoryObject implements Parsable {
     private _registeredUsers?: DirectoryObject[] | undefined;
     /** List of labels applied to the device by the system. Supports $filter (eq when counting empty collections). */
     private _systemLabels?: string[] | undefined;
-    /** Groups and administrative units that this device is a member of. This operation is transitive. Supports $expand. */
+    /** Groups and administrative units that the device is a member of. This operation is transitive. Supports $expand. */
     private _transitiveMemberOf?: DirectoryObject[] | undefined;
-    /** Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory */
+    /** Type of trust for the joined device. Read-only. Possible values:  Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory */
     private _trustType?: string | undefined;
     /**
-     * Gets the accountEnabled property value. true if the account is enabled; otherwise, false. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.
+     * Gets the accountEnabled property value. true if the account is enabled; otherwise, false. Required. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.
      * @returns a boolean
      */
     public get accountEnabled() {
         return this._accountEnabled;
     };
     /**
-     * Sets the accountEnabled property value. true if the account is enabled; otherwise, false. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.
+     * Sets the accountEnabled property value. true if the account is enabled; otherwise, false. Required. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.
      * @param value Value to set for the accountEnabled property.
      */
     public set accountEnabled(value: boolean | undefined) {
@@ -115,16 +114,17 @@ export class Device extends DirectoryObject implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.device";
     };
     /**
-     * Gets the deviceId property value. Identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith).
+     * Gets the deviceId property value. Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith).
      * @returns a string
      */
     public get deviceId() {
         return this._deviceId;
     };
     /**
-     * Sets the deviceId property value. Identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith).
+     * Sets the deviceId property value. Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith).
      * @param value Value to set for the deviceId property.
      */
     public set deviceId(value: string | undefined) {
@@ -317,14 +317,14 @@ export class Device extends DirectoryObject implements Parsable {
         this._operatingSystem = value;
     };
     /**
-     * Gets the operatingSystemVersion property value. Operating system version of the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values).
+     * Gets the operatingSystemVersion property value. The version of the operating system on the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values).
      * @returns a string
      */
     public get operatingSystemVersion() {
         return this._operatingSystemVersion;
     };
     /**
-     * Sets the operatingSystemVersion property value. Operating system version of the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values).
+     * Sets the operatingSystemVersion property value. The version of the operating system on the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values).
      * @param value Value to set for the operatingSystemVersion property.
      */
     public set operatingSystemVersion(value: string | undefined) {
@@ -433,28 +433,28 @@ export class Device extends DirectoryObject implements Parsable {
         this._systemLabels = value;
     };
     /**
-     * Gets the transitiveMemberOf property value. Groups and administrative units that this device is a member of. This operation is transitive. Supports $expand.
+     * Gets the transitiveMemberOf property value. Groups and administrative units that the device is a member of. This operation is transitive. Supports $expand.
      * @returns a directoryObject
      */
     public get transitiveMemberOf() {
         return this._transitiveMemberOf;
     };
     /**
-     * Sets the transitiveMemberOf property value. Groups and administrative units that this device is a member of. This operation is transitive. Supports $expand.
+     * Sets the transitiveMemberOf property value. Groups and administrative units that the device is a member of. This operation is transitive. Supports $expand.
      * @param value Value to set for the transitiveMemberOf property.
      */
     public set transitiveMemberOf(value: DirectoryObject[] | undefined) {
         this._transitiveMemberOf = value;
     };
     /**
-     * Gets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
+     * Gets the trustType property value. Type of trust for the joined device. Read-only. Possible values:  Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
      * @returns a string
      */
     public get trustType() {
         return this._trustType;
     };
     /**
-     * Sets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
+     * Sets the trustType property value. Type of trust for the joined device. Read-only. Possible values:  Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
      * @param value Value to set for the trustType property.
      */
     public set trustType(value: string | undefined) {

@@ -13,6 +13,8 @@ export class SubjectRightsRequestDetail implements AdditionalDataHolder, Parsabl
     private _itemCount?: number | undefined;
     /** Count of item that need review. */
     private _itemNeedReview?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Count of items per product, such as Exchange, SharePoint, OneDrive, and Teams. */
     private _productItemCounts?: KeyValuePair[] | undefined;
     /** Count of items signed off by the administrator. */
@@ -38,6 +40,7 @@ export class SubjectRightsRequestDetail implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.subjectRightsRequestDetail";
     };
     /**
      * Gets the excludedItemCount property value. Count of items that are excluded from the request.
@@ -63,6 +66,7 @@ export class SubjectRightsRequestDetail implements AdditionalDataHolder, Parsabl
             "insightCounts": n => { this.insightCounts = n.getCollectionOfObjectValues<KeyValuePair>(createKeyValuePairFromDiscriminatorValue); },
             "itemCount": n => { this.itemCount = n.getNumberValue(); },
             "itemNeedReview": n => { this.itemNeedReview = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "productItemCounts": n => { this.productItemCounts = n.getCollectionOfObjectValues<KeyValuePair>(createKeyValuePairFromDiscriminatorValue); },
             "signedOffItemCount": n => { this.signedOffItemCount = n.getNumberValue(); },
             "totalItemSize": n => { this.totalItemSize = n.getNumberValue(); },
@@ -111,6 +115,20 @@ export class SubjectRightsRequestDetail implements AdditionalDataHolder, Parsabl
         this._itemNeedReview = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the productItemCounts property value. Count of items per product, such as Exchange, SharePoint, OneDrive, and Teams.
      * @returns a keyValuePair
      */
@@ -134,6 +152,7 @@ export class SubjectRightsRequestDetail implements AdditionalDataHolder, Parsabl
         writer.writeCollectionOfObjectValues<KeyValuePair>("insightCounts", this.insightCounts);
         writer.writeNumberValue("itemCount", this.itemCount);
         writer.writeNumberValue("itemNeedReview", this.itemNeedReview);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<KeyValuePair>("productItemCounts", this.productItemCounts);
         writer.writeNumberValue("signedOffItemCount", this.signedOffItemCount);
         writer.writeNumberValue("totalItemSize", this.totalItemSize);

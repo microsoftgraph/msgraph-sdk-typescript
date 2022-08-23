@@ -6,9 +6,9 @@ import {ConnectedOrganizationItemRequestBuilderDeleteRequestConfiguration} from 
 import {ConnectedOrganizationItemRequestBuilderGetRequestConfiguration} from './connectedOrganizationItemRequestBuilderGetRequestConfiguration';
 import {ConnectedOrganizationItemRequestBuilderPatchRequestConfiguration} from './connectedOrganizationItemRequestBuilderPatchRequestConfiguration';
 import {ExternalSponsorsRequestBuilder} from './externalSponsors/externalSponsorsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as ib7ef6fb9141018851014400227490d09507e291ec30d2700f61fa83b2acf6b7f} from './externalSponsors/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i7878104e7b0ea53246ac468b5705cce3cfc580d4222a924819428d7221076aa2} from './externalSponsors/item/directoryObjectItemRequestBuilder';
 import {InternalSponsorsRequestBuilder} from './internalSponsors/internalSponsorsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i1ba5b61c3c4e6a68dbcaef870806d98a26482e416115fb33df7e15680a88a092} from './internalSponsors/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i8a781ad6078cf6e70aa40eeebfc1c290e68a68bb1597594a6a8f9d0f0ea3b516} from './internalSponsors/item/directoryObjectItemRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity. */
@@ -57,7 +57,7 @@ export class ConnectedOrganizationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Represents references to a directory or domain of another organization whose users can request access.
+     * References to a directory or domain of another organization whose users can request access.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -66,6 +66,7 @@ export class ConnectedOrganizationItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -110,16 +111,16 @@ export class ConnectedOrganizationItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.connectedOrganizations.item.externalSponsors.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public externalSponsorsById(id: string) : ib7ef6fb9141018851014400227490d09507e291ec30d2700f61fa83b2acf6b7f {
+    public externalSponsorsById(id: string) : i7878104e7b0ea53246ac468b5705cce3cfc580d4222a924819428d7221076aa2 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new ib7ef6fb9141018851014400227490d09507e291ec30d2700f61fa83b2acf6b7f(urlTplParams, this.requestAdapter);
+        return new i7878104e7b0ea53246ac468b5705cce3cfc580d4222a924819428d7221076aa2(urlTplParams, this.requestAdapter);
     };
     /**
-     * Represents references to a directory or domain of another organization whose users can request access.
+     * References to a directory or domain of another organization whose users can request access.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConnectedOrganization
@@ -137,13 +138,13 @@ export class ConnectedOrganizationItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.connectedOrganizations.item.internalSponsors.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public internalSponsorsById(id: string) : i1ba5b61c3c4e6a68dbcaef870806d98a26482e416115fb33df7e15680a88a092 {
+    public internalSponsorsById(id: string) : i8a781ad6078cf6e70aa40eeebfc1c290e68a68bb1597594a6a8f9d0f0ea3b516 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i1ba5b61c3c4e6a68dbcaef870806d98a26482e416115fb33df7e15680a88a092(urlTplParams, this.requestAdapter);
+        return new i8a781ad6078cf6e70aa40eeebfc1c290e68a68bb1597594a6a8f9d0f0ea3b516(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property connectedOrganizations in identityGovernance

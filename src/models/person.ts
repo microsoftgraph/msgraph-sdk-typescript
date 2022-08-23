@@ -6,7 +6,7 @@ import {createWebsiteFromDiscriminatorValue} from './createWebsiteFromDiscrimina
 import {Entity, Location, PersonType, Phone, ScoredEmailAddress, Website} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class Person extends Entity implements Parsable {
     /** The person's birthday. */
     private _birthday?: string | undefined;
@@ -28,7 +28,7 @@ export class Person extends Entity implements Parsable {
     private _officeLocation?: string | undefined;
     /** Free-form notes that the user has taken about this person. */
     private _personNotes?: string | undefined;
-    /** The type of person, for example distribution list. */
+    /** The type of person. */
     private _personType?: PersonType | undefined;
     /** The person's phone numbers. */
     private _phones?: Phone[] | undefined;
@@ -79,6 +79,7 @@ export class Person extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.person";
     };
     /**
      * Gets the department property value. The person's department.
@@ -220,14 +221,14 @@ export class Person extends Entity implements Parsable {
         this._personNotes = value;
     };
     /**
-     * Gets the personType property value. The type of person, for example distribution list.
+     * Gets the personType property value. The type of person.
      * @returns a personType
      */
     public get personType() {
         return this._personType;
     };
     /**
-     * Sets the personType property value. The type of person, for example distribution list.
+     * Sets the personType property value. The type of person.
      * @param value Value to set for the personType property.
      */
     public set personType(value: PersonType | undefined) {

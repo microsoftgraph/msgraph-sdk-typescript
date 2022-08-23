@@ -7,6 +7,8 @@ export class PreAuthorizedApplication implements AdditionalDataHolder, Parsable 
     private _appId?: string | undefined;
     /** The unique identifier for the oauth2PermissionScopes the application requires. */
     private _delegatedPermissionIds?: string[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -40,6 +42,7 @@ export class PreAuthorizedApplication implements AdditionalDataHolder, Parsable 
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.preAuthorizedApplication";
     };
     /**
      * Gets the delegatedPermissionIds property value. The unique identifier for the oauth2PermissionScopes the application requires.
@@ -63,7 +66,22 @@ export class PreAuthorizedApplication implements AdditionalDataHolder, Parsable 
         return {
             "appId": n => { this.appId = n.getStringValue(); },
             "delegatedPermissionIds": n => { this.delegatedPermissionIds = n.getCollectionOfPrimitiveValues<string>(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -73,6 +91,7 @@ export class PreAuthorizedApplication implements AdditionalDataHolder, Parsable 
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("appId", this.appId);
         writer.writeCollectionOfPrimitiveValues<string>("delegatedPermissionIds", this.delegatedPermissionIds);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

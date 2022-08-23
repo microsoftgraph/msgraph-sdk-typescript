@@ -4,7 +4,6 @@ import {createPlannerTaskFromDiscriminatorValue} from './createPlannerTaskFromDi
 import {Entity, PlannerBucket, PlannerPlan, PlannerTask} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the planner singleton. */
 export class Planner extends Entity implements Parsable {
     /** Read-only. Nullable. Returns a collection of the specified buckets */
     private _buckets?: PlannerBucket[] | undefined;
@@ -27,10 +26,11 @@ export class Planner extends Entity implements Parsable {
         this._buckets = value;
     };
     /**
-     * Instantiates a new planner and sets the default values.
+     * Instantiates a new Planner and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.planner";
     };
     /**
      * The deserialization information for the current model

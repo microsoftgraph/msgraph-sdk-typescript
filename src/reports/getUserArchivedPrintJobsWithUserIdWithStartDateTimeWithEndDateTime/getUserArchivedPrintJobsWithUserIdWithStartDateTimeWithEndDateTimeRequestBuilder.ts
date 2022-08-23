@@ -1,3 +1,5 @@
+import {ODataError} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue} from './createGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue';
 import {GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration} from './getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration';
 import {GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponse} from './index';
@@ -24,9 +26,9 @@ export class GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeR
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/reports/microsoft.graph.getUserArchivedPrintJobs(userId='{userId}',startDateTime='{startDateTime}',endDateTime='{endDateTime}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams[""] = endDateTime
-        urlTplParams[""] = startDateTime
-        urlTplParams[""] = userId
+        urlTplParams["endDateTime"] = endDateTime
+        urlTplParams["startDateTime"] = startDateTime
+        urlTplParams["userId"] = userId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -40,6 +42,7 @@ export class GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeR
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -56,6 +59,10 @@ export class GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeR
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponse>(requestInfo, createGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponse>(requestInfo, createGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

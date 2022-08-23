@@ -1,4 +1,4 @@
-/** Provides operations to manage the print singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum PrintJobProcessingState {
     Unknown = "unknown",
     Pending = "pending",

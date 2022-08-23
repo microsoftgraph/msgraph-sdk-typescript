@@ -3,7 +3,6 @@ import {createTermsAndConditionsAssignmentFromDiscriminatorValue} from './create
 import {Entity, TermsAndConditionsAcceptanceStatus, TermsAndConditionsAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** A termsAndConditions entity represents the metadata and contents of a given Terms and Conditions (T&C) policy. T&C policies’ contents are presented to users upon their first attempt to enroll into Intune and subsequently upon edits where an administrator has required re-acceptance. They enable administrators to communicate the provisions to which a user must agree in order to have devices enrolled into Intune. */
 export class TermsAndConditions extends Entity implements Parsable {
     /** Administrator-supplied explanation of the terms and conditions, typically describing what it means to accept the terms and conditions set out in the T&C policy. This is shown to the user on prompts to accept the T&C policy. */
     private _acceptanceStatement?: string | undefined;
@@ -82,10 +81,11 @@ export class TermsAndConditions extends Entity implements Parsable {
         this._bodyText = value;
     };
     /**
-     * Instantiates a new termsAndConditions and sets the default values.
+     * Instantiates a new TermsAndConditions and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.termsAndConditions";
     };
     /**
      * Gets the createdDateTime property value. DateTime the object was created.

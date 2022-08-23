@@ -21,6 +21,8 @@ export class IntuneBrand implements AdditionalDataHolder, Parsable {
     private _displayName?: string | undefined;
     /** Logo image displayed in Company Portal apps which have a light background behind the logo. */
     private _lightBackgroundLogo?: MimeContent | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Display name of the company/organization’s IT helpdesk site. */
     private _onlineSupportSiteName?: string | undefined;
     /** URL to the company/organization’s IT helpdesk site. */
@@ -54,6 +56,7 @@ export class IntuneBrand implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.intuneBrand";
     };
     /**
      * Gets the contactITEmailAddress property value. Email address of the person/organization responsible for IT support.
@@ -152,6 +155,7 @@ export class IntuneBrand implements AdditionalDataHolder, Parsable {
             "darkBackgroundLogo": n => { this.darkBackgroundLogo = n.getObjectValue<MimeContent>(createMimeContentFromDiscriminatorValue); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "lightBackgroundLogo": n => { this.lightBackgroundLogo = n.getObjectValue<MimeContent>(createMimeContentFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "onlineSupportSiteName": n => { this.onlineSupportSiteName = n.getStringValue(); },
             "onlineSupportSiteUrl": n => { this.onlineSupportSiteUrl = n.getStringValue(); },
             "privacyUrl": n => { this.privacyUrl = n.getStringValue(); },
@@ -174,6 +178,20 @@ export class IntuneBrand implements AdditionalDataHolder, Parsable {
      */
     public set lightBackgroundLogo(value: MimeContent | undefined) {
         this._lightBackgroundLogo = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the onlineSupportSiteName property value. Display name of the company/organization’s IT helpdesk site.
@@ -230,6 +248,7 @@ export class IntuneBrand implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue<MimeContent>("darkBackgroundLogo", this.darkBackgroundLogo);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeObjectValue<MimeContent>("lightBackgroundLogo", this.lightBackgroundLogo);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("onlineSupportSiteName", this.onlineSupportSiteName);
         writer.writeStringValue("onlineSupportSiteUrl", this.onlineSupportSiteUrl);
         writer.writeStringValue("privacyUrl", this.privacyUrl);

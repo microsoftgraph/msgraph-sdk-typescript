@@ -51,7 +51,7 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mobileAppConfigurations.item.assignments.item collection
      * @param id Unique identifier of the item
-     * @returns a managedDeviceMobileAppConfigurationAssignmentItemRequestBuilder
+     * @returns a ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder
      */
     public assignmentsById(id: string) : ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -98,6 +98,7 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -142,7 +143,7 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mobileAppConfigurations.item.deviceStatuses.item collection
      * @param id Unique identifier of the item
-     * @returns a managedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder
+     * @returns a ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder
      */
     public deviceStatusesById(id: string) : ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -186,7 +187,7 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mobileAppConfigurations.item.userStatuses.item collection
      * @param id Unique identifier of the item
-     * @returns a managedDeviceMobileAppConfigurationUserStatusItemRequestBuilder
+     * @returns a ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder
      */
     public userStatusesById(id: string) : ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

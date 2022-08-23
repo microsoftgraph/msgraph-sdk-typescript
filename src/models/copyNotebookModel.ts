@@ -29,6 +29,8 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
     private _links?: NotebookLinks | undefined;
     /** The name property */
     private _name?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The sectionGroupsUrl property */
     private _sectionGroupsUrl?: string | undefined;
     /** The sectionsUrl property */
@@ -56,6 +58,7 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.CopyNotebookModel";
     };
     /**
      * Gets the createdBy property value. The createdBy property
@@ -116,6 +119,7 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
             "lastModifiedTime": n => { this.lastModifiedTime = n.getDateValue(); },
             "links": n => { this.links = n.getObjectValue<NotebookLinks>(createNotebookLinksFromDiscriminatorValue); },
             "name": n => { this.name = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "sectionGroupsUrl": n => { this.sectionGroupsUrl = n.getStringValue(); },
             "sectionsUrl": n => { this.sectionsUrl = n.getStringValue(); },
             "self": n => { this.self = n.getStringValue(); },
@@ -235,6 +239,20 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the sectionGroupsUrl property value. The sectionGroupsUrl property
      * @returns a string
      */
@@ -293,6 +311,7 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
         writer.writeDateValue("lastModifiedTime", this.lastModifiedTime);
         writer.writeObjectValue<NotebookLinks>("links", this.links);
         writer.writeStringValue("name", this.name);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("sectionGroupsUrl", this.sectionGroupsUrl);
         writer.writeStringValue("sectionsUrl", this.sectionsUrl);
         writer.writeStringValue("self", this.self);

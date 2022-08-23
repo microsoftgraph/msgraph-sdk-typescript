@@ -1,5 +1,5 @@
 
-/** Represents the grant of an access package to a subject (user or group). */
+/** The assignment of an access package to a subject for a period of time. */
 export class AssignmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

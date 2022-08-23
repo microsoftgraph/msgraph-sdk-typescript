@@ -1,5 +1,5 @@
 
-/** The application that is linked to the tab. */
+/** The application that is linked to the tab. This cannot be changed after tab creation. */
 export class TeamsAppRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

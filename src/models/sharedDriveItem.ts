@@ -7,7 +7,6 @@ import {createSiteFromDiscriminatorValue} from './createSiteFromDiscriminatorVal
 import {BaseItem, DriveItem, IdentitySet, List, ListItem, Permission, Site} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of sharedDriveItem entities. */
 export class SharedDriveItem extends BaseItem implements Parsable {
     /** Used to access the underlying driveItem */
     private _driveItem?: DriveItem | undefined;
@@ -26,10 +25,11 @@ export class SharedDriveItem extends BaseItem implements Parsable {
     /** Used to access the underlying site */
     private _site?: Site | undefined;
     /**
-     * Instantiates a new sharedDriveItem and sets the default values.
+     * Instantiates a new SharedDriveItem and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.sharedDriveItem";
     };
     /**
      * Gets the driveItem property value. Used to access the underlying driveItem

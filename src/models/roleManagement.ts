@@ -5,10 +5,12 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class RoleManagement implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Read-only. Nullable. */
+    /** The directory property */
     private _directory?: RbacApplication | undefined;
     /** Container for roles and assignments for entitlement management resources. */
     private _entitlementManagement?: RbacApplication | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -28,16 +30,17 @@ export class RoleManagement implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.roleManagement";
     };
     /**
-     * Gets the directory property value. Read-only. Nullable.
+     * Gets the directory property value. The directory property
      * @returns a rbacApplication
      */
     public get directory() {
         return this._directory;
     };
     /**
-     * Sets the directory property value. Read-only. Nullable.
+     * Sets the directory property value. The directory property
      * @param value Value to set for the directory property.
      */
     public set directory(value: RbacApplication | undefined) {
@@ -65,7 +68,22 @@ export class RoleManagement implements AdditionalDataHolder, Parsable {
         return {
             "directory": n => { this.directory = n.getObjectValue<RbacApplication>(createRbacApplicationFromDiscriminatorValue); },
             "entitlementManagement": n => { this.entitlementManagement = n.getObjectValue<RbacApplication>(createRbacApplicationFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -75,6 +93,7 @@ export class RoleManagement implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<RbacApplication>("directory", this.directory);
         writer.writeObjectValue<RbacApplication>("entitlementManagement", this.entitlementManagement);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

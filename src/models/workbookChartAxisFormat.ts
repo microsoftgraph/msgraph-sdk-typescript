@@ -3,7 +3,6 @@ import {createWorkbookChartLineFormatFromDiscriminatorValue} from './createWorkb
 import {Entity, WorkbookChartFont, WorkbookChartLineFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartAxisFormat extends Entity implements Parsable {
     /** Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only. */
     private _font?: WorkbookChartFont | undefined;
@@ -14,6 +13,7 @@ export class WorkbookChartAxisFormat extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.workbookChartAxisFormat";
     };
     /**
      * Gets the font property value. Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.

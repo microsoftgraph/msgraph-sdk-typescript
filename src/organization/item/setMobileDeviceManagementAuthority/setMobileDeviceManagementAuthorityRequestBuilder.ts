@@ -1,3 +1,5 @@
+import {ODataError} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {createSetMobileDeviceManagementAuthorityResponseFromDiscriminatorValue} from './createSetMobileDeviceManagementAuthorityResponseFromDiscriminatorValue';
 import {SetMobileDeviceManagementAuthorityResponse} from './index';
 import {SetMobileDeviceManagementAuthorityRequestBuilderPostRequestConfiguration} from './setMobileDeviceManagementAuthorityRequestBuilderPostRequestConfiguration';
@@ -34,6 +36,7 @@ export class SetMobileDeviceManagementAuthorityRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -50,6 +53,10 @@ export class SetMobileDeviceManagementAuthorityRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<SetMobileDeviceManagementAuthorityResponse>(requestInfo, createSetMobileDeviceManagementAuthorityResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<SetMobileDeviceManagementAuthorityResponse>(requestInfo, createSetMobileDeviceManagementAuthorityResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

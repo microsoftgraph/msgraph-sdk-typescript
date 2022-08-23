@@ -1,4 +1,4 @@
-import {OutlookItem} from './index';
+import {CalendarSharingMessage, Contact, Event, EventMessage, EventMessageRequest, EventMessageResponse, Message, OutlookItem, Post} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createOutlookItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : OutlookItem {
@@ -8,8 +8,22 @@ export function createOutlookItemFromDiscriminatorValue(parseNode: ParseNode | u
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.outlookItem":
-                    return new OutlookItem();
+                case "#microsoft.graph.calendarSharingMessage":
+                    return new CalendarSharingMessage();
+                case "#microsoft.graph.contact":
+                    return new Contact();
+                case "#microsoft.graph.event":
+                    return new Event();
+                case "#microsoft.graph.eventMessage":
+                    return new EventMessage();
+                case "#microsoft.graph.eventMessageRequest":
+                    return new EventMessageRequest();
+                case "#microsoft.graph.eventMessageResponse":
+                    return new EventMessageResponse();
+                case "#microsoft.graph.message":
+                    return new Message();
+                case "#microsoft.graph.post":
+                    return new Post();
             }
         }
     }

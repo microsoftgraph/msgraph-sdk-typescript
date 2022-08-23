@@ -2,43 +2,43 @@ import {createShiftPreferencesFromDiscriminatorValue} from './createShiftPrefere
 import {Entity, ShiftPreferences} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class UserSettings extends Entity implements Parsable {
-    /** Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center. */
+    /** The contributionToContentDiscoveryAsOrganizationDisabled property */
     private _contributionToContentDiscoveryAsOrganizationDisabled?: boolean | undefined;
-    /** When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve. */
+    /** The contributionToContentDiscoveryDisabled property */
     private _contributionToContentDiscoveryDisabled?: boolean | undefined;
-    /** The shift preferences for the user. */
+    /** The shiftPreferences property */
     private _shiftPreferences?: ShiftPreferences | undefined;
     /**
      * Instantiates a new userSettings and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.userSettings";
     };
     /**
-     * Gets the contributionToContentDiscoveryAsOrganizationDisabled property value. Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center.
+     * Gets the contributionToContentDiscoveryAsOrganizationDisabled property value. The contributionToContentDiscoveryAsOrganizationDisabled property
      * @returns a boolean
      */
     public get contributionToContentDiscoveryAsOrganizationDisabled() {
         return this._contributionToContentDiscoveryAsOrganizationDisabled;
     };
     /**
-     * Sets the contributionToContentDiscoveryAsOrganizationDisabled property value. Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center.
+     * Sets the contributionToContentDiscoveryAsOrganizationDisabled property value. The contributionToContentDiscoveryAsOrganizationDisabled property
      * @param value Value to set for the contributionToContentDiscoveryAsOrganizationDisabled property.
      */
     public set contributionToContentDiscoveryAsOrganizationDisabled(value: boolean | undefined) {
         this._contributionToContentDiscoveryAsOrganizationDisabled = value;
     };
     /**
-     * Gets the contributionToContentDiscoveryDisabled property value. When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve.
+     * Gets the contributionToContentDiscoveryDisabled property value. The contributionToContentDiscoveryDisabled property
      * @returns a boolean
      */
     public get contributionToContentDiscoveryDisabled() {
         return this._contributionToContentDiscoveryDisabled;
     };
     /**
-     * Sets the contributionToContentDiscoveryDisabled property value. When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve.
+     * Sets the contributionToContentDiscoveryDisabled property value. The contributionToContentDiscoveryDisabled property
      * @param value Value to set for the contributionToContentDiscoveryDisabled property.
      */
     public set contributionToContentDiscoveryDisabled(value: boolean | undefined) {
@@ -67,14 +67,14 @@ export class UserSettings extends Entity implements Parsable {
         writer.writeObjectValue<ShiftPreferences>("shiftPreferences", this.shiftPreferences);
     };
     /**
-     * Gets the shiftPreferences property value. The shift preferences for the user.
+     * Gets the shiftPreferences property value. The shiftPreferences property
      * @returns a shiftPreferences
      */
     public get shiftPreferences() {
         return this._shiftPreferences;
     };
     /**
-     * Sets the shiftPreferences property value. The shift preferences for the user.
+     * Sets the shiftPreferences property value. The shiftPreferences property
      * @param value Value to set for the shiftPreferences property.
      */
     public set shiftPreferences(value: ShiftPreferences | undefined) {

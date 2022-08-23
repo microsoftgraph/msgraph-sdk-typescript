@@ -2,7 +2,6 @@ import {createImportedWindowsAutopilotDeviceIdentityStateFromDiscriminatorValue}
 import {Entity, ImportedWindowsAutopilotDeviceIdentityState} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Imported windows autopilot devices. */
 export class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Parsable {
     /** UPN of the user the device will be assigned */
     private _assignedUserPrincipalName?: string | undefined;
@@ -33,10 +32,11 @@ export class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Pa
         this._assignedUserPrincipalName = value;
     };
     /**
-     * Instantiates a new importedWindowsAutopilotDeviceIdentity and sets the default values.
+     * Instantiates a new ImportedWindowsAutopilotDeviceIdentity and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.importedWindowsAutopilotDeviceIdentity";
     };
     /**
      * The deserialization information for the current model

@@ -6,12 +6,14 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class SearchHitsContainer implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Contains the collection of aggregations computed based on the provided aggregationOption specified in the request. */
+    /** The aggregations property */
     private _aggregations?: SearchAggregation[] | undefined;
     /** A collection of the search results. */
     private _hits?: SearchHit[] | undefined;
     /** Provides information if more results are available. Based on this information, you can adjust the from and size properties of the searchRequest accordingly. */
     private _moreResultsAvailable?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The total number of results. Note this is not the number of results on the page, but the total number of results satisfying the query. */
     private _total?: number | undefined;
     /**
@@ -29,14 +31,14 @@ export class SearchHitsContainer implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the aggregations property value. Contains the collection of aggregations computed based on the provided aggregationOption specified in the request.
+     * Gets the aggregations property value. The aggregations property
      * @returns a searchAggregation
      */
     public get aggregations() {
         return this._aggregations;
     };
     /**
-     * Sets the aggregations property value. Contains the collection of aggregations computed based on the provided aggregationOption specified in the request.
+     * Sets the aggregations property value. The aggregations property
      * @param value Value to set for the aggregations property.
      */
     public set aggregations(value: SearchAggregation[] | undefined) {
@@ -47,6 +49,7 @@ export class SearchHitsContainer implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.searchHitsContainer";
     };
     /**
      * The deserialization information for the current model
@@ -57,6 +60,7 @@ export class SearchHitsContainer implements AdditionalDataHolder, Parsable {
             "aggregations": n => { this.aggregations = n.getCollectionOfObjectValues<SearchAggregation>(createSearchAggregationFromDiscriminatorValue); },
             "hits": n => { this.hits = n.getCollectionOfObjectValues<SearchHit>(createSearchHitFromDiscriminatorValue); },
             "moreResultsAvailable": n => { this.moreResultsAvailable = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "total": n => { this.total = n.getNumberValue(); },
         };
     };
@@ -89,6 +93,20 @@ export class SearchHitsContainer implements AdditionalDataHolder, Parsable {
         this._moreResultsAvailable = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -97,6 +115,7 @@ export class SearchHitsContainer implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfObjectValues<SearchAggregation>("aggregations", this.aggregations);
         writer.writeCollectionOfObjectValues<SearchHit>("hits", this.hits);
         writer.writeBooleanValue("moreResultsAvailable", this.moreResultsAvailable);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("total", this.total);
         writer.writeAdditionalData(this.additionalData);
     };

@@ -12,6 +12,8 @@ export class ScheduleItem implements AdditionalDataHolder, Parsable {
     private _isPrivate?: boolean | undefined;
     /** The location where the corresponding event is held or attended from. Optional. */
     private _location?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The date, time, and time zone that the corresponding event starts. */
     private _start?: DateTimeTimeZone | undefined;
     /** The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown. */
@@ -37,6 +39,7 @@ export class ScheduleItem implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.scheduleItem";
     };
     /**
      * Gets the end property value. The date, time, and time zone that the corresponding event ends.
@@ -61,6 +64,7 @@ export class ScheduleItem implements AdditionalDataHolder, Parsable {
             "end": n => { this.end = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
             "isPrivate": n => { this.isPrivate = n.getBooleanValue(); },
             "location": n => { this.location = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "start": n => { this.start = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
             "status": n => { this.status = n.getEnumValue<FreeBusyStatus>(FreeBusyStatus); },
             "subject": n => { this.subject = n.getStringValue(); },
@@ -95,6 +99,20 @@ export class ScheduleItem implements AdditionalDataHolder, Parsable {
         this._location = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -103,6 +121,7 @@ export class ScheduleItem implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue<DateTimeTimeZone>("end", this.end);
         writer.writeBooleanValue("isPrivate", this.isPrivate);
         writer.writeStringValue("location", this.location);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<DateTimeTimeZone>("start", this.start);
         writer.writeEnumValue<FreeBusyStatus>("status", this.status);
         writer.writeStringValue("subject", this.subject);

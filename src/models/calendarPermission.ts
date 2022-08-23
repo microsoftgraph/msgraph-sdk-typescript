@@ -3,7 +3,7 @@ import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFrom
 import {EmailAddress, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class CalendarPermission extends Entity implements Parsable {
     /** List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom. */
     private _allowedRoles?: string[] | undefined;
@@ -34,6 +34,7 @@ export class CalendarPermission extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.calendarPermission";
     };
     /**
      * Gets the emailAddress property value. Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only.

@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class Attachment extends Entity implements Parsable {
     /** The MIME type. */
     private _contentType?: string | undefined;
@@ -9,7 +9,7 @@ export class Attachment extends Entity implements Parsable {
     private _isInline?: boolean | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The display name of the attachment. This does not need to be the actual file name. */
+    /** The attachment's file name. */
     private _name?: string | undefined;
     /** The length of the attachment in bytes. */
     private _size?: number | undefined;
@@ -18,6 +18,7 @@ export class Attachment extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.attachment";
     };
     /**
      * Gets the contentType property value. The MIME type.
@@ -75,14 +76,14 @@ export class Attachment extends Entity implements Parsable {
         this._lastModifiedDateTime = value;
     };
     /**
-     * Gets the name property value. The display name of the attachment. This does not need to be the actual file name.
+     * Gets the name property value. The attachment's file name.
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Sets the name property value. The display name of the attachment. This does not need to be the actual file name.
+     * Sets the name property value. The attachment's file name.
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {

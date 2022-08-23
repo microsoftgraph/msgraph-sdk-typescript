@@ -10,6 +10,8 @@ export class DeviceOperatingSystemSummary implements AdditionalDataHolder, Parsa
     private _iosCount?: number | undefined;
     /** Number of Mac OS X device count. */
     private _macOSCount?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Number of unknown device count. */
     private _unknownCount?: number | undefined;
     /** Number of Windows device count. */
@@ -49,6 +51,7 @@ export class DeviceOperatingSystemSummary implements AdditionalDataHolder, Parsa
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.deviceOperatingSystemSummary";
     };
     /**
      * The deserialization information for the current model
@@ -59,6 +62,7 @@ export class DeviceOperatingSystemSummary implements AdditionalDataHolder, Parsa
             "androidCount": n => { this.androidCount = n.getNumberValue(); },
             "iosCount": n => { this.iosCount = n.getNumberValue(); },
             "macOSCount": n => { this.macOSCount = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "unknownCount": n => { this.unknownCount = n.getNumberValue(); },
             "windowsCount": n => { this.windowsCount = n.getNumberValue(); },
             "windowsMobileCount": n => { this.windowsMobileCount = n.getNumberValue(); },
@@ -93,6 +97,20 @@ export class DeviceOperatingSystemSummary implements AdditionalDataHolder, Parsa
         this._macOSCount = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -101,6 +119,7 @@ export class DeviceOperatingSystemSummary implements AdditionalDataHolder, Parsa
         writer.writeNumberValue("androidCount", this.androidCount);
         writer.writeNumberValue("iosCount", this.iosCount);
         writer.writeNumberValue("macOSCount", this.macOSCount);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("unknownCount", this.unknownCount);
         writer.writeNumberValue("windowsCount", this.windowsCount);
         writer.writeNumberValue("windowsMobileCount", this.windowsMobileCount);

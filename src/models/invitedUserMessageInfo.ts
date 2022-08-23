@@ -11,6 +11,8 @@ export class InvitedUserMessageInfo implements AdditionalDataHolder, Parsable {
     private _customizedMessageBody?: string | undefined;
     /** The language you want to send the default message in. If the customizedMessageBody is specified, this property is ignored, and the message is sent using the customizedMessageBody. The language format should be in ISO 639. The default is en-US. */
     private _messageLanguage?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -44,6 +46,7 @@ export class InvitedUserMessageInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.invitedUserMessageInfo";
     };
     /**
      * Gets the customizedMessageBody property value. Customized message body you want to send if you don't want the default message.
@@ -68,6 +71,7 @@ export class InvitedUserMessageInfo implements AdditionalDataHolder, Parsable {
             "ccRecipients": n => { this.ccRecipients = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
             "customizedMessageBody": n => { this.customizedMessageBody = n.getStringValue(); },
             "messageLanguage": n => { this.messageLanguage = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -85,6 +89,20 @@ export class InvitedUserMessageInfo implements AdditionalDataHolder, Parsable {
         this._messageLanguage = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -93,6 +111,7 @@ export class InvitedUserMessageInfo implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfObjectValues<Recipient>("ccRecipients", this.ccRecipients);
         writer.writeStringValue("customizedMessageBody", this.customizedMessageBody);
         writer.writeStringValue("messageLanguage", this.messageLanguage);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

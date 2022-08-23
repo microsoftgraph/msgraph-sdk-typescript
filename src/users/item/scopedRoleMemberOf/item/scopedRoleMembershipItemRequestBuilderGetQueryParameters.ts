@@ -1,5 +1,5 @@
 
-/** The scoped-role administrative unit memberships for this user. Read-only. Nullable. */
+/** Get scopedRoleMemberOf from users */
 export class ScopedRoleMembershipItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

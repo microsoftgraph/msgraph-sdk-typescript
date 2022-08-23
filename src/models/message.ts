@@ -11,7 +11,6 @@ import {Attachment, Extension, FollowupFlag, InternetMessageHeader, ItemBody, Mu
 import {InferenceClassificationType} from './inferenceClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Message extends OutlookItem implements Parsable {
     /** The fileAttachment and itemAttachment attachments for the message. */
     private _attachments?: Attachment[] | undefined;
@@ -19,7 +18,7 @@ export class Message extends OutlookItem implements Parsable {
     private _bccRecipients?: Recipient[] | undefined;
     /** The body of the message. It can be in HTML or text format. Find out about safe HTML in a message body. */
     private _body?: ItemBody | undefined;
-    /** The first 255 characters of the message body. It is in text format. If the message contains instances of mention, this property would contain a concatenation of these mentions as well. */
+    /** The first 255 characters of the message body. It is in text format. */
     private _bodyPreview?: string | undefined;
     /** The Cc: recipients for the message. */
     private _ccRecipients?: Recipient[] | undefined;
@@ -116,14 +115,14 @@ export class Message extends OutlookItem implements Parsable {
         this._body = value;
     };
     /**
-     * Gets the bodyPreview property value. The first 255 characters of the message body. It is in text format. If the message contains instances of mention, this property would contain a concatenation of these mentions as well.
+     * Gets the bodyPreview property value. The first 255 characters of the message body. It is in text format.
      * @returns a string
      */
     public get bodyPreview() {
         return this._bodyPreview;
     };
     /**
-     * Sets the bodyPreview property value. The first 255 characters of the message body. It is in text format. If the message contains instances of mention, this property would contain a concatenation of these mentions as well.
+     * Sets the bodyPreview property value. The first 255 characters of the message body. It is in text format.
      * @param value Value to set for the bodyPreview property.
      */
     public set bodyPreview(value: string | undefined) {
@@ -144,10 +143,11 @@ export class Message extends OutlookItem implements Parsable {
         this._ccRecipients = value;
     };
     /**
-     * Instantiates a new message and sets the default values.
+     * Instantiates a new Message and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.message";
     };
     /**
      * Gets the conversationId property value. The ID of the conversation the email belongs to.

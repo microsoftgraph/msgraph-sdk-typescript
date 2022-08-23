@@ -52,7 +52,7 @@ export class InReplyToRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.conversations.item.threads.item.posts.item.inReplyTo.attachments.item collection
      * @param id Unique identifier of the item
-     * @returns a attachmentItemRequestBuilder
+     * @returns a AttachmentItemRequestBuilder
      */
     public attachmentsById(id: string) : AttachmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -90,7 +90,7 @@ export class InReplyToRequestBuilder {
         return requestInfo;
     };
     /**
-     * The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
+     * Read-only. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -99,6 +99,7 @@ export class InReplyToRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -143,7 +144,7 @@ export class InReplyToRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.conversations.item.threads.item.posts.item.inReplyTo.extensions.item collection
      * @param id Unique identifier of the item
-     * @returns a extensionItemRequestBuilder
+     * @returns a ExtensionItemRequestBuilder
      */
     public extensionsById(id: string) : ExtensionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -152,7 +153,7 @@ export class InReplyToRequestBuilder {
         return new ExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
+     * Read-only. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Post
@@ -170,7 +171,7 @@ export class InReplyToRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.conversations.item.threads.item.posts.item.inReplyTo.multiValueExtendedProperties.item collection
      * @param id Unique identifier of the item
-     * @returns a multiValueLegacyExtendedPropertyItemRequestBuilder
+     * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
      */
     public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -198,7 +199,7 @@ export class InReplyToRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.conversations.item.threads.item.posts.item.inReplyTo.singleValueExtendedProperties.item collection
      * @param id Unique identifier of the item
-     * @returns a singleValueLegacyExtendedPropertyItemRequestBuilder
+     * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
      */
     public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

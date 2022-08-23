@@ -1,2 +1,2 @@
-export * from './markUnreadResponse'
 export * from './markUnreadPostRequestBody'
+export * from './markUnreadResponse'

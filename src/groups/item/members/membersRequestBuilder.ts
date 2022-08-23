@@ -19,7 +19,7 @@ export class MembersRequestBuilder {
     public get application(): ApplicationRequestBuilder {
         return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The count property */
+    /** The Count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -37,7 +37,7 @@ export class MembersRequestBuilder {
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The ref property */
+    /** The Ref property */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -67,7 +67,7 @@ export class MembersRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
+     * The members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -76,6 +76,7 @@ export class MembersRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -84,7 +85,7 @@ export class MembersRequestBuilder {
         return requestInfo;
     };
     /**
-     * Members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
+     * The members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryObjectCollectionResponse

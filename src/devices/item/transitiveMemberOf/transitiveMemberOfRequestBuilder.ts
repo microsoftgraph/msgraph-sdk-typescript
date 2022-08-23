@@ -18,7 +18,7 @@ export class TransitiveMemberOfRequestBuilder {
     public get application(): ApplicationRequestBuilder {
         return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The count property */
+    /** The Count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -62,7 +62,7 @@ export class TransitiveMemberOfRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Groups and administrative units that this device is a member of. This operation is transitive. Supports $expand.
+     * Groups and administrative units that the device is a member of. This operation is transitive. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -71,6 +71,7 @@ export class TransitiveMemberOfRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -79,7 +80,7 @@ export class TransitiveMemberOfRequestBuilder {
         return requestInfo;
     };
     /**
-     * Groups and administrative units that this device is a member of. This operation is transitive. Supports $expand.
+     * Groups and administrative units that the device is a member of. This operation is transitive. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryObjectCollectionResponse

@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections). */
+/** Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters). */
 export class ExtensionPropertyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

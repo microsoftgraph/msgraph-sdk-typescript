@@ -9,6 +9,8 @@ export class AccessPackageAssignmentApprovalSettings implements AdditionalDataHo
     private _isApprovalRequiredForAdd?: boolean | undefined;
     /** If false, then approval is not required for updates to requests in this policy. */
     private _isApprovalRequiredForUpdate?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** If approval is required, the one, two or three elements of this collection define each of the stages of approval. An empty array is present if no approval is required. */
     private _stages?: AccessPackageApprovalStage[] | undefined;
     /**
@@ -30,6 +32,7 @@ export class AccessPackageAssignmentApprovalSettings implements AdditionalDataHo
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.accessPackageAssignmentApprovalSettings";
     };
     /**
      * The deserialization information for the current model
@@ -39,6 +42,7 @@ export class AccessPackageAssignmentApprovalSettings implements AdditionalDataHo
         return {
             "isApprovalRequiredForAdd": n => { this.isApprovalRequiredForAdd = n.getBooleanValue(); },
             "isApprovalRequiredForUpdate": n => { this.isApprovalRequiredForUpdate = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "stages": n => { this.stages = n.getCollectionOfObjectValues<AccessPackageApprovalStage>(createAccessPackageApprovalStageFromDiscriminatorValue); },
         };
     };
@@ -71,6 +75,20 @@ export class AccessPackageAssignmentApprovalSettings implements AdditionalDataHo
         this._isApprovalRequiredForUpdate = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -78,6 +96,7 @@ export class AccessPackageAssignmentApprovalSettings implements AdditionalDataHo
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("isApprovalRequiredForAdd", this.isApprovalRequiredForAdd);
         writer.writeBooleanValue("isApprovalRequiredForUpdate", this.isApprovalRequiredForUpdate);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<AccessPackageApprovalStage>("stages", this.stages);
         writer.writeAdditionalData(this.additionalData);
     };

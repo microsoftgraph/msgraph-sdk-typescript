@@ -1,5 +1,5 @@
 
-/** List of notes associated with the request. */
+/** List of notes associcated with the request. */
 export class NotesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

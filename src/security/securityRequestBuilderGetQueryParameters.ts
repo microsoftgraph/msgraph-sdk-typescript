@@ -1,5 +1,5 @@
 
-/** The security resource is the entry point for the Security object model. It returns a singleton security resource. It doesn't contain any usable properties. */
+/** Get security */
 export class SecurityRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

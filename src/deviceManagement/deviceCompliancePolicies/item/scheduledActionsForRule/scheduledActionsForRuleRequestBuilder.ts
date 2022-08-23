@@ -10,7 +10,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity. */
 export class ScheduledActionsForRuleRequestBuilder {
-    /** The count property */
+    /** The Count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -34,7 +34,7 @@ export class ScheduledActionsForRuleRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The list of scheduled action for this rule
+     * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -43,6 +43,7 @@ export class ScheduledActionsForRuleRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -62,6 +63,7 @@ export class ScheduledActionsForRuleRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -70,7 +72,7 @@ export class ScheduledActionsForRuleRequestBuilder {
         return requestInfo;
     };
     /**
-     * The list of scheduled action for this rule
+     * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceComplianceScheduledActionForRuleCollectionResponse

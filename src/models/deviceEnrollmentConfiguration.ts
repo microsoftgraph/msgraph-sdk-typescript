@@ -2,7 +2,6 @@ import {createEnrollmentConfigurationAssignmentFromDiscriminatorValue} from './c
 import {EnrollmentConfigurationAssignment, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** The Base Class of Device Enrollment Configuration */
 export class DeviceEnrollmentConfiguration extends Entity implements Parsable {
     /** The list of group assignments for the device configuration profile */
     private _assignments?: EnrollmentConfigurationAssignment[] | undefined;
@@ -33,10 +32,11 @@ export class DeviceEnrollmentConfiguration extends Entity implements Parsable {
         this._assignments = value;
     };
     /**
-     * Instantiates a new deviceEnrollmentConfiguration and sets the default values.
+     * Instantiates a new DeviceEnrollmentConfiguration and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.deviceEnrollmentConfiguration";
     };
     /**
      * Gets the createdDateTime property value. Created date time in UTC of the device enrollment configuration

@@ -2,11 +2,10 @@ import {ApplicationType} from './applicationType';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Windows Information Protection AppLearning Summary entity. */
 export class WindowsInformationProtectionAppLearningSummary extends Entity implements Parsable {
     /** Application Name */
     private _applicationName?: string | undefined;
-    /** Application Type. Possible values are: universal, desktop. */
+    /** Possible types of Application */
     private _applicationType?: ApplicationType | undefined;
     /** Device Count */
     private _deviceCount?: number | undefined;
@@ -25,24 +24,25 @@ export class WindowsInformationProtectionAppLearningSummary extends Entity imple
         this._applicationName = value;
     };
     /**
-     * Gets the applicationType property value. Application Type. Possible values are: universal, desktop.
+     * Gets the applicationType property value. Possible types of Application
      * @returns a applicationType
      */
     public get applicationType() {
         return this._applicationType;
     };
     /**
-     * Sets the applicationType property value. Application Type. Possible values are: universal, desktop.
+     * Sets the applicationType property value. Possible types of Application
      * @param value Value to set for the applicationType property.
      */
     public set applicationType(value: ApplicationType | undefined) {
         this._applicationType = value;
     };
     /**
-     * Instantiates a new windowsInformationProtectionAppLearningSummary and sets the default values.
+     * Instantiates a new WindowsInformationProtectionAppLearningSummary and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.windowsInformationProtectionAppLearningSummary";
     };
     /**
      * Gets the deviceCount property value. Device Count

@@ -1,5 +1,5 @@
 
-/** Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute. */
+/** Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand. */
 export class InheritsPermissionsFromRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -35,7 +35,7 @@ export class DirectoryRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directory.administrativeUnits.item collection
      * @param id Unique identifier of the item
-     * @returns a administrativeUnitItemRequestBuilder
+     * @returns a AdministrativeUnitItemRequestBuilder
      */
     public administrativeUnitsById(id: string) : AdministrativeUnitItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -66,6 +66,7 @@ export class DirectoryRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -95,7 +96,7 @@ export class DirectoryRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directory.deletedItems.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
     public deletedItemsById(id: string) : DirectoryObjectItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -106,7 +107,7 @@ export class DirectoryRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directory.federationConfigurations.item collection
      * @param id Unique identifier of the item
-     * @returns a identityProviderBaseItemRequestBuilder
+     * @returns a IdentityProviderBaseItemRequestBuilder
      */
     public federationConfigurationsById(id: string) : IdentityProviderBaseItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

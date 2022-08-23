@@ -1,5 +1,5 @@
 
-/** The contact's direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand. */
+/** Get directReports from contacts */
 export class DirectReportsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

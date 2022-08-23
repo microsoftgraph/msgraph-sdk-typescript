@@ -1,5 +1,5 @@
 
-/** Represents the role management policy assignments. */
+/** The assignment of a role management policy to a role definition object. */
 export class UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

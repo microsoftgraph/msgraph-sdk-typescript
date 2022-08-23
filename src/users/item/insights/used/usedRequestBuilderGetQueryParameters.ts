@@ -1,5 +1,5 @@
 
-/** Access this property from the derived type itemInsights. */
+/** Calculated relationship identifying the latest documents viewed or modified by a user, including OneDrive for Business and SharePoint documents, ranked by recency of use. */
 export class UsedRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

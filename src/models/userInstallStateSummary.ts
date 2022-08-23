@@ -19,6 +19,7 @@ export class UserInstallStateSummary extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.userInstallStateSummary";
     };
     /**
      * Gets the deviceStates property value. The install state of the eBook.

@@ -8,4 +8,6 @@ export enum NotificationTemplateBrandingOptions {
     IncludeCompanyName = "includeCompanyName",
     /** Include Contact Info. */
     IncludeContactInformation = "includeContactInformation",
+    /** Include Device Details. */
+    IncludeDeviceDetails = "includeDeviceDetails",
 }
