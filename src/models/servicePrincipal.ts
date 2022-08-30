@@ -5,6 +5,7 @@ import {createClaimsMappingPolicyFromDiscriminatorValue} from './createClaimsMap
 import {createDelegatedPermissionClassificationFromDiscriminatorValue} from './createDelegatedPermissionClassificationFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {createEndpointFromDiscriminatorValue} from './createEndpointFromDiscriminatorValue';
+import {createFederatedIdentityCredentialFromDiscriminatorValue} from './createFederatedIdentityCredentialFromDiscriminatorValue';
 import {createHomeRealmDiscoveryPolicyFromDiscriminatorValue} from './createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
 import {createInformationalUrlFromDiscriminatorValue} from './createInformationalUrlFromDiscriminatorValue';
 import {createKeyCredentialFromDiscriminatorValue} from './createKeyCredentialFromDiscriminatorValue';
@@ -15,10 +16,10 @@ import {createResourceSpecificPermissionFromDiscriminatorValue} from './createRe
 import {createSamlSingleSignOnSettingsFromDiscriminatorValue} from './createSamlSingleSignOnSettingsFromDiscriminatorValue';
 import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssuancePolicyFromDiscriminatorValue';
 import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
-import {AddIn, AppRole, AppRoleAssignment, ClaimsMappingPolicy, DelegatedPermissionClassification, DirectoryObject, Endpoint, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OAuth2PermissionGrant, PasswordCredential, PermissionScope, ResourceSpecificPermission, SamlSingleSignOnSettings, TokenIssuancePolicy, TokenLifetimePolicy} from './index';
+import {createVerifiedPublisherFromDiscriminatorValue} from './createVerifiedPublisherFromDiscriminatorValue';
+import {AddIn, AppRole, AppRoleAssignment, ClaimsMappingPolicy, DelegatedPermissionClassification, DirectoryObject, Endpoint, FederatedIdentityCredential, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OAuth2PermissionGrant, PasswordCredential, PermissionScope, ResourceSpecificPermission, SamlSingleSignOnSettings, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the instantiate method. */
 export class ServicePrincipal extends DirectoryObject implements Parsable {
     /** true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in). */
     private _accountEnabled?: boolean | undefined;
@@ -34,9 +35,9 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     private _appId?: string | undefined;
     /** Unique identifier of the applicationTemplate that the servicePrincipal was created from. Read-only. Supports $filter (eq, ne, NOT, startsWith). */
     private _applicationTemplateId?: string | undefined;
-    /** Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications.Supports $filter (eq, ne, NOT, ge, le). */
+    /** Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le). */
     private _appOwnerOrganizationId?: string | undefined;
-    /** App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand. */
+    /** App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand. */
     private _appRoleAssignedTo?: AppRoleAssignment[] | undefined;
     /** Specifies whether users or other service principals need to be granted an app role assignment for this service principal before users can sign in or apps can get tokens. The default value is false. Not nullable. Supports $filter (eq, ne, NOT). */
     private _appRoleAssignmentRequired?: boolean | undefined;
@@ -48,7 +49,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     private _claimsMappingPolicies?: ClaimsMappingPolicy[] | undefined;
     /** Directory objects created by this service principal. Read-only. Nullable. */
     private _createdObjects?: DirectoryObject[] | undefined;
-    /** The permission classifications for delegated permissions exposed by the app that this service principal represents. Supports $expand. */
+    /** The delegatedPermissionClassifications property */
     private _delegatedPermissionClassifications?: DelegatedPermissionClassification[] | undefined;
     /** Free text field to provide an internal end-user facing description of the service principal. End-user portals such MyApps will display the application description in this field. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search. */
     private _description?: string | undefined;
@@ -56,8 +57,10 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     private _disabledByMicrosoftStatus?: string | undefined;
     /** The display name for the service principal. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
     private _displayName?: string | undefined;
-    /** Endpoints available for discovery. Services like Sharepoint populate this property with a tenant specific SharePoint endpoints that other applications can discover and use in their experiences. */
+    /** The endpoints property */
     private _endpoints?: Endpoint[] | undefined;
+    /** Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (eq when counting empty collections). */
+    private _federatedIdentityCredentials?: FederatedIdentityCredential[] | undefined;
     /** Home page or landing page of the application. */
     private _homepage?: string | undefined;
     /** The homeRealmDiscoveryPolicies assigned to this service principal. Supports $expand. */
@@ -84,7 +87,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     private _ownedObjects?: DirectoryObject[] | undefined;
     /** Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable. Supports $expand. */
     private _owners?: DirectoryObject[] | undefined;
-    /** The collection of password credentials associated with the service principal. Not nullable. */
+    /** The collection of password credentials associated with the application. Not nullable. */
     private _passwordCredentials?: PasswordCredential[] | undefined;
     /** Specifies the single sign-on mode configured for this application. Azure AD uses the preferred single sign-on mode to launch the application from Microsoft 365 or the Azure AD My Apps. The supported values are password, saml, notSupported, and oidc. */
     private _preferredSingleSignOnMode?: string | undefined;
@@ -98,7 +101,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     private _samlSingleSignOnSettings?: SamlSingleSignOnSettings | undefined;
     /** Contains the list of identifiersUris, copied over from the associated application. Additional values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Azure AD. For example,Client apps can specify a resource URI which is based on the values of this property to acquire an access token, which is the URI returned in the 'aud' claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.  Supports $filter (eq, not, ge, le, startsWith). */
     private _servicePrincipalNames?: string[] | undefined;
-    /** Identifies if the service principal represents an application or a managed identity. This is set by Azure AD internally. For a service principal that represents an application this is set as Application. For a service principal that represent a managed identity this is set as ManagedIdentity. The SocialIdp type is for internal use. */
+    /** Identifies whether the service principal represents an application, a managed identity, or a legacy application. This is set by Azure AD internally. The servicePrincipalType property can be set to three different values: __Application - A service principal that represents an application or service. The appId property identifies the associated app registration, and matches the appId of an application, possibly from a different tenant. If the associated app registration is missing, tokens are not issued for the service principal.__ManagedIdentity - A service principal that represents a managed identity. Service principals representing managed identities can be granted access and permissions, but cannot be updated or modified directly.__Legacy - A service principal that represents an app created before app registrations, or through legacy experiences. Legacy service principal can have credentials, service principal names, reply URLs, and other properties which are editable by an authorized user, but does not have an associated app registration. The appId value does not associate the service principal with an app registration. The service principal can only be used in the tenant where it was created.__SocialIdp - For internal use. */
     private _servicePrincipalType?: string | undefined;
     /** Specifies the Microsoft accounts that are supported for the current application. Read-only. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization’s Azure AD tenant (single-tenant).AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization’s Azure AD tenant (multi-tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only. */
     private _signInAudience?: string | undefined;
@@ -106,12 +109,14 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     private _tags?: string[] | undefined;
     /** Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD issues tokens for this application encrypted using the key specified by this property. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user. */
     private _tokenEncryptionKeyId?: string | undefined;
-    /** The tokenIssuancePolicies assigned to this service principal. Supports $expand. */
+    /** The tokenIssuancePolicies assigned to this service principal. */
     private _tokenIssuancePolicies?: TokenIssuancePolicy[] | undefined;
-    /** The tokenLifetimePolicies assigned to this service principal. Supports $expand. */
+    /** The tokenLifetimePolicies assigned to this service principal. */
     private _tokenLifetimePolicies?: TokenLifetimePolicy[] | undefined;
     /** The transitiveMemberOf property */
     private _transitiveMemberOf?: DirectoryObject[] | undefined;
+    /** Specifies the verified publisher of the application which this service principal represents. */
+    private _verifiedPublisher?: VerifiedPublisher | undefined;
     /**
      * Gets the accountEnabled property value. true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in).
      * @returns a boolean
@@ -211,28 +216,28 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._applicationTemplateId = value;
     };
     /**
-     * Gets the appOwnerOrganizationId property value. Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications.Supports $filter (eq, ne, NOT, ge, le).
+     * Gets the appOwnerOrganizationId property value. Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le).
      * @returns a string
      */
     public get appOwnerOrganizationId() {
         return this._appOwnerOrganizationId;
     };
     /**
-     * Sets the appOwnerOrganizationId property value. Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications.Supports $filter (eq, ne, NOT, ge, le).
+     * Sets the appOwnerOrganizationId property value. Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le).
      * @param value Value to set for the appOwnerOrganizationId property.
      */
     public set appOwnerOrganizationId(value: string | undefined) {
         this._appOwnerOrganizationId = value;
     };
     /**
-     * Gets the appRoleAssignedTo property value. App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.
+     * Gets the appRoleAssignedTo property value. App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.
      * @returns a appRoleAssignment
      */
     public get appRoleAssignedTo() {
         return this._appRoleAssignedTo;
     };
     /**
-     * Sets the appRoleAssignedTo property value. App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.
+     * Sets the appRoleAssignedTo property value. App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.
      * @param value Value to set for the appRoleAssignedTo property.
      */
     public set appRoleAssignedTo(value: AppRoleAssignment[] | undefined) {
@@ -295,10 +300,11 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._claimsMappingPolicies = value;
     };
     /**
-     * Instantiates a new servicePrincipal and sets the default values.
+     * Instantiates a new ServicePrincipal and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.servicePrincipal";
     };
     /**
      * Gets the createdObjects property value. Directory objects created by this service principal. Read-only. Nullable.
@@ -315,14 +321,14 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._createdObjects = value;
     };
     /**
-     * Gets the delegatedPermissionClassifications property value. The permission classifications for delegated permissions exposed by the app that this service principal represents. Supports $expand.
+     * Gets the delegatedPermissionClassifications property value. The delegatedPermissionClassifications property
      * @returns a delegatedPermissionClassification
      */
     public get delegatedPermissionClassifications() {
         return this._delegatedPermissionClassifications;
     };
     /**
-     * Sets the delegatedPermissionClassifications property value. The permission classifications for delegated permissions exposed by the app that this service principal represents. Supports $expand.
+     * Sets the delegatedPermissionClassifications property value. The delegatedPermissionClassifications property
      * @param value Value to set for the delegatedPermissionClassifications property.
      */
     public set delegatedPermissionClassifications(value: DelegatedPermissionClassification[] | undefined) {
@@ -371,18 +377,32 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the endpoints property value. Endpoints available for discovery. Services like Sharepoint populate this property with a tenant specific SharePoint endpoints that other applications can discover and use in their experiences.
+     * Gets the endpoints property value. The endpoints property
      * @returns a endpoint
      */
     public get endpoints() {
         return this._endpoints;
     };
     /**
-     * Sets the endpoints property value. Endpoints available for discovery. Services like Sharepoint populate this property with a tenant specific SharePoint endpoints that other applications can discover and use in their experiences.
+     * Sets the endpoints property value. The endpoints property
      * @param value Value to set for the endpoints property.
      */
     public set endpoints(value: Endpoint[] | undefined) {
         this._endpoints = value;
+    };
+    /**
+     * Gets the federatedIdentityCredentials property value. Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (eq when counting empty collections).
+     * @returns a federatedIdentityCredential
+     */
+    public get federatedIdentityCredentials() {
+        return this._federatedIdentityCredentials;
+    };
+    /**
+     * Sets the federatedIdentityCredentials property value. Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (eq when counting empty collections).
+     * @param value Value to set for the federatedIdentityCredentials property.
+     */
+    public set federatedIdentityCredentials(value: FederatedIdentityCredential[] | undefined) {
+        this._federatedIdentityCredentials = value;
     };
     /**
      * The deserialization information for the current model
@@ -409,6 +429,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
             "disabledByMicrosoftStatus": n => { this.disabledByMicrosoftStatus = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "endpoints": n => { this.endpoints = n.getCollectionOfObjectValues<Endpoint>(createEndpointFromDiscriminatorValue); },
+            "federatedIdentityCredentials": n => { this.federatedIdentityCredentials = n.getCollectionOfObjectValues<FederatedIdentityCredential>(createFederatedIdentityCredentialFromDiscriminatorValue); },
             "homepage": n => { this.homepage = n.getStringValue(); },
             "homeRealmDiscoveryPolicies": n => { this.homeRealmDiscoveryPolicies = n.getCollectionOfObjectValues<HomeRealmDiscoveryPolicy>(createHomeRealmDiscoveryPolicyFromDiscriminatorValue); },
             "info": n => { this.info = n.getObjectValue<InformationalUrl>(createInformationalUrlFromDiscriminatorValue); },
@@ -436,6 +457,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
             "tokenIssuancePolicies": n => { this.tokenIssuancePolicies = n.getCollectionOfObjectValues<TokenIssuancePolicy>(createTokenIssuancePolicyFromDiscriminatorValue); },
             "tokenLifetimePolicies": n => { this.tokenLifetimePolicies = n.getCollectionOfObjectValues<TokenLifetimePolicy>(createTokenLifetimePolicyFromDiscriminatorValue); },
             "transitiveMemberOf": n => { this.transitiveMemberOf = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
+            "verifiedPublisher": n => { this.verifiedPublisher = n.getObjectValue<VerifiedPublisher>(createVerifiedPublisherFromDiscriminatorValue); },
         };
     };
     /**
@@ -621,14 +643,14 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._owners = value;
     };
     /**
-     * Gets the passwordCredentials property value. The collection of password credentials associated with the service principal. Not nullable.
+     * Gets the passwordCredentials property value. The collection of password credentials associated with the application. Not nullable.
      * @returns a passwordCredential
      */
     public get passwordCredentials() {
         return this._passwordCredentials;
     };
     /**
-     * Sets the passwordCredentials property value. The collection of password credentials associated with the service principal. Not nullable.
+     * Sets the passwordCredentials property value. The collection of password credentials associated with the application. Not nullable.
      * @param value Value to set for the passwordCredentials property.
      */
     public set passwordCredentials(value: PasswordCredential[] | undefined) {
@@ -730,6 +752,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         writer.writeStringValue("disabledByMicrosoftStatus", this.disabledByMicrosoftStatus);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeCollectionOfObjectValues<Endpoint>("endpoints", this.endpoints);
+        writer.writeCollectionOfObjectValues<FederatedIdentityCredential>("federatedIdentityCredentials", this.federatedIdentityCredentials);
         writer.writeStringValue("homepage", this.homepage);
         writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", this.homeRealmDiscoveryPolicies);
         writer.writeObjectValue<InformationalUrl>("info", this.info);
@@ -757,6 +780,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", this.tokenIssuancePolicies);
         writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", this.tokenLifetimePolicies);
         writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", this.transitiveMemberOf);
+        writer.writeObjectValue<VerifiedPublisher>("verifiedPublisher", this.verifiedPublisher);
     };
     /**
      * Gets the servicePrincipalNames property value. Contains the list of identifiersUris, copied over from the associated application. Additional values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Azure AD. For example,Client apps can specify a resource URI which is based on the values of this property to acquire an access token, which is the URI returned in the 'aud' claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.  Supports $filter (eq, not, ge, le, startsWith).
@@ -773,14 +797,14 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._servicePrincipalNames = value;
     };
     /**
-     * Gets the servicePrincipalType property value. Identifies if the service principal represents an application or a managed identity. This is set by Azure AD internally. For a service principal that represents an application this is set as Application. For a service principal that represent a managed identity this is set as ManagedIdentity. The SocialIdp type is for internal use.
+     * Gets the servicePrincipalType property value. Identifies whether the service principal represents an application, a managed identity, or a legacy application. This is set by Azure AD internally. The servicePrincipalType property can be set to three different values: __Application - A service principal that represents an application or service. The appId property identifies the associated app registration, and matches the appId of an application, possibly from a different tenant. If the associated app registration is missing, tokens are not issued for the service principal.__ManagedIdentity - A service principal that represents a managed identity. Service principals representing managed identities can be granted access and permissions, but cannot be updated or modified directly.__Legacy - A service principal that represents an app created before app registrations, or through legacy experiences. Legacy service principal can have credentials, service principal names, reply URLs, and other properties which are editable by an authorized user, but does not have an associated app registration. The appId value does not associate the service principal with an app registration. The service principal can only be used in the tenant where it was created.__SocialIdp - For internal use.
      * @returns a string
      */
     public get servicePrincipalType() {
         return this._servicePrincipalType;
     };
     /**
-     * Sets the servicePrincipalType property value. Identifies if the service principal represents an application or a managed identity. This is set by Azure AD internally. For a service principal that represents an application this is set as Application. For a service principal that represent a managed identity this is set as ManagedIdentity. The SocialIdp type is for internal use.
+     * Sets the servicePrincipalType property value. Identifies whether the service principal represents an application, a managed identity, or a legacy application. This is set by Azure AD internally. The servicePrincipalType property can be set to three different values: __Application - A service principal that represents an application or service. The appId property identifies the associated app registration, and matches the appId of an application, possibly from a different tenant. If the associated app registration is missing, tokens are not issued for the service principal.__ManagedIdentity - A service principal that represents a managed identity. Service principals representing managed identities can be granted access and permissions, but cannot be updated or modified directly.__Legacy - A service principal that represents an app created before app registrations, or through legacy experiences. Legacy service principal can have credentials, service principal names, reply URLs, and other properties which are editable by an authorized user, but does not have an associated app registration. The appId value does not associate the service principal with an app registration. The service principal can only be used in the tenant where it was created.__SocialIdp - For internal use.
      * @param value Value to set for the servicePrincipalType property.
      */
     public set servicePrincipalType(value: string | undefined) {
@@ -829,28 +853,28 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._tokenEncryptionKeyId = value;
     };
     /**
-     * Gets the tokenIssuancePolicies property value. The tokenIssuancePolicies assigned to this service principal. Supports $expand.
+     * Gets the tokenIssuancePolicies property value. The tokenIssuancePolicies assigned to this service principal.
      * @returns a tokenIssuancePolicy
      */
     public get tokenIssuancePolicies() {
         return this._tokenIssuancePolicies;
     };
     /**
-     * Sets the tokenIssuancePolicies property value. The tokenIssuancePolicies assigned to this service principal. Supports $expand.
+     * Sets the tokenIssuancePolicies property value. The tokenIssuancePolicies assigned to this service principal.
      * @param value Value to set for the tokenIssuancePolicies property.
      */
     public set tokenIssuancePolicies(value: TokenIssuancePolicy[] | undefined) {
         this._tokenIssuancePolicies = value;
     };
     /**
-     * Gets the tokenLifetimePolicies property value. The tokenLifetimePolicies assigned to this service principal. Supports $expand.
+     * Gets the tokenLifetimePolicies property value. The tokenLifetimePolicies assigned to this service principal.
      * @returns a tokenLifetimePolicy
      */
     public get tokenLifetimePolicies() {
         return this._tokenLifetimePolicies;
     };
     /**
-     * Sets the tokenLifetimePolicies property value. The tokenLifetimePolicies assigned to this service principal. Supports $expand.
+     * Sets the tokenLifetimePolicies property value. The tokenLifetimePolicies assigned to this service principal.
      * @param value Value to set for the tokenLifetimePolicies property.
      */
     public set tokenLifetimePolicies(value: TokenLifetimePolicy[] | undefined) {
@@ -869,5 +893,19 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
      */
     public set transitiveMemberOf(value: DirectoryObject[] | undefined) {
         this._transitiveMemberOf = value;
+    };
+    /**
+     * Gets the verifiedPublisher property value. Specifies the verified publisher of the application which this service principal represents.
+     * @returns a verifiedPublisher
+     */
+    public get verifiedPublisher() {
+        return this._verifiedPublisher;
+    };
+    /**
+     * Sets the verifiedPublisher property value. Specifies the verified publisher of the application which this service principal represents.
+     * @param value Value to set for the verifiedPublisher property.
+     */
+    public set verifiedPublisher(value: VerifiedPublisher | undefined) {
+        this._verifiedPublisher = value;
     };
 }

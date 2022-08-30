@@ -6,8 +6,10 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class TermColumn implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Specifies whether the column will allow more than one value */
+    /** Specifies whether the column will allow more than one value. */
     private _allowMultipleValues?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The parentTerm property */
     private _parentTerm?: Term | undefined;
     /** Specifies whether to display the entire term path or only the term label. */
@@ -29,14 +31,14 @@ export class TermColumn implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the allowMultipleValues property value. Specifies whether the column will allow more than one value
+     * Gets the allowMultipleValues property value. Specifies whether the column will allow more than one value.
      * @returns a boolean
      */
     public get allowMultipleValues() {
         return this._allowMultipleValues;
     };
     /**
-     * Sets the allowMultipleValues property value. Specifies whether the column will allow more than one value
+     * Sets the allowMultipleValues property value. Specifies whether the column will allow more than one value.
      * @param value Value to set for the allowMultipleValues property.
      */
     public set allowMultipleValues(value: boolean | undefined) {
@@ -47,6 +49,7 @@ export class TermColumn implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.termColumn";
     };
     /**
      * The deserialization information for the current model
@@ -55,10 +58,25 @@ export class TermColumn implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "allowMultipleValues": n => { this.allowMultipleValues = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "parentTerm": n => { this.parentTerm = n.getObjectValue<Term>(createTermFromDiscriminatorValue); },
             "showFullyQualifiedName": n => { this.showFullyQualifiedName = n.getBooleanValue(); },
             "termSet": n => { this.termSet = n.getObjectValue<Set>(createSetFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the parentTerm property value. The parentTerm property
@@ -81,6 +99,7 @@ export class TermColumn implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("allowMultipleValues", this.allowMultipleValues);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<Term>("parentTerm", this.parentTerm);
         writer.writeBooleanValue("showFullyQualifiedName", this.showFullyQualifiedName);
         writer.writeObjectValue<Set>("termSet", this.termSet);

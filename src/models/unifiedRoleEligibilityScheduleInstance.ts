@@ -1,31 +1,31 @@
 import {UnifiedRoleScheduleInstanceBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstanceBase implements Parsable {
-    /** Time that the roleEligibilityScheduleInstance will expire. */
+    /** The end date of the schedule instance. */
     private _endDateTime?: Date | undefined;
-    /** Membership type of the assignment. It can either be Inherited, Direct, or Group. */
+    /** How the role eligibility is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleEligibilitySchedule can be managed by the caller. Supports $filter (eq, ne). */
     private _memberType?: string | undefined;
-    /** Identifier of the parent roleEligibilitySchedule for this instance. */
+    /** The identifier of the unifiedRoleEligibilitySchedule object from which this instance was created. Supports $filter (eq, ne). */
     private _roleEligibilityScheduleId?: string | undefined;
-    /** Time that the roleEligibilityScheduleInstance will start. */
+    /** When this instance starts. */
     private _startDateTime?: Date | undefined;
     /**
      * Instantiates a new unifiedRoleEligibilityScheduleInstance and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.unifiedRoleEligibilityScheduleInstance";
     };
     /**
-     * Gets the endDateTime property value. Time that the roleEligibilityScheduleInstance will expire.
+     * Gets the endDateTime property value. The end date of the schedule instance.
      * @returns a Date
      */
     public get endDateTime() {
         return this._endDateTime;
     };
     /**
-     * Sets the endDateTime property value. Time that the roleEligibilityScheduleInstance will expire.
+     * Sets the endDateTime property value. The end date of the schedule instance.
      * @param value Value to set for the endDateTime property.
      */
     public set endDateTime(value: Date | undefined) {
@@ -44,28 +44,28 @@ export class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleI
         };
     };
     /**
-     * Gets the memberType property value. Membership type of the assignment. It can either be Inherited, Direct, or Group.
+     * Gets the memberType property value. How the role eligibility is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleEligibilitySchedule can be managed by the caller. Supports $filter (eq, ne).
      * @returns a string
      */
     public get memberType() {
         return this._memberType;
     };
     /**
-     * Sets the memberType property value. Membership type of the assignment. It can either be Inherited, Direct, or Group.
+     * Sets the memberType property value. How the role eligibility is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleEligibilitySchedule can be managed by the caller. Supports $filter (eq, ne).
      * @param value Value to set for the memberType property.
      */
     public set memberType(value: string | undefined) {
         this._memberType = value;
     };
     /**
-     * Gets the roleEligibilityScheduleId property value. Identifier of the parent roleEligibilitySchedule for this instance.
+     * Gets the roleEligibilityScheduleId property value. The identifier of the unifiedRoleEligibilitySchedule object from which this instance was created. Supports $filter (eq, ne).
      * @returns a string
      */
     public get roleEligibilityScheduleId() {
         return this._roleEligibilityScheduleId;
     };
     /**
-     * Sets the roleEligibilityScheduleId property value. Identifier of the parent roleEligibilitySchedule for this instance.
+     * Sets the roleEligibilityScheduleId property value. The identifier of the unifiedRoleEligibilitySchedule object from which this instance was created. Supports $filter (eq, ne).
      * @param value Value to set for the roleEligibilityScheduleId property.
      */
     public set roleEligibilityScheduleId(value: string | undefined) {
@@ -84,14 +84,14 @@ export class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleI
         writer.writeDateValue("startDateTime", this.startDateTime);
     };
     /**
-     * Gets the startDateTime property value. Time that the roleEligibilityScheduleInstance will start.
+     * Gets the startDateTime property value. When this instance starts.
      * @returns a Date
      */
     public get startDateTime() {
         return this._startDateTime;
     };
     /**
-     * Sets the startDateTime property value. Time that the roleEligibilityScheduleInstance will start.
+     * Sets the startDateTime property value. When this instance starts.
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: Date | undefined) {

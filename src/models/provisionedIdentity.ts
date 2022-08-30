@@ -2,7 +2,6 @@ import {createDetailsInfoFromDiscriminatorValue} from './createDetailsInfoFromDi
 import {DetailsInfo, Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
 export class ProvisionedIdentity extends Identity implements Parsable {
     /** Details of the identity. */
     private _details?: DetailsInfo | undefined;
@@ -13,6 +12,7 @@ export class ProvisionedIdentity extends Identity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.provisionedIdentity";
     };
     /**
      * Gets the details property value. Details of the identity.

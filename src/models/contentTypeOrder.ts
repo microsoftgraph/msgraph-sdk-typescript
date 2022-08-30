@@ -5,6 +5,8 @@ export class ContentTypeOrder implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Whether this is the default Content Type */
     private _default_escaped?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Specifies the position in which the Content Type appears in the selection UI. */
     private _position?: number | undefined;
     /**
@@ -26,6 +28,7 @@ export class ContentTypeOrder implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.contentTypeOrder";
     };
     /**
      * Gets the default property value. Whether this is the default Content Type
@@ -48,8 +51,23 @@ export class ContentTypeOrder implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "default": n => { this.default_escaped = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "position": n => { this.position = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the position property value. Specifies the position in which the Content Type appears in the selection UI.
@@ -72,6 +90,7 @@ export class ContentTypeOrder implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("default", this.default_escaped);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("position", this.position);
         writer.writeAdditionalData(this.additionalData);
     };

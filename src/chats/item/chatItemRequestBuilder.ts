@@ -74,7 +74,7 @@ export class ChatItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from chats by key
+     * Retrieve a single chat (without its messages).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -83,6 +83,7 @@ export class ChatItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -91,7 +92,7 @@ export class ChatItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in chats
+     * Update the properties of a chat object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -125,7 +126,7 @@ export class ChatItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Get entity from chats by key
+     * Retrieve a single chat (without its messages).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Chat
@@ -143,7 +144,7 @@ export class ChatItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.chats.item.installedApps.item collection
      * @param id Unique identifier of the item
-     * @returns a teamsAppInstallationItemRequestBuilder
+     * @returns a TeamsAppInstallationItemRequestBuilder
      */
     public installedAppsById(id: string) : TeamsAppInstallationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -154,7 +155,7 @@ export class ChatItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.chats.item.members.item collection
      * @param id Unique identifier of the item
-     * @returns a conversationMemberItemRequestBuilder
+     * @returns a ConversationMemberItemRequestBuilder
      */
     public membersById(id: string) : ConversationMemberItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -165,7 +166,7 @@ export class ChatItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.chats.item.messages.item collection
      * @param id Unique identifier of the item
-     * @returns a chatMessageItemRequestBuilder
+     * @returns a ChatMessageItemRequestBuilder
      */
     public messagesById(id: string) : ChatMessageItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -174,7 +175,7 @@ export class ChatItemRequestBuilder {
         return new ChatMessageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update entity in chats
+     * Update the properties of a chat object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -193,7 +194,7 @@ export class ChatItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.chats.item.tabs.item collection
      * @param id Unique identifier of the item
-     * @returns a teamsTabItemRequestBuilder
+     * @returns a TeamsTabItemRequestBuilder
      */
     public tabsById(id: string) : TeamsTabItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

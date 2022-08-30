@@ -26,7 +26,7 @@ export class AttachmentsArchiveRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The zip file of all attachments for a message.
+     * The zip file that contains all attachments for a message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -42,7 +42,7 @@ export class AttachmentsArchiveRequestBuilder {
         return requestInfo;
     };
     /**
-     * The zip file of all attachments for a message.
+     * The zip file that contains all attachments for a message.
      * @param body Binary request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -61,7 +61,7 @@ export class AttachmentsArchiveRequestBuilder {
         return requestInfo;
     };
     /**
-     * The zip file of all attachments for a message.
+     * The zip file that contains all attachments for a message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ArrayBuffer
@@ -77,7 +77,7 @@ export class AttachmentsArchiveRequestBuilder {
         return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The zip file of all attachments for a message.
+     * The zip file that contains all attachments for a message.
      * @param body Binary request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

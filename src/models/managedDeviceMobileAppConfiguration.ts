@@ -6,7 +6,6 @@ import {createManagedDeviceMobileAppConfigurationUserSummaryFromDiscriminatorVal
 import {Entity, ManagedDeviceMobileAppConfigurationAssignment, ManagedDeviceMobileAppConfigurationDeviceStatus, ManagedDeviceMobileAppConfigurationDeviceSummary, ManagedDeviceMobileAppConfigurationUserStatus, ManagedDeviceMobileAppConfigurationUserSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** An abstract class for Mobile app configuration for enrolled devices. */
 export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable {
     /** The list of group assignemenets for app configration. */
     private _assignments?: ManagedDeviceMobileAppConfigurationAssignment[] | undefined;
@@ -45,10 +44,11 @@ export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsa
         this._assignments = value;
     };
     /**
-     * Instantiates a new managedDeviceMobileAppConfiguration and sets the default values.
+     * Instantiates a new ManagedDeviceMobileAppConfiguration and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.managedDeviceMobileAppConfiguration";
     };
     /**
      * Gets the createdDateTime property value. DateTime the object was created.

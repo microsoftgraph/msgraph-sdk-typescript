@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get photos from users */
 export class ProfilePhotoItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

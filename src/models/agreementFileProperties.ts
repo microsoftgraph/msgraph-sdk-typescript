@@ -2,7 +2,6 @@ import {createAgreementFileDataFromDiscriminatorValue} from './createAgreementFi
 import {AgreementFileData, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
 export class AgreementFileProperties extends Entity implements Parsable {
     /** The date time representing when the file was created.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _createdDateTime?: Date | undefined;
@@ -19,10 +18,11 @@ export class AgreementFileProperties extends Entity implements Parsable {
     /** The language of the agreement file in the format 'languagecode2-country/regioncode2'. 'languagecode2' is a lowercase two-letter code derived from ISO 639-1, while 'country/regioncode2' is derived from ISO 3166 and usually consists of two uppercase letters, or a BCP-47 language tag. For example, U.S. English is en-US. Read-only. */
     private _language?: string | undefined;
     /**
-     * Instantiates a new agreementFileProperties and sets the default values.
+     * Instantiates a new AgreementFileProperties and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.agreementFileProperties";
     };
     /**
      * Gets the createdDateTime property value. The date time representing when the file was created.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.

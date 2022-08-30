@@ -1,49 +1,49 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class IdentityProvider extends Entity implements Parsable {
-    /** The client ID for the application obtained when registering the application with the identity provider. This is a required field.  Required. Not nullable. */
+    /** The client ID for the application. This is the client ID obtained when registering the application with the identity provider. Required. Not nullable. */
     private _clientId?: string | undefined;
-    /** The client secret for the application obtained when registering the application with the identity provider. This is write-only. A read operation will return ****. This is a required field. Required. Not nullable. */
+    /** The client secret for the application. This is the client secret obtained when registering the application with the identity provider. This is write-only. A read operation will return ****.  Required. Not nullable. */
     private _clientSecret?: string | undefined;
     /** The display name of the identity provider. Not nullable. */
     private _name?: string | undefined;
-    /** The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo,QQ, WeChat, OpenIDConnect. Not nullable. */
+    /** The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo, QQ, WeChat, OpenIDConnect. Not nullable. */
     private _type?: string | undefined;
     /**
-     * Gets the clientId property value. The client ID for the application obtained when registering the application with the identity provider. This is a required field.  Required. Not nullable.
+     * Gets the clientId property value. The client ID for the application. This is the client ID obtained when registering the application with the identity provider. Required. Not nullable.
      * @returns a string
      */
     public get clientId() {
         return this._clientId;
     };
     /**
-     * Sets the clientId property value. The client ID for the application obtained when registering the application with the identity provider. This is a required field.  Required. Not nullable.
+     * Sets the clientId property value. The client ID for the application. This is the client ID obtained when registering the application with the identity provider. Required. Not nullable.
      * @param value Value to set for the clientId property.
      */
     public set clientId(value: string | undefined) {
         this._clientId = value;
     };
     /**
-     * Gets the clientSecret property value. The client secret for the application obtained when registering the application with the identity provider. This is write-only. A read operation will return ****. This is a required field. Required. Not nullable.
+     * Gets the clientSecret property value. The client secret for the application. This is the client secret obtained when registering the application with the identity provider. This is write-only. A read operation will return ****.  Required. Not nullable.
      * @returns a string
      */
     public get clientSecret() {
         return this._clientSecret;
     };
     /**
-     * Sets the clientSecret property value. The client secret for the application obtained when registering the application with the identity provider. This is write-only. A read operation will return ****. This is a required field. Required. Not nullable.
+     * Sets the clientSecret property value. The client secret for the application. This is the client secret obtained when registering the application with the identity provider. This is write-only. A read operation will return ****.  Required. Not nullable.
      * @param value Value to set for the clientSecret property.
      */
     public set clientSecret(value: string | undefined) {
         this._clientSecret = value;
     };
     /**
-     * Instantiates a new identityProvider and sets the default values.
+     * Instantiates a new IdentityProvider and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.identityProvider";
     };
     /**
      * The deserialization information for the current model
@@ -84,14 +84,14 @@ export class IdentityProvider extends Entity implements Parsable {
         writer.writeStringValue("type", this.type);
     };
     /**
-     * Gets the type property value. The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo,QQ, WeChat, OpenIDConnect. Not nullable.
+     * Gets the type property value. The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo, QQ, WeChat, OpenIDConnect. Not nullable.
      * @returns a string
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo,QQ, WeChat, OpenIDConnect. Not nullable.
+     * Sets the type property value. The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo, QQ, WeChat, OpenIDConnect. Not nullable.
      * @param value Value to set for the type property.
      */
     public set type(value: string | undefined) {

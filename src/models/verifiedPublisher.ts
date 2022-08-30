@@ -5,8 +5,10 @@ export class VerifiedPublisher implements AdditionalDataHolder, Parsable {
     private _addedDateTime?: Date | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The verified publisher name from the app publisher's Microsoft Partner Network (MPN) account. */
+    /** The verified publisher name from the app publisher's Partner Center account. */
     private _displayName?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The ID of the verified publisher from the app publisher's Partner Center account. */
     private _verifiedPublisherId?: string | undefined;
     /**
@@ -42,16 +44,17 @@ export class VerifiedPublisher implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.verifiedPublisher";
     };
     /**
-     * Gets the displayName property value. The verified publisher name from the app publisher's Microsoft Partner Network (MPN) account.
+     * Gets the displayName property value. The verified publisher name from the app publisher's Partner Center account.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The verified publisher name from the app publisher's Microsoft Partner Network (MPN) account.
+     * Sets the displayName property value. The verified publisher name from the app publisher's Partner Center account.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -65,8 +68,23 @@ export class VerifiedPublisher implements AdditionalDataHolder, Parsable {
         return {
             "addedDateTime": n => { this.addedDateTime = n.getDateValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "verifiedPublisherId": n => { this.verifiedPublisherId = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -76,6 +94,7 @@ export class VerifiedPublisher implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeDateValue("addedDateTime", this.addedDateTime);
         writer.writeStringValue("displayName", this.displayName);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("verifiedPublisherId", this.verifiedPublisherId);
         writer.writeAdditionalData(this.additionalData);
     };

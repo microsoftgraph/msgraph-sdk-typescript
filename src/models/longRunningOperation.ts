@@ -2,33 +2,34 @@ import {Entity} from './index';
 import {LongRunningOperationStatus} from './longRunningOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class LongRunningOperation extends Entity implements Parsable {
-    /** The createdDateTime property */
+    /** The start time of the operation. */
     private _createdDateTime?: Date | undefined;
-    /** The lastActionDateTime property */
+    /** The time of the last action in the operation. */
     private _lastActionDateTime?: Date | undefined;
-    /** The resourceLocation property */
+    /** URI of the resource that the operation is performed on. */
     private _resourceLocation?: string | undefined;
-    /** The status property */
+    /** The status of the operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. */
     private _status?: LongRunningOperationStatus | undefined;
-    /** The statusDetail property */
+    /** Details about the status of the operation. */
     private _statusDetail?: string | undefined;
     /**
      * Instantiates a new longRunningOperation and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.longRunningOperation";
     };
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The start time of the operation.
      * @returns a Date
      */
     public get createdDateTime() {
         return this._createdDateTime;
     };
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The start time of the operation.
      * @param value Value to set for the createdDateTime property.
      */
     public set createdDateTime(value: Date | undefined) {
@@ -48,28 +49,28 @@ export class LongRunningOperation extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the lastActionDateTime property value. The lastActionDateTime property
+     * Gets the lastActionDateTime property value. The time of the last action in the operation.
      * @returns a Date
      */
     public get lastActionDateTime() {
         return this._lastActionDateTime;
     };
     /**
-     * Sets the lastActionDateTime property value. The lastActionDateTime property
+     * Sets the lastActionDateTime property value. The time of the last action in the operation.
      * @param value Value to set for the lastActionDateTime property.
      */
     public set lastActionDateTime(value: Date | undefined) {
         this._lastActionDateTime = value;
     };
     /**
-     * Gets the resourceLocation property value. The resourceLocation property
+     * Gets the resourceLocation property value. URI of the resource that the operation is performed on.
      * @returns a string
      */
     public get resourceLocation() {
         return this._resourceLocation;
     };
     /**
-     * Sets the resourceLocation property value. The resourceLocation property
+     * Sets the resourceLocation property value. URI of the resource that the operation is performed on.
      * @param value Value to set for the resourceLocation property.
      */
     public set resourceLocation(value: string | undefined) {
@@ -89,28 +90,28 @@ export class LongRunningOperation extends Entity implements Parsable {
         writer.writeStringValue("statusDetail", this.statusDetail);
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. The status of the operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue.
      * @returns a longRunningOperationStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. The status of the operation. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue.
      * @param value Value to set for the status property.
      */
     public set status(value: LongRunningOperationStatus | undefined) {
         this._status = value;
     };
     /**
-     * Gets the statusDetail property value. The statusDetail property
+     * Gets the statusDetail property value. Details about the status of the operation.
      * @returns a string
      */
     public get statusDetail() {
         return this._statusDetail;
     };
     /**
-     * Sets the statusDetail property value. The statusDetail property
+     * Sets the statusDetail property value. Details about the status of the operation.
      * @param value Value to set for the statusDetail property.
      */
     public set statusDetail(value: string | undefined) {

@@ -10,16 +10,20 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
     private _applyActions?: AccessReviewApplyAction[] | undefined;
     /** Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false. */
     private _autoApplyDecisionsEnabled?: boolean | undefined;
+    /** Indicates whether decisions on previous access review stages are available for reviewers on an accessReviewInstance with multiple subsequent stages. If not provided, the default is disabled (false). */
+    private _decisionHistoriesForReviewersEnabled?: boolean | undefined;
     /** Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation. */
     private _defaultDecision?: string | undefined;
     /** Indicates whether the default decision is enabled or disabled when reviewers do not respond. Default value is false. */
     private _defaultDecisionEnabled?: boolean | undefined;
-    /** Duration of each recurrence of review (accessReviewInstance) in number of days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property. */
+    /** Duration of an access review instance in days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property. */
     private _instanceDurationInDays?: number | undefined;
     /** Indicates whether reviewers are required to provide justification with their decision. Default value is false. */
     private _justificationRequiredOnApproval?: boolean | undefined;
     /** Indicates whether emails are enabled or disabled. Default value is false. */
     private _mailNotificationsEnabled?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Indicates whether decision recommendations are enabled or disabled. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationsEnabled setting will be used instead of the value of this property. */
     private _recommendationsEnabled?: boolean | undefined;
     /** Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts. */
@@ -73,6 +77,21 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.accessReviewScheduleSettings";
+    };
+    /**
+     * Gets the decisionHistoriesForReviewersEnabled property value. Indicates whether decisions on previous access review stages are available for reviewers on an accessReviewInstance with multiple subsequent stages. If not provided, the default is disabled (false).
+     * @returns a boolean
+     */
+    public get decisionHistoriesForReviewersEnabled() {
+        return this._decisionHistoriesForReviewersEnabled;
+    };
+    /**
+     * Sets the decisionHistoriesForReviewersEnabled property value. Indicates whether decisions on previous access review stages are available for reviewers on an accessReviewInstance with multiple subsequent stages. If not provided, the default is disabled (false).
+     * @param value Value to set for the decisionHistoriesForReviewersEnabled property.
+     */
+    public set decisionHistoriesForReviewersEnabled(value: boolean | undefined) {
+        this._decisionHistoriesForReviewersEnabled = value;
     };
     /**
      * Gets the defaultDecision property value. Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.
@@ -110,25 +129,27 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
         return {
             "applyActions": n => { this.applyActions = n.getCollectionOfObjectValues<AccessReviewApplyAction>(createAccessReviewApplyActionFromDiscriminatorValue); },
             "autoApplyDecisionsEnabled": n => { this.autoApplyDecisionsEnabled = n.getBooleanValue(); },
+            "decisionHistoriesForReviewersEnabled": n => { this.decisionHistoriesForReviewersEnabled = n.getBooleanValue(); },
             "defaultDecision": n => { this.defaultDecision = n.getStringValue(); },
             "defaultDecisionEnabled": n => { this.defaultDecisionEnabled = n.getBooleanValue(); },
             "instanceDurationInDays": n => { this.instanceDurationInDays = n.getNumberValue(); },
             "justificationRequiredOnApproval": n => { this.justificationRequiredOnApproval = n.getBooleanValue(); },
             "mailNotificationsEnabled": n => { this.mailNotificationsEnabled = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "recommendationsEnabled": n => { this.recommendationsEnabled = n.getBooleanValue(); },
             "recurrence": n => { this.recurrence = n.getObjectValue<PatternedRecurrence>(createPatternedRecurrenceFromDiscriminatorValue); },
             "reminderNotificationsEnabled": n => { this.reminderNotificationsEnabled = n.getBooleanValue(); },
         };
     };
     /**
-     * Gets the instanceDurationInDays property value. Duration of each recurrence of review (accessReviewInstance) in number of days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property.
+     * Gets the instanceDurationInDays property value. Duration of an access review instance in days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property.
      * @returns a integer
      */
     public get instanceDurationInDays() {
         return this._instanceDurationInDays;
     };
     /**
-     * Sets the instanceDurationInDays property value. Duration of each recurrence of review (accessReviewInstance) in number of days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property.
+     * Sets the instanceDurationInDays property value. Duration of an access review instance in days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property.
      * @param value Value to set for the instanceDurationInDays property.
      */
     public set instanceDurationInDays(value: number | undefined) {
@@ -161,6 +182,20 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
      */
     public set mailNotificationsEnabled(value: boolean | undefined) {
         this._mailNotificationsEnabled = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the recommendationsEnabled property value. Indicates whether decision recommendations are enabled or disabled. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationsEnabled setting will be used instead of the value of this property.
@@ -212,11 +247,13 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfObjectValues<AccessReviewApplyAction>("applyActions", this.applyActions);
         writer.writeBooleanValue("autoApplyDecisionsEnabled", this.autoApplyDecisionsEnabled);
+        writer.writeBooleanValue("decisionHistoriesForReviewersEnabled", this.decisionHistoriesForReviewersEnabled);
         writer.writeStringValue("defaultDecision", this.defaultDecision);
         writer.writeBooleanValue("defaultDecisionEnabled", this.defaultDecisionEnabled);
         writer.writeNumberValue("instanceDurationInDays", this.instanceDurationInDays);
         writer.writeBooleanValue("justificationRequiredOnApproval", this.justificationRequiredOnApproval);
         writer.writeBooleanValue("mailNotificationsEnabled", this.mailNotificationsEnabled);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeBooleanValue("recommendationsEnabled", this.recommendationsEnabled);
         writer.writeObjectValue<PatternedRecurrence>("recurrence", this.recurrence);
         writer.writeBooleanValue("reminderNotificationsEnabled", this.reminderNotificationsEnabled);

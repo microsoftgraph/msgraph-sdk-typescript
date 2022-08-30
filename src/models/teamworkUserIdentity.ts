@@ -2,15 +2,15 @@ import {Identity} from './index';
 import {TeamworkUserIdentityType} from './teamworkUserIdentityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
 export class TeamworkUserIdentity extends Identity implements Parsable {
-    /** Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser. */
+    /** Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser. */
     private _userIdentityType?: TeamworkUserIdentityType | undefined;
     /**
-     * Instantiates a new teamworkUserIdentity and sets the default values.
+     * Instantiates a new TeamworkUserIdentity and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.teamworkUserIdentity";
     };
     /**
      * The deserialization information for the current model
@@ -31,14 +31,14 @@ export class TeamworkUserIdentity extends Identity implements Parsable {
         writer.writeEnumValue<TeamworkUserIdentityType>("userIdentityType", this.userIdentityType);
     };
     /**
-     * Gets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser.
+     * Gets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser.
      * @returns a teamworkUserIdentityType
      */
     public get userIdentityType() {
         return this._userIdentityType;
     };
     /**
-     * Sets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser.
+     * Sets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser.
      * @param value Value to set for the userIdentityType property.
      */
     public set userIdentityType(value: TeamworkUserIdentityType | undefined) {

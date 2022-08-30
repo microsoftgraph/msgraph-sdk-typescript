@@ -6,7 +6,7 @@ import {createSharingLinkFromDiscriminatorValue} from './createSharingLinkFromDi
 import {Entity, IdentitySet, ItemReference, SharePointIdentitySet, SharingInvitation, SharingLink} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class Permission extends Entity implements Parsable {
     /** A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional. */
     private _expirationDateTime?: Date | undefined;
@@ -18,7 +18,7 @@ export class Permission extends Entity implements Parsable {
     private _grantedToIdentitiesV2?: SharePointIdentitySet[] | undefined;
     /** For user type permissions, the details of the users and applications for this permission. Read-only. */
     private _grantedToV2?: SharePointIdentitySet | undefined;
-    /** Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only. */
+    /** Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only.. */
     private _hasPassword?: boolean | undefined;
     /** Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only. */
     private _inheritedFrom?: ItemReference | undefined;
@@ -28,13 +28,14 @@ export class Permission extends Entity implements Parsable {
     private _link?: SharingLink | undefined;
     /** The type of permission, for example, read. See below for the full list of roles. Read-only. */
     private _roles?: string[] | undefined;
-    /** A unique token that can be used to access this shared item via the [shares API][]. Read-only. */
+    /** A unique token that can be used to access this shared item via the **shares** API. Read-only. */
     private _shareId?: string | undefined;
     /**
      * Instantiates a new permission and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.permission";
     };
     /**
      * Gets the expirationDateTime property value. A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional.
@@ -126,14 +127,14 @@ export class Permission extends Entity implements Parsable {
         this._grantedToV2 = value;
     };
     /**
-     * Gets the hasPassword property value. Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only.
+     * Gets the hasPassword property value. Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only..
      * @returns a boolean
      */
     public get hasPassword() {
         return this._hasPassword;
     };
     /**
-     * Sets the hasPassword property value. Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only.
+     * Sets the hasPassword property value. Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only..
      * @param value Value to set for the hasPassword property.
      */
     public set hasPassword(value: boolean | undefined) {
@@ -215,14 +216,14 @@ export class Permission extends Entity implements Parsable {
         writer.writeStringValue("shareId", this.shareId);
     };
     /**
-     * Gets the shareId property value. A unique token that can be used to access this shared item via the [shares API][]. Read-only.
+     * Gets the shareId property value. A unique token that can be used to access this shared item via the **shares** API. Read-only.
      * @returns a string
      */
     public get shareId() {
         return this._shareId;
     };
     /**
-     * Sets the shareId property value. A unique token that can be used to access this shared item via the [shares API][]. Read-only.
+     * Sets the shareId property value. A unique token that can be used to access this shared item via the **shares** API. Read-only.
      * @param value Value to set for the shareId property.
      */
     public set shareId(value: string | undefined) {

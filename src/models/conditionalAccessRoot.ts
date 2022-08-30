@@ -3,17 +3,17 @@ import {createNamedLocationFromDiscriminatorValue} from './createNamedLocationFr
 import {ConditionalAccessPolicy, Entity, NamedLocation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class ConditionalAccessRoot extends Entity implements Parsable {
     /** Read-only. Nullable. Returns a collection of the specified named locations. */
     private _namedLocations?: NamedLocation[] | undefined;
-    /** Read-only. Nullable. Returns a collection of the specified Conditional Access policies. */
+    /** Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies. */
     private _policies?: ConditionalAccessPolicy[] | undefined;
     /**
-     * Instantiates a new conditionalAccessRoot and sets the default values.
+     * Instantiates a new ConditionalAccessRoot and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.conditionalAccessRoot";
     };
     /**
      * The deserialization information for the current model
@@ -40,14 +40,14 @@ export class ConditionalAccessRoot extends Entity implements Parsable {
         this._namedLocations = value;
     };
     /**
-     * Gets the policies property value. Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
+     * Gets the policies property value. Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
      * @returns a conditionalAccessPolicy
      */
     public get policies() {
         return this._policies;
     };
     /**
-     * Sets the policies property value. Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
+     * Sets the policies property value. Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
      * @param value Value to set for the policies property.
      */
     public set policies(value: ConditionalAccessPolicy[] | undefined) {

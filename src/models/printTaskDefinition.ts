@@ -3,7 +3,7 @@ import {createPrintTaskFromDiscriminatorValue} from './createPrintTaskFromDiscri
 import {AppIdentity, Entity, PrintTask} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the print singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class PrintTaskDefinition extends Entity implements Parsable {
     /** The createdBy property */
     private _createdBy?: AppIdentity | undefined;
@@ -16,6 +16,7 @@ export class PrintTaskDefinition extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.printTaskDefinition";
     };
     /**
      * Gets the createdBy property value. The createdBy property

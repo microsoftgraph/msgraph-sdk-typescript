@@ -3,7 +3,7 @@ import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscri
 import {Entity, Post, Recipient} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class ConversationThread extends Entity implements Parsable {
     /** The Cc: recipients for the thread. Returned only on $select. */
     private _ccRecipients?: Recipient[] | undefined;
@@ -11,9 +11,9 @@ export class ConversationThread extends Entity implements Parsable {
     private _hasAttachments?: boolean | undefined;
     /** Indicates if the thread is locked. Returned by default. */
     private _isLocked?: boolean | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.Returned by default. */
     private _lastDeliveredDateTime?: Date | undefined;
-    /** Read-only. Nullable. */
+    /** The posts property */
     private _posts?: Post[] | undefined;
     /** A short summary from the body of the latest post in this conversation. Returned by default. */
     private _preview?: string | undefined;
@@ -42,6 +42,7 @@ export class ConversationThread extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.conversationThread";
     };
     /**
      * The deserialization information for the current model
@@ -89,28 +90,28 @@ export class ConversationThread extends Entity implements Parsable {
         this._isLocked = value;
     };
     /**
-     * Gets the lastDeliveredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default.
+     * Gets the lastDeliveredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.Returned by default.
      * @returns a Date
      */
     public get lastDeliveredDateTime() {
         return this._lastDeliveredDateTime;
     };
     /**
-     * Sets the lastDeliveredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default.
+     * Sets the lastDeliveredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.Returned by default.
      * @param value Value to set for the lastDeliveredDateTime property.
      */
     public set lastDeliveredDateTime(value: Date | undefined) {
         this._lastDeliveredDateTime = value;
     };
     /**
-     * Gets the posts property value. Read-only. Nullable.
+     * Gets the posts property value. The posts property
      * @returns a post
      */
     public get posts() {
         return this._posts;
     };
     /**
-     * Sets the posts property value. Read-only. Nullable.
+     * Sets the posts property value. The posts property
      * @param value Value to set for the posts property.
      */
     public set posts(value: Post[] | undefined) {

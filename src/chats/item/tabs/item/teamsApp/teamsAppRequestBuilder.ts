@@ -27,7 +27,7 @@ export class TeamsAppRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The application that is linked to the tab.
+     * The application that is linked to the tab. This cannot be changed after tab creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -36,6 +36,7 @@ export class TeamsAppRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -44,7 +45,7 @@ export class TeamsAppRequestBuilder {
         return requestInfo;
     };
     /**
-     * The application that is linked to the tab.
+     * The application that is linked to the tab. This cannot be changed after tab creation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsApp

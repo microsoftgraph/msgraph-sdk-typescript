@@ -3,11 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AppIdentity implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Refers to the unique identifier representing Application Id in the Azure Active Directory. */
+    /** Refers to the Unique GUID representing Application Id in the Azure Active Directory. */
     private _appId?: string | undefined;
     /** Refers to the Application Name displayed in the Azure Portal. */
     private _displayName?: string | undefined;
-    /** Refers to the unique identifier indicating Service Principal Id in Azure Active Directory for the corresponding App. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App. */
     private _servicePrincipalId?: string | undefined;
     /** Refers to the Service Principal Name is the Application name in the tenant. */
     private _servicePrincipalName?: string | undefined;
@@ -26,14 +28,14 @@ export class AppIdentity implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the appId property value. Refers to the unique identifier representing Application Id in the Azure Active Directory.
+     * Gets the appId property value. Refers to the Unique GUID representing Application Id in the Azure Active Directory.
      * @returns a string
      */
     public get appId() {
         return this._appId;
     };
     /**
-     * Sets the appId property value. Refers to the unique identifier representing Application Id in the Azure Active Directory.
+     * Sets the appId property value. Refers to the Unique GUID representing Application Id in the Azure Active Directory.
      * @param value Value to set for the appId property.
      */
     public set appId(value: string | undefined) {
@@ -44,6 +46,7 @@ export class AppIdentity implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.appIdentity";
     };
     /**
      * Gets the displayName property value. Refers to the Application Name displayed in the Azure Portal.
@@ -67,9 +70,24 @@ export class AppIdentity implements AdditionalDataHolder, Parsable {
         return {
             "appId": n => { this.appId = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "servicePrincipalId": n => { this.servicePrincipalId = n.getStringValue(); },
             "servicePrincipalName": n => { this.servicePrincipalName = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -79,19 +97,20 @@ export class AppIdentity implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("appId", this.appId);
         writer.writeStringValue("displayName", this.displayName);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("servicePrincipalId", this.servicePrincipalId);
         writer.writeStringValue("servicePrincipalName", this.servicePrincipalName);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the servicePrincipalId property value. Refers to the unique identifier indicating Service Principal Id in Azure Active Directory for the corresponding App.
+     * Gets the servicePrincipalId property value. Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
      * @returns a string
      */
     public get servicePrincipalId() {
         return this._servicePrincipalId;
     };
     /**
-     * Sets the servicePrincipalId property value. Refers to the unique identifier indicating Service Principal Id in Azure Active Directory for the corresponding App.
+     * Sets the servicePrincipalId property value. Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
      * @param value Value to set for the servicePrincipalId property.
      */
     public set servicePrincipalId(value: string | undefined) {

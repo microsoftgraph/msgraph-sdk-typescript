@@ -2,7 +2,7 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import {Entity, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class EducationOutcome extends Entity implements Parsable {
     /** The individual who updated the resource. */
     private _lastModifiedBy?: IdentitySet | undefined;
@@ -13,6 +13,7 @@ export class EducationOutcome extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.educationOutcome";
     };
     /**
      * The deserialization information for the current model

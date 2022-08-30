@@ -2,21 +2,21 @@ import {Entity} from './index';
 import {RemoteAssistanceOnboardingStatus} from './remoteAssistanceOnboardingStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** RemoteAssistPartner resources represent the metadata and status of a given Remote Assistance partner service. */
 export class RemoteAssistancePartner extends Entity implements Parsable {
     /** Display name of the partner. */
     private _displayName?: string | undefined;
     /** Timestamp of the last request sent to Intune by the TEM partner. */
     private _lastConnectionDateTime?: Date | undefined;
-    /** A friendly description of the current TeamViewer connector status. Possible values are: notOnboarded, onboarding, onboarded. */
+    /** The current TeamViewer connector status */
     private _onboardingStatus?: RemoteAssistanceOnboardingStatus | undefined;
     /** URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service. */
     private _onboardingUrl?: string | undefined;
     /**
-     * Instantiates a new remoteAssistancePartner and sets the default values.
+     * Instantiates a new RemoteAssistancePartner and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.remoteAssistancePartner";
     };
     /**
      * Gets the displayName property value. Display name of the partner.
@@ -59,14 +59,14 @@ export class RemoteAssistancePartner extends Entity implements Parsable {
         this._lastConnectionDateTime = value;
     };
     /**
-     * Gets the onboardingStatus property value. A friendly description of the current TeamViewer connector status. Possible values are: notOnboarded, onboarding, onboarded.
+     * Gets the onboardingStatus property value. The current TeamViewer connector status
      * @returns a remoteAssistanceOnboardingStatus
      */
     public get onboardingStatus() {
         return this._onboardingStatus;
     };
     /**
-     * Sets the onboardingStatus property value. A friendly description of the current TeamViewer connector status. Possible values are: notOnboarded, onboarding, onboarded.
+     * Sets the onboardingStatus property value. The current TeamViewer connector status
      * @param value Value to set for the onboardingStatus property.
      */
     public set onboardingStatus(value: RemoteAssistanceOnboardingStatus | undefined) {

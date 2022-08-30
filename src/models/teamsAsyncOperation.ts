@@ -4,7 +4,7 @@ import {TeamsAsyncOperationStatus} from './teamsAsyncOperationStatus';
 import {TeamsAsyncOperationType} from './teamsAsyncOperationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class TeamsAsyncOperation extends Entity implements Parsable {
     /** Number of times the operation was attempted before being marked successful or failed. */
     private _attemptsCount?: number | undefined;
@@ -14,9 +14,9 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
     private _error_escaped?: OperationError | undefined;
     /** Time when the async operation was last updated. */
     private _lastActionDateTime?: Date | undefined;
-    /** Denotes the type of operation being described. */
+    /** The operationType property */
     private _operationType?: TeamsAsyncOperationType | undefined;
-    /** Operation status. */
+    /** The status property */
     private _status?: TeamsAsyncOperationStatus | undefined;
     /** The ID of the object that's created or modified as result of this async operation, typically a team. */
     private _targetResourceId?: string | undefined;
@@ -41,6 +41,7 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.teamsAsyncOperation";
     };
     /**
      * Gets the createdDateTime property value. Time when the operation was created.
@@ -101,14 +102,14 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
         this._lastActionDateTime = value;
     };
     /**
-     * Gets the operationType property value. Denotes the type of operation being described.
+     * Gets the operationType property value. The operationType property
      * @returns a teamsAsyncOperationType
      */
     public get operationType() {
         return this._operationType;
     };
     /**
-     * Sets the operationType property value. Denotes the type of operation being described.
+     * Sets the operationType property value. The operationType property
      * @param value Value to set for the operationType property.
      */
     public set operationType(value: TeamsAsyncOperationType | undefined) {
@@ -131,14 +132,14 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
         writer.writeStringValue("targetResourceLocation", this.targetResourceLocation);
     };
     /**
-     * Gets the status property value. Operation status.
+     * Gets the status property value. The status property
      * @returns a teamsAsyncOperationStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. Operation status.
+     * Sets the status property value. The status property
      * @param value Value to set for the status property.
      */
     public set status(value: TeamsAsyncOperationStatus | undefined) {

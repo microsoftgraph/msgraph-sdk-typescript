@@ -11,7 +11,6 @@ import {Entity, OfferShiftRequest, OpenShift, OpenShiftChangeRequest, Scheduling
 import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Schedule extends Entity implements Parsable {
     /** Indicates whether the schedule is enabled for the team. Required. */
     private _enabled?: boolean | undefined;
@@ -56,6 +55,7 @@ export class Schedule extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.schedule";
     };
     /**
      * Gets the enabled property value. Indicates whether the schedule is enabled for the team. Required.

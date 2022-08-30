@@ -8,7 +8,6 @@ import {CalendarPermission, EmailAddress, Entity, Event, MultiValueLegacyExtende
 import {OnlineMeetingProviderType} from './onlineMeetingProviderType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Calendar extends Entity implements Parsable {
     /** Represent the online meeting service providers that can be used to create online meetings in this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness. */
     private _allowedOnlineMeetingProviders?: string[] | undefined;
@@ -16,11 +15,11 @@ export class Calendar extends Entity implements Parsable {
     private _calendarPermissions?: CalendarPermission[] | undefined;
     /** The calendar view for the calendar. Navigation property. Read-only. */
     private _calendarView?: Event[] | undefined;
-    /** true if the user can write to the calendar, false otherwise. This property is true for the user who created the calendar. This property is also true for a user who has been shared a calendar and granted write access, through an Outlook client or the corresponding calendarPermission resource. Read-only. */
+    /** true if the user can write to the calendar, false otherwise. This property is true for the user who created the calendar. This property is also true for a user who has been shared a calendar and granted write access. */
     private _canEdit?: boolean | undefined;
-    /** true if the user has the permission to share the calendar, false otherwise. Only the user who created the calendar can share it. Read-only. */
+    /** true if the user has the permission to share the calendar, false otherwise. Only the user who created the calendar can share it. */
     private _canShare?: boolean | undefined;
-    /** true if the user can read calendar items that have been marked private, false otherwise. This property is set through an Outlook client or the corresponding calendarPermission resource. Read-only. */
+    /** true if the user can read calendar items that have been marked private, false otherwise. */
     private _canViewPrivateItems?: boolean | undefined;
     /** Identifies the version of the calendar object. Every time the calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only. */
     private _changeKey?: string | undefined;
@@ -30,7 +29,7 @@ export class Calendar extends Entity implements Parsable {
     private _defaultOnlineMeetingProvider?: OnlineMeetingProviderType | undefined;
     /** The events in the calendar. Navigation property. Read-only. */
     private _events?: Event[] | undefined;
-    /** The calendar color, expressed in a hex color code of three hexadecimal values, each ranging from 00 to FF and representing the red, green, or blue components of the color in the RGB color space. If the user has never explicitly set a color for the calendar, this property is  empty. */
+    /** The calendar color, expressed in a hex color code of three hexadecimal values, each ranging from 00 to FF and representing the red, green, or blue components of the color in the RGB color space. If the user has never explicitly set a color for the calendar, this property is empty. Read-only. */
     private _hexColor?: string | undefined;
     /** true if this is the default calendar where new events are created by default, false otherwise. */
     private _isDefaultCalendar?: boolean | undefined;
@@ -42,7 +41,7 @@ export class Calendar extends Entity implements Parsable {
     private _multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
     /** The calendar name. */
     private _name?: string | undefined;
-    /** If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the owner property is set to the user. For a calendar shared with the user, the owner property is set to the person who shared that calendar with the user. Read-only. */
+    /** If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the owner property is set to the user. For a calendar shared with the user, the owner property is set to the person who shared that calendar with the user. */
     private _owner?: EmailAddress | undefined;
     /** The collection of single-value extended properties defined for the calendar. Read-only. Nullable. */
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
@@ -89,42 +88,42 @@ export class Calendar extends Entity implements Parsable {
         this._calendarView = value;
     };
     /**
-     * Gets the canEdit property value. true if the user can write to the calendar, false otherwise. This property is true for the user who created the calendar. This property is also true for a user who has been shared a calendar and granted write access, through an Outlook client or the corresponding calendarPermission resource. Read-only.
+     * Gets the canEdit property value. true if the user can write to the calendar, false otherwise. This property is true for the user who created the calendar. This property is also true for a user who has been shared a calendar and granted write access.
      * @returns a boolean
      */
     public get canEdit() {
         return this._canEdit;
     };
     /**
-     * Sets the canEdit property value. true if the user can write to the calendar, false otherwise. This property is true for the user who created the calendar. This property is also true for a user who has been shared a calendar and granted write access, through an Outlook client or the corresponding calendarPermission resource. Read-only.
+     * Sets the canEdit property value. true if the user can write to the calendar, false otherwise. This property is true for the user who created the calendar. This property is also true for a user who has been shared a calendar and granted write access.
      * @param value Value to set for the canEdit property.
      */
     public set canEdit(value: boolean | undefined) {
         this._canEdit = value;
     };
     /**
-     * Gets the canShare property value. true if the user has the permission to share the calendar, false otherwise. Only the user who created the calendar can share it. Read-only.
+     * Gets the canShare property value. true if the user has the permission to share the calendar, false otherwise. Only the user who created the calendar can share it.
      * @returns a boolean
      */
     public get canShare() {
         return this._canShare;
     };
     /**
-     * Sets the canShare property value. true if the user has the permission to share the calendar, false otherwise. Only the user who created the calendar can share it. Read-only.
+     * Sets the canShare property value. true if the user has the permission to share the calendar, false otherwise. Only the user who created the calendar can share it.
      * @param value Value to set for the canShare property.
      */
     public set canShare(value: boolean | undefined) {
         this._canShare = value;
     };
     /**
-     * Gets the canViewPrivateItems property value. true if the user can read calendar items that have been marked private, false otherwise. This property is set through an Outlook client or the corresponding calendarPermission resource. Read-only.
+     * Gets the canViewPrivateItems property value. true if the user can read calendar items that have been marked private, false otherwise.
      * @returns a boolean
      */
     public get canViewPrivateItems() {
         return this._canViewPrivateItems;
     };
     /**
-     * Sets the canViewPrivateItems property value. true if the user can read calendar items that have been marked private, false otherwise. This property is set through an Outlook client or the corresponding calendarPermission resource. Read-only.
+     * Sets the canViewPrivateItems property value. true if the user can read calendar items that have been marked private, false otherwise.
      * @param value Value to set for the canViewPrivateItems property.
      */
     public set canViewPrivateItems(value: boolean | undefined) {
@@ -163,6 +162,7 @@ export class Calendar extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.calendar";
     };
     /**
      * Gets the defaultOnlineMeetingProvider property value. The default online meeting provider for meetings sent from this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness.
@@ -219,14 +219,14 @@ export class Calendar extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the hexColor property value. The calendar color, expressed in a hex color code of three hexadecimal values, each ranging from 00 to FF and representing the red, green, or blue components of the color in the RGB color space. If the user has never explicitly set a color for the calendar, this property is  empty.
+     * Gets the hexColor property value. The calendar color, expressed in a hex color code of three hexadecimal values, each ranging from 00 to FF and representing the red, green, or blue components of the color in the RGB color space. If the user has never explicitly set a color for the calendar, this property is empty. Read-only.
      * @returns a string
      */
     public get hexColor() {
         return this._hexColor;
     };
     /**
-     * Sets the hexColor property value. The calendar color, expressed in a hex color code of three hexadecimal values, each ranging from 00 to FF and representing the red, green, or blue components of the color in the RGB color space. If the user has never explicitly set a color for the calendar, this property is  empty.
+     * Sets the hexColor property value. The calendar color, expressed in a hex color code of three hexadecimal values, each ranging from 00 to FF and representing the red, green, or blue components of the color in the RGB color space. If the user has never explicitly set a color for the calendar, this property is empty. Read-only.
      * @param value Value to set for the hexColor property.
      */
     public set hexColor(value: string | undefined) {
@@ -303,14 +303,14 @@ export class Calendar extends Entity implements Parsable {
         this._name = value;
     };
     /**
-     * Gets the owner property value. If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the owner property is set to the user. For a calendar shared with the user, the owner property is set to the person who shared that calendar with the user. Read-only.
+     * Gets the owner property value. If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the owner property is set to the user. For a calendar shared with the user, the owner property is set to the person who shared that calendar with the user.
      * @returns a emailAddress
      */
     public get owner() {
         return this._owner;
     };
     /**
-     * Sets the owner property value. If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the owner property is set to the user. For a calendar shared with the user, the owner property is set to the person who shared that calendar with the user. Read-only.
+     * Sets the owner property value. If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the owner property is set to the user. For a calendar shared with the user, the owner property is set to the person who shared that calendar with the user.
      * @param value Value to set for the owner property.
      */
     public set owner(value: EmailAddress | undefined) {

@@ -5,10 +5,12 @@ export class GeoCoordinates implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Optional. The altitude (height), in feet,  above sea level for the item. Read-only. */
     private _altitude?: number | undefined;
-    /** Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal. */
+    /** Optional. The latitude, in decimal, for the item. Read-only. */
     private _latitude?: number | undefined;
-    /** Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal. */
+    /** Optional. The longitude, in decimal, for the item. Read-only. */
     private _longitude?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -42,6 +44,7 @@ export class GeoCoordinates implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.geoCoordinates";
     };
     /**
      * The deserialization information for the current model
@@ -52,35 +55,50 @@ export class GeoCoordinates implements AdditionalDataHolder, Parsable {
             "altitude": n => { this.altitude = n.getNumberValue(); },
             "latitude": n => { this.latitude = n.getNumberValue(); },
             "longitude": n => { this.longitude = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
-     * Gets the latitude property value. Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal.
+     * Gets the latitude property value. Optional. The latitude, in decimal, for the item. Read-only.
      * @returns a double
      */
     public get latitude() {
         return this._latitude;
     };
     /**
-     * Sets the latitude property value. Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal.
+     * Sets the latitude property value. Optional. The latitude, in decimal, for the item. Read-only.
      * @param value Value to set for the latitude property.
      */
     public set latitude(value: number | undefined) {
         this._latitude = value;
     };
     /**
-     * Gets the longitude property value. Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal.
+     * Gets the longitude property value. Optional. The longitude, in decimal, for the item. Read-only.
      * @returns a double
      */
     public get longitude() {
         return this._longitude;
     };
     /**
-     * Sets the longitude property value. Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal.
+     * Sets the longitude property value. Optional. The longitude, in decimal, for the item. Read-only.
      * @param value Value to set for the longitude property.
      */
     public set longitude(value: number | undefined) {
         this._longitude = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -91,6 +109,7 @@ export class GeoCoordinates implements AdditionalDataHolder, Parsable {
         writer.writeNumberValue("altitude", this.altitude);
         writer.writeNumberValue("latitude", this.latitude);
         writer.writeNumberValue("longitude", this.longitude);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

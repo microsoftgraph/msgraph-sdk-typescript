@@ -9,10 +9,12 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
     private _displayName?: string | undefined;
     /** The date and time at which the credential expires. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _endDateTime?: Date | undefined;
-    /** Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null. */
+    /** The certificate's raw data in byte array converted to Base64 string. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null. */
     private _key?: string | undefined;
-    /** The unique identifier for the key. */
+    /** The unique identifier (GUID) for the key. */
     private _keyId?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _startDateTime?: Date | undefined;
     /** The type of key credential; for example, Symmetric, AsymmetricX509Cert. */
@@ -38,6 +40,7 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.keyCredential";
     };
     /**
      * Gets the customKeyIdentifier property value. Custom key identifier
@@ -92,38 +95,53 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
             "endDateTime": n => { this.endDateTime = n.getDateValue(); },
             "key": n => { this.key = n.getStringValue(); },
             "keyId": n => { this.keyId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
             "type": n => { this.type = n.getStringValue(); },
             "usage": n => { this.usage = n.getStringValue(); },
         };
     };
     /**
-     * Gets the key property value. Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
+     * Gets the key property value. The certificate's raw data in byte array converted to Base64 string. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
      * @returns a binary
      */
     public get key() {
         return this._key;
     };
     /**
-     * Sets the key property value. Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
+     * Sets the key property value. The certificate's raw data in byte array converted to Base64 string. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
      * @param value Value to set for the key property.
      */
     public set key(value: string | undefined) {
         this._key = value;
     };
     /**
-     * Gets the keyId property value. The unique identifier for the key.
+     * Gets the keyId property value. The unique identifier (GUID) for the key.
      * @returns a string
      */
     public get keyId() {
         return this._keyId;
     };
     /**
-     * Sets the keyId property value. The unique identifier for the key.
+     * Sets the keyId property value. The unique identifier (GUID) for the key.
      * @param value Value to set for the keyId property.
      */
     public set keyId(value: string | undefined) {
         this._keyId = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -136,6 +154,7 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
         writer.writeDateValue("endDateTime", this.endDateTime);
         writer.writeStringValue("key", this.key);
         writer.writeStringValue("keyId", this.keyId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeStringValue("type", this.type);
         writer.writeStringValue("usage", this.usage);

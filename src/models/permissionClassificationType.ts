@@ -1,4 +1,4 @@
-/** Provides operations to call the instantiate method. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum PermissionClassificationType {
     Low = "low",
     Medium = "medium",

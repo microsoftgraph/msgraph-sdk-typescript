@@ -1,5 +1,5 @@
 
-/** Retrieve a list of directoryroletemplate objects. */
+/** Retrieve a list of directoryRoleTemplate objects. */
 export class DirectoryRoleTemplatesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -3,7 +3,6 @@ import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenan
 import {ComplianceManagementPartnerAssignment, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Compliance management partner for all platforms */
 export class ComplianceManagementPartner extends Entity implements Parsable {
     /** User groups which enroll Android devices through partner. */
     private _androidEnrollmentAssignments?: ComplianceManagementPartnerAssignment[] | undefined;
@@ -21,7 +20,7 @@ export class ComplianceManagementPartner extends Entity implements Parsable {
     private _macOsEnrollmentAssignments?: ComplianceManagementPartnerAssignment[] | undefined;
     /** Partner onboarded for Mac devices. */
     private _macOsOnboarded?: boolean | undefined;
-    /** Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive. */
+    /** Partner state of this tenant. */
     private _partnerState?: DeviceManagementPartnerTenantState | undefined;
     /**
      * Gets the androidEnrollmentAssignments property value. User groups which enroll Android devices through partner.
@@ -52,10 +51,11 @@ export class ComplianceManagementPartner extends Entity implements Parsable {
         this._androidOnboarded = value;
     };
     /**
-     * Instantiates a new complianceManagementPartner and sets the default values.
+     * Instantiates a new ComplianceManagementPartner and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.complianceManagementPartner";
     };
     /**
      * Gets the displayName property value. Partner display name
@@ -159,14 +159,14 @@ export class ComplianceManagementPartner extends Entity implements Parsable {
         this._macOsOnboarded = value;
     };
     /**
-     * Gets the partnerState property value. Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive.
+     * Gets the partnerState property value. Partner state of this tenant.
      * @returns a deviceManagementPartnerTenantState
      */
     public get partnerState() {
         return this._partnerState;
     };
     /**
-     * Sets the partnerState property value. Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive.
+     * Sets the partnerState property value. Partner state of this tenant.
      * @param value Value to set for the partnerState property.
      */
     public set partnerState(value: DeviceManagementPartnerTenantState | undefined) {

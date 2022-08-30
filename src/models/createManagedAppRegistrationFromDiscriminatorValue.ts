@@ -1,4 +1,4 @@
-import {ManagedAppRegistration} from './index';
+import {AndroidManagedAppRegistration, IosManagedAppRegistration, ManagedAppRegistration} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createManagedAppRegistrationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedAppRegistration {
@@ -8,8 +8,10 @@ export function createManagedAppRegistrationFromDiscriminatorValue(parseNode: Pa
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.managedAppRegistration":
-                    return new ManagedAppRegistration();
+                case "#microsoft.graph.androidManagedAppRegistration":
+                    return new AndroidManagedAppRegistration();
+                case "#microsoft.graph.iosManagedAppRegistration":
+                    return new IosManagedAppRegistration();
             }
         }
     }

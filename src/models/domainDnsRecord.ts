@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of domainDnsRecord entities. */
 export class DomainDnsRecord extends Entity implements Parsable {
     /** If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain. */
     private _isOptional?: boolean | undefined;
@@ -14,10 +13,11 @@ export class DomainDnsRecord extends Entity implements Parsable {
     /** Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable. */
     private _ttl?: number | undefined;
     /**
-     * Instantiates a new domainDnsRecord and sets the default values.
+     * Instantiates a new DomainDnsRecord and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.domainDnsRecord";
     };
     /**
      * The deserialization information for the current model

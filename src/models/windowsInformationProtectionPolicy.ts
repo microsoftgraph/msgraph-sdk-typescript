@@ -2,7 +2,6 @@ import {WindowsInformationProtection} from './index';
 import {WindowsInformationProtectionPinCharacterRequirements} from './windowsInformationProtectionPinCharacterRequirements';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy for Windows information protection without MDM */
 export class WindowsInformationProtectionPolicy extends WindowsInformationProtection implements Parsable {
     /** Offline interval before app data is wiped (days) */
     private _daysWithoutContactBeforeUnenroll?: number | undefined;
@@ -16,23 +15,24 @@ export class WindowsInformationProtectionPolicy extends WindowsInformationProtec
     private _passwordMaximumAttemptCount?: number | undefined;
     /** Integer value specifies the period of time (in days) that a PIN can be used before the system requires the user to change it. The largest number you can configure for this policy setting is 730. The lowest number you can configure for this policy setting is 0. If this policy is set to 0, then the user's PIN will never expire. This node was added in Windows 10, version 1511. Default is 0. */
     private _pinExpirationDays?: number | undefined;
-    /** Integer value that configures the use of lowercase letters in the Windows Hello for Business PIN. Default is NotAllow. Possible values are: notAllow, requireAtLeastOne, allow. */
+    /** Pin Character Requirements */
     private _pinLowercaseLetters?: WindowsInformationProtectionPinCharacterRequirements | undefined;
     /** Integer value that sets the minimum number of characters required for the PIN. Default value is 4. The lowest number you can configure for this policy setting is 4. The largest number you can configure must be less than the number configured in the Maximum PIN length policy setting or the number 127, whichever is the lowest. */
     private _pinMinimumLength?: number | undefined;
-    /** Integer value that configures the use of special characters in the Windows Hello for Business PIN. Valid special characters for Windows Hello for Business PIN gestures include: ! ' # $ % & ' ( )  + , - . / : ; < = > ? @ [ / ] ^  ` { */
+    /** Pin Character Requirements */
     private _pinSpecialCharacters?: WindowsInformationProtectionPinCharacterRequirements | undefined;
-    /** Integer value that configures the use of uppercase letters in the Windows Hello for Business PIN. Default is NotAllow. Possible values are: notAllow, requireAtLeastOne, allow. */
+    /** Pin Character Requirements */
     private _pinUppercaseLetters?: WindowsInformationProtectionPinCharacterRequirements | undefined;
     /** New property in RS2, pending documentation */
     private _revokeOnMdmHandoffDisabled?: boolean | undefined;
     /** Boolean value that sets Windows Hello for Business as a method for signing into Windows. */
     private _windowsHelloForBusinessBlocked?: boolean | undefined;
     /**
-     * Instantiates a new windowsInformationProtectionPolicy and sets the default values.
+     * Instantiates a new WindowsInformationProtectionPolicy and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.windowsInformationProtectionPolicy";
     };
     /**
      * Gets the daysWithoutContactBeforeUnenroll property value. Offline interval before app data is wiped (days)
@@ -139,14 +139,14 @@ export class WindowsInformationProtectionPolicy extends WindowsInformationProtec
         this._pinExpirationDays = value;
     };
     /**
-     * Gets the pinLowercaseLetters property value. Integer value that configures the use of lowercase letters in the Windows Hello for Business PIN. Default is NotAllow. Possible values are: notAllow, requireAtLeastOne, allow.
+     * Gets the pinLowercaseLetters property value. Pin Character Requirements
      * @returns a windowsInformationProtectionPinCharacterRequirements
      */
     public get pinLowercaseLetters() {
         return this._pinLowercaseLetters;
     };
     /**
-     * Sets the pinLowercaseLetters property value. Integer value that configures the use of lowercase letters in the Windows Hello for Business PIN. Default is NotAllow. Possible values are: notAllow, requireAtLeastOne, allow.
+     * Sets the pinLowercaseLetters property value. Pin Character Requirements
      * @param value Value to set for the pinLowercaseLetters property.
      */
     public set pinLowercaseLetters(value: WindowsInformationProtectionPinCharacterRequirements | undefined) {
@@ -167,28 +167,28 @@ export class WindowsInformationProtectionPolicy extends WindowsInformationProtec
         this._pinMinimumLength = value;
     };
     /**
-     * Gets the pinSpecialCharacters property value. Integer value that configures the use of special characters in the Windows Hello for Business PIN. Valid special characters for Windows Hello for Business PIN gestures include: ! ' # $ % & ' ( )  + , - . / : ; < = > ? @ [ / ] ^  ` {
+     * Gets the pinSpecialCharacters property value. Pin Character Requirements
      * @returns a windowsInformationProtectionPinCharacterRequirements
      */
     public get pinSpecialCharacters() {
         return this._pinSpecialCharacters;
     };
     /**
-     * Sets the pinSpecialCharacters property value. Integer value that configures the use of special characters in the Windows Hello for Business PIN. Valid special characters for Windows Hello for Business PIN gestures include: ! ' # $ % & ' ( )  + , - . / : ; < = > ? @ [ / ] ^  ` {
+     * Sets the pinSpecialCharacters property value. Pin Character Requirements
      * @param value Value to set for the pinSpecialCharacters property.
      */
     public set pinSpecialCharacters(value: WindowsInformationProtectionPinCharacterRequirements | undefined) {
         this._pinSpecialCharacters = value;
     };
     /**
-     * Gets the pinUppercaseLetters property value. Integer value that configures the use of uppercase letters in the Windows Hello for Business PIN. Default is NotAllow. Possible values are: notAllow, requireAtLeastOne, allow.
+     * Gets the pinUppercaseLetters property value. Pin Character Requirements
      * @returns a windowsInformationProtectionPinCharacterRequirements
      */
     public get pinUppercaseLetters() {
         return this._pinUppercaseLetters;
     };
     /**
-     * Sets the pinUppercaseLetters property value. Integer value that configures the use of uppercase letters in the Windows Hello for Business PIN. Default is NotAllow. Possible values are: notAllow, requireAtLeastOne, allow.
+     * Sets the pinUppercaseLetters property value. Pin Character Requirements
      * @param value Value to set for the pinUppercaseLetters property.
      */
     public set pinUppercaseLetters(value: WindowsInformationProtectionPinCharacterRequirements | undefined) {

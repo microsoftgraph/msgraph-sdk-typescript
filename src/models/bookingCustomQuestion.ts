@@ -8,7 +8,7 @@ export class BookingCustomQuestion extends Entity implements Parsable {
     private _answerInputType?: AnswerInputType | undefined;
     /** List of possible answer values. */
     private _answerOptions?: string[] | undefined;
-    /** Display name of this entity. */
+    /** The question. */
     private _displayName?: string | undefined;
     /**
      * Gets the answerInputType property value. The expected answer type. The possible values are: text, radioButton, unknownFutureValue.
@@ -43,16 +43,17 @@ export class BookingCustomQuestion extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.bookingCustomQuestion";
     };
     /**
-     * Gets the displayName property value. Display name of this entity.
+     * Gets the displayName property value. The question.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. Display name of this entity.
+     * Sets the displayName property value. The question.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {

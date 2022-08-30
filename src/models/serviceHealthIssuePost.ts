@@ -10,6 +10,8 @@ export class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable {
     private _createdDateTime?: Date | undefined;
     /** The content of the service issue post. */
     private _description?: ItemBody | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue. */
     private _postType?: PostType | undefined;
     /**
@@ -31,6 +33,7 @@ export class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.serviceHealthIssuePost";
     };
     /**
      * Gets the createdDateTime property value. The published time of the post.
@@ -68,8 +71,23 @@ export class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable {
         return {
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "description": n => { this.description = n.getObjectValue<ItemBody>(createItemBodyFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "postType": n => { this.postType = n.getEnumValue<PostType>(PostType); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the postType property value. The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue.
@@ -93,6 +111,7 @@ export class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeObjectValue<ItemBody>("description", this.description);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<PostType>("postType", this.postType);
         writer.writeAdditionalData(this.additionalData);
     };

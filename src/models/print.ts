@@ -13,6 +13,8 @@ export class Print implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The list of available print connectors. */
     private _connectors?: PrintConnector[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The list of print long running operations. */
     private _operations?: PrintOperation[] | undefined;
     /** The list of printers registered in the tenant. */
@@ -58,6 +60,7 @@ export class Print implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.print";
     };
     /**
      * The deserialization information for the current model
@@ -66,6 +69,7 @@ export class Print implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "connectors": n => { this.connectors = n.getCollectionOfObjectValues<PrintConnector>(createPrintConnectorFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "operations": n => { this.operations = n.getCollectionOfObjectValues<PrintOperation>(createPrintOperationFromDiscriminatorValue); },
             "printers": n => { this.printers = n.getCollectionOfObjectValues<Printer>(createPrinterFromDiscriminatorValue); },
             "services": n => { this.services = n.getCollectionOfObjectValues<PrintService>(createPrintServiceFromDiscriminatorValue); },
@@ -73,6 +77,20 @@ export class Print implements AdditionalDataHolder, Parsable {
             "shares": n => { this.shares = n.getCollectionOfObjectValues<PrinterShare>(createPrinterShareFromDiscriminatorValue); },
             "taskDefinitions": n => { this.taskDefinitions = n.getCollectionOfObjectValues<PrintTaskDefinition>(createPrintTaskDefinitionFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the operations property value. The list of print long running operations.
@@ -109,6 +127,7 @@ export class Print implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfObjectValues<PrintConnector>("connectors", this.connectors);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<PrintOperation>("operations", this.operations);
         writer.writeCollectionOfObjectValues<Printer>("printers", this.printers);
         writer.writeCollectionOfObjectValues<PrintService>("services", this.services);

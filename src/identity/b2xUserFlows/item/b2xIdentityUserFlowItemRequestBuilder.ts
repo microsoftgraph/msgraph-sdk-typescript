@@ -69,7 +69,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Represents entry point for B2X and self-service sign-up identity userflows.
+     * Represents entry point for B2X/self-service sign-up identity userflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -78,6 +78,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -120,7 +121,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Represents entry point for B2X and self-service sign-up identity userflows.
+     * Represents entry point for B2X/self-service sign-up identity userflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of B2xIdentityUserFlow
@@ -138,7 +139,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.identityProviders.item collection
      * @param id Unique identifier of the item
-     * @returns a identityProviderItemRequestBuilder
+     * @returns a IdentityProviderItemRequestBuilder
      */
     public identityProvidersById(id: string) : IdentityProviderItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -149,7 +150,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.languages.item collection
      * @param id Unique identifier of the item
-     * @returns a userFlowLanguageConfigurationItemRequestBuilder
+     * @returns a UserFlowLanguageConfigurationItemRequestBuilder
      */
     public languagesById(id: string) : UserFlowLanguageConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -177,7 +178,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.userAttributeAssignments.item collection
      * @param id Unique identifier of the item
-     * @returns a identityUserFlowAttributeAssignmentItemRequestBuilder
+     * @returns a IdentityUserFlowAttributeAssignmentItemRequestBuilder
      */
     public userAttributeAssignmentsById(id: string) : IdentityUserFlowAttributeAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -188,7 +189,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.userFlowIdentityProviders.item collection
      * @param id Unique identifier of the item
-     * @returns a identityProviderBaseItemRequestBuilder
+     * @returns a IdentityProviderBaseItemRequestBuilder
      */
     public userFlowIdentityProvidersById(id: string) : IdentityProviderBaseItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

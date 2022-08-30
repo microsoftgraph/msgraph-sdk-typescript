@@ -18,35 +18,35 @@ import {createToneInfoFromDiscriminatorValue} from './createToneInfoFromDiscrimi
 import {AudioRoutingGroup, CallMediaState, CallOptions, CallRoute, CallTranscriptionInfo, ChatInfo, CommsOperation, Entity, IncomingContext, InvitationParticipantInfo, MediaConfig, MeetingInfo, Participant, ParticipantInfo, ResultInfo, ToneInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class Call extends Entity implements Parsable {
-    /** Read-only. Nullable. */
+    /** The audioRoutingGroups property */
     private _audioRoutingGroups?: AudioRoutingGroup[] | undefined;
     /** The callback URL on which callbacks will be delivered. Must be https. */
     private _callbackUri?: string | undefined;
     /** A unique identifier for all the participant calls in a conference or a unique identifier for two participant calls in a P2P call.  This needs to be copied over from Microsoft.Graph.Call.CallChainId. */
     private _callChainId?: string | undefined;
-    /** Contains the optional features for the call. */
+    /** The callOptions property */
     private _callOptions?: CallOptions | undefined;
     /** The routing information on how the call was retargeted. Read-only. */
     private _callRoutes?: CallRoute[] | undefined;
-    /** The chat information. Required information for meeting scenarios. */
+    /** The chat information. Required information for joining a meeting. */
     private _chatInfo?: ChatInfo | undefined;
     /** The direction of the call. The possible value are incoming or outgoing. Read-only. */
     private _direction?: CallDirection | undefined;
-    /** The context associated with an incoming call. Read-only. Server generated. */
+    /** The incomingContext property */
     private _incomingContext?: IncomingContext | undefined;
-    /** The media configuration. Required information for creating peer to peer calls or joining meetings. */
+    /** The media configuration. Required. */
     private _mediaConfig?: MediaConfig | undefined;
     /** Read-only. The call media state. */
     private _mediaState?: CallMediaState | undefined;
-    /** The meeting information. Required information for meeting scenarios. */
+    /** The meeting information that's required for joining a meeting. */
     private _meetingInfo?: MeetingInfo | undefined;
     /** The myParticipantId property */
     private _myParticipantId?: string | undefined;
-    /** Read-only. Nullable. */
+    /** The operations property */
     private _operations?: CommsOperation[] | undefined;
-    /** Read-only. Nullable. */
+    /** The participants property */
     private _participants?: Participant[] | undefined;
     /** The requestedModalities property */
     private _requestedModalities?: string[] | undefined;
@@ -64,17 +64,17 @@ export class Call extends Entity implements Parsable {
     private _tenantId?: string | undefined;
     /** The toneInfo property */
     private _toneInfo?: ToneInfo | undefined;
-    /** The transcription information for the call. Read-only. */
+    /** The transcription property */
     private _transcription?: CallTranscriptionInfo | undefined;
     /**
-     * Gets the audioRoutingGroups property value. Read-only. Nullable.
+     * Gets the audioRoutingGroups property value. The audioRoutingGroups property
      * @returns a audioRoutingGroup
      */
     public get audioRoutingGroups() {
         return this._audioRoutingGroups;
     };
     /**
-     * Sets the audioRoutingGroups property value. Read-only. Nullable.
+     * Sets the audioRoutingGroups property value. The audioRoutingGroups property
      * @param value Value to set for the audioRoutingGroups property.
      */
     public set audioRoutingGroups(value: AudioRoutingGroup[] | undefined) {
@@ -109,14 +109,14 @@ export class Call extends Entity implements Parsable {
         this._callChainId = value;
     };
     /**
-     * Gets the callOptions property value. Contains the optional features for the call.
+     * Gets the callOptions property value. The callOptions property
      * @returns a callOptions
      */
     public get callOptions() {
         return this._callOptions;
     };
     /**
-     * Sets the callOptions property value. Contains the optional features for the call.
+     * Sets the callOptions property value. The callOptions property
      * @param value Value to set for the callOptions property.
      */
     public set callOptions(value: CallOptions | undefined) {
@@ -137,14 +137,14 @@ export class Call extends Entity implements Parsable {
         this._callRoutes = value;
     };
     /**
-     * Gets the chatInfo property value. The chat information. Required information for meeting scenarios.
+     * Gets the chatInfo property value. The chat information. Required information for joining a meeting.
      * @returns a chatInfo
      */
     public get chatInfo() {
         return this._chatInfo;
     };
     /**
-     * Sets the chatInfo property value. The chat information. Required information for meeting scenarios.
+     * Sets the chatInfo property value. The chat information. Required information for joining a meeting.
      * @param value Value to set for the chatInfo property.
      */
     public set chatInfo(value: ChatInfo | undefined) {
@@ -155,6 +155,7 @@ export class Call extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.call";
     };
     /**
      * Gets the direction property value. The direction of the call. The possible value are incoming or outgoing. Read-only.
@@ -202,28 +203,28 @@ export class Call extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the incomingContext property value. The context associated with an incoming call. Read-only. Server generated.
+     * Gets the incomingContext property value. The incomingContext property
      * @returns a incomingContext
      */
     public get incomingContext() {
         return this._incomingContext;
     };
     /**
-     * Sets the incomingContext property value. The context associated with an incoming call. Read-only. Server generated.
+     * Sets the incomingContext property value. The incomingContext property
      * @param value Value to set for the incomingContext property.
      */
     public set incomingContext(value: IncomingContext | undefined) {
         this._incomingContext = value;
     };
     /**
-     * Gets the mediaConfig property value. The media configuration. Required information for creating peer to peer calls or joining meetings.
+     * Gets the mediaConfig property value. The media configuration. Required.
      * @returns a mediaConfig
      */
     public get mediaConfig() {
         return this._mediaConfig;
     };
     /**
-     * Sets the mediaConfig property value. The media configuration. Required information for creating peer to peer calls or joining meetings.
+     * Sets the mediaConfig property value. The media configuration. Required.
      * @param value Value to set for the mediaConfig property.
      */
     public set mediaConfig(value: MediaConfig | undefined) {
@@ -244,14 +245,14 @@ export class Call extends Entity implements Parsable {
         this._mediaState = value;
     };
     /**
-     * Gets the meetingInfo property value. The meeting information. Required information for meeting scenarios.
+     * Gets the meetingInfo property value. The meeting information that's required for joining a meeting.
      * @returns a meetingInfo
      */
     public get meetingInfo() {
         return this._meetingInfo;
     };
     /**
-     * Sets the meetingInfo property value. The meeting information. Required information for meeting scenarios.
+     * Sets the meetingInfo property value. The meeting information that's required for joining a meeting.
      * @param value Value to set for the meetingInfo property.
      */
     public set meetingInfo(value: MeetingInfo | undefined) {
@@ -272,28 +273,28 @@ export class Call extends Entity implements Parsable {
         this._myParticipantId = value;
     };
     /**
-     * Gets the operations property value. Read-only. Nullable.
+     * Gets the operations property value. The operations property
      * @returns a commsOperation
      */
     public get operations() {
         return this._operations;
     };
     /**
-     * Sets the operations property value. Read-only. Nullable.
+     * Sets the operations property value. The operations property
      * @param value Value to set for the operations property.
      */
     public set operations(value: CommsOperation[] | undefined) {
         this._operations = value;
     };
     /**
-     * Gets the participants property value. Read-only. Nullable.
+     * Gets the participants property value. The participants property
      * @returns a participant
      */
     public get participants() {
         return this._participants;
     };
     /**
-     * Sets the participants property value. Read-only. Nullable.
+     * Sets the participants property value. The participants property
      * @param value Value to set for the participants property.
      */
     public set participants(value: Participant[] | undefined) {
@@ -443,14 +444,14 @@ export class Call extends Entity implements Parsable {
         this._toneInfo = value;
     };
     /**
-     * Gets the transcription property value. The transcription information for the call. Read-only.
+     * Gets the transcription property value. The transcription property
      * @returns a callTranscriptionInfo
      */
     public get transcription() {
         return this._transcription;
     };
     /**
-     * Sets the transcription property value. The transcription information for the call. Read-only.
+     * Sets the transcription property value. The transcription property
      * @param value Value to set for the transcription property.
      */
     public set transcription(value: CallTranscriptionInfo | undefined) {

@@ -3,7 +3,7 @@ import {Entity, UserActivity} from './index';
 import {Status} from './status';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class ActivityHistoryItem extends Entity implements Parsable {
     /** Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime. */
     private _activeDurationSeconds?: number | undefined;
@@ -56,6 +56,7 @@ export class ActivityHistoryItem extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.activityHistoryItem";
     };
     /**
      * Gets the createdDateTime property value. Set by the server. DateTime in UTC when the object was created on the server.

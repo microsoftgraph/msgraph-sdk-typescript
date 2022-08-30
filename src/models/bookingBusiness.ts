@@ -9,9 +9,8 @@ import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddre
 import {BookingAppointment, BookingCustomerBase, BookingCustomQuestion, BookingSchedulingPolicy, BookingService, BookingStaffMemberBase, BookingWorkHours, Entity, PhysicalAddress} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Represents a Microsot Bookings Business. */
 export class BookingBusiness extends Entity implements Parsable {
-    /** The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. */
+    /** The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others. */
     private _address?: PhysicalAddress | undefined;
     /** All the appointments of this business. Read-only. Nullable. */
     private _appointments?: BookingAppointment[] | undefined;
@@ -46,14 +45,14 @@ export class BookingBusiness extends Entity implements Parsable {
     /** The URL of the business web site. The webSiteUrl property, together with address, phone, appear in the footer of a business scheduling page. */
     private _webSiteUrl?: string | undefined;
     /**
-     * Gets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.
+     * Gets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.
      * @returns a physicalAddress
      */
     public get address() {
         return this._address;
     };
     /**
-     * Sets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.
+     * Sets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.
      * @param value Value to set for the address property.
      */
     public set address(value: PhysicalAddress | undefined) {
@@ -116,10 +115,11 @@ export class BookingBusiness extends Entity implements Parsable {
         this._calendarView = value;
     };
     /**
-     * Instantiates a new bookingBusiness and sets the default values.
+     * Instantiates a new BookingBusiness and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.bookingBusiness";
     };
     /**
      * Gets the customers property value. All the customers of this business. Read-only. Nullable.

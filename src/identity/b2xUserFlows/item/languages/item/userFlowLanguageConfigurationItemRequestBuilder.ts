@@ -3,8 +3,8 @@ import {createUserFlowLanguageConfigurationFromDiscriminatorValue} from '../../.
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DefaultPagesRequestBuilder} from './defaultPages/defaultPagesRequestBuilder';
-import {UserFlowLanguagePageItemRequestBuilder as i6aeadeee81ad1d48c1efd195ff388082a0958b3e29492864eae87d102709f08f} from './defaultPages/item/userFlowLanguagePageItemRequestBuilder';
-import {UserFlowLanguagePageItemRequestBuilder as i3b49bcfaf80c52cf8321b8cdc7b130961ff8a5193a09b2aaa8acdd90c5aaedcd} from './overridesPages/item/userFlowLanguagePageItemRequestBuilder';
+import {UserFlowLanguagePageItemRequestBuilder as i3ab4d590052fd74eee324a8325a2f14715700a273414960dc723c4305963bba3} from './defaultPages/item/userFlowLanguagePageItemRequestBuilder';
+import {UserFlowLanguagePageItemRequestBuilder as idef24b8bfc0dc333f97f637fc58518fe3e107b5e98cdba63af20ee968a2c4339} from './overridesPages/item/userFlowLanguagePageItemRequestBuilder';
 import {OverridesPagesRequestBuilder} from './overridesPages/overridesPagesRequestBuilder';
 import {UserFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration} from './userFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration';
 import {UserFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration} from './userFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration';
@@ -57,7 +57,7 @@ export class UserFlowLanguageConfigurationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows.
+     * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You cannot create custom languages in self-service sign-up user flows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -66,6 +66,7 @@ export class UserFlowLanguageConfigurationItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -95,13 +96,13 @@ export class UserFlowLanguageConfigurationItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.languages.item.defaultPages.item collection
      * @param id Unique identifier of the item
-     * @returns a userFlowLanguagePageItemRequestBuilder
+     * @returns a UserFlowLanguagePageItemRequestBuilder
      */
-    public defaultPagesById(id: string) : i6aeadeee81ad1d48c1efd195ff388082a0958b3e29492864eae87d102709f08f {
+    public defaultPagesById(id: string) : i3ab4d590052fd74eee324a8325a2f14715700a273414960dc723c4305963bba3 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["userFlowLanguagePage%2Did"] = id
-        return new i6aeadeee81ad1d48c1efd195ff388082a0958b3e29492864eae87d102709f08f(urlTplParams, this.requestAdapter);
+        return new i3ab4d590052fd74eee324a8325a2f14715700a273414960dc723c4305963bba3(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property languages for identity
@@ -119,7 +120,7 @@ export class UserFlowLanguageConfigurationItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows.
+     * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You cannot create custom languages in self-service sign-up user flows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserFlowLanguageConfiguration
@@ -137,13 +138,13 @@ export class UserFlowLanguageConfigurationItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.languages.item.overridesPages.item collection
      * @param id Unique identifier of the item
-     * @returns a userFlowLanguagePageItemRequestBuilder
+     * @returns a UserFlowLanguagePageItemRequestBuilder
      */
-    public overridesPagesById(id: string) : i3b49bcfaf80c52cf8321b8cdc7b130961ff8a5193a09b2aaa8acdd90c5aaedcd {
+    public overridesPagesById(id: string) : idef24b8bfc0dc333f97f637fc58518fe3e107b5e98cdba63af20ee968a2c4339 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["userFlowLanguagePage%2Did"] = id
-        return new i3b49bcfaf80c52cf8321b8cdc7b130961ff8a5193a09b2aaa8acdd90c5aaedcd(urlTplParams, this.requestAdapter);
+        return new idef24b8bfc0dc333f97f637fc58518fe3e107b5e98cdba63af20ee968a2c4339(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property languages in identity

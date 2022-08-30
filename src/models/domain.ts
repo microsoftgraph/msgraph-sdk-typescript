@@ -5,7 +5,6 @@ import {createInternalDomainFederationFromDiscriminatorValue} from './createInte
 import {DirectoryObject, DomainDnsRecord, DomainState, Entity, InternalDomainFederation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of domain entities. */
 export class Domain extends Entity implements Parsable {
     /** Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable. */
     private _authenticationType?: string | undefined;
@@ -13,7 +12,7 @@ export class Domain extends Entity implements Parsable {
     private _availabilityStatus?: string | undefined;
     /** The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group. */
     private _domainNameReferences?: DirectoryObject[] | undefined;
-    /** Domain settings configured by customer when federated with Azure AD. Supports $expand. */
+    /** Domain settings configured by a customer when federated with Azure AD. Supports $expand. */
     private _federationConfiguration?: InternalDomainFederation[] | undefined;
     /** The value of the property is false if the DNS record management of the domain has been delegated to Microsoft 365. Otherwise, the value is true. Not nullable */
     private _isAdminManaged?: boolean | undefined;
@@ -37,7 +36,7 @@ export class Domain extends Entity implements Parsable {
     private _serviceConfigurationRecords?: DomainDnsRecord[] | undefined;
     /** Status of asynchronous operations scheduled for the domain. */
     private _state?: DomainState | undefined;
-    /** The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable. */
+    /** The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable. */
     private _supportedServices?: string[] | undefined;
     /** DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable. Supports $expand. */
     private _verificationDnsRecords?: DomainDnsRecord[] | undefined;
@@ -70,10 +69,11 @@ export class Domain extends Entity implements Parsable {
         this._availabilityStatus = value;
     };
     /**
-     * Instantiates a new domain and sets the default values.
+     * Instantiates a new Domain and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.domain";
     };
     /**
      * Gets the domainNameReferences property value. The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.
@@ -90,14 +90,14 @@ export class Domain extends Entity implements Parsable {
         this._domainNameReferences = value;
     };
     /**
-     * Gets the federationConfiguration property value. Domain settings configured by customer when federated with Azure AD. Supports $expand.
+     * Gets the federationConfiguration property value. Domain settings configured by a customer when federated with Azure AD. Supports $expand.
      * @returns a internalDomainFederation
      */
     public get federationConfiguration() {
         return this._federationConfiguration;
     };
     /**
-     * Sets the federationConfiguration property value. Domain settings configured by customer when federated with Azure AD. Supports $expand.
+     * Sets the federationConfiguration property value. Domain settings configured by a customer when federated with Azure AD. Supports $expand.
      * @param value Value to set for the federationConfiguration property.
      */
     public set federationConfiguration(value: InternalDomainFederation[] | undefined) {
@@ -308,14 +308,14 @@ export class Domain extends Entity implements Parsable {
         this._state = value;
     };
     /**
-     * Gets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
+     * Gets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
      * @returns a string
      */
     public get supportedServices() {
         return this._supportedServices;
     };
     /**
-     * Sets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
+     * Sets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
      * @param value Value to set for the supportedServices property.
      */
     public set supportedServices(value: string[] | undefined) {

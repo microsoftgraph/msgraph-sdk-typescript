@@ -6,9 +6,9 @@ import {createPlannerTaskFromDiscriminatorValue} from './createPlannerTaskFromDi
 import {Entity, IdentitySet, PlannerBucket, PlannerPlanContainer, PlannerPlanDetails, PlannerTask} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreement entities. */
 export class PlannerPlan extends Entity implements Parsable {
-    /** Collection of buckets in the plan. Read-only. Nullable. */
+    /** Read-only. Nullable. Collection of buckets in the plan. */
     private _buckets?: PlannerBucket[] | undefined;
     /** Identifies the container of the plan. After it is set, this property can’t be updated. Required. */
     private _container?: PlannerPlanContainer | undefined;
@@ -16,23 +16,23 @@ export class PlannerPlan extends Entity implements Parsable {
     private _createdBy?: IdentitySet | undefined;
     /** Read-only. Date and time at which the plan is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _createdDateTime?: Date | undefined;
-    /** Additional details about the plan. Read-only. Nullable. */
+    /** Read-only. Nullable. Additional details about the plan. */
     private _details?: PlannerPlanDetails | undefined;
     /** The owner property */
     private _owner?: string | undefined;
-    /** Collection of tasks in the plan. Read-only. Nullable. */
+    /** Read-only. Nullable. Collection of tasks in the plan. */
     private _tasks?: PlannerTask[] | undefined;
     /** Required. Title of the plan. */
     private _title?: string | undefined;
     /**
-     * Gets the buckets property value. Collection of buckets in the plan. Read-only. Nullable.
+     * Gets the buckets property value. Read-only. Nullable. Collection of buckets in the plan.
      * @returns a plannerBucket
      */
     public get buckets() {
         return this._buckets;
     };
     /**
-     * Sets the buckets property value. Collection of buckets in the plan. Read-only. Nullable.
+     * Sets the buckets property value. Read-only. Nullable. Collection of buckets in the plan.
      * @param value Value to set for the buckets property.
      */
     public set buckets(value: PlannerBucket[] | undefined) {
@@ -43,6 +43,7 @@ export class PlannerPlan extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.plannerPlan";
     };
     /**
      * Gets the container property value. Identifies the container of the plan. After it is set, this property can’t be updated. Required.
@@ -87,14 +88,14 @@ export class PlannerPlan extends Entity implements Parsable {
         this._createdDateTime = value;
     };
     /**
-     * Gets the details property value. Additional details about the plan. Read-only. Nullable.
+     * Gets the details property value. Read-only. Nullable. Additional details about the plan.
      * @returns a plannerPlanDetails
      */
     public get details() {
         return this._details;
     };
     /**
-     * Sets the details property value. Additional details about the plan. Read-only. Nullable.
+     * Sets the details property value. Read-only. Nullable. Additional details about the plan.
      * @param value Value to set for the details property.
      */
     public set details(value: PlannerPlanDetails | undefined) {
@@ -147,14 +148,14 @@ export class PlannerPlan extends Entity implements Parsable {
         writer.writeStringValue("title", this.title);
     };
     /**
-     * Gets the tasks property value. Collection of tasks in the plan. Read-only. Nullable.
+     * Gets the tasks property value. Read-only. Nullable. Collection of tasks in the plan.
      * @returns a plannerTask
      */
     public get tasks() {
         return this._tasks;
     };
     /**
-     * Sets the tasks property value. Collection of tasks in the plan. Read-only. Nullable.
+     * Sets the tasks property value. Read-only. Nullable. Collection of tasks in the plan.
      * @param value Value to set for the tasks property.
      */
     public set tasks(value: PlannerTask[] | undefined) {

@@ -9,6 +9,8 @@ export class EducationTerm implements AdditionalDataHolder, Parsable {
     private _endDate?: DateOnly | undefined;
     /** ID of term in the syncing system. */
     private _externalId?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Start of the term. */
     private _startDate?: DateOnly | undefined;
     /**
@@ -30,6 +32,7 @@ export class EducationTerm implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.educationTerm";
     };
     /**
      * Gets the displayName property value. Display name of the term.
@@ -82,8 +85,23 @@ export class EducationTerm implements AdditionalDataHolder, Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "endDate": n => { this.endDate = n.getDateOnlyValue(); },
             "externalId": n => { this.externalId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "startDate": n => { this.startDate = n.getDateOnlyValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -94,6 +112,7 @@ export class EducationTerm implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateOnlyValue("endDate", this.endDate);
         writer.writeStringValue("externalId", this.externalId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeDateOnlyValue("startDate", this.startDate);
         writer.writeAdditionalData(this.additionalData);
     };

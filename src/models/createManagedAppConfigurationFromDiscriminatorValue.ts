@@ -1,4 +1,4 @@
-import {ManagedAppConfiguration} from './index';
+import {ManagedAppConfiguration, TargetedManagedAppConfiguration} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createManagedAppConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedAppConfiguration {
@@ -8,8 +8,8 @@ export function createManagedAppConfigurationFromDiscriminatorValue(parseNode: P
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.managedAppConfiguration":
-                    return new ManagedAppConfiguration();
+                case "#microsoft.graph.targetedManagedAppConfiguration":
+                    return new TargetedManagedAppConfiguration();
             }
         }
     }

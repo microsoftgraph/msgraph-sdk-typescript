@@ -1,5 +1,5 @@
 
-/** A workforce integration with shifts. */
+/** Get workforceIntegrations from teamwork */
 export class WorkforceIntegrationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,7 +1,11 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum DeviceManagementReportFileFormat {
-    /** Comma-separated values */
+    /** CSV Format */
     Csv = "csv",
-    /** Portable Document Format */
+    /** PDF Format */
     Pdf = "pdf",
+    /** JSON Format */
+    Json = "json",
+    /** Evolvable enumeration sentinel value. Do not use. */
+    UnknownFutureValue = "unknownFutureValue",
 }

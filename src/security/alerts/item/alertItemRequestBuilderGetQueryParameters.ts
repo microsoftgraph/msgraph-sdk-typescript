@@ -1,5 +1,5 @@
 
-/** Notifications for suspicious or potential security issues in a customer’s tenant. */
+/** Get alerts from security */
 export class AlertItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

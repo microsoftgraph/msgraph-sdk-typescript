@@ -2,7 +2,6 @@ import {Entity} from './index';
 import {MobileThreatPartnerTenantState} from './mobileThreatPartnerTenantState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Entity which represents a connection to Mobile threat defense partner. */
 export class MobileThreatDefenseConnector extends Entity implements Parsable {
     /** For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant */
     private _androidDeviceBlockedOnMissingPartnerData?: boolean | undefined;
@@ -14,7 +13,7 @@ export class MobileThreatDefenseConnector extends Entity implements Parsable {
     private _iosEnabled?: boolean | undefined;
     /** DateTime of last Heartbeat recieved from the Data Sync Partner */
     private _lastHeartbeatDateTime?: Date | undefined;
-    /** Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive. */
+    /** Partner state of this tenant. */
     private _partnerState?: MobileThreatPartnerTenantState | undefined;
     /** Get or Set days the per tenant tolerance to unresponsiveness for this partner integration */
     private _partnerUnresponsivenessThresholdInDays?: number | undefined;
@@ -49,10 +48,11 @@ export class MobileThreatDefenseConnector extends Entity implements Parsable {
         this._androidEnabled = value;
     };
     /**
-     * Instantiates a new mobileThreatDefenseConnector and sets the default values.
+     * Instantiates a new MobileThreatDefenseConnector and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.mobileThreatDefenseConnector";
     };
     /**
      * The deserialization information for the current model
@@ -113,14 +113,14 @@ export class MobileThreatDefenseConnector extends Entity implements Parsable {
         this._lastHeartbeatDateTime = value;
     };
     /**
-     * Gets the partnerState property value. Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive.
+     * Gets the partnerState property value. Partner state of this tenant.
      * @returns a mobileThreatPartnerTenantState
      */
     public get partnerState() {
         return this._partnerState;
     };
     /**
-     * Sets the partnerState property value. Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive.
+     * Sets the partnerState property value. Partner state of this tenant.
      * @param value Value to set for the partnerState property.
      */
     public set partnerState(value: MobileThreatPartnerTenantState | undefined) {

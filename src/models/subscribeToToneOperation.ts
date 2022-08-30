@@ -1,13 +1,13 @@
 import {CommsOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the subscribeToTone method. */
 export class SubscribeToToneOperation extends CommsOperation implements Parsable {
     /**
-     * Instantiates a new subscribeToToneOperation and sets the default values.
+     * Instantiates a new SubscribeToToneOperation and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.subscribeToToneOperation";
     };
     /**
      * The deserialization information for the current model

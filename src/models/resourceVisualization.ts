@@ -11,6 +11,8 @@ export class ResourceVisualization implements AdditionalDataHolder, Parsable {
     private _containerWebUrl?: string | undefined;
     /** The item's media type. Can be used for filtering for a specific type of file based on supported IANA Media Mime Types. Note that not all Media Mime Types are supported. */
     private _mediaType?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** A URL leading to the preview image for the item. */
     private _previewImageUrl?: string | undefined;
     /** A preview text for the item. */
@@ -38,6 +40,7 @@ export class ResourceVisualization implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.resourceVisualization";
     };
     /**
      * Gets the containerDisplayName property value. A string describing where the item is stored. For example, the name of a SharePoint site or the user name identifying the owner of the OneDrive storing the item.
@@ -91,6 +94,7 @@ export class ResourceVisualization implements AdditionalDataHolder, Parsable {
             "containerType": n => { this.containerType = n.getStringValue(); },
             "containerWebUrl": n => { this.containerWebUrl = n.getStringValue(); },
             "mediaType": n => { this.mediaType = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "previewImageUrl": n => { this.previewImageUrl = n.getStringValue(); },
             "previewText": n => { this.previewText = n.getStringValue(); },
             "title": n => { this.title = n.getStringValue(); },
@@ -110,6 +114,20 @@ export class ResourceVisualization implements AdditionalDataHolder, Parsable {
      */
     public set mediaType(value: string | undefined) {
         this._mediaType = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the previewImageUrl property value. A URL leading to the preview image for the item.
@@ -149,6 +167,7 @@ export class ResourceVisualization implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("containerType", this.containerType);
         writer.writeStringValue("containerWebUrl", this.containerWebUrl);
         writer.writeStringValue("mediaType", this.mediaType);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("previewImageUrl", this.previewImageUrl);
         writer.writeStringValue("previewText", this.previewText);
         writer.writeStringValue("title", this.title);

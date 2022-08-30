@@ -7,6 +7,8 @@ export class ChatMessageReaction implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _createdDateTime?: Date | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Supported values are like, angry, sad, laugh, heart, surprised. */
     private _reactionType?: string | undefined;
     /** The user property */
@@ -30,6 +32,7 @@ export class ChatMessageReaction implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.chatMessageReaction";
     };
     /**
      * Gets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -52,9 +55,24 @@ export class ChatMessageReaction implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "reactionType": n => { this.reactionType = n.getStringValue(); },
             "user": n => { this.user = n.getObjectValue<ChatMessageReactionIdentitySet>(createChatMessageReactionIdentitySetFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the reactionType property value. Supported values are like, angry, sad, laugh, heart, surprised.
@@ -77,6 +95,7 @@ export class ChatMessageReaction implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeDateValue("createdDateTime", this.createdDateTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("reactionType", this.reactionType);
         writer.writeObjectValue<ChatMessageReactionIdentitySet>("user", this.user);
         writer.writeAdditionalData(this.additionalData);

@@ -8,7 +8,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the externalColumns property of the microsoft.graph.site entity. */
 export class ExternalColumnsRequestBuilder {
-    /** The count property */
+    /** The Count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -32,7 +32,7 @@ export class ExternalColumnsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+     * Get externalColumns from sites
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,6 +41,7 @@ export class ExternalColumnsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -49,7 +50,7 @@ export class ExternalColumnsRequestBuilder {
         return requestInfo;
     };
     /**
-     * The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+     * Get externalColumns from sites
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ColumnDefinitionCollectionResponse

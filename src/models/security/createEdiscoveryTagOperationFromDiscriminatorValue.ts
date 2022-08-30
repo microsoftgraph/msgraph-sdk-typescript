@@ -1,0 +1,7 @@
+import {EdiscoveryTagOperation} from './index';
+import {ParseNode} from '@microsoft/kiota-abstractions';
+
+export function createEdiscoveryTagOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : EdiscoveryTagOperation {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return new EdiscoveryTagOperation();
+}

@@ -1,15 +1,15 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
 export class EducationCategory extends Entity implements Parsable {
     /** Unique identifier for the category. */
     private _displayName?: string | undefined;
     /**
-     * Instantiates a new educationCategory and sets the default values.
+     * Instantiates a new EducationCategory and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.educationCategory";
     };
     /**
      * Gets the displayName property value. Unique identifier for the category.

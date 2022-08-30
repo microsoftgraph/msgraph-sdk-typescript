@@ -41,7 +41,7 @@ export class PrinterItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.printers.item.connectors.item collection
      * @param id Unique identifier of the item
-     * @returns a printConnectorItemRequestBuilder
+     * @returns a PrintConnectorItemRequestBuilder
      */
     public connectorsById(id: string) : PrintConnectorItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -88,6 +88,7 @@ export class PrinterItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -165,7 +166,7 @@ export class PrinterItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.printers.item.shares.item collection
      * @param id Unique identifier of the item
-     * @returns a printerShareItemRequestBuilder
+     * @returns a PrinterShareItemRequestBuilder
      */
     public sharesById(id: string) : PrinterShareItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -176,7 +177,7 @@ export class PrinterItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.printers.item.taskTriggers.item collection
      * @param id Unique identifier of the item
-     * @returns a printTaskTriggerItemRequestBuilder
+     * @returns a PrintTaskTriggerItemRequestBuilder
      */
     public taskTriggersById(id: string) : PrintTaskTriggerItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

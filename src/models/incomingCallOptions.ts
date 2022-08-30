@@ -1,13 +1,13 @@
 import {CallOptions} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the answer method. */
 export class IncomingCallOptions extends CallOptions implements Parsable {
     /**
-     * Instantiates a new incomingCallOptions and sets the default values.
+     * Instantiates a new IncomingCallOptions and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.incomingCallOptions";
     };
     /**
      * The deserialization information for the current model

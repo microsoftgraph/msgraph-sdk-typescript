@@ -5,7 +5,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class RecentNotebookLinks implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Opens the notebook in the OneNote client, if it's installed. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** Opens the notebook in the OneNote native client if it's installed. */
     private _oneNoteClientUrl?: ExternalLink | undefined;
     /** Opens the notebook in OneNote on the web. */
     private _oneNoteWebUrl?: ExternalLink | undefined;
@@ -28,6 +30,7 @@ export class RecentNotebookLinks implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.recentNotebookLinks";
     };
     /**
      * The deserialization information for the current model
@@ -35,19 +38,34 @@ export class RecentNotebookLinks implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "oneNoteClientUrl": n => { this.oneNoteClientUrl = n.getObjectValue<ExternalLink>(createExternalLinkFromDiscriminatorValue); },
             "oneNoteWebUrl": n => { this.oneNoteWebUrl = n.getObjectValue<ExternalLink>(createExternalLinkFromDiscriminatorValue); },
         };
     };
     /**
-     * Gets the oneNoteClientUrl property value. Opens the notebook in the OneNote client, if it's installed.
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
+     * Gets the oneNoteClientUrl property value. Opens the notebook in the OneNote native client if it's installed.
      * @returns a externalLink
      */
     public get oneNoteClientUrl() {
         return this._oneNoteClientUrl;
     };
     /**
-     * Sets the oneNoteClientUrl property value. Opens the notebook in the OneNote client, if it's installed.
+     * Sets the oneNoteClientUrl property value. Opens the notebook in the OneNote native client if it's installed.
      * @param value Value to set for the oneNoteClientUrl property.
      */
     public set oneNoteClientUrl(value: ExternalLink | undefined) {
@@ -73,6 +91,7 @@ export class RecentNotebookLinks implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<ExternalLink>("oneNoteClientUrl", this.oneNoteClientUrl);
         writer.writeObjectValue<ExternalLink>("oneNoteWebUrl", this.oneNoteWebUrl);
         writer.writeAdditionalData(this.additionalData);

@@ -1,5 +1,5 @@
 
-/** Used to address any item contained in this site. This collection cannot be enumerated. */
+/** Used to address any item contained in this site. This collection can't be enumerated. */
 export class ItemsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

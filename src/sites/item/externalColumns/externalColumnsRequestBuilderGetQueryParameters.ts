@@ -1,5 +1,5 @@
 
-/** The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site. */
+/** Get externalColumns from sites */
 export class ExternalColumnsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

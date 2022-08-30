@@ -1,4 +1,4 @@
-/** Provides operations to manage the solutionsRoot singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum BookingReminderRecipients {
     AllAttendees = "allAttendees",
     Staff = "staff",

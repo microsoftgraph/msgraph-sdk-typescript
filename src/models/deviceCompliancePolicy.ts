@@ -8,7 +8,6 @@ import {createSettingStateDeviceSummaryFromDiscriminatorValue} from './createSet
 import {DeviceComplianceDeviceOverview, DeviceComplianceDeviceStatus, DeviceCompliancePolicyAssignment, DeviceComplianceScheduledActionForRule, DeviceComplianceUserOverview, DeviceComplianceUserStatus, Entity, SettingStateDeviceSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.  */
 export class DeviceCompliancePolicy extends Entity implements Parsable {
     /** The collection of assignments for this compliance policy. */
     private _assignments?: DeviceCompliancePolicyAssignment[] | undefined;
@@ -26,7 +25,7 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
     private _displayName?: string | undefined;
     /** DateTime the object was last modified. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The list of scheduled action for this rule */
+    /** The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies. */
     private _scheduledActionsForRule?: DeviceComplianceScheduledActionForRule[] | undefined;
     /** List of DeviceComplianceUserStatus. */
     private _userStatuses?: DeviceComplianceUserStatus[] | undefined;
@@ -49,10 +48,11 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
         this._assignments = value;
     };
     /**
-     * Instantiates a new deviceCompliancePolicy and sets the default values.
+     * Instantiates a new DeviceCompliancePolicy and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.deviceCompliancePolicy";
     };
     /**
      * Gets the createdDateTime property value. DateTime the object was created.
@@ -173,14 +173,14 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
         this._lastModifiedDateTime = value;
     };
     /**
-     * Gets the scheduledActionsForRule property value. The list of scheduled action for this rule
+     * Gets the scheduledActionsForRule property value. The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
      * @returns a deviceComplianceScheduledActionForRule
      */
     public get scheduledActionsForRule() {
         return this._scheduledActionsForRule;
     };
     /**
-     * Sets the scheduledActionsForRule property value. The list of scheduled action for this rule
+     * Sets the scheduledActionsForRule property value. The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
      * @param value Value to set for the scheduledActionsForRule property.
      */
     public set scheduledActionsForRule(value: DeviceComplianceScheduledActionForRule[] | undefined) {
