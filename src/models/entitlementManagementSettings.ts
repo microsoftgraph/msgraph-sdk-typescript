@@ -2,17 +2,17 @@ import {AccessPackageExternalUserLifecycleAction} from './accessPackageExternalU
 import {Entity} from './index';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class EntitlementManagementSettings extends Entity implements Parsable {
     /** If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted. */
     private _durationUntilExternalUserDeletedAfterBlocked?: Duration | undefined;
-    /** One of None, BlockSignIn, or BlockSignInAndDelete. */
+    /** Automatic action that the service should take when an external user's last access package assignment is removed. The possible values are: none, blockSignIn, blockSignInAndDelete, unknownFutureValue. */
     private _externalUserLifecycleAction?: AccessPackageExternalUserLifecycleAction | undefined;
     /**
      * Instantiates a new entitlementManagementSettings and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.entitlementManagementSettings";
     };
     /**
      * Gets the durationUntilExternalUserDeletedAfterBlocked property value. If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted.
@@ -29,14 +29,14 @@ export class EntitlementManagementSettings extends Entity implements Parsable {
         this._durationUntilExternalUserDeletedAfterBlocked = value;
     };
     /**
-     * Gets the externalUserLifecycleAction property value. One of None, BlockSignIn, or BlockSignInAndDelete.
+     * Gets the externalUserLifecycleAction property value. Automatic action that the service should take when an external user's last access package assignment is removed. The possible values are: none, blockSignIn, blockSignInAndDelete, unknownFutureValue.
      * @returns a accessPackageExternalUserLifecycleAction
      */
     public get externalUserLifecycleAction() {
         return this._externalUserLifecycleAction;
     };
     /**
-     * Sets the externalUserLifecycleAction property value. One of None, BlockSignIn, or BlockSignInAndDelete.
+     * Sets the externalUserLifecycleAction property value. Automatic action that the service should take when an external user's last access package assignment is removed. The possible values are: none, blockSignIn, blockSignInAndDelete, unknownFutureValue.
      * @param value Value to set for the externalUserLifecycleAction property.
      */
     public set externalUserLifecycleAction(value: AccessPackageExternalUserLifecycleAction | undefined) {

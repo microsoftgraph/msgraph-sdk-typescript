@@ -14,17 +14,17 @@ export class ExternalConnection extends Entity implements Parsable {
     private _configuration?: Configuration | undefined;
     /** Description of the connection displayed in the Microsoft 365 admin center. Optional. */
     private _description?: string | undefined;
-    /** Read-only. Nullable. */
+    /** The groups property */
     private _groups?: ExternalGroup[] | undefined;
-    /** Read-only. Nullable. */
+    /** The items property */
     private _items?: ExternalItem[] | undefined;
     /** The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required. */
     private _name?: string | undefined;
-    /** Read-only. Nullable. */
+    /** The operations property */
     private _operations?: ConnectionOperation[] | undefined;
-    /** Read-only. Nullable. */
+    /** The schema property */
     private _schema?: Schema | undefined;
-    /** Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required. */
+    /** Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue. */
     private _state?: ConnectionState | undefined;
     /**
      * Gets the configuration property value. Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.
@@ -45,6 +45,7 @@ export class ExternalConnection extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.externalConnectors.externalConnection";
     };
     /**
      * Gets the description property value. Description of the connection displayed in the Microsoft 365 admin center. Optional.
@@ -77,28 +78,28 @@ export class ExternalConnection extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the groups property value. Read-only. Nullable.
+     * Gets the groups property value. The groups property
      * @returns a externalGroup
      */
     public get groups() {
         return this._groups;
     };
     /**
-     * Sets the groups property value. Read-only. Nullable.
+     * Sets the groups property value. The groups property
      * @param value Value to set for the groups property.
      */
     public set groups(value: ExternalGroup[] | undefined) {
         this._groups = value;
     };
     /**
-     * Gets the items property value. Read-only. Nullable.
+     * Gets the items property value. The items property
      * @returns a externalItem
      */
     public get items() {
         return this._items;
     };
     /**
-     * Sets the items property value. Read-only. Nullable.
+     * Sets the items property value. The items property
      * @param value Value to set for the items property.
      */
     public set items(value: ExternalItem[] | undefined) {
@@ -119,28 +120,28 @@ export class ExternalConnection extends Entity implements Parsable {
         this._name = value;
     };
     /**
-     * Gets the operations property value. Read-only. Nullable.
+     * Gets the operations property value. The operations property
      * @returns a connectionOperation
      */
     public get operations() {
         return this._operations;
     };
     /**
-     * Sets the operations property value. Read-only. Nullable.
+     * Sets the operations property value. The operations property
      * @param value Value to set for the operations property.
      */
     public set operations(value: ConnectionOperation[] | undefined) {
         this._operations = value;
     };
     /**
-     * Gets the schema property value. Read-only. Nullable.
+     * Gets the schema property value. The schema property
      * @returns a schema
      */
     public get schema() {
         return this._schema;
     };
     /**
-     * Sets the schema property value. Read-only. Nullable.
+     * Sets the schema property value. The schema property
      * @param value Value to set for the schema property.
      */
     public set schema(value: Schema | undefined) {
@@ -163,14 +164,14 @@ export class ExternalConnection extends Entity implements Parsable {
         writer.writeEnumValue<ConnectionState>("state", this.state);
     };
     /**
-     * Gets the state property value. Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required.
+     * Gets the state property value. Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue.
      * @returns a connectionState
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required.
+     * Sets the state property value. Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue.
      * @param value Value to set for the state property.
      */
     public set state(value: ConnectionState | undefined) {

@@ -51,7 +51,7 @@ export class EducationAssignmentItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.assignments.item.categories.item collection
      * @param id Unique identifier of the item
-     * @returns a educationCategoryItemRequestBuilder
+     * @returns a EducationCategoryItemRequestBuilder
      */
     public categoriesById(id: string) : EducationCategoryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -89,7 +89,7 @@ export class EducationAssignmentItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * List of assignments for the user. Nullable.
+     * Assignments belonging to the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -98,6 +98,7 @@ export class EducationAssignmentItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -140,7 +141,7 @@ export class EducationAssignmentItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * List of assignments for the user. Nullable.
+     * Assignments belonging to the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationAssignment
@@ -175,7 +176,7 @@ export class EducationAssignmentItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.assignments.item.resources.item collection
      * @param id Unique identifier of the item
-     * @returns a educationAssignmentResourceItemRequestBuilder
+     * @returns a EducationAssignmentResourceItemRequestBuilder
      */
     public resourcesById(id: string) : EducationAssignmentResourceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -186,7 +187,7 @@ export class EducationAssignmentItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.assignments.item.submissions.item collection
      * @param id Unique identifier of the item
-     * @returns a educationSubmissionItemRequestBuilder
+     * @returns a EducationSubmissionItemRequestBuilder
      */
     public submissionsById(id: string) : EducationSubmissionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

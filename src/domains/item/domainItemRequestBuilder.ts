@@ -10,9 +10,9 @@ import {DirectoryObjectItemRequestBuilder} from './domainNameReferences/item/dir
 import {FederationConfigurationRequestBuilder} from './federationConfiguration/federationConfigurationRequestBuilder';
 import {InternalDomainFederationItemRequestBuilder} from './federationConfiguration/item/internalDomainFederationItemRequestBuilder';
 import {ForceDeleteRequestBuilder} from './forceDelete/forceDeleteRequestBuilder';
-import {DomainDnsRecordItemRequestBuilder as if42c50e3e2ba9cccdeb447503ef296586e785bdceb37d68d3f26a20ec7a74730} from './serviceConfigurationRecords/item/domainDnsRecordItemRequestBuilder';
+import {DomainDnsRecordItemRequestBuilder as i645b7a6c2b2e75703879ecf7aedd6400ebb0b1e58a2b8a9feaf4bbea098347da} from './serviceConfigurationRecords/item/domainDnsRecordItemRequestBuilder';
 import {ServiceConfigurationRecordsRequestBuilder} from './serviceConfigurationRecords/serviceConfigurationRecordsRequestBuilder';
-import {DomainDnsRecordItemRequestBuilder as i34c2b049a11a56a0e845314c4913041442dc5d005e49ac8abe88e67f09a2a130} from './verificationDnsRecords/item/domainDnsRecordItemRequestBuilder';
+import {DomainDnsRecordItemRequestBuilder as ib1b6b04364f5e14b4cb6820dc9f0e89b24894aa2bef616b4a1220973381758c2} from './verificationDnsRecords/item/domainDnsRecordItemRequestBuilder';
 import {VerificationDnsRecordsRequestBuilder} from './verificationDnsRecords/verificationDnsRecordsRequestBuilder';
 import {VerifyRequestBuilder} from './verify/verifyRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -88,6 +88,7 @@ export class DomainItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -132,7 +133,7 @@ export class DomainItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.domains.item.domainNameReferences.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
     public domainNameReferencesById(id: string) : DirectoryObjectItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -143,7 +144,7 @@ export class DomainItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.domains.item.federationConfiguration.item collection
      * @param id Unique identifier of the item
-     * @returns a internalDomainFederationItemRequestBuilder
+     * @returns a InternalDomainFederationItemRequestBuilder
      */
     public federationConfigurationById(id: string) : InternalDomainFederationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -187,23 +188,23 @@ export class DomainItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.domains.item.serviceConfigurationRecords.item collection
      * @param id Unique identifier of the item
-     * @returns a domainDnsRecordItemRequestBuilder
+     * @returns a DomainDnsRecordItemRequestBuilder
      */
-    public serviceConfigurationRecordsById(id: string) : if42c50e3e2ba9cccdeb447503ef296586e785bdceb37d68d3f26a20ec7a74730 {
+    public serviceConfigurationRecordsById(id: string) : i645b7a6c2b2e75703879ecf7aedd6400ebb0b1e58a2b8a9feaf4bbea098347da {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["domainDnsRecord%2Did"] = id
-        return new if42c50e3e2ba9cccdeb447503ef296586e785bdceb37d68d3f26a20ec7a74730(urlTplParams, this.requestAdapter);
+        return new i645b7a6c2b2e75703879ecf7aedd6400ebb0b1e58a2b8a9feaf4bbea098347da(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.domains.item.verificationDnsRecords.item collection
      * @param id Unique identifier of the item
-     * @returns a domainDnsRecordItemRequestBuilder
+     * @returns a DomainDnsRecordItemRequestBuilder
      */
-    public verificationDnsRecordsById(id: string) : i34c2b049a11a56a0e845314c4913041442dc5d005e49ac8abe88e67f09a2a130 {
+    public verificationDnsRecordsById(id: string) : ib1b6b04364f5e14b4cb6820dc9f0e89b24894aa2bef616b4a1220973381758c2 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["domainDnsRecord%2Did"] = id
-        return new i34c2b049a11a56a0e845314c4913041442dc5d005e49ac8abe88e67f09a2a130(urlTplParams, this.requestAdapter);
+        return new ib1b6b04364f5e14b4cb6820dc9f0e89b24894aa2bef616b4a1220973381758c2(urlTplParams, this.requestAdapter);
     };
 }

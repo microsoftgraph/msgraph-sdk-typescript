@@ -1,13 +1,13 @@
 import {WindowsInformationProtection} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy for Windows information protection with MDM */
 export class MdmWindowsInformationProtectionPolicy extends WindowsInformationProtection implements Parsable {
     /**
-     * Instantiates a new mdmWindowsInformationProtectionPolicy and sets the default values.
+     * Instantiates a new MdmWindowsInformationProtectionPolicy and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.mdmWindowsInformationProtectionPolicy";
     };
     /**
      * The deserialization information for the current model

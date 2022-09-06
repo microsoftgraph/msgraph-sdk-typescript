@@ -14,6 +14,8 @@ export class AttachmentItem implements AdditionalDataHolder, Parsable {
     private _isInline?: boolean | undefined;
     /** The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required. */
     private _name?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The length of the attachment in bytes. Required. */
     private _size?: number | undefined;
     /**
@@ -49,6 +51,7 @@ export class AttachmentItem implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.attachmentItem";
     };
     /**
      * Gets the contentId property value. The CID or Content-Id of the attachment for referencing in case of in-line attachments using <img src='cid:contentId'> tag in HTML messages. Optional.
@@ -89,6 +92,7 @@ export class AttachmentItem implements AdditionalDataHolder, Parsable {
             "contentType": n => { this.contentType = n.getStringValue(); },
             "isInline": n => { this.isInline = n.getBooleanValue(); },
             "name": n => { this.name = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "size": n => { this.size = n.getNumberValue(); },
         };
     };
@@ -121,6 +125,20 @@ export class AttachmentItem implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -131,6 +149,7 @@ export class AttachmentItem implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("contentType", this.contentType);
         writer.writeBooleanValue("isInline", this.isInline);
         writer.writeStringValue("name", this.name);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("size", this.size);
         writer.writeAdditionalData(this.additionalData);
     };

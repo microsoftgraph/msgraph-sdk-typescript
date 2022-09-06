@@ -7,6 +7,8 @@ export class CloudAppSecurityState implements AdditionalDataHolder, Parsable {
     private _destinationServiceIp?: string | undefined;
     /** Cloud application/service name (for example 'Salesforce', 'DropBox', etc.). */
     private _destinationServiceName?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Provider-generated/calculated risk score of the Cloud Application/Service. Recommended value range of 0-1, which equates to a percentage. */
     private _riskScore?: string | undefined;
     /**
@@ -28,6 +30,7 @@ export class CloudAppSecurityState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.cloudAppSecurityState";
     };
     /**
      * Gets the destinationServiceIp property value. Destination IP Address of the connection to the cloud application/service.
@@ -65,8 +68,23 @@ export class CloudAppSecurityState implements AdditionalDataHolder, Parsable {
         return {
             "destinationServiceIp": n => { this.destinationServiceIp = n.getStringValue(); },
             "destinationServiceName": n => { this.destinationServiceName = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "riskScore": n => { this.riskScore = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the riskScore property value. Provider-generated/calculated risk score of the Cloud Application/Service. Recommended value range of 0-1, which equates to a percentage.
@@ -90,6 +108,7 @@ export class CloudAppSecurityState implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("destinationServiceIp", this.destinationServiceIp);
         writer.writeStringValue("destinationServiceName", this.destinationServiceName);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("riskScore", this.riskScore);
         writer.writeAdditionalData(this.additionalData);
     };

@@ -2,25 +2,25 @@ import {Identity} from './index';
 import {TeamworkConversationIdentityType} from './teamworkConversationIdentityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
 export class TeamworkConversationIdentity extends Identity implements Parsable {
-    /** Type of conversation. Possible values are: team, channel, and chat. */
+    /** Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue. */
     private _conversationIdentityType?: TeamworkConversationIdentityType | undefined;
     /**
-     * Instantiates a new teamworkConversationIdentity and sets the default values.
+     * Instantiates a new TeamworkConversationIdentity and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.teamworkConversationIdentity";
     };
     /**
-     * Gets the conversationIdentityType property value. Type of conversation. Possible values are: team, channel, and chat.
+     * Gets the conversationIdentityType property value. Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue.
      * @returns a teamworkConversationIdentityType
      */
     public get conversationIdentityType() {
         return this._conversationIdentityType;
     };
     /**
-     * Sets the conversationIdentityType property value. Type of conversation. Possible values are: team, channel, and chat.
+     * Sets the conversationIdentityType property value. Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue.
      * @param value Value to set for the conversationIdentityType property.
      */
     public set conversationIdentityType(value: TeamworkConversationIdentityType | undefined) {

@@ -5,9 +5,11 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class MeetingParticipants implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Information of the meeting attendees. */
+    /** The attendees property */
     private _attendees?: MeetingParticipantInfo[] | undefined;
-    /** Information of the meeting organizer. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** The organizer property */
     private _organizer?: MeetingParticipantInfo | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -24,14 +26,14 @@ export class MeetingParticipants implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the attendees property value. Information of the meeting attendees.
+     * Gets the attendees property value. The attendees property
      * @returns a meetingParticipantInfo
      */
     public get attendees() {
         return this._attendees;
     };
     /**
-     * Sets the attendees property value. Information of the meeting attendees.
+     * Sets the attendees property value. The attendees property
      * @param value Value to set for the attendees property.
      */
     public set attendees(value: MeetingParticipantInfo[] | undefined) {
@@ -42,6 +44,7 @@ export class MeetingParticipants implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.meetingParticipants";
     };
     /**
      * The deserialization information for the current model
@@ -50,18 +53,33 @@ export class MeetingParticipants implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "attendees": n => { this.attendees = n.getCollectionOfObjectValues<MeetingParticipantInfo>(createMeetingParticipantInfoFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "organizer": n => { this.organizer = n.getObjectValue<MeetingParticipantInfo>(createMeetingParticipantInfoFromDiscriminatorValue); },
         };
     };
     /**
-     * Gets the organizer property value. Information of the meeting organizer.
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
+     * Gets the organizer property value. The organizer property
      * @returns a meetingParticipantInfo
      */
     public get organizer() {
         return this._organizer;
     };
     /**
-     * Sets the organizer property value. Information of the meeting organizer.
+     * Sets the organizer property value. The organizer property
      * @param value Value to set for the organizer property.
      */
     public set organizer(value: MeetingParticipantInfo | undefined) {
@@ -74,6 +92,7 @@ export class MeetingParticipants implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfObjectValues<MeetingParticipantInfo>("attendees", this.attendees);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<MeetingParticipantInfo>("organizer", this.organizer);
         writer.writeAdditionalData(this.additionalData);
     };

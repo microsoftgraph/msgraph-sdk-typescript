@@ -2,26 +2,47 @@ import {Device} from '../../../../../models/';
 import {createDeviceFromDiscriminatorValue} from '../../../../../models/createDeviceFromDiscriminatorValue';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {DeviceRequestBuilderDeleteRequestConfiguration} from './deviceRequestBuilderDeleteRequestConfiguration';
 import {DeviceRequestBuilderGetRequestConfiguration} from './deviceRequestBuilderGetRequestConfiguration';
 import {DeviceRequestBuilderPatchRequestConfiguration} from './deviceRequestBuilderPatchRequestConfiguration';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i42b3ea028c2f714ff5f51f541a86f9fc0a9c848343c9b57cb0e4baba6cf2ad14} from './memberOf/item/directoryObjectItemRequestBuilder';
+import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i926837398202a0ea1c74094279484d057943250e9e1ea876930893f60801c182} from './memberOf/item/directoryObjectItemRequestBuilder';
 import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i09ee47e74d54130296c55f4360138c7793c4b263514c486217313b1eedbe0aed} from './registeredOwners/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i4a323b26c757ae32620f0d3563486c2b8c7a37c15fbe847b7e9df9a1ca0782f5} from './registeredOwners/item/directoryObjectItemRequestBuilder';
 import {RegisteredOwnersRequestBuilder} from './registeredOwners/registeredOwnersRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i318df47a6391bfbf2fc6eefba4a9beac1c790a6d96c3767a564e9759a235ab89} from './registeredUsers/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i4e8cd1b070cb21eec7ffa844d413853da2d7909f74e01b5db726d86350f0be19} from './registeredUsers/item/directoryObjectItemRequestBuilder';
 import {RegisteredUsersRequestBuilder} from './registeredUsers/registeredUsersRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i508c4cf0f5585228a3b9aa7443d2c2172a337d8b78dfd4d1b29ff17f00ca2b86} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
+import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as ia80e92c39f69a21e9bb5d80561cd54b616739cc8727a7202f2335196c7d199e6} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the device property of the microsoft.graph.microsoftAuthenticatorAuthenticationMethod entity. */
 export class DeviceRequestBuilder {
+    /** The checkMemberGroups property */
+    public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The checkMemberObjects property */
+    public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The extensions property */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The getMemberGroups property */
+    public get getMemberGroups(): GetMemberGroupsRequestBuilder {
+        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The getMemberObjects property */
+    public get getMemberObjects(): GetMemberObjectsRequestBuilder {
+        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The memberOf property */
     public get memberOf(): MemberOfRequestBuilder {
@@ -39,6 +60,10 @@ export class DeviceRequestBuilder {
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
+    /** The restore property */
+    public get restore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The transitiveMemberOf property */
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -84,6 +109,7 @@ export class DeviceRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -128,7 +154,7 @@ export class DeviceRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.authentication.microsoftAuthenticatorMethods.item.device.extensions.item collection
      * @param id Unique identifier of the item
-     * @returns a extensionItemRequestBuilder
+     * @returns a ExtensionItemRequestBuilder
      */
     public extensionsById(id: string) : ExtensionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -155,13 +181,13 @@ export class DeviceRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.authentication.microsoftAuthenticatorMethods.item.device.memberOf.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public memberOfById(id: string) : i42b3ea028c2f714ff5f51f541a86f9fc0a9c848343c9b57cb0e4baba6cf2ad14 {
+    public memberOfById(id: string) : i926837398202a0ea1c74094279484d057943250e9e1ea876930893f60801c182 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i42b3ea028c2f714ff5f51f541a86f9fc0a9c848343c9b57cb0e4baba6cf2ad14(urlTplParams, this.requestAdapter);
+        return new i926837398202a0ea1c74094279484d057943250e9e1ea876930893f60801c182(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property device in me
@@ -183,34 +209,34 @@ export class DeviceRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.authentication.microsoftAuthenticatorMethods.item.device.registeredOwners.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public registeredOwnersById(id: string) : i09ee47e74d54130296c55f4360138c7793c4b263514c486217313b1eedbe0aed {
+    public registeredOwnersById(id: string) : i4a323b26c757ae32620f0d3563486c2b8c7a37c15fbe847b7e9df9a1ca0782f5 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i09ee47e74d54130296c55f4360138c7793c4b263514c486217313b1eedbe0aed(urlTplParams, this.requestAdapter);
+        return new i4a323b26c757ae32620f0d3563486c2b8c7a37c15fbe847b7e9df9a1ca0782f5(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.authentication.microsoftAuthenticatorMethods.item.device.registeredUsers.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public registeredUsersById(id: string) : i318df47a6391bfbf2fc6eefba4a9beac1c790a6d96c3767a564e9759a235ab89 {
+    public registeredUsersById(id: string) : i4e8cd1b070cb21eec7ffa844d413853da2d7909f74e01b5db726d86350f0be19 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i318df47a6391bfbf2fc6eefba4a9beac1c790a6d96c3767a564e9759a235ab89(urlTplParams, this.requestAdapter);
+        return new i4e8cd1b070cb21eec7ffa844d413853da2d7909f74e01b5db726d86350f0be19(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.authentication.microsoftAuthenticatorMethods.item.device.transitiveMemberOf.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectItemRequestBuilder
+     * @returns a DirectoryObjectItemRequestBuilder
      */
-    public transitiveMemberOfById(id: string) : i508c4cf0f5585228a3b9aa7443d2c2172a337d8b78dfd4d1b29ff17f00ca2b86 {
+    public transitiveMemberOfById(id: string) : ia80e92c39f69a21e9bb5d80561cd54b616739cc8727a7202f2335196c7d199e6 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i508c4cf0f5585228a3b9aa7443d2c2172a337d8b78dfd4d1b29ff17f00ca2b86(urlTplParams, this.requestAdapter);
+        return new ia80e92c39f69a21e9bb5d80561cd54b616739cc8727a7202f2335196c7d199e6(urlTplParams, this.requestAdapter);
     };
 }

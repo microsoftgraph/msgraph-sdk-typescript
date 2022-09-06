@@ -8,11 +8,13 @@ export class RelatedContact implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Name of the contact. Required. */
     private _displayName?: string | undefined;
-    /** Email address of the contact. */
+    /** Primary email address of the contact. Required. */
     private _emailAddress?: string | undefined;
     /** Mobile phone number of the contact. */
     private _mobilePhone?: string | undefined;
-    /** Relationship to the user. Possible values are: parent, relative, aide, doctor, guardian, child, other, unknownFutureValue. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** The relationship property */
     private _relationship?: ContactRelationship | undefined;
     /**
      * Gets the accessConsent property value. Indicates whether the user has been consented to access student data.
@@ -47,6 +49,7 @@ export class RelatedContact implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.relatedContact";
     };
     /**
      * Gets the displayName property value. Name of the contact. Required.
@@ -63,14 +66,14 @@ export class RelatedContact implements AdditionalDataHolder, Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the emailAddress property value. Email address of the contact.
+     * Gets the emailAddress property value. Primary email address of the contact. Required.
      * @returns a string
      */
     public get emailAddress() {
         return this._emailAddress;
     };
     /**
-     * Sets the emailAddress property value. Email address of the contact.
+     * Sets the emailAddress property value. Primary email address of the contact. Required.
      * @param value Value to set for the emailAddress property.
      */
     public set emailAddress(value: string | undefined) {
@@ -86,6 +89,7 @@ export class RelatedContact implements AdditionalDataHolder, Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "emailAddress": n => { this.emailAddress = n.getStringValue(); },
             "mobilePhone": n => { this.mobilePhone = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "relationship": n => { this.relationship = n.getEnumValue<ContactRelationship>(ContactRelationship); },
         };
     };
@@ -104,14 +108,28 @@ export class RelatedContact implements AdditionalDataHolder, Parsable {
         this._mobilePhone = value;
     };
     /**
-     * Gets the relationship property value. Relationship to the user. Possible values are: parent, relative, aide, doctor, guardian, child, other, unknownFutureValue.
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
+     * Gets the relationship property value. The relationship property
      * @returns a contactRelationship
      */
     public get relationship() {
         return this._relationship;
     };
     /**
-     * Sets the relationship property value. Relationship to the user. Possible values are: parent, relative, aide, doctor, guardian, child, other, unknownFutureValue.
+     * Sets the relationship property value. The relationship property
      * @param value Value to set for the relationship property.
      */
     public set relationship(value: ContactRelationship | undefined) {
@@ -127,6 +145,7 @@ export class RelatedContact implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("emailAddress", this.emailAddress);
         writer.writeStringValue("mobilePhone", this.mobilePhone);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<ContactRelationship>("relationship", this.relationship);
         writer.writeAdditionalData(this.additionalData);
     };

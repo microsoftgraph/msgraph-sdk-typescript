@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Singleton entity which represents the Exchange OnPremises Conditional Access Settings for a tenant. */
 export class OnPremisesConditionalAccessSettings extends Entity implements Parsable {
     /** Indicates if on premises conditional access is enabled for this organization */
     private _enabled?: boolean | undefined;
@@ -12,10 +11,11 @@ export class OnPremisesConditionalAccessSettings extends Entity implements Parsa
     /** Override the default access rule when allowing a device to ensure access is granted. */
     private _overrideDefaultRule?: boolean | undefined;
     /**
-     * Instantiates a new onPremisesConditionalAccessSettings and sets the default values.
+     * Instantiates a new OnPremisesConditionalAccessSettings and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.onPremisesConditionalAccessSettings";
     };
     /**
      * Gets the enabled property value. Indicates if on premises conditional access is enabled for this organization

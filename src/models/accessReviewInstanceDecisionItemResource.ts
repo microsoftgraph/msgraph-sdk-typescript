@@ -5,8 +5,10 @@ export class AccessReviewInstanceDecisionItemResource implements AdditionalDataH
     private _additionalData: Record<string, unknown>;
     /** Display name of the resource */
     private _displayName?: string | undefined;
-    /** Resource ID */
+    /** Identifier of the resource */
     private _id?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy. */
     private _type?: string | undefined;
     /**
@@ -28,6 +30,7 @@ export class AccessReviewInstanceDecisionItemResource implements AdditionalDataH
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.accessReviewInstanceDecisionItemResource";
     };
     /**
      * Gets the displayName property value. Display name of the resource
@@ -51,22 +54,37 @@ export class AccessReviewInstanceDecisionItemResource implements AdditionalDataH
         return {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "id": n => { this.id = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "type": n => { this.type = n.getStringValue(); },
         };
     };
     /**
-     * Gets the id property value. Resource ID
+     * Gets the id property value. Identifier of the resource
      * @returns a string
      */
     public get id() {
         return this._id;
     };
     /**
-     * Sets the id property value. Resource ID
+     * Sets the id property value. Identifier of the resource
      * @param value Value to set for the id property.
      */
     public set id(value: string | undefined) {
         this._id = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -76,6 +94,7 @@ export class AccessReviewInstanceDecisionItemResource implements AdditionalDataH
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("id", this.id);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };

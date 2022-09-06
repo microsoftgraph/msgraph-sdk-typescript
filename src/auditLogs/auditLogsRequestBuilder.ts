@@ -8,8 +8,6 @@ import {DirectoryAuditsRequestBuilder} from './directoryAudits/directoryAuditsRe
 import {DirectoryAuditItemRequestBuilder} from './directoryAudits/item/directoryAuditItemRequestBuilder';
 import {ProvisioningObjectSummaryItemRequestBuilder} from './provisioning/item/provisioningObjectSummaryItemRequestBuilder';
 import {ProvisioningRequestBuilder} from './provisioning/provisioningRequestBuilder';
-import {RestrictedSignInItemRequestBuilder} from './restrictedSignIns/item/restrictedSignInItemRequestBuilder';
-import {RestrictedSignInsRequestBuilder} from './restrictedSignIns/restrictedSignInsRequestBuilder';
 import {SignInItemRequestBuilder} from './signIns/item/signInItemRequestBuilder';
 import {SignInsRequestBuilder} from './signIns/signInsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -28,10 +26,6 @@ export class AuditLogsRequestBuilder {
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The restrictedSignIns property */
-    public get restrictedSignIns(): RestrictedSignInsRequestBuilder {
-        return new RestrictedSignInsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The signIns property */
     public get signIns(): SignInsRequestBuilder {
         return new SignInsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -52,7 +46,7 @@ export class AuditLogsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Contains different types of audit logs. This resources returns a singleton auditLog resource. It doesn't contain any usable properties.
+     * Get auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -61,6 +55,7 @@ export class AuditLogsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -90,7 +85,7 @@ export class AuditLogsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.auditLogs.directoryAudits.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryAuditItemRequestBuilder
+     * @returns a DirectoryAuditItemRequestBuilder
      */
     public directoryAuditsById(id: string) : DirectoryAuditItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -99,7 +94,7 @@ export class AuditLogsRequestBuilder {
         return new DirectoryAuditItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Contains different types of audit logs. This resources returns a singleton auditLog resource. It doesn't contain any usable properties.
+     * Get auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuditLogRoot
@@ -134,7 +129,7 @@ export class AuditLogsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.auditLogs.provisioning.item collection
      * @param id Unique identifier of the item
-     * @returns a provisioningObjectSummaryItemRequestBuilder
+     * @returns a ProvisioningObjectSummaryItemRequestBuilder
      */
     public provisioningById(id: string) : ProvisioningObjectSummaryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -143,20 +138,9 @@ export class AuditLogsRequestBuilder {
         return new ProvisioningObjectSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.auditLogs.restrictedSignIns.item collection
-     * @param id Unique identifier of the item
-     * @returns a restrictedSignInItemRequestBuilder
-     */
-    public restrictedSignInsById(id: string) : RestrictedSignInItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["restrictedSignIn%2Did"] = id
-        return new RestrictedSignInItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.auditLogs.signIns.item collection
      * @param id Unique identifier of the item
-     * @returns a signInItemRequestBuilder
+     * @returns a SignInItemRequestBuilder
      */
     public signInsById(id: string) : SignInItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

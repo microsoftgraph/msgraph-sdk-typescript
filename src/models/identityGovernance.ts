@@ -14,6 +14,8 @@ export class IdentityGovernance implements AdditionalDataHolder, Parsable {
     private _appConsent?: AppConsentApprovalRoute | undefined;
     /** The entitlementManagement property */
     private _entitlementManagement?: EntitlementManagement | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The termsOfUse property */
     private _termsOfUse?: TermsOfUseContainer | undefined;
     /**
@@ -63,6 +65,7 @@ export class IdentityGovernance implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.identityGovernance";
     };
     /**
      * Gets the entitlementManagement property value. The entitlementManagement property
@@ -87,8 +90,23 @@ export class IdentityGovernance implements AdditionalDataHolder, Parsable {
             "accessReviews": n => { this.accessReviews = n.getObjectValue<AccessReviewSet>(createAccessReviewSetFromDiscriminatorValue); },
             "appConsent": n => { this.appConsent = n.getObjectValue<AppConsentApprovalRoute>(createAppConsentApprovalRouteFromDiscriminatorValue); },
             "entitlementManagement": n => { this.entitlementManagement = n.getObjectValue<EntitlementManagement>(createEntitlementManagementFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "termsOfUse": n => { this.termsOfUse = n.getObjectValue<TermsOfUseContainer>(createTermsOfUseContainerFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -99,6 +117,7 @@ export class IdentityGovernance implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue<AccessReviewSet>("accessReviews", this.accessReviews);
         writer.writeObjectValue<AppConsentApprovalRoute>("appConsent", this.appConsent);
         writer.writeObjectValue<EntitlementManagement>("entitlementManagement", this.entitlementManagement);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<TermsOfUseContainer>("termsOfUse", this.termsOfUse);
         writer.writeAdditionalData(this.additionalData);
     };

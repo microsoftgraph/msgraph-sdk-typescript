@@ -2,7 +2,7 @@ import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscrimi
 import {Entity, Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the admin singleton. */
 export class ApprovalStage extends Entity implements Parsable {
     /** Indicates whether the stage is assigned to the calling user to review. Read-only. */
     private _assignedToMe?: boolean | undefined;
@@ -10,7 +10,7 @@ export class ApprovalStage extends Entity implements Parsable {
     private _displayName?: string | undefined;
     /** The justification associated with the approval stage decision. */
     private _justification?: string | undefined;
-    /** The identifier of the reviewer. Read-only. */
+    /** The identifier of the reviewer. 00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't reviewed. Read-only. */
     private _reviewedBy?: Identity | undefined;
     /** The date and time when a decision was recorded. The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _reviewedDateTime?: Date | undefined;
@@ -37,6 +37,7 @@ export class ApprovalStage extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.approvalStage";
     };
     /**
      * Gets the displayName property value. The label provided by the policy creator to identify an approval stage. Read-only.
@@ -82,14 +83,14 @@ export class ApprovalStage extends Entity implements Parsable {
         this._justification = value;
     };
     /**
-     * Gets the reviewedBy property value. The identifier of the reviewer. Read-only.
+     * Gets the reviewedBy property value. The identifier of the reviewer. 00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't reviewed. Read-only.
      * @returns a identity
      */
     public get reviewedBy() {
         return this._reviewedBy;
     };
     /**
-     * Sets the reviewedBy property value. The identifier of the reviewer. Read-only.
+     * Sets the reviewedBy property value. The identifier of the reviewer. 00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't reviewed. Read-only.
      * @param value Value to set for the reviewedBy property.
      */
     public set reviewedBy(value: Identity | undefined) {

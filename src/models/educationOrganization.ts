@@ -2,13 +2,13 @@ import {EducationExternalSource} from './educationExternalSource';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the educationRoot singleton. */
+/** Provides operations to manage the admin singleton. */
 export class EducationOrganization extends Entity implements Parsable {
     /** Organization description. */
     private _description?: string | undefined;
     /** Organization display name. */
     private _displayName?: string | undefined;
-    /** Where this user was created from. Possible values are: sis, lms, or manual. */
+    /** Source where this organization was created from. Possible values are: sis, manual. */
     private _externalSource?: EducationExternalSource | undefined;
     /** The name of the external source this resources was generated from. */
     private _externalSourceDetail?: string | undefined;
@@ -17,6 +17,7 @@ export class EducationOrganization extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.educationOrganization";
     };
     /**
      * Gets the description property value. Organization description.
@@ -47,14 +48,14 @@ export class EducationOrganization extends Entity implements Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the externalSource property value. Where this user was created from. Possible values are: sis, lms, or manual.
+     * Gets the externalSource property value. Source where this organization was created from. Possible values are: sis, manual.
      * @returns a educationExternalSource
      */
     public get externalSource() {
         return this._externalSource;
     };
     /**
-     * Sets the externalSource property value. Where this user was created from. Possible values are: sis, lms, or manual.
+     * Sets the externalSource property value. Source where this organization was created from. Possible values are: sis, manual.
      * @param value Value to set for the externalSource property.
      */
     public set externalSource(value: EducationExternalSource | undefined) {

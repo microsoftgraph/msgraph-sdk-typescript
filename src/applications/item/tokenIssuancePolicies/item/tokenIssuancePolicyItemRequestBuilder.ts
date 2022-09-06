@@ -5,7 +5,7 @@ import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 export class TokenIssuancePolicyItemRequestBuilder {
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The ref property */
+    /** The Ref property */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }

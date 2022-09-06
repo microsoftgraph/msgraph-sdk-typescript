@@ -1,5 +1,5 @@
 
-/** The tokenLifetimePolicies assigned to this service principal. Supports $expand. */
+/** The tokenLifetimePolicies assigned to this service principal. */
 export class TokenLifetimePolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

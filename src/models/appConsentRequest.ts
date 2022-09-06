@@ -3,15 +3,15 @@ import {createUserConsentRequestFromDiscriminatorValue} from './createUserConsen
 import {AppConsentRequestScope, Entity, UserConsentRequest} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the admin singleton. */
 export class AppConsentRequest extends Entity implements Parsable {
     /** The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby. */
     private _appDisplayName?: string | undefined;
     /** The identifier of the application. Required. Supports $filter (eq only) and $orderby. */
     private _appId?: string | undefined;
-    /** A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required. */
+    /** A list of pending scopes waiting for approval. Required. */
     private _pendingScopes?: AppConsentRequestScope[] | undefined;
-    /** A list of pending user consent requests. */
+    /** A list of pending user consent requests. Supports $filter (eq). */
     private _userConsentRequests?: UserConsentRequest[] | undefined;
     /**
      * Gets the appDisplayName property value. The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.
@@ -46,6 +46,7 @@ export class AppConsentRequest extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.appConsentRequest";
     };
     /**
      * The deserialization information for the current model
@@ -60,14 +61,14 @@ export class AppConsentRequest extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the pendingScopes property value. A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.
+     * Gets the pendingScopes property value. A list of pending scopes waiting for approval. Required.
      * @returns a appConsentRequestScope
      */
     public get pendingScopes() {
         return this._pendingScopes;
     };
     /**
-     * Sets the pendingScopes property value. A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.
+     * Sets the pendingScopes property value. A list of pending scopes waiting for approval. Required.
      * @param value Value to set for the pendingScopes property.
      */
     public set pendingScopes(value: AppConsentRequestScope[] | undefined) {
@@ -86,14 +87,14 @@ export class AppConsentRequest extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<UserConsentRequest>("userConsentRequests", this.userConsentRequests);
     };
     /**
-     * Gets the userConsentRequests property value. A list of pending user consent requests.
+     * Gets the userConsentRequests property value. A list of pending user consent requests. Supports $filter (eq).
      * @returns a userConsentRequest
      */
     public get userConsentRequests() {
         return this._userConsentRequests;
     };
     /**
-     * Sets the userConsentRequests property value. A list of pending user consent requests.
+     * Sets the userConsentRequests property value. A list of pending user consent requests. Supports $filter (eq).
      * @param value Value to set for the userConsentRequests property.
      */
     public set userConsentRequests(value: UserConsentRequest[] | undefined) {

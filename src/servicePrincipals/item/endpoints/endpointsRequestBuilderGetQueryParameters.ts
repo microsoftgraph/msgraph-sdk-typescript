@@ -1,5 +1,5 @@
 
-/** Endpoints available for discovery. Services like Sharepoint populate this property with a tenant specific SharePoint endpoints that other applications can discover and use in their experiences. */
+/** Get endpoints from servicePrincipals */
 export class EndpointsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -3,7 +3,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AccessReviewReviewerScope implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The query specifying who will be the reviewer. See table for examples. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** The query specifying who will be the reviewer. */
     private _query?: string | undefined;
     /** In the scenario where reviewers need to be specified dynamically, this property is used to indicate the relative source of the query. This property is only required if a relative query, for example, ./manager, is specified. Possible value: decisions. */
     private _queryRoot?: string | undefined;
@@ -28,6 +30,7 @@ export class AccessReviewReviewerScope implements AdditionalDataHolder, Parsable
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.accessReviewReviewerScope";
     };
     /**
      * The deserialization information for the current model
@@ -35,20 +38,35 @@ export class AccessReviewReviewerScope implements AdditionalDataHolder, Parsable
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "query": n => { this.query = n.getStringValue(); },
             "queryRoot": n => { this.queryRoot = n.getStringValue(); },
             "queryType": n => { this.queryType = n.getStringValue(); },
         };
     };
     /**
-     * Gets the query property value. The query specifying who will be the reviewer. See table for examples.
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
+     * Gets the query property value. The query specifying who will be the reviewer.
      * @returns a string
      */
     public get query() {
         return this._query;
     };
     /**
-     * Sets the query property value. The query specifying who will be the reviewer. See table for examples.
+     * Sets the query property value. The query specifying who will be the reviewer.
      * @param value Value to set for the query property.
      */
     public set query(value: string | undefined) {
@@ -88,6 +106,7 @@ export class AccessReviewReviewerScope implements AdditionalDataHolder, Parsable
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("query", this.query);
         writer.writeStringValue("queryRoot", this.queryRoot);
         writer.writeStringValue("queryType", this.queryType);

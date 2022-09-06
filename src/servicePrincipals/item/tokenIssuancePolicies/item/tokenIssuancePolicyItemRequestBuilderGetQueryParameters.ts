@@ -1,5 +1,5 @@
 
-/** The tokenIssuancePolicies assigned to this service principal. Supports $expand. */
+/** The tokenIssuancePolicies assigned to this service principal. */
 export class TokenIssuancePolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,5 @@
 
-/** Get a specific commercial subscription that an organization has acquired. */
+/** Get entity from subscribedSkus by key */
 export class SubscribedSkuItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

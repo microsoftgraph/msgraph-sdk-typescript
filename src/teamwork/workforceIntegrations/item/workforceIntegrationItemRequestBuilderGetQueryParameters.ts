@@ -1,5 +1,5 @@
 
-/** A workforce integration with shifts. */
+/** Get workforceIntegrations from teamwork */
 export class WorkforceIntegrationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

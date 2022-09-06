@@ -1,5 +1,5 @@
 
-/** The user or contact that is this contact's manager. Read-only. Supports $expand. */
+/** Get manager from contacts */
 export class ManagerRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -12,6 +12,7 @@ import {ClaimsMappingPoliciesRequestBuilder} from './claimsMappingPolicies/claim
 import {ClaimsMappingPolicyItemRequestBuilder} from './claimsMappingPolicies/item/claimsMappingPolicyItemRequestBuilder';
 import {ConditionalAccessPoliciesRequestBuilder} from './conditionalAccessPolicies/conditionalAccessPoliciesRequestBuilder';
 import {ConditionalAccessPolicyItemRequestBuilder} from './conditionalAccessPolicies/item/conditionalAccessPolicyItemRequestBuilder';
+import {CrossTenantAccessPolicyRequestBuilder} from './crossTenantAccessPolicy/crossTenantAccessPolicyRequestBuilder';
 import {FeatureRolloutPoliciesRequestBuilder} from './featureRolloutPolicies/featureRolloutPoliciesRequestBuilder';
 import {FeatureRolloutPolicyItemRequestBuilder} from './featureRolloutPolicies/item/featureRolloutPolicyItemRequestBuilder';
 import {HomeRealmDiscoveryPoliciesRequestBuilder} from './homeRealmDiscoveryPolicies/homeRealmDiscoveryPoliciesRequestBuilder';
@@ -61,6 +62,10 @@ export class PoliciesRequestBuilder {
     public get conditionalAccessPolicies(): ConditionalAccessPoliciesRequestBuilder {
         return new ConditionalAccessPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The crossTenantAccessPolicy property */
+    public get crossTenantAccessPolicy(): CrossTenantAccessPolicyRequestBuilder {
+        return new CrossTenantAccessPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The featureRolloutPolicies property */
     public get featureRolloutPolicies(): FeatureRolloutPoliciesRequestBuilder {
         return new FeatureRolloutPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -102,7 +107,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.activityBasedTimeoutPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a activityBasedTimeoutPolicyItemRequestBuilder
+     * @returns a ActivityBasedTimeoutPolicyItemRequestBuilder
      */
     public activityBasedTimeoutPoliciesById(id: string) : ActivityBasedTimeoutPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -113,7 +118,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.claimsMappingPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a claimsMappingPolicyItemRequestBuilder
+     * @returns a ClaimsMappingPolicyItemRequestBuilder
      */
     public claimsMappingPoliciesById(id: string) : ClaimsMappingPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -124,7 +129,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.conditionalAccessPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a conditionalAccessPolicyItemRequestBuilder
+     * @returns a ConditionalAccessPolicyItemRequestBuilder
      */
     public conditionalAccessPoliciesById(id: string) : ConditionalAccessPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -155,6 +160,7 @@ export class PoliciesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -184,7 +190,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.featureRolloutPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a featureRolloutPolicyItemRequestBuilder
+     * @returns a FeatureRolloutPolicyItemRequestBuilder
      */
     public featureRolloutPoliciesById(id: string) : FeatureRolloutPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -211,7 +217,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.homeRealmDiscoveryPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a homeRealmDiscoveryPolicyItemRequestBuilder
+     * @returns a HomeRealmDiscoveryPolicyItemRequestBuilder
      */
     public homeRealmDiscoveryPoliciesById(id: string) : HomeRealmDiscoveryPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -239,7 +245,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.permissionGrantPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a permissionGrantPolicyItemRequestBuilder
+     * @returns a PermissionGrantPolicyItemRequestBuilder
      */
     public permissionGrantPoliciesById(id: string) : PermissionGrantPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -250,7 +256,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.roleManagementPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a unifiedRoleManagementPolicyItemRequestBuilder
+     * @returns a UnifiedRoleManagementPolicyItemRequestBuilder
      */
     public roleManagementPoliciesById(id: string) : UnifiedRoleManagementPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -261,7 +267,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.roleManagementPolicyAssignments.item collection
      * @param id Unique identifier of the item
-     * @returns a unifiedRoleManagementPolicyAssignmentItemRequestBuilder
+     * @returns a UnifiedRoleManagementPolicyAssignmentItemRequestBuilder
      */
     public roleManagementPolicyAssignmentsById(id: string) : UnifiedRoleManagementPolicyAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -272,7 +278,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.tokenIssuancePolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a tokenIssuancePolicyItemRequestBuilder
+     * @returns a TokenIssuancePolicyItemRequestBuilder
      */
     public tokenIssuancePoliciesById(id: string) : TokenIssuancePolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -283,7 +289,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.tokenLifetimePolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a tokenLifetimePolicyItemRequestBuilder
+     * @returns a TokenLifetimePolicyItemRequestBuilder
      */
     public tokenLifetimePoliciesById(id: string) : TokenLifetimePolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

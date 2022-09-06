@@ -7,6 +7,8 @@ export class AddIn implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The id property */
     private _id?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The properties property */
     private _properties?: KeyValue[] | undefined;
     /** The type property */
@@ -30,6 +32,7 @@ export class AddIn implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.addIn";
     };
     /**
      * The deserialization information for the current model
@@ -38,6 +41,7 @@ export class AddIn implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "id": n => { this.id = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "properties": n => { this.properties = n.getCollectionOfObjectValues<KeyValue>(createKeyValueFromDiscriminatorValue); },
             "type": n => { this.type = n.getStringValue(); },
         };
@@ -55,6 +59,20 @@ export class AddIn implements AdditionalDataHolder, Parsable {
      */
     public set id(value: string | undefined) {
         this._id = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the properties property value. The properties property
@@ -77,6 +95,7 @@ export class AddIn implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("id", this.id);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<KeyValue>("properties", this.properties);
         writer.writeStringValue("type", this.type);
         writer.writeAdditionalData(this.additionalData);

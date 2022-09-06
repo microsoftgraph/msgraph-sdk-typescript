@@ -1,4 +1,4 @@
-/** Provides operations to manage the solutionsRoot singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum AnswerInputType {
     Text = "text",
     RadioButton = "radioButton",

@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get items from external */
 export class ItemsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

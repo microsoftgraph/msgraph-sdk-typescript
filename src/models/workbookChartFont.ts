@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class WorkbookChartFont extends Entity implements Parsable {
     /** Represents the bold status of font. */
     private _bold?: boolean | undefined;
@@ -48,6 +47,7 @@ export class WorkbookChartFont extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.workbookChartFont";
     };
     /**
      * The deserialization information for the current model

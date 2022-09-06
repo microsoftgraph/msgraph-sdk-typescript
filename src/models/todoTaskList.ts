@@ -4,7 +4,7 @@ import {Entity, Extension, TodoTask} from './index';
 import {WellknownListName} from './wellknownListName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class TodoTaskList extends Entity implements Parsable {
     /** The name of the task list. */
     private _displayName?: string | undefined;
@@ -16,13 +16,14 @@ export class TodoTaskList extends Entity implements Parsable {
     private _isShared?: boolean | undefined;
     /** The tasks in this task list. Read-only. Nullable. */
     private _tasks?: TodoTask[] | undefined;
-    /** Property indicating the list name if the given list is a well-known list. Possible values are: none, defaultList, flaggedEmails, unknownFutureValue. */
+    /** The wellknownListName property */
     private _wellknownListName?: WellknownListName | undefined;
     /**
      * Instantiates a new todoTaskList and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.todoTaskList";
     };
     /**
      * Gets the displayName property value. The name of the task list.
@@ -123,14 +124,14 @@ export class TodoTaskList extends Entity implements Parsable {
         this._tasks = value;
     };
     /**
-     * Gets the wellknownListName property value. Property indicating the list name if the given list is a well-known list. Possible values are: none, defaultList, flaggedEmails, unknownFutureValue.
+     * Gets the wellknownListName property value. The wellknownListName property
      * @returns a wellknownListName
      */
     public get wellknownListName() {
         return this._wellknownListName;
     };
     /**
-     * Sets the wellknownListName property value. Property indicating the list name if the given list is a well-known list. Possible values are: none, defaultList, flaggedEmails, unknownFutureValue.
+     * Sets the wellknownListName property value. The wellknownListName property
      * @param value Value to set for the wellknownListName property.
      */
     public set wellknownListName(value: WellknownListName | undefined) {

@@ -5,11 +5,11 @@ import {AuditActivityInitiator, Entity, KeyValue, TargetResource} from './index'
 import {OperationResult} from './operationResult';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the admin singleton. */
 export class DirectoryAudit extends Entity implements Parsable {
     /** Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _activityDateTime?: Date | undefined;
-    /** Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list. */
+    /** Indicates the activity name or the operation name (examples: 'Create User' and 'Add member to group'). For full list, see Azure AD activity list. */
     private _activityDisplayName?: string | undefined;
     /** Indicates additional details on the activity. */
     private _additionalDetails?: KeyValue[] | undefined;
@@ -27,7 +27,7 @@ export class DirectoryAudit extends Entity implements Parsable {
     private _result?: OperationResult | undefined;
     /** Indicates the reason for failure if the result is failure or timeout. */
     private _resultReason?: string | undefined;
-    /** Information about the resource that changed due to the activity. */
+    /** Indicates information on which resource was changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or Other. */
     private _targetResources?: TargetResource[] | undefined;
     /**
      * Gets the activityDateTime property value. Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
@@ -44,14 +44,14 @@ export class DirectoryAudit extends Entity implements Parsable {
         this._activityDateTime = value;
     };
     /**
-     * Gets the activityDisplayName property value. Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list.
+     * Gets the activityDisplayName property value. Indicates the activity name or the operation name (examples: 'Create User' and 'Add member to group'). For full list, see Azure AD activity list.
      * @returns a string
      */
     public get activityDisplayName() {
         return this._activityDisplayName;
     };
     /**
-     * Sets the activityDisplayName property value. Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list.
+     * Sets the activityDisplayName property value. Indicates the activity name or the operation name (examples: 'Create User' and 'Add member to group'). For full list, see Azure AD activity list.
      * @param value Value to set for the activityDisplayName property.
      */
     public set activityDisplayName(value: string | undefined) {
@@ -90,6 +90,7 @@ export class DirectoryAudit extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.directoryAudit";
     };
     /**
      * Gets the correlationId property value. Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services.
@@ -214,14 +215,14 @@ export class DirectoryAudit extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<TargetResource>("targetResources", this.targetResources);
     };
     /**
-     * Gets the targetResources property value. Information about the resource that changed due to the activity.
+     * Gets the targetResources property value. Indicates information on which resource was changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or Other.
      * @returns a targetResource
      */
     public get targetResources() {
         return this._targetResources;
     };
     /**
-     * Sets the targetResources property value. Information about the resource that changed due to the activity.
+     * Sets the targetResources property value. Indicates information on which resource was changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or Other.
      * @param value Value to set for the targetResources property.
      */
     public set targetResources(value: TargetResource[] | undefined) {

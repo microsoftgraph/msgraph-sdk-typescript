@@ -51,7 +51,7 @@ export class AgreementFileLocalizationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+     * PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -60,6 +60,7 @@ export class AgreementFileLocalizationItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -102,7 +103,7 @@ export class AgreementFileLocalizationItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+     * PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AgreementFileLocalization
@@ -137,7 +138,7 @@ export class AgreementFileLocalizationItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.agreements.item.files.item.versions.item collection
      * @param id Unique identifier of the item
-     * @returns a agreementFileVersionItemRequestBuilder
+     * @returns a AgreementFileVersionItemRequestBuilder
      */
     public versionsById(id: string) : AgreementFileVersionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

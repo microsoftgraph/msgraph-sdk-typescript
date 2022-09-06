@@ -1,4 +1,4 @@
-/** Provides operations to manage the policyRoot singleton. */
+/** Provides operations to manage the collection of application entities. */
 export enum AllowInvitesFrom {
     None = "none",
     AdminsAndGuestInviters = "adminsAndGuestInviters",

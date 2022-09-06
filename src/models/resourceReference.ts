@@ -5,6 +5,8 @@ export class ResourceReference implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The item's unique identifier. */
     private _id?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** A string value that can be used to classify the item, such as 'microsoft.graph.driveItem' */
     private _type?: string | undefined;
     /** A URL leading to the referenced item. */
@@ -28,6 +30,7 @@ export class ResourceReference implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.resourceReference";
     };
     /**
      * The deserialization information for the current model
@@ -36,6 +39,7 @@ export class ResourceReference implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "id": n => { this.id = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "type": n => { this.type = n.getStringValue(); },
             "webUrl": n => { this.webUrl = n.getStringValue(); },
         };
@@ -55,12 +59,27 @@ export class ResourceReference implements AdditionalDataHolder, Parsable {
         this._id = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("id", this.id);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("type", this.type);
         writer.writeStringValue("webUrl", this.webUrl);
         writer.writeAdditionalData(this.additionalData);

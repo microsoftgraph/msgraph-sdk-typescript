@@ -60,6 +60,7 @@ export class RoleDefinitionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -137,7 +138,7 @@ export class RoleDefinitionItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.roleDefinitions.item.roleAssignments.item collection
      * @param id Unique identifier of the item
-     * @returns a roleAssignmentItemRequestBuilder
+     * @returns a RoleAssignmentItemRequestBuilder
      */
     public roleAssignmentsById(id: string) : RoleAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

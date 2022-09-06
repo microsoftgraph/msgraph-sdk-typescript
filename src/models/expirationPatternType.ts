@@ -1,4 +1,4 @@
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum ExpirationPatternType {
     NotSpecified = "notSpecified",
     NoExpiration = "noExpiration",

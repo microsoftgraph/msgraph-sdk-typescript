@@ -2,17 +2,17 @@ import {createRequestScheduleFromDiscriminatorValue} from './createRequestSchedu
 import {RequestSchedule, UnifiedRoleScheduleBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase implements Parsable {
-    /** Membership type of the eligible assignment. It can either be Inherited, Direct, or Group. */
+    /** How the role eligibility is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleEligibilitySchedule can be managed by the caller. Supports $filter (eq, ne). */
     private _memberType?: string | undefined;
-    /** The schedule object of the eligible role assignment request. */
+    /** The period of the role eligibility. */
     private _scheduleInfo?: RequestSchedule | undefined;
     /**
      * Instantiates a new unifiedRoleEligibilitySchedule and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.unifiedRoleEligibilitySchedule";
     };
     /**
      * The deserialization information for the current model
@@ -25,28 +25,28 @@ export class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase impl
         };
     };
     /**
-     * Gets the memberType property value. Membership type of the eligible assignment. It can either be Inherited, Direct, or Group.
+     * Gets the memberType property value. How the role eligibility is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleEligibilitySchedule can be managed by the caller. Supports $filter (eq, ne).
      * @returns a string
      */
     public get memberType() {
         return this._memberType;
     };
     /**
-     * Sets the memberType property value. Membership type of the eligible assignment. It can either be Inherited, Direct, or Group.
+     * Sets the memberType property value. How the role eligibility is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleEligibilitySchedule can be managed by the caller. Supports $filter (eq, ne).
      * @param value Value to set for the memberType property.
      */
     public set memberType(value: string | undefined) {
         this._memberType = value;
     };
     /**
-     * Gets the scheduleInfo property value. The schedule object of the eligible role assignment request.
+     * Gets the scheduleInfo property value. The period of the role eligibility.
      * @returns a requestSchedule
      */
     public get scheduleInfo() {
         return this._scheduleInfo;
     };
     /**
-     * Sets the scheduleInfo property value. The schedule object of the eligible role assignment request.
+     * Sets the scheduleInfo property value. The period of the role eligibility.
      * @param value Value to set for the scheduleInfo property.
      */
     public set scheduleInfo(value: RequestSchedule | undefined) {

@@ -1,4 +1,5 @@
 import {createManagedDeviceFromDiscriminatorValue} from './createManagedDeviceFromDiscriminatorValue';
+import {DetectedAppPlatformType} from './detectedAppPlatformType';
 import {Entity, ManagedDevice} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -10,6 +11,10 @@ export class DetectedApp extends Entity implements Parsable {
     private _displayName?: string | undefined;
     /** The devices that have the discovered application installed */
     private _managedDevices?: ManagedDevice[] | undefined;
+    /** Indicates the operating system / platform of the discovered application.  Some possible values are Windows, iOS, macOS. The default value is unknown (0). */
+    private _platform?: DetectedAppPlatformType | undefined;
+    /** Indicates the publisher of the discovered application. For example: 'Microsoft'.  The default value is an empty string. */
+    private _publisher?: string | undefined;
     /** Discovered application size in bytes. Read-only */
     private _sizeInByte?: number | undefined;
     /** Version of the discovered application. Read-only */
@@ -19,6 +24,7 @@ export class DetectedApp extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.detectedApp";
     };
     /**
      * Gets the deviceCount property value. The number of devices that have installed this application
@@ -57,6 +63,8 @@ export class DetectedApp extends Entity implements Parsable {
             "deviceCount": n => { this.deviceCount = n.getNumberValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "managedDevices": n => { this.managedDevices = n.getCollectionOfObjectValues<ManagedDevice>(createManagedDeviceFromDiscriminatorValue); },
+            "platform": n => { this.platform = n.getEnumValue<DetectedAppPlatformType>(DetectedAppPlatformType); },
+            "publisher": n => { this.publisher = n.getStringValue(); },
             "sizeInByte": n => { this.sizeInByte = n.getNumberValue(); },
             "version": n => { this.version = n.getStringValue(); },
         };
@@ -76,6 +84,34 @@ export class DetectedApp extends Entity implements Parsable {
         this._managedDevices = value;
     };
     /**
+     * Gets the platform property value. Indicates the operating system / platform of the discovered application.  Some possible values are Windows, iOS, macOS. The default value is unknown (0).
+     * @returns a detectedAppPlatformType
+     */
+    public get platform() {
+        return this._platform;
+    };
+    /**
+     * Sets the platform property value. Indicates the operating system / platform of the discovered application.  Some possible values are Windows, iOS, macOS. The default value is unknown (0).
+     * @param value Value to set for the platform property.
+     */
+    public set platform(value: DetectedAppPlatformType | undefined) {
+        this._platform = value;
+    };
+    /**
+     * Gets the publisher property value. Indicates the publisher of the discovered application. For example: 'Microsoft'.  The default value is an empty string.
+     * @returns a string
+     */
+    public get publisher() {
+        return this._publisher;
+    };
+    /**
+     * Sets the publisher property value. Indicates the publisher of the discovered application. For example: 'Microsoft'.  The default value is an empty string.
+     * @param value Value to set for the publisher property.
+     */
+    public set publisher(value: string | undefined) {
+        this._publisher = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -85,6 +121,8 @@ export class DetectedApp extends Entity implements Parsable {
         writer.writeNumberValue("deviceCount", this.deviceCount);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeCollectionOfObjectValues<ManagedDevice>("managedDevices", this.managedDevices);
+        writer.writeEnumValue<DetectedAppPlatformType>("platform", this.platform);
+        writer.writeStringValue("publisher", this.publisher);
         writer.writeNumberValue("sizeInByte", this.sizeInByte);
         writer.writeStringValue("version", this.version);
     };

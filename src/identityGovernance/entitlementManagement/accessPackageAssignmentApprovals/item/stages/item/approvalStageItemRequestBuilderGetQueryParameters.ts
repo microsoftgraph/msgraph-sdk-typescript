@@ -1,5 +1,5 @@
 
-/** Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage. */
+/** A collection of stages in the approval decision. */
 export class ApprovalStageItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

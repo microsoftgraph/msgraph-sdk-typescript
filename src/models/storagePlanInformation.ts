@@ -3,7 +3,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class StoragePlanInformation implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Indicates if there are higher storage quota plans available. Read-only. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** Indicates whether there are higher storage quota plans available. Read-only. */
     private _upgradeAvailable?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -24,6 +26,7 @@ export class StoragePlanInformation implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.storagePlanInformation";
     };
     /**
      * The deserialization information for the current model
@@ -31,8 +34,23 @@ export class StoragePlanInformation implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "upgradeAvailable": n => { this.upgradeAvailable = n.getBooleanValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -40,18 +58,19 @@ export class StoragePlanInformation implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeBooleanValue("upgradeAvailable", this.upgradeAvailable);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the upgradeAvailable property value. Indicates if there are higher storage quota plans available. Read-only.
+     * Gets the upgradeAvailable property value. Indicates whether there are higher storage quota plans available. Read-only.
      * @returns a boolean
      */
     public get upgradeAvailable() {
         return this._upgradeAvailable;
     };
     /**
-     * Sets the upgradeAvailable property value. Indicates if there are higher storage quota plans available. Read-only.
+     * Sets the upgradeAvailable property value. Indicates whether there are higher storage quota plans available. Read-only.
      * @param value Value to set for the upgradeAvailable property.
      */
     public set upgradeAvailable(value: boolean | undefined) {

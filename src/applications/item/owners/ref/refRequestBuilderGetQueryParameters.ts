@@ -1,5 +1,5 @@
 
-/** Directory objects that are owners of the application. Read-only. Nullable. Supports $expand. */
+/** Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections). */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

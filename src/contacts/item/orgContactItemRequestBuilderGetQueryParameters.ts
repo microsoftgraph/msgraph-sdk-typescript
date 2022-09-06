@@ -1,5 +1,5 @@
 
-/** Get the properties and relationships of an organizational contact object. */
+/** Get the properties and relationships of an organizational contact. */
 export class OrgContactItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

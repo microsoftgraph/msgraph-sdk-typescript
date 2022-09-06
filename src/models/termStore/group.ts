@@ -4,7 +4,7 @@ import {Set} from './index';
 import {TermGroupScope} from './termGroupScope';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class Group extends Entity implements Parsable {
     /** Date and time of the group creation. Read-only. */
     private _createdDateTime?: Date | undefined;
@@ -14,7 +14,7 @@ export class Group extends Entity implements Parsable {
     private _displayName?: string | undefined;
     /** ID of the parent site of this group. */
     private _parentSiteId?: string | undefined;
-    /** Returns the type of the group. Possible values are global, system, and siteCollection. */
+    /** Returns the type of the group. Possible values are: global, system, and siteCollection. */
     private _scope?: TermGroupScope | undefined;
     /** All sets under the group in a term [store]. */
     private _sets?: Set[] | undefined;
@@ -23,6 +23,7 @@ export class Group extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.termStore.group";
     };
     /**
      * Gets the createdDateTime property value. Date and time of the group creation. Read-only.
@@ -95,14 +96,14 @@ export class Group extends Entity implements Parsable {
         this._parentSiteId = value;
     };
     /**
-     * Gets the scope property value. Returns the type of the group. Possible values are global, system, and siteCollection.
+     * Gets the scope property value. Returns the type of the group. Possible values are: global, system, and siteCollection.
      * @returns a termGroupScope
      */
     public get scope() {
         return this._scope;
     };
     /**
-     * Sets the scope property value. Returns the type of the group. Possible values are global, system, and siteCollection.
+     * Sets the scope property value. Returns the type of the group. Possible values are: global, system, and siteCollection.
      * @param value Value to set for the scope property.
      */
     public set scope(value: TermGroupScope | undefined) {

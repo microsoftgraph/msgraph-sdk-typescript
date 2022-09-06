@@ -29,11 +29,11 @@ import {createWorkbookFromDiscriminatorValue} from './createWorkbookFromDiscrimi
 import {Audio, BaseItem, Bundle, Deleted, DriveItemVersion, File, FileSystemInfo, Folder, GeoCoordinates, Image, ItemAnalytics, ListItem, Malware, Package, PendingOperations, Permission, Photo, PublicationFacet, RemoteItem, Root, SearchResult, Shared, SharepointIds, SpecialFolder, Subscription, ThumbnailSet, Video, Workbook} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the admin singleton. */
 export class DriveItem extends BaseItem implements Parsable {
     /** Analytics about the view activities that took place on this item. */
     private _analytics?: ItemAnalytics | undefined;
-    /** Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal. */
+    /** Audio metadata, if the item is an audio file. Read-only. Read-only. Only on OneDrive Personal. */
     private _audio?: Audio | undefined;
     /** Bundle metadata, if the item is a bundle. Read-only. */
     private _bundle?: Bundle | undefined;
@@ -61,7 +61,7 @@ export class DriveItem extends BaseItem implements Parsable {
     private _malware?: Malware | undefined;
     /** If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only. */
     private _package?: Package | undefined;
-    /** If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only. */
+    /** If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only. */
     private _pendingOperations?: PendingOperations | undefined;
     /** The set of permissions for the item. Read-only. Nullable. */
     private _permissions?: Permission[] | undefined;
@@ -110,14 +110,14 @@ export class DriveItem extends BaseItem implements Parsable {
         this._analytics = value;
     };
     /**
-     * Gets the audio property value. Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal.
+     * Gets the audio property value. Audio metadata, if the item is an audio file. Read-only. Read-only. Only on OneDrive Personal.
      * @returns a audio
      */
     public get audio() {
         return this._audio;
     };
     /**
-     * Sets the audio property value. Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal.
+     * Sets the audio property value. Audio metadata, if the item is an audio file. Read-only. Read-only. Only on OneDrive Personal.
      * @param value Value to set for the audio property.
      */
     public set audio(value: Audio | undefined) {
@@ -156,6 +156,7 @@ export class DriveItem extends BaseItem implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.driveItem";
     };
     /**
      * Gets the content property value. The content stream, if the item represents a file.
@@ -352,14 +353,14 @@ export class DriveItem extends BaseItem implements Parsable {
         this._package = value;
     };
     /**
-     * Gets the pendingOperations property value. If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
+     * Gets the pendingOperations property value. If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.
      * @returns a pendingOperations
      */
     public get pendingOperations() {
         return this._pendingOperations;
     };
     /**
-     * Sets the pendingOperations property value. If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
+     * Sets the pendingOperations property value. If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.
      * @param value Value to set for the pendingOperations property.
      */
     public set pendingOperations(value: PendingOperations | undefined) {

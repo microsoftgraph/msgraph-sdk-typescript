@@ -1,4 +1,4 @@
-/** Provides operations to manage the informationProtection singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum VolumeType {
     OperatingSystemVolume = "operatingSystemVolume",
     FixedDataVolume = "fixedDataVolume",
