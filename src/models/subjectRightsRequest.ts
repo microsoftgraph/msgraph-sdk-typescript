@@ -12,7 +12,6 @@ import {SubjectRightsRequestStatus} from './subjectRightsRequestStatus';
 import {SubjectRightsRequestType} from './subjectRightsRequestType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the privacy singleton. */
 export class SubjectRightsRequest extends Entity implements Parsable {
     /** Identity that the request is assigned to. */
     private _assignedTo?: Identity | undefined;
@@ -40,17 +39,17 @@ export class SubjectRightsRequest extends Entity implements Parsable {
     private _lastModifiedBy?: IdentitySet | undefined;
     /** The date and time when the request was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** List of notes associated with the request. */
+    /** List of notes associcated with the request. */
     private _notes?: AuthoredNote[] | undefined;
     /** List of regulations that this request will fulfill. */
     private _regulations?: string[] | undefined;
     /** Information about the different stages for the request. */
     private _stages?: SubjectRightsRequestStageDetail[] | undefined;
-    /** The status of the request. Possible values are: active, closed, unknownFutureValue. */
+    /** The status of the request.. Possible values are: active, closed, unknownFutureValue. */
     private _status?: SubjectRightsRequestStatus | undefined;
     /** Information about the Microsoft Teams team that was created for the request. */
     private _team?: Team | undefined;
-    /** The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue. */
+    /** The type of the request. Possible values are: export, delete,  access, tagForAction, unknownFutureValue. */
     private _type?: SubjectRightsRequestType | undefined;
     /**
      * Gets the assignedTo property value. Identity that the request is assigned to.
@@ -81,10 +80,11 @@ export class SubjectRightsRequest extends Entity implements Parsable {
         this._closedDateTime = value;
     };
     /**
-     * Instantiates a new subjectRightsRequest and sets the default values.
+     * Instantiates a new SubjectRightsRequest and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.subjectRightsRequest";
     };
     /**
      * Gets the createdBy property value. Identity information for the entity that created the request.
@@ -268,14 +268,14 @@ export class SubjectRightsRequest extends Entity implements Parsable {
         this._lastModifiedDateTime = value;
     };
     /**
-     * Gets the notes property value. List of notes associated with the request.
+     * Gets the notes property value. List of notes associcated with the request.
      * @returns a authoredNote
      */
     public get notes() {
         return this._notes;
     };
     /**
-     * Sets the notes property value. List of notes associated with the request.
+     * Sets the notes property value. List of notes associcated with the request.
      * @param value Value to set for the notes property.
      */
     public set notes(value: AuthoredNote[] | undefined) {
@@ -337,14 +337,14 @@ export class SubjectRightsRequest extends Entity implements Parsable {
         this._stages = value;
     };
     /**
-     * Gets the status property value. The status of the request. Possible values are: active, closed, unknownFutureValue.
+     * Gets the status property value. The status of the request.. Possible values are: active, closed, unknownFutureValue.
      * @returns a subjectRightsRequestStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status of the request. Possible values are: active, closed, unknownFutureValue.
+     * Sets the status property value. The status of the request.. Possible values are: active, closed, unknownFutureValue.
      * @param value Value to set for the status property.
      */
     public set status(value: SubjectRightsRequestStatus | undefined) {
@@ -365,14 +365,14 @@ export class SubjectRightsRequest extends Entity implements Parsable {
         this._team = value;
     };
     /**
-     * Gets the type property value. The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue.
+     * Gets the type property value. The type of the request. Possible values are: export, delete,  access, tagForAction, unknownFutureValue.
      * @returns a subjectRightsRequestType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue.
+     * Sets the type property value. The type of the request. Possible values are: export, delete,  access, tagForAction, unknownFutureValue.
      * @param value Value to set for the type property.
      */
     public set type(value: SubjectRightsRequestType | undefined) {

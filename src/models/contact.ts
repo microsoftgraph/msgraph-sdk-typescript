@@ -7,7 +7,6 @@ import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './c
 import {EmailAddress, Extension, MultiValueLegacyExtendedProperty, OutlookItem, PhysicalAddress, ProfilePhoto, SingleValueLegacyExtendedProperty} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Contact extends OutlookItem implements Parsable {
     /** The name of the contact's assistant. */
     private _assistantName?: string | undefined;
@@ -29,7 +28,7 @@ export class Contact extends OutlookItem implements Parsable {
     private _displayName?: string | undefined;
     /** The contact's email addresses. */
     private _emailAddresses?: EmailAddress[] | undefined;
-    /** The collection of open extensions defined for the contact. Nullable. */
+    /** The collection of open extensions defined for the contact. Read-only. Nullable. */
     private _extensions?: Extension[] | undefined;
     /** The name the contact is filed under. */
     private _fileAs?: string | undefined;
@@ -182,10 +181,11 @@ export class Contact extends OutlookItem implements Parsable {
         this._companyName = value;
     };
     /**
-     * Instantiates a new contact and sets the default values.
+     * Instantiates a new Contact and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.contact";
     };
     /**
      * Gets the department property value. The contact's department.
@@ -230,14 +230,14 @@ export class Contact extends OutlookItem implements Parsable {
         this._emailAddresses = value;
     };
     /**
-     * Gets the extensions property value. The collection of open extensions defined for the contact. Nullable.
+     * Gets the extensions property value. The collection of open extensions defined for the contact. Read-only. Nullable.
      * @returns a extension
      */
     public get extensions() {
         return this._extensions;
     };
     /**
-     * Sets the extensions property value. The collection of open extensions defined for the contact. Nullable.
+     * Sets the extensions property value. The collection of open extensions defined for the contact. Read-only. Nullable.
      * @param value Value to set for the extensions property.
      */
     public set extensions(value: Extension[] | undefined) {

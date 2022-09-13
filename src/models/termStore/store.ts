@@ -4,7 +4,6 @@ import {createSetFromDiscriminatorValue} from './createSetFromDiscriminatorValue
 import {Group, Set} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Store extends Entity implements Parsable {
     /** Default language of the term store. */
     private _defaultLanguageTag?: string | undefined;
@@ -12,13 +11,14 @@ export class Store extends Entity implements Parsable {
     private _groups?: Group[] | undefined;
     /** List of languages for the term store. */
     private _languageTags?: string[] | undefined;
-    /** Collection of all sets available in the term store. */
+    /** Collection of all sets available in the term store. This relationship can only be used to load a specific term set. */
     private _sets?: Set[] | undefined;
     /**
      * Instantiates a new store and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.termStore.store";
     };
     /**
      * Gets the defaultLanguageTag property value. Default language of the term store.
@@ -87,14 +87,14 @@ export class Store extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<Set>("sets", this.sets);
     };
     /**
-     * Gets the sets property value. Collection of all sets available in the term store.
+     * Gets the sets property value. Collection of all sets available in the term store. This relationship can only be used to load a specific term set.
      * @returns a set
      */
     public get sets() {
         return this._sets;
     };
     /**
-     * Sets the sets property value. Collection of all sets available in the term store.
+     * Sets the sets property value. Collection of all sets available in the term store. This relationship can only be used to load a specific term set.
      * @param value Value to set for the sets property.
      */
     public set sets(value: Set[] | undefined) {

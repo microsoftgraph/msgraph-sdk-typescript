@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. Returns the plannerTasks assigned to the user. */
+/** Read-only. Nullable. Returns the plannerPlans shared with the user. */
 export class PlannerTaskItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -5,6 +5,8 @@ export class Image implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Optional. Height of the image, in pixels. Read-only. */
     private _height?: number | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Optional. Width of the image, in pixels. Read-only. */
     private _width?: number | undefined;
     /**
@@ -26,6 +28,7 @@ export class Image implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.image";
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +37,7 @@ export class Image implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "height": n => { this.height = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "width": n => { this.width = n.getNumberValue(); },
         };
     };
@@ -52,12 +56,27 @@ export class Image implements AdditionalDataHolder, Parsable {
         this._height = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeNumberValue("height", this.height);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("width", this.width);
         writer.writeAdditionalData(this.additionalData);
     };

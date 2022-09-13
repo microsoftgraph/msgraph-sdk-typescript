@@ -11,6 +11,8 @@ export class AccessPackageAssignmentRequestRequirements implements AdditionalDat
     private _isApprovalRequiredForAdd?: boolean | undefined;
     /** Indicates whether a request to update must be approved by an approver. */
     private _isApprovalRequiredForUpdate?: boolean | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The description of the policy that the user is trying to request access using. */
     private _policyDescription?: string | undefined;
     /** The display name of the policy that the user is trying to request access using. */
@@ -52,6 +54,7 @@ export class AccessPackageAssignmentRequestRequirements implements AdditionalDat
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.accessPackageAssignmentRequestRequirements";
     };
     /**
      * The deserialization information for the current model
@@ -62,6 +65,7 @@ export class AccessPackageAssignmentRequestRequirements implements AdditionalDat
             "allowCustomAssignmentSchedule": n => { this.allowCustomAssignmentSchedule = n.getBooleanValue(); },
             "isApprovalRequiredForAdd": n => { this.isApprovalRequiredForAdd = n.getBooleanValue(); },
             "isApprovalRequiredForUpdate": n => { this.isApprovalRequiredForUpdate = n.getBooleanValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "policyDescription": n => { this.policyDescription = n.getStringValue(); },
             "policyDisplayName": n => { this.policyDisplayName = n.getStringValue(); },
             "policyId": n => { this.policyId = n.getStringValue(); },
@@ -95,6 +99,20 @@ export class AccessPackageAssignmentRequestRequirements implements AdditionalDat
      */
     public set isApprovalRequiredForUpdate(value: boolean | undefined) {
         this._isApprovalRequiredForUpdate = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the policyDescription property value. The description of the policy that the user is trying to request access using.
@@ -161,6 +179,7 @@ export class AccessPackageAssignmentRequestRequirements implements AdditionalDat
         writer.writeBooleanValue("allowCustomAssignmentSchedule", this.allowCustomAssignmentSchedule);
         writer.writeBooleanValue("isApprovalRequiredForAdd", this.isApprovalRequiredForAdd);
         writer.writeBooleanValue("isApprovalRequiredForUpdate", this.isApprovalRequiredForUpdate);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("policyDescription", this.policyDescription);
         writer.writeStringValue("policyDisplayName", this.policyDisplayName);
         writer.writeStringValue("policyId", this.policyId);

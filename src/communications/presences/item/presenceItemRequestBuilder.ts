@@ -3,10 +3,12 @@ import {createPresenceFromDiscriminatorValue} from '../../../models/createPresen
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ClearPresenceRequestBuilder} from './clearPresence/clearPresenceRequestBuilder';
+import {ClearUserPreferredPresenceRequestBuilder} from './clearUserPreferredPresence/clearUserPreferredPresenceRequestBuilder';
 import {PresenceItemRequestBuilderDeleteRequestConfiguration} from './presenceItemRequestBuilderDeleteRequestConfiguration';
 import {PresenceItemRequestBuilderGetRequestConfiguration} from './presenceItemRequestBuilderGetRequestConfiguration';
 import {PresenceItemRequestBuilderPatchRequestConfiguration} from './presenceItemRequestBuilderPatchRequestConfiguration';
 import {SetPresenceRequestBuilder} from './setPresence/setPresenceRequestBuilder';
+import {SetUserPreferredPresenceRequestBuilder} from './setUserPreferredPresence/setUserPreferredPresenceRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity. */
@@ -15,6 +17,10 @@ export class PresenceItemRequestBuilder {
     public get clearPresence(): ClearPresenceRequestBuilder {
         return new ClearPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The clearUserPreferredPresence property */
+    public get clearUserPreferredPresence(): ClearUserPreferredPresenceRequestBuilder {
+        return new ClearUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
@@ -22,6 +28,10 @@ export class PresenceItemRequestBuilder {
     /** The setPresence property */
     public get setPresence(): SetPresenceRequestBuilder {
         return new SetPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The setUserPreferredPresence property */
+    public get setUserPreferredPresence(): SetUserPreferredPresenceRequestBuilder {
+        return new SetUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
@@ -64,6 +74,7 @@ export class PresenceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

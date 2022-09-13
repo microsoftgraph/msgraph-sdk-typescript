@@ -15,13 +15,15 @@ export class DeviceConfigurationSettingState implements AdditionalDataHolder, Pa
     private _errorDescription?: string | undefined;
     /** Name of setting instance that is being reported. */
     private _instanceDisplayName?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The setting that is being reported */
     private _setting?: string | undefined;
     /** Localized/user friendly setting name that is being reported */
     private _settingName?: string | undefined;
     /** Contributing policies */
     private _sources?: SettingSource[] | undefined;
-    /** The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
+    /** The state property */
     private _state?: ComplianceStatus | undefined;
     /** UserEmail */
     private _userEmail?: string | undefined;
@@ -50,6 +52,7 @@ export class DeviceConfigurationSettingState implements AdditionalDataHolder, Pa
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.deviceConfigurationSettingState";
     };
     /**
      * Gets the currentValue property value. Current value of setting on device
@@ -103,6 +106,7 @@ export class DeviceConfigurationSettingState implements AdditionalDataHolder, Pa
             "errorCode": n => { this.errorCode = n.getNumberValue(); },
             "errorDescription": n => { this.errorDescription = n.getStringValue(); },
             "instanceDisplayName": n => { this.instanceDisplayName = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "setting": n => { this.setting = n.getStringValue(); },
             "settingName": n => { this.settingName = n.getStringValue(); },
             "sources": n => { this.sources = n.getCollectionOfObjectValues<SettingSource>(createSettingSourceFromDiscriminatorValue); },
@@ -128,6 +132,20 @@ export class DeviceConfigurationSettingState implements AdditionalDataHolder, Pa
         this._instanceDisplayName = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -137,6 +155,7 @@ export class DeviceConfigurationSettingState implements AdditionalDataHolder, Pa
         writer.writeNumberValue("errorCode", this.errorCode);
         writer.writeStringValue("errorDescription", this.errorDescription);
         writer.writeStringValue("instanceDisplayName", this.instanceDisplayName);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("setting", this.setting);
         writer.writeStringValue("settingName", this.settingName);
         writer.writeCollectionOfObjectValues<SettingSource>("sources", this.sources);
@@ -190,14 +209,14 @@ export class DeviceConfigurationSettingState implements AdditionalDataHolder, Pa
         this._sources = value;
     };
     /**
-     * Gets the state property value. The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * Gets the state property value. The state property
      * @returns a complianceStatus
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * Sets the state property value. The state property
      * @param value Value to set for the state property.
      */
     public set state(value: ComplianceStatus | undefined) {

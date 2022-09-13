@@ -40,7 +40,7 @@ export class EducationRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.classes.item collection
      * @param id Unique identifier of the item
-     * @returns a educationClassItemRequestBuilder
+     * @returns a EducationClassItemRequestBuilder
      */
     public classesById(id: string) : EducationClassItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -71,6 +71,7 @@ export class EducationRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -133,7 +134,7 @@ export class EducationRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.schools.item collection
      * @param id Unique identifier of the item
-     * @returns a educationSchoolItemRequestBuilder
+     * @returns a EducationSchoolItemRequestBuilder
      */
     public schoolsById(id: string) : EducationSchoolItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -144,7 +145,7 @@ export class EducationRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item collection
      * @param id Unique identifier of the item
-     * @returns a educationUserItemRequestBuilder
+     * @returns a EducationUserItemRequestBuilder
      */
     public usersById(id: string) : EducationUserItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -9,6 +9,8 @@ export class ControlScore implements AdditionalDataHolder, Parsable {
     private _controlName?: string | undefined;
     /** Description of the control. */
     private _description?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Tenant achieved score for the control (it varies day by day depending on tenant operations on the control). */
     private _score?: number | undefined;
     /**
@@ -30,6 +32,7 @@ export class ControlScore implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.controlScore";
     };
     /**
      * Gets the controlCategory property value. Control action category (Identity, Data, Device, Apps, Infrastructure).
@@ -82,8 +85,23 @@ export class ControlScore implements AdditionalDataHolder, Parsable {
             "controlCategory": n => { this.controlCategory = n.getStringValue(); },
             "controlName": n => { this.controlName = n.getStringValue(); },
             "description": n => { this.description = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "score": n => { this.score = n.getNumberValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the score property value. Tenant achieved score for the control (it varies day by day depending on tenant operations on the control).
@@ -108,6 +126,7 @@ export class ControlScore implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("controlCategory", this.controlCategory);
         writer.writeStringValue("controlName", this.controlName);
         writer.writeStringValue("description", this.description);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("score", this.score);
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,5 +1,5 @@
 
-/** Represents the role management policies. */
+/** Specifies the various policies associated with scopes and roles. */
 export class RoleManagementPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

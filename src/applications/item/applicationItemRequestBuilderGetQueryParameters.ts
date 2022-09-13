@@ -1,5 +1,5 @@
 
-/** Get the properties and relationships of an [application](../resources/application.md) object. */
+/** Get the properties and relationships of an application object. */
 export class ApplicationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

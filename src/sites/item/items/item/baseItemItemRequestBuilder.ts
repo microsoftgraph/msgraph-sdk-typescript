@@ -27,7 +27,7 @@ export class BaseItemItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Used to address any item contained in this site. This collection cannot be enumerated.
+     * Used to address any item contained in this site. This collection can't be enumerated.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -36,6 +36,7 @@ export class BaseItemItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -44,7 +45,7 @@ export class BaseItemItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Used to address any item contained in this site. This collection cannot be enumerated.
+     * Used to address any item contained in this site. This collection can't be enumerated.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BaseItem

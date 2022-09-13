@@ -27,7 +27,7 @@ export class RoleDefinitionRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
+     * The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -36,6 +36,7 @@ export class RoleDefinitionRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -44,7 +45,7 @@ export class RoleDefinitionRequestBuilder {
         return requestInfo;
     };
     /**
-     * The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
+     * The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleDefinition

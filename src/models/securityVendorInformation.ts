@@ -3,6 +3,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class SecurityVendorInformation implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Specific provider (product/service - not vendor company); for example, WindowsDefenderATP. */
     private _provider?: string | undefined;
     /** Version of the provider or subprovider, if it exists, that generated the alert. Required */
@@ -30,6 +32,7 @@ export class SecurityVendorInformation implements AdditionalDataHolder, Parsable
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.securityVendorInformation";
     };
     /**
      * The deserialization information for the current model
@@ -37,11 +40,26 @@ export class SecurityVendorInformation implements AdditionalDataHolder, Parsable
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "provider": n => { this.provider = n.getStringValue(); },
             "providerVersion": n => { this.providerVersion = n.getStringValue(); },
             "subProvider": n => { this.subProvider = n.getStringValue(); },
             "vendor": n => { this.vendor = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the provider property value. Specific provider (product/service - not vendor company); for example, WindowsDefenderATP.
@@ -77,6 +95,7 @@ export class SecurityVendorInformation implements AdditionalDataHolder, Parsable
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("provider", this.provider);
         writer.writeStringValue("providerVersion", this.providerVersion);
         writer.writeStringValue("subProvider", this.subProvider);

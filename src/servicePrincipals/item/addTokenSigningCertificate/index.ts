@@ -1,1 +1,1 @@
-export * from './selfSignedCertificatePostRequestBody'
+export * from './addTokenSigningCertificatePostRequestBody'

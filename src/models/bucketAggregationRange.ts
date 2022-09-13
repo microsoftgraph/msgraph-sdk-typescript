@@ -5,6 +5,8 @@ export class BucketAggregationRange implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Defines the lower bound from which to compute the aggregation. This can be a numeric value or a string representation of a date using the YYYY-MM-DDTHH:mm:ss.sssZ format. Required. */
     private _from?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Defines the upper bound up to which to compute the aggregation. This can be a numeric value or a string representation of a date using the YYYY-MM-DDTHH:mm:ss.sssZ format. Required. */
     private _to?: string | undefined;
     /**
@@ -26,6 +28,7 @@ export class BucketAggregationRange implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.bucketAggregationRange";
     };
     /**
      * Gets the from property value. Defines the lower bound from which to compute the aggregation. This can be a numeric value or a string representation of a date using the YYYY-MM-DDTHH:mm:ss.sssZ format. Required.
@@ -48,8 +51,23 @@ export class BucketAggregationRange implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "from": n => { this.from = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "to": n => { this.to = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -58,6 +76,7 @@ export class BucketAggregationRange implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("from", this.from);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("to", this.to);
         writer.writeAdditionalData(this.additionalData);
     };

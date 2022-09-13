@@ -3,7 +3,7 @@ import {createTeamsAppFromDiscriminatorValue} from './createTeamsAppFromDiscrimi
 import {Entity, TeamsApp, TeamsAppDefinition} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class TeamsAppInstallation extends Entity implements Parsable {
     /** The app that is installed. */
     private _teamsApp?: TeamsApp | undefined;
@@ -14,6 +14,7 @@ export class TeamsAppInstallation extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.teamsAppInstallation";
     };
     /**
      * The deserialization information for the current model

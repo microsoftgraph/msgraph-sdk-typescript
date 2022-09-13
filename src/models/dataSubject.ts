@@ -9,6 +9,8 @@ export class DataSubject implements AdditionalDataHolder, Parsable {
     private _firstName?: string | undefined;
     /** Last Name of the data subject. */
     private _lastName?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The country/region of residency. The residency information is uesed only for internal reporting but not for the content search. */
     private _residency?: string | undefined;
     /**
@@ -30,6 +32,7 @@ export class DataSubject implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.dataSubject";
     };
     /**
      * Gets the email property value. Email of the data subject.
@@ -68,6 +71,7 @@ export class DataSubject implements AdditionalDataHolder, Parsable {
             "email": n => { this.email = n.getStringValue(); },
             "firstName": n => { this.firstName = n.getStringValue(); },
             "lastName": n => { this.lastName = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "residency": n => { this.residency = n.getStringValue(); },
         };
     };
@@ -84,6 +88,20 @@ export class DataSubject implements AdditionalDataHolder, Parsable {
      */
     public set lastName(value: string | undefined) {
         this._lastName = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the residency property value. The country/region of residency. The residency information is uesed only for internal reporting but not for the content search.
@@ -108,6 +126,7 @@ export class DataSubject implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("email", this.email);
         writer.writeStringValue("firstName", this.firstName);
         writer.writeStringValue("lastName", this.lastName);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("residency", this.residency);
         writer.writeAdditionalData(this.additionalData);
     };

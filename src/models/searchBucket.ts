@@ -9,6 +9,8 @@ export class SearchBucket implements AdditionalDataHolder, Parsable {
     private _count?: number | undefined;
     /** The discrete value of the field that an aggregation was computed on. */
     private _key?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -42,6 +44,7 @@ export class SearchBucket implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.searchBucket";
     };
     /**
      * Gets the count property value. The approximate number of search matches that share the same value specified in the key property. Note that this number is not the exact number of matches.
@@ -66,6 +69,7 @@ export class SearchBucket implements AdditionalDataHolder, Parsable {
             "aggregationFilterToken": n => { this.aggregationFilterToken = n.getStringValue(); },
             "count": n => { this.count = n.getNumberValue(); },
             "key": n => { this.key = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
@@ -83,6 +87,20 @@ export class SearchBucket implements AdditionalDataHolder, Parsable {
         this._key = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -91,6 +109,7 @@ export class SearchBucket implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("aggregationFilterToken", this.aggregationFilterToken);
         writer.writeNumberValue("count", this.count);
         writer.writeStringValue("key", this.key);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

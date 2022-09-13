@@ -1,4 +1,4 @@
-/** Provides operations to manage the solutionsRoot singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum BookingPriceType {
     /** The price of the service is not defined. */
     Undefined = "undefined",

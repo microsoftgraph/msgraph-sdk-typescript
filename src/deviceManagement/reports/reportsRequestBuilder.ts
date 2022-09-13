@@ -15,6 +15,7 @@ import {GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder} f
 import {GetDeviceManagementIntentSettingsReportRequestBuilder} from './getDeviceManagementIntentSettingsReport/getDeviceManagementIntentSettingsReportRequestBuilder';
 import {GetDeviceNonComplianceReportRequestBuilder} from './getDeviceNonComplianceReport/getDeviceNonComplianceReportRequestBuilder';
 import {GetHistoricalReportRequestBuilder} from './getHistoricalReport/getHistoricalReportRequestBuilder';
+import {GetNoncompliantDevicesAndSettingsReportRequestBuilder} from './getNoncompliantDevicesAndSettingsReport/getNoncompliantDevicesAndSettingsReportRequestBuilder';
 import {GetPolicyNonComplianceMetadataRequestBuilder} from './getPolicyNonComplianceMetadata/getPolicyNonComplianceMetadataRequestBuilder';
 import {GetPolicyNonComplianceReportRequestBuilder} from './getPolicyNonComplianceReport/getPolicyNonComplianceReportRequestBuilder';
 import {GetPolicyNonComplianceSummaryReportRequestBuilder} from './getPolicyNonComplianceSummaryReport/getPolicyNonComplianceSummaryReportRequestBuilder';
@@ -74,6 +75,10 @@ export class ReportsRequestBuilder {
     /** The getHistoricalReport property */
     public get getHistoricalReport(): GetHistoricalReportRequestBuilder {
         return new GetHistoricalReportRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The getNoncompliantDevicesAndSettingsReport property */
+    public get getNoncompliantDevicesAndSettingsReport(): GetNoncompliantDevicesAndSettingsReportRequestBuilder {
+        return new GetNoncompliantDevicesAndSettingsReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The getPolicyNonComplianceMetadata property */
     public get getPolicyNonComplianceMetadata(): GetPolicyNonComplianceMetadataRequestBuilder {
@@ -140,6 +145,7 @@ export class ReportsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -184,7 +190,7 @@ export class ReportsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.reports.exportJobs.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceManagementExportJobItemRequestBuilder
+     * @returns a DeviceManagementExportJobItemRequestBuilder
      */
     public exportJobsById(id: string) : DeviceManagementExportJobItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

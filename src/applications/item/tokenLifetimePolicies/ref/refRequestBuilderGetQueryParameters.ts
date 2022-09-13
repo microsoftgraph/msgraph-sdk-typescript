@@ -1,5 +1,5 @@
 
-/** The tokenLifetimePolicies assigned to this application. Supports $expand. */
+/** Get ref of tokenLifetimePolicies from applications */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

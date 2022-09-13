@@ -1,4 +1,4 @@
-/** Provides operations to manage the identityProtectionRoot singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum RiskDetectionTimingType {
     NotDefined = "notDefined",
     Realtime = "realtime",

@@ -2,7 +2,6 @@ import {AuthenticationProtocol} from './authenticationProtocol';
 import {IdentityProviderBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of domain entities. */
 export class SamlOrWsFedProvider extends IdentityProviderBase implements Parsable {
     /** Issuer URI of the federation server. */
     private _issuerUri?: string | undefined;
@@ -10,15 +9,16 @@ export class SamlOrWsFedProvider extends IdentityProviderBase implements Parsabl
     private _metadataExchangeUri?: string | undefined;
     /** URI that web-based clients are directed to when signing in to Azure Active Directory (Azure AD) services. */
     private _passiveSignInUri?: string | undefined;
-    /** Preferred authentication protocol. Supported values include saml or wsfed. */
+    /** Preferred authentication protocol. The possible values are: wsFed, saml, unknownFutureValue. */
     private _preferredAuthenticationProtocol?: AuthenticationProtocol | undefined;
     /** Current certificate used to sign tokens passed to the Microsoft identity platform. The certificate is formatted as a Base64 encoded string of the public portion of the federated IdP's token signing certificate and must be compatible with the X509Certificate2 class.   This property is used in the following scenarios:  if a rollover is required outside of the autorollover update a new federation service is being set up  if the new token signing certificate isn't present in the federation properties after the federation service certificate has been updated.   Azure AD updates certificates via an autorollover process in which it attempts to retrieve a new certificate from the federation service metadata, 30 days before expiry of the current certificate. If a new certificate isn't available, Azure AD monitors the metadata daily and will update the federation settings for the domain when a new certificate is available. */
     private _signingCertificate?: string | undefined;
     /**
-     * Instantiates a new samlOrWsFedProvider and sets the default values.
+     * Instantiates a new SamlOrWsFedProvider and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.samlOrWsFedProvider";
     };
     /**
      * The deserialization information for the current model
@@ -76,14 +76,14 @@ export class SamlOrWsFedProvider extends IdentityProviderBase implements Parsabl
         this._passiveSignInUri = value;
     };
     /**
-     * Gets the preferredAuthenticationProtocol property value. Preferred authentication protocol. Supported values include saml or wsfed.
+     * Gets the preferredAuthenticationProtocol property value. Preferred authentication protocol. The possible values are: wsFed, saml, unknownFutureValue.
      * @returns a authenticationProtocol
      */
     public get preferredAuthenticationProtocol() {
         return this._preferredAuthenticationProtocol;
     };
     /**
-     * Sets the preferredAuthenticationProtocol property value. Preferred authentication protocol. Supported values include saml or wsfed.
+     * Sets the preferredAuthenticationProtocol property value. Preferred authentication protocol. The possible values are: wsFed, saml, unknownFutureValue.
      * @param value Value to set for the preferredAuthenticationProtocol property.
      */
     public set preferredAuthenticationProtocol(value: AuthenticationProtocol | undefined) {

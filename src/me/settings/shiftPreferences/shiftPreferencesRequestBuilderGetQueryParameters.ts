@@ -1,5 +1,5 @@
 
-/** The shift preferences for the user. */
+/** Get shiftPreferences from me */
 export class ShiftPreferencesRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

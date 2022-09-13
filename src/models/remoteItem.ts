@@ -35,6 +35,8 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
     private _lastModifiedDateTime?: Date | undefined;
     /** Optional. Filename of the remote item. Read-only. */
     private _name?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only. */
     private _package?: Package | undefined;
     /** Properties of the parent of the remote item. Read-only. */
@@ -72,6 +74,7 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.remoteItem";
     };
     /**
      * Gets the createdBy property value. Identity of the user, device, and application which created the item. Read-only.
@@ -159,6 +162,7 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
             "lastModifiedBy": n => { this.lastModifiedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "name": n => { this.name = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "package": n => { this.package = n.getObjectValue<Package>(createPackageFromDiscriminatorValue); },
             "parentReference": n => { this.parentReference = n.getObjectValue<ItemReference>(createItemReferenceFromDiscriminatorValue); },
             "shared": n => { this.shared = n.getObjectValue<Shared>(createSharedFromDiscriminatorValue); },
@@ -241,6 +245,20 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the package property value. If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
      * @returns a package
      */
@@ -284,6 +302,7 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue<IdentitySet>("lastModifiedBy", this.lastModifiedBy);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeStringValue("name", this.name);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<Package>("package", this.package);
         writer.writeObjectValue<ItemReference>("parentReference", this.parentReference);
         writer.writeObjectValue<Shared>("shared", this.shared);

@@ -3,8 +3,8 @@ import {createUnifiedRoleManagementPolicyFromDiscriminatorValue} from '../../../
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EffectiveRulesRequestBuilder} from './effectiveRules/effectiveRulesRequestBuilder';
-import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as ia40e5b4dfc4f932f58859b037d6bd550dc1b64cf92d909c5c2bd8f9bb3b976ec} from './effectiveRules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
-import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as ib7537d91007c74df50220e8af9edec8645866417b1cf7b5dd57c4d955f8b9521} from './rules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
+import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as ic6f793d374160642c2768dc2f8671aa9a06b7f3811c80234f6e9d5cc58f5a0ba} from './effectiveRules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
+import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as i4ae2fbd1842d4f5f7e2d464a244d1228c38ab27331849285a85c0173edbf44da} from './rules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
 import {RulesRequestBuilder} from './rules/rulesRequestBuilder';
 import {UnifiedRoleManagementPolicyItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleManagementPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration} from './unifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration';
@@ -57,7 +57,7 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Represents the role management policies.
+     * Specifies the various policies associated with scopes and roles.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -66,6 +66,7 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -110,16 +111,16 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.roleManagementPolicies.item.effectiveRules.item collection
      * @param id Unique identifier of the item
-     * @returns a unifiedRoleManagementPolicyRuleItemRequestBuilder
+     * @returns a UnifiedRoleManagementPolicyRuleItemRequestBuilder
      */
-    public effectiveRulesById(id: string) : ia40e5b4dfc4f932f58859b037d6bd550dc1b64cf92d909c5c2bd8f9bb3b976ec {
+    public effectiveRulesById(id: string) : ic6f793d374160642c2768dc2f8671aa9a06b7f3811c80234f6e9d5cc58f5a0ba {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleManagementPolicyRule%2Did"] = id
-        return new ia40e5b4dfc4f932f58859b037d6bd550dc1b64cf92d909c5c2bd8f9bb3b976ec(urlTplParams, this.requestAdapter);
+        return new ic6f793d374160642c2768dc2f8671aa9a06b7f3811c80234f6e9d5cc58f5a0ba(urlTplParams, this.requestAdapter);
     };
     /**
-     * Represents the role management policies.
+     * Specifies the various policies associated with scopes and roles.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleManagementPolicy
@@ -154,12 +155,12 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.roleManagementPolicies.item.rules.item collection
      * @param id Unique identifier of the item
-     * @returns a unifiedRoleManagementPolicyRuleItemRequestBuilder
+     * @returns a UnifiedRoleManagementPolicyRuleItemRequestBuilder
      */
-    public rulesById(id: string) : ib7537d91007c74df50220e8af9edec8645866417b1cf7b5dd57c4d955f8b9521 {
+    public rulesById(id: string) : i4ae2fbd1842d4f5f7e2d464a244d1228c38ab27331849285a85c0173edbf44da {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleManagementPolicyRule%2Did"] = id
-        return new ib7537d91007c74df50220e8af9edec8645866417b1cf7b5dd57c4d955f8b9521(urlTplParams, this.requestAdapter);
+        return new i4ae2fbd1842d4f5f7e2d464a244d1228c38ab27331849285a85c0173edbf44da(urlTplParams, this.requestAdapter);
     };
 }

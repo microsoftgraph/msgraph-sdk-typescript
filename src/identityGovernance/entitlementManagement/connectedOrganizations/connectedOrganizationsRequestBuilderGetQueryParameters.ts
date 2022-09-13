@@ -1,5 +1,5 @@
 
-/** Represents references to a directory or domain of another organization whose users can request access. */
+/** References to a directory or domain of another organization whose users can request access. */
 export class ConnectedOrganizationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

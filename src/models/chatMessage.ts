@@ -13,7 +13,7 @@ import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscrimi
 import {ChannelIdentity, ChatMessageAttachment, ChatMessageFromIdentitySet, ChatMessageHostedContent, ChatMessageMention, ChatMessagePolicyViolation, ChatMessageReaction, Entity, EventMessageDetail, ItemBody} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class ChatMessage extends Entity implements Parsable {
     /** References to attached objects like files, tabs, meetings etc. */
     private _attachments?: ChatMessageAttachment[] | undefined;
@@ -29,13 +29,13 @@ export class ChatMessage extends Entity implements Parsable {
     private _deletedDateTime?: Date | undefined;
     /** Read-only. Version number of the chat message. */
     private _etag?: string | undefined;
-    /** Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage. */
+    /** Read-only. If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage. */
     private _eventDetail?: EventMessageDetail | undefined;
     /** Details of the sender of the chat message. Can only be set during migration. */
     private _from?: ChatMessageFromIdentitySet | undefined;
     /** Content in a message hosted by Microsoft Teams - for example, images or code snippets. */
     private _hostedContents?: ChatMessageHostedContent[] | undefined;
-    /** The importance of the chat message. The possible values are: normal, high, urgent. */
+    /** The importance property */
     private _importance?: ChatMessageImportance | undefined;
     /** Read only. Timestamp when edits to the chat message were made. Triggers an 'Edited' flag in the Teams UI. If no edits are made the value is null. */
     private _lastEditedDateTime?: Date | undefined;
@@ -43,9 +43,9 @@ export class ChatMessage extends Entity implements Parsable {
     private _lastModifiedDateTime?: Date | undefined;
     /** Locale of the chat message set by the client. Always set to en-us. */
     private _locale?: string | undefined;
-    /** List of entities mentioned in the chat message. Supported entities are: user, bot, team, channel, and tag. */
+    /** List of entities mentioned in the chat message. Supported entities are: user, bot, team, and channel. */
     private _mentions?: ChatMessageMention[] | undefined;
-    /** The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage. */
+    /** The messageType property */
     private _messageType?: ChatMessageType | undefined;
     /** Defines the properties of a policy violation set by a data loss prevention (DLP) application. */
     private _policyViolation?: ChatMessagePolicyViolation | undefined;
@@ -122,6 +122,7 @@ export class ChatMessage extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.chatMessage";
     };
     /**
      * Gets the createdDateTime property value. Timestamp of when the chat message was created.
@@ -166,14 +167,14 @@ export class ChatMessage extends Entity implements Parsable {
         this._etag = value;
     };
     /**
-     * Gets the eventDetail property value. Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage.
+     * Gets the eventDetail property value. Read-only. If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage.
      * @returns a eventMessageDetail
      */
     public get eventDetail() {
         return this._eventDetail;
     };
     /**
-     * Sets the eventDetail property value. Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage.
+     * Sets the eventDetail property value. Read-only. If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage.
      * @param value Value to set for the eventDetail property.
      */
     public set eventDetail(value: EventMessageDetail | undefined) {
@@ -239,14 +240,14 @@ export class ChatMessage extends Entity implements Parsable {
         this._hostedContents = value;
     };
     /**
-     * Gets the importance property value. The importance of the chat message. The possible values are: normal, high, urgent.
+     * Gets the importance property value. The importance property
      * @returns a chatMessageImportance
      */
     public get importance() {
         return this._importance;
     };
     /**
-     * Sets the importance property value. The importance of the chat message. The possible values are: normal, high, urgent.
+     * Sets the importance property value. The importance property
      * @param value Value to set for the importance property.
      */
     public set importance(value: ChatMessageImportance | undefined) {
@@ -295,28 +296,28 @@ export class ChatMessage extends Entity implements Parsable {
         this._locale = value;
     };
     /**
-     * Gets the mentions property value. List of entities mentioned in the chat message. Supported entities are: user, bot, team, channel, and tag.
+     * Gets the mentions property value. List of entities mentioned in the chat message. Supported entities are: user, bot, team, and channel.
      * @returns a chatMessageMention
      */
     public get mentions() {
         return this._mentions;
     };
     /**
-     * Sets the mentions property value. List of entities mentioned in the chat message. Supported entities are: user, bot, team, channel, and tag.
+     * Sets the mentions property value. List of entities mentioned in the chat message. Supported entities are: user, bot, team, and channel.
      * @param value Value to set for the mentions property.
      */
     public set mentions(value: ChatMessageMention[] | undefined) {
         this._mentions = value;
     };
     /**
-     * Gets the messageType property value. The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage.
+     * Gets the messageType property value. The messageType property
      * @returns a chatMessageType
      */
     public get messageType() {
         return this._messageType;
     };
     /**
-     * Sets the messageType property value. The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage.
+     * Sets the messageType property value. The messageType property
      * @param value Value to set for the messageType property.
      */
     public set messageType(value: ChatMessageType | undefined) {

@@ -1,8 +1,10 @@
 import {createAddInFromDiscriminatorValue} from './createAddInFromDiscriminatorValue';
 import {createApiApplicationFromDiscriminatorValue} from './createApiApplicationFromDiscriminatorValue';
 import {createAppRoleFromDiscriminatorValue} from './createAppRoleFromDiscriminatorValue';
+import {createCertificationFromDiscriminatorValue} from './createCertificationFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {createExtensionPropertyFromDiscriminatorValue} from './createExtensionPropertyFromDiscriminatorValue';
+import {createFederatedIdentityCredentialFromDiscriminatorValue} from './createFederatedIdentityCredentialFromDiscriminatorValue';
 import {createHomeRealmDiscoveryPolicyFromDiscriminatorValue} from './createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
 import {createInformationalUrlFromDiscriminatorValue} from './createInformationalUrlFromDiscriminatorValue';
 import {createKeyCredentialFromDiscriminatorValue} from './createKeyCredentialFromDiscriminatorValue';
@@ -16,7 +18,7 @@ import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssu
 import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
 import {createVerifiedPublisherFromDiscriminatorValue} from './createVerifiedPublisherFromDiscriminatorValue';
 import {createWebApplicationFromDiscriminatorValue} from './createWebApplicationFromDiscriminatorValue';
-import {AddIn, ApiApplication, AppRole, DirectoryObject, ExtensionProperty, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OptionalClaims, ParentalControlSettings, PasswordCredential, PublicClientApplication, RequiredResourceAccess, SpaApplication, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher, WebApplication} from './index';
+import {AddIn, ApiApplication, AppRole, Certification, DirectoryObject, ExtensionProperty, FederatedIdentityCredential, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OptionalClaims, ParentalControlSettings, PasswordCredential, PublicClientApplication, RequiredResourceAccess, SpaApplication, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher, WebApplication} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of application entities. */
@@ -25,35 +27,41 @@ export class Application extends DirectoryObject implements Parsable {
     private _addIns?: AddIn[] | undefined;
     /** Specifies settings for an application that implements a web API. */
     private _api?: ApiApplication | undefined;
-    /** The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. */
+    /** The unique identifier for the application that is assigned to an application by Azure AD. Not nullable. Read-only. Supports $filter (eq). */
     private _appId?: string | undefined;
     /** Unique identifier of the applicationTemplate. Supports $filter (eq, not, ne). */
     private _applicationTemplateId?: string | undefined;
     /** The collection of roles assigned to the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable. */
     private _appRoles?: AppRole[] | undefined;
+    /** Specifies the certification status of the application. */
+    private _certification?: Certification | undefined;
     /** The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderBy. */
     private _createdDateTime?: Date | undefined;
-    /** Read-only. */
+    /** Supports $filter (eq when counting empty collections). Read-only. */
     private _createdOnBehalfOf?: DirectoryObject | undefined;
-    /** Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search. */
+    /** The defaultRedirectUri property */
+    private _defaultRedirectUri?: string | undefined;
+    /** Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search. */
     private _description?: string | undefined;
     /** Specifies whether Microsoft has disabled the registered application. Possible values are: null (default value), NotDisabled, and DisabledDueToViolationOfServicesAgreement (reasons may include suspicious, abusive, or malicious activity, or a violation of the Microsoft Services Agreement).  Supports $filter (eq, ne, not). */
     private _disabledByMicrosoftStatus?: string | undefined;
     /** The display name for the application. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
     private _displayName?: string | undefined;
-    /** Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections). */
+    /** Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters). */
     private _extensionProperties?: ExtensionProperty[] | undefined;
-    /** Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of). */
+    /** Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters). */
+    private _federatedIdentityCredentials?: FederatedIdentityCredential[] | undefined;
+    /** Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following valid string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of). */
     private _groupMembershipClaims?: string | undefined;
     /** The homeRealmDiscoveryPolicies property */
     private _homeRealmDiscoveryPolicies?: HomeRealmDiscoveryPolicy[] | undefined;
     /** Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form api://<application-client-id>, or specify a more readable URI like https://contoso.com/api. For more information on valid identifierUris patterns and best practices, see Azure AD application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith). */
     private _identifierUris?: string[] | undefined;
-    /** Basic profile information of the application, such as it's marketing, support, terms of service, and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more information, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values). */
+    /** Basic profile information of the application such as  app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values). */
     private _info?: InformationalUrl | undefined;
     /** Specifies whether this application supports device authentication without a user. The default is false. */
     private _isDeviceOnlyAuthSupported?: boolean | undefined;
-    /** Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where the application is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property. */
+    /** Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where it is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property. */
     private _isFallbackPublicClient?: boolean | undefined;
     /** The collection of key credentials associated with the application. Not nullable. Supports $filter (eq, not, ge, le). */
     private _keyCredentials?: KeyCredential[] | undefined;
@@ -65,7 +73,7 @@ export class Application extends DirectoryObject implements Parsable {
     private _oauth2RequirePostResponse?: boolean | undefined;
     /** Application developers can configure optional claims in their Azure AD applications to specify the claims that are sent to their application by the Microsoft security token service. For more information, see How to: Provide optional claims to your app. */
     private _optionalClaims?: OptionalClaims | undefined;
-    /** Directory objects that are owners of the application. Read-only. Nullable. Supports $expand. */
+    /** Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections). */
     private _owners?: DirectoryObject[] | undefined;
     /** Specifies parental control settings for an application. */
     private _parentalControlSettings?: ParentalControlSettings | undefined;
@@ -73,23 +81,25 @@ export class Application extends DirectoryObject implements Parsable {
     private _passwordCredentials?: PasswordCredential[] | undefined;
     /** Specifies settings for installed clients such as desktop or mobile devices. */
     private _publicClient?: PublicClientApplication | undefined;
-    /** The verified publisher domain for the application. Read-only. Supports $filter (eq, ne, ge, le, startsWith). */
+    /** The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application's publisher domain. Supports $filter (eq, ne, ge, le, startsWith). */
     private _publisherDomain?: string | undefined;
     /** Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, not, ge, le). */
     private _requiredResourceAccess?: RequiredResourceAccess[] | undefined;
+    /** The URL where the service exposes SAML metadata for federation. This property is valid only for single-tenant applications. Nullable. */
+    private _samlMetadataUrl?: string | undefined;
     /** References application or service contact information from a Service or Asset Management database. Nullable. */
     private _serviceManagementReference?: string | undefined;
     /** Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, not). */
     private _signInAudience?: string | undefined;
     /** Specifies settings for a single-page application, including sign out URLs and redirect URIs for authorization codes and access tokens. */
     private _spa?: SpaApplication | undefined;
-    /** Custom strings that can be used to categorize and identify the application. Not nullable.Supports $filter (eq, not, ge, le, startsWith). */
+    /** Custom strings that can be used to categorize and identify the application. Not nullable. Supports $filter (eq, not, ge, le, startsWith). */
     private _tags?: string[] | undefined;
     /** Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key this property points to. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user. */
     private _tokenEncryptionKeyId?: string | undefined;
     /** The tokenIssuancePolicies property */
     private _tokenIssuancePolicies?: TokenIssuancePolicy[] | undefined;
-    /** The tokenLifetimePolicies assigned to this application. Supports $expand. */
+    /** The tokenLifetimePolicies property */
     private _tokenLifetimePolicies?: TokenLifetimePolicy[] | undefined;
     /** Specifies the verified publisher of the application. For more information about how publisher verification helps support application security, trustworthiness, and compliance, see Publisher verification. */
     private _verifiedPublisher?: VerifiedPublisher | undefined;
@@ -124,14 +134,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._api = value;
     };
     /**
-     * Gets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only.
+     * Gets the appId property value. The unique identifier for the application that is assigned to an application by Azure AD. Not nullable. Read-only. Supports $filter (eq).
      * @returns a string
      */
     public get appId() {
         return this._appId;
     };
     /**
-     * Sets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only.
+     * Sets the appId property value. The unique identifier for the application that is assigned to an application by Azure AD. Not nullable. Read-only. Supports $filter (eq).
      * @param value Value to set for the appId property.
      */
     public set appId(value: string | undefined) {
@@ -166,10 +176,25 @@ export class Application extends DirectoryObject implements Parsable {
         this._appRoles = value;
     };
     /**
+     * Gets the certification property value. Specifies the certification status of the application.
+     * @returns a certification
+     */
+    public get certification() {
+        return this._certification;
+    };
+    /**
+     * Sets the certification property value. Specifies the certification status of the application.
+     * @param value Value to set for the certification property.
+     */
+    public set certification(value: Certification | undefined) {
+        this._certification = value;
+    };
+    /**
      * Instantiates a new application and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.application";
     };
     /**
      * Gets the createdDateTime property value. The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderBy.
@@ -186,28 +211,42 @@ export class Application extends DirectoryObject implements Parsable {
         this._createdDateTime = value;
     };
     /**
-     * Gets the createdOnBehalfOf property value. Read-only.
+     * Gets the createdOnBehalfOf property value. Supports $filter (eq when counting empty collections). Read-only.
      * @returns a directoryObject
      */
     public get createdOnBehalfOf() {
         return this._createdOnBehalfOf;
     };
     /**
-     * Sets the createdOnBehalfOf property value. Read-only.
+     * Sets the createdOnBehalfOf property value. Supports $filter (eq when counting empty collections). Read-only.
      * @param value Value to set for the createdOnBehalfOf property.
      */
     public set createdOnBehalfOf(value: DirectoryObject | undefined) {
         this._createdOnBehalfOf = value;
     };
     /**
-     * Gets the description property value. Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.
+     * Gets the defaultRedirectUri property value. The defaultRedirectUri property
+     * @returns a string
+     */
+    public get defaultRedirectUri() {
+        return this._defaultRedirectUri;
+    };
+    /**
+     * Sets the defaultRedirectUri property value. The defaultRedirectUri property
+     * @param value Value to set for the defaultRedirectUri property.
+     */
+    public set defaultRedirectUri(value: string | undefined) {
+        this._defaultRedirectUri = value;
+    };
+    /**
+     * Gets the description property value. Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.
      * @returns a string
      */
     public get description() {
         return this._description;
     };
     /**
-     * Sets the description property value. Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.
+     * Sets the description property value. Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.
      * @param value Value to set for the description property.
      */
     public set description(value: string | undefined) {
@@ -242,18 +281,32 @@ export class Application extends DirectoryObject implements Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
+     * Gets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
      * @returns a extensionProperty
      */
     public get extensionProperties() {
         return this._extensionProperties;
     };
     /**
-     * Sets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
+     * Sets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
      * @param value Value to set for the extensionProperties property.
      */
     public set extensionProperties(value: ExtensionProperty[] | undefined) {
         this._extensionProperties = value;
+    };
+    /**
+     * Gets the federatedIdentityCredentials property value. Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters).
+     * @returns a federatedIdentityCredential
+     */
+    public get federatedIdentityCredentials() {
+        return this._federatedIdentityCredentials;
+    };
+    /**
+     * Sets the federatedIdentityCredentials property value. Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters).
+     * @param value Value to set for the federatedIdentityCredentials property.
+     */
+    public set federatedIdentityCredentials(value: FederatedIdentityCredential[] | undefined) {
+        this._federatedIdentityCredentials = value;
     };
     /**
      * The deserialization information for the current model
@@ -266,12 +319,15 @@ export class Application extends DirectoryObject implements Parsable {
             "appId": n => { this.appId = n.getStringValue(); },
             "applicationTemplateId": n => { this.applicationTemplateId = n.getStringValue(); },
             "appRoles": n => { this.appRoles = n.getCollectionOfObjectValues<AppRole>(createAppRoleFromDiscriminatorValue); },
+            "certification": n => { this.certification = n.getObjectValue<Certification>(createCertificationFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "createdOnBehalfOf": n => { this.createdOnBehalfOf = n.getObjectValue<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
+            "defaultRedirectUri": n => { this.defaultRedirectUri = n.getStringValue(); },
             "description": n => { this.description = n.getStringValue(); },
             "disabledByMicrosoftStatus": n => { this.disabledByMicrosoftStatus = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "extensionProperties": n => { this.extensionProperties = n.getCollectionOfObjectValues<ExtensionProperty>(createExtensionPropertyFromDiscriminatorValue); },
+            "federatedIdentityCredentials": n => { this.federatedIdentityCredentials = n.getCollectionOfObjectValues<FederatedIdentityCredential>(createFederatedIdentityCredentialFromDiscriminatorValue); },
             "groupMembershipClaims": n => { this.groupMembershipClaims = n.getStringValue(); },
             "homeRealmDiscoveryPolicies": n => { this.homeRealmDiscoveryPolicies = n.getCollectionOfObjectValues<HomeRealmDiscoveryPolicy>(createHomeRealmDiscoveryPolicyFromDiscriminatorValue); },
             "identifierUris": n => { this.identifierUris = n.getCollectionOfPrimitiveValues<string>(); },
@@ -289,6 +345,7 @@ export class Application extends DirectoryObject implements Parsable {
             "publicClient": n => { this.publicClient = n.getObjectValue<PublicClientApplication>(createPublicClientApplicationFromDiscriminatorValue); },
             "publisherDomain": n => { this.publisherDomain = n.getStringValue(); },
             "requiredResourceAccess": n => { this.requiredResourceAccess = n.getCollectionOfObjectValues<RequiredResourceAccess>(createRequiredResourceAccessFromDiscriminatorValue); },
+            "samlMetadataUrl": n => { this.samlMetadataUrl = n.getStringValue(); },
             "serviceManagementReference": n => { this.serviceManagementReference = n.getStringValue(); },
             "signInAudience": n => { this.signInAudience = n.getStringValue(); },
             "spa": n => { this.spa = n.getObjectValue<SpaApplication>(createSpaApplicationFromDiscriminatorValue); },
@@ -301,14 +358,14 @@ export class Application extends DirectoryObject implements Parsable {
         };
     };
     /**
-     * Gets the groupMembershipClaims property value. Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).
+     * Gets the groupMembershipClaims property value. Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following valid string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).
      * @returns a string
      */
     public get groupMembershipClaims() {
         return this._groupMembershipClaims;
     };
     /**
-     * Sets the groupMembershipClaims property value. Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).
+     * Sets the groupMembershipClaims property value. Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following valid string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).
      * @param value Value to set for the groupMembershipClaims property.
      */
     public set groupMembershipClaims(value: string | undefined) {
@@ -343,14 +400,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._identifierUris = value;
     };
     /**
-     * Gets the info property value. Basic profile information of the application, such as it's marketing, support, terms of service, and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more information, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
+     * Gets the info property value. Basic profile information of the application such as  app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
      * @returns a informationalUrl
      */
     public get info() {
         return this._info;
     };
     /**
-     * Sets the info property value. Basic profile information of the application, such as it's marketing, support, terms of service, and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more information, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
+     * Sets the info property value. Basic profile information of the application such as  app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
      * @param value Value to set for the info property.
      */
     public set info(value: InformationalUrl | undefined) {
@@ -371,14 +428,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._isDeviceOnlyAuthSupported = value;
     };
     /**
-     * Gets the isFallbackPublicClient property value. Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where the application is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property.
+     * Gets the isFallbackPublicClient property value. Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where it is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property.
      * @returns a boolean
      */
     public get isFallbackPublicClient() {
         return this._isFallbackPublicClient;
     };
     /**
-     * Sets the isFallbackPublicClient property value. Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where the application is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property.
+     * Sets the isFallbackPublicClient property value. Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where it is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property.
      * @param value Value to set for the isFallbackPublicClient property.
      */
     public set isFallbackPublicClient(value: boolean | undefined) {
@@ -455,14 +512,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._optionalClaims = value;
     };
     /**
-     * Gets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand.
+     * Gets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
      * @returns a directoryObject
      */
     public get owners() {
         return this._owners;
     };
     /**
-     * Sets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand.
+     * Sets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
      * @param value Value to set for the owners property.
      */
     public set owners(value: DirectoryObject[] | undefined) {
@@ -511,14 +568,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._publicClient = value;
     };
     /**
-     * Gets the publisherDomain property value. The verified publisher domain for the application. Read-only. Supports $filter (eq, ne, ge, le, startsWith).
+     * Gets the publisherDomain property value. The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application's publisher domain. Supports $filter (eq, ne, ge, le, startsWith).
      * @returns a string
      */
     public get publisherDomain() {
         return this._publisherDomain;
     };
     /**
-     * Sets the publisherDomain property value. The verified publisher domain for the application. Read-only. Supports $filter (eq, ne, ge, le, startsWith).
+     * Sets the publisherDomain property value. The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application's publisher domain. Supports $filter (eq, ne, ge, le, startsWith).
      * @param value Value to set for the publisherDomain property.
      */
     public set publisherDomain(value: string | undefined) {
@@ -539,6 +596,20 @@ export class Application extends DirectoryObject implements Parsable {
         this._requiredResourceAccess = value;
     };
     /**
+     * Gets the samlMetadataUrl property value. The URL where the service exposes SAML metadata for federation. This property is valid only for single-tenant applications. Nullable.
+     * @returns a string
+     */
+    public get samlMetadataUrl() {
+        return this._samlMetadataUrl;
+    };
+    /**
+     * Sets the samlMetadataUrl property value. The URL where the service exposes SAML metadata for federation. This property is valid only for single-tenant applications. Nullable.
+     * @param value Value to set for the samlMetadataUrl property.
+     */
+    public set samlMetadataUrl(value: string | undefined) {
+        this._samlMetadataUrl = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -550,12 +621,15 @@ export class Application extends DirectoryObject implements Parsable {
         writer.writeStringValue("appId", this.appId);
         writer.writeStringValue("applicationTemplateId", this.applicationTemplateId);
         writer.writeCollectionOfObjectValues<AppRole>("appRoles", this.appRoles);
+        writer.writeObjectValue<Certification>("certification", this.certification);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeObjectValue<DirectoryObject>("createdOnBehalfOf", this.createdOnBehalfOf);
+        writer.writeStringValue("defaultRedirectUri", this.defaultRedirectUri);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("disabledByMicrosoftStatus", this.disabledByMicrosoftStatus);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeCollectionOfObjectValues<ExtensionProperty>("extensionProperties", this.extensionProperties);
+        writer.writeCollectionOfObjectValues<FederatedIdentityCredential>("federatedIdentityCredentials", this.federatedIdentityCredentials);
         writer.writeStringValue("groupMembershipClaims", this.groupMembershipClaims);
         writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", this.homeRealmDiscoveryPolicies);
         writer.writeCollectionOfPrimitiveValues<string>("identifierUris", this.identifierUris);
@@ -573,6 +647,7 @@ export class Application extends DirectoryObject implements Parsable {
         writer.writeObjectValue<PublicClientApplication>("publicClient", this.publicClient);
         writer.writeStringValue("publisherDomain", this.publisherDomain);
         writer.writeCollectionOfObjectValues<RequiredResourceAccess>("requiredResourceAccess", this.requiredResourceAccess);
+        writer.writeStringValue("samlMetadataUrl", this.samlMetadataUrl);
         writer.writeStringValue("serviceManagementReference", this.serviceManagementReference);
         writer.writeStringValue("signInAudience", this.signInAudience);
         writer.writeObjectValue<SpaApplication>("spa", this.spa);
@@ -626,14 +701,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._spa = value;
     };
     /**
-     * Gets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable.Supports $filter (eq, not, ge, le, startsWith).
+     * Gets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable. Supports $filter (eq, not, ge, le, startsWith).
      * @returns a string
      */
     public get tags() {
         return this._tags;
     };
     /**
-     * Sets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable.Supports $filter (eq, not, ge, le, startsWith).
+     * Sets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable. Supports $filter (eq, not, ge, le, startsWith).
      * @param value Value to set for the tags property.
      */
     public set tags(value: string[] | undefined) {
@@ -668,14 +743,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._tokenIssuancePolicies = value;
     };
     /**
-     * Gets the tokenLifetimePolicies property value. The tokenLifetimePolicies assigned to this application. Supports $expand.
+     * Gets the tokenLifetimePolicies property value. The tokenLifetimePolicies property
      * @returns a tokenLifetimePolicy
      */
     public get tokenLifetimePolicies() {
         return this._tokenLifetimePolicies;
     };
     /**
-     * Sets the tokenLifetimePolicies property value. The tokenLifetimePolicies assigned to this application. Supports $expand.
+     * Sets the tokenLifetimePolicies property value. The tokenLifetimePolicies property
      * @param value Value to set for the tokenLifetimePolicies property.
      */
     public set tokenLifetimePolicies(value: TokenLifetimePolicy[] | undefined) {

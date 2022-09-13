@@ -1,5 +1,5 @@
 
-/** Domain settings configured by customer when federated with Azure AD. Supports $expand. */
+/** Domain settings configured by a customer when federated with Azure AD. Supports $expand. */
 export class FederationConfigurationRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

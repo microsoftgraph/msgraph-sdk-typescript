@@ -9,13 +9,15 @@ export class WorkbookSortField implements AdditionalDataHolder, Parsable {
     private _ascending?: boolean | undefined;
     /** Represents the color that is the target of the condition if the sorting is on font or cell color. */
     private _color?: string | undefined;
-    /** Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber. */
+    /** Represents additional sorting options for this field. The possible values are: Normal, TextAsNumber. */
     private _dataOption?: string | undefined;
     /** Represents the icon that is the target of the condition if the sorting is on the cell's icon. */
     private _icon?: WorkbookIcon | undefined;
     /** Represents the column (or row, depending on the sort orientation) that the condition is on. Represented as an offset from the first column (or row). */
     private _key?: number | undefined;
-    /** Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** Represents the type of sorting of this condition. The possible values are: Value, CellColor, FontColor, Icon. */
     private _sortOn?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -64,16 +66,17 @@ export class WorkbookSortField implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.workbookSortField";
     };
     /**
-     * Gets the dataOption property value. Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber.
+     * Gets the dataOption property value. Represents additional sorting options for this field. The possible values are: Normal, TextAsNumber.
      * @returns a string
      */
     public get dataOption() {
         return this._dataOption;
     };
     /**
-     * Sets the dataOption property value. Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber.
+     * Sets the dataOption property value. Represents additional sorting options for this field. The possible values are: Normal, TextAsNumber.
      * @param value Value to set for the dataOption property.
      */
     public set dataOption(value: string | undefined) {
@@ -90,6 +93,7 @@ export class WorkbookSortField implements AdditionalDataHolder, Parsable {
             "dataOption": n => { this.dataOption = n.getStringValue(); },
             "icon": n => { this.icon = n.getObjectValue<WorkbookIcon>(createWorkbookIconFromDiscriminatorValue); },
             "key": n => { this.key = n.getNumberValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "sortOn": n => { this.sortOn = n.getStringValue(); },
         };
     };
@@ -122,6 +126,20 @@ export class WorkbookSortField implements AdditionalDataHolder, Parsable {
         this._key = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -132,18 +150,19 @@ export class WorkbookSortField implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("dataOption", this.dataOption);
         writer.writeObjectValue<WorkbookIcon>("icon", this.icon);
         writer.writeNumberValue("key", this.key);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("sortOn", this.sortOn);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the sortOn property value. Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon.
+     * Gets the sortOn property value. Represents the type of sorting of this condition. The possible values are: Value, CellColor, FontColor, Icon.
      * @returns a string
      */
     public get sortOn() {
         return this._sortOn;
     };
     /**
-     * Sets the sortOn property value. Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon.
+     * Sets the sortOn property value. Represents the type of sorting of this condition. The possible values are: Value, CellColor, FontColor, Icon.
      * @param value Value to set for the sortOn property.
      */
     public set sortOn(value: string | undefined) {

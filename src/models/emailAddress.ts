@@ -3,10 +3,12 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class EmailAddress implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The email address of an entity instance. */
+    /** The email address of the person or entity. */
     private _address?: string | undefined;
-    /** The display name of an entity instance. */
+    /** The display name of the person or entity. */
     private _name?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -22,14 +24,14 @@ export class EmailAddress implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the address property value. The email address of an entity instance.
+     * Gets the address property value. The email address of the person or entity.
      * @returns a string
      */
     public get address() {
         return this._address;
     };
     /**
-     * Sets the address property value. The email address of an entity instance.
+     * Sets the address property value. The email address of the person or entity.
      * @param value Value to set for the address property.
      */
     public set address(value: string | undefined) {
@@ -40,6 +42,7 @@ export class EmailAddress implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.emailAddress";
     };
     /**
      * The deserialization information for the current model
@@ -49,21 +52,36 @@ export class EmailAddress implements AdditionalDataHolder, Parsable {
         return {
             "address": n => { this.address = n.getStringValue(); },
             "name": n => { this.name = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
     /**
-     * Gets the name property value. The display name of an entity instance.
+     * Gets the name property value. The display name of the person or entity.
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Sets the name property value. The display name of an entity instance.
+     * Sets the name property value. The display name of the person or entity.
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {
         this._name = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -73,6 +91,7 @@ export class EmailAddress implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("address", this.address);
         writer.writeStringValue("name", this.name);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };
 }

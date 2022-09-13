@@ -1,5 +1,5 @@
 
-/** Represents entry point for B2X and self-service sign-up identity userflows. */
+/** Represents entry point for B2X/self-service sign-up identity userflows. */
 export class B2xUserFlowsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

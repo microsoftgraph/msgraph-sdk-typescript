@@ -2,6 +2,10 @@ import {TodoTask} from '../../../../../../models/';
 import {createTodoTaskFromDiscriminatorValue} from '../../../../../../models/createTodoTaskFromDiscriminatorValue';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
+import {AttachmentBaseItemRequestBuilder} from './attachments/item/attachmentBaseItemRequestBuilder';
+import {AttachmentSessionsRequestBuilder} from './attachmentSessions/attachmentSessionsRequestBuilder';
+import {AttachmentSessionItemRequestBuilder} from './attachmentSessions/item/attachmentSessionItemRequestBuilder';
 import {ChecklistItemsRequestBuilder} from './checklistItems/checklistItemsRequestBuilder';
 import {ChecklistItemItemRequestBuilder} from './checklistItems/item/checklistItemItemRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
@@ -15,6 +19,14 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity. */
 export class TodoTaskItemRequestBuilder {
+    /** The attachments property */
+    public get attachments(): AttachmentsRequestBuilder {
+        return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The attachmentSessions property */
+    public get attachmentSessions(): AttachmentSessionsRequestBuilder {
+        return new AttachmentSessionsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The checklistItems property */
     public get checklistItems(): ChecklistItemsRequestBuilder {
         return new ChecklistItemsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -34,9 +46,31 @@ export class TodoTaskItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.todo.lists.item.tasks.item.attachments.item collection
+     * @param id Unique identifier of the item
+     * @returns a AttachmentBaseItemRequestBuilder
+     */
+    public attachmentsById(id: string) : AttachmentBaseItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["attachmentBase%2Did"] = id
+        return new AttachmentBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.todo.lists.item.tasks.item.attachmentSessions.item collection
+     * @param id Unique identifier of the item
+     * @returns a AttachmentSessionItemRequestBuilder
+     */
+    public attachmentSessionsById(id: string) : AttachmentSessionItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["attachmentSession%2Did"] = id
+        return new AttachmentSessionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.todo.lists.item.tasks.item.checklistItems.item collection
      * @param id Unique identifier of the item
-     * @returns a checklistItemItemRequestBuilder
+     * @returns a ChecklistItemItemRequestBuilder
      */
     public checklistItemsById(id: string) : ChecklistItemItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -83,6 +117,7 @@ export class TodoTaskItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -127,7 +162,7 @@ export class TodoTaskItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.todo.lists.item.tasks.item.extensions.item collection
      * @param id Unique identifier of the item
-     * @returns a extensionItemRequestBuilder
+     * @returns a ExtensionItemRequestBuilder
      */
     public extensionsById(id: string) : ExtensionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -154,7 +189,7 @@ export class TodoTaskItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.todo.lists.item.tasks.item.linkedResources.item collection
      * @param id Unique identifier of the item
-     * @returns a linkedResourceItemRequestBuilder
+     * @returns a LinkedResourceItemRequestBuilder
      */
     public linkedResourcesById(id: string) : LinkedResourceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -1,5 +1,5 @@
 
-/** The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site. */
+/** Get externalColumns from groups */
 export class ColumnDefinitionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -26,7 +26,7 @@ export class AttendeeReportRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The content stream of the attendee report of a Teams live event. Read-only.
+     * The content stream of the attendee report of a Microsoft Teams live event. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -42,7 +42,7 @@ export class AttendeeReportRequestBuilder {
         return requestInfo;
     };
     /**
-     * The content stream of the attendee report of a Teams live event. Read-only.
+     * The content stream of the attendee report of a Microsoft Teams live event. Read-only.
      * @param body Binary request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -61,7 +61,7 @@ export class AttendeeReportRequestBuilder {
         return requestInfo;
     };
     /**
-     * The content stream of the attendee report of a Teams live event. Read-only.
+     * The content stream of the attendee report of a Microsoft Teams live event. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ArrayBuffer
@@ -77,7 +77,7 @@ export class AttendeeReportRequestBuilder {
         return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The content stream of the attendee report of a Teams live event. Read-only.
+     * The content stream of the attendee report of a Microsoft Teams live event. Read-only.
      * @param body Binary request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

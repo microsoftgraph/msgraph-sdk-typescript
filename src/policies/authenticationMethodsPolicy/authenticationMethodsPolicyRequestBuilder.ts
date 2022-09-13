@@ -24,7 +24,7 @@ export class AuthenticationMethodsPolicyRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.authenticationMethodsPolicy.authenticationMethodConfigurations.item collection
      * @param id Unique identifier of the item
-     * @returns a authenticationMethodConfigurationItemRequestBuilder
+     * @returns a AuthenticationMethodConfigurationItemRequestBuilder
      */
     public authenticationMethodConfigurationsById(id: string) : AuthenticationMethodConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -71,6 +71,7 @@ export class AuthenticationMethodsPolicyRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

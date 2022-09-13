@@ -8,7 +8,9 @@ export class SettingSource implements AdditionalDataHolder, Parsable {
     private _displayName?: string | undefined;
     /** Not yet documented */
     private _id?: string | undefined;
-    /** Not yet documented. Possible values are: deviceConfiguration, deviceIntent. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** The sourceType property */
     private _sourceType?: SettingSourceType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,6 +31,7 @@ export class SettingSource implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.settingSource";
     };
     /**
      * Gets the displayName property value. Not yet documented
@@ -52,6 +55,7 @@ export class SettingSource implements AdditionalDataHolder, Parsable {
         return {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "id": n => { this.id = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "sourceType": n => { this.sourceType = n.getEnumValue<SettingSourceType>(SettingSourceType); },
         };
     };
@@ -70,6 +74,20 @@ export class SettingSource implements AdditionalDataHolder, Parsable {
         this._id = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -77,18 +95,19 @@ export class SettingSource implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("id", this.id);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<SettingSourceType>("sourceType", this.sourceType);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the sourceType property value. Not yet documented. Possible values are: deviceConfiguration, deviceIntent.
+     * Gets the sourceType property value. The sourceType property
      * @returns a settingSourceType
      */
     public get sourceType() {
         return this._sourceType;
     };
     /**
-     * Sets the sourceType property value. Not yet documented. Possible values are: deviceConfiguration, deviceIntent.
+     * Sets the sourceType property value. The sourceType property
      * @param value Value to set for the sourceType property.
      */
     public set sourceType(value: SettingSourceType | undefined) {

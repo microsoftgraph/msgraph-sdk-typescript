@@ -60,6 +60,7 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -120,7 +121,7 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.accessReviews.historyDefinitions.item.instances.item collection
      * @param id Unique identifier of the item
-     * @returns a accessReviewHistoryInstanceItemRequestBuilder
+     * @returns a AccessReviewHistoryInstanceItemRequestBuilder
      */
     public instancesById(id: string) : AccessReviewHistoryInstanceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

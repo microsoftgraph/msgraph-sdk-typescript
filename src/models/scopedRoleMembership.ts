@@ -2,7 +2,7 @@ import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscrimi
 import {Entity, Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class ScopedRoleMembership extends Entity implements Parsable {
     /** Unique identifier for the administrative unit that the directory role is scoped to */
     private _administrativeUnitId?: string | undefined;
@@ -29,6 +29,7 @@ export class ScopedRoleMembership extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.scopedRoleMembership";
     };
     /**
      * The deserialization information for the current model
