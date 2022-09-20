@@ -3,10 +3,10 @@ import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFrom
 import {EmailAddress, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class CalendarPermission extends Entity implements Parsable {
     /** List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom. */
-    private _allowedRoles?: string[] | undefined;
+    private _allowedRoles?: CalendarRoleType[] | undefined;
     /** Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only. */
     private _emailAddress?: EmailAddress | undefined;
     /** True if the user in context (sharee or delegate) is inside the same organization as the calendar owner. */
@@ -17,7 +17,7 @@ export class CalendarPermission extends Entity implements Parsable {
     private _role?: CalendarRoleType | undefined;
     /**
      * Gets the allowedRoles property value. List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.
-     * @returns a string
+     * @returns a calendarRoleType
      */
     public get allowedRoles() {
         return this._allowedRoles;
@@ -26,7 +26,7 @@ export class CalendarPermission extends Entity implements Parsable {
      * Sets the allowedRoles property value. List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.
      * @param value Value to set for the allowedRoles property.
      */
-    public set allowedRoles(value: string[] | undefined) {
+    public set allowedRoles(value: CalendarRoleType[] | undefined) {
         this._allowedRoles = value;
     };
     /**
@@ -34,6 +34,7 @@ export class CalendarPermission extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.calendarPermission";
     };
     /**
      * Gets the emailAddress property value. Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only.
@@ -55,7 +56,7 @@ export class CalendarPermission extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "allowedRoles": n => { this.allowedRoles = n.getCollectionOfPrimitiveValues<string>(); },
+            "allowedRoles": n => { this.allowedRoles = n.getEnumValues<CalendarRoleType>(CalendarRoleType); },
             "emailAddress": n => { this.emailAddress = n.getObjectValue<EmailAddress>(createEmailAddressFromDiscriminatorValue); },
             "isInsideOrganization": n => { this.isInsideOrganization = n.getBooleanValue(); },
             "isRemovable": n => { this.isRemovable = n.getBooleanValue(); },
@@ -111,7 +112,7 @@ export class CalendarPermission extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfPrimitiveValues<string>("allowedRoles", this.allowedRoles);
+        this.allowedRoles && writer.writeEnumValue<CalendarRoleType>("allowedRoles", ...this.allowedRoles);
         writer.writeObjectValue<EmailAddress>("emailAddress", this.emailAddress);
         writer.writeBooleanValue("isInsideOrganization", this.isInsideOrganization);
         writer.writeBooleanValue("isRemovable", this.isRemovable);

@@ -7,6 +7,8 @@ export class CalculatedColumn implements AdditionalDataHolder, Parsable {
     private _format?: string | undefined;
     /** The formula used to compute the value for this column. */
     private _formula?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The output type used to format values in this column. Must be one of boolean, currency, dateTime, number, or text. */
     private _outputType?: string | undefined;
     /**
@@ -28,6 +30,7 @@ export class CalculatedColumn implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.calculatedColumn";
     };
     /**
      * Gets the format property value. For dateTime output types, the format of the value. Must be one of dateOnly or dateTime.
@@ -65,8 +68,23 @@ export class CalculatedColumn implements AdditionalDataHolder, Parsable {
         return {
             "format": n => { this.format = n.getStringValue(); },
             "formula": n => { this.formula = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "outputType": n => { this.outputType = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the outputType property value. The output type used to format values in this column. Must be one of boolean, currency, dateTime, number, or text.
@@ -90,6 +108,7 @@ export class CalculatedColumn implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("format", this.format);
         writer.writeStringValue("formula", this.formula);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("outputType", this.outputType);
         writer.writeAdditionalData(this.additionalData);
     };

@@ -1,4 +1,4 @@
-/** Provides operations to manage the security singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum AlertFeedback {
     Unknown = "unknown",
     TruePositive = "truePositive",

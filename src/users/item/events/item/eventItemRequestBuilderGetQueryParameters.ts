@@ -1,5 +1,5 @@
 
-/** The user's events. Default is to show events under the Default Calendar. Read-only. Nullable. */
+/** The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable. */
 export class EventItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

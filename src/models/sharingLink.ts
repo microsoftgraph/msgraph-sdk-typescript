@@ -7,6 +7,8 @@ export class SharingLink implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The app the link is associated with. */
     private _application?: Identity | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint. */
     private _preventsDownload?: boolean | undefined;
     /** The scope of the link represented by this permission. Value anonymous indicates the link is usable by anyone, organization indicates the link is only usable for users signed into the same tenant. */
@@ -50,6 +52,7 @@ export class SharingLink implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.sharingLink";
     };
     /**
      * The deserialization information for the current model
@@ -58,12 +61,27 @@ export class SharingLink implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "application": n => { this.application = n.getObjectValue<Identity>(createIdentityFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "preventsDownload": n => { this.preventsDownload = n.getBooleanValue(); },
             "scope": n => { this.scope = n.getStringValue(); },
             "type": n => { this.type = n.getStringValue(); },
             "webHtml": n => { this.webHtml = n.getStringValue(); },
             "webUrl": n => { this.webUrl = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the preventsDownload property value. If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint.
@@ -100,6 +118,7 @@ export class SharingLink implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<Identity>("application", this.application);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeBooleanValue("preventsDownload", this.preventsDownload);
         writer.writeStringValue("scope", this.scope);
         writer.writeStringValue("type", this.type);

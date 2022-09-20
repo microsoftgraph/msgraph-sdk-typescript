@@ -1,4 +1,4 @@
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum ResponseType {
     None = "none",
     Organizer = "organizer",

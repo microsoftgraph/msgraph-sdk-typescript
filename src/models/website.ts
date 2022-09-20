@@ -8,7 +8,9 @@ export class Website implements AdditionalDataHolder, Parsable {
     private _address?: string | undefined;
     /** The display name of the web site. */
     private _displayName?: string | undefined;
-    /** Possible values are: other, home, work, blog, profile. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** The possible values are: other, home, work, blog, profile. */
     private _type?: WebsiteType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -43,6 +45,7 @@ export class Website implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.website";
     };
     /**
      * Gets the displayName property value. The display name of the web site.
@@ -66,8 +69,23 @@ export class Website implements AdditionalDataHolder, Parsable {
         return {
             "address": n => { this.address = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "type": n => { this.type = n.getEnumValue<WebsiteType>(WebsiteType); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -77,18 +95,19 @@ export class Website implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("address", this.address);
         writer.writeStringValue("displayName", this.displayName);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<WebsiteType>("type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. Possible values are: other, home, work, blog, profile.
+     * Gets the type property value. The possible values are: other, home, work, blog, profile.
      * @returns a websiteType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. Possible values are: other, home, work, blog, profile.
+     * Sets the type property value. The possible values are: other, home, work, blog, profile.
      * @param value Value to set for the type property.
      */
     public set type(value: WebsiteType | undefined) {

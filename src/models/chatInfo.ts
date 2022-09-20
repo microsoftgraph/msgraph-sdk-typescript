@@ -3,8 +3,10 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ChatInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The unique identifier for a message in a Microsoft Teams channel. */
+    /** The unique identifier of a message in a Microsoft Teams channel. */
     private _messageId?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The ID of the reply message. */
     private _replyChainMessageId?: string | undefined;
     /** The unique identifier for a thread in Microsoft Teams. */
@@ -28,6 +30,7 @@ export class ChatInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.chatInfo";
     };
     /**
      * The deserialization information for the current model
@@ -36,23 +39,38 @@ export class ChatInfo implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "messageId": n => { this.messageId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "replyChainMessageId": n => { this.replyChainMessageId = n.getStringValue(); },
             "threadId": n => { this.threadId = n.getStringValue(); },
         };
     };
     /**
-     * Gets the messageId property value. The unique identifier for a message in a Microsoft Teams channel.
+     * Gets the messageId property value. The unique identifier of a message in a Microsoft Teams channel.
      * @returns a string
      */
     public get messageId() {
         return this._messageId;
     };
     /**
-     * Sets the messageId property value. The unique identifier for a message in a Microsoft Teams channel.
+     * Sets the messageId property value. The unique identifier of a message in a Microsoft Teams channel.
      * @param value Value to set for the messageId property.
      */
     public set messageId(value: string | undefined) {
         this._messageId = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the replyChainMessageId property value. The ID of the reply message.
@@ -75,6 +93,7 @@ export class ChatInfo implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("messageId", this.messageId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("replyChainMessageId", this.replyChainMessageId);
         writer.writeStringValue("threadId", this.threadId);
         writer.writeAdditionalData(this.additionalData);

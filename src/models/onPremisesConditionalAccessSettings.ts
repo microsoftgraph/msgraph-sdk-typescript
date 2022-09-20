@@ -16,6 +16,7 @@ export class OnPremisesConditionalAccessSettings extends Entity implements Parsa
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.onPremisesConditionalAccessSettings";
     };
     /**
      * Gets the enabled property value. Indicates if on premises conditional access is enabled for this organization

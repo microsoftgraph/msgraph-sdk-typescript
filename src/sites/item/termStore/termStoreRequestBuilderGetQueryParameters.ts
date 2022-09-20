@@ -1,5 +1,5 @@
 
-/** The termStore under this site. */
+/** The default termStore under this site. */
 export class TermStoreRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

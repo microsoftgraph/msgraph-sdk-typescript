@@ -8,6 +8,7 @@ export class AgreementFileVersion extends AgreementFileProperties implements Par
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.agreementFileVersion";
     };
     /**
      * The deserialization information for the current model

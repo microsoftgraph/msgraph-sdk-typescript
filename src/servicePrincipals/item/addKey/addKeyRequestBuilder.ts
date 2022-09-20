@@ -1,7 +1,9 @@
 import {KeyCredential} from '../../../models/';
 import {createKeyCredentialFromDiscriminatorValue} from '../../../models/createKeyCredentialFromDiscriminatorValue';
+import {ODataError} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AddKeyRequestBuilderPostRequestConfiguration} from './addKeyRequestBuilderPostRequestConfiguration';
-import {KeyCredentialPostRequestBody} from './index';
+import {AddKeyPostRequestBody} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addKey method. */
@@ -31,12 +33,13 @@ export class AddKeyRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: KeyCredentialPostRequestBody | undefined, requestConfiguration?: AddKeyRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public createPostRequestInformation(body: AddKeyPostRequestBody | undefined, requestConfiguration?: AddKeyRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -51,11 +54,15 @@ export class AddKeyRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of KeyCredential
      */
-    public post(body: KeyCredentialPostRequestBody | undefined, requestConfiguration?: AddKeyRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<KeyCredential | undefined> {
+    public post(body: AddKeyPostRequestBody | undefined, requestConfiguration?: AddKeyRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<KeyCredential | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<KeyCredential>(requestInfo, createKeyCredentialFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<KeyCredential>(requestInfo, createKeyCredentialFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

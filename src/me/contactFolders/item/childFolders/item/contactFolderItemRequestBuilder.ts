@@ -49,7 +49,7 @@ export class ContactFolderItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.contactFolders.item.childFolders.item.contacts.item collection
      * @param id Unique identifier of the item
-     * @returns a contactItemRequestBuilder
+     * @returns a ContactItemRequestBuilder
      */
     public contactsById(id: string) : ContactItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -83,6 +83,7 @@ export class ContactFolderItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -143,7 +144,7 @@ export class ContactFolderItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.contactFolders.item.childFolders.item.multiValueExtendedProperties.item collection
      * @param id Unique identifier of the item
-     * @returns a multiValueLegacyExtendedPropertyItemRequestBuilder
+     * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
      */
     public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -171,7 +172,7 @@ export class ContactFolderItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.contactFolders.item.childFolders.item.singleValueExtendedProperties.item collection
      * @param id Unique identifier of the item
-     * @returns a singleValueLegacyExtendedPropertyItemRequestBuilder
+     * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
      */
     public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

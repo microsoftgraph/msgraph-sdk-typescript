@@ -2,7 +2,6 @@ import {createItemActivityStatFromDiscriminatorValue} from './createItemActivity
 import {Entity, ItemActivityStat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class ItemAnalytics extends Entity implements Parsable {
     /** The allTime property */
     private _allTime?: ItemActivityStat | undefined;
@@ -29,6 +28,7 @@ export class ItemAnalytics extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.itemAnalytics";
     };
     /**
      * The deserialization information for the current model

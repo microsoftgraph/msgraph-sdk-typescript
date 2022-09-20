@@ -1,5 +1,5 @@
 
-/** The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand. */
+/** The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand. */
 export class MemberOfRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

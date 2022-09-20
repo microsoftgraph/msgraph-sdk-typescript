@@ -1,5 +1,5 @@
 
-/** The **planner** resource is the entry point for the Planner object model. It returns a singleton **planner** resource.  It doesn't contain any usable properties. */
+/** Get planner */
 export class PlannerRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

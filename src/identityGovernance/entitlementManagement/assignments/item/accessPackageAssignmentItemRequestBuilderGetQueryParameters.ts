@@ -1,5 +1,5 @@
 
-/** Represents the grant of an access package to a subject (user or group). */
+/** The assignment of an access package to a subject for a period of time. */
 export class AccessPackageAssignmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

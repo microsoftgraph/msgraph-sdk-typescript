@@ -1,4 +1,4 @@
-/** Provides operations to manage the auditLogRoot singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum RiskDetail {
     None = "none",
     AdminGeneratedTemporaryPassword = "adminGeneratedTemporaryPassword",
@@ -12,4 +12,5 @@ export enum RiskDetail {
     Hidden = "hidden",
     AdminConfirmedUserCompromised = "adminConfirmedUserCompromised",
     UnknownFutureValue = "unknownFutureValue",
+    M365DAdminDismissedDetection = "m365DAdminDismissedDetection",
 }

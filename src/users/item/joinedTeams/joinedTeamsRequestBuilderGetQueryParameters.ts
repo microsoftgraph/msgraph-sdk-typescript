@@ -1,5 +1,5 @@
 
-/** The Microsoft Teams teams that the user is a member of. Read-only. Nullable. */
+/** Get joinedTeams from users */
 export class JoinedTeamsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

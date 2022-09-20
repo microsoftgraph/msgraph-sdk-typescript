@@ -1,5 +1,5 @@
 
-/** The scoped-role administrative unit memberships for this user. Read-only. Nullable. */
+/** Get scopedRoleMemberOf from me */
 export class ScopedRoleMemberOfRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

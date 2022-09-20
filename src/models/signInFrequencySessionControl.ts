@@ -1,18 +1,52 @@
 import {ConditionalAccessSessionControl} from './index';
+import {SignInFrequencyAuthenticationType} from './signInFrequencyAuthenticationType';
+import {SignInFrequencyInterval} from './signInFrequencyInterval';
 import {SigninFrequencyType} from './signinFrequencyType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton. */
 export class SignInFrequencySessionControl extends ConditionalAccessSessionControl implements Parsable {
+    /** The possible values are primaryAndSecondaryAuthentication, secondaryAuthentication, unknownFutureValue. */
+    private _authenticationType?: SignInFrequencyAuthenticationType | undefined;
+    /** The possible values are timeBased, everyTime, unknownFutureValue. */
+    private _frequencyInterval?: SignInFrequencyInterval | undefined;
     /** Possible values are: days, hours. */
     private _type?: SigninFrequencyType | undefined;
     /** The number of days or hours. */
     private _value?: number | undefined;
     /**
-     * Instantiates a new signInFrequencySessionControl and sets the default values.
+     * Gets the authenticationType property value. The possible values are primaryAndSecondaryAuthentication, secondaryAuthentication, unknownFutureValue.
+     * @returns a signInFrequencyAuthenticationType
+     */
+    public get authenticationType() {
+        return this._authenticationType;
+    };
+    /**
+     * Sets the authenticationType property value. The possible values are primaryAndSecondaryAuthentication, secondaryAuthentication, unknownFutureValue.
+     * @param value Value to set for the authenticationType property.
+     */
+    public set authenticationType(value: SignInFrequencyAuthenticationType | undefined) {
+        this._authenticationType = value;
+    };
+    /**
+     * Instantiates a new SignInFrequencySessionControl and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.signInFrequencySessionControl";
+    };
+    /**
+     * Gets the frequencyInterval property value. The possible values are timeBased, everyTime, unknownFutureValue.
+     * @returns a signInFrequencyInterval
+     */
+    public get frequencyInterval() {
+        return this._frequencyInterval;
+    };
+    /**
+     * Sets the frequencyInterval property value. The possible values are timeBased, everyTime, unknownFutureValue.
+     * @param value Value to set for the frequencyInterval property.
+     */
+    public set frequencyInterval(value: SignInFrequencyInterval | undefined) {
+        this._frequencyInterval = value;
     };
     /**
      * The deserialization information for the current model
@@ -20,6 +54,8 @@ export class SignInFrequencySessionControl extends ConditionalAccessSessionContr
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
+            "authenticationType": n => { this.authenticationType = n.getEnumValue<SignInFrequencyAuthenticationType>(SignInFrequencyAuthenticationType); },
+            "frequencyInterval": n => { this.frequencyInterval = n.getEnumValue<SignInFrequencyInterval>(SignInFrequencyInterval); },
             "type": n => { this.type = n.getEnumValue<SigninFrequencyType>(SigninFrequencyType); },
             "value": n => { this.value = n.getNumberValue(); },
         };
@@ -31,6 +67,8 @@ export class SignInFrequencySessionControl extends ConditionalAccessSessionContr
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeEnumValue<SignInFrequencyAuthenticationType>("authenticationType", this.authenticationType);
+        writer.writeEnumValue<SignInFrequencyInterval>("frequencyInterval", this.frequencyInterval);
         writer.writeEnumValue<SigninFrequencyType>("type", this.type);
         writer.writeNumberValue("value", this.value);
     };

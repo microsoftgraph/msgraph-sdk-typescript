@@ -1,5 +1,5 @@
 
-/** Get transitiveMemberOf from me */
+/** The groups, including nested groups, and directory roles that a user is a member of. Nullable. */
 export class TransitiveMemberOfRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

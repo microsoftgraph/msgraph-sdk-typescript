@@ -7,13 +7,12 @@ import {createTermFromDiscriminatorValue} from './createTermFromDiscriminatorVal
 import {Group, LocalizedName, Relation, Term} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Set extends Entity implements Parsable {
     /** Children terms of set in term [store]. */
     private _children?: Term[] | undefined;
     /** Date and time of set creation. Read-only. */
     private _createdDateTime?: Date | undefined;
-    /** Description giving details on the term usage. */
+    /** Description that gives details on the term usage. */
     private _description?: string | undefined;
     /** Name of the set for each languageTag. */
     private _localizedNames?: LocalizedName[] | undefined;
@@ -44,6 +43,7 @@ export class Set extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.termStore.set";
     };
     /**
      * Gets the createdDateTime property value. Date and time of set creation. Read-only.
@@ -60,14 +60,14 @@ export class Set extends Entity implements Parsable {
         this._createdDateTime = value;
     };
     /**
-     * Gets the description property value. Description giving details on the term usage.
+     * Gets the description property value. Description that gives details on the term usage.
      * @returns a string
      */
     public get description() {
         return this._description;
     };
     /**
-     * Sets the description property value. Description giving details on the term usage.
+     * Sets the description property value. Description that gives details on the term usage.
      * @param value Value to set for the description property.
      */
     public set description(value: string | undefined) {

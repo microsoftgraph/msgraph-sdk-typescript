@@ -65,6 +65,7 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -125,7 +126,7 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.accessReviews.definitions.item.instances.item collection
      * @param id Unique identifier of the item
-     * @returns a accessReviewInstanceItemRequestBuilder
+     * @returns a AccessReviewInstanceItemRequestBuilder
      */
     public instancesById(id: string) : AccessReviewInstanceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

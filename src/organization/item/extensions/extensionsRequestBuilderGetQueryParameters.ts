@@ -1,5 +1,5 @@
 
-/** The collection of open extensions defined for the organization resource. Nullable. */
+/** The collection of open extensions defined for the organization. Read-only. Nullable. */
 export class ExtensionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -6,7 +6,7 @@ import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
 import {CheckinRequestBuilder} from './checkin/checkinRequestBuilder';
 import {CheckoutRequestBuilder} from './checkout/checkoutRequestBuilder';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {DriveItemItemRequestBuilder as i97c58a64396fcea6b321f90b37211f5423607f9cbe5067273f0854f0fd279683} from './children/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as i308720e4fdf76a1096def7d8b2e91da8ac89d52550ba1f1b9b3f131357fb3f9a} from './children/item/driveItemItemRequestBuilder';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {CopyRequestBuilder} from './copy/copyRequestBuilder';
 import {CreateLinkRequestBuilder} from './createLink/createLinkRequestBuilder';
@@ -123,13 +123,13 @@ export class DriveItemItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.workbooks.item.children.item collection
      * @param id Unique identifier of the item
-     * @returns a driveItemItemRequestBuilder
+     * @returns a DriveItemItemRequestBuilder
      */
-    public childrenById(id: string) : i97c58a64396fcea6b321f90b37211f5423607f9cbe5067273f0854f0fd279683 {
+    public childrenById(id: string) : i308720e4fdf76a1096def7d8b2e91da8ac89d52550ba1f1b9b3f131357fb3f9a {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did1"] = id
-        return new i97c58a64396fcea6b321f90b37211f5423607f9cbe5067273f0854f0fd279683(urlTplParams, this.requestAdapter);
+        return new i308720e4fdf76a1096def7d8b2e91da8ac89d52550ba1f1b9b3f131357fb3f9a(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new DriveItemItemRequestBuilder and sets the default values.
@@ -170,6 +170,7 @@ export class DriveItemItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -283,7 +284,7 @@ export class DriveItemItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.workbooks.item.permissions.item collection
      * @param id Unique identifier of the item
-     * @returns a permissionItemRequestBuilder
+     * @returns a PermissionItemRequestBuilder
      */
     public permissionsById(id: string) : PermissionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -303,7 +304,7 @@ export class DriveItemItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.workbooks.item.subscriptions.item collection
      * @param id Unique identifier of the item
-     * @returns a subscriptionItemRequestBuilder
+     * @returns a SubscriptionItemRequestBuilder
      */
     public subscriptionsById(id: string) : SubscriptionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -314,7 +315,7 @@ export class DriveItemItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.workbooks.item.thumbnails.item collection
      * @param id Unique identifier of the item
-     * @returns a thumbnailSetItemRequestBuilder
+     * @returns a ThumbnailSetItemRequestBuilder
      */
     public thumbnailsById(id: string) : ThumbnailSetItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -325,7 +326,7 @@ export class DriveItemItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.workbooks.item.versions.item collection
      * @param id Unique identifier of the item
-     * @returns a driveItemVersionItemRequestBuilder
+     * @returns a DriveItemVersionItemRequestBuilder
      */
     public versionsById(id: string) : DriveItemVersionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

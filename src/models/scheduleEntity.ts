@@ -6,6 +6,8 @@ export class ScheduleEntity implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The endDateTime property */
     private _endDateTime?: Date | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The startDateTime property */
     private _startDateTime?: Date | undefined;
     /** The theme property */
@@ -29,6 +31,7 @@ export class ScheduleEntity implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.scheduleEntity";
     };
     /**
      * Gets the endDateTime property value. The endDateTime property
@@ -51,9 +54,24 @@ export class ScheduleEntity implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "endDateTime": n => { this.endDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
             "theme": n => { this.theme = n.getEnumValue<ScheduleEntityTheme>(ScheduleEntityTheme); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -62,6 +80,7 @@ export class ScheduleEntity implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeDateValue("endDateTime", this.endDateTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeEnumValue<ScheduleEntityTheme>("theme", this.theme);
         writer.writeAdditionalData(this.additionalData);

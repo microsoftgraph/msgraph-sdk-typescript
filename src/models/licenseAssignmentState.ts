@@ -3,17 +3,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The id of the group that assigns this license. If the assignment is a direct-assigned license, this field will be Null. Read-Only. */
+    /** The assignedByGroup property */
     private _assignedByGroup?: string | undefined;
-    /** The service plans that are disabled in this assignment. Read-Only. */
+    /** The disabledPlans property */
     private _disabledPlans?: string[] | undefined;
-    /** License assignment failure error. If the license is assigned successfully, this field will be Null. Read-Only. The possible values are CountViolation, MutuallyExclusiveViolation, DependencyViolation, ProhibitedInUsageLocationViolation, UniquenessViolation, and Other. For more information on how to identify and resolve license assignment errors see here. */
+    /** The error property */
     private _error_escaped?: string | undefined;
-    /** The timestamp when the state of the license assignment was last updated. */
+    /** The lastUpdatedDateTime property */
     private _lastUpdatedDateTime?: Date | undefined;
-    /** The unique identifier for the SKU. Read-Only. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** The skuId property */
     private _skuId?: string | undefined;
-    /** Indicate the current state of this assignment. Read-Only. The possible values are Active, ActiveWithError, Disabled, and Error. */
+    /** The state property */
     private _state?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -30,14 +32,14 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the assignedByGroup property value. The id of the group that assigns this license. If the assignment is a direct-assigned license, this field will be Null. Read-Only.
+     * Gets the assignedByGroup property value. The assignedByGroup property
      * @returns a string
      */
     public get assignedByGroup() {
         return this._assignedByGroup;
     };
     /**
-     * Sets the assignedByGroup property value. The id of the group that assigns this license. If the assignment is a direct-assigned license, this field will be Null. Read-Only.
+     * Sets the assignedByGroup property value. The assignedByGroup property
      * @param value Value to set for the assignedByGroup property.
      */
     public set assignedByGroup(value: string | undefined) {
@@ -48,30 +50,31 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.licenseAssignmentState";
     };
     /**
-     * Gets the disabledPlans property value. The service plans that are disabled in this assignment. Read-Only.
+     * Gets the disabledPlans property value. The disabledPlans property
      * @returns a string
      */
     public get disabledPlans() {
         return this._disabledPlans;
     };
     /**
-     * Sets the disabledPlans property value. The service plans that are disabled in this assignment. Read-Only.
+     * Sets the disabledPlans property value. The disabledPlans property
      * @param value Value to set for the disabledPlans property.
      */
     public set disabledPlans(value: string[] | undefined) {
         this._disabledPlans = value;
     };
     /**
-     * Gets the error property value. License assignment failure error. If the license is assigned successfully, this field will be Null. Read-Only. The possible values are CountViolation, MutuallyExclusiveViolation, DependencyViolation, ProhibitedInUsageLocationViolation, UniquenessViolation, and Other. For more information on how to identify and resolve license assignment errors see here.
+     * Gets the error property value. The error property
      * @returns a string
      */
     public get error_escaped() {
         return this._error_escaped;
     };
     /**
-     * Sets the error property value. License assignment failure error. If the license is assigned successfully, this field will be Null. Read-Only. The possible values are CountViolation, MutuallyExclusiveViolation, DependencyViolation, ProhibitedInUsageLocationViolation, UniquenessViolation, and Other. For more information on how to identify and resolve license assignment errors see here.
+     * Sets the error property value. The error property
      * @param value Value to set for the error_escaped property.
      */
     public set error_escaped(value: string | undefined) {
@@ -87,23 +90,38 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
             "disabledPlans": n => { this.disabledPlans = n.getCollectionOfPrimitiveValues<string>(); },
             "error": n => { this.error_escaped = n.getStringValue(); },
             "lastUpdatedDateTime": n => { this.lastUpdatedDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "skuId": n => { this.skuId = n.getStringValue(); },
             "state": n => { this.state = n.getStringValue(); },
         };
     };
     /**
-     * Gets the lastUpdatedDateTime property value. The timestamp when the state of the license assignment was last updated.
+     * Gets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
      * @returns a Date
      */
     public get lastUpdatedDateTime() {
         return this._lastUpdatedDateTime;
     };
     /**
-     * Sets the lastUpdatedDateTime property value. The timestamp when the state of the license assignment was last updated.
+     * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
      * @param value Value to set for the lastUpdatedDateTime property.
      */
     public set lastUpdatedDateTime(value: Date | undefined) {
         this._lastUpdatedDateTime = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -115,33 +133,34 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("disabledPlans", this.disabledPlans);
         writer.writeStringValue("error", this.error_escaped);
         writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("skuId", this.skuId);
         writer.writeStringValue("state", this.state);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the skuId property value. The unique identifier for the SKU. Read-Only.
+     * Gets the skuId property value. The skuId property
      * @returns a string
      */
     public get skuId() {
         return this._skuId;
     };
     /**
-     * Sets the skuId property value. The unique identifier for the SKU. Read-Only.
+     * Sets the skuId property value. The skuId property
      * @param value Value to set for the skuId property.
      */
     public set skuId(value: string | undefined) {
         this._skuId = value;
     };
     /**
-     * Gets the state property value. Indicate the current state of this assignment. Read-Only. The possible values are Active, ActiveWithError, Disabled, and Error.
+     * Gets the state property value. The state property
      * @returns a string
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. Indicate the current state of this assignment. Read-Only. The possible values are Active, ActiveWithError, Disabled, and Error.
+     * Sets the state property value. The state property
      * @param value Value to set for the state property.
      */
     public set state(value: string | undefined) {

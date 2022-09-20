@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum VppTokenState {
     /** Default state. */
     Unknown = "unknown",

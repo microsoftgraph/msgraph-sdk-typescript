@@ -1,12 +1,13 @@
 import {IncomingCallOptions, MediaConfig} from '../../../../models/';
 import {createIncomingCallOptionsFromDiscriminatorValue} from '../../../../models/createIncomingCallOptionsFromDiscriminatorValue';
 import {createMediaConfigFromDiscriminatorValue} from '../../../../models/createMediaConfigFromDiscriminatorValue';
+import {Modality} from '../../../../models/modality';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the answer method. */
 export class AnswerPostRequestBody implements AdditionalDataHolder, Parsable {
     /** The acceptedModalities property */
-    private _acceptedModalities?: string[] | undefined;
+    private _acceptedModalities?: Modality[] | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The callbackUri property */
@@ -19,7 +20,7 @@ export class AnswerPostRequestBody implements AdditionalDataHolder, Parsable {
     private _participantCapacity?: number | undefined;
     /**
      * Gets the acceptedModalities property value. The acceptedModalities property
-     * @returns a string
+     * @returns a modality
      */
     public get acceptedModalities() {
         return this._acceptedModalities;
@@ -28,7 +29,7 @@ export class AnswerPostRequestBody implements AdditionalDataHolder, Parsable {
      * Sets the acceptedModalities property value. The acceptedModalities property
      * @param value Value to set for the acceptedModalities property.
      */
-    public set acceptedModalities(value: string[] | undefined) {
+    public set acceptedModalities(value: Modality[] | undefined) {
         this._acceptedModalities = value;
     };
     /**
@@ -85,7 +86,7 @@ export class AnswerPostRequestBody implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "acceptedModalities": n => { this.acceptedModalities = n.getCollectionOfPrimitiveValues<string>(); },
+            "acceptedModalities": n => { this.acceptedModalities = n.getEnumValues<Modality>(Modality); },
             "callbackUri": n => { this.callbackUri = n.getStringValue(); },
             "callOptions": n => { this.callOptions = n.getObjectValue<IncomingCallOptions>(createIncomingCallOptionsFromDiscriminatorValue); },
             "mediaConfig": n => { this.mediaConfig = n.getObjectValue<MediaConfig>(createMediaConfigFromDiscriminatorValue); },
@@ -126,7 +127,7 @@ export class AnswerPostRequestBody implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfPrimitiveValues<string>("acceptedModalities", this.acceptedModalities);
+        this.acceptedModalities && writer.writeEnumValue<Modality>("acceptedModalities", ...this.acceptedModalities);
         writer.writeStringValue("callbackUri", this.callbackUri);
         writer.writeObjectValue<IncomingCallOptions>("callOptions", this.callOptions);
         writer.writeObjectValue<MediaConfig>("mediaConfig", this.mediaConfig);

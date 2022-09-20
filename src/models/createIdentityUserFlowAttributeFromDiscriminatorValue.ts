@@ -1,4 +1,4 @@
-import {IdentityUserFlowAttribute} from './index';
+import {IdentityBuiltInUserFlowAttribute, IdentityCustomUserFlowAttribute, IdentityUserFlowAttribute} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createIdentityUserFlowAttributeFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentityUserFlowAttribute {
@@ -8,8 +8,10 @@ export function createIdentityUserFlowAttributeFromDiscriminatorValue(parseNode:
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.identityUserFlowAttribute":
-                    return new IdentityUserFlowAttribute();
+                case "#microsoft.graph.identityBuiltInUserFlowAttribute":
+                    return new IdentityBuiltInUserFlowAttribute();
+                case "#microsoft.graph.identityCustomUserFlowAttribute":
+                    return new IdentityCustomUserFlowAttribute();
             }
         }
     }

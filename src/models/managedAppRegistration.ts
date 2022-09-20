@@ -2,6 +2,7 @@ import {createManagedAppOperationFromDiscriminatorValue} from './createManagedAp
 import {createManagedAppPolicyFromDiscriminatorValue} from './createManagedAppPolicyFromDiscriminatorValue';
 import {createMobileAppIdentifierFromDiscriminatorValue} from './createMobileAppIdentifierFromDiscriminatorValue';
 import {Entity, ManagedAppOperation, ManagedAppPolicy, MobileAppIdentifier} from './index';
+import {ManagedAppFlaggedReason} from './managedAppFlaggedReason';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** The ManagedAppEntity is the base entity type for all other entity types under app management workflow. */
@@ -21,7 +22,7 @@ export class ManagedAppRegistration extends Entity implements Parsable {
     /** Host device type */
     private _deviceType?: string | undefined;
     /** Zero or more reasons an app registration is flagged. E.g. app running on rooted device */
-    private _flaggedReasons?: string[] | undefined;
+    private _flaggedReasons?: ManagedAppFlaggedReason[] | undefined;
     /** Zero or more policies admin intended for the app as of now. */
     private _intendedPolicies?: ManagedAppPolicy[] | undefined;
     /** Date and time of last the app synced with management service. */
@@ -83,6 +84,7 @@ export class ManagedAppRegistration extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.managedAppRegistration";
     };
     /**
      * Gets the createdDateTime property value. Date and time of creation
@@ -142,7 +144,7 @@ export class ManagedAppRegistration extends Entity implements Parsable {
     };
     /**
      * Gets the flaggedReasons property value. Zero or more reasons an app registration is flagged. E.g. app running on rooted device
-     * @returns a string
+     * @returns a managedAppFlaggedReason
      */
     public get flaggedReasons() {
         return this._flaggedReasons;
@@ -151,7 +153,7 @@ export class ManagedAppRegistration extends Entity implements Parsable {
      * Sets the flaggedReasons property value. Zero or more reasons an app registration is flagged. E.g. app running on rooted device
      * @param value Value to set for the flaggedReasons property.
      */
-    public set flaggedReasons(value: string[] | undefined) {
+    public set flaggedReasons(value: ManagedAppFlaggedReason[] | undefined) {
         this._flaggedReasons = value;
     };
     /**
@@ -167,7 +169,7 @@ export class ManagedAppRegistration extends Entity implements Parsable {
             "deviceName": n => { this.deviceName = n.getStringValue(); },
             "deviceTag": n => { this.deviceTag = n.getStringValue(); },
             "deviceType": n => { this.deviceType = n.getStringValue(); },
-            "flaggedReasons": n => { this.flaggedReasons = n.getCollectionOfPrimitiveValues<string>(); },
+            "flaggedReasons": n => { this.flaggedReasons = n.getEnumValues<ManagedAppFlaggedReason>(ManagedAppFlaggedReason); },
             "intendedPolicies": n => { this.intendedPolicies = n.getCollectionOfObjectValues<ManagedAppPolicy>(createManagedAppPolicyFromDiscriminatorValue); },
             "lastSyncDateTime": n => { this.lastSyncDateTime = n.getDateValue(); },
             "managementSdkVersion": n => { this.managementSdkVersion = n.getStringValue(); },
@@ -261,7 +263,7 @@ export class ManagedAppRegistration extends Entity implements Parsable {
         writer.writeStringValue("deviceName", this.deviceName);
         writer.writeStringValue("deviceTag", this.deviceTag);
         writer.writeStringValue("deviceType", this.deviceType);
-        writer.writeCollectionOfPrimitiveValues<string>("flaggedReasons", this.flaggedReasons);
+        this.flaggedReasons && writer.writeEnumValue<ManagedAppFlaggedReason>("flaggedReasons", ...this.flaggedReasons);
         writer.writeCollectionOfObjectValues<ManagedAppPolicy>("intendedPolicies", this.intendedPolicies);
         writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
         writer.writeStringValue("managementSdkVersion", this.managementSdkVersion);

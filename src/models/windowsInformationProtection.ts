@@ -9,7 +9,6 @@ import {ManagedAppPolicy, TargetedManagedAppPolicyAssignment, WindowsInformation
 import {WindowsInformationProtectionEnforcementLevel} from './windowsInformationProtectionEnforcementLevel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy for Windows information protection to configure detailed management settings */
 export class WindowsInformationProtection extends ManagedAppPolicy implements Parsable {
     /** Navigation property to list of security groups targeted for policy. */
     private _assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
@@ -17,7 +16,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
     private _azureRightsManagementServicesAllowed?: boolean | undefined;
     /** Specifies a recovery certificate that can be used for data recovery of encrypted files. This is the same as the data recovery agent(DRA) certificate for encrypting file system(EFS) */
     private _dataRecoveryCertificate?: WindowsInformationProtectionDataRecoveryCertificate | undefined;
-    /** WIP enforcement level.See the Enum definition for supported values. Possible values are: noProtection, encryptAndAuditOnly, encryptAuditAndPrompt, encryptAuditAndBlock. */
+    /** Possible values for WIP Protection enforcement levels */
     private _enforcementLevel?: WindowsInformationProtectionEnforcementLevel | undefined;
     /** Primary enterprise domain */
     private _enterpriseDomain?: string | undefined;
@@ -90,10 +89,11 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
         this._azureRightsManagementServicesAllowed = value;
     };
     /**
-     * Instantiates a new windowsInformationProtection and sets the default values.
+     * Instantiates a new WindowsInformationProtection and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.windowsInformationProtection";
     };
     /**
      * Gets the dataRecoveryCertificate property value. Specifies a recovery certificate that can be used for data recovery of encrypted files. This is the same as the data recovery agent(DRA) certificate for encrypting file system(EFS)
@@ -110,14 +110,14 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
         this._dataRecoveryCertificate = value;
     };
     /**
-     * Gets the enforcementLevel property value. WIP enforcement level.See the Enum definition for supported values. Possible values are: noProtection, encryptAndAuditOnly, encryptAuditAndPrompt, encryptAuditAndBlock.
+     * Gets the enforcementLevel property value. Possible values for WIP Protection enforcement levels
      * @returns a windowsInformationProtectionEnforcementLevel
      */
     public get enforcementLevel() {
         return this._enforcementLevel;
     };
     /**
-     * Sets the enforcementLevel property value. WIP enforcement level.See the Enum definition for supported values. Possible values are: noProtection, encryptAndAuditOnly, encryptAuditAndPrompt, encryptAuditAndBlock.
+     * Sets the enforcementLevel property value. Possible values for WIP Protection enforcement levels
      * @param value Value to set for the enforcementLevel property.
      */
     public set enforcementLevel(value: WindowsInformationProtectionEnforcementLevel | undefined) {

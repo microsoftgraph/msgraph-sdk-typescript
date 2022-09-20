@@ -1,5 +1,5 @@
 
-/** The source column for content type column. */
+/** The source column for the content type column. */
 export class SourceColumnRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

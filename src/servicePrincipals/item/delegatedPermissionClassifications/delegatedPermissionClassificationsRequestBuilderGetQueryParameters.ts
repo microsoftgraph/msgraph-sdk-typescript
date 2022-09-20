@@ -1,5 +1,5 @@
 
-/** The permission classifications for delegated permissions exposed by the app that this service principal represents. Supports $expand. */
+/** Get delegatedPermissionClassifications from servicePrincipals */
 export class DelegatedPermissionClassificationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

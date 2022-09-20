@@ -6,6 +6,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ComplianceManagementPartnerAssignment implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Group assignment target. */
     private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
@@ -27,6 +29,7 @@ export class ComplianceManagementPartnerAssignment implements AdditionalDataHold
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.complianceManagementPartnerAssignment";
     };
     /**
      * The deserialization information for the current model
@@ -34,8 +37,23 @@ export class ComplianceManagementPartnerAssignment implements AdditionalDataHold
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "target": n => { this.target = n.getObjectValue<DeviceAndAppManagementAssignmentTarget>(createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -43,6 +61,7 @@ export class ComplianceManagementPartnerAssignment implements AdditionalDataHold
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", this.target);
         writer.writeAdditionalData(this.additionalData);
     };

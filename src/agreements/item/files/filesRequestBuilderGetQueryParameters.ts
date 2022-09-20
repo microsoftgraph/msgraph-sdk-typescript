@@ -1,5 +1,5 @@
 
-/** PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead. */
+/** PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead. Supports $expand. */
 export class FilesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

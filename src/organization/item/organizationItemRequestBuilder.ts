@@ -65,7 +65,7 @@ export class OrganizationItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.organization.item.certificateBasedAuthConfiguration.item collection
      * @param id Unique identifier of the item
-     * @returns a certificateBasedAuthConfigurationItemRequestBuilder
+     * @returns a CertificateBasedAuthConfigurationItemRequestBuilder
      */
     public certificateBasedAuthConfigurationById(id: string) : CertificateBasedAuthConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -103,7 +103,7 @@ export class OrganizationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the properties and relationships of the currently authenticated organization. Since the **organization** resource supports [extensions](/graph/extensibility-overview), you can also use the `GET` operation to get custom properties and extension data in an **organization** instance.
+     * Get the properties and relationships of the currently authenticated organization. Since the **organization** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **organization** instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,6 +112,7 @@ export class OrganizationItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -156,7 +157,7 @@ export class OrganizationItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.organization.item.extensions.item collection
      * @param id Unique identifier of the item
-     * @returns a extensionItemRequestBuilder
+     * @returns a ExtensionItemRequestBuilder
      */
     public extensionsById(id: string) : ExtensionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -165,7 +166,7 @@ export class OrganizationItemRequestBuilder {
         return new ExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get the properties and relationships of the currently authenticated organization. Since the **organization** resource supports [extensions](/graph/extensibility-overview), you can also use the `GET` operation to get custom properties and extension data in an **organization** instance.
+     * Get the properties and relationships of the currently authenticated organization. Since the **organization** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **organization** instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Organization

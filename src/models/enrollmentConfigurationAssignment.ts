@@ -11,6 +11,7 @@ export class EnrollmentConfigurationAssignment extends Entity implements Parsabl
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.enrollmentConfigurationAssignment";
     };
     /**
      * The deserialization information for the current model

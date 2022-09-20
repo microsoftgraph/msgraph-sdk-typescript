@@ -9,9 +9,9 @@ import {CalendarRequestBuilderDeleteRequestConfiguration} from './calendarReques
 import {CalendarRequestBuilderGetRequestConfiguration} from './calendarRequestBuilderGetRequestConfiguration';
 import {CalendarRequestBuilderPatchRequestConfiguration} from './calendarRequestBuilderPatchRequestConfiguration';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventItemRequestBuilder as iea1155139f798ddd94c4e9832632c5ff47ffbb516f56ba3e8549194afb0fb4fa} from './calendarView/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as ia37c4f2788e8539b4ad493ef0f7564284b2653562101b1c5610d87bd28473e54} from './calendarView/item/eventItemRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventItemRequestBuilder as i60e104fbd3b2a0999f9c81c8734623e3f3fed4d20973bfab1eec2c875c8d4016} from './events/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as if1a0e680765fa137febff0c68951aa0726cd3293b1c03ae66337cc39cb59139b} from './events/item/eventItemRequestBuilder';
 import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
@@ -63,7 +63,7 @@ export class CalendarRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.calendar.calendarPermissions.item collection
      * @param id Unique identifier of the item
-     * @returns a calendarPermissionItemRequestBuilder
+     * @returns a CalendarPermissionItemRequestBuilder
      */
     public calendarPermissionsById(id: string) : CalendarPermissionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -74,13 +74,13 @@ export class CalendarRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.calendar.calendarView.item collection
      * @param id Unique identifier of the item
-     * @returns a eventItemRequestBuilder
+     * @returns a EventItemRequestBuilder
      */
-    public calendarViewById(id: string) : iea1155139f798ddd94c4e9832632c5ff47ffbb516f56ba3e8549194afb0fb4fa {
+    public calendarViewById(id: string) : ia37c4f2788e8539b4ad493ef0f7564284b2653562101b1c5610d87bd28473e54 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new iea1155139f798ddd94c4e9832632c5ff47ffbb516f56ba3e8549194afb0fb4fa(urlTplParams, this.requestAdapter);
+        return new ia37c4f2788e8539b4ad493ef0f7564284b2653562101b1c5610d87bd28473e54(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new CalendarRequestBuilder and sets the default values.
@@ -121,6 +121,7 @@ export class CalendarRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -165,13 +166,13 @@ export class CalendarRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.calendar.events.item collection
      * @param id Unique identifier of the item
-     * @returns a eventItemRequestBuilder
+     * @returns a EventItemRequestBuilder
      */
-    public eventsById(id: string) : i60e104fbd3b2a0999f9c81c8734623e3f3fed4d20973bfab1eec2c875c8d4016 {
+    public eventsById(id: string) : if1a0e680765fa137febff0c68951aa0726cd3293b1c03ae66337cc39cb59139b {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new i60e104fbd3b2a0999f9c81c8734623e3f3fed4d20973bfab1eec2c875c8d4016(urlTplParams, this.requestAdapter);
+        return new if1a0e680765fa137febff0c68951aa0726cd3293b1c03ae66337cc39cb59139b(urlTplParams, this.requestAdapter);
     };
     /**
      * The group's calendar. Read-only.
@@ -192,7 +193,7 @@ export class CalendarRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.calendar.multiValueExtendedProperties.item collection
      * @param id Unique identifier of the item
-     * @returns a multiValueLegacyExtendedPropertyItemRequestBuilder
+     * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
      */
     public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -220,7 +221,7 @@ export class CalendarRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.calendar.singleValueExtendedProperties.item collection
      * @param id Unique identifier of the item
-     * @returns a singleValueLegacyExtendedPropertyItemRequestBuilder
+     * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
      */
     public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

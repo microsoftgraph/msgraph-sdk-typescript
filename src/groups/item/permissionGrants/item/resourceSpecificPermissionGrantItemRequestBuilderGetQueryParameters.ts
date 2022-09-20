@@ -1,5 +1,5 @@
 
-/** The permissions that have been granted for a group to a specific application. Supports $expand. */
+/** The permission that has been granted for a group to a specific application. Supports $expand. */
 export class ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

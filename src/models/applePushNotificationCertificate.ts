@@ -62,6 +62,7 @@ export class ApplePushNotificationCertificate extends Entity implements Parsable
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.applePushNotificationCertificate";
     };
     /**
      * Gets the expirationDateTime property value. The expiration date and time for Apple push notification certificate.

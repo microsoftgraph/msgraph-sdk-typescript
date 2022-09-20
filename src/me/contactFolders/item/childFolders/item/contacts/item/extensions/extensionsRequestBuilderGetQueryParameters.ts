@@ -1,5 +1,5 @@
 
-/** The collection of open extensions defined for the contact. Nullable. */
+/** The collection of open extensions defined for the contact. Read-only. Nullable. */
 export class ExtensionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

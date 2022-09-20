@@ -1,4 +1,5 @@
 import {createTimeZoneBaseFromDiscriminatorValue} from './createTimeZoneBaseFromDiscriminatorValue';
+import {DayOfWeek} from './dayOfWeek';
 import {TimeZoneBase} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
@@ -6,9 +7,11 @@ export class WorkingHours implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The days of the week on which the user works. */
-    private _daysOfWeek?: string[] | undefined;
+    private _daysOfWeek?: DayOfWeek[] | undefined;
     /** The time of the day that the user stops working. */
     private _endTime?: TimeOnly | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The time of the day that the user starts working. */
     private _startTime?: TimeOnly | undefined;
     /** The time zone to which the working hours apply. */
@@ -32,10 +35,11 @@ export class WorkingHours implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.workingHours";
     };
     /**
      * Gets the daysOfWeek property value. The days of the week on which the user works.
-     * @returns a string
+     * @returns a dayOfWeek
      */
     public get daysOfWeek() {
         return this._daysOfWeek;
@@ -44,7 +48,7 @@ export class WorkingHours implements AdditionalDataHolder, Parsable {
      * Sets the daysOfWeek property value. The days of the week on which the user works.
      * @param value Value to set for the daysOfWeek property.
      */
-    public set daysOfWeek(value: string[] | undefined) {
+    public set daysOfWeek(value: DayOfWeek[] | undefined) {
         this._daysOfWeek = value;
     };
     /**
@@ -67,11 +71,26 @@ export class WorkingHours implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "daysOfWeek": n => { this.daysOfWeek = n.getCollectionOfPrimitiveValues<string>(); },
+            "daysOfWeek": n => { this.daysOfWeek = n.getEnumValues<DayOfWeek>(DayOfWeek); },
             "endTime": n => { this.endTime = n.getTimeOnlyValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "startTime": n => { this.startTime = n.getTimeOnlyValue(); },
             "timeZone": n => { this.timeZone = n.getObjectValue<TimeZoneBase>(createTimeZoneBaseFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -79,8 +98,9 @@ export class WorkingHours implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfPrimitiveValues<string>("daysOfWeek", this.daysOfWeek);
+        this.daysOfWeek && writer.writeEnumValue<DayOfWeek>("daysOfWeek", ...this.daysOfWeek);
         writer.writeTimeOnlyValue("endTime", this.endTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeTimeOnlyValue("startTime", this.startTime);
         writer.writeObjectValue<TimeZoneBase>("timeZone", this.timeZone);
         writer.writeAdditionalData(this.additionalData);

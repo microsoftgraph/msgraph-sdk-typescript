@@ -1,3 +1,4 @@
+import {CalendarRoleType} from '../../../../../models/calendarRoleType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the allowedCalendarSharingRoles method. */
@@ -5,7 +6,7 @@ export class AllowedCalendarSharingRolesWithUserResponse implements AdditionalDa
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The value property */
-    private _value?: string[] | undefined;
+    private _value?: CalendarRoleType[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -32,7 +33,7 @@ export class AllowedCalendarSharingRolesWithUserResponse implements AdditionalDa
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": n => { this.value = n.getCollectionOfPrimitiveValues<string>(); },
+            "value": n => { this.value = n.getEnumValues<CalendarRoleType>(CalendarRoleType); },
         };
     };
     /**
@@ -41,12 +42,12 @@ export class AllowedCalendarSharingRolesWithUserResponse implements AdditionalDa
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
+        this.value && writer.writeEnumValue<CalendarRoleType>("value", ...this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the value property value. The value property
-     * @returns a string
+     * @returns a calendarRoleType
      */
     public get value() {
         return this._value;
@@ -55,7 +56,7 @@ export class AllowedCalendarSharingRolesWithUserResponse implements AdditionalDa
      * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
-    public set value(value: string[] | undefined) {
+    public set value(value: CalendarRoleType[] | undefined) {
         this._value = value;
     };
 }

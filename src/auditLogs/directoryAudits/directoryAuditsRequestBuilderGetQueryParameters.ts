@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get directoryAudits from auditLogs */
 export class DirectoryAuditsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

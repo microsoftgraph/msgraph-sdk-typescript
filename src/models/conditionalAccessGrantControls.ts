@@ -1,12 +1,15 @@
+import {ConditionalAccessGrantControl} from './conditionalAccessGrantControl';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessGrantControls implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue. */
-    private _builtInControls?: string[] | undefined;
-    /** List of custom controls IDs required by the policy. To learn more about custom control, see Custom controls (preview). */
+    private _builtInControls?: ConditionalAccessGrantControl[] | undefined;
+    /** List of custom controls IDs required by the policy. For more information, see Custom controls. */
     private _customAuthenticationFactors?: string[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Defines the relationship of the grant controls. Possible values: AND, OR. */
     private _operator?: string | undefined;
     /** List of terms of use IDs required by the policy. */
@@ -27,7 +30,7 @@ export class ConditionalAccessGrantControls implements AdditionalDataHolder, Par
     };
     /**
      * Gets the builtInControls property value. List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.
-     * @returns a string
+     * @returns a conditionalAccessGrantControl
      */
     public get builtInControls() {
         return this._builtInControls;
@@ -36,7 +39,7 @@ export class ConditionalAccessGrantControls implements AdditionalDataHolder, Par
      * Sets the builtInControls property value. List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.
      * @param value Value to set for the builtInControls property.
      */
-    public set builtInControls(value: string[] | undefined) {
+    public set builtInControls(value: ConditionalAccessGrantControl[] | undefined) {
         this._builtInControls = value;
     };
     /**
@@ -44,16 +47,17 @@ export class ConditionalAccessGrantControls implements AdditionalDataHolder, Par
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.conditionalAccessGrantControls";
     };
     /**
-     * Gets the customAuthenticationFactors property value. List of custom controls IDs required by the policy. To learn more about custom control, see Custom controls (preview).
+     * Gets the customAuthenticationFactors property value. List of custom controls IDs required by the policy. For more information, see Custom controls.
      * @returns a string
      */
     public get customAuthenticationFactors() {
         return this._customAuthenticationFactors;
     };
     /**
-     * Sets the customAuthenticationFactors property value. List of custom controls IDs required by the policy. To learn more about custom control, see Custom controls (preview).
+     * Sets the customAuthenticationFactors property value. List of custom controls IDs required by the policy. For more information, see Custom controls.
      * @param value Value to set for the customAuthenticationFactors property.
      */
     public set customAuthenticationFactors(value: string[] | undefined) {
@@ -65,11 +69,26 @@ export class ConditionalAccessGrantControls implements AdditionalDataHolder, Par
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "builtInControls": n => { this.builtInControls = n.getCollectionOfPrimitiveValues<string>(); },
+            "builtInControls": n => { this.builtInControls = n.getEnumValues<ConditionalAccessGrantControl>(ConditionalAccessGrantControl); },
             "customAuthenticationFactors": n => { this.customAuthenticationFactors = n.getCollectionOfPrimitiveValues<string>(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "operator": n => { this.operator = n.getStringValue(); },
             "termsOfUse": n => { this.termsOfUse = n.getCollectionOfPrimitiveValues<string>(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the operator property value. Defines the relationship of the grant controls. Possible values: AND, OR.
@@ -91,8 +110,9 @@ export class ConditionalAccessGrantControls implements AdditionalDataHolder, Par
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfPrimitiveValues<string>("builtInControls", this.builtInControls);
+        this.builtInControls && writer.writeEnumValue<ConditionalAccessGrantControl>("builtInControls", ...this.builtInControls);
         writer.writeCollectionOfPrimitiveValues<string>("customAuthenticationFactors", this.customAuthenticationFactors);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("operator", this.operator);
         writer.writeCollectionOfPrimitiveValues<string>("termsOfUse", this.termsOfUse);
         writer.writeAdditionalData(this.additionalData);

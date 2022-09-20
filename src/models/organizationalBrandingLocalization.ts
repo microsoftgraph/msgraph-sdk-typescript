@@ -8,6 +8,7 @@ export class OrganizationalBrandingLocalization extends OrganizationalBrandingPr
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.organizationalBrandingLocalization";
     };
     /**
      * The deserialization information for the current model

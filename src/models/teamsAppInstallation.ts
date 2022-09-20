@@ -14,6 +14,7 @@ export class TeamsAppInstallation extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.teamsAppInstallation";
     };
     /**
      * The deserialization information for the current model

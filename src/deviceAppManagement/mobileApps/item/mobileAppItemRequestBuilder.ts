@@ -45,7 +45,7 @@ export class MobileAppItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mobileApps.item.assignments.item collection
      * @param id Unique identifier of the item
-     * @returns a mobileAppAssignmentItemRequestBuilder
+     * @returns a MobileAppAssignmentItemRequestBuilder
      */
     public assignmentsById(id: string) : MobileAppAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -56,7 +56,7 @@ export class MobileAppItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mobileApps.item.categories.item collection
      * @param id Unique identifier of the item
-     * @returns a mobileAppCategoryItemRequestBuilder
+     * @returns a MobileAppCategoryItemRequestBuilder
      */
     public categoriesById(id: string) : MobileAppCategoryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -103,6 +103,7 @@ export class MobileAppItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

@@ -1,5 +1,6 @@
 import {PrintColorMode} from './printColorMode';
 import {PrintDuplexMode} from './printDuplexMode';
+import {PrintFinishing} from './printFinishing';
 import {PrintMultipageLayout} from './printMultipageLayout';
 import {PrintOrientation} from './printOrientation';
 import {PrintQuality} from './printQuality';
@@ -20,10 +21,10 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
     /** The default duplex (double-sided) configuration to use when printing a document. Valid values are described in the following table. */
     private _duplexMode?: PrintDuplexMode | undefined;
     /** The default set of finishings to apply to print jobs. Valid values are described in the following table. */
-    private _finishings?: string[] | undefined;
+    private _finishings?: PrintFinishing[] | undefined;
     /** The default fitPdfToPage setting. True to fit each page of a PDF document to a physical sheet of media; false to let the printer decide how to lay out impressions. */
     private _fitPdfToPage?: boolean | undefined;
-    /** The default input bin that serves as the paper source. */
+    /** The inputBin property */
     private _inputBin?: string | undefined;
     /** The default media (such as paper) color to print the document on. */
     private _mediaColor?: string | undefined;
@@ -33,6 +34,8 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
     private _mediaType?: string | undefined;
     /** The default direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table. */
     private _multipageLayout?: PrintMultipageLayout | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The default orientation to use when printing the document. Valid values are described in the following table. */
     private _orientation?: PrintOrientation | undefined;
     /** The default output bin to place completed prints into. See the printer's capabilities for a list of supported output bins. */
@@ -76,6 +79,7 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.printerDefaults";
     };
     /**
      * Gets the contentType property value. The default content (MIME) type to use when processing documents.
@@ -135,7 +139,7 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the finishings property value. The default set of finishings to apply to print jobs. Valid values are described in the following table.
-     * @returns a string
+     * @returns a printFinishing
      */
     public get finishings() {
         return this._finishings;
@@ -144,7 +148,7 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
      * Sets the finishings property value. The default set of finishings to apply to print jobs. Valid values are described in the following table.
      * @param value Value to set for the finishings property.
      */
-    public set finishings(value: string[] | undefined) {
+    public set finishings(value: PrintFinishing[] | undefined) {
         this._finishings = value;
     };
     /**
@@ -172,13 +176,14 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
             "copiesPerJob": n => { this.copiesPerJob = n.getNumberValue(); },
             "dpi": n => { this.dpi = n.getNumberValue(); },
             "duplexMode": n => { this.duplexMode = n.getEnumValue<PrintDuplexMode>(PrintDuplexMode); },
-            "finishings": n => { this.finishings = n.getCollectionOfPrimitiveValues<string>(); },
+            "finishings": n => { this.finishings = n.getEnumValues<PrintFinishing>(PrintFinishing); },
             "fitPdfToPage": n => { this.fitPdfToPage = n.getBooleanValue(); },
             "inputBin": n => { this.inputBin = n.getStringValue(); },
             "mediaColor": n => { this.mediaColor = n.getStringValue(); },
             "mediaSize": n => { this.mediaSize = n.getStringValue(); },
             "mediaType": n => { this.mediaType = n.getStringValue(); },
             "multipageLayout": n => { this.multipageLayout = n.getEnumValue<PrintMultipageLayout>(PrintMultipageLayout); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "orientation": n => { this.orientation = n.getEnumValue<PrintOrientation>(PrintOrientation); },
             "outputBin": n => { this.outputBin = n.getStringValue(); },
             "pagesPerSheet": n => { this.pagesPerSheet = n.getNumberValue(); },
@@ -187,14 +192,14 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the inputBin property value. The default input bin that serves as the paper source.
+     * Gets the inputBin property value. The inputBin property
      * @returns a string
      */
     public get inputBin() {
         return this._inputBin;
     };
     /**
-     * Sets the inputBin property value. The default input bin that serves as the paper source.
+     * Sets the inputBin property value. The inputBin property
      * @param value Value to set for the inputBin property.
      */
     public set inputBin(value: string | undefined) {
@@ -255,6 +260,20 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
      */
     public set multipageLayout(value: PrintMultipageLayout | undefined) {
         this._multipageLayout = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the orientation property value. The default orientation to use when printing the document. Valid values are described in the following table.
@@ -337,13 +356,14 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
         writer.writeNumberValue("copiesPerJob", this.copiesPerJob);
         writer.writeNumberValue("dpi", this.dpi);
         writer.writeEnumValue<PrintDuplexMode>("duplexMode", this.duplexMode);
-        writer.writeCollectionOfPrimitiveValues<string>("finishings", this.finishings);
+        this.finishings && writer.writeEnumValue<PrintFinishing>("finishings", ...this.finishings);
         writer.writeBooleanValue("fitPdfToPage", this.fitPdfToPage);
         writer.writeStringValue("inputBin", this.inputBin);
         writer.writeStringValue("mediaColor", this.mediaColor);
         writer.writeStringValue("mediaSize", this.mediaSize);
         writer.writeStringValue("mediaType", this.mediaType);
         writer.writeEnumValue<PrintMultipageLayout>("multipageLayout", this.multipageLayout);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<PrintOrientation>("orientation", this.orientation);
         writer.writeStringValue("outputBin", this.outputBin);
         writer.writeNumberValue("pagesPerSheet", this.pagesPerSheet);

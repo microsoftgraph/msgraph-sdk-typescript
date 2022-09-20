@@ -1,5 +1,5 @@
 
-/** The permissions that have been granted for a group to a specific application. Supports $expand. */
+/** The permission that has been granted for a group to a specific application. Supports $expand. */
 export class PermissionGrantsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

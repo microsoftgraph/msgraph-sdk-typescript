@@ -34,7 +34,7 @@ export class AccessPackageItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.catalogs.item.accessPackages.item.assignmentPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a accessPackageAssignmentPolicyItemRequestBuilder
+     * @returns a AccessPackageAssignmentPolicyItemRequestBuilder
      */
     public assignmentPoliciesById(id: string) : AccessPackageAssignmentPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -72,7 +72,7 @@ export class AccessPackageItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * The access packages in this catalog. Read-only. Nullable. Supports $expand.
+     * The access packages in this catalog. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -81,6 +81,7 @@ export class AccessPackageItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -123,7 +124,7 @@ export class AccessPackageItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The access packages in this catalog. Read-only. Nullable. Supports $expand.
+     * The access packages in this catalog. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackage

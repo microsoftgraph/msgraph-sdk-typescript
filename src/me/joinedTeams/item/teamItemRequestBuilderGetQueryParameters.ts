@@ -1,5 +1,5 @@
 
-/** The Microsoft Teams teams that the user is a member of. Read-only. Nullable. */
+/** Get joinedTeams from me */
 export class TeamItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

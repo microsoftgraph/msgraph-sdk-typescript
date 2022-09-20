@@ -6,7 +6,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class NetworkConnection implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Name of the application managing the network connection (for example, Facebook, SMTP, etc.). */
+    /** Name of the application managing the network connection (for example, Facebook or SMTP). */
     private _applicationName?: string | undefined;
     /** Destination IP address (of the network connection). */
     private _destinationAddress?: string | undefined;
@@ -32,6 +32,8 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
     private _natSourceAddress?: string | undefined;
     /** Network Address Translation source port. */
     private _natSourcePort?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Network protocol. Possible values are: unknown, ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII. */
     private _protocol?: SecurityNetworkProtocol | undefined;
     /** Provider generated/calculated risk score of the network connection. Recommended value range of 0-1, which equates to a percentage. */
@@ -61,14 +63,14 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the applicationName property value. Name of the application managing the network connection (for example, Facebook, SMTP, etc.).
+     * Gets the applicationName property value. Name of the application managing the network connection (for example, Facebook or SMTP).
      * @returns a string
      */
     public get applicationName() {
         return this._applicationName;
     };
     /**
-     * Sets the applicationName property value. Name of the application managing the network connection (for example, Facebook, SMTP, etc.).
+     * Sets the applicationName property value. Name of the application managing the network connection (for example, Facebook or SMTP).
      * @param value Value to set for the applicationName property.
      */
     public set applicationName(value: string | undefined) {
@@ -79,6 +81,7 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.networkConnection";
     };
     /**
      * Gets the destinationAddress property value. Destination IP address (of the network connection).
@@ -197,6 +200,7 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
             "natDestinationPort": n => { this.natDestinationPort = n.getStringValue(); },
             "natSourceAddress": n => { this.natSourceAddress = n.getStringValue(); },
             "natSourcePort": n => { this.natSourcePort = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "protocol": n => { this.protocol = n.getEnumValue<SecurityNetworkProtocol>(SecurityNetworkProtocol); },
             "riskScore": n => { this.riskScore = n.getStringValue(); },
             "sourceAddress": n => { this.sourceAddress = n.getStringValue(); },
@@ -277,6 +281,20 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
         this._natSourcePort = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the protocol property value. Network protocol. Possible values are: unknown, ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII.
      * @returns a securityNetworkProtocol
      */
@@ -323,6 +341,7 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("natDestinationPort", this.natDestinationPort);
         writer.writeStringValue("natSourceAddress", this.natSourceAddress);
         writer.writeStringValue("natSourcePort", this.natSourcePort);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<SecurityNetworkProtocol>("protocol", this.protocol);
         writer.writeStringValue("riskScore", this.riskScore);
         writer.writeStringValue("sourceAddress", this.sourceAddress);
