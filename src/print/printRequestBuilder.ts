@@ -53,7 +53,7 @@ export class PrintRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.connectors.item collection
      * @param id Unique identifier of the item
-     * @returns a printConnectorItemRequestBuilder
+     * @returns a PrintConnectorItemRequestBuilder
      */
     public connectorsById(id: string) : PrintConnectorItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -84,6 +84,7 @@ export class PrintRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -129,7 +130,7 @@ export class PrintRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.operations.item collection
      * @param id Unique identifier of the item
-     * @returns a printOperationItemRequestBuilder
+     * @returns a PrintOperationItemRequestBuilder
      */
     public operationsById(id: string) : PrintOperationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -157,7 +158,7 @@ export class PrintRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.printers.item collection
      * @param id Unique identifier of the item
-     * @returns a printerItemRequestBuilder
+     * @returns a PrinterItemRequestBuilder
      */
     public printersById(id: string) : PrinterItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -168,7 +169,7 @@ export class PrintRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.services.item collection
      * @param id Unique identifier of the item
-     * @returns a printServiceItemRequestBuilder
+     * @returns a PrintServiceItemRequestBuilder
      */
     public servicesById(id: string) : PrintServiceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -179,7 +180,7 @@ export class PrintRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.shares.item collection
      * @param id Unique identifier of the item
-     * @returns a printerShareItemRequestBuilder
+     * @returns a PrinterShareItemRequestBuilder
      */
     public sharesById(id: string) : PrinterShareItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -190,7 +191,7 @@ export class PrintRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.taskDefinitions.item collection
      * @param id Unique identifier of the item
-     * @returns a printTaskDefinitionItemRequestBuilder
+     * @returns a PrintTaskDefinitionItemRequestBuilder
      */
     public taskDefinitionsById(id: string) : PrintTaskDefinitionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

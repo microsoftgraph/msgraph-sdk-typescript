@@ -1,5 +1,5 @@
 
-/** List of assignments for the user. Nullable. */
+/** Assignments belonging to the user. */
 export class AssignmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

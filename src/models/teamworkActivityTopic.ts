@@ -4,6 +4,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class TeamworkActivityTopic implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Type of source. Possible values are: entityUrl, text. For supported Microsoft Graph URLs, use entityUrl. For custom text, use text. */
     private _source?: TeamworkActivityTopicSource | undefined;
     /** The topic value. If the value of the source property is entityUrl, this must be a Microsoft Graph URL. If the vaule is text, this must be a plain text value. */
@@ -29,6 +31,7 @@ export class TeamworkActivityTopic implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.teamworkActivityTopic";
     };
     /**
      * The deserialization information for the current model
@@ -36,10 +39,25 @@ export class TeamworkActivityTopic implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "source": n => { this.source = n.getEnumValue<TeamworkActivityTopicSource>(TeamworkActivityTopicSource); },
             "value": n => { this.value = n.getStringValue(); },
             "webUrl": n => { this.webUrl = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -47,6 +65,7 @@ export class TeamworkActivityTopic implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<TeamworkActivityTopicSource>("source", this.source);
         writer.writeStringValue("value", this.value);
         writer.writeStringValue("webUrl", this.webUrl);

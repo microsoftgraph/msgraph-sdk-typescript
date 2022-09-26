@@ -10,6 +10,8 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
     private _hive?: RegistryHive | undefined;
     /** Current (i.e. changed) registry key (excludes HIVE). */
     private _key?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Previous (i.e. before changed) registry key (excludes HIVE). */
     private _oldKey?: string | undefined;
     /** Previous (i.e. before changed) registry key value data (contents). */
@@ -45,6 +47,7 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.registryKeyState";
     };
     /**
      * The deserialization information for the current model
@@ -54,6 +57,7 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
         return {
             "hive": n => { this.hive = n.getEnumValue<RegistryHive>(RegistryHive); },
             "key": n => { this.key = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "oldKey": n => { this.oldKey = n.getStringValue(); },
             "oldValueData": n => { this.oldValueData = n.getStringValue(); },
             "oldValueName": n => { this.oldValueName = n.getStringValue(); },
@@ -91,6 +95,20 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
      */
     public set key(value: string | undefined) {
         this._key = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the oldKey property value. Previous (i.e. before changed) registry key (excludes HIVE).
@@ -170,6 +188,7 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeEnumValue<RegistryHive>("hive", this.hive);
         writer.writeStringValue("key", this.key);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("oldKey", this.oldKey);
         writer.writeStringValue("oldValueData", this.oldValueData);
         writer.writeStringValue("oldValueName", this.oldValueName);

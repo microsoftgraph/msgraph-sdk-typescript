@@ -18,7 +18,7 @@ export class BookingService extends Entity implements Parsable {
     private _defaultLocation?: Location | undefined;
     /** The default monetary price for the service. */
     private _defaultPrice?: number | undefined;
-    /** The default way the service is charged. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue. */
+    /** Represents the type of pricing of a booking service. */
     private _defaultPriceType?: BookingPriceType | undefined;
     /** The default set of reminders for an appointment of this service. The value of this property is available only when reading this bookingService by its ID. */
     private _defaultReminders?: BookingReminder[] | undefined;
@@ -30,7 +30,7 @@ export class BookingService extends Entity implements Parsable {
     private _isHiddenFromCustomers?: boolean | undefined;
     /** True indicates that the appointments for the service will be held online. Default value is false. */
     private _isLocationOnline?: boolean | undefined;
-    /** The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment.  To create a customer, use the Create bookingCustomer operation. */
+    /** The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation. */
     private _maximumAttendeesCount?: number | undefined;
     /** Additional information about this service. */
     private _notes?: string | undefined;
@@ -65,6 +65,7 @@ export class BookingService extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.bookingService";
     };
     /**
      * Gets the customQuestions property value. Contains the set of custom questions associated with a particular service.
@@ -123,14 +124,14 @@ export class BookingService extends Entity implements Parsable {
         this._defaultPrice = value;
     };
     /**
-     * Gets the defaultPriceType property value. The default way the service is charged. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue.
+     * Gets the defaultPriceType property value. Represents the type of pricing of a booking service.
      * @returns a bookingPriceType
      */
     public get defaultPriceType() {
         return this._defaultPriceType;
     };
     /**
-     * Sets the defaultPriceType property value. The default way the service is charged. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue.
+     * Sets the defaultPriceType property value. Represents the type of pricing of a booking service.
      * @param value Value to set for the defaultPriceType property.
      */
     public set defaultPriceType(value: BookingPriceType | undefined) {
@@ -234,14 +235,14 @@ export class BookingService extends Entity implements Parsable {
         this._isLocationOnline = value;
     };
     /**
-     * Gets the maximumAttendeesCount property value. The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment.  To create a customer, use the Create bookingCustomer operation.
+     * Gets the maximumAttendeesCount property value. The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation.
      * @returns a integer
      */
     public get maximumAttendeesCount() {
         return this._maximumAttendeesCount;
     };
     /**
-     * Sets the maximumAttendeesCount property value. The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment.  To create a customer, use the Create bookingCustomer operation.
+     * Sets the maximumAttendeesCount property value. The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation.
      * @param value Value to set for the maximumAttendeesCount property.
      */
     public set maximumAttendeesCount(value: number | undefined) {

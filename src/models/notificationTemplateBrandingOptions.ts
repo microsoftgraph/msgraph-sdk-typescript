@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum NotificationTemplateBrandingOptions {
     /** No Branding. */
     None = "none",
@@ -8,4 +8,6 @@ export enum NotificationTemplateBrandingOptions {
     IncludeCompanyName = "includeCompanyName",
     /** Include Contact Info. */
     IncludeContactInformation = "includeContactInformation",
+    /** Include Device Details. */
+    IncludeDeviceDetails = "includeDeviceDetails",
 }

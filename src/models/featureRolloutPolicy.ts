@@ -3,7 +3,7 @@ import {DirectoryObject, Entity} from './index';
 import {StagedFeatureName} from './stagedFeatureName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class FeatureRolloutPolicy extends Entity implements Parsable {
     /** Nullable. Specifies a list of directoryObjects that feature is enabled for. */
     private _appliesTo?: DirectoryObject[] | undefined;
@@ -11,7 +11,7 @@ export class FeatureRolloutPolicy extends Entity implements Parsable {
     private _description?: string | undefined;
     /** The display name for this  feature rollout policy. */
     private _displayName?: string | undefined;
-    /** Possible values are: passthroughAuthentication, seamlessSso, passwordHashSync, emailAsAlternateId, unknownFutureValue. */
+    /** The feature property */
     private _feature?: StagedFeatureName | undefined;
     /** Indicates whether this feature rollout policy should be applied to the entire organization. */
     private _isAppliedToOrganization?: boolean | undefined;
@@ -36,6 +36,7 @@ export class FeatureRolloutPolicy extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.featureRolloutPolicy";
     };
     /**
      * Gets the description property value. A description for this feature rollout policy.
@@ -66,14 +67,14 @@ export class FeatureRolloutPolicy extends Entity implements Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the feature property value. Possible values are: passthroughAuthentication, seamlessSso, passwordHashSync, emailAsAlternateId, unknownFutureValue.
+     * Gets the feature property value. The feature property
      * @returns a stagedFeatureName
      */
     public get feature() {
         return this._feature;
     };
     /**
-     * Sets the feature property value. Possible values are: passthroughAuthentication, seamlessSso, passwordHashSync, emailAsAlternateId, unknownFutureValue.
+     * Sets the feature property value. The feature property
      * @param value Value to set for the feature property.
      */
     public set feature(value: StagedFeatureName | undefined) {

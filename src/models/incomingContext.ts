@@ -5,11 +5,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class IncomingContext implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The id of the participant that is under observation. Read-only. */
+    /** The ID of the participant that is under observation. Read-only. */
     private _observedParticipantId?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The identity that the call is happening on behalf of. */
     private _onBehalfOf?: IdentitySet | undefined;
-    /** The id of the participant that triggered the incoming call. Read-only. */
+    /** The ID of the participant that triggered the incoming call. Read-only. */
     private _sourceParticipantId?: string | undefined;
     /** The identity that transferred the call. */
     private _transferor?: IdentitySet | undefined;
@@ -32,6 +34,7 @@ export class IncomingContext implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.incomingContext";
     };
     /**
      * The deserialization information for the current model
@@ -40,24 +43,39 @@ export class IncomingContext implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "observedParticipantId": n => { this.observedParticipantId = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "onBehalfOf": n => { this.onBehalfOf = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "sourceParticipantId": n => { this.sourceParticipantId = n.getStringValue(); },
             "transferor": n => { this.transferor = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
         };
     };
     /**
-     * Gets the observedParticipantId property value. The id of the participant that is under observation. Read-only.
+     * Gets the observedParticipantId property value. The ID of the participant that is under observation. Read-only.
      * @returns a string
      */
     public get observedParticipantId() {
         return this._observedParticipantId;
     };
     /**
-     * Sets the observedParticipantId property value. The id of the participant that is under observation. Read-only.
+     * Sets the observedParticipantId property value. The ID of the participant that is under observation. Read-only.
      * @param value Value to set for the observedParticipantId property.
      */
     public set observedParticipantId(value: string | undefined) {
         this._observedParticipantId = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the onBehalfOf property value. The identity that the call is happening on behalf of.
@@ -80,20 +98,21 @@ export class IncomingContext implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("observedParticipantId", this.observedParticipantId);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<IdentitySet>("onBehalfOf", this.onBehalfOf);
         writer.writeStringValue("sourceParticipantId", this.sourceParticipantId);
         writer.writeObjectValue<IdentitySet>("transferor", this.transferor);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the sourceParticipantId property value. The id of the participant that triggered the incoming call. Read-only.
+     * Gets the sourceParticipantId property value. The ID of the participant that triggered the incoming call. Read-only.
      * @returns a string
      */
     public get sourceParticipantId() {
         return this._sourceParticipantId;
     };
     /**
-     * Sets the sourceParticipantId property value. The id of the participant that triggered the incoming call. Read-only.
+     * Sets the sourceParticipantId property value. The ID of the participant that triggered the incoming call. Read-only.
      * @param value Value to set for the sourceParticipantId property.
      */
     public set sourceParticipantId(value: string | undefined) {

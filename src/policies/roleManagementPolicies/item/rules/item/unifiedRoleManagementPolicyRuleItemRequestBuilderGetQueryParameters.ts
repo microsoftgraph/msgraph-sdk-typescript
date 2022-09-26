@@ -1,5 +1,5 @@
 
-/** The collection of rules like approval rules and expiration rules. */
+/** The collection of rules like approval rules and expiration rules. Supports $expand. */
 export class UnifiedRoleManagementPolicyRuleItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

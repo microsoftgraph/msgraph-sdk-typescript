@@ -1,4 +1,4 @@
-import {ManagedEBook} from './index';
+import {IosVppEBook, ManagedEBook} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createManagedEBookFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedEBook {
@@ -8,8 +8,8 @@ export function createManagedEBookFromDiscriminatorValue(parseNode: ParseNode | 
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
-                case "#microsoft.graph.managedEBook":
-                    return new ManagedEBook();
+                case "#microsoft.graph.iosVppEBook":
+                    return new IosVppEBook();
             }
         }
     }

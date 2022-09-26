@@ -1,5 +1,5 @@
 
-/** Read-only. */
+/** Get onenote from groups */
 export class OnenoteRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

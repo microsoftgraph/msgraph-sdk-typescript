@@ -24,7 +24,7 @@ export class AppConsentRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.appConsent.appConsentRequests.item collection
      * @param id Unique identifier of the item
-     * @returns a appConsentRequestItemRequestBuilder
+     * @returns a AppConsentRequestItemRequestBuilder
      */
     public appConsentRequestsById(id: string) : AppConsentRequestItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -71,6 +71,7 @@ export class AppConsentRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

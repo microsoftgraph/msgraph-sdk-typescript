@@ -1,3 +1,4 @@
+import {AccessReviewHistoryDecisionFilter} from './accessReviewHistoryDecisionFilter';
 import {AccessReviewHistoryStatus} from './accessReviewHistoryStatus';
 import {createAccessReviewHistoryInstanceFromDiscriminatorValue} from './createAccessReviewHistoryInstanceFromDiscriminatorValue';
 import {createAccessReviewHistoryScheduleSettingsFromDiscriminatorValue} from './createAccessReviewHistoryScheduleSettingsFromDiscriminatorValue';
@@ -6,14 +7,13 @@ import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFrom
 import {AccessReviewHistoryInstance, AccessReviewHistoryScheduleSettings, AccessReviewScope, Entity, UserIdentity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewHistoryDefinition extends Entity implements Parsable {
     /** The createdBy property */
     private _createdBy?: UserIdentity | undefined;
     /** Timestamp when the access review definition was created. */
     private _createdDateTime?: Date | undefined;
     /** Determines which review decisions will be included in the fetched review history data if specified. Optional on create. All decisions will be included by default if no decisions are provided on create. Possible values are: approve, deny, dontKnow, notReviewed, and notNotified. */
-    private _decisions?: string[] | undefined;
+    private _decisions?: AccessReviewHistoryDecisionFilter[] | undefined;
     /** Name for the access review history data collection. Required. */
     private _displayName?: string | undefined;
     /** If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that does not recur will have exactly one instance. */
@@ -29,10 +29,11 @@ export class AccessReviewHistoryDefinition extends Entity implements Parsable {
     /** Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. */
     private _status?: AccessReviewHistoryStatus | undefined;
     /**
-     * Instantiates a new accessReviewHistoryDefinition and sets the default values.
+     * Instantiates a new AccessReviewHistoryDefinition and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.accessReviewHistoryDefinition";
     };
     /**
      * Gets the createdBy property value. The createdBy property
@@ -64,7 +65,7 @@ export class AccessReviewHistoryDefinition extends Entity implements Parsable {
     };
     /**
      * Gets the decisions property value. Determines which review decisions will be included in the fetched review history data if specified. Optional on create. All decisions will be included by default if no decisions are provided on create. Possible values are: approve, deny, dontKnow, notReviewed, and notNotified.
-     * @returns a string
+     * @returns a accessReviewHistoryDecisionFilter
      */
     public get decisions() {
         return this._decisions;
@@ -73,7 +74,7 @@ export class AccessReviewHistoryDefinition extends Entity implements Parsable {
      * Sets the decisions property value. Determines which review decisions will be included in the fetched review history data if specified. Optional on create. All decisions will be included by default if no decisions are provided on create. Possible values are: approve, deny, dontKnow, notReviewed, and notNotified.
      * @param value Value to set for the decisions property.
      */
-    public set decisions(value: string[] | undefined) {
+    public set decisions(value: AccessReviewHistoryDecisionFilter[] | undefined) {
         this._decisions = value;
     };
     /**
@@ -98,7 +99,7 @@ export class AccessReviewHistoryDefinition extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "createdBy": n => { this.createdBy = n.getObjectValue<UserIdentity>(createUserIdentityFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
-            "decisions": n => { this.decisions = n.getCollectionOfPrimitiveValues<string>(); },
+            "decisions": n => { this.decisions = n.getEnumValues<AccessReviewHistoryDecisionFilter>(AccessReviewHistoryDecisionFilter); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "instances": n => { this.instances = n.getCollectionOfObjectValues<AccessReviewHistoryInstance>(createAccessReviewHistoryInstanceFromDiscriminatorValue); },
             "reviewHistoryPeriodEndDateTime": n => { this.reviewHistoryPeriodEndDateTime = n.getDateValue(); },
@@ -187,7 +188,7 @@ export class AccessReviewHistoryDefinition extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<UserIdentity>("createdBy", this.createdBy);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
-        writer.writeCollectionOfPrimitiveValues<string>("decisions", this.decisions);
+        this.decisions && writer.writeEnumValue<AccessReviewHistoryDecisionFilter>("decisions", ...this.decisions);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeCollectionOfObjectValues<AccessReviewHistoryInstance>("instances", this.instances);
         writer.writeDateValue("reviewHistoryPeriodEndDateTime", this.reviewHistoryPeriodEndDateTime);

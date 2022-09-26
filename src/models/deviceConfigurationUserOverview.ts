@@ -1,7 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the deviceManagement singleton. */
 export class DeviceConfigurationUserOverview extends Entity implements Parsable {
     /** Version of the policy for that overview */
     private _configurationVersion?: number | undefined;
@@ -36,6 +35,7 @@ export class DeviceConfigurationUserOverview extends Entity implements Parsable 
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.deviceConfigurationUserOverview";
     };
     /**
      * Gets the errorCount property value. Number of error Users

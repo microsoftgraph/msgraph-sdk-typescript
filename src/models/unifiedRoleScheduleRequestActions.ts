@@ -1,4 +1,4 @@
-/** Provides operations to manage the roleManagement singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum UnifiedRoleScheduleRequestActions {
     AdminAssign = "adminAssign",
     AdminUpdate = "adminUpdate",

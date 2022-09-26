@@ -1,15 +1,16 @@
 import {ChatType} from './chatType';
 import {createChatMessageFromDiscriminatorValue} from './createChatMessageFromDiscriminatorValue';
 import {createConversationMemberFromDiscriminatorValue} from './createConversationMemberFromDiscriminatorValue';
+import {createPinnedChatMessageInfoFromDiscriminatorValue} from './createPinnedChatMessageInfoFromDiscriminatorValue';
 import {createTeamsAppInstallationFromDiscriminatorValue} from './createTeamsAppInstallationFromDiscriminatorValue';
 import {createTeamsTabFromDiscriminatorValue} from './createTeamsTabFromDiscriminatorValue';
 import {createTeamworkOnlineMeetingInfoFromDiscriminatorValue} from './createTeamworkOnlineMeetingInfoFromDiscriminatorValue';
-import {ChatMessage, ConversationMember, Entity, TeamsAppInstallation, TeamsTab, TeamworkOnlineMeetingInfo} from './index';
+import {ChatMessage, ConversationMember, Entity, PinnedChatMessageInfo, TeamsAppInstallation, TeamsTab, TeamworkOnlineMeetingInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of chat entities. */
 export class Chat extends Entity implements Parsable {
-    /** Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue. */
+    /** The chatType property */
     private _chatType?: ChatType | undefined;
     /** Date and time at which the chat was created. Read-only. */
     private _createdDateTime?: Date | undefined;
@@ -23,6 +24,8 @@ export class Chat extends Entity implements Parsable {
     private _messages?: ChatMessage[] | undefined;
     /** Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only. */
     private _onlineMeetingInfo?: TeamworkOnlineMeetingInfo | undefined;
+    /** The pinnedMessages property */
+    private _pinnedMessages?: PinnedChatMessageInfo[] | undefined;
     /** A collection of all the tabs in the chat. Nullable. */
     private _tabs?: TeamsTab[] | undefined;
     /** The identifier of the tenant in which the chat was created. Read-only. */
@@ -32,14 +35,14 @@ export class Chat extends Entity implements Parsable {
     /** The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only. */
     private _webUrl?: string | undefined;
     /**
-     * Gets the chatType property value. Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.
+     * Gets the chatType property value. The chatType property
      * @returns a chatType
      */
     public get chatType() {
         return this._chatType;
     };
     /**
-     * Sets the chatType property value. Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.
+     * Sets the chatType property value. The chatType property
      * @param value Value to set for the chatType property.
      */
     public set chatType(value: ChatType | undefined) {
@@ -50,6 +53,7 @@ export class Chat extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.chat";
     };
     /**
      * Gets the createdDateTime property value. Date and time at which the chat was created. Read-only.
@@ -78,6 +82,7 @@ export class Chat extends Entity implements Parsable {
             "members": n => { this.members = n.getCollectionOfObjectValues<ConversationMember>(createConversationMemberFromDiscriminatorValue); },
             "messages": n => { this.messages = n.getCollectionOfObjectValues<ChatMessage>(createChatMessageFromDiscriminatorValue); },
             "onlineMeetingInfo": n => { this.onlineMeetingInfo = n.getObjectValue<TeamworkOnlineMeetingInfo>(createTeamworkOnlineMeetingInfoFromDiscriminatorValue); },
+            "pinnedMessages": n => { this.pinnedMessages = n.getCollectionOfObjectValues<PinnedChatMessageInfo>(createPinnedChatMessageInfoFromDiscriminatorValue); },
             "tabs": n => { this.tabs = n.getCollectionOfObjectValues<TeamsTab>(createTeamsTabFromDiscriminatorValue); },
             "tenantId": n => { this.tenantId = n.getStringValue(); },
             "topic": n => { this.topic = n.getStringValue(); },
@@ -155,6 +160,20 @@ export class Chat extends Entity implements Parsable {
         this._onlineMeetingInfo = value;
     };
     /**
+     * Gets the pinnedMessages property value. The pinnedMessages property
+     * @returns a pinnedChatMessageInfo
+     */
+    public get pinnedMessages() {
+        return this._pinnedMessages;
+    };
+    /**
+     * Sets the pinnedMessages property value. The pinnedMessages property
+     * @param value Value to set for the pinnedMessages property.
+     */
+    public set pinnedMessages(value: PinnedChatMessageInfo[] | undefined) {
+        this._pinnedMessages = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -168,6 +187,7 @@ export class Chat extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<ConversationMember>("members", this.members);
         writer.writeCollectionOfObjectValues<ChatMessage>("messages", this.messages);
         writer.writeObjectValue<TeamworkOnlineMeetingInfo>("onlineMeetingInfo", this.onlineMeetingInfo);
+        writer.writeCollectionOfObjectValues<PinnedChatMessageInfo>("pinnedMessages", this.pinnedMessages);
         writer.writeCollectionOfObjectValues<TeamsTab>("tabs", this.tabs);
         writer.writeStringValue("tenantId", this.tenantId);
         writer.writeStringValue("topic", this.topic);

@@ -17,7 +17,6 @@ import {Store} from './termStore/';
 import {createStoreFromDiscriminatorValue} from './termStore/createStoreFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
 export class Site extends BaseItem implements Parsable {
     /** Analytics about the view activities that took place in this site. */
     private _analytics?: ItemAnalytics | undefined;
@@ -33,15 +32,15 @@ export class Site extends BaseItem implements Parsable {
     private _drives?: Drive[] | undefined;
     /** The error property */
     private _error_escaped?: PublicError | undefined;
-    /** The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site. */
+    /** The externalColumns property */
     private _externalColumns?: ColumnDefinition[] | undefined;
-    /** Used to address any item contained in this site. This collection cannot be enumerated. */
+    /** Used to address any item contained in this site. This collection can't be enumerated. */
     private _items?: BaseItem[] | undefined;
     /** The collection of lists under this site. */
     private _lists?: List[] | undefined;
     /** Calls the OneNote service for notebook related operations. */
     private _onenote?: Onenote | undefined;
-    /** The collection of long running operations for the site. */
+    /** The collection of long-running operations on the site. */
     private _operations?: RichLongRunningOperation[] | undefined;
     /** The permissions associated with the site. Nullable. */
     private _permissions?: Permission[] | undefined;
@@ -53,7 +52,7 @@ export class Site extends BaseItem implements Parsable {
     private _siteCollection?: SiteCollection | undefined;
     /** The collection of the sub-sites under this site. */
     private _sites?: Site[] | undefined;
-    /** The termStore under this site. */
+    /** The default termStore under this site. */
     private _termStore?: Store | undefined;
     /** The collection of termStores under this site. */
     private _termStores?: Store[] | undefined;
@@ -86,10 +85,11 @@ export class Site extends BaseItem implements Parsable {
         this._columns = value;
     };
     /**
-     * Instantiates a new site and sets the default values.
+     * Instantiates a new Site and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.site";
     };
     /**
      * Gets the contentTypes property value. The collection of content types defined for this site.
@@ -162,14 +162,14 @@ export class Site extends BaseItem implements Parsable {
         this._error_escaped = value;
     };
     /**
-     * Gets the externalColumns property value. The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+     * Gets the externalColumns property value. The externalColumns property
      * @returns a columnDefinition
      */
     public get externalColumns() {
         return this._externalColumns;
     };
     /**
-     * Sets the externalColumns property value. The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+     * Sets the externalColumns property value. The externalColumns property
      * @param value Value to set for the externalColumns property.
      */
     public set externalColumns(value: ColumnDefinition[] | undefined) {
@@ -203,14 +203,14 @@ export class Site extends BaseItem implements Parsable {
         };
     };
     /**
-     * Gets the items property value. Used to address any item contained in this site. This collection cannot be enumerated.
+     * Gets the items property value. Used to address any item contained in this site. This collection can't be enumerated.
      * @returns a baseItem
      */
     public get items() {
         return this._items;
     };
     /**
-     * Sets the items property value. Used to address any item contained in this site. This collection cannot be enumerated.
+     * Sets the items property value. Used to address any item contained in this site. This collection can't be enumerated.
      * @param value Value to set for the items property.
      */
     public set items(value: BaseItem[] | undefined) {
@@ -245,14 +245,14 @@ export class Site extends BaseItem implements Parsable {
         this._onenote = value;
     };
     /**
-     * Gets the operations property value. The collection of long running operations for the site.
+     * Gets the operations property value. The collection of long-running operations on the site.
      * @returns a richLongRunningOperation
      */
     public get operations() {
         return this._operations;
     };
     /**
-     * Sets the operations property value. The collection of long running operations for the site.
+     * Sets the operations property value. The collection of long-running operations on the site.
      * @param value Value to set for the operations property.
      */
     public set operations(value: RichLongRunningOperation[] | undefined) {
@@ -356,14 +356,14 @@ export class Site extends BaseItem implements Parsable {
         this._sites = value;
     };
     /**
-     * Gets the termStore property value. The termStore under this site.
+     * Gets the termStore property value. The default termStore under this site.
      * @returns a store
      */
     public get termStore() {
         return this._termStore;
     };
     /**
-     * Sets the termStore property value. The termStore under this site.
+     * Sets the termStore property value. The default termStore under this site.
      * @param value Value to set for the termStore property.
      */
     public set termStore(value: Store | undefined) {

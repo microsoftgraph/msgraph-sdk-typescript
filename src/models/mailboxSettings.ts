@@ -9,21 +9,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class MailboxSettings implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Folder ID of an archive folder for the user. Read only. */
+    /** Folder ID of an archive folder for the user. */
     private _archiveFolder?: string | undefined;
     /** Configuration settings to automatically notify the sender of an incoming email with a message from the signed-in user. */
     private _automaticRepliesSetting?: AutomaticRepliesSetting | undefined;
     /** The date format for the user's mailbox. */
     private _dateFormat?: string | undefined;
-    /** If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly. */
+    /** If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. */
     private _delegateMeetingMessageDeliveryOptions?: DelegateMeetingMessageDeliveryOptions | undefined;
     /** The locale information for the user, including the preferred language and country/region. */
     private _language?: LocaleInfo | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The time format for the user's mailbox. */
     private _timeFormat?: string | undefined;
     /** The default time zone for the user's mailbox. */
     private _timeZone?: string | undefined;
-    /** The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only. */
+    /** The userPurpose property */
     private _userPurpose?: UserPurpose | undefined;
     /** The days of the week and hours in a specific time zone that the user works. */
     private _workingHours?: WorkingHours | undefined;
@@ -42,14 +44,14 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the archiveFolder property value. Folder ID of an archive folder for the user. Read only.
+     * Gets the archiveFolder property value. Folder ID of an archive folder for the user.
      * @returns a string
      */
     public get archiveFolder() {
         return this._archiveFolder;
     };
     /**
-     * Sets the archiveFolder property value. Folder ID of an archive folder for the user. Read only.
+     * Sets the archiveFolder property value. Folder ID of an archive folder for the user.
      * @param value Value to set for the archiveFolder property.
      */
     public set archiveFolder(value: string | undefined) {
@@ -74,6 +76,7 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.mailboxSettings";
     };
     /**
      * Gets the dateFormat property value. The date format for the user's mailbox.
@@ -90,14 +93,14 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
         this._dateFormat = value;
     };
     /**
-     * Gets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.
+     * Gets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly.
      * @returns a delegateMeetingMessageDeliveryOptions
      */
     public get delegateMeetingMessageDeliveryOptions() {
         return this._delegateMeetingMessageDeliveryOptions;
     };
     /**
-     * Sets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.
+     * Sets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly.
      * @param value Value to set for the delegateMeetingMessageDeliveryOptions property.
      */
     public set delegateMeetingMessageDeliveryOptions(value: DelegateMeetingMessageDeliveryOptions | undefined) {
@@ -114,6 +117,7 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
             "dateFormat": n => { this.dateFormat = n.getStringValue(); },
             "delegateMeetingMessageDeliveryOptions": n => { this.delegateMeetingMessageDeliveryOptions = n.getEnumValue<DelegateMeetingMessageDeliveryOptions>(DelegateMeetingMessageDeliveryOptions); },
             "language": n => { this.language = n.getObjectValue<LocaleInfo>(createLocaleInfoFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "timeFormat": n => { this.timeFormat = n.getStringValue(); },
             "timeZone": n => { this.timeZone = n.getStringValue(); },
             "userPurpose": n => { this.userPurpose = n.getEnumValue<UserPurpose>(UserPurpose); },
@@ -135,6 +139,20 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
         this._language = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -145,6 +163,7 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("dateFormat", this.dateFormat);
         writer.writeEnumValue<DelegateMeetingMessageDeliveryOptions>("delegateMeetingMessageDeliveryOptions", this.delegateMeetingMessageDeliveryOptions);
         writer.writeObjectValue<LocaleInfo>("language", this.language);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("timeFormat", this.timeFormat);
         writer.writeStringValue("timeZone", this.timeZone);
         writer.writeEnumValue<UserPurpose>("userPurpose", this.userPurpose);
@@ -180,14 +199,14 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
         this._timeZone = value;
     };
     /**
-     * Gets the userPurpose property value. The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only.
+     * Gets the userPurpose property value. The userPurpose property
      * @returns a userPurpose
      */
     public get userPurpose() {
         return this._userPurpose;
     };
     /**
-     * Sets the userPurpose property value. The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only.
+     * Sets the userPurpose property value. The userPurpose property
      * @param value Value to set for the userPurpose property.
      */
     public set userPurpose(value: UserPurpose | undefined) {

@@ -8,7 +8,9 @@ export class ExpirationPattern implements AdditionalDataHolder, Parsable {
     private _duration?: Duration | undefined;
     /** Timestamp of date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _endDateTime?: Date | undefined;
-    /** The requestor's desired expiration pattern type. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** The requestor's desired expiration pattern type. The possible values are: notSpecified, noExpiration, afterDateTime, afterDuration. */
     private _type?: ExpirationPatternType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,6 +31,7 @@ export class ExpirationPattern implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.expirationPattern";
     };
     /**
      * Gets the duration property value. The requestor's desired duration of access represented in ISO 8601 format for durations. For example, PT3H refers to three hours.  If specified in a request, endDateTime should not be present and the type property should be set to afterDuration.
@@ -66,8 +69,23 @@ export class ExpirationPattern implements AdditionalDataHolder, Parsable {
         return {
             "duration": n => { this.duration = n.getDurationValue(); },
             "endDateTime": n => { this.endDateTime = n.getDateValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "type": n => { this.type = n.getEnumValue<ExpirationPatternType>(ExpirationPatternType); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -77,18 +95,19 @@ export class ExpirationPattern implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeDurationValue("duration", this.duration);
         writer.writeDateValue("endDateTime", this.endDateTime);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<ExpirationPatternType>("type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. The requestor's desired expiration pattern type.
+     * Gets the type property value. The requestor's desired expiration pattern type. The possible values are: notSpecified, noExpiration, afterDateTime, afterDuration.
      * @returns a expirationPatternType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The requestor's desired expiration pattern type.
+     * Sets the type property value. The requestor's desired expiration pattern type. The possible values are: notSpecified, noExpiration, afterDateTime, afterDuration.
      * @param value Value to set for the type property.
      */
     public set type(value: ExpirationPatternType | undefined) {

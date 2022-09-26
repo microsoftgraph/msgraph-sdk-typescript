@@ -7,6 +7,8 @@ export class TimeSlot implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The end property */
     private _end?: DateTimeTimeZone | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The start property */
     private _start?: DateTimeTimeZone | undefined;
     /**
@@ -28,6 +30,7 @@ export class TimeSlot implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.timeSlot";
     };
     /**
      * Gets the end property value. The end property
@@ -50,8 +53,23 @@ export class TimeSlot implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "end": n => { this.end = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "start": n => { this.start = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -60,6 +78,7 @@ export class TimeSlot implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<DateTimeTimeZone>("end", this.end);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<DateTimeTimeZone>("start", this.start);
         writer.writeAdditionalData(this.additionalData);
     };

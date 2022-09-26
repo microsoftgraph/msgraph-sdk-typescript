@@ -1,5 +1,5 @@
 
-/** Collection of all sets available in the term store. */
+/** Collection of all sets available in the term store. This relationship can only be used to load a specific term set. */
 export class SetItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

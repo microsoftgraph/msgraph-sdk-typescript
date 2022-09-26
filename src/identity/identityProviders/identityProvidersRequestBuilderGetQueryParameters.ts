@@ -1,5 +1,5 @@
 
-/** Represents entry point for identity provider base. */
+/** Get identityProviders from identity */
 export class IdentityProvidersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

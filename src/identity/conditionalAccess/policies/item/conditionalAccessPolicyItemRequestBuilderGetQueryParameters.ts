@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. Returns a collection of the specified Conditional Access policies. */
+/** Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies. */
 export class ConditionalAccessPolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. */
+/** Get posts from groups */
 export class PostsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -18,6 +18,8 @@ export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
     private _filterOn?: string | undefined;
     /** The icon property */
     private _icon?: WorkbookIcon | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The operator property */
     private _operator?: string | undefined;
     /** The values property */
@@ -55,6 +57,7 @@ export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.workbookFilterCriteria";
     };
     /**
      * Gets the criterion1 property value. The criterion1 property
@@ -124,6 +127,7 @@ export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
             "dynamicCriteria": n => { this.dynamicCriteria = n.getStringValue(); },
             "filterOn": n => { this.filterOn = n.getStringValue(); },
             "icon": n => { this.icon = n.getObjectValue<WorkbookIcon>(createWorkbookIconFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "operator": n => { this.operator = n.getStringValue(); },
             "values": n => { this.values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         };
@@ -141,6 +145,20 @@ export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
      */
     public set icon(value: WorkbookIcon | undefined) {
         this._icon = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the operator property value. The operator property
@@ -168,6 +186,7 @@ export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("dynamicCriteria", this.dynamicCriteria);
         writer.writeStringValue("filterOn", this.filterOn);
         writer.writeObjectValue<WorkbookIcon>("icon", this.icon);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("operator", this.operator);
         writer.writeObjectValue<Json>("values", this.values);
         writer.writeAdditionalData(this.additionalData);

@@ -60,6 +60,7 @@ export class ChatMessageItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -120,7 +121,7 @@ export class ChatMessageItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.team.channels.item.messages.item.replies.item.hostedContents.item collection
      * @param id Unique identifier of the item
-     * @returns a chatMessageHostedContentItemRequestBuilder
+     * @returns a ChatMessageHostedContentItemRequestBuilder
      */
     public hostedContentsById(id: string) : ChatMessageHostedContentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

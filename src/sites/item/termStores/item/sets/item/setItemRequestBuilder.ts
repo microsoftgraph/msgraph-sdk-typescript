@@ -3,14 +3,14 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {Set} from '../../../../../../models/termStore/';
 import {createSetFromDiscriminatorValue} from '../../../../../../models/termStore/createSetFromDiscriminatorValue';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {TermItemRequestBuilder as i0cff2d9df2831902639f2f94fd238372fee965210216585812ea2d7d55adb4be} from './children/item/termItemRequestBuilder';
+import {TermItemRequestBuilder as ifd9d9e475ed786fc1d07aa4e0a7c501448ffe75dbc2b55cecb08202c23f376a1} from './children/item/termItemRequestBuilder';
 import {ParentGroupRequestBuilder} from './parentGroup/parentGroupRequestBuilder';
 import {RelationItemRequestBuilder} from './relations/item/relationItemRequestBuilder';
 import {RelationsRequestBuilder} from './relations/relationsRequestBuilder';
 import {SetItemRequestBuilderDeleteRequestConfiguration} from './setItemRequestBuilderDeleteRequestConfiguration';
 import {SetItemRequestBuilderGetRequestConfiguration} from './setItemRequestBuilderGetRequestConfiguration';
 import {SetItemRequestBuilderPatchRequestConfiguration} from './setItemRequestBuilderPatchRequestConfiguration';
-import {TermItemRequestBuilder as i47fd33d05ddff0bfe004b4e818b369c850f05993a19a3180cae32453210f03f6} from './terms/item/termItemRequestBuilder';
+import {TermItemRequestBuilder as i3221e12bdca01fc0008806e899152af7be65d9156b424f7f00b9dfff19d0baea} from './terms/item/termItemRequestBuilder';
 import {TermsRequestBuilder} from './terms/termsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -41,13 +41,13 @@ export class SetItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.termStores.item.sets.item.children.item collection
      * @param id Unique identifier of the item
-     * @returns a termItemRequestBuilder
+     * @returns a TermItemRequestBuilder
      */
-    public childrenById(id: string) : i0cff2d9df2831902639f2f94fd238372fee965210216585812ea2d7d55adb4be {
+    public childrenById(id: string) : ifd9d9e475ed786fc1d07aa4e0a7c501448ffe75dbc2b55cecb08202c23f376a1 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["term%2Did"] = id
-        return new i0cff2d9df2831902639f2f94fd238372fee965210216585812ea2d7d55adb4be(urlTplParams, this.requestAdapter);
+        return new ifd9d9e475ed786fc1d07aa4e0a7c501448ffe75dbc2b55cecb08202c23f376a1(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new SetItemRequestBuilder and sets the default values.
@@ -79,7 +79,7 @@ export class SetItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Collection of all sets available in the term store.
+     * Collection of all sets available in the term store. This relationship can only be used to load a specific term set.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -88,6 +88,7 @@ export class SetItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -130,7 +131,7 @@ export class SetItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Collection of all sets available in the term store.
+     * Collection of all sets available in the term store. This relationship can only be used to load a specific term set.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Set
@@ -165,7 +166,7 @@ export class SetItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.termStores.item.sets.item.relations.item collection
      * @param id Unique identifier of the item
-     * @returns a relationItemRequestBuilder
+     * @returns a RelationItemRequestBuilder
      */
     public relationsById(id: string) : RelationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -176,12 +177,12 @@ export class SetItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.termStores.item.sets.item.terms.item collection
      * @param id Unique identifier of the item
-     * @returns a termItemRequestBuilder
+     * @returns a TermItemRequestBuilder
      */
-    public termsById(id: string) : i47fd33d05ddff0bfe004b4e818b369c850f05993a19a3180cae32453210f03f6 {
+    public termsById(id: string) : i3221e12bdca01fc0008806e899152af7be65d9156b424f7f00b9dfff19d0baea {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["term%2Did"] = id
-        return new i47fd33d05ddff0bfe004b4e818b369c850f05993a19a3180cae32453210f03f6(urlTplParams, this.requestAdapter);
+        return new i3221e12bdca01fc0008806e899152af7be65d9156b424f7f00b9dfff19d0baea(urlTplParams, this.requestAdapter);
     };
 }

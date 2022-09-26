@@ -1,4 +1,5 @@
 
+/** Retrieve the properties and relationships of user object. */
 export class UserItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

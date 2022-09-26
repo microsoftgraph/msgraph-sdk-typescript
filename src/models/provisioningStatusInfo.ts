@@ -8,6 +8,8 @@ export class ProvisioningStatusInfo implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The errorInformation property */
     private _errorInformation?: ProvisioningErrorInfo | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Possible values are: success, warning, failure, skipped, unknownFutureValue. */
     private _status?: ProvisioningResult | undefined;
     /**
@@ -29,6 +31,7 @@ export class ProvisioningStatusInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.provisioningStatusInfo";
     };
     /**
      * Gets the errorInformation property value. The errorInformation property
@@ -51,8 +54,23 @@ export class ProvisioningStatusInfo implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "errorInformation": n => { this.errorInformation = n.getObjectValue<ProvisioningErrorInfo>(createProvisioningErrorInfoFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "status": n => { this.status = n.getEnumValue<ProvisioningResult>(ProvisioningResult); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -61,6 +79,7 @@ export class ProvisioningStatusInfo implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<ProvisioningErrorInfo>("errorInformation", this.errorInformation);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<ProvisioningResult>("status", this.status);
         writer.writeAdditionalData(this.additionalData);
     };

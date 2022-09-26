@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity. */
 export enum DeviceManagementPartnerTenantState {
     /** Partner state is unknown. */
     Unknown = "unknown",

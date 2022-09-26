@@ -3,9 +3,11 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class KeyValue implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present. */
+    /** Key for the key-value pair. */
     private _key?: string | undefined;
-    /** Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** Value for the key-value pair. */
     private _value?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -26,6 +28,7 @@ export class KeyValue implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.keyValue";
     };
     /**
      * The deserialization information for the current model
@@ -34,22 +37,37 @@ export class KeyValue implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "key": n => { this.key = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "value": n => { this.value = n.getStringValue(); },
         };
     };
     /**
-     * Gets the key property value. Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
+     * Gets the key property value. Key for the key-value pair.
      * @returns a string
      */
     public get key() {
         return this._key;
     };
     /**
-     * Sets the key property value. Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
+     * Sets the key property value. Key for the key-value pair.
      * @param value Value to set for the key property.
      */
     public set key(value: string | undefined) {
         this._key = value;
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -58,18 +76,19 @@ export class KeyValue implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("key", this.key);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the value property value. Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
+     * Gets the value property value. Value for the key-value pair.
      * @returns a string
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
+     * Sets the value property value. Value for the key-value pair.
      * @param value Value to set for the value property.
      */
     public set value(value: string | undefined) {

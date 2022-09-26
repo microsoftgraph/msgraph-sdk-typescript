@@ -13,6 +13,8 @@ export class ItemReference implements AdditionalDataHolder, Parsable {
     private _id?: string | undefined;
     /** The name of the item being referenced. Read-only. */
     private _name?: string | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** Path that can be used to navigate to the item. Read-only. */
     private _path?: string | undefined;
     /** A unique identifier for a shared resource that can be accessed via the [Shares][] API. */
@@ -40,6 +42,7 @@ export class ItemReference implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.itemReference";
     };
     /**
      * Gets the driveId property value. Unique identifier of the drive instance that contains the item. Read-only.
@@ -79,6 +82,7 @@ export class ItemReference implements AdditionalDataHolder, Parsable {
             "driveType": n => { this.driveType = n.getStringValue(); },
             "id": n => { this.id = n.getStringValue(); },
             "name": n => { this.name = n.getStringValue(); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "path": n => { this.path = n.getStringValue(); },
             "shareId": n => { this.shareId = n.getStringValue(); },
             "sharepointIds": n => { this.sharepointIds = n.getObjectValue<SharepointIds>(createSharepointIdsFromDiscriminatorValue); },
@@ -114,6 +118,20 @@ export class ItemReference implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the path property value. Path that can be used to navigate to the item. Read-only.
      * @returns a string
      */
@@ -137,6 +155,7 @@ export class ItemReference implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("driveType", this.driveType);
         writer.writeStringValue("id", this.id);
         writer.writeStringValue("name", this.name);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("path", this.path);
         writer.writeStringValue("shareId", this.shareId);
         writer.writeObjectValue<SharepointIds>("sharepointIds", this.sharepointIds);

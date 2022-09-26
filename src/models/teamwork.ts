@@ -2,15 +2,15 @@ import {createWorkforceIntegrationFromDiscriminatorValue} from './createWorkforc
 import {Entity, WorkforceIntegration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the teamwork singleton. */
 export class Teamwork extends Entity implements Parsable {
-    /** A workforce integration with shifts. */
+    /** The workforceIntegrations property */
     private _workforceIntegrations?: WorkforceIntegration[] | undefined;
     /**
-     * Instantiates a new teamwork and sets the default values.
+     * Instantiates a new Teamwork and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.teamwork";
     };
     /**
      * The deserialization information for the current model
@@ -31,14 +31,14 @@ export class Teamwork extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<WorkforceIntegration>("workforceIntegrations", this.workforceIntegrations);
     };
     /**
-     * Gets the workforceIntegrations property value. A workforce integration with shifts.
+     * Gets the workforceIntegrations property value. The workforceIntegrations property
      * @returns a workforceIntegration
      */
     public get workforceIntegrations() {
         return this._workforceIntegrations;
     };
     /**
-     * Sets the workforceIntegrations property value. A workforce integration with shifts.
+     * Sets the workforceIntegrations property value. The workforceIntegrations property
      * @param value Value to set for the workforceIntegrations property.
      */
     public set workforceIntegrations(value: WorkforceIntegration[] | undefined) {

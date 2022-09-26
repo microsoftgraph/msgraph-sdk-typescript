@@ -4,7 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ExternalItemContent implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The type of content in the value property. Possible values are text and html. These are the content types that the indexer supports, and not the file extension types allowed. Required. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** The type property */
     private _type?: ExternalItemContentType | undefined;
     /** The content for the externalItem. Required. */
     private _value?: string | undefined;
@@ -27,6 +29,7 @@ export class ExternalItemContent implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.externalConnectors.externalItemContent";
     };
     /**
      * The deserialization information for the current model
@@ -34,9 +37,24 @@ export class ExternalItemContent implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "type": n => { this.type = n.getEnumValue<ExternalItemContentType>(ExternalItemContentType); },
             "value": n => { this.value = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -44,19 +62,20 @@ export class ExternalItemContent implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeEnumValue<ExternalItemContentType>("type", this.type);
         writer.writeStringValue("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. The type of content in the value property. Possible values are text and html. These are the content types that the indexer supports, and not the file extension types allowed. Required.
+     * Gets the type property value. The type property
      * @returns a externalItemContentType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The type of content in the value property. Possible values are text and html. These are the content types that the indexer supports, and not the file extension types allowed. Required.
+     * Sets the type property value. The type property
      * @param value Value to set for the type property.
      */
     public set type(value: ExternalItemContentType | undefined) {

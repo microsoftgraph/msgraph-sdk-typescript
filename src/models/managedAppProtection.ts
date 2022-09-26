@@ -1,19 +1,19 @@
 import {ManagedAppPolicy} from './index';
 import {ManagedAppClipboardSharingLevel} from './managedAppClipboardSharingLevel';
+import {ManagedAppDataStorageLocation} from './managedAppDataStorageLocation';
 import {ManagedAppDataTransferLevel} from './managedAppDataTransferLevel';
 import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
 import {ManagedBrowserType} from './managedBrowserType';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Policy used to configure detailed management settings for a specified set of apps */
 export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
     /** Data storage locations where a user may store managed data. */
-    private _allowedDataStorageLocations?: string[] | undefined;
-    /** Sources from which data is allowed to be transferred. Possible values are: allApps, managedApps, none. */
+    private _allowedDataStorageLocations?: ManagedAppDataStorageLocation[] | undefined;
+    /** Data can be transferred from/to these classes of apps */
     private _allowedInboundDataTransferSources?: ManagedAppDataTransferLevel | undefined;
-    /** The level to which the clipboard may be shared between apps on the managed device. Possible values are: allApps, managedAppsWithPasteIn, managedApps, blocked. */
+    /** Represents the level to which the device's clipboard may be shared between apps */
     private _allowedOutboundClipboardSharingLevel?: ManagedAppClipboardSharingLevel | undefined;
-    /** Destinations to which data is allowed to be transferred. Possible values are: allApps, managedApps, none. */
+    /** Data can be transferred from/to these classes of apps */
     private _allowedOutboundDataTransferDestinations?: ManagedAppDataTransferLevel | undefined;
     /** Indicates whether contacts can be synced to the user's device. */
     private _contactSyncBlocked?: boolean | undefined;
@@ -25,7 +25,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
     private _disableAppPinIfDevicePinIsSet?: boolean | undefined;
     /** Indicates whether use of the fingerprint reader is allowed in place of a pin if PinRequired is set to True. */
     private _fingerprintBlocked?: boolean | undefined;
-    /** Indicates in which managed browser(s) that internet links should be opened. When this property is configured, ManagedBrowserToOpenLinksRequired should be true. Possible values are: notConfigured, microsoftEdge. */
+    /** Type of managed browser */
     private _managedBrowser?: ManagedBrowserType | undefined;
     /** Indicates whether internet links should be opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android) */
     private _managedBrowserToOpenLinksRequired?: boolean | undefined;
@@ -51,7 +51,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
     private _periodOfflineBeforeWipeIsEnforced?: Duration | undefined;
     /** The period after which access is checked when the device is connected to the internet. */
     private _periodOnlineBeforeAccessCheck?: Duration | undefined;
-    /** Character set which may be used for an app-level pin if PinRequired is set to True. Possible values are: numeric, alphanumericAndSymbol. */
+    /** Character set which is to be used for a user's app PIN */
     private _pinCharacterSet?: ManagedAppPinCharacterSet | undefined;
     /** Indicates whether an app-level pin is required. */
     private _pinRequired?: boolean | undefined;
@@ -63,7 +63,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
     private _simplePinBlocked?: boolean | undefined;
     /**
      * Gets the allowedDataStorageLocations property value. Data storage locations where a user may store managed data.
-     * @returns a string
+     * @returns a managedAppDataStorageLocation
      */
     public get allowedDataStorageLocations() {
         return this._allowedDataStorageLocations;
@@ -72,56 +72,57 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
      * Sets the allowedDataStorageLocations property value. Data storage locations where a user may store managed data.
      * @param value Value to set for the allowedDataStorageLocations property.
      */
-    public set allowedDataStorageLocations(value: string[] | undefined) {
+    public set allowedDataStorageLocations(value: ManagedAppDataStorageLocation[] | undefined) {
         this._allowedDataStorageLocations = value;
     };
     /**
-     * Gets the allowedInboundDataTransferSources property value. Sources from which data is allowed to be transferred. Possible values are: allApps, managedApps, none.
+     * Gets the allowedInboundDataTransferSources property value. Data can be transferred from/to these classes of apps
      * @returns a managedAppDataTransferLevel
      */
     public get allowedInboundDataTransferSources() {
         return this._allowedInboundDataTransferSources;
     };
     /**
-     * Sets the allowedInboundDataTransferSources property value. Sources from which data is allowed to be transferred. Possible values are: allApps, managedApps, none.
+     * Sets the allowedInboundDataTransferSources property value. Data can be transferred from/to these classes of apps
      * @param value Value to set for the allowedInboundDataTransferSources property.
      */
     public set allowedInboundDataTransferSources(value: ManagedAppDataTransferLevel | undefined) {
         this._allowedInboundDataTransferSources = value;
     };
     /**
-     * Gets the allowedOutboundClipboardSharingLevel property value. The level to which the clipboard may be shared between apps on the managed device. Possible values are: allApps, managedAppsWithPasteIn, managedApps, blocked.
+     * Gets the allowedOutboundClipboardSharingLevel property value. Represents the level to which the device's clipboard may be shared between apps
      * @returns a managedAppClipboardSharingLevel
      */
     public get allowedOutboundClipboardSharingLevel() {
         return this._allowedOutboundClipboardSharingLevel;
     };
     /**
-     * Sets the allowedOutboundClipboardSharingLevel property value. The level to which the clipboard may be shared between apps on the managed device. Possible values are: allApps, managedAppsWithPasteIn, managedApps, blocked.
+     * Sets the allowedOutboundClipboardSharingLevel property value. Represents the level to which the device's clipboard may be shared between apps
      * @param value Value to set for the allowedOutboundClipboardSharingLevel property.
      */
     public set allowedOutboundClipboardSharingLevel(value: ManagedAppClipboardSharingLevel | undefined) {
         this._allowedOutboundClipboardSharingLevel = value;
     };
     /**
-     * Gets the allowedOutboundDataTransferDestinations property value. Destinations to which data is allowed to be transferred. Possible values are: allApps, managedApps, none.
+     * Gets the allowedOutboundDataTransferDestinations property value. Data can be transferred from/to these classes of apps
      * @returns a managedAppDataTransferLevel
      */
     public get allowedOutboundDataTransferDestinations() {
         return this._allowedOutboundDataTransferDestinations;
     };
     /**
-     * Sets the allowedOutboundDataTransferDestinations property value. Destinations to which data is allowed to be transferred. Possible values are: allApps, managedApps, none.
+     * Sets the allowedOutboundDataTransferDestinations property value. Data can be transferred from/to these classes of apps
      * @param value Value to set for the allowedOutboundDataTransferDestinations property.
      */
     public set allowedOutboundDataTransferDestinations(value: ManagedAppDataTransferLevel | undefined) {
         this._allowedOutboundDataTransferDestinations = value;
     };
     /**
-     * Instantiates a new managedAppProtection and sets the default values.
+     * Instantiates a new ManagedAppProtection and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.managedAppProtection";
     };
     /**
      * Gets the contactSyncBlocked property value. Indicates whether contacts can be synced to the user's device.
@@ -199,7 +200,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "allowedDataStorageLocations": n => { this.allowedDataStorageLocations = n.getCollectionOfPrimitiveValues<string>(); },
+            "allowedDataStorageLocations": n => { this.allowedDataStorageLocations = n.getEnumValues<ManagedAppDataStorageLocation>(ManagedAppDataStorageLocation); },
             "allowedInboundDataTransferSources": n => { this.allowedInboundDataTransferSources = n.getEnumValue<ManagedAppDataTransferLevel>(ManagedAppDataTransferLevel); },
             "allowedOutboundClipboardSharingLevel": n => { this.allowedOutboundClipboardSharingLevel = n.getEnumValue<ManagedAppClipboardSharingLevel>(ManagedAppClipboardSharingLevel); },
             "allowedOutboundDataTransferDestinations": n => { this.allowedOutboundDataTransferDestinations = n.getEnumValue<ManagedAppDataTransferLevel>(ManagedAppDataTransferLevel); },
@@ -229,14 +230,14 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
         };
     };
     /**
-     * Gets the managedBrowser property value. Indicates in which managed browser(s) that internet links should be opened. When this property is configured, ManagedBrowserToOpenLinksRequired should be true. Possible values are: notConfigured, microsoftEdge.
+     * Gets the managedBrowser property value. Type of managed browser
      * @returns a managedBrowserType
      */
     public get managedBrowser() {
         return this._managedBrowser;
     };
     /**
-     * Sets the managedBrowser property value. Indicates in which managed browser(s) that internet links should be opened. When this property is configured, ManagedBrowserToOpenLinksRequired should be true. Possible values are: notConfigured, microsoftEdge.
+     * Sets the managedBrowser property value. Type of managed browser
      * @param value Value to set for the managedBrowser property.
      */
     public set managedBrowser(value: ManagedBrowserType | undefined) {
@@ -411,14 +412,14 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
         this._periodOnlineBeforeAccessCheck = value;
     };
     /**
-     * Gets the pinCharacterSet property value. Character set which may be used for an app-level pin if PinRequired is set to True. Possible values are: numeric, alphanumericAndSymbol.
+     * Gets the pinCharacterSet property value. Character set which is to be used for a user's app PIN
      * @returns a managedAppPinCharacterSet
      */
     public get pinCharacterSet() {
         return this._pinCharacterSet;
     };
     /**
-     * Sets the pinCharacterSet property value. Character set which may be used for an app-level pin if PinRequired is set to True. Possible values are: numeric, alphanumericAndSymbol.
+     * Sets the pinCharacterSet property value. Character set which is to be used for a user's app PIN
      * @param value Value to set for the pinCharacterSet property.
      */
     public set pinCharacterSet(value: ManagedAppPinCharacterSet | undefined) {
@@ -473,7 +474,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfPrimitiveValues<string>("allowedDataStorageLocations", this.allowedDataStorageLocations);
+        this.allowedDataStorageLocations && writer.writeEnumValue<ManagedAppDataStorageLocation>("allowedDataStorageLocations", ...this.allowedDataStorageLocations);
         writer.writeEnumValue<ManagedAppDataTransferLevel>("allowedInboundDataTransferSources", this.allowedInboundDataTransferSources);
         writer.writeEnumValue<ManagedAppClipboardSharingLevel>("allowedOutboundClipboardSharingLevel", this.allowedOutboundClipboardSharingLevel);
         writer.writeEnumValue<ManagedAppDataTransferLevel>("allowedOutboundDataTransferDestinations", this.allowedOutboundDataTransferDestinations);

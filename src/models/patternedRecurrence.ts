@@ -6,7 +6,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class PatternedRecurrence implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The frequency of an event. Do not specify for a one-time access review.  For access reviews: Do not specify this property for a one-time access review.   Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported. */
+    /** The OdataType property */
+    private _odataType?: string | undefined;
+    /** The frequency of an event.  For access reviews: Do not specify this property for a one-time access review.  Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported. */
     private _pattern?: RecurrencePattern | undefined;
     /** The duration of an event. */
     private _range?: RecurrenceRange | undefined;
@@ -29,6 +31,7 @@ export class PatternedRecurrence implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.patternedRecurrence";
     };
     /**
      * The deserialization information for the current model
@@ -36,19 +39,34 @@ export class PatternedRecurrence implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "pattern": n => { this.pattern = n.getObjectValue<RecurrencePattern>(createRecurrencePatternFromDiscriminatorValue); },
             "range": n => { this.range = n.getObjectValue<RecurrenceRange>(createRecurrenceRangeFromDiscriminatorValue); },
         };
     };
     /**
-     * Gets the pattern property value. The frequency of an event. Do not specify for a one-time access review.  For access reviews: Do not specify this property for a one-time access review.   Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported.
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
+     * Gets the pattern property value. The frequency of an event.  For access reviews: Do not specify this property for a one-time access review.  Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported.
      * @returns a recurrencePattern
      */
     public get pattern() {
         return this._pattern;
     };
     /**
-     * Sets the pattern property value. The frequency of an event. Do not specify for a one-time access review.  For access reviews: Do not specify this property for a one-time access review.   Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported.
+     * Sets the pattern property value. The frequency of an event.  For access reviews: Do not specify this property for a one-time access review.  Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported.
      * @param value Value to set for the pattern property.
      */
     public set pattern(value: RecurrencePattern | undefined) {
@@ -74,6 +92,7 @@ export class PatternedRecurrence implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<RecurrencePattern>("pattern", this.pattern);
         writer.writeObjectValue<RecurrenceRange>("range", this.range);
         writer.writeAdditionalData(this.additionalData);

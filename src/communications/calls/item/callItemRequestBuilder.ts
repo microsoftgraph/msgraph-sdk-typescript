@@ -10,6 +10,8 @@ import {CallItemRequestBuilderGetRequestConfiguration} from './callItemRequestBu
 import {CallItemRequestBuilderPatchRequestConfiguration} from './callItemRequestBuilderPatchRequestConfiguration';
 import {CancelMediaProcessingRequestBuilder} from './cancelMediaProcessing/cancelMediaProcessingRequestBuilder';
 import {ChangeScreenSharingRoleRequestBuilder} from './changeScreenSharingRole/changeScreenSharingRoleRequestBuilder';
+import {ContentSharingSessionsRequestBuilder} from './contentSharingSessions/contentSharingSessionsRequestBuilder';
+import {ContentSharingSessionItemRequestBuilder} from './contentSharingSessions/item/contentSharingSessionItemRequestBuilder';
 import {KeepAliveRequestBuilder} from './keepAlive/keepAliveRequestBuilder';
 import {MuteRequestBuilder} from './mute/muteRequestBuilder';
 import {CommsOperationItemRequestBuilder} from './operations/item/commsOperationItemRequestBuilder';
@@ -43,6 +45,10 @@ export class CallItemRequestBuilder {
     /** The changeScreenSharingRole property */
     public get changeScreenSharingRole(): ChangeScreenSharingRoleRequestBuilder {
         return new ChangeScreenSharingRoleRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The contentSharingSessions property */
+    public get contentSharingSessions(): ContentSharingSessionsRequestBuilder {
+        return new ContentSharingSessionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The keepAlive property */
     public get keepAlive(): KeepAliveRequestBuilder {
@@ -101,7 +107,7 @@ export class CallItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.calls.item.audioRoutingGroups.item collection
      * @param id Unique identifier of the item
-     * @returns a audioRoutingGroupItemRequestBuilder
+     * @returns a AudioRoutingGroupItemRequestBuilder
      */
     public audioRoutingGroupsById(id: string) : AudioRoutingGroupItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -121,6 +127,17 @@ export class CallItemRequestBuilder {
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.calls.item.contentSharingSessions.item collection
+     * @param id Unique identifier of the item
+     * @returns a ContentSharingSessionItemRequestBuilder
+     */
+    public contentSharingSessionsById(id: string) : ContentSharingSessionItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["contentSharingSession%2Did"] = id
+        return new ContentSharingSessionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property calls for communications
@@ -148,6 +165,7 @@ export class CallItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -208,7 +226,7 @@ export class CallItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.calls.item.operations.item collection
      * @param id Unique identifier of the item
-     * @returns a commsOperationItemRequestBuilder
+     * @returns a CommsOperationItemRequestBuilder
      */
     public operationsById(id: string) : CommsOperationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -219,7 +237,7 @@ export class CallItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.calls.item.participants.item collection
      * @param id Unique identifier of the item
-     * @returns a participantItemRequestBuilder
+     * @returns a ParticipantItemRequestBuilder
      */
     public participantsById(id: string) : ParticipantItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

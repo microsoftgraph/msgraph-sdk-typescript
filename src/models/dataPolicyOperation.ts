@@ -35,6 +35,7 @@ export class DataPolicyOperation extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.dataPolicyOperation";
     };
     /**
      * The deserialization information for the current model

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of organization entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum MdmAuthority {
     /** Unknown */
     Unknown = "unknown",

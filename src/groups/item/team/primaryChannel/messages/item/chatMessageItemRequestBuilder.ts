@@ -7,7 +7,7 @@ import {ChatMessageItemRequestBuilderGetRequestConfiguration} from './chatMessag
 import {ChatMessageItemRequestBuilderPatchRequestConfiguration} from './chatMessageItemRequestBuilderPatchRequestConfiguration';
 import {HostedContentsRequestBuilder} from './hostedContents/hostedContentsRequestBuilder';
 import {ChatMessageHostedContentItemRequestBuilder} from './hostedContents/item/chatMessageHostedContentItemRequestBuilder';
-import {ChatMessageItemRequestBuilder as i10b9ea335bd6b596cfc2f04b8c4eb4aca1a8b1eb27e6c271fad88d8814af1797} from './replies/item/chatMessageItemRequestBuilder';
+import {ChatMessageItemRequestBuilder as i4138b97f03ab9da9e31412c0f18e6522968dfb2bc457364e70d13f77eb8eee65} from './replies/item/chatMessageItemRequestBuilder';
 import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -66,6 +66,7 @@ export class ChatMessageItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -126,7 +127,7 @@ export class ChatMessageItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.team.primaryChannel.messages.item.hostedContents.item collection
      * @param id Unique identifier of the item
-     * @returns a chatMessageHostedContentItemRequestBuilder
+     * @returns a ChatMessageHostedContentItemRequestBuilder
      */
     public hostedContentsById(id: string) : ChatMessageHostedContentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -154,12 +155,12 @@ export class ChatMessageItemRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.team.primaryChannel.messages.item.replies.item collection
      * @param id Unique identifier of the item
-     * @returns a chatMessageItemRequestBuilder
+     * @returns a ChatMessageItemRequestBuilder
      */
-    public repliesById(id: string) : i10b9ea335bd6b596cfc2f04b8c4eb4aca1a8b1eb27e6c271fad88d8814af1797 {
+    public repliesById(id: string) : i4138b97f03ab9da9e31412c0f18e6522968dfb2bc457364e70d13f77eb8eee65 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["chatMessage%2Did1"] = id
-        return new i10b9ea335bd6b596cfc2f04b8c4eb4aca1a8b1eb27e6c271fad88d8814af1797(urlTplParams, this.requestAdapter);
+        return new i4138b97f03ab9da9e31412c0f18e6522968dfb2bc457364e70d13f77eb8eee65(urlTplParams, this.requestAdapter);
     };
 }

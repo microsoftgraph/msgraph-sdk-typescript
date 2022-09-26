@@ -11,6 +11,7 @@ export class Identity extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.externalConnectors.identity";
     };
     /**
      * The deserialization information for the current model

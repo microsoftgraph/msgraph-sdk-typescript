@@ -2,11 +2,12 @@ import {ChannelMembershipType} from './channelMembershipType';
 import {createChatMessageFromDiscriminatorValue} from './createChatMessageFromDiscriminatorValue';
 import {createConversationMemberFromDiscriminatorValue} from './createConversationMemberFromDiscriminatorValue';
 import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscriminatorValue';
+import {createSharedWithChannelTeamInfoFromDiscriminatorValue} from './createSharedWithChannelTeamInfoFromDiscriminatorValue';
 import {createTeamsTabFromDiscriminatorValue} from './createTeamsTabFromDiscriminatorValue';
-import {ChatMessage, ConversationMember, DriveItem, Entity, TeamsTab} from './index';
+import {ChatMessage, ConversationMember, DriveItem, Entity, SharedWithChannelTeamInfo, TeamsTab} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class Channel extends Entity implements Parsable {
     /** Read only. Timestamp at which the channel was created. */
     private _createdDateTime?: Date | undefined;
@@ -26,8 +27,12 @@ export class Channel extends Entity implements Parsable {
     private _membershipType?: ChannelMembershipType | undefined;
     /** A collection of all the messages in the channel. A navigation property. Nullable. */
     private _messages?: ChatMessage[] | undefined;
+    /** A collection of teams with which a channel is shared. */
+    private _sharedWithTeams?: SharedWithChannelTeamInfo[] | undefined;
     /** A collection of all the tabs in the channel. A navigation property. */
     private _tabs?: TeamsTab[] | undefined;
+    /** The ID of the Azure Active Directory tenant. */
+    private _tenantId?: string | undefined;
     /** A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only. */
     private _webUrl?: string | undefined;
     /**
@@ -35,6 +40,7 @@ export class Channel extends Entity implements Parsable {
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.channel";
     };
     /**
      * Gets the createdDateTime property value. Read only. Timestamp at which the channel was created.
@@ -121,7 +127,9 @@ export class Channel extends Entity implements Parsable {
             "members": n => { this.members = n.getCollectionOfObjectValues<ConversationMember>(createConversationMemberFromDiscriminatorValue); },
             "membershipType": n => { this.membershipType = n.getEnumValue<ChannelMembershipType>(ChannelMembershipType); },
             "messages": n => { this.messages = n.getCollectionOfObjectValues<ChatMessage>(createChatMessageFromDiscriminatorValue); },
+            "sharedWithTeams": n => { this.sharedWithTeams = n.getCollectionOfObjectValues<SharedWithChannelTeamInfo>(createSharedWithChannelTeamInfoFromDiscriminatorValue); },
             "tabs": n => { this.tabs = n.getCollectionOfObjectValues<TeamsTab>(createTeamsTabFromDiscriminatorValue); },
+            "tenantId": n => { this.tenantId = n.getStringValue(); },
             "webUrl": n => { this.webUrl = n.getStringValue(); },
         };
     };
@@ -197,8 +205,24 @@ export class Channel extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<ConversationMember>("members", this.members);
         writer.writeEnumValue<ChannelMembershipType>("membershipType", this.membershipType);
         writer.writeCollectionOfObjectValues<ChatMessage>("messages", this.messages);
+        writer.writeCollectionOfObjectValues<SharedWithChannelTeamInfo>("sharedWithTeams", this.sharedWithTeams);
         writer.writeCollectionOfObjectValues<TeamsTab>("tabs", this.tabs);
+        writer.writeStringValue("tenantId", this.tenantId);
         writer.writeStringValue("webUrl", this.webUrl);
+    };
+    /**
+     * Gets the sharedWithTeams property value. A collection of teams with which a channel is shared.
+     * @returns a sharedWithChannelTeamInfo
+     */
+    public get sharedWithTeams() {
+        return this._sharedWithTeams;
+    };
+    /**
+     * Sets the sharedWithTeams property value. A collection of teams with which a channel is shared.
+     * @param value Value to set for the sharedWithTeams property.
+     */
+    public set sharedWithTeams(value: SharedWithChannelTeamInfo[] | undefined) {
+        this._sharedWithTeams = value;
     };
     /**
      * Gets the tabs property value. A collection of all the tabs in the channel. A navigation property.
@@ -213,6 +237,20 @@ export class Channel extends Entity implements Parsable {
      */
     public set tabs(value: TeamsTab[] | undefined) {
         this._tabs = value;
+    };
+    /**
+     * Gets the tenantId property value. The ID of the Azure Active Directory tenant.
+     * @returns a string
+     */
+    public get tenantId() {
+        return this._tenantId;
+    };
+    /**
+     * Sets the tenantId property value. The ID of the Azure Active Directory tenant.
+     * @param value Value to set for the tenantId property.
+     */
+    public set tenantId(value: string | undefined) {
+        this._tenantId = value;
     };
     /**
      * Gets the webUrl property value. A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.

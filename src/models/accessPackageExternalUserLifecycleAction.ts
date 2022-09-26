@@ -1,4 +1,4 @@
-/** Provides operations to manage the identityGovernance singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum AccessPackageExternalUserLifecycleAction {
     None = "none",
     BlockSignIn = "blockSignIn",

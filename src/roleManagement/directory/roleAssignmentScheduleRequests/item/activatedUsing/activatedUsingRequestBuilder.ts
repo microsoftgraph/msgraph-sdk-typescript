@@ -27,7 +27,7 @@ export class ActivatedUsingRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation.
+     * If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it's null. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -36,6 +36,7 @@ export class ActivatedUsingRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -44,7 +45,7 @@ export class ActivatedUsingRequestBuilder {
         return requestInfo;
     };
     /**
-     * If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation.
+     * If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it's null. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleEligibilitySchedule

@@ -1,5 +1,13 @@
 import {createIntegerRangeFromDiscriminatorValue} from './createIntegerRangeFromDiscriminatorValue';
 import {IntegerRange} from './index';
+import {PrintColorMode} from './printColorMode';
+import {PrintDuplexMode} from './printDuplexMode';
+import {PrinterFeedOrientation} from './printerFeedOrientation';
+import {PrintFinishing} from './printFinishing';
+import {PrintMultipageLayout} from './printMultipageLayout';
+import {PrintOrientation} from './printOrientation';
+import {PrintQuality} from './printQuality';
+import {PrintScaling} from './printScaling';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
@@ -10,7 +18,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
     /** True if the printer supports collating when printing muliple copies of a multi-page document; false otherwise. */
     private _collation?: boolean | undefined;
     /** The color modes supported by the printer. Valid values are described in the following table. */
-    private _colorModes?: string[] | undefined;
+    private _colorModes?: PrintColorMode[] | undefined;
     /** A list of supported content (MIME) types that the printer supports. It is not guaranteed that the Universal Print service supports printing all of these MIME types. */
     private _contentTypes?: string[] | undefined;
     /** The range of copies per job supported by the printer. */
@@ -18,11 +26,11 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
     /** The list of print resolutions in DPI that are supported by the printer. */
     private _dpis?: number[] | undefined;
     /** The list of duplex modes that are supported by the printer. Valid values are described in the following table. */
-    private _duplexModes?: string[] | undefined;
+    private _duplexModes?: PrintDuplexMode[] | undefined;
     /** The list of feed orientations that are supported by the printer. */
-    private _feedOrientations?: string[] | undefined;
+    private _feedOrientations?: PrinterFeedOrientation[] | undefined;
     /** Finishing processes the printer supports for a printed document. */
-    private _finishings?: string[] | undefined;
+    private _finishings?: PrintFinishing[] | undefined;
     /** Supported input bins for the printer. */
     private _inputBins?: string[] | undefined;
     /** True if color printing is supported by the printer; false otherwise. Read-only. */
@@ -38,19 +46,21 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
     /** The media types supported by the printer. */
     private _mediaTypes?: string[] | undefined;
     /** The presentation directions supported by the printer. Supported values are described in the following table. */
-    private _multipageLayouts?: string[] | undefined;
+    private _multipageLayouts?: PrintMultipageLayout[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The print orientations supported by the printer. Valid values are described in the following table. */
-    private _orientations?: string[] | undefined;
+    private _orientations?: PrintOrientation[] | undefined;
     /** The printer's supported output bins (trays). */
     private _outputBins?: string[] | undefined;
     /** Supported number of Input Pages to impose upon a single Impression. */
     private _pagesPerSheet?: number[] | undefined;
     /** The print qualities supported by the printer. */
-    private _qualities?: string[] | undefined;
+    private _qualities?: PrintQuality[] | undefined;
     /** A list of supported right margins(in microns) for the printer. */
     private _rightMargins?: number[] | undefined;
     /** Supported print scalings. */
-    private _scalings?: string[] | undefined;
+    private _scalings?: PrintScaling[] | undefined;
     /** True if the printer supports scaling PDF pages to match the print media size; false otherwise. */
     private _supportsFitPdfToPage?: boolean | undefined;
     /** A list of supported top margins(in microns) for the printer. */
@@ -99,7 +109,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the colorModes property value. The color modes supported by the printer. Valid values are described in the following table.
-     * @returns a string
+     * @returns a printColorMode
      */
     public get colorModes() {
         return this._colorModes;
@@ -108,7 +118,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
      * Sets the colorModes property value. The color modes supported by the printer. Valid values are described in the following table.
      * @param value Value to set for the colorModes property.
      */
-    public set colorModes(value: string[] | undefined) {
+    public set colorModes(value: PrintColorMode[] | undefined) {
         this._colorModes = value;
     };
     /**
@@ -116,6 +126,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
+        this.odataType = "#microsoft.graph.printerCapabilities";
     };
     /**
      * Gets the contentTypes property value. A list of supported content (MIME) types that the printer supports. It is not guaranteed that the Universal Print service supports printing all of these MIME types.
@@ -161,7 +172,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the duplexModes property value. The list of duplex modes that are supported by the printer. Valid values are described in the following table.
-     * @returns a string
+     * @returns a printDuplexMode
      */
     public get duplexModes() {
         return this._duplexModes;
@@ -170,12 +181,12 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
      * Sets the duplexModes property value. The list of duplex modes that are supported by the printer. Valid values are described in the following table.
      * @param value Value to set for the duplexModes property.
      */
-    public set duplexModes(value: string[] | undefined) {
+    public set duplexModes(value: PrintDuplexMode[] | undefined) {
         this._duplexModes = value;
     };
     /**
      * Gets the feedOrientations property value. The list of feed orientations that are supported by the printer.
-     * @returns a string
+     * @returns a printerFeedOrientation
      */
     public get feedOrientations() {
         return this._feedOrientations;
@@ -184,12 +195,12 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
      * Sets the feedOrientations property value. The list of feed orientations that are supported by the printer.
      * @param value Value to set for the feedOrientations property.
      */
-    public set feedOrientations(value: string[] | undefined) {
+    public set feedOrientations(value: PrinterFeedOrientation[] | undefined) {
         this._feedOrientations = value;
     };
     /**
      * Gets the finishings property value. Finishing processes the printer supports for a printed document.
-     * @returns a string
+     * @returns a printFinishing
      */
     public get finishings() {
         return this._finishings;
@@ -198,7 +209,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
      * Sets the finishings property value. Finishing processes the printer supports for a printed document.
      * @param value Value to set for the finishings property.
      */
-    public set finishings(value: string[] | undefined) {
+    public set finishings(value: PrintFinishing[] | undefined) {
         this._finishings = value;
     };
     /**
@@ -209,13 +220,13 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
         return {
             "bottomMargins": n => { this.bottomMargins = n.getCollectionOfPrimitiveValues<number>(); },
             "collation": n => { this.collation = n.getBooleanValue(); },
-            "colorModes": n => { this.colorModes = n.getCollectionOfPrimitiveValues<string>(); },
+            "colorModes": n => { this.colorModes = n.getEnumValues<PrintColorMode>(PrintColorMode); },
             "contentTypes": n => { this.contentTypes = n.getCollectionOfPrimitiveValues<string>(); },
             "copiesPerJob": n => { this.copiesPerJob = n.getObjectValue<IntegerRange>(createIntegerRangeFromDiscriminatorValue); },
             "dpis": n => { this.dpis = n.getCollectionOfPrimitiveValues<number>(); },
-            "duplexModes": n => { this.duplexModes = n.getCollectionOfPrimitiveValues<string>(); },
-            "feedOrientations": n => { this.feedOrientations = n.getCollectionOfPrimitiveValues<string>(); },
-            "finishings": n => { this.finishings = n.getCollectionOfPrimitiveValues<string>(); },
+            "duplexModes": n => { this.duplexModes = n.getEnumValues<PrintDuplexMode>(PrintDuplexMode); },
+            "feedOrientations": n => { this.feedOrientations = n.getEnumValues<PrinterFeedOrientation>(PrinterFeedOrientation); },
+            "finishings": n => { this.finishings = n.getEnumValues<PrintFinishing>(PrintFinishing); },
             "inputBins": n => { this.inputBins = n.getCollectionOfPrimitiveValues<string>(); },
             "isColorPrintingSupported": n => { this.isColorPrintingSupported = n.getBooleanValue(); },
             "isPageRangeSupported": n => { this.isPageRangeSupported = n.getBooleanValue(); },
@@ -223,13 +234,14 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
             "mediaColors": n => { this.mediaColors = n.getCollectionOfPrimitiveValues<string>(); },
             "mediaSizes": n => { this.mediaSizes = n.getCollectionOfPrimitiveValues<string>(); },
             "mediaTypes": n => { this.mediaTypes = n.getCollectionOfPrimitiveValues<string>(); },
-            "multipageLayouts": n => { this.multipageLayouts = n.getCollectionOfPrimitiveValues<string>(); },
-            "orientations": n => { this.orientations = n.getCollectionOfPrimitiveValues<string>(); },
+            "multipageLayouts": n => { this.multipageLayouts = n.getEnumValues<PrintMultipageLayout>(PrintMultipageLayout); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
+            "orientations": n => { this.orientations = n.getEnumValues<PrintOrientation>(PrintOrientation); },
             "outputBins": n => { this.outputBins = n.getCollectionOfPrimitiveValues<string>(); },
             "pagesPerSheet": n => { this.pagesPerSheet = n.getCollectionOfPrimitiveValues<number>(); },
-            "qualities": n => { this.qualities = n.getCollectionOfPrimitiveValues<string>(); },
+            "qualities": n => { this.qualities = n.getEnumValues<PrintQuality>(PrintQuality); },
             "rightMargins": n => { this.rightMargins = n.getCollectionOfPrimitiveValues<number>(); },
-            "scalings": n => { this.scalings = n.getCollectionOfPrimitiveValues<string>(); },
+            "scalings": n => { this.scalings = n.getEnumValues<PrintScaling>(PrintScaling); },
             "supportsFitPdfToPage": n => { this.supportsFitPdfToPage = n.getBooleanValue(); },
             "topMargins": n => { this.topMargins = n.getCollectionOfPrimitiveValues<number>(); },
         };
@@ -334,7 +346,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the multipageLayouts property value. The presentation directions supported by the printer. Supported values are described in the following table.
-     * @returns a string
+     * @returns a printMultipageLayout
      */
     public get multipageLayouts() {
         return this._multipageLayouts;
@@ -343,12 +355,26 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
      * Sets the multipageLayouts property value. The presentation directions supported by the printer. Supported values are described in the following table.
      * @param value Value to set for the multipageLayouts property.
      */
-    public set multipageLayouts(value: string[] | undefined) {
+    public set multipageLayouts(value: PrintMultipageLayout[] | undefined) {
         this._multipageLayouts = value;
     };
     /**
-     * Gets the orientations property value. The print orientations supported by the printer. Valid values are described in the following table.
+     * Gets the @odata.type property value. The OdataType property
      * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
+     * Gets the orientations property value. The print orientations supported by the printer. Valid values are described in the following table.
+     * @returns a printOrientation
      */
     public get orientations() {
         return this._orientations;
@@ -357,7 +383,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
      * Sets the orientations property value. The print orientations supported by the printer. Valid values are described in the following table.
      * @param value Value to set for the orientations property.
      */
-    public set orientations(value: string[] | undefined) {
+    public set orientations(value: PrintOrientation[] | undefined) {
         this._orientations = value;
     };
     /**
@@ -390,7 +416,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the qualities property value. The print qualities supported by the printer.
-     * @returns a string
+     * @returns a printQuality
      */
     public get qualities() {
         return this._qualities;
@@ -399,7 +425,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
      * Sets the qualities property value. The print qualities supported by the printer.
      * @param value Value to set for the qualities property.
      */
-    public set qualities(value: string[] | undefined) {
+    public set qualities(value: PrintQuality[] | undefined) {
         this._qualities = value;
     };
     /**
@@ -418,7 +444,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the scalings property value. Supported print scalings.
-     * @returns a string
+     * @returns a printScaling
      */
     public get scalings() {
         return this._scalings;
@@ -427,7 +453,7 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
      * Sets the scalings property value. Supported print scalings.
      * @param value Value to set for the scalings property.
      */
-    public set scalings(value: string[] | undefined) {
+    public set scalings(value: PrintScaling[] | undefined) {
         this._scalings = value;
     };
     /**
@@ -438,13 +464,13 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfPrimitiveValues<number>("bottomMargins", this.bottomMargins);
         writer.writeBooleanValue("collation", this.collation);
-        writer.writeCollectionOfPrimitiveValues<string>("colorModes", this.colorModes);
+        this.colorModes && writer.writeEnumValue<PrintColorMode>("colorModes", ...this.colorModes);
         writer.writeCollectionOfPrimitiveValues<string>("contentTypes", this.contentTypes);
         writer.writeObjectValue<IntegerRange>("copiesPerJob", this.copiesPerJob);
         writer.writeCollectionOfPrimitiveValues<number>("dpis", this.dpis);
-        writer.writeCollectionOfPrimitiveValues<string>("duplexModes", this.duplexModes);
-        writer.writeCollectionOfPrimitiveValues<string>("feedOrientations", this.feedOrientations);
-        writer.writeCollectionOfPrimitiveValues<string>("finishings", this.finishings);
+        this.duplexModes && writer.writeEnumValue<PrintDuplexMode>("duplexModes", ...this.duplexModes);
+        this.feedOrientations && writer.writeEnumValue<PrinterFeedOrientation>("feedOrientations", ...this.feedOrientations);
+        this.finishings && writer.writeEnumValue<PrintFinishing>("finishings", ...this.finishings);
         writer.writeCollectionOfPrimitiveValues<string>("inputBins", this.inputBins);
         writer.writeBooleanValue("isColorPrintingSupported", this.isColorPrintingSupported);
         writer.writeBooleanValue("isPageRangeSupported", this.isPageRangeSupported);
@@ -452,13 +478,14 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("mediaColors", this.mediaColors);
         writer.writeCollectionOfPrimitiveValues<string>("mediaSizes", this.mediaSizes);
         writer.writeCollectionOfPrimitiveValues<string>("mediaTypes", this.mediaTypes);
-        writer.writeCollectionOfPrimitiveValues<string>("multipageLayouts", this.multipageLayouts);
-        writer.writeCollectionOfPrimitiveValues<string>("orientations", this.orientations);
+        this.multipageLayouts && writer.writeEnumValue<PrintMultipageLayout>("multipageLayouts", ...this.multipageLayouts);
+        writer.writeStringValue("@odata.type", this.odataType);
+        this.orientations && writer.writeEnumValue<PrintOrientation>("orientations", ...this.orientations);
         writer.writeCollectionOfPrimitiveValues<string>("outputBins", this.outputBins);
         writer.writeCollectionOfPrimitiveValues<number>("pagesPerSheet", this.pagesPerSheet);
-        writer.writeCollectionOfPrimitiveValues<string>("qualities", this.qualities);
+        this.qualities && writer.writeEnumValue<PrintQuality>("qualities", ...this.qualities);
         writer.writeCollectionOfPrimitiveValues<number>("rightMargins", this.rightMargins);
-        writer.writeCollectionOfPrimitiveValues<string>("scalings", this.scalings);
+        this.scalings && writer.writeEnumValue<PrintScaling>("scalings", ...this.scalings);
         writer.writeBooleanValue("supportsFitPdfToPage", this.supportsFitPdfToPage);
         writer.writeCollectionOfPrimitiveValues<number>("topMargins", this.topMargins);
         writer.writeAdditionalData(this.additionalData);

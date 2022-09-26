@@ -3,6 +3,7 @@ import {createIdentitySetFromDiscriminatorValue} from '../createIdentitySetFromD
 import {CallType} from './callType';
 import {createSessionFromDiscriminatorValue} from './createSessionFromDiscriminatorValue';
 import {Session} from './index';
+import {Modality} from './modality';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the cloudCommunications singleton. */
@@ -14,24 +15,25 @@ export class CallRecord extends Entity implements Parsable {
     /** UTC time when the call record was created. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _lastModifiedDateTime?: Date | undefined;
     /** List of all the modalities used in the call. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue. */
-    private _modalities?: string[] | undefined;
+    private _modalities?: Modality[] | undefined;
     /** The organizing party's identity. */
     private _organizer?: IdentitySet | undefined;
     /** List of distinct identities involved in the call. */
     private _participants?: IdentitySet[] | undefined;
     /** List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable. */
     private _sessions?: Session[] | undefined;
-    /** UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    /** UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _startDateTime?: Date | undefined;
-    /** Indicates the type of the call. Possible values are: unknown, groupCall, peerToPeer, unknownFutureValue. */
+    /** The type property */
     private _type?: CallType | undefined;
-    /** Monotonically increasing version of the call record. Higher version call records with the same ID includes additional data compared to the lower version. */
+    /** Monotonically increasing version of the call record. Higher version call records with the same id includes additional data compared to the lower version. */
     private _version?: number | undefined;
     /**
      * Instantiates a new callRecord and sets the default values.
      */
     public constructor() {
         super();
+        this.odataType = "#microsoft.graph.callRecords.callRecord";
     };
     /**
      * Gets the endDateTime property value. UTC time when the last user left the call. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -56,7 +58,7 @@ export class CallRecord extends Entity implements Parsable {
             "endDateTime": n => { this.endDateTime = n.getDateValue(); },
             "joinWebUrl": n => { this.joinWebUrl = n.getStringValue(); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
-            "modalities": n => { this.modalities = n.getCollectionOfPrimitiveValues<string>(); },
+            "modalities": n => { this.modalities = n.getEnumValues<Modality>(Modality); },
             "organizer": n => { this.organizer = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "participants": n => { this.participants = n.getCollectionOfObjectValues<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
             "sessions": n => { this.sessions = n.getCollectionOfObjectValues<Session>(createSessionFromDiscriminatorValue); },
@@ -95,7 +97,7 @@ export class CallRecord extends Entity implements Parsable {
     };
     /**
      * Gets the modalities property value. List of all the modalities used in the call. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
-     * @returns a string
+     * @returns a modality
      */
     public get modalities() {
         return this._modalities;
@@ -104,7 +106,7 @@ export class CallRecord extends Entity implements Parsable {
      * Sets the modalities property value. List of all the modalities used in the call. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
      * @param value Value to set for the modalities property.
      */
-    public set modalities(value: string[] | undefined) {
+    public set modalities(value: Modality[] | undefined) {
         this._modalities = value;
     };
     /**
@@ -145,7 +147,7 @@ export class CallRecord extends Entity implements Parsable {
         writer.writeDateValue("endDateTime", this.endDateTime);
         writer.writeStringValue("joinWebUrl", this.joinWebUrl);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-        writer.writeCollectionOfPrimitiveValues<string>("modalities", this.modalities);
+        this.modalities && writer.writeEnumValue<Modality>("modalities", ...this.modalities);
         writer.writeObjectValue<IdentitySet>("organizer", this.organizer);
         writer.writeCollectionOfObjectValues<IdentitySet>("participants", this.participants);
         writer.writeCollectionOfObjectValues<Session>("sessions", this.sessions);
@@ -168,42 +170,42 @@ export class CallRecord extends Entity implements Parsable {
         this._sessions = value;
     };
     /**
-     * Gets the startDateTime property value. UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the startDateTime property value. UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @returns a Date
      */
     public get startDateTime() {
         return this._startDateTime;
     };
     /**
-     * Sets the startDateTime property value. UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the startDateTime property value. UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: Date | undefined) {
         this._startDateTime = value;
     };
     /**
-     * Gets the type property value. Indicates the type of the call. Possible values are: unknown, groupCall, peerToPeer, unknownFutureValue.
+     * Gets the type property value. The type property
      * @returns a callType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. Indicates the type of the call. Possible values are: unknown, groupCall, peerToPeer, unknownFutureValue.
+     * Sets the type property value. The type property
      * @param value Value to set for the type property.
      */
     public set type(value: CallType | undefined) {
         this._type = value;
     };
     /**
-     * Gets the version property value. Monotonically increasing version of the call record. Higher version call records with the same ID includes additional data compared to the lower version.
+     * Gets the version property value. Monotonically increasing version of the call record. Higher version call records with the same id includes additional data compared to the lower version.
      * @returns a int64
      */
     public get version() {
         return this._version;
     };
     /**
-     * Sets the version property value. Monotonically increasing version of the call record. Higher version call records with the same ID includes additional data compared to the lower version.
+     * Sets the version property value. Monotonically increasing version of the call record. Higher version call records with the same id includes additional data compared to the lower version.
      * @param value Value to set for the version property.
      */
     public set version(value: number | undefined) {
