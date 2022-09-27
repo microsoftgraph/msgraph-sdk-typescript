@@ -2,6 +2,8 @@ import {ConditionalAccessRoot} from '../../models/';
 import {createConditionalAccessRootFromDiscriminatorValue} from '../../models/createConditionalAccessRootFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AuthenticationContextClassReferencesRequestBuilder} from './authenticationContextClassReferences/authenticationContextClassReferencesRequestBuilder';
+import {AuthenticationContextClassReferenceItemRequestBuilder} from './authenticationContextClassReferences/item/authenticationContextClassReferenceItemRequestBuilder';
 import {ConditionalAccessRequestBuilderDeleteRequestConfiguration} from './conditionalAccessRequestBuilderDeleteRequestConfiguration';
 import {ConditionalAccessRequestBuilderGetRequestConfiguration} from './conditionalAccessRequestBuilderGetRequestConfiguration';
 import {ConditionalAccessRequestBuilderPatchRequestConfiguration} from './conditionalAccessRequestBuilderPatchRequestConfiguration';
@@ -13,6 +15,10 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity. */
 export class ConditionalAccessRequestBuilder {
+    /** The authenticationContextClassReferences property */
+    public get authenticationContextClassReferences(): AuthenticationContextClassReferencesRequestBuilder {
+        return new AuthenticationContextClassReferencesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The namedLocations property */
     public get namedLocations(): NamedLocationsRequestBuilder {
         return new NamedLocationsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -27,6 +33,17 @@ export class ConditionalAccessRequestBuilder {
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.conditionalAccess.authenticationContextClassReferences.item collection
+     * @param id Unique identifier of the item
+     * @returns a AuthenticationContextClassReferenceItemRequestBuilder
+     */
+    public authenticationContextClassReferencesById(id: string) : AuthenticationContextClassReferenceItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["authenticationContextClassReference%2Did"] = id
+        return new AuthenticationContextClassReferenceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ConditionalAccessRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -86,6 +103,7 @@ export class ConditionalAccessRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -140,8 +158,9 @@ export class ConditionalAccessRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ConditionalAccessRoot
      */
-    public patch(body: ConditionalAccessRoot | undefined, requestConfiguration?: ConditionalAccessRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ConditionalAccessRoot | undefined, requestConfiguration?: ConditionalAccessRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConditionalAccessRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -150,7 +169,7 @@ export class ConditionalAccessRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ConditionalAccessRoot>(requestInfo, createConditionalAccessRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.conditionalAccess.policies.item collection

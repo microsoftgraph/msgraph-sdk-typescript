@@ -28,7 +28,7 @@ export class CopyRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action copy
+     * Copy a mailfolder and its contents to another mailfolder.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -48,7 +48,7 @@ export class CopyRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action copy
+     * Copy a mailfolder and its contents to another mailfolder.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of externalConnection entities. */
+/** Provides operations to manage the admin singleton. */
 export enum IdentityType {
     User = "user",
     Group = "group",

@@ -1,6 +1,7 @@
 import {ManagedEBook} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** A class containing the properties for iOS Vpp eBook. */
 export class IosVppEBook extends ManagedEBook implements Parsable {
     /** The Apple ID associated with Vpp token. */
     private _appleId?: string | undefined;
@@ -33,7 +34,7 @@ export class IosVppEBook extends ManagedEBook implements Parsable {
         this._appleId = value;
     };
     /**
-     * Instantiates a new IosVppEBook and sets the default values.
+     * Instantiates a new iosVppEBook and sets the default values.
      */
     public constructor() {
         super();

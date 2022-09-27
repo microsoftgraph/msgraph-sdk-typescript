@@ -7,17 +7,17 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
     /** The assignedTo property */
     private _assignedTo?: ScheduleChangeRequestActor | undefined;
     /** The managerActionDateTime property */
-    private _managerActionDateTime?: Date | undefined;
+    private readonly _managerActionDateTime?: Date | undefined;
     /** The managerActionMessage property */
     private _managerActionMessage?: string | undefined;
     /** The managerUserId property */
-    private _managerUserId?: string | undefined;
+    private readonly _managerUserId?: string | undefined;
     /** The senderDateTime property */
-    private _senderDateTime?: Date | undefined;
+    private readonly _senderDateTime?: Date | undefined;
     /** The senderMessage property */
     private _senderMessage?: string | undefined;
     /** The senderUserId property */
-    private _senderUserId?: string | undefined;
+    private readonly _senderUserId?: string | undefined;
     /** The state property */
     private _state?: ScheduleChangeState | undefined;
     /**
@@ -149,12 +149,8 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeEnumValue<ScheduleChangeRequestActor>("assignedTo", this.assignedTo);
-        writer.writeDateValue("managerActionDateTime", this.managerActionDateTime);
         writer.writeStringValue("managerActionMessage", this.managerActionMessage);
-        writer.writeStringValue("managerUserId", this.managerUserId);
-        writer.writeDateValue("senderDateTime", this.senderDateTime);
         writer.writeStringValue("senderMessage", this.senderMessage);
-        writer.writeStringValue("senderUserId", this.senderUserId);
         writer.writeEnumValue<ScheduleChangeState>("state", this.state);
     };
     /**

@@ -1,5 +1,5 @@
 
-/** Collection of all groups available in the term store. */
+/** Get a list of group objects in a term store. */
 export class GroupsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

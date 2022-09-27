@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of externalConnection entities. */
+/** Provides operations to manage the admin singleton. */
 export enum ConnectionState {
     Draft = "draft",
     Ready = "ready",

@@ -1,5 +1,5 @@
 
-/** The claimsMappingPolicies assigned to this service principal. Supports $expand. */
+/** List the claimsMappingPolicy objects that are assigned to a servicePrincipal. */
 export class ClaimsMappingPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

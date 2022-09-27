@@ -26,7 +26,7 @@ export class SetVerifiedPublisherRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action setVerifiedPublisher
+     * Set the verifiedPublisher on an application. For more information, including prerequisites to setting a verified publisher, see Publisher verification.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -45,7 +45,7 @@ export class SetVerifiedPublisherRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action setVerifiedPublisher
+     * Set the verifiedPublisher on an application. For more information, including prerequisites to setting a verified publisher, see Publisher verification.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

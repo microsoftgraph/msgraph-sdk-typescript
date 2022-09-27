@@ -1,5 +1,5 @@
 
-/** The calendars in the calendar group. Navigation property. Read-only. Nullable. */
+/** Retrieve a list of calendars belonging to a calendar group. */
 export class CalendarsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -25,7 +25,7 @@ export class EstimateStatisticsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action estimateStatistics
+     * Run an estimate of the number of emails and documents in the eDiscovery search. To learn more about searches in eDiscovery, see Collect data for a case in eDiscovery (Premium).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class EstimateStatisticsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action estimateStatistics
+     * Run an estimate of the number of emails and documents in the eDiscovery search. To learn more about searches in eDiscovery, see Collect data for a case in eDiscovery (Premium).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */

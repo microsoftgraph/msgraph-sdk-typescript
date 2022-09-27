@@ -27,7 +27,7 @@ export class UserRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The directory user that corresponds to this user.
+     * Retrieve the simple directory **user** that corresponds to this **educationUser**.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -45,7 +45,7 @@ export class UserRequestBuilder {
         return requestInfo;
     };
     /**
-     * The directory user that corresponds to this user.
+     * Retrieve the simple directory **user** that corresponds to this **educationUser**.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of User

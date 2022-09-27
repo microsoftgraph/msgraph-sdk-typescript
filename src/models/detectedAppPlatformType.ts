@@ -1,4 +1,4 @@
-/** Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity. */
+/** Provides operations to manage the admin singleton. */
 export enum DetectedAppPlatformType {
     /** Default. Set to unknown when platform cannot be determined. */
     Unknown = "unknown",

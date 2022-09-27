@@ -2,7 +2,7 @@ import {Entity} from '../';
 import {IdentityType} from './identityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of externalConnection entities. */
+/** Provides operations to manage the admin singleton. */
 export class Identity extends Entity implements Parsable {
     /** The type of identity. Possible values are: user or group for Azure AD identities and externalgroup for groups in an external system. */
     private _type?: IdentityType | undefined;

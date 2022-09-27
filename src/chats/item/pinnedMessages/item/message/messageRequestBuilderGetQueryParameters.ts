@@ -1,5 +1,5 @@
 
-/** Get message from chats */
+/** Represents details about the chat message that is pinned. */
 export class MessageRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

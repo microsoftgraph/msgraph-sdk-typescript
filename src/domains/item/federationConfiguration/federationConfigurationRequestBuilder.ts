@@ -28,7 +28,7 @@ export class FederationConfigurationRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/domains/{domain%2Did}/federationConfiguration{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}";
+        this.urlTemplate = "{+baseurl}/domains/{domain%2Did}/federationConfiguration{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
@@ -52,7 +52,7 @@ export class FederationConfigurationRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to federationConfiguration for domains
+     * Create a new internalDomainFederation object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -88,7 +88,7 @@ export class FederationConfigurationRequestBuilder {
         return this.requestAdapter?.sendAsync<InternalDomainFederationCollectionResponse>(requestInfo, createInternalDomainFederationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Create new navigation property to federationConfiguration for domains
+     * Create a new internalDomainFederation object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

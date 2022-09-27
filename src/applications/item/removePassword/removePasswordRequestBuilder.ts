@@ -26,7 +26,7 @@ export class RemovePasswordRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action removePassword
+     * Remove a password from an application.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -45,7 +45,7 @@ export class RemovePasswordRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action removePassword
+     * Remove a password from an application.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

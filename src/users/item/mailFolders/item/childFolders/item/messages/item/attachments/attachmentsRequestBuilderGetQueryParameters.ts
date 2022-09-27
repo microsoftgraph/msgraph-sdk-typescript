@@ -1,5 +1,5 @@
 
-/** The fileAttachment and itemAttachment attachments for the message. */
+/** Retrieve a list of attachment objects attached to a message. */
 export class AttachmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

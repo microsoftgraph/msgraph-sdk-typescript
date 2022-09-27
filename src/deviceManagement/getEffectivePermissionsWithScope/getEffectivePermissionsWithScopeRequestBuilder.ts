@@ -22,7 +22,7 @@ export class GetEffectivePermissionsWithScopeRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, scope?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceManagement/microsoft.graph.getEffectivePermissions(scope='{scope}')";
+        this.urlTemplate = "{+baseurl}/deviceManagement/microsoft.graph.getEffectivePermissions(scope='{scope}'){?%24top,%24skip,%24search,%24filter,%24count}";
         const urlTplParams = getPathParameters(pathParameters);
         urlTplParams["scope"] = scope
         this.pathParameters = urlTplParams;
@@ -41,6 +41,7 @@ export class GetEffectivePermissionsWithScopeRequestBuilder {
         requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
         return requestInfo;

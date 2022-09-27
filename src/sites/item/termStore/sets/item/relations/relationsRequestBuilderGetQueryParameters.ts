@@ -1,5 +1,5 @@
 
-/** Indicates which terms have been pinned or reused directly under the set. */
+/** Get the different relation of a [term] or [set] from the relations navigation property. */
 export class RelationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

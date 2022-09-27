@@ -2,7 +2,7 @@ import {Entity, IdentitySet} from '../';
 import {createIdentitySetFromDiscriminatorValue} from '../createIdentitySetFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class Tag extends Entity implements Parsable {
     /** The createdBy property */
     private _createdBy?: IdentitySet | undefined;

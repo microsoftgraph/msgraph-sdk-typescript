@@ -25,7 +25,7 @@ export class RestoreRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action restore
+     * Restore a document set version.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class RestoreRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action restore
+     * Restore a document set version.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
