@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum AndroidWorkProfileDefaultAppPermissionPolicyType {
     /** Device default value, no intent. */
     DeviceDefault = "deviceDefault",

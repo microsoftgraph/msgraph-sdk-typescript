@@ -1,5 +1,5 @@
 
-/** A collection of all the members in the chat. Nullable. */
+/** List all conversation members in a chat. */
 export class MembersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

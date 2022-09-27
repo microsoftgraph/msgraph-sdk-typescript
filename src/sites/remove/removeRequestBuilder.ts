@@ -27,7 +27,7 @@ export class RemoveRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action remove
+     * Unfollow a user's site or multiple sites.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -47,7 +47,7 @@ export class RemoveRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action remove
+     * Unfollow a user's site or multiple sites.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

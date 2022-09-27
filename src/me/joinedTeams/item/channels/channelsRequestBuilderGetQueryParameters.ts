@@ -1,5 +1,5 @@
 
-/** The collection of channels and messages associated with the team. */
+/** Retrieve the list of channels in this team. */
 export class ChannelsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

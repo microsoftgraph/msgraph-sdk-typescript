@@ -45,7 +45,7 @@ export class BookingService extends Entity implements Parsable {
     /** Represents those staff members who provide this service. */
     private _staffMemberIds?: string[] | undefined;
     /** The URL a customer uses to access the service. */
-    private _webUrl?: string | undefined;
+    private readonly _webUrl?: string | undefined;
     /**
      * Gets the additionalInformation property value. Additional information that is sent to the customer when an appointment is confirmed.
      * @returns a string
@@ -329,7 +329,6 @@ export class BookingService extends Entity implements Parsable {
         writer.writeObjectValue<BookingSchedulingPolicy>("schedulingPolicy", this.schedulingPolicy);
         writer.writeBooleanValue("smsNotificationsEnabled", this.smsNotificationsEnabled);
         writer.writeCollectionOfPrimitiveValues<string>("staffMemberIds", this.staffMemberIds);
-        writer.writeStringValue("webUrl", this.webUrl);
     };
     /**
      * Gets the smsNotificationsEnabled property value. True indicates SMS notifications can be sent to the customers for the appointment of the service. Default value is false.
@@ -365,12 +364,5 @@ export class BookingService extends Entity implements Parsable {
      */
     public get webUrl() {
         return this._webUrl;
-    };
-    /**
-     * Sets the webUrl property value. The URL a customer uses to access the service.
-     * @param value Value to set for the webUrl property.
-     */
-    public set webUrl(value: string | undefined) {
-        this._webUrl = value;
     };
 }

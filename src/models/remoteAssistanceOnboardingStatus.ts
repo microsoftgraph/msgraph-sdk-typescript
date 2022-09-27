@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum RemoteAssistanceOnboardingStatus {
     /** The status reported when there is no active TeamViewer connector configured or active */
     NotOnboarded = "notOnboarded",

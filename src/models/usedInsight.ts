@@ -5,16 +5,16 @@ import {createUsageDetailsFromDiscriminatorValue} from './createUsageDetailsFrom
 import {Entity, ResourceReference, ResourceVisualization, UsageDetails} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class UsedInsight extends Entity implements Parsable {
     /** Information about when the item was last viewed or modified by the user. Read only. */
     private _lastUsed?: UsageDetails | undefined;
     /** Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem. */
     private _resource?: Entity | undefined;
     /** Reference properties of the used document, such as the url and type of the document. Read-only */
-    private _resourceReference?: ResourceReference | undefined;
+    private readonly _resourceReference?: ResourceReference | undefined;
     /** Properties that you can use to visualize the document in your experience. Read-only */
-    private _resourceVisualization?: ResourceVisualization | undefined;
+    private readonly _resourceVisualization?: ResourceVisualization | undefined;
     /**
      * Instantiates a new usedInsight and sets the default values.
      */
@@ -70,25 +70,11 @@ export class UsedInsight extends Entity implements Parsable {
         return this._resourceReference;
     };
     /**
-     * Sets the resourceReference property value. Reference properties of the used document, such as the url and type of the document. Read-only
-     * @param value Value to set for the resourceReference property.
-     */
-    public set resourceReference(value: ResourceReference | undefined) {
-        this._resourceReference = value;
-    };
-    /**
      * Gets the resourceVisualization property value. Properties that you can use to visualize the document in your experience. Read-only
      * @returns a resourceVisualization
      */
     public get resourceVisualization() {
         return this._resourceVisualization;
-    };
-    /**
-     * Sets the resourceVisualization property value. Properties that you can use to visualize the document in your experience. Read-only
-     * @param value Value to set for the resourceVisualization property.
-     */
-    public set resourceVisualization(value: ResourceVisualization | undefined) {
-        this._resourceVisualization = value;
     };
     /**
      * Serializes information the current object
@@ -99,7 +85,5 @@ export class UsedInsight extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<UsageDetails>("lastUsed", this.lastUsed);
         writer.writeObjectValue<Entity>("resource", this.resource);
-        writer.writeObjectValue<ResourceReference>("resourceReference", this.resourceReference);
-        writer.writeObjectValue<ResourceVisualization>("resourceVisualization", this.resourceVisualization);
     };
 }

@@ -2,7 +2,7 @@ import {createServicePlanInfoFromDiscriminatorValue} from './createServicePlanIn
 import {Entity, ServicePlanInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class LicenseDetails extends Entity implements Parsable {
     /** Information about the service plans assigned with the license. Read-only, Not nullable */
     private _servicePlans?: ServicePlanInfo[] | undefined;

@@ -25,7 +25,7 @@ export class AcceptRecommendationsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action acceptRecommendations
+     * Allows the acceptance of recommendations on all accessReviewInstanceDecisionItem objects that have not been reviewed on an accessReviewInstance object for which the calling user is a reviewer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class AcceptRecommendationsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action acceptRecommendations
+     * Allows the acceptance of recommendations on all accessReviewInstanceDecisionItem objects that have not been reviewed on an accessReviewInstance object for which the calling user is a reviewer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */

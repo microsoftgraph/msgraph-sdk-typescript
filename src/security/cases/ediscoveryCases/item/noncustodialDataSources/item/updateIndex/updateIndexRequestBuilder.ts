@@ -25,7 +25,7 @@ export class UpdateIndexRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action updateIndex
+     * Trigger an indexOperation to make a non-custodial data source and its associated data source searchable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class UpdateIndexRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action updateIndex
+     * Trigger an indexOperation to make a non-custodial data source and its associated data source searchable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */

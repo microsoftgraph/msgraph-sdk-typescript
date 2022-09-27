@@ -26,7 +26,7 @@ export class SnoozeReminderRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action snoozeReminder
+     * Postpone a reminder for an event in a user calendar until a new time.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -45,7 +45,7 @@ export class SnoozeReminderRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action snoozeReminder
+     * Postpone a reminder for an event in a user calendar until a new time.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

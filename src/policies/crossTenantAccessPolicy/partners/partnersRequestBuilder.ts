@@ -28,13 +28,13 @@ export class PartnersRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/policies/crossTenantAccessPolicy/partners{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}";
+        this.urlTemplate = "{+baseurl}/policies/crossTenantAccessPolicy/partners{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Defines partner-specific configurations for external Azure Active Directory organizations.
+     * Get a list of all partner configurations within a cross-tenant access policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -52,7 +52,7 @@ export class PartnersRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to partners for policies
+     * Create a new partner configuration in a cross-tenant access policy.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -72,7 +72,7 @@ export class PartnersRequestBuilder {
         return requestInfo;
     };
     /**
-     * Defines partner-specific configurations for external Azure Active Directory organizations.
+     * Get a list of all partner configurations within a cross-tenant access policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CrossTenantAccessPolicyConfigurationPartnerCollectionResponse
@@ -88,7 +88,7 @@ export class PartnersRequestBuilder {
         return this.requestAdapter?.sendAsync<CrossTenantAccessPolicyConfigurationPartnerCollectionResponse>(requestInfo, createCrossTenantAccessPolicyConfigurationPartnerCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Create new navigation property to partners for policies
+     * Create a new partner configuration in a cross-tenant access policy.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

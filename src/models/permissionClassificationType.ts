@@ -1,4 +1,4 @@
-/** Provides operations to call the instantiate method. */
+/** Casts the previous resource to servicePrincipal. */
 export enum PermissionClassificationType {
     Low = "low",
     Medium = "medium",

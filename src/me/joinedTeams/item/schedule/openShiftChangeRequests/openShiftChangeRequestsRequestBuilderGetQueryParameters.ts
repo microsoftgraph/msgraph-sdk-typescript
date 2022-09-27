@@ -1,5 +1,5 @@
 
-/** Get openShiftChangeRequests from me */
+/** Retrieve a list of openShiftChangeRequest objects in a team. */
 export class OpenShiftChangeRequestsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

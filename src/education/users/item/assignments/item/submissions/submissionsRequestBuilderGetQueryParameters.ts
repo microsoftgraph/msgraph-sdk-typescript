@@ -1,5 +1,5 @@
 
-/** Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable. */
+/** List all the submissions associated with an assignment.  A teacher or an application with application permissions can get all the submissions while a student can only get submissions that they are associated with. */
 export class SubmissionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

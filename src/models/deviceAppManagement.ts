@@ -15,6 +15,7 @@ import {createWindowsInformationProtectionPolicyFromDiscriminatorValue} from './
 import {AndroidManagedAppProtection, DefaultManagedAppProtection, Entity, IosManagedAppProtection, ManagedAppPolicy, ManagedAppRegistration, ManagedAppStatus, ManagedDeviceMobileAppConfiguration, ManagedEBook, MdmWindowsInformationProtectionPolicy, MobileApp, MobileAppCategory, TargetedManagedAppConfiguration, VppToken, WindowsInformationProtectionPolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Singleton entity that acts as a container for all device app management functionality. */
 export class DeviceAppManagement extends Entity implements Parsable {
     /** Android managed app policies. */
     private _androidManagedAppProtections?: AndroidManagedAppProtection[] | undefined;
@@ -67,7 +68,7 @@ export class DeviceAppManagement extends Entity implements Parsable {
         this._androidManagedAppProtections = value;
     };
     /**
-     * Instantiates a new DeviceAppManagement and sets the default values.
+     * Instantiates a new deviceAppManagement and sets the default values.
      */
     public constructor() {
         super();

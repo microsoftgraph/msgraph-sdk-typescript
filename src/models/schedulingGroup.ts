@@ -5,7 +5,7 @@ export class SchedulingGroup extends ChangeTrackedEntity implements Parsable {
     /** The display name for the schedulingGroup. Required. */
     private _displayName?: string | undefined;
     /** Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required. */
-    private _isActive?: boolean | undefined;
+    private readonly _isActive?: boolean | undefined;
     /** The list of user IDs that are a member of the schedulingGroup. Required. */
     private _userIds?: string[] | undefined;
     /**
@@ -48,13 +48,6 @@ export class SchedulingGroup extends ChangeTrackedEntity implements Parsable {
         return this._isActive;
     };
     /**
-     * Sets the isActive property value. Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required.
-     * @param value Value to set for the isActive property.
-     */
-    public set isActive(value: boolean | undefined) {
-        this._isActive = value;
-    };
-    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -62,7 +55,6 @@ export class SchedulingGroup extends ChangeTrackedEntity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeBooleanValue("isActive", this.isActive);
         writer.writeCollectionOfPrimitiveValues<string>("userIds", this.userIds);
     };
     /**

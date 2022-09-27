@@ -4,11 +4,11 @@ export class Certification implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** URL that shows certification details for the application. */
-    private _certificationDetailsUrl?: string | undefined;
+    private readonly _certificationDetailsUrl?: string | undefined;
     /** The timestamp when the current certification for the application will expire. */
     private _certificationExpirationDateTime?: Date | undefined;
     /** Indicates whether the application is certified by Microsoft. */
-    private _isCertifiedByMicrosoft?: boolean | undefined;
+    private readonly _isCertifiedByMicrosoft?: boolean | undefined;
     /** Indicates whether the application has been self-attested by the application developer or the publisher. */
     private _isPublisherAttested?: boolean | undefined;
     /** The timestamp when the certification for the application was most recently added or updated. */
@@ -35,13 +35,6 @@ export class Certification implements AdditionalDataHolder, Parsable {
      */
     public get certificationDetailsUrl() {
         return this._certificationDetailsUrl;
-    };
-    /**
-     * Sets the certificationDetailsUrl property value. URL that shows certification details for the application.
-     * @param value Value to set for the certificationDetailsUrl property.
-     */
-    public set certificationDetailsUrl(value: string | undefined) {
-        this._certificationDetailsUrl = value;
     };
     /**
      * Gets the certificationExpirationDateTime property value. The timestamp when the current certification for the application will expire.
@@ -84,13 +77,6 @@ export class Certification implements AdditionalDataHolder, Parsable {
      */
     public get isCertifiedByMicrosoft() {
         return this._isCertifiedByMicrosoft;
-    };
-    /**
-     * Sets the isCertifiedByMicrosoft property value. Indicates whether the application is certified by Microsoft.
-     * @param value Value to set for the isCertifiedByMicrosoft property.
-     */
-    public set isCertifiedByMicrosoft(value: boolean | undefined) {
-        this._isCertifiedByMicrosoft = value;
     };
     /**
      * Gets the isPublisherAttested property value. Indicates whether the application has been self-attested by the application developer or the publisher.
@@ -140,9 +126,7 @@ export class Certification implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeStringValue("certificationDetailsUrl", this.certificationDetailsUrl);
         writer.writeDateValue("certificationExpirationDateTime", this.certificationExpirationDateTime);
-        writer.writeBooleanValue("isCertifiedByMicrosoft", this.isCertifiedByMicrosoft);
         writer.writeBooleanValue("isPublisherAttested", this.isPublisherAttested);
         writer.writeDateValue("lastCertificationDateTime", this.lastCertificationDateTime);
         writer.writeStringValue("@odata.type", this.odataType);

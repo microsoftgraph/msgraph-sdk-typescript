@@ -5,7 +5,7 @@ import {createSharingDetailFromDiscriminatorValue} from './createSharingDetailFr
 import {Entity, ResourceReference, ResourceVisualization, SharingDetail} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class SharedInsight extends Entity implements Parsable {
     /** Details about the shared item. Read only. */
     private _lastShared?: SharingDetail | undefined;
@@ -14,9 +14,9 @@ export class SharedInsight extends Entity implements Parsable {
     /** Used for navigating to the item that was shared. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem. */
     private _resource?: Entity | undefined;
     /** Reference properties of the shared document, such as the url and type of the document. Read-only */
-    private _resourceReference?: ResourceReference | undefined;
+    private readonly _resourceReference?: ResourceReference | undefined;
     /** Properties that you can use to visualize the document in your experience. Read-only */
-    private _resourceVisualization?: ResourceVisualization | undefined;
+    private readonly _resourceVisualization?: ResourceVisualization | undefined;
     /** The sharingHistory property */
     private _sharingHistory?: SharingDetail[] | undefined;
     /**
@@ -90,25 +90,11 @@ export class SharedInsight extends Entity implements Parsable {
         return this._resourceReference;
     };
     /**
-     * Sets the resourceReference property value. Reference properties of the shared document, such as the url and type of the document. Read-only
-     * @param value Value to set for the resourceReference property.
-     */
-    public set resourceReference(value: ResourceReference | undefined) {
-        this._resourceReference = value;
-    };
-    /**
      * Gets the resourceVisualization property value. Properties that you can use to visualize the document in your experience. Read-only
      * @returns a resourceVisualization
      */
     public get resourceVisualization() {
         return this._resourceVisualization;
-    };
-    /**
-     * Sets the resourceVisualization property value. Properties that you can use to visualize the document in your experience. Read-only
-     * @param value Value to set for the resourceVisualization property.
-     */
-    public set resourceVisualization(value: ResourceVisualization | undefined) {
-        this._resourceVisualization = value;
     };
     /**
      * Serializes information the current object
@@ -120,8 +106,6 @@ export class SharedInsight extends Entity implements Parsable {
         writer.writeObjectValue<SharingDetail>("lastShared", this.lastShared);
         writer.writeObjectValue<Entity>("lastSharedMethod", this.lastSharedMethod);
         writer.writeObjectValue<Entity>("resource", this.resource);
-        writer.writeObjectValue<ResourceReference>("resourceReference", this.resourceReference);
-        writer.writeObjectValue<ResourceVisualization>("resourceVisualization", this.resourceVisualization);
         writer.writeCollectionOfObjectValues<SharingDetail>("sharingHistory", this.sharingHistory);
     };
     /**
