@@ -14,11 +14,11 @@ export class BookingAppointment extends Entity implements Parsable {
     /** The time zone of the customer. For a list of possible values, see dateTimeTimeZone. */
     private _customerTimeZone?: string | undefined;
     /** The length of the appointment, denoted in ISO8601 format. */
-    private _duration?: Duration | undefined;
+    private readonly _duration?: Duration | undefined;
     /** The endDateTime property */
     private _endDateTime?: DateTimeTimeZone | undefined;
     /** The current number of customers in the appointment */
-    private _filledAttendeesCount?: number | undefined;
+    private readonly _filledAttendeesCount?: number | undefined;
     /** If true, indicates that the appointment will be held online. Default value is false. */
     private _isLocationOnline?: boolean | undefined;
     /** The URL of the online meeting for the appointment. */
@@ -325,9 +325,7 @@ export class BookingAppointment extends Entity implements Parsable {
         writer.writeStringValue("additionalInformation", this.additionalInformation);
         writer.writeCollectionOfObjectValues<BookingCustomerInformationBase>("customers", this.customers);
         writer.writeStringValue("customerTimeZone", this.customerTimeZone);
-        writer.writeDurationValue("duration", this.duration);
         writer.writeObjectValue<DateTimeTimeZone>("endDateTime", this.endDateTime);
-        writer.writeNumberValue("filledAttendeesCount", this.filledAttendeesCount);
         writer.writeBooleanValue("isLocationOnline", this.isLocationOnline);
         writer.writeStringValue("joinWebUrl", this.joinWebUrl);
         writer.writeNumberValue("maximumAttendeesCount", this.maximumAttendeesCount);

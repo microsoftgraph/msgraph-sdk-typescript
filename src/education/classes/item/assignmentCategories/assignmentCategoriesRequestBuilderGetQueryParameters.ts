@@ -1,5 +1,5 @@
 
-/** All categories associated with this class. Nullable. */
+/** Retrieve a list of educationCategory objects. */
 export class AssignmentCategoriesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

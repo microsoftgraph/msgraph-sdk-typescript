@@ -1,4 +1,4 @@
-import {CancelMediaProcessingOperation, CommsOperation, InviteParticipantsOperation, MuteParticipantOperation, PlayPromptOperation, RecordOperation, StartHoldMusicOperation, StopHoldMusicOperation, SubscribeToToneOperation, UnmuteParticipantOperation, UpdateRecordingStatusOperation} from './index';
+import {AddLargeGalleryViewOperation, CancelMediaProcessingOperation, CommsOperation, InviteParticipantsOperation, MuteParticipantOperation, PlayPromptOperation, RecordOperation, StartHoldMusicOperation, StopHoldMusicOperation, SubscribeToToneOperation, UnmuteParticipantOperation, UpdateRecordingStatusOperation} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createCommsOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : CommsOperation {
@@ -8,6 +8,8 @@ export function createCommsOperationFromDiscriminatorValue(parseNode: ParseNode 
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
+                case "#microsoft.graph.addLargeGalleryViewOperation":
+                    return new AddLargeGalleryViewOperation();
                 case "#microsoft.graph.cancelMediaProcessingOperation":
                     return new CancelMediaProcessingOperation();
                 case "#microsoft.graph.inviteParticipantsOperation":

@@ -25,7 +25,7 @@ export class CheckoutRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action checkout
+     * Check out a **driveItem** resource to prevent others from editing the document, and prevent your changes from being visible until the documented is checked in.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class CheckoutRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action checkout
+     * Check out a **driveItem** resource to prevent others from editing the document, and prevent your changes from being visible until the documented is checked in.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */

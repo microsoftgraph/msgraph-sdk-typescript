@@ -1,5 +1,5 @@
 
-/** The activity related to user risk level change */
+/** Read the properties and relationships of a riskyUserHistoryItem object. */
 export class HistoryRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

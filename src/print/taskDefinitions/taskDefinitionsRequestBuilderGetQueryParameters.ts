@@ -1,5 +1,5 @@
 
-/** List of abstract definition for a task that can be triggered when various events occur within Universal Print. */
+/** Retrieve a list of task definitions that the requesting app defined in the tenant. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing. */
 export class TaskDefinitionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

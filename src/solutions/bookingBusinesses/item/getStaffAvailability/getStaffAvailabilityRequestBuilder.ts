@@ -27,7 +27,7 @@ export class GetStaffAvailabilityRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action getStaffAvailability
+     * Get the availability information of staff members of a Microsoft Bookings calendar.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -47,7 +47,7 @@ export class GetStaffAvailabilityRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action getStaffAvailability
+     * Get the availability information of staff members of a Microsoft Bookings calendar.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

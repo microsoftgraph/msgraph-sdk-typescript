@@ -1,5 +1,5 @@
 
-/** The collection of column definitions for this contentType. */
+/** Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [content type][contentType]. */
 export class ColumnsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

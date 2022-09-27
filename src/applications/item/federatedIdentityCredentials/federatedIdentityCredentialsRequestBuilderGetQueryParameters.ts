@@ -1,5 +1,5 @@
 
-/** Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters). */
+/** Get a list of the federatedIdentityCredential objects and their properties. */
 export class FederatedIdentityCredentialsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

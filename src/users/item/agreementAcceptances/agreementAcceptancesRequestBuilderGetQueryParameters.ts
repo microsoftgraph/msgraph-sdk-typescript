@@ -1,5 +1,5 @@
 
-/** The user's terms of use acceptance statuses. Read-only. Nullable. */
+/** Retrieve the signed-in user's agreementAcceptance objects. */
 export class AgreementAcceptancesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

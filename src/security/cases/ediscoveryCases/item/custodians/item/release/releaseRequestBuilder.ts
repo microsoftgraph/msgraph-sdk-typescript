@@ -25,7 +25,7 @@ export class ReleaseRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action release
+     * Release a custodian from a case. For details, see Release a custodian from a case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class ReleaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action release
+     * Release a custodian from a case. For details, see Release a custodian from a case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */

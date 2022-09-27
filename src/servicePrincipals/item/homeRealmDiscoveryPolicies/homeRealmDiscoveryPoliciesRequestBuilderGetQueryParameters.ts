@@ -1,5 +1,5 @@
 
-/** The homeRealmDiscoveryPolicies assigned to this service principal. Supports $expand. */
+/** List the homeRealmDiscoveryPolicy objects that are assigned to a servicePrincipal. */
 export class HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;
