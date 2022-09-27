@@ -31,11 +31,11 @@ export class BookingBusiness extends Entity implements Parsable {
     /** The email address for the business. */
     private _email?: string | undefined;
     /** The scheduling page has been made available to external customers. Use the publish and unpublish actions to set this property. Read-only. */
-    private _isPublished?: boolean | undefined;
+    private readonly _isPublished?: boolean | undefined;
     /** The telephone number for the business. The phone property, together with address and webSiteUrl, appear in the footer of a business scheduling page. */
     private _phone?: string | undefined;
     /** The URL for the scheduling page, which is set after you publish or unpublish the page. Read-only. */
-    private _publicUrl?: string | undefined;
+    private readonly _publicUrl?: string | undefined;
     /** Specifies how bookings can be created for this business. */
     private _schedulingPolicy?: BookingSchedulingPolicy | undefined;
     /** All the services offered by this business. Read-only. Nullable. */
@@ -224,13 +224,6 @@ export class BookingBusiness extends Entity implements Parsable {
         return this._isPublished;
     };
     /**
-     * Sets the isPublished property value. The scheduling page has been made available to external customers. Use the publish and unpublish actions to set this property. Read-only.
-     * @param value Value to set for the isPublished property.
-     */
-    public set isPublished(value: boolean | undefined) {
-        this._isPublished = value;
-    };
-    /**
      * Gets the phone property value. The telephone number for the business. The phone property, together with address and webSiteUrl, appear in the footer of a business scheduling page.
      * @returns a string
      */
@@ -250,13 +243,6 @@ export class BookingBusiness extends Entity implements Parsable {
      */
     public get publicUrl() {
         return this._publicUrl;
-    };
-    /**
-     * Sets the publicUrl property value. The URL for the scheduling page, which is set after you publish or unpublish the page. Read-only.
-     * @param value Value to set for the publicUrl property.
-     */
-    public set publicUrl(value: string | undefined) {
-        this._publicUrl = value;
     };
     /**
      * Gets the schedulingPolicy property value. Specifies how bookings can be created for this business.
@@ -289,9 +275,7 @@ export class BookingBusiness extends Entity implements Parsable {
         writer.writeStringValue("defaultCurrencyIso", this.defaultCurrencyIso);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("email", this.email);
-        writer.writeBooleanValue("isPublished", this.isPublished);
         writer.writeStringValue("phone", this.phone);
-        writer.writeStringValue("publicUrl", this.publicUrl);
         writer.writeObjectValue<BookingSchedulingPolicy>("schedulingPolicy", this.schedulingPolicy);
         writer.writeCollectionOfObjectValues<BookingService>("services", this.services);
         writer.writeCollectionOfObjectValues<BookingStaffMemberBase>("staffMembers", this.staffMembers);

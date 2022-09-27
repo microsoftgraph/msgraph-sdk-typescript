@@ -1,6 +1,7 @@
 import {createEducationItemBodyFromDiscriminatorValue} from './createEducationItemBodyFromDiscriminatorValue';
 import {createRubricCriterionFromDiscriminatorValue} from './createRubricCriterionFromDiscriminatorValue';
 import {EducationItemBody, RubricCriterion} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RubricQuality implements AdditionalDataHolder, Parsable {
@@ -17,7 +18,7 @@ export class RubricQuality implements AdditionalDataHolder, Parsable {
     /** The ID of this resource. */
     private _qualityId?: string | undefined;
     /** If present, a numerical weight for this quality.  Weights must add up to 100. */
-    private _weight?: number | undefined;
+    private _weight?: number | string | ReferenceNumeric | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -139,7 +140,7 @@ export class RubricQuality implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the weight property value. If present, a numerical weight for this quality.  Weights must add up to 100.
-     * @returns a float
+     * @returns a agreements
      */
     public get weight() {
         return this._weight;
@@ -148,7 +149,7 @@ export class RubricQuality implements AdditionalDataHolder, Parsable {
      * Sets the weight property value. If present, a numerical weight for this quality.  Weights must add up to 100.
      * @param value Value to set for the weight property.
      */
-    public set weight(value: number | undefined) {
+    public set weight(value: number | string | ReferenceNumeric | undefined) {
         this._weight = value;
     };
 }

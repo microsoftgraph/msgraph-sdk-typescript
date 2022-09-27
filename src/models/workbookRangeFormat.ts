@@ -3,13 +3,14 @@ import {createWorkbookRangeBorderFromDiscriminatorValue} from './createWorkbookR
 import {createWorkbookRangeFillFromDiscriminatorValue} from './createWorkbookRangeFillFromDiscriminatorValue';
 import {createWorkbookRangeFontFromDiscriminatorValue} from './createWorkbookRangeFontFromDiscriminatorValue';
 import {Entity, WorkbookFormatProtection, WorkbookRangeBorder, WorkbookRangeFill, WorkbookRangeFont} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookRangeFormat extends Entity implements Parsable {
     /** Collection of border objects that apply to the overall range selected Read-only. */
     private _borders?: WorkbookRangeBorder[] | undefined;
     /** Gets or sets the width of all colums within the range. If the column widths are not uniform, null will be returned. */
-    private _columnWidth?: number | undefined;
+    private _columnWidth?: number | string | ReferenceNumeric | undefined;
     /** Returns the fill object defined on the overall range. Read-only. */
     private _fill?: WorkbookRangeFill | undefined;
     /** Returns the font object defined on the overall range selected Read-only. */
@@ -19,7 +20,7 @@ export class WorkbookRangeFormat extends Entity implements Parsable {
     /** Returns the format protection object for a range. Read-only. */
     private _protection?: WorkbookFormatProtection | undefined;
     /** Gets or sets the height of all rows in the range. If the row heights are not uniform null will be returned. */
-    private _rowHeight?: number | undefined;
+    private _rowHeight?: number | string | ReferenceNumeric | undefined;
     /** Represents the vertical alignment for the specified object. The possible values are: Top, Center, Bottom, Justify, Distributed. */
     private _verticalAlignment?: string | undefined;
     /** Indicates if Excel wraps the text in the object. A null value indicates that the entire range doesn't have uniform wrap setting */
@@ -40,7 +41,7 @@ export class WorkbookRangeFormat extends Entity implements Parsable {
     };
     /**
      * Gets the columnWidth property value. Gets or sets the width of all colums within the range. If the column widths are not uniform, null will be returned.
-     * @returns a double
+     * @returns a agreements
      */
     public get columnWidth() {
         return this._columnWidth;
@@ -49,7 +50,7 @@ export class WorkbookRangeFormat extends Entity implements Parsable {
      * Sets the columnWidth property value. Gets or sets the width of all colums within the range. If the column widths are not uniform, null will be returned.
      * @param value Value to set for the columnWidth property.
      */
-    public set columnWidth(value: number | undefined) {
+    public set columnWidth(value: number | string | ReferenceNumeric | undefined) {
         this._columnWidth = value;
     };
     /**
@@ -134,7 +135,7 @@ export class WorkbookRangeFormat extends Entity implements Parsable {
     };
     /**
      * Gets the rowHeight property value. Gets or sets the height of all rows in the range. If the row heights are not uniform null will be returned.
-     * @returns a double
+     * @returns a agreements
      */
     public get rowHeight() {
         return this._rowHeight;
@@ -143,7 +144,7 @@ export class WorkbookRangeFormat extends Entity implements Parsable {
      * Sets the rowHeight property value. Gets or sets the height of all rows in the range. If the row heights are not uniform null will be returned.
      * @param value Value to set for the rowHeight property.
      */
-    public set rowHeight(value: number | undefined) {
+    public set rowHeight(value: number | string | ReferenceNumeric | undefined) {
         this._rowHeight = value;
     };
     /**

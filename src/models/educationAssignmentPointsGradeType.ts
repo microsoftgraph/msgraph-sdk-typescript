@@ -1,9 +1,10 @@
 import {EducationAssignmentGradeType} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationAssignmentPointsGradeType extends EducationAssignmentGradeType implements Parsable {
     /** Max points possible for this assignment. */
-    private _maxPoints?: number | undefined;
+    private _maxPoints?: number | string | ReferenceNumeric | undefined;
     /**
      * Instantiates a new EducationAssignmentPointsGradeType and sets the default values.
      */
@@ -22,7 +23,7 @@ export class EducationAssignmentPointsGradeType extends EducationAssignmentGrade
     };
     /**
      * Gets the maxPoints property value. Max points possible for this assignment.
-     * @returns a float
+     * @returns a agreements
      */
     public get maxPoints() {
         return this._maxPoints;
@@ -31,7 +32,7 @@ export class EducationAssignmentPointsGradeType extends EducationAssignmentGrade
      * Sets the maxPoints property value. Max points possible for this assignment.
      * @param value Value to set for the maxPoints property.
      */
-    public set maxPoints(value: number | undefined) {
+    public set maxPoints(value: number | string | ReferenceNumeric | undefined) {
         this._maxPoints = value;
     };
     /**

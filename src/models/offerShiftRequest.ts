@@ -3,7 +3,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class OfferShiftRequest extends ScheduleChangeRequest implements Parsable {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    private _recipientActionDateTime?: Date | undefined;
+    private readonly _recipientActionDateTime?: Date | undefined;
     /** Custom message sent by recipient of the offer shift request. */
     private _recipientActionMessage?: string | undefined;
     /** User ID of the recipient of the offer shift request. */
@@ -35,13 +35,6 @@ export class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
      */
     public get recipientActionDateTime() {
         return this._recipientActionDateTime;
-    };
-    /**
-     * Sets the recipientActionDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     * @param value Value to set for the recipientActionDateTime property.
-     */
-    public set recipientActionDateTime(value: Date | undefined) {
-        this._recipientActionDateTime = value;
     };
     /**
      * Gets the recipientActionMessage property value. Custom message sent by recipient of the offer shift request.
@@ -92,7 +85,6 @@ export class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeDateValue("recipientActionDateTime", this.recipientActionDateTime);
         writer.writeStringValue("recipientActionMessage", this.recipientActionMessage);
         writer.writeStringValue("recipientUserId", this.recipientUserId);
         writer.writeStringValue("senderShiftId", this.senderShiftId);

@@ -1,3 +1,4 @@
+import {ReferenceNumeric} from './referenceNumeric';
 import {SelectionLikelihoodInfo} from './selectionLikelihoodInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -11,7 +12,7 @@ export class ScoredEmailAddress implements AdditionalDataHolder, Parsable {
     /** The OdataType property */
     private _odataType?: string | undefined;
     /** The relevance score of the email address. A relevance score is used as a sort key, in relation to the other returned results. A higher relevance score value corresponds to a more relevant result. Relevance is determined by the user’s communication and collaboration patterns and business relationships. */
-    private _relevanceScore?: number | undefined;
+    private _relevanceScore?: number | string | ReferenceNumeric | undefined;
     /** The selectionLikelihood property */
     private _selectionLikelihood?: SelectionLikelihoodInfo | undefined;
     /**
@@ -92,7 +93,7 @@ export class ScoredEmailAddress implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the relevanceScore property value. The relevance score of the email address. A relevance score is used as a sort key, in relation to the other returned results. A higher relevance score value corresponds to a more relevant result. Relevance is determined by the user’s communication and collaboration patterns and business relationships.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get relevanceScore() {
         return this._relevanceScore;
@@ -101,7 +102,7 @@ export class ScoredEmailAddress implements AdditionalDataHolder, Parsable {
      * Sets the relevanceScore property value. The relevance score of the email address. A relevance score is used as a sort key, in relation to the other returned results. A higher relevance score value corresponds to a more relevant result. Relevance is determined by the user’s communication and collaboration patterns and business relationships.
      * @param value Value to set for the relevanceScore property.
      */
-    public set relevanceScore(value: number | undefined) {
+    public set relevanceScore(value: number | string | ReferenceNumeric | undefined) {
         this._relevanceScore = value;
     };
     /**

@@ -28,7 +28,7 @@ export class GetNotebookFromWebUrlRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action getNotebookFromWebUrl
+     * Retrieve the properties and relationships of a notebook object by using its URL path. The location can be user notebooks on Microsoft 365, group notebooks, or SharePoint site-hosted team notebooks on Microsoft 365.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -48,7 +48,7 @@ export class GetNotebookFromWebUrlRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action getNotebookFromWebUrl
+     * Retrieve the properties and relationships of a notebook object by using its URL path. The location can be user notebooks on Microsoft 365, group notebooks, or SharePoint site-hosted team notebooks on Microsoft 365.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

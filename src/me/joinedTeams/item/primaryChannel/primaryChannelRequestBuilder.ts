@@ -3,7 +3,7 @@ import {createChannelFromDiscriminatorValue} from '../../../../models/createChan
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CompleteMigrationRequestBuilder} from './completeMigration/completeMigrationRequestBuilder';
-import {DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder} from './doesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalName/doesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder';
+import {DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder} from './doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName/doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder';
 import {FilesFolderRequestBuilder} from './filesFolder/filesFolderRequestBuilder';
 import {ConversationMemberItemRequestBuilder} from './members/item/conversationMemberItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
@@ -90,7 +90,7 @@ export class PrimaryChannelRequestBuilder {
         return requestInfo;
     };
     /**
-     * The general channel for the team.
+     * Get the default channel, **General**, of a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -119,6 +119,7 @@ export class PrimaryChannelRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -143,13 +144,13 @@ export class PrimaryChannelRequestBuilder {
     };
     /**
      * Provides operations to call the doesUserHaveAccess method.
-     * @returns a doesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder
+     * @returns a doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder
      */
-    public doesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalName() : DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder {
-        return new DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder(this.pathParameters, this.requestAdapter);
+    public doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName() : DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder {
+        return new DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * The general channel for the team.
+     * Get the default channel, **General**, of a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Channel
@@ -191,8 +192,9 @@ export class PrimaryChannelRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Channel
      */
-    public patch(body: Channel | undefined, requestConfiguration?: PrimaryChannelRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Channel | undefined, requestConfiguration?: PrimaryChannelRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Channel | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -201,7 +203,7 @@ export class PrimaryChannelRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.joinedTeams.item.primaryChannel.sharedWithTeams.item collection

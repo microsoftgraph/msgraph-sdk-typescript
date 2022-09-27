@@ -1,3 +1,4 @@
+import {ReferenceNumeric} from './referenceNumeric';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrinterLocation implements AdditionalDataHolder, Parsable {
@@ -16,9 +17,9 @@ export class PrinterLocation implements AdditionalDataHolder, Parsable {
     /** The description of the floor that the printer is located on. */
     private _floorDescription?: string | undefined;
     /** The latitude that the printer is located at. */
-    private _latitude?: number | undefined;
+    private _latitude?: number | string | ReferenceNumeric | undefined;
     /** The longitude that the printer is located at. */
-    private _longitude?: number | undefined;
+    private _longitude?: number | string | ReferenceNumeric | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /** The organizational hierarchy that the printer belongs to. The elements should be in hierarchical order. */
@@ -172,7 +173,7 @@ export class PrinterLocation implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the latitude property value. The latitude that the printer is located at.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get latitude() {
         return this._latitude;
@@ -181,12 +182,12 @@ export class PrinterLocation implements AdditionalDataHolder, Parsable {
      * Sets the latitude property value. The latitude that the printer is located at.
      * @param value Value to set for the latitude property.
      */
-    public set latitude(value: number | undefined) {
+    public set latitude(value: number | string | ReferenceNumeric | undefined) {
         this._latitude = value;
     };
     /**
      * Gets the longitude property value. The longitude that the printer is located at.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get longitude() {
         return this._longitude;
@@ -195,7 +196,7 @@ export class PrinterLocation implements AdditionalDataHolder, Parsable {
      * Sets the longitude property value. The longitude that the printer is located at.
      * @param value Value to set for the longitude property.
      */
-    public set longitude(value: number | undefined) {
+    public set longitude(value: number | string | ReferenceNumeric | undefined) {
         this._longitude = value;
     };
     /**

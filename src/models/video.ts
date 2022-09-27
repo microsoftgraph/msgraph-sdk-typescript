@@ -1,3 +1,4 @@
+import {ReferenceNumeric} from './referenceNumeric';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Video implements AdditionalDataHolder, Parsable {
@@ -18,7 +19,7 @@ export class Video implements AdditionalDataHolder, Parsable {
     /** 'Four character code' name of the video format. */
     private _fourCC?: string | undefined;
     /** Frame rate of the video. */
-    private _frameRate?: number | undefined;
+    private _frameRate?: number | string | ReferenceNumeric | undefined;
     /** Height of the video, in pixels. */
     private _height?: number | undefined;
     /** The OdataType property */
@@ -146,7 +147,7 @@ export class Video implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the frameRate property value. Frame rate of the video.
-     * @returns a double
+     * @returns a agreements
      */
     public get frameRate() {
         return this._frameRate;
@@ -155,7 +156,7 @@ export class Video implements AdditionalDataHolder, Parsable {
      * Sets the frameRate property value. Frame rate of the video.
      * @param value Value to set for the frameRate property.
      */
-    public set frameRate(value: number | undefined) {
+    public set frameRate(value: number | string | ReferenceNumeric | undefined) {
         this._frameRate = value;
     };
     /**

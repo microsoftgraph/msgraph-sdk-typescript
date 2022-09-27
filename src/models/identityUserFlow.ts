@@ -1,4 +1,5 @@
 import {Entity} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {UserFlowType} from './userFlowType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -6,7 +7,7 @@ export class IdentityUserFlow extends Entity implements Parsable {
     /** The userFlowType property */
     private _userFlowType?: UserFlowType | undefined;
     /** The userFlowTypeVersion property */
-    private _userFlowTypeVersion?: number | undefined;
+    private _userFlowTypeVersion?: number | string | ReferenceNumeric | undefined;
     /**
      * Instantiates a new IdentityUserFlow and sets the default values.
      */
@@ -50,7 +51,7 @@ export class IdentityUserFlow extends Entity implements Parsable {
     };
     /**
      * Gets the userFlowTypeVersion property value. The userFlowTypeVersion property
-     * @returns a float
+     * @returns a agreements
      */
     public get userFlowTypeVersion() {
         return this._userFlowTypeVersion;
@@ -59,7 +60,7 @@ export class IdentityUserFlow extends Entity implements Parsable {
      * Sets the userFlowTypeVersion property value. The userFlowTypeVersion property
      * @param value Value to set for the userFlowTypeVersion property.
      */
-    public set userFlowTypeVersion(value: number | undefined) {
+    public set userFlowTypeVersion(value: number | string | ReferenceNumeric | undefined) {
         this._userFlowTypeVersion = value;
     };
 }

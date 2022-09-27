@@ -27,7 +27,7 @@ export class SetUpResourcesFolderRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action setUpResourcesFolder
+     * Trigger the creation of the SharePoint resource folder where all file-based resources (Word, Excel, and so on) should be uploaded for a given submission. Note that files must be located in this folder in order to be added as resources. Only a student in the class can determine what files to upload in a given submission-level resource folder. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -44,7 +44,7 @@ export class SetUpResourcesFolderRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action setUpResourcesFolder
+     * Trigger the creation of the SharePoint resource folder where all file-based resources (Word, Excel, and so on) should be uploaded for a given submission. Note that files must be located in this folder in order to be added as resources. Only a student in the class can determine what files to upload in a given submission-level resource folder. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationSubmission

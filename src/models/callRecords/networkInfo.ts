@@ -1,3 +1,4 @@
+import {ReferenceNumeric} from '../referenceNumeric';
 import {createTraceRouteHopFromDiscriminatorValue} from './createTraceRouteHopFromDiscriminatorValue';
 import {TraceRouteHop} from './index';
 import {NetworkConnectionType} from './networkConnectionType';
@@ -10,13 +11,13 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Fraction of the call that the media endpoint detected the available bandwidth or bandwidth policy was low enough to cause poor quality of the audio sent. */
-    private _bandwidthLowEventRatio?: number | undefined;
+    private _bandwidthLowEventRatio?: number | string | ReferenceNumeric | undefined;
     /** The wireless LAN basic service set identifier of the media endpoint used to connect to the network. */
     private _basicServiceSetIdentifier?: string | undefined;
     /** The connectionType property */
     private _connectionType?: NetworkConnectionType | undefined;
     /** Fraction of the call that the media endpoint detected the network delay was significant enough to impact the ability to have real-time two-way communication. */
-    private _delayEventRatio?: number | undefined;
+    private _delayEventRatio?: number | string | ReferenceNumeric | undefined;
     /** DNS suffix associated with the network adapter of the media endpoint. */
     private _dnsSuffix?: string | undefined;
     /** IP address of the media endpoint. */
@@ -32,7 +33,7 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
     /** Network port number used by media endpoint. */
     private _port?: number | undefined;
     /** Fraction of the call that the media endpoint detected the network was causing poor quality of the audio received. */
-    private _receivedQualityEventRatio?: number | undefined;
+    private _receivedQualityEventRatio?: number | string | ReferenceNumeric | undefined;
     /** IP address of the media endpoint as seen by the media relay server. This is typically the public internet IP address associated to the endpoint. */
     private _reflexiveIPAddress?: string | undefined;
     /** IP address of the media relay server allocated by the media endpoint. */
@@ -40,7 +41,7 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
     /** Network port number allocated on the media relay server by the media endpoint. */
     private _relayPort?: number | undefined;
     /** Fraction of the call that the media endpoint detected the network was causing poor quality of the audio sent. */
-    private _sentQualityEventRatio?: number | undefined;
+    private _sentQualityEventRatio?: number | string | ReferenceNumeric | undefined;
     /** Subnet used for media stream by the media endpoint. */
     private _subnet?: string | undefined;
     /** List of network trace route hops collected for this media stream.* */
@@ -79,7 +80,7 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the bandwidthLowEventRatio property value. Fraction of the call that the media endpoint detected the available bandwidth or bandwidth policy was low enough to cause poor quality of the audio sent.
-     * @returns a float
+     * @returns a communications
      */
     public get bandwidthLowEventRatio() {
         return this._bandwidthLowEventRatio;
@@ -88,7 +89,7 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
      * Sets the bandwidthLowEventRatio property value. Fraction of the call that the media endpoint detected the available bandwidth or bandwidth policy was low enough to cause poor quality of the audio sent.
      * @param value Value to set for the bandwidthLowEventRatio property.
      */
-    public set bandwidthLowEventRatio(value: number | undefined) {
+    public set bandwidthLowEventRatio(value: number | string | ReferenceNumeric | undefined) {
         this._bandwidthLowEventRatio = value;
     };
     /**
@@ -128,7 +129,7 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the delayEventRatio property value. Fraction of the call that the media endpoint detected the network delay was significant enough to impact the ability to have real-time two-way communication.
-     * @returns a float
+     * @returns a communications
      */
     public get delayEventRatio() {
         return this._delayEventRatio;
@@ -137,7 +138,7 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
      * Sets the delayEventRatio property value. Fraction of the call that the media endpoint detected the network delay was significant enough to impact the ability to have real-time two-way communication.
      * @param value Value to set for the delayEventRatio property.
      */
-    public set delayEventRatio(value: number | undefined) {
+    public set delayEventRatio(value: number | string | ReferenceNumeric | undefined) {
         this._delayEventRatio = value;
     };
     /**
@@ -275,7 +276,7 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the receivedQualityEventRatio property value. Fraction of the call that the media endpoint detected the network was causing poor quality of the audio received.
-     * @returns a float
+     * @returns a communications
      */
     public get receivedQualityEventRatio() {
         return this._receivedQualityEventRatio;
@@ -284,7 +285,7 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
      * Sets the receivedQualityEventRatio property value. Fraction of the call that the media endpoint detected the network was causing poor quality of the audio received.
      * @param value Value to set for the receivedQualityEventRatio property.
      */
-    public set receivedQualityEventRatio(value: number | undefined) {
+    public set receivedQualityEventRatio(value: number | string | ReferenceNumeric | undefined) {
         this._receivedQualityEventRatio = value;
     };
     /**
@@ -331,7 +332,7 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the sentQualityEventRatio property value. Fraction of the call that the media endpoint detected the network was causing poor quality of the audio sent.
-     * @returns a float
+     * @returns a communications
      */
     public get sentQualityEventRatio() {
         return this._sentQualityEventRatio;
@@ -340,7 +341,7 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
      * Sets the sentQualityEventRatio property value. Fraction of the call that the media endpoint detected the network was causing poor quality of the audio sent.
      * @param value Value to set for the sentQualityEventRatio property.
      */
-    public set sentQualityEventRatio(value: number | undefined) {
+    public set sentQualityEventRatio(value: number | string | ReferenceNumeric | undefined) {
         this._sentQualityEventRatio = value;
     };
     /**

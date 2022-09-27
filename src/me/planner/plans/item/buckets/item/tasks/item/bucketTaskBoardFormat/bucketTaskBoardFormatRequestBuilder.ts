@@ -45,7 +45,7 @@ export class BucketTaskBoardFormatRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket.
+     * Retrieve the properties and relationships of **plannerBucketTaskBoardTaskFormat** object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +63,7 @@ export class BucketTaskBoardFormatRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property bucketTaskBoardFormat in me
+     * Update the properties of **plannerBucketTaskBoardTaskFormat** object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -74,6 +74,7 @@ export class BucketTaskBoardFormatRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -97,7 +98,7 @@ export class BucketTaskBoardFormatRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket.
+     * Retrieve the properties and relationships of **plannerBucketTaskBoardTaskFormat** object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerBucketTaskBoardTaskFormat
@@ -113,12 +114,13 @@ export class BucketTaskBoardFormatRequestBuilder {
         return this.requestAdapter?.sendAsync<PlannerBucketTaskBoardTaskFormat>(requestInfo, createPlannerBucketTaskBoardTaskFormatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Update the navigation property bucketTaskBoardFormat in me
+     * Update the properties of **plannerBucketTaskBoardTaskFormat** object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of PlannerBucketTaskBoardTaskFormat
      */
-    public patch(body: PlannerBucketTaskBoardTaskFormat | undefined, requestConfiguration?: BucketTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: PlannerBucketTaskBoardTaskFormat | undefined, requestConfiguration?: BucketTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerBucketTaskBoardTaskFormat | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -127,6 +129,6 @@ export class BucketTaskBoardFormatRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PlannerBucketTaskBoardTaskFormat>(requestInfo, createPlannerBucketTaskBoardTaskFormatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,7 +1,7 @@
 import {AgreementFileProperties} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class AgreementFileVersion extends AgreementFileProperties implements Parsable {
     /**
      * Instantiates a new agreementFileVersion and sets the default values.

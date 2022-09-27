@@ -1,23 +1,24 @@
+import {ReferenceNumeric} from './referenceNumeric';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OutlookGeoCoordinates implements AdditionalDataHolder, Parsable {
     /** The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters. */
-    private _accuracy?: number | undefined;
+    private _accuracy?: number | string | ReferenceNumeric | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The altitude of the location. */
-    private _altitude?: number | undefined;
+    private _altitude?: number | string | ReferenceNumeric | undefined;
     /** The accuracy of the altitude. */
-    private _altitudeAccuracy?: number | undefined;
+    private _altitudeAccuracy?: number | string | ReferenceNumeric | undefined;
     /** The latitude of the location. */
-    private _latitude?: number | undefined;
+    private _latitude?: number | string | ReferenceNumeric | undefined;
     /** The longitude of the location. */
-    private _longitude?: number | undefined;
+    private _longitude?: number | string | ReferenceNumeric | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the accuracy property value. The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get accuracy() {
         return this._accuracy;
@@ -26,7 +27,7 @@ export class OutlookGeoCoordinates implements AdditionalDataHolder, Parsable {
      * Sets the accuracy property value. The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters.
      * @param value Value to set for the accuracy property.
      */
-    public set accuracy(value: number | undefined) {
+    public set accuracy(value: number | string | ReferenceNumeric | undefined) {
         this._accuracy = value;
     };
     /**
@@ -45,7 +46,7 @@ export class OutlookGeoCoordinates implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the altitude property value. The altitude of the location.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get altitude() {
         return this._altitude;
@@ -54,12 +55,12 @@ export class OutlookGeoCoordinates implements AdditionalDataHolder, Parsable {
      * Sets the altitude property value. The altitude of the location.
      * @param value Value to set for the altitude property.
      */
-    public set altitude(value: number | undefined) {
+    public set altitude(value: number | string | ReferenceNumeric | undefined) {
         this._altitude = value;
     };
     /**
      * Gets the altitudeAccuracy property value. The accuracy of the altitude.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get altitudeAccuracy() {
         return this._altitudeAccuracy;
@@ -68,7 +69,7 @@ export class OutlookGeoCoordinates implements AdditionalDataHolder, Parsable {
      * Sets the altitudeAccuracy property value. The accuracy of the altitude.
      * @param value Value to set for the altitudeAccuracy property.
      */
-    public set altitudeAccuracy(value: number | undefined) {
+    public set altitudeAccuracy(value: number | string | ReferenceNumeric | undefined) {
         this._altitudeAccuracy = value;
     };
     /**
@@ -94,7 +95,7 @@ export class OutlookGeoCoordinates implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the latitude property value. The latitude of the location.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get latitude() {
         return this._latitude;
@@ -103,12 +104,12 @@ export class OutlookGeoCoordinates implements AdditionalDataHolder, Parsable {
      * Sets the latitude property value. The latitude of the location.
      * @param value Value to set for the latitude property.
      */
-    public set latitude(value: number | undefined) {
+    public set latitude(value: number | string | ReferenceNumeric | undefined) {
         this._latitude = value;
     };
     /**
      * Gets the longitude property value. The longitude of the location.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get longitude() {
         return this._longitude;
@@ -117,7 +118,7 @@ export class OutlookGeoCoordinates implements AdditionalDataHolder, Parsable {
      * Sets the longitude property value. The longitude of the location.
      * @param value Value to set for the longitude property.
      */
-    public set longitude(value: number | undefined) {
+    public set longitude(value: number | string | ReferenceNumeric | undefined) {
         this._longitude = value;
     };
     /**

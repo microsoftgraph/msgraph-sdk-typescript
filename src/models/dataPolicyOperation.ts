@@ -1,13 +1,14 @@
 import {DataPolicyOperationStatus} from './dataPolicyOperationStatus';
 import {Entity} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of dataPolicyOperation entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class DataPolicyOperation extends Entity implements Parsable {
     /** Represents when the request for this data policy operation was completed, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Null until the operation completes. */
     private _completedDateTime?: Date | undefined;
     /** Specifies the progress of an operation. */
-    private _progress?: number | undefined;
+    private _progress?: number | string | ReferenceNumeric | undefined;
     /** Possible values are: notStarted, running, complete, failed, unknownFutureValue. */
     private _status?: DataPolicyOperationStatus | undefined;
     /** The URL location to where data is being exported for export requests. */
@@ -53,7 +54,7 @@ export class DataPolicyOperation extends Entity implements Parsable {
     };
     /**
      * Gets the progress property value. Specifies the progress of an operation.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get progress() {
         return this._progress;
@@ -62,7 +63,7 @@ export class DataPolicyOperation extends Entity implements Parsable {
      * Sets the progress property value. Specifies the progress of an operation.
      * @param value Value to set for the progress property.
      */
-    public set progress(value: number | undefined) {
+    public set progress(value: number | string | ReferenceNumeric | undefined) {
         this._progress = value;
     };
     /**

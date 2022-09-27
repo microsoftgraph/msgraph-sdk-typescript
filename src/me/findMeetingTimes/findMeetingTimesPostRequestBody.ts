@@ -2,6 +2,7 @@ import {AttendeeBase, LocationConstraint, TimeConstraint} from '../../models/';
 import {createAttendeeBaseFromDiscriminatorValue} from '../../models/createAttendeeBaseFromDiscriminatorValue';
 import {createLocationConstraintFromDiscriminatorValue} from '../../models/createLocationConstraintFromDiscriminatorValue';
 import {createTimeConstraintFromDiscriminatorValue} from '../../models/createTimeConstraintFromDiscriminatorValue';
+import {ReferenceNumeric} from '../../models/referenceNumeric';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the findMeetingTimes method. */
@@ -19,7 +20,7 @@ export class FindMeetingTimesPostRequestBody implements AdditionalDataHolder, Pa
     /** The meetingDuration property */
     private _meetingDuration?: Duration | undefined;
     /** The minimumAttendeePercentage property */
-    private _minimumAttendeePercentage?: number | undefined;
+    private _minimumAttendeePercentage?: number | string | ReferenceNumeric | undefined;
     /** The returnSuggestionReasons property */
     private _returnSuggestionReasons?: boolean | undefined;
     /** The timeConstraint property */
@@ -132,7 +133,7 @@ export class FindMeetingTimesPostRequestBody implements AdditionalDataHolder, Pa
     };
     /**
      * Gets the minimumAttendeePercentage property value. The minimumAttendeePercentage property
-     * @returns a double
+     * @returns a findMeetingTimes
      */
     public get minimumAttendeePercentage() {
         return this._minimumAttendeePercentage;
@@ -141,7 +142,7 @@ export class FindMeetingTimesPostRequestBody implements AdditionalDataHolder, Pa
      * Sets the minimumAttendeePercentage property value. The minimumAttendeePercentage property
      * @param value Value to set for the minimumAttendeePercentage property.
      */
-    public set minimumAttendeePercentage(value: number | undefined) {
+    public set minimumAttendeePercentage(value: number | string | ReferenceNumeric | undefined) {
         this._minimumAttendeePercentage = value;
     };
     /**

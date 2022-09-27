@@ -8,6 +8,7 @@ import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './c
 import {Attachment, Extension, ItemBody, MultiValueLegacyExtendedProperty, OutlookItem, Recipient, SingleValueLegacyExtendedProperty} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreement entities. */
 export class Post extends OutlookItem implements Parsable {
     /** Read-only. Nullable. Supports $expand. */
     private _attachments?: Attachment[] | undefined;
@@ -64,7 +65,7 @@ export class Post extends OutlookItem implements Parsable {
         this._body = value;
     };
     /**
-     * Instantiates a new Post and sets the default values.
+     * Instantiates a new post and sets the default values.
      */
     public constructor() {
         super();

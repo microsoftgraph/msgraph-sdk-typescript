@@ -1,3 +1,4 @@
+import {ReferenceNumeric} from './referenceNumeric';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, Parsable {
@@ -6,13 +7,13 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
     /** The average inbound stream network jitter. */
     private _averageInboundJitter?: Duration | undefined;
     /** The average inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%. */
-    private _averageInboundPacketLossRateInPercentage?: number | undefined;
+    private _averageInboundPacketLossRateInPercentage?: number | string | ReferenceNumeric | undefined;
     /** The average inbound stream network round trip delay. */
     private _averageInboundRoundTripDelay?: Duration | undefined;
     /** The average outbound stream network jitter. */
     private _averageOutboundJitter?: Duration | undefined;
     /** The average outbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%. */
-    private _averageOutboundPacketLossRateInPercentage?: number | undefined;
+    private _averageOutboundPacketLossRateInPercentage?: number | string | ReferenceNumeric | undefined;
     /** The average outbound stream network round trip delay. */
     private _averageOutboundRoundTripDelay?: Duration | undefined;
     /** The channel index of media. Indexing begins with 1.  If a media session contains 3 video modalities, channel indexes will be 1, 2, and 3. */
@@ -26,13 +27,13 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
     /** The maximum inbound stream network jitter. */
     private _maximumInboundJitter?: Duration | undefined;
     /** The maximum inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%. */
-    private _maximumInboundPacketLossRateInPercentage?: number | undefined;
+    private _maximumInboundPacketLossRateInPercentage?: number | string | ReferenceNumeric | undefined;
     /** The maximum inbound stream network round trip delay. */
     private _maximumInboundRoundTripDelay?: Duration | undefined;
     /** The maximum outbound stream network jitter. */
     private _maximumOutboundJitter?: Duration | undefined;
     /** The maximum outbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%. */
-    private _maximumOutboundPacketLossRateInPercentage?: number | undefined;
+    private _maximumOutboundPacketLossRateInPercentage?: number | string | ReferenceNumeric | undefined;
     /** The maximum outbound stream network round trip delay. */
     private _maximumOutboundRoundTripDelay?: Duration | undefined;
     /** The total modality duration. If the media enabled and disabled multiple times, MediaDuration will the summation of all of the durations. */
@@ -77,7 +78,7 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
     };
     /**
      * Gets the averageInboundPacketLossRateInPercentage property value. The average inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get averageInboundPacketLossRateInPercentage() {
         return this._averageInboundPacketLossRateInPercentage;
@@ -86,7 +87,7 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
      * Sets the averageInboundPacketLossRateInPercentage property value. The average inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.
      * @param value Value to set for the averageInboundPacketLossRateInPercentage property.
      */
-    public set averageInboundPacketLossRateInPercentage(value: number | undefined) {
+    public set averageInboundPacketLossRateInPercentage(value: number | string | ReferenceNumeric | undefined) {
         this._averageInboundPacketLossRateInPercentage = value;
     };
     /**
@@ -119,7 +120,7 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
     };
     /**
      * Gets the averageOutboundPacketLossRateInPercentage property value. The average outbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get averageOutboundPacketLossRateInPercentage() {
         return this._averageOutboundPacketLossRateInPercentage;
@@ -128,7 +129,7 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
      * Sets the averageOutboundPacketLossRateInPercentage property value. The average outbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.
      * @param value Value to set for the averageOutboundPacketLossRateInPercentage property.
      */
-    public set averageOutboundPacketLossRateInPercentage(value: number | undefined) {
+    public set averageOutboundPacketLossRateInPercentage(value: number | string | ReferenceNumeric | undefined) {
         this._averageOutboundPacketLossRateInPercentage = value;
     };
     /**
@@ -254,7 +255,7 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
     };
     /**
      * Gets the maximumInboundPacketLossRateInPercentage property value. The maximum inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get maximumInboundPacketLossRateInPercentage() {
         return this._maximumInboundPacketLossRateInPercentage;
@@ -263,7 +264,7 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
      * Sets the maximumInboundPacketLossRateInPercentage property value. The maximum inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.
      * @param value Value to set for the maximumInboundPacketLossRateInPercentage property.
      */
-    public set maximumInboundPacketLossRateInPercentage(value: number | undefined) {
+    public set maximumInboundPacketLossRateInPercentage(value: number | string | ReferenceNumeric | undefined) {
         this._maximumInboundPacketLossRateInPercentage = value;
     };
     /**
@@ -296,7 +297,7 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
     };
     /**
      * Gets the maximumOutboundPacketLossRateInPercentage property value. The maximum outbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get maximumOutboundPacketLossRateInPercentage() {
         return this._maximumOutboundPacketLossRateInPercentage;
@@ -305,7 +306,7 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
      * Sets the maximumOutboundPacketLossRateInPercentage property value. The maximum outbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.
      * @param value Value to set for the maximumOutboundPacketLossRateInPercentage property.
      */
-    public set maximumOutboundPacketLossRateInPercentage(value: number | undefined) {
+    public set maximumOutboundPacketLossRateInPercentage(value: number | string | ReferenceNumeric | undefined) {
         this._maximumOutboundPacketLossRateInPercentage = value;
     };
     /**

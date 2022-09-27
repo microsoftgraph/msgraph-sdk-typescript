@@ -4,6 +4,7 @@ import {createBookingReminderFromDiscriminatorValue} from './createBookingRemind
 import {createBookingSchedulingPolicyFromDiscriminatorValue} from './createBookingSchedulingPolicyFromDiscriminatorValue';
 import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
 import {BookingQuestionAssignment, BookingReminder, BookingSchedulingPolicy, Entity, Location} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Represents a particular service offered by a booking business. */
@@ -17,7 +18,7 @@ export class BookingService extends Entity implements Parsable {
     /** The default physical location for the service. */
     private _defaultLocation?: Location | undefined;
     /** The default monetary price for the service. */
-    private _defaultPrice?: number | undefined;
+    private _defaultPrice?: number | string | ReferenceNumeric | undefined;
     /** Represents the type of pricing of a booking service. */
     private _defaultPriceType?: BookingPriceType | undefined;
     /** The default set of reminders for an appointment of this service. The value of this property is available only when reading this bookingService by its ID. */
@@ -45,7 +46,7 @@ export class BookingService extends Entity implements Parsable {
     /** Represents those staff members who provide this service. */
     private _staffMemberIds?: string[] | undefined;
     /** The URL a customer uses to access the service. */
-    private _webUrl?: string | undefined;
+    private readonly _webUrl?: string | undefined;
     /**
      * Gets the additionalInformation property value. Additional information that is sent to the customer when an appointment is confirmed.
      * @returns a string
@@ -111,7 +112,7 @@ export class BookingService extends Entity implements Parsable {
     };
     /**
      * Gets the defaultPrice property value. The default monetary price for the service.
-     * @returns a double
+     * @returns a agreements
      */
     public get defaultPrice() {
         return this._defaultPrice;
@@ -120,7 +121,7 @@ export class BookingService extends Entity implements Parsable {
      * Sets the defaultPrice property value. The default monetary price for the service.
      * @param value Value to set for the defaultPrice property.
      */
-    public set defaultPrice(value: number | undefined) {
+    public set defaultPrice(value: number | string | ReferenceNumeric | undefined) {
         this._defaultPrice = value;
     };
     /**
@@ -329,7 +330,6 @@ export class BookingService extends Entity implements Parsable {
         writer.writeObjectValue<BookingSchedulingPolicy>("schedulingPolicy", this.schedulingPolicy);
         writer.writeBooleanValue("smsNotificationsEnabled", this.smsNotificationsEnabled);
         writer.writeCollectionOfPrimitiveValues<string>("staffMemberIds", this.staffMemberIds);
-        writer.writeStringValue("webUrl", this.webUrl);
     };
     /**
      * Gets the smsNotificationsEnabled property value. True indicates SMS notifications can be sent to the customers for the appointment of the service. Default value is false.
@@ -365,12 +365,5 @@ export class BookingService extends Entity implements Parsable {
      */
     public get webUrl() {
         return this._webUrl;
-    };
-    /**
-     * Sets the webUrl property value. The URL a customer uses to access the service.
-     * @param value Value to set for the webUrl property.
-     */
-    public set webUrl(value: string | undefined) {
-        this._webUrl = value;
     };
 }

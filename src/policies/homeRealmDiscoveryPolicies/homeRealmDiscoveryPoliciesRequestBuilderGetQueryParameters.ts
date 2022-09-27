@@ -1,5 +1,5 @@
 
-/** The policy to control Azure AD authentication behavior for federated users. */
+/** Get a list of homeRealmDiscoveryPolicy objects. */
 export class HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

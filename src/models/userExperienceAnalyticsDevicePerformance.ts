@@ -1,13 +1,14 @@
 import {DiskType} from './diskType';
 import {Entity} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {UserExperienceAnalyticsHealthState} from './userExperienceAnalyticsHealthState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsable {
     /** Average (mean) number of Blue Screens per device in the last 14 days. Valid values 0 to 9999999 */
-    private _averageBlueScreens?: number | undefined;
+    private _averageBlueScreens?: number | string | ReferenceNumeric | undefined;
     /** Average (mean) number of Restarts per device in the last 14 days. Valid values 0 to 9999999 */
-    private _averageRestarts?: number | undefined;
+    private _averageRestarts?: number | string | ReferenceNumeric | undefined;
     /** Number of Blue Screens in the last 14 days. Valid values 0 to 9999999 */
     private _blueScreenCount?: number | undefined;
     /** The user experience analytics device boot score. */
@@ -35,7 +36,7 @@ export class UserExperienceAnalyticsDevicePerformance extends Entity implements 
     /** The user experience analytics device model. */
     private _model?: string | undefined;
     /** The user experience analytics model level startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
-    private _modelStartupPerformanceScore?: number | undefined;
+    private _modelStartupPerformanceScore?: number | string | ReferenceNumeric | undefined;
     /** The user experience analytics device Operating System version. */
     private _operatingSystemVersion?: string | undefined;
     /** The user experience analytics responsive desktop time in milliseconds. */
@@ -43,10 +44,10 @@ export class UserExperienceAnalyticsDevicePerformance extends Entity implements 
     /** Number of Restarts in the last 14 days. Valid values 0 to 9999999 */
     private _restartCount?: number | undefined;
     /** The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
-    private _startupPerformanceScore?: number | undefined;
+    private _startupPerformanceScore?: number | string | ReferenceNumeric | undefined;
     /**
      * Gets the averageBlueScreens property value. Average (mean) number of Blue Screens per device in the last 14 days. Valid values 0 to 9999999
-     * @returns a double
+     * @returns a agreements
      */
     public get averageBlueScreens() {
         return this._averageBlueScreens;
@@ -55,12 +56,12 @@ export class UserExperienceAnalyticsDevicePerformance extends Entity implements 
      * Sets the averageBlueScreens property value. Average (mean) number of Blue Screens per device in the last 14 days. Valid values 0 to 9999999
      * @param value Value to set for the averageBlueScreens property.
      */
-    public set averageBlueScreens(value: number | undefined) {
+    public set averageBlueScreens(value: number | string | ReferenceNumeric | undefined) {
         this._averageBlueScreens = value;
     };
     /**
      * Gets the averageRestarts property value. Average (mean) number of Restarts per device in the last 14 days. Valid values 0 to 9999999
-     * @returns a double
+     * @returns a agreements
      */
     public get averageRestarts() {
         return this._averageRestarts;
@@ -69,7 +70,7 @@ export class UserExperienceAnalyticsDevicePerformance extends Entity implements 
      * Sets the averageRestarts property value. Average (mean) number of Restarts per device in the last 14 days. Valid values 0 to 9999999
      * @param value Value to set for the averageRestarts property.
      */
-    public set averageRestarts(value: number | undefined) {
+    public set averageRestarts(value: number | string | ReferenceNumeric | undefined) {
         this._averageRestarts = value;
     };
     /**
@@ -291,7 +292,7 @@ export class UserExperienceAnalyticsDevicePerformance extends Entity implements 
     };
     /**
      * Gets the modelStartupPerformanceScore property value. The user experience analytics model level startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     * @returns a double
+     * @returns a agreements
      */
     public get modelStartupPerformanceScore() {
         return this._modelStartupPerformanceScore;
@@ -300,7 +301,7 @@ export class UserExperienceAnalyticsDevicePerformance extends Entity implements 
      * Sets the modelStartupPerformanceScore property value. The user experience analytics model level startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param value Value to set for the modelStartupPerformanceScore property.
      */
-    public set modelStartupPerformanceScore(value: number | undefined) {
+    public set modelStartupPerformanceScore(value: number | string | ReferenceNumeric | undefined) {
         this._modelStartupPerformanceScore = value;
     };
     /**
@@ -375,7 +376,7 @@ export class UserExperienceAnalyticsDevicePerformance extends Entity implements 
     };
     /**
      * Gets the startupPerformanceScore property value. The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-     * @returns a double
+     * @returns a agreements
      */
     public get startupPerformanceScore() {
         return this._startupPerformanceScore;
@@ -384,7 +385,7 @@ export class UserExperienceAnalyticsDevicePerformance extends Entity implements 
      * Sets the startupPerformanceScore property value. The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      * @param value Value to set for the startupPerformanceScore property.
      */
-    public set startupPerformanceScore(value: number | undefined) {
+    public set startupPerformanceScore(value: number | string | ReferenceNumeric | undefined) {
         this._startupPerformanceScore = value;
     };
 }

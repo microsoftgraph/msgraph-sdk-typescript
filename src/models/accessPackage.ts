@@ -3,7 +3,6 @@ import {createAccessPackageCatalogFromDiscriminatorValue} from './createAccessPa
 import {AccessPackageAssignmentPolicy, AccessPackageCatalog, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class AccessPackage extends Entity implements Parsable {
     /** The assignmentPolicies property */
     private _assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;

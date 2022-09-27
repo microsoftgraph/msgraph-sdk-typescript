@@ -6,9 +6,10 @@ import {createWorkbookChartSeriesFromDiscriminatorValue} from './createWorkbookC
 import {createWorkbookChartTitleFromDiscriminatorValue} from './createWorkbookChartTitleFromDiscriminatorValue';
 import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWorksheetFromDiscriminatorValue';
 import {Entity, WorkbookChartAreaFormat, WorkbookChartAxes, WorkbookChartDataLabels, WorkbookChartLegend, WorkbookChartSeries, WorkbookChartTitle, WorkbookWorksheet} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class WorkbookChart extends Entity implements Parsable {
     /** Represents chart axes. Read-only. */
     private _axes?: WorkbookChartAxes | undefined;
@@ -17,9 +18,9 @@ export class WorkbookChart extends Entity implements Parsable {
     /** Encapsulates the format properties for the chart area. Read-only. */
     private _format?: WorkbookChartAreaFormat | undefined;
     /** Represents the height, in points, of the chart object. */
-    private _height?: number | undefined;
+    private _height?: number | string | ReferenceNumeric | undefined;
     /** The distance, in points, from the left side of the chart to the worksheet origin. */
-    private _left?: number | undefined;
+    private _left?: number | string | ReferenceNumeric | undefined;
     /** Represents the legend for the chart. Read-only. */
     private _legend?: WorkbookChartLegend | undefined;
     /** Represents the name of a chart object. */
@@ -29,9 +30,9 @@ export class WorkbookChart extends Entity implements Parsable {
     /** Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only. */
     private _title?: WorkbookChartTitle | undefined;
     /** Represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart). */
-    private _top?: number | undefined;
+    private _top?: number | string | ReferenceNumeric | undefined;
     /** Represents the width, in points, of the chart object. */
-    private _width?: number | undefined;
+    private _width?: number | string | ReferenceNumeric | undefined;
     /** The worksheet containing the current chart. Read-only. */
     private _worksheet?: WorkbookWorksheet | undefined;
     /**
@@ -105,7 +106,7 @@ export class WorkbookChart extends Entity implements Parsable {
     };
     /**
      * Gets the height property value. Represents the height, in points, of the chart object.
-     * @returns a double
+     * @returns a agreements
      */
     public get height() {
         return this._height;
@@ -114,12 +115,12 @@ export class WorkbookChart extends Entity implements Parsable {
      * Sets the height property value. Represents the height, in points, of the chart object.
      * @param value Value to set for the height property.
      */
-    public set height(value: number | undefined) {
+    public set height(value: number | string | ReferenceNumeric | undefined) {
         this._height = value;
     };
     /**
      * Gets the left property value. The distance, in points, from the left side of the chart to the worksheet origin.
-     * @returns a double
+     * @returns a agreements
      */
     public get left() {
         return this._left;
@@ -128,7 +129,7 @@ export class WorkbookChart extends Entity implements Parsable {
      * Sets the left property value. The distance, in points, from the left side of the chart to the worksheet origin.
      * @param value Value to set for the left property.
      */
-    public set left(value: number | undefined) {
+    public set left(value: number | string | ReferenceNumeric | undefined) {
         this._left = value;
     };
     /**
@@ -209,7 +210,7 @@ export class WorkbookChart extends Entity implements Parsable {
     };
     /**
      * Gets the top property value. Represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).
-     * @returns a double
+     * @returns a agreements
      */
     public get top() {
         return this._top;
@@ -218,12 +219,12 @@ export class WorkbookChart extends Entity implements Parsable {
      * Sets the top property value. Represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).
      * @param value Value to set for the top property.
      */
-    public set top(value: number | undefined) {
+    public set top(value: number | string | ReferenceNumeric | undefined) {
         this._top = value;
     };
     /**
      * Gets the width property value. Represents the width, in points, of the chart object.
-     * @returns a double
+     * @returns a agreements
      */
     public get width() {
         return this._width;
@@ -232,7 +233,7 @@ export class WorkbookChart extends Entity implements Parsable {
      * Sets the width property value. Represents the width, in points, of the chart object.
      * @param value Value to set for the width property.
      */
-    public set width(value: number | undefined) {
+    public set width(value: number | string | ReferenceNumeric | undefined) {
         this._width = value;
     };
     /**

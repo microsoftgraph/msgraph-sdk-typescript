@@ -1,5 +1,5 @@
 
-/** Get chats from me */
+/** Retrieve the list of chats that the user is part of. */
 export class ChatsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

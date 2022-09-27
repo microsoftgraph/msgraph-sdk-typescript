@@ -45,7 +45,7 @@ export class AssignmentDefaultsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Specifies class-level defaults respected by new assignments created in the class.
+     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each **assignment** creation if they don't want the default behaviors.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +63,7 @@ export class AssignmentDefaultsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property assignmentDefaults in education
+     * Update the properties of an educationAssignmentDefaults object. Only teachers can update these settings.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -74,6 +74,7 @@ export class AssignmentDefaultsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -97,7 +98,7 @@ export class AssignmentDefaultsRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Specifies class-level defaults respected by new assignments created in the class.
+     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each **assignment** creation if they don't want the default behaviors.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationAssignmentDefaults
@@ -113,12 +114,13 @@ export class AssignmentDefaultsRequestBuilder {
         return this.requestAdapter?.sendAsync<EducationAssignmentDefaults>(requestInfo, createEducationAssignmentDefaultsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Update the navigation property assignmentDefaults in education
+     * Update the properties of an educationAssignmentDefaults object. Only teachers can update these settings.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of EducationAssignmentDefaults
      */
-    public patch(body: EducationAssignmentDefaults | undefined, requestConfiguration?: AssignmentDefaultsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: EducationAssignmentDefaults | undefined, requestConfiguration?: AssignmentDefaultsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationAssignmentDefaults | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -127,6 +129,6 @@ export class AssignmentDefaultsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationAssignmentDefaults>(requestInfo, createEducationAssignmentDefaultsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

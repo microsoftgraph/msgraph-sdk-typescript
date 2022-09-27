@@ -1,9 +1,10 @@
 import {OmaSetting} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OmaSettingFloatingPoint extends OmaSetting implements Parsable {
     /** Value. */
-    private _value?: number | undefined;
+    private _value?: number | string | ReferenceNumeric | undefined;
     /**
      * Instantiates a new OmaSettingFloatingPoint and sets the default values.
      */
@@ -31,7 +32,7 @@ export class OmaSettingFloatingPoint extends OmaSetting implements Parsable {
     };
     /**
      * Gets the value property value. Value.
-     * @returns a float
+     * @returns a agreementAcceptances
      */
     public get value() {
         return this._value;
@@ -40,7 +41,7 @@ export class OmaSettingFloatingPoint extends OmaSetting implements Parsable {
      * Sets the value property value. Value.
      * @param value Value to set for the value property.
      */
-    public set value(value: number | undefined) {
+    public set value(value: number | string | ReferenceNumeric | undefined) {
         this._value = value;
     };
 }

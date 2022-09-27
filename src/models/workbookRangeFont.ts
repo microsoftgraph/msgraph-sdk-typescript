@@ -1,4 +1,5 @@
 import {Entity} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookRangeFont extends Entity implements Parsable {
@@ -11,7 +12,7 @@ export class WorkbookRangeFont extends Entity implements Parsable {
     /** Font name (e.g. 'Calibri') */
     private _name?: string | undefined;
     /** Font size. */
-    private _size?: number | undefined;
+    private _size?: number | string | ReferenceNumeric | undefined;
     /** Type of underline applied to the font. The possible values are: None, Single, Double, SingleAccountant, DoubleAccountant. */
     private _underline?: string | undefined;
     /**
@@ -107,7 +108,7 @@ export class WorkbookRangeFont extends Entity implements Parsable {
     };
     /**
      * Gets the size property value. Font size.
-     * @returns a double
+     * @returns a agreements
      */
     public get size() {
         return this._size;
@@ -116,7 +117,7 @@ export class WorkbookRangeFont extends Entity implements Parsable {
      * Sets the size property value. Font size.
      * @param value Value to set for the size property.
      */
-    public set size(value: number | undefined) {
+    public set size(value: number | string | ReferenceNumeric | undefined) {
         this._size = value;
     };
     /**

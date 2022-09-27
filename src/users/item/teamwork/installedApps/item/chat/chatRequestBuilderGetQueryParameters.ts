@@ -1,5 +1,5 @@
 
-/** The chat between the user and Teams app. */
+/** Retrieve the chat of the specified user and Teams app. */
 export class ChatRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

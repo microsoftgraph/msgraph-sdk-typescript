@@ -1,18 +1,19 @@
 import {TeleconferenceDeviceMediaQuality} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality implements Parsable {
     /** The average inbound stream video bit rate per second. */
-    private _averageInboundBitRate?: number | undefined;
+    private _averageInboundBitRate?: number | string | ReferenceNumeric | undefined;
     /** The average inbound stream video frame rate per second. */
-    private _averageInboundFrameRate?: number | undefined;
+    private _averageInboundFrameRate?: number | string | ReferenceNumeric | undefined;
     /** The average outbound stream video bit rate per second. */
-    private _averageOutboundBitRate?: number | undefined;
+    private _averageOutboundBitRate?: number | string | ReferenceNumeric | undefined;
     /** The average outbound stream video frame rate per second. */
-    private _averageOutboundFrameRate?: number | undefined;
+    private _averageOutboundFrameRate?: number | string | ReferenceNumeric | undefined;
     /**
      * Gets the averageInboundBitRate property value. The average inbound stream video bit rate per second.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get averageInboundBitRate() {
         return this._averageInboundBitRate;
@@ -21,12 +22,12 @@ export class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQ
      * Sets the averageInboundBitRate property value. The average inbound stream video bit rate per second.
      * @param value Value to set for the averageInboundBitRate property.
      */
-    public set averageInboundBitRate(value: number | undefined) {
+    public set averageInboundBitRate(value: number | string | ReferenceNumeric | undefined) {
         this._averageInboundBitRate = value;
     };
     /**
      * Gets the averageInboundFrameRate property value. The average inbound stream video frame rate per second.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get averageInboundFrameRate() {
         return this._averageInboundFrameRate;
@@ -35,12 +36,12 @@ export class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQ
      * Sets the averageInboundFrameRate property value. The average inbound stream video frame rate per second.
      * @param value Value to set for the averageInboundFrameRate property.
      */
-    public set averageInboundFrameRate(value: number | undefined) {
+    public set averageInboundFrameRate(value: number | string | ReferenceNumeric | undefined) {
         this._averageInboundFrameRate = value;
     };
     /**
      * Gets the averageOutboundBitRate property value. The average outbound stream video bit rate per second.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get averageOutboundBitRate() {
         return this._averageOutboundBitRate;
@@ -49,12 +50,12 @@ export class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQ
      * Sets the averageOutboundBitRate property value. The average outbound stream video bit rate per second.
      * @param value Value to set for the averageOutboundBitRate property.
      */
-    public set averageOutboundBitRate(value: number | undefined) {
+    public set averageOutboundBitRate(value: number | string | ReferenceNumeric | undefined) {
         this._averageOutboundBitRate = value;
     };
     /**
      * Gets the averageOutboundFrameRate property value. The average outbound stream video frame rate per second.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get averageOutboundFrameRate() {
         return this._averageOutboundFrameRate;
@@ -63,7 +64,7 @@ export class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQ
      * Sets the averageOutboundFrameRate property value. The average outbound stream video frame rate per second.
      * @param value Value to set for the averageOutboundFrameRate property.
      */
-    public set averageOutboundFrameRate(value: number | undefined) {
+    public set averageOutboundFrameRate(value: number | string | ReferenceNumeric | undefined) {
         this._averageOutboundFrameRate = value;
     };
     /**

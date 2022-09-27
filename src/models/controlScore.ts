@@ -1,3 +1,4 @@
+import {ReferenceNumeric} from './referenceNumeric';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ControlScore implements AdditionalDataHolder, Parsable {
@@ -12,7 +13,7 @@ export class ControlScore implements AdditionalDataHolder, Parsable {
     /** The OdataType property */
     private _odataType?: string | undefined;
     /** Tenant achieved score for the control (it varies day by day depending on tenant operations on the control). */
-    private _score?: number | undefined;
+    private _score?: number | string | ReferenceNumeric | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -105,7 +106,7 @@ export class ControlScore implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the score property value. Tenant achieved score for the control (it varies day by day depending on tenant operations on the control).
-     * @returns a double
+     * @returns a agreements
      */
     public get score() {
         return this._score;
@@ -114,7 +115,7 @@ export class ControlScore implements AdditionalDataHolder, Parsable {
      * Sets the score property value. Tenant achieved score for the control (it varies day by day depending on tenant operations on the control).
      * @param value Value to set for the score property.
      */
-    public set score(value: number | undefined) {
+    public set score(value: number | string | ReferenceNumeric | undefined) {
         this._score = value;
     };
     /**

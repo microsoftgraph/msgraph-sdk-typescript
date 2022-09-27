@@ -1,5 +1,5 @@
 
-/** Schedules for role eligibility operations. */
+/** Get the unifiedRoleEligibilitySchedule resources from the roleEligibilitySchedules navigation property. */
 export class RoleEligibilitySchedulesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

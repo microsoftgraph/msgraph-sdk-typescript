@@ -1,5 +1,5 @@
 
-/** Represents a collection of access review history data and the scopes used to collect that data. */
+/** Retrieve the accessReviewHistoryDefinition objects created in the last 30 days, including all nested properties. */
 export class HistoryDefinitionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

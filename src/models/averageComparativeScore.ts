@@ -1,10 +1,11 @@
+import {ReferenceNumeric} from './referenceNumeric';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AverageComparativeScore implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Average score within specified basis. */
-    private _averageScore?: number | undefined;
+    private _averageScore?: number | string | ReferenceNumeric | undefined;
     /** Scope type. The possible values are: AllTenants, TotalSeats, IndustryTypes. */
     private _basis?: string | undefined;
     /** The OdataType property */
@@ -25,7 +26,7 @@ export class AverageComparativeScore implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the averageScore property value. Average score within specified basis.
-     * @returns a double
+     * @returns a agreements
      */
     public get averageScore() {
         return this._averageScore;
@@ -34,7 +35,7 @@ export class AverageComparativeScore implements AdditionalDataHolder, Parsable {
      * Sets the averageScore property value. Average score within specified basis.
      * @param value Value to set for the averageScore property.
      */
-    public set averageScore(value: number | undefined) {
+    public set averageScore(value: number | string | ReferenceNumeric | undefined) {
         this._averageScore = value;
     };
     /**

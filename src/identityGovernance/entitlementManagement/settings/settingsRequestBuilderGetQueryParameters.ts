@@ -1,5 +1,5 @@
 
-/** The settings that control the behavior of Azure AD entitlement management. */
+/** Retrieve the properties of an entitlementManagementSettings object. */
 export class SettingsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,3 +1,4 @@
+import {ReferenceNumeric} from './referenceNumeric';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Device location */
@@ -5,23 +6,23 @@ export class DeviceGeoLocation implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Altitude, given in meters above sea level */
-    private _altitude?: number | undefined;
+    private _altitude?: number | string | ReferenceNumeric | undefined;
     /** Heading in degrees from true north */
-    private _heading?: number | undefined;
+    private _heading?: number | string | ReferenceNumeric | undefined;
     /** Accuracy of longitude and latitude in meters */
-    private _horizontalAccuracy?: number | undefined;
+    private _horizontalAccuracy?: number | string | ReferenceNumeric | undefined;
     /** Time at which location was recorded, relative to UTC */
     private _lastCollectedDateTime?: Date | undefined;
     /** Latitude coordinate of the device's location */
-    private _latitude?: number | undefined;
+    private _latitude?: number | string | ReferenceNumeric | undefined;
     /** Longitude coordinate of the device's location */
-    private _longitude?: number | undefined;
+    private _longitude?: number | string | ReferenceNumeric | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /** Speed the device is traveling in meters per second */
-    private _speed?: number | undefined;
+    private _speed?: number | string | ReferenceNumeric | undefined;
     /** Accuracy of altitude in meters */
-    private _verticalAccuracy?: number | undefined;
+    private _verticalAccuracy?: number | string | ReferenceNumeric | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -38,7 +39,7 @@ export class DeviceGeoLocation implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the altitude property value. Altitude, given in meters above sea level
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get altitude() {
         return this._altitude;
@@ -47,7 +48,7 @@ export class DeviceGeoLocation implements AdditionalDataHolder, Parsable {
      * Sets the altitude property value. Altitude, given in meters above sea level
      * @param value Value to set for the altitude property.
      */
-    public set altitude(value: number | undefined) {
+    public set altitude(value: number | string | ReferenceNumeric | undefined) {
         this._altitude = value;
     };
     /**
@@ -76,7 +77,7 @@ export class DeviceGeoLocation implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the heading property value. Heading in degrees from true north
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get heading() {
         return this._heading;
@@ -85,12 +86,12 @@ export class DeviceGeoLocation implements AdditionalDataHolder, Parsable {
      * Sets the heading property value. Heading in degrees from true north
      * @param value Value to set for the heading property.
      */
-    public set heading(value: number | undefined) {
+    public set heading(value: number | string | ReferenceNumeric | undefined) {
         this._heading = value;
     };
     /**
      * Gets the horizontalAccuracy property value. Accuracy of longitude and latitude in meters
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get horizontalAccuracy() {
         return this._horizontalAccuracy;
@@ -99,7 +100,7 @@ export class DeviceGeoLocation implements AdditionalDataHolder, Parsable {
      * Sets the horizontalAccuracy property value. Accuracy of longitude and latitude in meters
      * @param value Value to set for the horizontalAccuracy property.
      */
-    public set horizontalAccuracy(value: number | undefined) {
+    public set horizontalAccuracy(value: number | string | ReferenceNumeric | undefined) {
         this._horizontalAccuracy = value;
     };
     /**
@@ -118,7 +119,7 @@ export class DeviceGeoLocation implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the latitude property value. Latitude coordinate of the device's location
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get latitude() {
         return this._latitude;
@@ -127,12 +128,12 @@ export class DeviceGeoLocation implements AdditionalDataHolder, Parsable {
      * Sets the latitude property value. Latitude coordinate of the device's location
      * @param value Value to set for the latitude property.
      */
-    public set latitude(value: number | undefined) {
+    public set latitude(value: number | string | ReferenceNumeric | undefined) {
         this._latitude = value;
     };
     /**
      * Gets the longitude property value. Longitude coordinate of the device's location
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get longitude() {
         return this._longitude;
@@ -141,7 +142,7 @@ export class DeviceGeoLocation implements AdditionalDataHolder, Parsable {
      * Sets the longitude property value. Longitude coordinate of the device's location
      * @param value Value to set for the longitude property.
      */
-    public set longitude(value: number | undefined) {
+    public set longitude(value: number | string | ReferenceNumeric | undefined) {
         this._longitude = value;
     };
     /**
@@ -177,7 +178,7 @@ export class DeviceGeoLocation implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the speed property value. Speed the device is traveling in meters per second
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get speed() {
         return this._speed;
@@ -186,12 +187,12 @@ export class DeviceGeoLocation implements AdditionalDataHolder, Parsable {
      * Sets the speed property value. Speed the device is traveling in meters per second
      * @param value Value to set for the speed property.
      */
-    public set speed(value: number | undefined) {
+    public set speed(value: number | string | ReferenceNumeric | undefined) {
         this._speed = value;
     };
     /**
      * Gets the verticalAccuracy property value. Accuracy of altitude in meters
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get verticalAccuracy() {
         return this._verticalAccuracy;
@@ -200,7 +201,7 @@ export class DeviceGeoLocation implements AdditionalDataHolder, Parsable {
      * Sets the verticalAccuracy property value. Accuracy of altitude in meters
      * @param value Value to set for the verticalAccuracy property.
      */
-    public set verticalAccuracy(value: number | undefined) {
+    public set verticalAccuracy(value: number | string | ReferenceNumeric | undefined) {
         this._verticalAccuracy = value;
     };
 }

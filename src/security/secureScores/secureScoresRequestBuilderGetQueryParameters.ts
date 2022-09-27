@@ -1,5 +1,5 @@
 
-/** Get secureScores from security */
+/** Retrieve a list of secureScore objects. */
 export class SecureScoresRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

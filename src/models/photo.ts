@@ -1,3 +1,4 @@
+import {ReferenceNumeric} from './referenceNumeric';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Photo implements AdditionalDataHolder, Parsable {
@@ -8,13 +9,13 @@ export class Photo implements AdditionalDataHolder, Parsable {
     /** Camera model. Read-only. */
     private _cameraModel?: string | undefined;
     /** The denominator for the exposure time fraction from the camera. Read-only. */
-    private _exposureDenominator?: number | undefined;
+    private _exposureDenominator?: number | string | ReferenceNumeric | undefined;
     /** The numerator for the exposure time fraction from the camera. Read-only. */
-    private _exposureNumerator?: number | undefined;
+    private _exposureNumerator?: number | string | ReferenceNumeric | undefined;
     /** The F-stop value from the camera. Read-only. */
-    private _fNumber?: number | undefined;
+    private _fNumber?: number | string | ReferenceNumeric | undefined;
     /** The focal length from the camera. Read-only. */
-    private _focalLength?: number | undefined;
+    private _focalLength?: number | string | ReferenceNumeric | undefined;
     /** The ISO value from the camera. Read-only. */
     private _iso?: number | undefined;
     /** The OdataType property */
@@ -74,7 +75,7 @@ export class Photo implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the exposureDenominator property value. The denominator for the exposure time fraction from the camera. Read-only.
-     * @returns a double
+     * @returns a agreements
      */
     public get exposureDenominator() {
         return this._exposureDenominator;
@@ -83,12 +84,12 @@ export class Photo implements AdditionalDataHolder, Parsable {
      * Sets the exposureDenominator property value. The denominator for the exposure time fraction from the camera. Read-only.
      * @param value Value to set for the exposureDenominator property.
      */
-    public set exposureDenominator(value: number | undefined) {
+    public set exposureDenominator(value: number | string | ReferenceNumeric | undefined) {
         this._exposureDenominator = value;
     };
     /**
      * Gets the exposureNumerator property value. The numerator for the exposure time fraction from the camera. Read-only.
-     * @returns a double
+     * @returns a agreements
      */
     public get exposureNumerator() {
         return this._exposureNumerator;
@@ -97,12 +98,12 @@ export class Photo implements AdditionalDataHolder, Parsable {
      * Sets the exposureNumerator property value. The numerator for the exposure time fraction from the camera. Read-only.
      * @param value Value to set for the exposureNumerator property.
      */
-    public set exposureNumerator(value: number | undefined) {
+    public set exposureNumerator(value: number | string | ReferenceNumeric | undefined) {
         this._exposureNumerator = value;
     };
     /**
      * Gets the fNumber property value. The F-stop value from the camera. Read-only.
-     * @returns a double
+     * @returns a agreements
      */
     public get fNumber() {
         return this._fNumber;
@@ -111,12 +112,12 @@ export class Photo implements AdditionalDataHolder, Parsable {
      * Sets the fNumber property value. The F-stop value from the camera. Read-only.
      * @param value Value to set for the fNumber property.
      */
-    public set fNumber(value: number | undefined) {
+    public set fNumber(value: number | string | ReferenceNumeric | undefined) {
         this._fNumber = value;
     };
     /**
      * Gets the focalLength property value. The focal length from the camera. Read-only.
-     * @returns a double
+     * @returns a agreements
      */
     public get focalLength() {
         return this._focalLength;
@@ -125,7 +126,7 @@ export class Photo implements AdditionalDataHolder, Parsable {
      * Sets the focalLength property value. The focal length from the camera. Read-only.
      * @param value Value to set for the focalLength property.
      */
-    public set focalLength(value: number | undefined) {
+    public set focalLength(value: number | string | ReferenceNumeric | undefined) {
         this._focalLength = value;
     };
     /**

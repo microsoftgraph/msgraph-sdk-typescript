@@ -27,7 +27,7 @@ export class GetScheduleRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action getSchedule
+     * Get the free/busy availability information for a collection of users, distributions lists, or resources (rooms or equipment) for a specified time period.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -47,7 +47,7 @@ export class GetScheduleRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action getSchedule
+     * Get the free/busy availability information for a collection of users, distributions lists, or resources (rooms or equipment) for a specified time period.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

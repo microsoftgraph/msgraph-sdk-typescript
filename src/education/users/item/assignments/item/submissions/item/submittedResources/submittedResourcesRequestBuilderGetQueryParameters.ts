@@ -1,5 +1,5 @@
 
-/** Get submittedResources from education */
+/** List the educationSubmissionResource objects that have officially been submitted for grading.  The student who owns the submission cannot change the submitted list without resubmitting the assignment. This is a wrapper around the real resource and can contain a pointer back to the actual assignment resource if this resource was copied from the assignment. */
 export class SubmittedResourcesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

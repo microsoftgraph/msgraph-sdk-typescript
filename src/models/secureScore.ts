@@ -2,9 +2,10 @@ import {createAverageComparativeScoreFromDiscriminatorValue} from './createAvera
 import {createControlScoreFromDiscriminatorValue} from './createControlScoreFromDiscriminatorValue';
 import {createSecurityVendorInformationFromDiscriminatorValue} from './createSecurityVendorInformationFromDiscriminatorValue';
 import {AverageComparativeScore, ControlScore, Entity, SecurityVendorInformation} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class SecureScore extends Entity implements Parsable {
     /** Active user count of the given tenant. */
     private _activeUserCount?: number | undefined;
@@ -17,13 +18,13 @@ export class SecureScore extends Entity implements Parsable {
     /** The date when the entity is created. */
     private _createdDateTime?: Date | undefined;
     /** Tenant current attained score on specified date. */
-    private _currentScore?: number | undefined;
+    private _currentScore?: number | string | ReferenceNumeric | undefined;
     /** Microsoft-provided services for the tenant (for example, Exchange online, Skype, Sharepoint). */
     private _enabledServices?: string[] | undefined;
     /** Licensed user count of the given tenant. */
     private _licensedUserCount?: number | undefined;
     /** Tenant maximum possible score on specified date. */
-    private _maxScore?: number | undefined;
+    private _maxScore?: number | string | ReferenceNumeric | undefined;
     /** Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=SecureScore). Required. */
     private _vendorInformation?: SecurityVendorInformation | undefined;
     /**
@@ -105,7 +106,7 @@ export class SecureScore extends Entity implements Parsable {
     };
     /**
      * Gets the currentScore property value. Tenant current attained score on specified date.
-     * @returns a double
+     * @returns a agreements
      */
     public get currentScore() {
         return this._currentScore;
@@ -114,7 +115,7 @@ export class SecureScore extends Entity implements Parsable {
      * Sets the currentScore property value. Tenant current attained score on specified date.
      * @param value Value to set for the currentScore property.
      */
-    public set currentScore(value: number | undefined) {
+    public set currentScore(value: number | string | ReferenceNumeric | undefined) {
         this._currentScore = value;
     };
     /**
@@ -165,7 +166,7 @@ export class SecureScore extends Entity implements Parsable {
     };
     /**
      * Gets the maxScore property value. Tenant maximum possible score on specified date.
-     * @returns a double
+     * @returns a agreements
      */
     public get maxScore() {
         return this._maxScore;
@@ -174,7 +175,7 @@ export class SecureScore extends Entity implements Parsable {
      * Sets the maxScore property value. Tenant maximum possible score on specified date.
      * @param value Value to set for the maxScore property.
      */
-    public set maxScore(value: number | undefined) {
+    public set maxScore(value: number | string | ReferenceNumeric | undefined) {
         this._maxScore = value;
     };
     /**

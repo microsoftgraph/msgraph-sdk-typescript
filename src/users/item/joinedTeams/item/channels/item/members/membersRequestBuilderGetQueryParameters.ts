@@ -1,5 +1,5 @@
 
-/** A collection of membership records associated with the channel. */
+/** Retrieve a list of conversationMembers from a channel. */
 export class MembersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

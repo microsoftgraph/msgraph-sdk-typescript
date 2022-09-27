@@ -1,5 +1,5 @@
 
-/** Get subjectRightsRequests from privacy */
+/** Get a list of subjectRightsRequest objects and their properties. */
 export class SubjectRightsRequestsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

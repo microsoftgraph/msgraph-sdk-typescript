@@ -1,3 +1,4 @@
+import {ReferenceNumeric} from '../../../../../../../models/referenceNumeric';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the preview method. */
@@ -7,7 +8,7 @@ export class PreviewPostRequestBody implements AdditionalDataHolder, Parsable {
     /** The page property */
     private _page?: string | undefined;
     /** The zoom property */
-    private _zoom?: number | undefined;
+    private _zoom?: number | string | ReferenceNumeric | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -64,7 +65,7 @@ export class PreviewPostRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the zoom property value. The zoom property
-     * @returns a double
+     * @returns a preview
      */
     public get zoom() {
         return this._zoom;
@@ -73,7 +74,7 @@ export class PreviewPostRequestBody implements AdditionalDataHolder, Parsable {
      * Sets the zoom property value. The zoom property
      * @param value Value to set for the zoom property.
      */
-    public set zoom(value: number | undefined) {
+    public set zoom(value: number | string | ReferenceNumeric | undefined) {
         this._zoom = value;
     };
 }

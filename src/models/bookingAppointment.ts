@@ -4,6 +4,7 @@ import {createBookingReminderFromDiscriminatorValue} from './createBookingRemind
 import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
 import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
 import {BookingCustomerInformationBase, BookingReminder, DateTimeTimeZone, Entity, Location} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BookingAppointment extends Entity implements Parsable {
@@ -14,11 +15,11 @@ export class BookingAppointment extends Entity implements Parsable {
     /** The time zone of the customer. For a list of possible values, see dateTimeTimeZone. */
     private _customerTimeZone?: string | undefined;
     /** The length of the appointment, denoted in ISO8601 format. */
-    private _duration?: Duration | undefined;
+    private readonly _duration?: Duration | undefined;
     /** The endDateTime property */
     private _endDateTime?: DateTimeTimeZone | undefined;
     /** The current number of customers in the appointment */
-    private _filledAttendeesCount?: number | undefined;
+    private readonly _filledAttendeesCount?: number | undefined;
     /** If true, indicates that the appointment will be held online. Default value is false. */
     private _isLocationOnline?: boolean | undefined;
     /** The URL of the online meeting for the appointment. */
@@ -32,7 +33,7 @@ export class BookingAppointment extends Entity implements Parsable {
     /** The amount of time to reserve before the appointment begins, for preparation, as an example. The value is expressed in ISO8601 format. */
     private _preBuffer?: Duration | undefined;
     /** The regular price for an appointment for the specified bookingService. */
-    private _price?: number | undefined;
+    private _price?: number | string | ReferenceNumeric | undefined;
     /** Represents the type of pricing of a booking service. */
     private _priceType?: BookingPriceType | undefined;
     /** The collection of customer reminders sent for this appointment. The value of this property is available only when reading this bookingAppointment by its ID. */
@@ -110,13 +111,6 @@ export class BookingAppointment extends Entity implements Parsable {
         return this._duration;
     };
     /**
-     * Sets the duration property value. The length of the appointment, denoted in ISO8601 format.
-     * @param value Value to set for the duration property.
-     */
-    public set duration(value: Duration | undefined) {
-        this._duration = value;
-    };
-    /**
      * Gets the endDateTime property value. The endDateTime property
      * @returns a dateTimeTimeZone
      */
@@ -136,13 +130,6 @@ export class BookingAppointment extends Entity implements Parsable {
      */
     public get filledAttendeesCount() {
         return this._filledAttendeesCount;
-    };
-    /**
-     * Sets the filledAttendeesCount property value. The current number of customers in the appointment
-     * @param value Value to set for the filledAttendeesCount property.
-     */
-    public set filledAttendeesCount(value: number | undefined) {
-        this._filledAttendeesCount = value;
     };
     /**
      * The deserialization information for the current model
@@ -261,7 +248,7 @@ export class BookingAppointment extends Entity implements Parsable {
     };
     /**
      * Gets the price property value. The regular price for an appointment for the specified bookingService.
-     * @returns a double
+     * @returns a agreements
      */
     public get price() {
         return this._price;
@@ -270,7 +257,7 @@ export class BookingAppointment extends Entity implements Parsable {
      * Sets the price property value. The regular price for an appointment for the specified bookingService.
      * @param value Value to set for the price property.
      */
-    public set price(value: number | undefined) {
+    public set price(value: number | string | ReferenceNumeric | undefined) {
         this._price = value;
     };
     /**
@@ -325,9 +312,7 @@ export class BookingAppointment extends Entity implements Parsable {
         writer.writeStringValue("additionalInformation", this.additionalInformation);
         writer.writeCollectionOfObjectValues<BookingCustomerInformationBase>("customers", this.customers);
         writer.writeStringValue("customerTimeZone", this.customerTimeZone);
-        writer.writeDurationValue("duration", this.duration);
         writer.writeObjectValue<DateTimeTimeZone>("endDateTime", this.endDateTime);
-        writer.writeNumberValue("filledAttendeesCount", this.filledAttendeesCount);
         writer.writeBooleanValue("isLocationOnline", this.isLocationOnline);
         writer.writeStringValue("joinWebUrl", this.joinWebUrl);
         writer.writeNumberValue("maximumAttendeesCount", this.maximumAttendeesCount);

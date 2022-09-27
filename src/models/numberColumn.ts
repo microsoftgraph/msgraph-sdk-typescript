@@ -1,3 +1,4 @@
+import {ReferenceNumeric} from './referenceNumeric';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class NumberColumn implements AdditionalDataHolder, Parsable {
@@ -8,9 +9,9 @@ export class NumberColumn implements AdditionalDataHolder, Parsable {
     /** How the value should be presented in the UX. Must be one of number or percentage. If unspecified, treated as number. */
     private _displayAs?: string | undefined;
     /** The maximum permitted value. */
-    private _maximum?: number | undefined;
+    private _maximum?: number | string | ReferenceNumeric | undefined;
     /** The minimum permitted value. */
-    private _minimum?: number | undefined;
+    private _minimum?: number | string | ReferenceNumeric | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /**
@@ -77,7 +78,7 @@ export class NumberColumn implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the maximum property value. The maximum permitted value.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get maximum() {
         return this._maximum;
@@ -86,12 +87,12 @@ export class NumberColumn implements AdditionalDataHolder, Parsable {
      * Sets the maximum property value. The maximum permitted value.
      * @param value Value to set for the maximum property.
      */
-    public set maximum(value: number | undefined) {
+    public set maximum(value: number | string | ReferenceNumeric | undefined) {
         this._maximum = value;
     };
     /**
      * Gets the minimum property value. The minimum permitted value.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get minimum() {
         return this._minimum;
@@ -100,7 +101,7 @@ export class NumberColumn implements AdditionalDataHolder, Parsable {
      * Sets the minimum property value. The minimum permitted value.
      * @param value Value to set for the minimum property.
      */
-    public set minimum(value: number | undefined) {
+    public set minimum(value: number | string | ReferenceNumeric | undefined) {
         this._minimum = value;
     };
     /**

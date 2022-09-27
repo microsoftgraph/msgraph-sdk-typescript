@@ -2,9 +2,10 @@ import {createComplianceInformationFromDiscriminatorValue} from './createComplia
 import {createSecureScoreControlStateUpdateFromDiscriminatorValue} from './createSecureScoreControlStateUpdateFromDiscriminatorValue';
 import {createSecurityVendorInformationFromDiscriminatorValue} from './createSecurityVendorInformationFromDiscriminatorValue';
 import {ComplianceInformation, Entity, SecureScoreControlStateUpdate, SecurityVendorInformation} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class SecureScoreControlProfile extends Entity implements Parsable {
     /** Control action type (Config, Review, Behavior). */
     private _actionType?: string | undefined;
@@ -25,7 +26,7 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
     /** Time at which the control profile entity was last modified. The Timestamp type represents date and time */
     private _lastModifiedDateTime?: Date | undefined;
     /** max attainable score for the control. */
-    private _maxScore?: number | undefined;
+    private _maxScore?: number | string | ReferenceNumeric | undefined;
     /** Microsoft's stack ranking of control. */
     private _rank?: number | undefined;
     /** Description of what the control will help remediate. */
@@ -206,7 +207,7 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
     };
     /**
      * Gets the maxScore property value. max attainable score for the control.
-     * @returns a double
+     * @returns a agreements
      */
     public get maxScore() {
         return this._maxScore;
@@ -215,7 +216,7 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
      * Sets the maxScore property value. max attainable score for the control.
      * @param value Value to set for the maxScore property.
      */
-    public set maxScore(value: number | undefined) {
+    public set maxScore(value: number | string | ReferenceNumeric | undefined) {
         this._maxScore = value;
     };
     /**

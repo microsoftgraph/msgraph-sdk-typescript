@@ -1,5 +1,5 @@
 
-/** Returns a list of case ediscoveryCustodian objects for this case. */
+/** Get a list of the custodian objects and their properties. */
 export class CustodiansRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

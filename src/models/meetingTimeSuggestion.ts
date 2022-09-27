@@ -3,6 +3,7 @@ import {createLocationFromDiscriminatorValue} from './createLocationFromDiscrimi
 import {createTimeSlotFromDiscriminatorValue} from './createTimeSlotFromDiscriminatorValue';
 import {FreeBusyStatus} from './freeBusyStatus';
 import {AttendeeAvailability, Location, TimeSlot} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
@@ -11,7 +12,7 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
     /** An array that shows the availability status of each attendee for this meeting suggestion. */
     private _attendeeAvailability?: AttendeeAvailability[] | undefined;
     /** A percentage that represents the likelhood of all the attendees attending. */
-    private _confidence?: number | undefined;
+    private _confidence?: number | string | ReferenceNumeric | undefined;
     /** An array that specifies the name and geographic location of each meeting location for this meeting suggestion. */
     private _locations?: Location[] | undefined;
     /** A time period suggested for the meeting. */
@@ -54,7 +55,7 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the confidence property value. A percentage that represents the likelhood of all the attendees attending.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get confidence() {
         return this._confidence;
@@ -63,7 +64,7 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
      * Sets the confidence property value. A percentage that represents the likelhood of all the attendees attending.
      * @param value Value to set for the confidence property.
      */
-    public set confidence(value: number | undefined) {
+    public set confidence(value: number | string | ReferenceNumeric | undefined) {
         this._confidence = value;
     };
     /**

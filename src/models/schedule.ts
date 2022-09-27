@@ -25,9 +25,9 @@ export class Schedule extends Entity implements Parsable {
     /** Indicates whether open shifts are enabled for the schedule. */
     private _openShiftsEnabled?: boolean | undefined;
     /** The status of the schedule provisioning. The possible values are notStarted, running, completed, failed. */
-    private _provisionStatus?: OperationStatus | undefined;
+    private readonly _provisionStatus?: OperationStatus | undefined;
     /** Additional information about why schedule provisioning failed. */
-    private _provisionStatusCode?: string | undefined;
+    private readonly _provisionStatusCode?: string | undefined;
     /** The logical grouping of users in the schedule (usually by role). */
     private _schedulingGroups?: SchedulingGroup[] | undefined;
     /** The shifts in the schedule. */
@@ -176,25 +176,11 @@ export class Schedule extends Entity implements Parsable {
         return this._provisionStatus;
     };
     /**
-     * Sets the provisionStatus property value. The status of the schedule provisioning. The possible values are notStarted, running, completed, failed.
-     * @param value Value to set for the provisionStatus property.
-     */
-    public set provisionStatus(value: OperationStatus | undefined) {
-        this._provisionStatus = value;
-    };
-    /**
      * Gets the provisionStatusCode property value. Additional information about why schedule provisioning failed.
      * @returns a string
      */
     public get provisionStatusCode() {
         return this._provisionStatusCode;
-    };
-    /**
-     * Sets the provisionStatusCode property value. Additional information about why schedule provisioning failed.
-     * @param value Value to set for the provisionStatusCode property.
-     */
-    public set provisionStatusCode(value: string | undefined) {
-        this._provisionStatusCode = value;
     };
     /**
      * Gets the schedulingGroups property value. The logical grouping of users in the schedule (usually by role).
@@ -223,8 +209,6 @@ export class Schedule extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<OpenShiftChangeRequest>("openShiftChangeRequests", this.openShiftChangeRequests);
         writer.writeCollectionOfObjectValues<OpenShift>("openShifts", this.openShifts);
         writer.writeBooleanValue("openShiftsEnabled", this.openShiftsEnabled);
-        writer.writeEnumValue<OperationStatus>("provisionStatus", this.provisionStatus);
-        writer.writeStringValue("provisionStatusCode", this.provisionStatusCode);
         writer.writeCollectionOfObjectValues<SchedulingGroup>("schedulingGroups", this.schedulingGroups);
         writer.writeCollectionOfObjectValues<Shift>("shifts", this.shifts);
         writer.writeCollectionOfObjectValues<SwapShiftsChangeRequest>("swapShiftsChangeRequests", this.swapShiftsChangeRequests);

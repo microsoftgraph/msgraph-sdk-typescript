@@ -1,9 +1,10 @@
 import {EducationAssignmentGrade} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationAssignmentPointsGrade extends EducationAssignmentGrade implements Parsable {
     /** Number of points a teacher is giving this submission object. */
-    private _points?: number | undefined;
+    private _points?: number | string | ReferenceNumeric | undefined;
     /**
      * Instantiates a new EducationAssignmentPointsGrade and sets the default values.
      */
@@ -22,7 +23,7 @@ export class EducationAssignmentPointsGrade extends EducationAssignmentGrade imp
     };
     /**
      * Gets the points property value. Number of points a teacher is giving this submission object.
-     * @returns a float
+     * @returns a agreementAcceptances
      */
     public get points() {
         return this._points;
@@ -31,7 +32,7 @@ export class EducationAssignmentPointsGrade extends EducationAssignmentGrade imp
      * Sets the points property value. Number of points a teacher is giving this submission object.
      * @param value Value to set for the points property.
      */
-    public set points(value: number | undefined) {
+    public set points(value: number | string | ReferenceNumeric | undefined) {
         this._points = value;
     };
     /**

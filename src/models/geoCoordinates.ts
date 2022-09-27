@@ -1,14 +1,15 @@
+import {ReferenceNumeric} from './referenceNumeric';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class GeoCoordinates implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Optional. The altitude (height), in feet,  above sea level for the item. Read-only. */
-    private _altitude?: number | undefined;
+    private _altitude?: number | string | ReferenceNumeric | undefined;
     /** Optional. The latitude, in decimal, for the item. Read-only. */
-    private _latitude?: number | undefined;
+    private _latitude?: number | string | ReferenceNumeric | undefined;
     /** Optional. The longitude, in decimal, for the item. Read-only. */
-    private _longitude?: number | undefined;
+    private _longitude?: number | string | ReferenceNumeric | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /**
@@ -27,7 +28,7 @@ export class GeoCoordinates implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the altitude property value. Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
-     * @returns a double
+     * @returns a agreements
      */
     public get altitude() {
         return this._altitude;
@@ -36,7 +37,7 @@ export class GeoCoordinates implements AdditionalDataHolder, Parsable {
      * Sets the altitude property value. Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
      * @param value Value to set for the altitude property.
      */
-    public set altitude(value: number | undefined) {
+    public set altitude(value: number | string | ReferenceNumeric | undefined) {
         this._altitude = value;
     };
     /**
@@ -60,7 +61,7 @@ export class GeoCoordinates implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the latitude property value. Optional. The latitude, in decimal, for the item. Read-only.
-     * @returns a double
+     * @returns a agreements
      */
     public get latitude() {
         return this._latitude;
@@ -69,12 +70,12 @@ export class GeoCoordinates implements AdditionalDataHolder, Parsable {
      * Sets the latitude property value. Optional. The latitude, in decimal, for the item. Read-only.
      * @param value Value to set for the latitude property.
      */
-    public set latitude(value: number | undefined) {
+    public set latitude(value: number | string | ReferenceNumeric | undefined) {
         this._latitude = value;
     };
     /**
      * Gets the longitude property value. Optional. The longitude, in decimal, for the item. Read-only.
-     * @returns a double
+     * @returns a agreements
      */
     public get longitude() {
         return this._longitude;
@@ -83,7 +84,7 @@ export class GeoCoordinates implements AdditionalDataHolder, Parsable {
      * Sets the longitude property value. Optional. The longitude, in decimal, for the item. Read-only.
      * @param value Value to set for the longitude property.
      */
-    public set longitude(value: number | undefined) {
+    public set longitude(value: number | string | ReferenceNumeric | undefined) {
         this._longitude = value;
     };
     /**

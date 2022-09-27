@@ -2,6 +2,7 @@ import {createEntityFromDiscriminatorValue} from './createEntityFromDiscriminato
 import {createResourceReferenceFromDiscriminatorValue} from './createResourceReferenceFromDiscriminatorValue';
 import {createResourceVisualizationFromDiscriminatorValue} from './createResourceVisualizationFromDiscriminatorValue';
 import {Entity, ResourceReference, ResourceVisualization} from './index';
+import {ReferenceNumeric} from './referenceNumeric';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the collection of agreementAcceptance entities. */
@@ -11,11 +12,11 @@ export class Trending extends Entity implements Parsable {
     /** Used for navigating to the trending document. */
     private _resource?: Entity | undefined;
     /** Reference properties of the trending document, such as the url and type of the document. */
-    private _resourceReference?: ResourceReference | undefined;
+    private readonly _resourceReference?: ResourceReference | undefined;
     /** Properties that you can use to visualize the document in your experience. */
-    private _resourceVisualization?: ResourceVisualization | undefined;
+    private readonly _resourceVisualization?: ResourceVisualization | undefined;
     /** Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value. */
-    private _weight?: number | undefined;
+    private _weight?: number | string | ReferenceNumeric | undefined;
     /**
      * Instantiates a new trending and sets the default values.
      */
@@ -72,25 +73,11 @@ export class Trending extends Entity implements Parsable {
         return this._resourceReference;
     };
     /**
-     * Sets the resourceReference property value. Reference properties of the trending document, such as the url and type of the document.
-     * @param value Value to set for the resourceReference property.
-     */
-    public set resourceReference(value: ResourceReference | undefined) {
-        this._resourceReference = value;
-    };
-    /**
      * Gets the resourceVisualization property value. Properties that you can use to visualize the document in your experience.
      * @returns a resourceVisualization
      */
     public get resourceVisualization() {
         return this._resourceVisualization;
-    };
-    /**
-     * Sets the resourceVisualization property value. Properties that you can use to visualize the document in your experience.
-     * @param value Value to set for the resourceVisualization property.
-     */
-    public set resourceVisualization(value: ResourceVisualization | undefined) {
-        this._resourceVisualization = value;
     };
     /**
      * Serializes information the current object
@@ -101,13 +88,11 @@ export class Trending extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeObjectValue<Entity>("resource", this.resource);
-        writer.writeObjectValue<ResourceReference>("resourceReference", this.resourceReference);
-        writer.writeObjectValue<ResourceVisualization>("resourceVisualization", this.resourceVisualization);
         writer.writeNumberValue("weight", this.weight);
     };
     /**
      * Gets the weight property value. Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value.
-     * @returns a double
+     * @returns a agreementAcceptances
      */
     public get weight() {
         return this._weight;
@@ -116,7 +101,7 @@ export class Trending extends Entity implements Parsable {
      * Sets the weight property value. Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value.
      * @param value Value to set for the weight property.
      */
-    public set weight(value: number | undefined) {
+    public set weight(value: number | string | ReferenceNumeric | undefined) {
         this._weight = value;
     };
 }
