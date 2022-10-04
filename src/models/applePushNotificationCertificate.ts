@@ -1,14 +1,13 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Apple push notification certificate. */
 export class ApplePushNotificationCertificate extends Entity implements Parsable {
     /** Apple Id of the account used to create the MDM push certificate. */
     private _appleIdentifier?: string | undefined;
     /** Not yet documented */
     private _certificate?: string | undefined;
     /** Certificate serial number. This property is read-only. */
-    private _certificateSerialNumber?: string | undefined;
+    private readonly _certificateSerialNumber?: string | undefined;
     /** The expiration date and time for Apple push notification certificate. */
     private _expirationDateTime?: Date | undefined;
     /** Last modified date and time for Apple push notification certificate. */
@@ -115,7 +114,6 @@ export class ApplePushNotificationCertificate extends Entity implements Parsable
         super.serialize(writer);
         writer.writeStringValue("appleIdentifier", this.appleIdentifier);
         writer.writeStringValue("certificate", this.certificate);
-        writer.writeStringValue("certificateSerialNumber", this.certificateSerialNumber);
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeStringValue("topicIdentifier", this.topicIdentifier);

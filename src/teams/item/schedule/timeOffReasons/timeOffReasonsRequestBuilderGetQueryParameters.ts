@@ -1,5 +1,5 @@
 
-/** The set of reasons for a time off in the schedule. */
+/** Get the list of timeOffReasons in a schedule. */
 export class TimeOffReasonsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

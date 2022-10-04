@@ -2,6 +2,7 @@ import {createShiftItemFromDiscriminatorValue} from './createShiftItemFromDiscri
 import {ChangeTrackedEntity, ShiftItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class Shift extends ChangeTrackedEntity implements Parsable {
     /** The draft version of this shift that is viewable by managers. Required. */
     private _draftShift?: ShiftItem | undefined;
@@ -12,7 +13,7 @@ export class Shift extends ChangeTrackedEntity implements Parsable {
     /** ID of the user assigned to the shift. Required. */
     private _userId?: string | undefined;
     /**
-     * Instantiates a new Shift and sets the default values.
+     * Instantiates a new shift and sets the default values.
      */
     public constructor() {
         super();

@@ -21,6 +21,7 @@ import {createTeamFromDiscriminatorValue} from './createTeamFromDiscriminatorVal
 import {AppRoleAssignment, AssignedLabel, AssignedLicense, Calendar, Conversation, ConversationThread, DirectoryObject, Drive, Event, Extension, GroupLifecyclePolicy, GroupSetting, LicenseProcessingState, Onenote, OnPremisesProvisioningError, PlannerGroup, ProfilePhoto, ResourceSpecificPermissionGrant, Site, Team} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class Group extends DirectoryObject implements Parsable {
     /** The list of users or groups that are allowed to create post's or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post. */
     private _acceptedSenders?: DirectoryObject[] | undefined;

@@ -1,5 +1,5 @@
 
-/** The events in the calendar. Navigation property. Read-only. */
+/** Retrieve a list of events in a calendar.  The calendar can be one for a user, or the default calendar of a Microsoft 365 group. The list of events contains single instance meetings and series masters. To get expanded event instances, you can get the calendar view, or get the instances of an event. */
 export class EventsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

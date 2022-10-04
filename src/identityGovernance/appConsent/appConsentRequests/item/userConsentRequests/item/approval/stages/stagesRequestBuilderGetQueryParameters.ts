@@ -1,5 +1,5 @@
 
-/** A collection of stages in the approval decision. */
+/** In Azure AD entitlement management, list the approvalStage objects associated with an approval object. This call can be made by an approver, providing the identifier of the access package assignment request. */
 export class StagesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -20,7 +20,7 @@ import {AudioRoutingGroup, CallMediaState, CallOptions, CallRoute, CallTranscrip
 import {Modality} from './modality';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class Call extends Entity implements Parsable {
     /** The audioRoutingGroups property */
     private _audioRoutingGroups?: AudioRoutingGroup[] | undefined;
@@ -28,7 +28,7 @@ export class Call extends Entity implements Parsable {
     private _callbackUri?: string | undefined;
     /** A unique identifier for all the participant calls in a conference or a unique identifier for two participant calls in a P2P call.  This needs to be copied over from Microsoft.Graph.Call.CallChainId. */
     private _callChainId?: string | undefined;
-    /** The callOptions property */
+    /** Contains the optional features for the call. */
     private _callOptions?: CallOptions | undefined;
     /** The routing information on how the call was retargeted. Read-only. */
     private _callRoutes?: CallRoute[] | undefined;
@@ -38,7 +38,7 @@ export class Call extends Entity implements Parsable {
     private _contentSharingSessions?: ContentSharingSession[] | undefined;
     /** The direction of the call. The possible value are incoming or outgoing. Read-only. */
     private _direction?: CallDirection | undefined;
-    /** The incomingContext property */
+    /** Call context associated with an incoming call. */
     private _incomingContext?: IncomingContext | undefined;
     /** The media configuration. Required. */
     private _mediaConfig?: MediaConfig | undefined;
@@ -52,23 +52,23 @@ export class Call extends Entity implements Parsable {
     private _operations?: CommsOperation[] | undefined;
     /** The participants property */
     private _participants?: Participant[] | undefined;
-    /** The requestedModalities property */
+    /** The list of requested modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data. */
     private _requestedModalities?: Modality[] | undefined;
-    /** The resultInfo property */
+    /** The result information. For example can hold termination reason. Read-only. */
     private _resultInfo?: ResultInfo | undefined;
-    /** The source property */
+    /** The originator of the call. */
     private _source?: ParticipantInfo | undefined;
-    /** The state property */
+    /** The call state. Possible values are: incoming, establishing, ringing, established, hold, transferring, transferAccepted, redirecting, terminating, terminated. Read-only. */
     private _state?: CallState | undefined;
-    /** The subject property */
+    /** The subject of the conversation. */
     private _subject?: string | undefined;
-    /** The targets property */
+    /** The targets of the call. Required information for creating peer to peer call. */
     private _targets?: InvitationParticipantInfo[] | undefined;
     /** The tenantId property */
     private _tenantId?: string | undefined;
     /** The toneInfo property */
     private _toneInfo?: ToneInfo | undefined;
-    /** The transcription property */
+    /** The transcription information for the call. Read-only. */
     private _transcription?: CallTranscriptionInfo | undefined;
     /**
      * Gets the audioRoutingGroups property value. The audioRoutingGroups property
@@ -113,14 +113,14 @@ export class Call extends Entity implements Parsable {
         this._callChainId = value;
     };
     /**
-     * Gets the callOptions property value. The callOptions property
+     * Gets the callOptions property value. Contains the optional features for the call.
      * @returns a callOptions
      */
     public get callOptions() {
         return this._callOptions;
     };
     /**
-     * Sets the callOptions property value. The callOptions property
+     * Sets the callOptions property value. Contains the optional features for the call.
      * @param value Value to set for the callOptions property.
      */
     public set callOptions(value: CallOptions | undefined) {
@@ -222,14 +222,14 @@ export class Call extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the incomingContext property value. The incomingContext property
+     * Gets the incomingContext property value. Call context associated with an incoming call.
      * @returns a incomingContext
      */
     public get incomingContext() {
         return this._incomingContext;
     };
     /**
-     * Sets the incomingContext property value. The incomingContext property
+     * Sets the incomingContext property value. Call context associated with an incoming call.
      * @param value Value to set for the incomingContext property.
      */
     public set incomingContext(value: IncomingContext | undefined) {
@@ -320,28 +320,28 @@ export class Call extends Entity implements Parsable {
         this._participants = value;
     };
     /**
-     * Gets the requestedModalities property value. The requestedModalities property
+     * Gets the requestedModalities property value. The list of requested modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data.
      * @returns a modality
      */
     public get requestedModalities() {
         return this._requestedModalities;
     };
     /**
-     * Sets the requestedModalities property value. The requestedModalities property
+     * Sets the requestedModalities property value. The list of requested modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data.
      * @param value Value to set for the requestedModalities property.
      */
     public set requestedModalities(value: Modality[] | undefined) {
         this._requestedModalities = value;
     };
     /**
-     * Gets the resultInfo property value. The resultInfo property
+     * Gets the resultInfo property value. The result information. For example can hold termination reason. Read-only.
      * @returns a resultInfo
      */
     public get resultInfo() {
         return this._resultInfo;
     };
     /**
-     * Sets the resultInfo property value. The resultInfo property
+     * Sets the resultInfo property value. The result information. For example can hold termination reason. Read-only.
      * @param value Value to set for the resultInfo property.
      */
     public set resultInfo(value: ResultInfo | undefined) {
@@ -380,56 +380,56 @@ export class Call extends Entity implements Parsable {
         writer.writeObjectValue<CallTranscriptionInfo>("transcription", this.transcription);
     };
     /**
-     * Gets the source property value. The source property
+     * Gets the source property value. The originator of the call.
      * @returns a participantInfo
      */
     public get source() {
         return this._source;
     };
     /**
-     * Sets the source property value. The source property
+     * Sets the source property value. The originator of the call.
      * @param value Value to set for the source property.
      */
     public set source(value: ParticipantInfo | undefined) {
         this._source = value;
     };
     /**
-     * Gets the state property value. The state property
+     * Gets the state property value. The call state. Possible values are: incoming, establishing, ringing, established, hold, transferring, transferAccepted, redirecting, terminating, terminated. Read-only.
      * @returns a callState
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The state property
+     * Sets the state property value. The call state. Possible values are: incoming, establishing, ringing, established, hold, transferring, transferAccepted, redirecting, terminating, terminated. Read-only.
      * @param value Value to set for the state property.
      */
     public set state(value: CallState | undefined) {
         this._state = value;
     };
     /**
-     * Gets the subject property value. The subject property
+     * Gets the subject property value. The subject of the conversation.
      * @returns a string
      */
     public get subject() {
         return this._subject;
     };
     /**
-     * Sets the subject property value. The subject property
+     * Sets the subject property value. The subject of the conversation.
      * @param value Value to set for the subject property.
      */
     public set subject(value: string | undefined) {
         this._subject = value;
     };
     /**
-     * Gets the targets property value. The targets property
+     * Gets the targets property value. The targets of the call. Required information for creating peer to peer call.
      * @returns a invitationParticipantInfo
      */
     public get targets() {
         return this._targets;
     };
     /**
-     * Sets the targets property value. The targets property
+     * Sets the targets property value. The targets of the call. Required information for creating peer to peer call.
      * @param value Value to set for the targets property.
      */
     public set targets(value: InvitationParticipantInfo[] | undefined) {
@@ -464,14 +464,14 @@ export class Call extends Entity implements Parsable {
         this._toneInfo = value;
     };
     /**
-     * Gets the transcription property value. The transcription property
+     * Gets the transcription property value. The transcription information for the call. Read-only.
      * @returns a callTranscriptionInfo
      */
     public get transcription() {
         return this._transcription;
     };
     /**
-     * Sets the transcription property value. The transcription property
+     * Sets the transcription property value. The transcription information for the call. Read-only.
      * @param value Value to set for the transcription property.
      */
     public set transcription(value: CallTranscriptionInfo | undefined) {

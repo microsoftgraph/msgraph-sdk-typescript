@@ -1,5 +1,5 @@
 
-/** The policy that controls the idle time out for web sessions for applications. */
+/** Get a list of activityBasedTimeoutPolicy objects. */
 export class ActivityBasedTimeoutPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,5 @@
 
-/** Get posts from groups */
+/** Get the posts of the specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. */
 export class PostsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

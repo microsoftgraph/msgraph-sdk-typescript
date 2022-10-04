@@ -26,7 +26,7 @@ export class SendActivityNotificationRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action sendActivityNotification
+     * Send an activity feed notification to a user. For more details about sending notifications and the requirements for doing so, see sending Teams activity notifications.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -45,7 +45,7 @@ export class SendActivityNotificationRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action sendActivityNotification
+     * Send an activity feed notification to a user. For more details about sending notifications and the requirements for doing so, see sending Teams activity notifications.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

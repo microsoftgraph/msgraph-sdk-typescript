@@ -1,5 +1,5 @@
 
-/** Get schema from external */
+/** Read the properties and relationships of a schema object. */
 export class SchemaRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

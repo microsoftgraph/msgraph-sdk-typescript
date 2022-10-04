@@ -1,5 +1,5 @@
 
-/** Data source entity for groups associated with the custodian. */
+/** Get a list of the unifiedGroupSource objects associated with an ediscoveryCustodian. */
 export class UnifiedGroupSourcesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

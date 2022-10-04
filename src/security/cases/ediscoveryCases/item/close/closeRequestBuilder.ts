@@ -25,7 +25,7 @@ export class CloseRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action close
+     * Close an eDiscovery case. For details, see Close a case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class CloseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action close
+     * Close an eDiscovery case. For details, see Close a case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */

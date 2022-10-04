@@ -1,4 +1,4 @@
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum AudioCodec {
     Unknown = "unknown",
     Invalid = "invalid",

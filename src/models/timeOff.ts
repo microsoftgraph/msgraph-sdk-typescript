@@ -2,6 +2,7 @@ import {createTimeOffItemFromDiscriminatorValue} from './createTimeOffItemFromDi
 import {ChangeTrackedEntity, TimeOffItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class TimeOff extends ChangeTrackedEntity implements Parsable {
     /** The draft version of this timeOff that is viewable by managers. Required. */
     private _draftTimeOff?: TimeOffItem | undefined;
@@ -10,7 +11,7 @@ export class TimeOff extends ChangeTrackedEntity implements Parsable {
     /** ID of the user assigned to the timeOff. Required. */
     private _userId?: string | undefined;
     /**
-     * Instantiates a new TimeOff and sets the default values.
+     * Instantiates a new timeOff and sets the default values.
      */
     public constructor() {
         super();

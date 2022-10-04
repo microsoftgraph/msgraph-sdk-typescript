@@ -1,4 +1,4 @@
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum ProductFamily {
     Unknown = "unknown",
     Teams = "teams",

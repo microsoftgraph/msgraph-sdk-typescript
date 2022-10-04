@@ -1,5 +1,5 @@
 
-/** A collection of teams with which a channel is shared. */
+/** Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a **membershipType** value of `shared`. */
 export class SharedWithTeamsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

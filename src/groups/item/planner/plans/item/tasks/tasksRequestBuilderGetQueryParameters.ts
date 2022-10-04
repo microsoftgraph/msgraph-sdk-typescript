@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. Collection of tasks in the plan. */
+/** Retrieve a list of plannerTask objects associated with a plannerPlan object. */
 export class TasksRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

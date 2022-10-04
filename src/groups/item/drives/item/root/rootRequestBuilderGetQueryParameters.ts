@@ -1,5 +1,5 @@
 
-/** The root folder of the drive. Read-only. */
+/** Retrieve the metadata for a driveItem in a drive by file system path or ID.`item-id` is the ID of a driveItem. It may also be the unique ID of a SharePoint list item. */
 export class RootRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

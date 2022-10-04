@@ -27,7 +27,7 @@ export class LastIndexOperationRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Operation entity that represents the latest indexing for the custodian.
+     * Get a list of the ediscoveryIndexOperations associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -45,7 +45,7 @@ export class LastIndexOperationRequestBuilder {
         return requestInfo;
     };
     /**
-     * Operation entity that represents the latest indexing for the custodian.
+     * Get a list of the ediscoveryIndexOperations associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryIndexOperation

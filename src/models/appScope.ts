@@ -7,7 +7,7 @@ export class AppScope extends Entity implements Parsable {
     /** Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. Read-only. */
     private _type?: string | undefined;
     /**
-     * Instantiates a new AppScope and sets the default values.
+     * Instantiates a new appScope and sets the default values.
      */
     public constructor() {
         super();

@@ -26,7 +26,7 @@ export class CopyToDefaultContentLocationRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action copyToDefaultContentLocation
+     * Copy a file to a default content location in a [content type][contentType]. The file can then be added as a default file or template via a POST operation.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -45,7 +45,7 @@ export class CopyToDefaultContentLocationRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action copyToDefaultContentLocation
+     * Copy a file to a default content location in a [content type][contentType]. The file can then be added as a default file or template via a POST operation.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

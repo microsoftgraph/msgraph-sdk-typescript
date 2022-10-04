@@ -26,7 +26,7 @@ export class DismissRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action dismiss
+     * Dismiss the risk of one or more riskyUser objects. This action sets the targeted user's risk level to none.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -45,7 +45,7 @@ export class DismissRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action dismiss
+     * Dismiss the risk of one or more riskyUser objects. This action sets the targeted user's risk level to none.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
