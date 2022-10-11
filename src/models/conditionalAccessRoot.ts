@@ -1,13 +1,30 @@
+import {createAuthenticationContextClassReferenceFromDiscriminatorValue} from './createAuthenticationContextClassReferenceFromDiscriminatorValue';
 import {createConditionalAccessPolicyFromDiscriminatorValue} from './createConditionalAccessPolicyFromDiscriminatorValue';
 import {createNamedLocationFromDiscriminatorValue} from './createNamedLocationFromDiscriminatorValue';
-import {ConditionalAccessPolicy, Entity, NamedLocation} from './index';
+import {AuthenticationContextClassReference, ConditionalAccessPolicy, Entity, NamedLocation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessRoot extends Entity implements Parsable {
+    /** Read-only. Nullable. Returns a collection of the specified authentication context class references. */
+    private _authenticationContextClassReferences?: AuthenticationContextClassReference[] | undefined;
     /** Read-only. Nullable. Returns a collection of the specified named locations. */
     private _namedLocations?: NamedLocation[] | undefined;
     /** Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies. */
     private _policies?: ConditionalAccessPolicy[] | undefined;
+    /**
+     * Gets the authenticationContextClassReferences property value. Read-only. Nullable. Returns a collection of the specified authentication context class references.
+     * @returns a authenticationContextClassReference
+     */
+    public get authenticationContextClassReferences() {
+        return this._authenticationContextClassReferences;
+    };
+    /**
+     * Sets the authenticationContextClassReferences property value. Read-only. Nullable. Returns a collection of the specified authentication context class references.
+     * @param value Value to set for the authenticationContextClassReferences property.
+     */
+    public set authenticationContextClassReferences(value: AuthenticationContextClassReference[] | undefined) {
+        this._authenticationContextClassReferences = value;
+    };
     /**
      * Instantiates a new conditionalAccessRoot and sets the default values.
      */
@@ -21,6 +38,7 @@ export class ConditionalAccessRoot extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
+            "authenticationContextClassReferences": n => { this.authenticationContextClassReferences = n.getCollectionOfObjectValues<AuthenticationContextClassReference>(createAuthenticationContextClassReferenceFromDiscriminatorValue); },
             "namedLocations": n => { this.namedLocations = n.getCollectionOfObjectValues<NamedLocation>(createNamedLocationFromDiscriminatorValue); },
             "policies": n => { this.policies = n.getCollectionOfObjectValues<ConditionalAccessPolicy>(createConditionalAccessPolicyFromDiscriminatorValue); },
         };
@@ -60,6 +78,7 @@ export class ConditionalAccessRoot extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeCollectionOfObjectValues<AuthenticationContextClassReference>("authenticationContextClassReferences", this.authenticationContextClassReferences);
         writer.writeCollectionOfObjectValues<NamedLocation>("namedLocations", this.namedLocations);
         writer.writeCollectionOfObjectValues<ConditionalAccessPolicy>("policies", this.policies);
     };

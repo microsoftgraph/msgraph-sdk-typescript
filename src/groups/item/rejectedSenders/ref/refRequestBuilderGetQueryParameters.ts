@@ -1,5 +1,5 @@
 
-/** The list of users or groups that are not allowed to create posts or calendar events in this group. Nullable */
+/** Users in the rejected senders list cannot post to conversations of the group (identified in the GET request URL). Make sure you do not specify the same user or group in the rejected senders and accepted senders lists, otherwise you will get an error. */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

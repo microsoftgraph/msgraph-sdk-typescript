@@ -25,7 +25,7 @@ export class UnpublishRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Prevents the general public from seeing the scheduling page of this business.
+     * Make the scheduling page of this business not available to external customers. Set the **isPublished** property to `false`, and the **publicUrl** property to `null`.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class UnpublishRequestBuilder {
         return requestInfo;
     };
     /**
-     * Prevents the general public from seeing the scheduling page of this business.
+     * Make the scheduling page of this business not available to external customers. Set the **isPublished** property to `false`, and the **publicUrl** property to `null`.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */

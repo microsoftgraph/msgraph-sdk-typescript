@@ -1,5 +1,5 @@
 
-/** Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable. */
+/** Retrieve a list of tenant-level or group-specific group settings objects. */
 export class SettingsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

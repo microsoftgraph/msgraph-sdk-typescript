@@ -1,5 +1,5 @@
 
-/** Get onlineMeetings from me */
+/** Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report is an online meeting artifact. For details, see Online meeting artifacts and permissions. */
 export class OnlineMeetingsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -28,7 +28,7 @@ export class AddPasswordRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action addPassword
+     * Add a strong password or secret to a servicePrincipal object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -48,7 +48,7 @@ export class AddPasswordRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action addPassword
+     * Add a strong password or secret to a servicePrincipal object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

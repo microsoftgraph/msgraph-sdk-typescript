@@ -28,7 +28,7 @@ export class StartHoldMusicRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action startHoldMusic
+     * Put a participant on hold and play music in the background.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -48,7 +48,7 @@ export class StartHoldMusicRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action startHoldMusic
+     * Put a participant on hold and play music in the background.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

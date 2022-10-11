@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. Returns a collection of the specified named locations. */
+/** Get a list of namedLocation objects. */
 export class NamedLocationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

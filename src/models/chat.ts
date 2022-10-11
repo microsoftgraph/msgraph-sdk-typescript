@@ -24,7 +24,7 @@ export class Chat extends Entity implements Parsable {
     private _messages?: ChatMessage[] | undefined;
     /** Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only. */
     private _onlineMeetingInfo?: TeamworkOnlineMeetingInfo | undefined;
-    /** The pinnedMessages property */
+    /** A collection of all the pinned messages in the chat. Nullable. */
     private _pinnedMessages?: PinnedChatMessageInfo[] | undefined;
     /** A collection of all the tabs in the chat. Nullable. */
     private _tabs?: TeamsTab[] | undefined;
@@ -160,14 +160,14 @@ export class Chat extends Entity implements Parsable {
         this._onlineMeetingInfo = value;
     };
     /**
-     * Gets the pinnedMessages property value. The pinnedMessages property
+     * Gets the pinnedMessages property value. A collection of all the pinned messages in the chat. Nullable.
      * @returns a pinnedChatMessageInfo
      */
     public get pinnedMessages() {
         return this._pinnedMessages;
     };
     /**
-     * Sets the pinnedMessages property value. The pinnedMessages property
+     * Sets the pinnedMessages property value. A collection of all the pinned messages in the chat. Nullable.
      * @param value Value to set for the pinnedMessages property.
      */
     public set pinnedMessages(value: PinnedChatMessageInfo[] | undefined) {

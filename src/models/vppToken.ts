@@ -4,7 +4,6 @@ import {VppTokenState} from './vppTokenState';
 import {VppTokenSyncStatus} from './vppTokenSyncStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** You purchase multiple licenses for iOS apps through the Apple Volume Purchase Program for Business or Education. This involves setting up an Apple VPP account from the Apple website and uploading the Apple VPP Business or Education token to Intune. You can then synchronize your volume purchase information with Intune and track your volume-purchased app use. You can upload multiple Apple VPP Business or Education tokens. */
 export class VppToken extends Entity implements Parsable {
     /** The apple Id associated with the given Apple Volume Purchase Program Token. */
     private _appleId?: string | undefined;
@@ -57,7 +56,7 @@ export class VppToken extends Entity implements Parsable {
         this._automaticallyUpdateApps = value;
     };
     /**
-     * Instantiates a new vppToken and sets the default values.
+     * Instantiates a new VppToken and sets the default values.
      */
     public constructor() {
         super();

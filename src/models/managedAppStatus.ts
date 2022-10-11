@@ -1,14 +1,13 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Represents app protection and configuration status for the organization. */
 export class ManagedAppStatus extends Entity implements Parsable {
     /** Friendly name of the status report. */
     private _displayName?: string | undefined;
     /** Version of the entity. */
     private _version?: string | undefined;
     /**
-     * Instantiates a new managedAppStatus and sets the default values.
+     * Instantiates a new ManagedAppStatus and sets the default values.
      */
     public constructor() {
         super();

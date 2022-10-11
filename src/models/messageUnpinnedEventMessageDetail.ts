@@ -3,9 +3,9 @@ import {EventMessageDetail, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MessageUnpinnedEventMessageDetail extends EventMessageDetail implements Parsable {
-    /** The eventDateTime property */
+    /** Date and time when the event occurred. */
     private _eventDateTime?: Date | undefined;
-    /** The initiator property */
+    /** Initiator of the event. */
     private _initiator?: IdentitySet | undefined;
     /**
      * Instantiates a new MessageUnpinnedEventMessageDetail and sets the default values.
@@ -15,14 +15,14 @@ export class MessageUnpinnedEventMessageDetail extends EventMessageDetail implem
         this.odataType = "#microsoft.graph.messageUnpinnedEventMessageDetail";
     };
     /**
-     * Gets the eventDateTime property value. The eventDateTime property
+     * Gets the eventDateTime property value. Date and time when the event occurred.
      * @returns a Date
      */
     public get eventDateTime() {
         return this._eventDateTime;
     };
     /**
-     * Sets the eventDateTime property value. The eventDateTime property
+     * Sets the eventDateTime property value. Date and time when the event occurred.
      * @param value Value to set for the eventDateTime property.
      */
     public set eventDateTime(value: Date | undefined) {
@@ -39,14 +39,14 @@ export class MessageUnpinnedEventMessageDetail extends EventMessageDetail implem
         };
     };
     /**
-     * Gets the initiator property value. The initiator property
+     * Gets the initiator property value. Initiator of the event.
      * @returns a identitySet
      */
     public get initiator() {
         return this._initiator;
     };
     /**
-     * Sets the initiator property value. The initiator property
+     * Sets the initiator property value. Initiator of the event.
      * @param value Value to set for the initiator property.
      */
     public set initiator(value: IdentitySet | undefined) {

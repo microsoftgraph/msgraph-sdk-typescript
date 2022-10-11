@@ -1,5 +1,5 @@
 
-/** A collection of all the messages in the chat. Nullable. */
+/** Retrieve the list of messages in a chat. */
 export class MessagesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;
