@@ -1,5 +1,5 @@
 
-/** Get secureScoreControlProfiles from security */
+/** Retrieve the properties and relationships of a secureScoreControlProfiles object. */
 export class SecureScoreControlProfilesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

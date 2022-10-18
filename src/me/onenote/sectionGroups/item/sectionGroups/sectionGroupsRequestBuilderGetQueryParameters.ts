@@ -1,5 +1,5 @@
 
-/** The section groups in the section. Read-only. Nullable. */
+/** Retrieve a list of section groups from the specified section group. */
 export class SectionGroupsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

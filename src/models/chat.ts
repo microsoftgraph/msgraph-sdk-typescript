@@ -1,14 +1,16 @@
 import {ChatType} from './chatType';
 import {createChatMessageFromDiscriminatorValue} from './createChatMessageFromDiscriminatorValue';
+import {createChatMessageInfoFromDiscriminatorValue} from './createChatMessageInfoFromDiscriminatorValue';
+import {createChatViewpointFromDiscriminatorValue} from './createChatViewpointFromDiscriminatorValue';
 import {createConversationMemberFromDiscriminatorValue} from './createConversationMemberFromDiscriminatorValue';
 import {createPinnedChatMessageInfoFromDiscriminatorValue} from './createPinnedChatMessageInfoFromDiscriminatorValue';
 import {createTeamsAppInstallationFromDiscriminatorValue} from './createTeamsAppInstallationFromDiscriminatorValue';
 import {createTeamsTabFromDiscriminatorValue} from './createTeamsTabFromDiscriminatorValue';
 import {createTeamworkOnlineMeetingInfoFromDiscriminatorValue} from './createTeamworkOnlineMeetingInfoFromDiscriminatorValue';
-import {ChatMessage, ConversationMember, Entity, PinnedChatMessageInfo, TeamsAppInstallation, TeamsTab, TeamworkOnlineMeetingInfo} from './index';
+import {ChatMessage, ChatMessageInfo, ChatViewpoint, ConversationMember, Entity, PinnedChatMessageInfo, TeamsAppInstallation, TeamsTab, TeamworkOnlineMeetingInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class Chat extends Entity implements Parsable {
     /** The chatType property */
     private _chatType?: ChatType | undefined;
@@ -16,6 +18,8 @@ export class Chat extends Entity implements Parsable {
     private _createdDateTime?: Date | undefined;
     /** A collection of all the apps in the chat. Nullable. */
     private _installedApps?: TeamsAppInstallation[] | undefined;
+    /** Preview of the last message sent in the chat. Null if no messages have been sent in the chat. Currently, only the list chats operation supports this property. */
+    private _lastMessagePreview?: ChatMessageInfo | undefined;
     /** Date and time at which the chat was renamed or list of members were last changed. Read-only. */
     private _lastUpdatedDateTime?: Date | undefined;
     /** A collection of all the members in the chat. Nullable. */
@@ -24,7 +28,7 @@ export class Chat extends Entity implements Parsable {
     private _messages?: ChatMessage[] | undefined;
     /** Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only. */
     private _onlineMeetingInfo?: TeamworkOnlineMeetingInfo | undefined;
-    /** The pinnedMessages property */
+    /** A collection of all the pinned messages in the chat. Nullable. */
     private _pinnedMessages?: PinnedChatMessageInfo[] | undefined;
     /** A collection of all the tabs in the chat. Nullable. */
     private _tabs?: TeamsTab[] | undefined;
@@ -32,6 +36,8 @@ export class Chat extends Entity implements Parsable {
     private _tenantId?: string | undefined;
     /** (Optional) Subject or topic for the chat. Only available for group chats. */
     private _topic?: string | undefined;
+    /** Represents caller-specific information about the chat, such as last message read date and time. This property is populated only when the request is made in a delegated context. */
+    private _viewpoint?: ChatViewpoint | undefined;
     /** The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only. */
     private _webUrl?: string | undefined;
     /**
@@ -78,6 +84,7 @@ export class Chat extends Entity implements Parsable {
             "chatType": n => { this.chatType = n.getEnumValue<ChatType>(ChatType); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "installedApps": n => { this.installedApps = n.getCollectionOfObjectValues<TeamsAppInstallation>(createTeamsAppInstallationFromDiscriminatorValue); },
+            "lastMessagePreview": n => { this.lastMessagePreview = n.getObjectValue<ChatMessageInfo>(createChatMessageInfoFromDiscriminatorValue); },
             "lastUpdatedDateTime": n => { this.lastUpdatedDateTime = n.getDateValue(); },
             "members": n => { this.members = n.getCollectionOfObjectValues<ConversationMember>(createConversationMemberFromDiscriminatorValue); },
             "messages": n => { this.messages = n.getCollectionOfObjectValues<ChatMessage>(createChatMessageFromDiscriminatorValue); },
@@ -86,6 +93,7 @@ export class Chat extends Entity implements Parsable {
             "tabs": n => { this.tabs = n.getCollectionOfObjectValues<TeamsTab>(createTeamsTabFromDiscriminatorValue); },
             "tenantId": n => { this.tenantId = n.getStringValue(); },
             "topic": n => { this.topic = n.getStringValue(); },
+            "viewpoint": n => { this.viewpoint = n.getObjectValue<ChatViewpoint>(createChatViewpointFromDiscriminatorValue); },
             "webUrl": n => { this.webUrl = n.getStringValue(); },
         };
     };
@@ -102,6 +110,20 @@ export class Chat extends Entity implements Parsable {
      */
     public set installedApps(value: TeamsAppInstallation[] | undefined) {
         this._installedApps = value;
+    };
+    /**
+     * Gets the lastMessagePreview property value. Preview of the last message sent in the chat. Null if no messages have been sent in the chat. Currently, only the list chats operation supports this property.
+     * @returns a chatMessageInfo
+     */
+    public get lastMessagePreview() {
+        return this._lastMessagePreview;
+    };
+    /**
+     * Sets the lastMessagePreview property value. Preview of the last message sent in the chat. Null if no messages have been sent in the chat. Currently, only the list chats operation supports this property.
+     * @param value Value to set for the lastMessagePreview property.
+     */
+    public set lastMessagePreview(value: ChatMessageInfo | undefined) {
+        this._lastMessagePreview = value;
     };
     /**
      * Gets the lastUpdatedDateTime property value. Date and time at which the chat was renamed or list of members were last changed. Read-only.
@@ -160,14 +182,14 @@ export class Chat extends Entity implements Parsable {
         this._onlineMeetingInfo = value;
     };
     /**
-     * Gets the pinnedMessages property value. The pinnedMessages property
+     * Gets the pinnedMessages property value. A collection of all the pinned messages in the chat. Nullable.
      * @returns a pinnedChatMessageInfo
      */
     public get pinnedMessages() {
         return this._pinnedMessages;
     };
     /**
-     * Sets the pinnedMessages property value. The pinnedMessages property
+     * Sets the pinnedMessages property value. A collection of all the pinned messages in the chat. Nullable.
      * @param value Value to set for the pinnedMessages property.
      */
     public set pinnedMessages(value: PinnedChatMessageInfo[] | undefined) {
@@ -183,6 +205,7 @@ export class Chat extends Entity implements Parsable {
         writer.writeEnumValue<ChatType>("chatType", this.chatType);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeCollectionOfObjectValues<TeamsAppInstallation>("installedApps", this.installedApps);
+        writer.writeObjectValue<ChatMessageInfo>("lastMessagePreview", this.lastMessagePreview);
         writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         writer.writeCollectionOfObjectValues<ConversationMember>("members", this.members);
         writer.writeCollectionOfObjectValues<ChatMessage>("messages", this.messages);
@@ -191,6 +214,7 @@ export class Chat extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<TeamsTab>("tabs", this.tabs);
         writer.writeStringValue("tenantId", this.tenantId);
         writer.writeStringValue("topic", this.topic);
+        writer.writeObjectValue<ChatViewpoint>("viewpoint", this.viewpoint);
         writer.writeStringValue("webUrl", this.webUrl);
     };
     /**
@@ -234,6 +258,20 @@ export class Chat extends Entity implements Parsable {
      */
     public set topic(value: string | undefined) {
         this._topic = value;
+    };
+    /**
+     * Gets the viewpoint property value. Represents caller-specific information about the chat, such as last message read date and time. This property is populated only when the request is made in a delegated context.
+     * @returns a chatViewpoint
+     */
+    public get viewpoint() {
+        return this._viewpoint;
+    };
+    /**
+     * Sets the viewpoint property value. Represents caller-specific information about the chat, such as last message read date and time. This property is populated only when the request is made in a delegated context.
+     * @param value Value to set for the viewpoint property.
+     */
+    public set viewpoint(value: ChatViewpoint | undefined) {
+        this._viewpoint = value;
     };
     /**
      * Gets the webUrl property value. The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only.

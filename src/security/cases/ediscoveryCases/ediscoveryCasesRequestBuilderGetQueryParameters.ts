@@ -1,5 +1,5 @@
 
-/** Get ediscoveryCases from security */
+/** Get a list of the ediscoveryCase objects and their properties. */
 export class EdiscoveryCasesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

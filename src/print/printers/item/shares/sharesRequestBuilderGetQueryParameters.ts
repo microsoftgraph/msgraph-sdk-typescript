@@ -1,5 +1,5 @@
 
-/** The list of printerShares that are associated with the printer. Currently, only one printerShare can be associated with the printer. Read-only. Nullable. */
+/** Retrieve a list of printer shares associated with the printer. */
 export class SharesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

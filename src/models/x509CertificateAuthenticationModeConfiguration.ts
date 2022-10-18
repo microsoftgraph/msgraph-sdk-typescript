@@ -8,9 +8,9 @@ export class X509CertificateAuthenticationModeConfiguration implements Additiona
     private _additionalData: Record<string, unknown>;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The rules property */
+    /** Rules are configured in addition to the authentication mode to bind a specific x509CertificateRuleType to an x509CertificateAuthenticationMode. For example, bind the policyOID with identifier 1.32.132.343 to x509CertificateMultiFactor authentication mode. */
     private _rules?: X509CertificateRule[] | undefined;
-    /** The x509CertificateAuthenticationDefaultMode property */
+    /** The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. */
     private _x509CertificateAuthenticationDefaultMode?: X509CertificateAuthenticationMode | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -59,14 +59,14 @@ export class X509CertificateAuthenticationModeConfiguration implements Additiona
         this._odataType = value;
     };
     /**
-     * Gets the rules property value. The rules property
+     * Gets the rules property value. Rules are configured in addition to the authentication mode to bind a specific x509CertificateRuleType to an x509CertificateAuthenticationMode. For example, bind the policyOID with identifier 1.32.132.343 to x509CertificateMultiFactor authentication mode.
      * @returns a x509CertificateRule
      */
     public get rules() {
         return this._rules;
     };
     /**
-     * Sets the rules property value. The rules property
+     * Sets the rules property value. Rules are configured in addition to the authentication mode to bind a specific x509CertificateRuleType to an x509CertificateAuthenticationMode. For example, bind the policyOID with identifier 1.32.132.343 to x509CertificateMultiFactor authentication mode.
      * @param value Value to set for the rules property.
      */
     public set rules(value: X509CertificateRule[] | undefined) {
@@ -84,14 +84,14 @@ export class X509CertificateAuthenticationModeConfiguration implements Additiona
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the x509CertificateAuthenticationDefaultMode property value. The x509CertificateAuthenticationDefaultMode property
+     * Gets the x509CertificateAuthenticationDefaultMode property value. The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue.
      * @returns a x509CertificateAuthenticationMode
      */
     public get x509CertificateAuthenticationDefaultMode() {
         return this._x509CertificateAuthenticationDefaultMode;
     };
     /**
-     * Sets the x509CertificateAuthenticationDefaultMode property value. The x509CertificateAuthenticationDefaultMode property
+     * Sets the x509CertificateAuthenticationDefaultMode property value. The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue.
      * @param value Value to set for the x509CertificateAuthenticationDefaultMode property.
      */
     public set x509CertificateAuthenticationDefaultMode(value: X509CertificateAuthenticationMode | undefined) {

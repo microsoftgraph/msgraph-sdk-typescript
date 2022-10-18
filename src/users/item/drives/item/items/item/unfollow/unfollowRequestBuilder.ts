@@ -25,7 +25,7 @@ export class UnfollowRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action unfollow
+     * Unfollow a driveItem.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class UnfollowRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action unfollow
+     * Unfollow a driveItem.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */

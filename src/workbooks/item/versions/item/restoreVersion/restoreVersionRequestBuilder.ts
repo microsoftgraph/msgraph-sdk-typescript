@@ -25,7 +25,7 @@ export class RestoreVersionRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action restoreVersion
+     * Restore a previous version of a DriveItem to be the current version. This will create a new version with the contents of the previous version, but preserves all existing versions of the file.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class RestoreVersionRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action restoreVersion
+     * Restore a previous version of a DriveItem to be the current version. This will create a new version with the contents of the previous version, but preserves all existing versions of the file.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */

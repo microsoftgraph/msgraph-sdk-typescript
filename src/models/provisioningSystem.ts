@@ -6,7 +6,7 @@ export class ProvisioningSystem extends Identity implements Parsable {
     /** Details of the system. */
     private _details?: DetailsInfo | undefined;
     /**
-     * Instantiates a new ProvisioningSystem and sets the default values.
+     * Instantiates a new provisioningSystem and sets the default values.
      */
     public constructor() {
         super();

@@ -26,10 +26,14 @@ export class BookingService extends Entity implements Parsable {
     private _description?: string | undefined;
     /** A service name. */
     private _displayName?: string | undefined;
+    /** The isAnonymousJoinEnabled property */
+    private _isAnonymousJoinEnabled?: boolean | undefined;
     /** True means this service is not available to customers for booking. */
     private _isHiddenFromCustomers?: boolean | undefined;
     /** True indicates that the appointments for the service will be held online. Default value is false. */
     private _isLocationOnline?: boolean | undefined;
+    /** The languageTag property */
+    private _languageTag?: string | undefined;
     /** The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation. */
     private _maximumAttendeesCount?: number | undefined;
     /** Additional information about this service. */
@@ -45,7 +49,7 @@ export class BookingService extends Entity implements Parsable {
     /** Represents those staff members who provide this service. */
     private _staffMemberIds?: string[] | undefined;
     /** The URL a customer uses to access the service. */
-    private _webUrl?: string | undefined;
+    private readonly _webUrl?: string | undefined;
     /**
      * Gets the additionalInformation property value. Additional information that is sent to the customer when an appointment is confirmed.
      * @returns a string
@@ -194,8 +198,10 @@ export class BookingService extends Entity implements Parsable {
             "defaultReminders": n => { this.defaultReminders = n.getCollectionOfObjectValues<BookingReminder>(createBookingReminderFromDiscriminatorValue); },
             "description": n => { this.description = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
+            "isAnonymousJoinEnabled": n => { this.isAnonymousJoinEnabled = n.getBooleanValue(); },
             "isHiddenFromCustomers": n => { this.isHiddenFromCustomers = n.getBooleanValue(); },
             "isLocationOnline": n => { this.isLocationOnline = n.getBooleanValue(); },
+            "languageTag": n => { this.languageTag = n.getStringValue(); },
             "maximumAttendeesCount": n => { this.maximumAttendeesCount = n.getNumberValue(); },
             "notes": n => { this.notes = n.getStringValue(); },
             "postBuffer": n => { this.postBuffer = n.getDurationValue(); },
@@ -205,6 +211,20 @@ export class BookingService extends Entity implements Parsable {
             "staffMemberIds": n => { this.staffMemberIds = n.getCollectionOfPrimitiveValues<string>(); },
             "webUrl": n => { this.webUrl = n.getStringValue(); },
         };
+    };
+    /**
+     * Gets the isAnonymousJoinEnabled property value. The isAnonymousJoinEnabled property
+     * @returns a boolean
+     */
+    public get isAnonymousJoinEnabled() {
+        return this._isAnonymousJoinEnabled;
+    };
+    /**
+     * Sets the isAnonymousJoinEnabled property value. The isAnonymousJoinEnabled property
+     * @param value Value to set for the isAnonymousJoinEnabled property.
+     */
+    public set isAnonymousJoinEnabled(value: boolean | undefined) {
+        this._isAnonymousJoinEnabled = value;
     };
     /**
      * Gets the isHiddenFromCustomers property value. True means this service is not available to customers for booking.
@@ -233,6 +253,20 @@ export class BookingService extends Entity implements Parsable {
      */
     public set isLocationOnline(value: boolean | undefined) {
         this._isLocationOnline = value;
+    };
+    /**
+     * Gets the languageTag property value. The languageTag property
+     * @returns a string
+     */
+    public get languageTag() {
+        return this._languageTag;
+    };
+    /**
+     * Sets the languageTag property value. The languageTag property
+     * @param value Value to set for the languageTag property.
+     */
+    public set languageTag(value: string | undefined) {
+        this._languageTag = value;
     };
     /**
      * Gets the maximumAttendeesCount property value. The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation.
@@ -320,8 +354,10 @@ export class BookingService extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<BookingReminder>("defaultReminders", this.defaultReminders);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
+        writer.writeBooleanValue("isAnonymousJoinEnabled", this.isAnonymousJoinEnabled);
         writer.writeBooleanValue("isHiddenFromCustomers", this.isHiddenFromCustomers);
         writer.writeBooleanValue("isLocationOnline", this.isLocationOnline);
+        writer.writeStringValue("languageTag", this.languageTag);
         writer.writeNumberValue("maximumAttendeesCount", this.maximumAttendeesCount);
         writer.writeStringValue("notes", this.notes);
         writer.writeDurationValue("postBuffer", this.postBuffer);
@@ -329,7 +365,6 @@ export class BookingService extends Entity implements Parsable {
         writer.writeObjectValue<BookingSchedulingPolicy>("schedulingPolicy", this.schedulingPolicy);
         writer.writeBooleanValue("smsNotificationsEnabled", this.smsNotificationsEnabled);
         writer.writeCollectionOfPrimitiveValues<string>("staffMemberIds", this.staffMemberIds);
-        writer.writeStringValue("webUrl", this.webUrl);
     };
     /**
      * Gets the smsNotificationsEnabled property value. True indicates SMS notifications can be sent to the customers for the appointment of the service. Default value is false.

@@ -25,7 +25,7 @@ export class UnsetVerifiedPublisherRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action unsetVerifiedPublisher
+     * Unset the verifiedPublisher previously set on an application, removing all verified publisher properties. For more information, see Publisher verification.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class UnsetVerifiedPublisherRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action unsetVerifiedPublisher
+     * Unset the verifiedPublisher previously set on an application, removing all verified publisher properties. For more information, see Publisher verification.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */

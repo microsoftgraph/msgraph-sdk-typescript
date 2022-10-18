@@ -1,5 +1,5 @@
 
-/** Represents the Windows Hello for Business authentication method registered to a user for authentication. */
+/** Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties. */
 export class WindowsHelloForBusinessMethodsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;
