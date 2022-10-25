@@ -1,5 +1,5 @@
 
-/** All the services offered by this business. Read-only. Nullable. */
+/** Get a list of bookingService objects in the specified bookingBusiness. */
 export class ServicesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

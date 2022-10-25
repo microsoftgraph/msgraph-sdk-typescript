@@ -28,7 +28,7 @@ export class SubscribeToToneRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action subscribeToTone
+     * Subscribe to DTMF (dual-tone multi-frequency signaling). This allows you to be notified when the user presses keys on a 'dialpad'.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -48,7 +48,7 @@ export class SubscribeToToneRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action subscribeToTone
+     * Subscribe to DTMF (dual-tone multi-frequency signaling). This allows you to be notified when the user presses keys on a 'dialpad'.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

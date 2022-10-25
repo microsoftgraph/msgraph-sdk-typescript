@@ -1,5 +1,5 @@
 
-/** List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable. */
+/** Retrieve the list of sessions associated with a callRecord object. */
 export class SessionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,5 @@
 
-/** All the staff members that provide services in this business. Read-only. Nullable. */
+/** Get a list of bookingStaffMember objects in the specified bookingBusiness. */
 export class StaffMembersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

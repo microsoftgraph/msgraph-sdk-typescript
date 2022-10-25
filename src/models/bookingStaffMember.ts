@@ -10,6 +10,8 @@ export class BookingStaffMember extends BookingStaffMemberBase implements Parsab
     private _displayName?: string | undefined;
     /** The email address of the staff member. This can be in the same Microsoft 365 tenant as the business, or in a different email domain. This email address can be used if the sendConfirmationsToOwner property is set to true in the scheduling policy of the business. Required. */
     private _emailAddress?: string | undefined;
+    /** The isEmailNotificationEnabled property */
+    private _isEmailNotificationEnabled?: boolean | undefined;
     /** The role property */
     private _role?: BookingStaffRole | undefined;
     /** The time zone of the staff member. For a list of possible values, see dateTimeTimeZone. */
@@ -76,11 +78,26 @@ export class BookingStaffMember extends BookingStaffMemberBase implements Parsab
             "availabilityIsAffectedByPersonalCalendar": n => { this.availabilityIsAffectedByPersonalCalendar = n.getBooleanValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "emailAddress": n => { this.emailAddress = n.getStringValue(); },
+            "isEmailNotificationEnabled": n => { this.isEmailNotificationEnabled = n.getBooleanValue(); },
             "role": n => { this.role = n.getEnumValue<BookingStaffRole>(BookingStaffRole); },
             "timeZone": n => { this.timeZone = n.getStringValue(); },
             "useBusinessHours": n => { this.useBusinessHours = n.getBooleanValue(); },
             "workingHours": n => { this.workingHours = n.getCollectionOfObjectValues<BookingWorkHours>(createBookingWorkHoursFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the isEmailNotificationEnabled property value. The isEmailNotificationEnabled property
+     * @returns a boolean
+     */
+    public get isEmailNotificationEnabled() {
+        return this._isEmailNotificationEnabled;
+    };
+    /**
+     * Sets the isEmailNotificationEnabled property value. The isEmailNotificationEnabled property
+     * @param value Value to set for the isEmailNotificationEnabled property.
+     */
+    public set isEmailNotificationEnabled(value: boolean | undefined) {
+        this._isEmailNotificationEnabled = value;
     };
     /**
      * Gets the role property value. The role property
@@ -106,6 +123,7 @@ export class BookingStaffMember extends BookingStaffMemberBase implements Parsab
         writer.writeBooleanValue("availabilityIsAffectedByPersonalCalendar", this.availabilityIsAffectedByPersonalCalendar);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("emailAddress", this.emailAddress);
+        writer.writeBooleanValue("isEmailNotificationEnabled", this.isEmailNotificationEnabled);
         writer.writeEnumValue<BookingStaffRole>("role", this.role);
         writer.writeStringValue("timeZone", this.timeZone);
         writer.writeBooleanValue("useBusinessHours", this.useBusinessHours);

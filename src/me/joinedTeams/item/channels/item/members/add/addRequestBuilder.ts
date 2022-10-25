@@ -27,7 +27,7 @@ export class AddRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action add
+     * Add multiple members in a single request to a team. The response provides details about which memberships could and couldn't be created.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -47,7 +47,7 @@ export class AddRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action add
+     * Add multiple members in a single request to a team. The response provides details about which memberships could and couldn't be created.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

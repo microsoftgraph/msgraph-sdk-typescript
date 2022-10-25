@@ -5,13 +5,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class X509CertificateRule implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The identifier property */
+    /** The identifier of the X.509 certificate. Required. */
     private _identifier?: string | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The x509CertificateAuthenticationMode property */
+    /** The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required. */
     private _x509CertificateAuthenticationMode?: X509CertificateAuthenticationMode | undefined;
-    /** The x509CertificateRuleType property */
+    /** The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required. */
     private _x509CertificateRuleType?: X509CertificateRuleType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -47,14 +47,14 @@ export class X509CertificateRule implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the identifier property value. The identifier property
+     * Gets the identifier property value. The identifier of the X.509 certificate. Required.
      * @returns a string
      */
     public get identifier() {
         return this._identifier;
     };
     /**
-     * Sets the identifier property value. The identifier property
+     * Sets the identifier property value. The identifier of the X.509 certificate. Required.
      * @param value Value to set for the identifier property.
      */
     public set identifier(value: string | undefined) {
@@ -87,28 +87,28 @@ export class X509CertificateRule implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the x509CertificateAuthenticationMode property value. The x509CertificateAuthenticationMode property
+     * Gets the x509CertificateAuthenticationMode property value. The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required.
      * @returns a x509CertificateAuthenticationMode
      */
     public get x509CertificateAuthenticationMode() {
         return this._x509CertificateAuthenticationMode;
     };
     /**
-     * Sets the x509CertificateAuthenticationMode property value. The x509CertificateAuthenticationMode property
+     * Sets the x509CertificateAuthenticationMode property value. The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required.
      * @param value Value to set for the x509CertificateAuthenticationMode property.
      */
     public set x509CertificateAuthenticationMode(value: X509CertificateAuthenticationMode | undefined) {
         this._x509CertificateAuthenticationMode = value;
     };
     /**
-     * Gets the x509CertificateRuleType property value. The x509CertificateRuleType property
+     * Gets the x509CertificateRuleType property value. The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required.
      * @returns a x509CertificateRuleType
      */
     public get x509CertificateRuleType() {
         return this._x509CertificateRuleType;
     };
     /**
-     * Sets the x509CertificateRuleType property value. The x509CertificateRuleType property
+     * Sets the x509CertificateRuleType property value. The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required.
      * @param value Value to set for the x509CertificateRuleType property.
      */
     public set x509CertificateRuleType(value: X509CertificateRuleType | undefined) {

@@ -1,5 +1,5 @@
 
-/** Get monthlyPrintUsageByUser from reports */
+/** Retrieve a list of monthly print usage summaries, grouped by user. */
 export class MonthlyPrintUsageByUserRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

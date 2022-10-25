@@ -25,7 +25,7 @@ export class ResetToSystemDefaultRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action resetToSystemDefault
+     * Reset any changes made to the default configuration in a cross-tenant access policy back to the system default.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class ResetToSystemDefaultRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action resetToSystemDefault
+     * Reset any changes made to the default configuration in a cross-tenant access policy back to the system default.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */

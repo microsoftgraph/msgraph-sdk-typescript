@@ -1,5 +1,5 @@
 
-/** Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable. */
+/** Get all the educationAssignmentResource objects associated with an assignment. */
 export class ResourcesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,3 @@
-import {Report} from '../../models/';
-import {createReportFromDiscriminatorValue} from '../../models/createReportFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {GetYammerActivityUserCountsWithPeriodRequestBuilderGetRequestConfiguration} from './getYammerActivityUserCountsWithPeriodRequestBuilderGetRequestConfiguration';
@@ -38,7 +36,6 @@ export class GetYammerActivityUserCountsWithPeriodRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -49,9 +46,9 @@ export class GetYammerActivityUserCountsWithPeriodRequestBuilder {
      * Invoke function getYammerActivityUserCounts
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of Report
+     * @returns a Promise of ArrayBuffer
      */
-    public get(requestConfiguration?: GetYammerActivityUserCountsWithPeriodRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Report | undefined> {
+    public get(requestConfiguration?: GetYammerActivityUserCountsWithPeriodRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer> {
         const requestInfo = this.createGetRequestInformation(
             requestConfiguration
         );
@@ -59,6 +56,6 @@ export class GetYammerActivityUserCountsWithPeriodRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Report>(requestInfo, createReportFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

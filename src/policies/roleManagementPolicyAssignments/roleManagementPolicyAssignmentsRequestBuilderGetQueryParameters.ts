@@ -1,5 +1,5 @@
 
-/** The assignment of a role management policy to a role definition object. */
+/** Get the details of all role management policy assignments including the policies and rules associated with the Azure AD roles. */
 export class RoleManagementPolicyAssignmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

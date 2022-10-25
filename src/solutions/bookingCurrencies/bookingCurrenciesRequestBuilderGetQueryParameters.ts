@@ -1,5 +1,5 @@
 
-/** Get bookingCurrencies from solutions */
+/** Get a list of bookingCurrency objects available to a Microsoft Bookings business. */
 export class BookingCurrenciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

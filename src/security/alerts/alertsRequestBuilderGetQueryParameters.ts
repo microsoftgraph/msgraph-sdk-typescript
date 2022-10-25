@@ -1,5 +1,5 @@
 
-/** Get alerts from security */
+/** Retrieve a list of alert objects. */
 export class AlertsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

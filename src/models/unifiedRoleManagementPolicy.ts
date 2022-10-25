@@ -3,7 +3,7 @@ import {createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue} from './cre
 import {Entity, Identity, UnifiedRoleManagementPolicyRule} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class UnifiedRoleManagementPolicy extends Entity implements Parsable {
     /** Description for the policy. */
     private _description?: string | undefined;

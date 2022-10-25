@@ -3,7 +3,7 @@ import {Entity, PrintTaskDefinition} from './index';
 import {PrintEvent} from './printEvent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class PrintTaskTrigger extends Entity implements Parsable {
     /** The definition property */
     private _definition?: PrintTaskDefinition | undefined;

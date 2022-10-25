@@ -3,7 +3,7 @@ import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAcc
 import {AccessReviewInstanceDecisionItem, AccessReviewReviewerScope, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class AccessReviewStage extends Entity implements Parsable {
     /** Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed. */
     private _decisions?: AccessReviewInstanceDecisionItem[] | undefined;

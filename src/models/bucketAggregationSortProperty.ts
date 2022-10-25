@@ -1,4 +1,4 @@
-/** Provides operations to call the query method. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum BucketAggregationSortProperty {
     Count = "count",
     KeyAsString = "keyAsString",

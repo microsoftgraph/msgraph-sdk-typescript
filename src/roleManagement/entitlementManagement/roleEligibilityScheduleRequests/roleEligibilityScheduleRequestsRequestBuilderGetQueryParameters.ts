@@ -1,5 +1,5 @@
 
-/** Requests for role eligibilities for principals through PIM. */
+/** In PIM, retrieve the requests for role eligibilities for principals made through the unifiedRoleEligibilityScheduleRequest object. */
 export class RoleEligibilityScheduleRequestsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

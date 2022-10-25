@@ -1,5 +1,5 @@
 
-/** Scoped-role members of this administrative unit. */
+/** List Azure Active Directory (Azure AD) role assignments with administrative unit scope. */
 export class ScopedRoleMembersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

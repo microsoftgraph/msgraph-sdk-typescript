@@ -1,5 +1,5 @@
 
-/** Get presence from me */
+/** Get a user's presence information. */
 export class PresenceRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,5 @@
 
-/** Conceptual container for user and group directory objects. */
+/** Retrieve a list of administrativeUnit objects. */
 export class AdministrativeUnitsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;
