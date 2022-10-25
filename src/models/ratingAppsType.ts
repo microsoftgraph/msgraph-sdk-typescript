@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum RatingAppsType {
     /** Default value, allow all apps content */
     AllAllowed = "allAllowed",

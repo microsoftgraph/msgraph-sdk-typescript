@@ -51,7 +51,7 @@ export class GetPolicyNonComplianceReportRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ArrayBuffer
      */
-    public post(body: GetPolicyNonComplianceReportPostRequestBody | undefined, requestConfiguration?: GetPolicyNonComplianceReportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
+    public post(body: GetPolicyNonComplianceReportPostRequestBody | undefined, requestConfiguration?: GetPolicyNonComplianceReportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

@@ -3,7 +3,7 @@ import {Entity, ServiceHealthIssue} from './index';
 import {ServiceHealthStatus} from './serviceHealthStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class ServiceHealth extends Entity implements Parsable {
     /** A collection of issues that happened on the service, with detailed information for each issue. */
     private _issues?: ServiceHealthIssue[] | undefined;

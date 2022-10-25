@@ -15,16 +15,16 @@ export class GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeR
     private readonly urlTemplate: string;
     /**
      * Instantiates a new GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder and sets the default values.
-     * @param endDateTime Usage: endDateTime='{endDateTime}'
+     * @param endDateTime Usage: endDateTime={endDateTime}
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
-     * @param startDateTime Usage: startDateTime='{startDateTime}'
+     * @param startDateTime Usage: startDateTime={startDateTime}
      * @param userId Usage: userId='{userId}'
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, endDateTime?: Date | undefined, startDateTime?: Date | undefined, userId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/reports/microsoft.graph.getUserArchivedPrintJobs(userId='{userId}',startDateTime='{startDateTime}',endDateTime='{endDateTime}')";
+        this.urlTemplate = "{+baseurl}/reports/microsoft.graph.getUserArchivedPrintJobs(userId='{userId}',startDateTime={startDateTime},endDateTime={endDateTime}){?%24top,%24skip,%24search,%24filter,%24count}";
         const urlTplParams = getPathParameters(pathParameters);
         urlTplParams["endDateTime"] = endDateTime
         urlTplParams["startDateTime"] = startDateTime
@@ -45,6 +45,7 @@ export class GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeR
         requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
         return requestInfo;

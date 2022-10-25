@@ -25,7 +25,7 @@ export class DisableSmsSignInRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action disableSmsSignIn
+     * Disable SMS sign-in for an existing `mobile` phone number registered to a user. The number will no longer be available for SMS sign-in, which can prevent your user from signing in.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class DisableSmsSignInRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action disableSmsSignIn
+     * Disable SMS sign-in for an existing `mobile` phone number registered to a user. The number will no longer be available for SMS sign-in, which can prevent your user from signing in.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */

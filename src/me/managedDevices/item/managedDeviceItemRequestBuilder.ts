@@ -25,6 +25,7 @@ import {RetireRequestBuilder} from './retire/retireRequestBuilder';
 import {ShutDownRequestBuilder} from './shutDown/shutDownRequestBuilder';
 import {SyncDeviceRequestBuilder} from './syncDevice/syncDeviceRequestBuilder';
 import {UpdateWindowsDeviceAccountRequestBuilder} from './updateWindowsDeviceAccount/updateWindowsDeviceAccountRequestBuilder';
+import {UsersRequestBuilder} from './users/usersRequestBuilder';
 import {WindowsDefenderScanRequestBuilder} from './windowsDefenderScan/windowsDefenderScanRequestBuilder';
 import {WindowsDefenderUpdateSignaturesRequestBuilder} from './windowsDefenderUpdateSignatures/windowsDefenderUpdateSignaturesRequestBuilder';
 import {WipeRequestBuilder} from './wipe/wipeRequestBuilder';
@@ -110,6 +111,10 @@ export class ManagedDeviceItemRequestBuilder {
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
+    /** The users property */
+    public get users(): UsersRequestBuilder {
+        return new UsersRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The windowsDefenderScan property */
     public get windowsDefenderScan(): WindowsDefenderScanRequestBuilder {
         return new WindowsDefenderScanRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -181,6 +186,7 @@ export class ManagedDeviceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -246,8 +252,9 @@ export class ManagedDeviceItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ManagedDevice
      */
-    public patch(body: ManagedDevice | undefined, requestConfiguration?: ManagedDeviceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ManagedDevice | undefined, requestConfiguration?: ManagedDeviceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDevice | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -256,6 +263,6 @@ export class ManagedDeviceItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedDevice>(requestInfo, createManagedDeviceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

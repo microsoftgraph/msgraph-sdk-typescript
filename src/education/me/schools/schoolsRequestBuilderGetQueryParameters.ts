@@ -1,5 +1,5 @@
 
-/** Schools to which the user belongs. Nullable. */
+/** Retrieve a list of schools for a user. */
 export class SchoolsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

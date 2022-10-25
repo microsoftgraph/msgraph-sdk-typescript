@@ -5,7 +5,6 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {AllowedCalendarSharingRolesWithUserRequestBuilder} from './allowedCalendarSharingRolesWithUser/allowedCalendarSharingRolesWithUserRequestBuilder';
 import {CalendarPermissionsRequestBuilder} from './calendarPermissions/calendarPermissionsRequestBuilder';
 import {CalendarPermissionItemRequestBuilder} from './calendarPermissions/item/calendarPermissionItemRequestBuilder';
-import {CalendarRequestBuilderDeleteRequestConfiguration} from './calendarRequestBuilderDeleteRequestConfiguration';
 import {CalendarRequestBuilderGetRequestConfiguration} from './calendarRequestBuilderGetRequestConfiguration';
 import {CalendarRequestBuilderPatchRequestConfiguration} from './calendarRequestBuilderPatchRequestConfiguration';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
@@ -96,23 +95,7 @@ export class CalendarRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete navigation property calendar for me
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createDeleteRequestInformation(requestConfiguration?: CalendarRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        return requestInfo;
-    };
-    /**
-     * The user's primary calendar. Read-only.
+     * Get the properties and relationships of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -130,7 +113,7 @@ export class CalendarRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property calendar in me
+     * Update the properties of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -141,27 +124,13 @@ export class CalendarRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         return requestInfo;
-    };
-    /**
-     * Delete navigation property calendar for me
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     */
-    public delete(requestConfiguration?: CalendarRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInformation(
-            requestConfiguration
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.calendar.events.item collection
@@ -175,7 +144,7 @@ export class CalendarRequestBuilder {
         return new i6a63e41c55ea886388af93804d8296c2f7baccd218302aba5ea371bd589b68b7(urlTplParams, this.requestAdapter);
     };
     /**
-     * The user's primary calendar. Read-only.
+     * Get the properties and relationships of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Calendar
@@ -202,12 +171,13 @@ export class CalendarRequestBuilder {
         return new MultiValueLegacyExtendedPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update the navigation property calendar in me
+     * Update the properties of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Calendar
      */
-    public patch(body: Calendar | undefined, requestConfiguration?: CalendarRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Calendar | undefined, requestConfiguration?: CalendarRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Calendar | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -216,7 +186,7 @@ export class CalendarRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Calendar>(requestInfo, createCalendarFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.calendar.singleValueExtendedProperties.item collection

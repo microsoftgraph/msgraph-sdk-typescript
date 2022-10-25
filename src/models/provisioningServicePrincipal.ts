@@ -3,7 +3,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class ProvisioningServicePrincipal extends Identity implements Parsable {
     /**
-     * Instantiates a new ProvisioningServicePrincipal and sets the default values.
+     * Instantiates a new provisioningServicePrincipal and sets the default values.
      */
     public constructor() {
         super();

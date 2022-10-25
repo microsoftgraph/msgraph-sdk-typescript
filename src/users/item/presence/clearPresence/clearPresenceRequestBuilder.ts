@@ -26,7 +26,7 @@ export class ClearPresenceRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action clearPresence
+     * Clear the application's presence session for a user. If it is the user's only presence session, the user's presence will change to `Offline/Offline`. For details about presences sessions, see presence: setPresence.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -45,7 +45,7 @@ export class ClearPresenceRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action clearPresence
+     * Clear the application's presence session for a user. If it is the user's only presence session, the user's presence will change to `Offline/Offline`. For details about presences sessions, see presence: setPresence.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

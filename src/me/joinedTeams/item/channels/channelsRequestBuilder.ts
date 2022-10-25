@@ -29,13 +29,13 @@ export class ChannelsRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/me/joinedTeams/{team%2Did}/channels{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}";
+        this.urlTemplate = "{+baseurl}/me/joinedTeams/{team%2Did}/channels{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The collection of channels and messages associated with the team.
+     * Retrieve the list of channels in this team. This method supports federation. Any shared channel that the request initiator belongs to will be included in the response.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -53,7 +53,7 @@ export class ChannelsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to channels for me
+     * Create a new channel in a team, as specified in the request body.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -73,7 +73,7 @@ export class ChannelsRequestBuilder {
         return requestInfo;
     };
     /**
-     * The collection of channels and messages associated with the team.
+     * Retrieve the list of channels in this team. This method supports federation. Any shared channel that the request initiator belongs to will be included in the response.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChannelCollectionResponse
@@ -96,7 +96,7 @@ export class ChannelsRequestBuilder {
         return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * Create new navigation property to channels for me
+     * Create a new channel in a team, as specified in the request body.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

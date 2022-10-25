@@ -3,9 +3,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class CallOptions implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The hideBotAfterEscalation property */
+    /** Indicates whether to hide the app after the call is escalated. */
     private _hideBotAfterEscalation?: boolean | undefined;
-    /** The isContentSharingNotificationEnabled property */
+    /** Indicates whether content sharing notifications should be enabled for the call. */
     private _isContentSharingNotificationEnabled?: boolean | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
@@ -42,28 +42,28 @@ export class CallOptions implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the hideBotAfterEscalation property value. The hideBotAfterEscalation property
+     * Gets the hideBotAfterEscalation property value. Indicates whether to hide the app after the call is escalated.
      * @returns a boolean
      */
     public get hideBotAfterEscalation() {
         return this._hideBotAfterEscalation;
     };
     /**
-     * Sets the hideBotAfterEscalation property value. The hideBotAfterEscalation property
+     * Sets the hideBotAfterEscalation property value. Indicates whether to hide the app after the call is escalated.
      * @param value Value to set for the hideBotAfterEscalation property.
      */
     public set hideBotAfterEscalation(value: boolean | undefined) {
         this._hideBotAfterEscalation = value;
     };
     /**
-     * Gets the isContentSharingNotificationEnabled property value. The isContentSharingNotificationEnabled property
+     * Gets the isContentSharingNotificationEnabled property value. Indicates whether content sharing notifications should be enabled for the call.
      * @returns a boolean
      */
     public get isContentSharingNotificationEnabled() {
         return this._isContentSharingNotificationEnabled;
     };
     /**
-     * Sets the isContentSharingNotificationEnabled property value. The isContentSharingNotificationEnabled property
+     * Sets the isContentSharingNotificationEnabled property value. Indicates whether content sharing notifications should be enabled for the call.
      * @param value Value to set for the isContentSharingNotificationEnabled property.
      */
     public set isContentSharingNotificationEnabled(value: boolean | undefined) {

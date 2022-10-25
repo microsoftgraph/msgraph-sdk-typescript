@@ -3,6 +3,7 @@ import {createAppRoleAssignmentFromDiscriminatorValue} from './createAppRoleAssi
 import {createAssignedLicenseFromDiscriminatorValue} from './createAssignedLicenseFromDiscriminatorValue';
 import {createAssignedPlanFromDiscriminatorValue} from './createAssignedPlanFromDiscriminatorValue';
 import {createAuthenticationFromDiscriminatorValue} from './createAuthenticationFromDiscriminatorValue';
+import {createAuthorizationInfoFromDiscriminatorValue} from './createAuthorizationInfoFromDiscriminatorValue';
 import {createCalendarFromDiscriminatorValue} from './createCalendarFromDiscriminatorValue';
 import {createCalendarGroupFromDiscriminatorValue} from './createCalendarGroupFromDiscriminatorValue';
 import {createChatFromDiscriminatorValue} from './createChatFromDiscriminatorValue';
@@ -43,7 +44,7 @@ import {createTodoFromDiscriminatorValue} from './createTodoFromDiscriminatorVal
 import {createUserActivityFromDiscriminatorValue} from './createUserActivityFromDiscriminatorValue';
 import {createUserSettingsFromDiscriminatorValue} from './createUserSettingsFromDiscriminatorValue';
 import {createUserTeamworkFromDiscriminatorValue} from './createUserTeamworkFromDiscriminatorValue';
-import {AgreementAcceptance, AppRoleAssignment, AssignedLicense, AssignedPlan, Authentication, Calendar, CalendarGroup, Chat, Contact, ContactFolder, DeviceManagementTroubleshootingEvent, DirectoryObject, Drive, EmployeeOrgData, Event, Extension, InferenceClassification, LicenseAssignmentState, LicenseDetails, MailboxSettings, MailFolder, ManagedAppRegistration, ManagedDevice, Message, OAuth2PermissionGrant, ObjectIdentity, OfficeGraphInsights, Onenote, OnlineMeeting, OnPremisesExtensionAttributes, OnPremisesProvisioningError, OutlookUser, PasswordProfile, Person, PlannerUser, Presence, ProfilePhoto, ProvisionedPlan, ScopedRoleMembership, Site, Team, Todo, UserActivity, UserSettings, UserTeamwork} from './index';
+import {AgreementAcceptance, AppRoleAssignment, AssignedLicense, AssignedPlan, Authentication, AuthorizationInfo, Calendar, CalendarGroup, Chat, Contact, ContactFolder, DeviceManagementTroubleshootingEvent, DirectoryObject, Drive, EmployeeOrgData, Event, Extension, InferenceClassification, LicenseAssignmentState, LicenseDetails, MailboxSettings, MailFolder, ManagedAppRegistration, ManagedDevice, Message, OAuth2PermissionGrant, ObjectIdentity, OfficeGraphInsights, Onenote, OnlineMeeting, OnPremisesExtensionAttributes, OnPremisesProvisioningError, OutlookUser, PasswordProfile, Person, PlannerUser, Presence, ProfilePhoto, ProvisionedPlan, ScopedRoleMembership, Site, Team, Todo, UserActivity, UserSettings, UserTeamwork} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class User extends DirectoryObject implements Parsable {
@@ -65,6 +66,8 @@ export class User extends DirectoryObject implements Parsable {
     private _assignedPlans?: AssignedPlan[] | undefined;
     /** The authentication methods that are supported for the user. */
     private _authentication?: Authentication | undefined;
+    /** The authorizationInfo property */
+    private _authorizationInfo?: AuthorizationInfo | undefined;
     /** The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned only on $select. */
     private _birthday?: Date | undefined;
     /** The telephone numbers for the user. NOTE: Although this is a string collection, only one number can be set for this property. Read-only for users synced from on-premises directory. Returned by default. Supports $filter (eq, not, ge, le, startsWith). */
@@ -406,6 +409,20 @@ export class User extends DirectoryObject implements Parsable {
      */
     public set authentication(value: Authentication | undefined) {
         this._authentication = value;
+    };
+    /**
+     * Gets the authorizationInfo property value. The authorizationInfo property
+     * @returns a authorizationInfo
+     */
+    public get authorizationInfo() {
+        return this._authorizationInfo;
+    };
+    /**
+     * Sets the authorizationInfo property value. The authorizationInfo property
+     * @param value Value to set for the authorizationInfo property.
+     */
+    public set authorizationInfo(value: AuthorizationInfo | undefined) {
+        this._authorizationInfo = value;
     };
     /**
      * Gets the birthday property value. The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned only on $select.
@@ -891,6 +908,7 @@ export class User extends DirectoryObject implements Parsable {
             "assignedLicenses": n => { this.assignedLicenses = n.getCollectionOfObjectValues<AssignedLicense>(createAssignedLicenseFromDiscriminatorValue); },
             "assignedPlans": n => { this.assignedPlans = n.getCollectionOfObjectValues<AssignedPlan>(createAssignedPlanFromDiscriminatorValue); },
             "authentication": n => { this.authentication = n.getObjectValue<Authentication>(createAuthenticationFromDiscriminatorValue); },
+            "authorizationInfo": n => { this.authorizationInfo = n.getObjectValue<AuthorizationInfo>(createAuthorizationInfoFromDiscriminatorValue); },
             "birthday": n => { this.birthday = n.getDateValue(); },
             "businessPhones": n => { this.businessPhones = n.getCollectionOfPrimitiveValues<string>(); },
             "calendar": n => { this.calendar = n.getObjectValue<Calendar>(createCalendarFromDiscriminatorValue); },
@@ -1885,6 +1903,7 @@ export class User extends DirectoryObject implements Parsable {
         writer.writeCollectionOfObjectValues<AssignedLicense>("assignedLicenses", this.assignedLicenses);
         writer.writeCollectionOfObjectValues<AssignedPlan>("assignedPlans", this.assignedPlans);
         writer.writeObjectValue<Authentication>("authentication", this.authentication);
+        writer.writeObjectValue<AuthorizationInfo>("authorizationInfo", this.authorizationInfo);
         writer.writeDateValue("birthday", this.birthday);
         writer.writeCollectionOfPrimitiveValues<string>("businessPhones", this.businessPhones);
         writer.writeObjectValue<Calendar>("calendar", this.calendar);

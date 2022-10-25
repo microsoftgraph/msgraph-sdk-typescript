@@ -1,5 +1,5 @@
 
-/** A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly. */
+/** Retrieve the serviceHealth resources from the **healthOverviews** navigation property. This operation provides the health report of all subscribed services for a tenant. */
 export class HealthOverviewsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

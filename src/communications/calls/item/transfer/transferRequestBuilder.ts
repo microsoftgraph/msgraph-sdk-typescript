@@ -26,7 +26,7 @@ export class TransferRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action transfer
+     * Transfer an active peer-to-peer call or group call. A consultative transfer means that the transferor can inform the person they want to transfer the call to (the transferee), before the transfer is made. This is opposed to transfering the call directly.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -45,7 +45,7 @@ export class TransferRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action transfer
+     * Transfer an active peer-to-peer call or group call. A consultative transfer means that the transferor can inform the person they want to transfer the call to (the transferee), before the transfer is made. This is opposed to transfering the call directly.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

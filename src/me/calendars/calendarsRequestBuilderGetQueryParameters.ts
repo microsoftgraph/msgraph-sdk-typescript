@@ -1,5 +1,5 @@
 
-/** The user's calendars. Read-only. Nullable. */
+/** Get all the user's calendars (`/calendars` navigation property), get the calendars from the default calendar group or from a specific calendar group.  */
 export class CalendarsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

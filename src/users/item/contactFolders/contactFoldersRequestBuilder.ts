@@ -29,13 +29,13 @@ export class ContactFoldersRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/users/{user%2Did}/contactFolders{?%24top*,%24skip*,%24filter*,%24count*,%24orderby,%24select}";
+        this.urlTemplate = "{+baseurl}/users/{user%2Did}/contactFolders{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The user's contacts folders. Read-only. Nullable.
+     * Get the contact folder collection in the default Contacts folder of the signed-in user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -53,7 +53,7 @@ export class ContactFoldersRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to contactFolders for users
+     * Create a new contactFolder under the user's default contacts folder. You can also create a new contactfolder as a child of any specified contact folder.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -80,7 +80,7 @@ export class ContactFoldersRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * The user's contacts folders. Read-only. Nullable.
+     * Get the contact folder collection in the default Contacts folder of the signed-in user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContactFolderCollectionResponse
@@ -96,7 +96,7 @@ export class ContactFoldersRequestBuilder {
         return this.requestAdapter?.sendAsync<ContactFolderCollectionResponse>(requestInfo, createContactFolderCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Create new navigation property to contactFolders for users
+     * Create a new contactFolder under the user's default contacts folder. You can also create a new contactfolder as a child of any specified contact folder.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

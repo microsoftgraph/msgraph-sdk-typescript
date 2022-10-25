@@ -4,7 +4,7 @@ import {Entity, Extension, TodoTask} from './index';
 import {WellknownListName} from './wellknownListName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class TodoTaskList extends Entity implements Parsable {
     /** The name of the task list. */
     private _displayName?: string | undefined;

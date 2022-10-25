@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket. */
+/** Retrieve the properties and relationships of **plannerBucketTaskBoardTaskFormat** object. */
 export class BucketTaskBoardFormatRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

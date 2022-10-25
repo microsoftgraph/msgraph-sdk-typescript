@@ -1,5 +1,5 @@
 
-/** Retrieve a single chat (without its messages). */
+/** Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from. */
 export class ChatItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum DefenderThreatAction {
     /** Apply action based on the update definition. */
     DeviceDefault = "deviceDefault",

@@ -1,5 +1,5 @@
 
-/** All sets under the group in a term [store]. */
+/** Get a list of the set objects and their properties. */
 export class SetsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

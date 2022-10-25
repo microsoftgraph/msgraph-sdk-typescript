@@ -1,5 +1,5 @@
 
-/** Defines the default configuration for how your organization interacts with external Azure Active Directory organizations. */
+/** Read the default configuration of a cross-tenant access policy. This default configuration may be the service default assigned by Azure AD (**isServiceDefault** is `true`) or may be customized in your tenant (**isServiceDefault** is `false`). */
 export class DefaultRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

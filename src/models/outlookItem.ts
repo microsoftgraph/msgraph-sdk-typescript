@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class OutlookItem extends Entity implements Parsable {
     /** The categories associated with the item */
     private _categories?: string[] | undefined;

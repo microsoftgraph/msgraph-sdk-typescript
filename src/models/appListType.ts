@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum AppListType {
     /** Default value, no intent. */
     None = "none",

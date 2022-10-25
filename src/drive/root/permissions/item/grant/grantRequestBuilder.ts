@@ -27,7 +27,7 @@ export class GrantRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action grant
+     * Grant users access to a link represented by a [permission][].
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -47,7 +47,7 @@ export class GrantRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action grant
+     * Grant users access to a link represented by a [permission][].
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

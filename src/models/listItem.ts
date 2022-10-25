@@ -8,6 +8,7 @@ import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFr
 import {BaseItem, ContentTypeInfo, DocumentSetVersion, DriveItem, FieldValueSet, ItemAnalytics, ListItemVersion, SharepointIds} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the admin singleton. */
 export class ListItem extends BaseItem implements Parsable {
     /** Analytics about the view activities that took place on this item. */
     private _analytics?: ItemAnalytics | undefined;

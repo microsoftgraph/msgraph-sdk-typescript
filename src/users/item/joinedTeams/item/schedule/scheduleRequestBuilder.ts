@@ -10,7 +10,7 @@ import {OpenShiftItemRequestBuilder} from './openShifts/item/openShiftItemReques
 import {OpenShiftsRequestBuilder} from './openShifts/openShiftsRequestBuilder';
 import {ScheduleRequestBuilderDeleteRequestConfiguration} from './scheduleRequestBuilderDeleteRequestConfiguration';
 import {ScheduleRequestBuilderGetRequestConfiguration} from './scheduleRequestBuilderGetRequestConfiguration';
-import {ScheduleRequestBuilderPatchRequestConfiguration} from './scheduleRequestBuilderPatchRequestConfiguration';
+import {ScheduleRequestBuilderPutRequestConfiguration} from './scheduleRequestBuilderPutRequestConfiguration';
 import {SchedulingGroupItemRequestBuilder} from './schedulingGroups/item/schedulingGroupItemRequestBuilder';
 import {SchedulingGroupsRequestBuilder} from './schedulingGroups/schedulingGroupsRequestBuilder';
 import {ShareRequestBuilder} from './share/shareRequestBuilder';
@@ -104,7 +104,7 @@ export class ScheduleRequestBuilder {
         return requestInfo;
     };
     /**
-     * The schedule of shifts for this team.
+     * Retrieve the properties and relationships of a schedule object. The schedule creation process conforms to the One API guideline for resource based long running operations (RELO).When clients use the PUT method, if the schedule is provisioned, the operation updates the schedule; otherwise, the operation starts the schedule provisioning process in the background. During schedule provisioning, clients can use the GET method to get the schedule and look at the `provisionStatus` property for the current state of the provisioning. If the provisioning failed, clients can get additional information from the `provisionStatusCode` property. Clients can also inspect the configuration of the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -127,12 +127,13 @@ export class ScheduleRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Schedule | undefined, requestConfiguration?: ScheduleRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public createPutRequestInformation(body: Schedule | undefined, requestConfiguration?: ScheduleRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.httpMethod = HttpMethod.PUT;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -156,7 +157,7 @@ export class ScheduleRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The schedule of shifts for this team.
+     * Retrieve the properties and relationships of a schedule object. The schedule creation process conforms to the One API guideline for resource based long running operations (RELO).When clients use the PUT method, if the schedule is provisioned, the operation updates the schedule; otherwise, the operation starts the schedule provisioning process in the background. During schedule provisioning, clients can use the GET method to get the schedule and look at the `provisionStatus` property for the current state of the provisioning. If the provisioning failed, clients can get additional information from the `provisionStatusCode` property. Clients can also inspect the configuration of the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Schedule
@@ -209,17 +210,18 @@ export class ScheduleRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Schedule
      */
-    public patch(body: Schedule | undefined, requestConfiguration?: ScheduleRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public put(body: Schedule | undefined, requestConfiguration?: ScheduleRequestBuilderPutRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Schedule | undefined> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInformation(
+        const requestInfo = this.createPutRequestInformation(
             body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Schedule>(requestInfo, createScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.joinedTeams.item.schedule.schedulingGroups.item collection

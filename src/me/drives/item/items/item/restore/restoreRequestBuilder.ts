@@ -28,7 +28,7 @@ export class RestoreRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action restore
+     * Restore a driveItem that has been deleted and is currently in the recycle bin. **NOTE**: This functionality is currently only available for OneDrive Personal.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -48,7 +48,7 @@ export class RestoreRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action restore
+     * Restore a driveItem that has been deleted and is currently in the recycle bin. **NOTE**: This functionality is currently only available for OneDrive Personal.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

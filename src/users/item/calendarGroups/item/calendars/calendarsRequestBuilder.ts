@@ -28,13 +28,13 @@ export class CalendarsRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars{?%24top*,%24skip*,%24filter*,%24count*,%24orderby,%24select}";
+        this.urlTemplate = "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The calendars in the calendar group. Navigation property. Read-only. Nullable.
+     * Retrieve a list of calendars belonging to a calendar group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -52,7 +52,7 @@ export class CalendarsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to calendars for users
+     * Use this API to create a new calendar in a calendar group for a user.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -72,7 +72,7 @@ export class CalendarsRequestBuilder {
         return requestInfo;
     };
     /**
-     * The calendars in the calendar group. Navigation property. Read-only. Nullable.
+     * Retrieve a list of calendars belonging to a calendar group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CalendarCollectionResponse
@@ -88,7 +88,7 @@ export class CalendarsRequestBuilder {
         return this.requestAdapter?.sendAsync<CalendarCollectionResponse>(requestInfo, createCalendarCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Create new navigation property to calendars for users
+     * Use this API to create a new calendar in a calendar group for a user.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of externalConnection entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum AclType {
     User = "user",
     Group = "group",

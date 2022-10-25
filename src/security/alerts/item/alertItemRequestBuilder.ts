@@ -2,7 +2,6 @@ import {Alert} from '../../../models/';
 import {createAlertFromDiscriminatorValue} from '../../../models/createAlertFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AlertItemRequestBuilderDeleteRequestConfiguration} from './alertItemRequestBuilderDeleteRequestConfiguration';
 import {AlertItemRequestBuilderGetRequestConfiguration} from './alertItemRequestBuilderGetRequestConfiguration';
 import {AlertItemRequestBuilderPatchRequestConfiguration} from './alertItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -27,22 +26,6 @@ export class AlertItemRequestBuilder {
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
-    };
-    /**
-     * Delete navigation property alerts for security
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createDeleteRequestInformation(requestConfiguration?: AlertItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        return requestInfo;
     };
     /**
      * Get alerts from security
@@ -74,27 +57,13 @@ export class AlertItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         return requestInfo;
-    };
-    /**
-     * Delete navigation property alerts for security
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     */
-    public delete(requestConfiguration?: AlertItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInformation(
-            requestConfiguration
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Get alerts from security
@@ -117,8 +86,9 @@ export class AlertItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Alert
      */
-    public patch(body: Alert | undefined, requestConfiguration?: AlertItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Alert | undefined, requestConfiguration?: AlertItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Alert | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -127,6 +97,6 @@ export class AlertItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Alert>(requestInfo, createAlertFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

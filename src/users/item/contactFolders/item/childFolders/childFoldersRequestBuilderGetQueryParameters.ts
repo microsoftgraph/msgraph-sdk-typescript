@@ -1,5 +1,5 @@
 
-/** The collection of child folders in the folder. Navigation property. Read-only. Nullable. */
+/** Get a collection of child folders under the specified contact folder. */
 export class ChildFoldersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

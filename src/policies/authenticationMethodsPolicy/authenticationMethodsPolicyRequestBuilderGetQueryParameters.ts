@@ -1,5 +1,5 @@
 
-/** The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD). */
+/** Read the properties and relationships of an authenticationMethodsPolicy object. */
 export class AuthenticationMethodsPolicyRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

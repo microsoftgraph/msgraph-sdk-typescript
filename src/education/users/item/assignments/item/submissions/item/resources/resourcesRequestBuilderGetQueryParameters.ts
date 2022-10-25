@@ -1,5 +1,5 @@
 
-/** Get resources from education */
+/** List the resources associated with a submission.  The educationSubmissionResource object is a wrapper around the actual resource object the student is working on. The wrapper also includes a pointer to the resources on the assignment if this was copied from the assignment during the assign process. These resources are the working copy of the assignment. The **submittedResources** are the resources that have officially been submitted to be graded. */
 export class ResourcesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

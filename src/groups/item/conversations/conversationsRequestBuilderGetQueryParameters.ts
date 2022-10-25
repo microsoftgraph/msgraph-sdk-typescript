@@ -1,5 +1,5 @@
 
-/** The group's conversations. */
+/** Retrieve the list of conversations in this group. */
 export class ConversationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

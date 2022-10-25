@@ -10,7 +10,7 @@ import {createSubjectSetFromDiscriminatorValue} from './createSubjectSetFromDisc
 import {AccessPackage, AccessPackageAssignmentApprovalSettings, AccessPackageAssignmentRequestorSettings, AccessPackageAssignmentReviewSettings, AccessPackageAutomaticRequestSettings, AccessPackageCatalog, Entity, ExpirationPattern, SubjectSet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
     /** Access package containing this policy. Read-only. */
     private _accessPackage?: AccessPackage | undefined;

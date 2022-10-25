@@ -25,7 +25,7 @@ export class ApplyDecisionsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action applyDecisions
+     * Apply review decisions on an accessReviewInstance if the decisions were not applied automatically because the autoApplyDecisionsEnabled property is `false` in the review's accessReviewScheduleSettings. The status of the accessReviewInstance must be `Completed` to call this method.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class ApplyDecisionsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action applyDecisions
+     * Apply review decisions on an accessReviewInstance if the decisions were not applied automatically because the autoApplyDecisionsEnabled property is `false` in the review's accessReviewScheduleSettings. The status of the accessReviewInstance must be `Completed` to call this method.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */

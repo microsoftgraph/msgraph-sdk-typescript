@@ -1,4 +1,4 @@
-/** Provides operations to call the getStaffAvailability method. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum BookingsAvailabilityStatus {
     Available = "available",
     Busy = "busy",

@@ -3,7 +3,7 @@ import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFrom
 import {EmailAddress, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class CalendarPermission extends Entity implements Parsable {
     /** List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom. */
     private _allowedRoles?: CalendarRoleType[] | undefined;

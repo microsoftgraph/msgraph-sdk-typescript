@@ -11,12 +11,13 @@ import {createTeamsAppInstallationFromDiscriminatorValue} from './createTeamsApp
 import {createTeamsAsyncOperationFromDiscriminatorValue} from './createTeamsAsyncOperationFromDiscriminatorValue';
 import {createTeamsTemplateFromDiscriminatorValue} from './createTeamsTemplateFromDiscriminatorValue';
 import {createTeamSummaryFromDiscriminatorValue} from './createTeamSummaryFromDiscriminatorValue';
-import {Channel, ConversationMember, Entity, Group, ProfilePhoto, Schedule, TeamFunSettings, TeamGuestSettings, TeamMemberSettings, TeamMessagingSettings, TeamsAppInstallation, TeamsAsyncOperation, TeamsTemplate, TeamSummary} from './index';
+import {createTeamworkTagFromDiscriminatorValue} from './createTeamworkTagFromDiscriminatorValue';
+import {Channel, ConversationMember, Entity, Group, ProfilePhoto, Schedule, TeamFunSettings, TeamGuestSettings, TeamMemberSettings, TeamMessagingSettings, TeamsAppInstallation, TeamsAsyncOperation, TeamsTemplate, TeamSummary, TeamworkTag} from './index';
 import {TeamSpecialization} from './teamSpecialization';
 import {TeamVisibilityType} from './teamVisibilityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class Team extends Entity implements Parsable {
     /** List of channels either hosted in or shared with the team (incoming channels). */
     private _allChannels?: Channel[] | undefined;
@@ -62,6 +63,8 @@ export class Team extends Entity implements Parsable {
     private _specialization?: TeamSpecialization | undefined;
     /** The summary property */
     private _summary?: TeamSummary | undefined;
+    /** The tags associated with the team. */
+    private _tags?: TeamworkTag[] | undefined;
     /** The template this team was created from. See available templates. */
     private _template?: TeamsTemplate | undefined;
     /** The ID of the Azure Active Directory tenant. */
@@ -203,6 +206,7 @@ export class Team extends Entity implements Parsable {
             "schedule": n => { this.schedule = n.getObjectValue<Schedule>(createScheduleFromDiscriminatorValue); },
             "specialization": n => { this.specialization = n.getEnumValue<TeamSpecialization>(TeamSpecialization); },
             "summary": n => { this.summary = n.getObjectValue<TeamSummary>(createTeamSummaryFromDiscriminatorValue); },
+            "tags": n => { this.tags = n.getCollectionOfObjectValues<TeamworkTag>(createTeamworkTagFromDiscriminatorValue); },
             "template": n => { this.template = n.getObjectValue<TeamsTemplate>(createTeamsTemplateFromDiscriminatorValue); },
             "tenantId": n => { this.tenantId = n.getStringValue(); },
             "visibility": n => { this.visibility = n.getEnumValue<TeamVisibilityType>(TeamVisibilityType); },
@@ -420,6 +424,7 @@ export class Team extends Entity implements Parsable {
         writer.writeObjectValue<Schedule>("schedule", this.schedule);
         writer.writeEnumValue<TeamSpecialization>("specialization", this.specialization);
         writer.writeObjectValue<TeamSummary>("summary", this.summary);
+        writer.writeCollectionOfObjectValues<TeamworkTag>("tags", this.tags);
         writer.writeObjectValue<TeamsTemplate>("template", this.template);
         writer.writeStringValue("tenantId", this.tenantId);
         writer.writeEnumValue<TeamVisibilityType>("visibility", this.visibility);
@@ -452,6 +457,20 @@ export class Team extends Entity implements Parsable {
      */
     public set summary(value: TeamSummary | undefined) {
         this._summary = value;
+    };
+    /**
+     * Gets the tags property value. The tags associated with the team.
+     * @returns a teamworkTag
+     */
+    public get tags() {
+        return this._tags;
+    };
+    /**
+     * Sets the tags property value. The tags associated with the team.
+     * @param value Value to set for the tags property.
+     */
+    public set tags(value: TeamworkTag[] | undefined) {
+        this._tags = value;
     };
     /**
      * Gets the template property value. The template this team was created from. See available templates.

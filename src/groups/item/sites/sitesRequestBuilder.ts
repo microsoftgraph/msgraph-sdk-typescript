@@ -1,13 +1,11 @@
-import {Site, SiteCollectionResponse} from '../../../models/';
+import {SiteCollectionResponse} from '../../../models/';
 import {createSiteCollectionResponseFromDiscriminatorValue} from '../../../models/createSiteCollectionResponseFromDiscriminatorValue';
-import {createSiteFromDiscriminatorValue} from '../../../models/createSiteFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RemoveRequestBuilder} from './remove/removeRequestBuilder';
 import {SitesRequestBuilderGetRequestConfiguration} from './sitesRequestBuilderGetRequestConfiguration';
-import {SitesRequestBuilderPostRequestConfiguration} from './sitesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the sites property of the microsoft.graph.group entity. */
@@ -38,7 +36,7 @@ export class SitesRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/groups/{group%2Did}/sites{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}";
+        this.urlTemplate = "{+baseurl}/groups/{group%2Did}/sites{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
@@ -62,26 +60,6 @@ export class SitesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to sites for groups
-     * @param body 
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createPostRequestInformation(body: Site | undefined, requestConfiguration?: SitesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        return requestInfo;
-    };
-    /**
      * The list of SharePoint sites in this group. Access the default site with /sites/root.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -96,23 +74,5 @@ export class SitesRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<SiteCollectionResponse>(requestInfo, createSiteCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * Create new navigation property to sites for groups
-     * @param body 
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of Site
-     */
-    public post(body: Site | undefined, requestConfiguration?: SitesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Site | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPostRequestInformation(
-            body, requestConfiguration
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendAsync<Site>(requestInfo, createSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

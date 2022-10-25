@@ -1,5 +1,5 @@
 
-/** Classes taught at the school. Nullable. */
+/** Get the educationClass resources owned by an educationSchool. */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

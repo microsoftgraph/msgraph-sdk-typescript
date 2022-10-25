@@ -3,7 +3,7 @@ import {createMessageRulePredicatesFromDiscriminatorValue} from './createMessage
 import {Entity, MessageRuleActions, MessageRulePredicates} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class MessageRule extends Entity implements Parsable {
     /** Actions to be taken on a message when the corresponding conditions are fulfilled. */
     private _actions?: MessageRuleActions | undefined;

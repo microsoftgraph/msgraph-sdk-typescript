@@ -26,7 +26,7 @@ export class ReplyRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action reply
+     * Reply to a post and add a new post to the specified thread in a group conversation.  You can specify both the parent conversation and thread in the request, or, you can specify just the parent thread without the parent conversation.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -45,7 +45,7 @@ export class ReplyRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action reply
+     * Reply to a post and add a new post to the specified thread in a group conversation.  You can specify both the parent conversation and thread in the request, or, you can specify just the parent thread without the parent conversation.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

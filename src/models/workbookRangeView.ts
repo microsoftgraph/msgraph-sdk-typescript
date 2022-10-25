@@ -3,6 +3,7 @@ import {createWorkbookRangeViewFromDiscriminatorValue} from './createWorkbookRan
 import {Entity, Json} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreement entities. */
 export class WorkbookRangeView extends Entity implements Parsable {
     /** Represents the cell addresses */
     private _cellAddresses?: Json | undefined;
@@ -57,7 +58,7 @@ export class WorkbookRangeView extends Entity implements Parsable {
         this._columnCount = value;
     };
     /**
-     * Instantiates a new WorkbookRangeView and sets the default values.
+     * Instantiates a new workbookRangeView and sets the default values.
      */
     public constructor() {
         super();

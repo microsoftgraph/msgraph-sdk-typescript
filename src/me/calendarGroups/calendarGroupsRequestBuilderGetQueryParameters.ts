@@ -1,5 +1,5 @@
 
-/** The user's calendar groups. Read-only. Nullable. */
+/** Get the user's calendar groups. */
 export class CalendarGroupsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

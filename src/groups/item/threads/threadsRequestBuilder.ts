@@ -28,13 +28,13 @@ export class ThreadsRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/groups/{group%2Did}/threads{?%24top*,%24skip*,%24filter*,%24count*,%24orderby,%24select}";
+        this.urlTemplate = "{+baseurl}/groups/{group%2Did}/threads{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The group's conversation threads. Nullable.
+     * Get all the threads of a group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -52,7 +52,7 @@ export class ThreadsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to threads for groups
+     * Start a new group conversation by first creating a thread. A new conversation, conversation thread, and post are created in the group.Use reply thread or reply post to further post to that thread. Note: You can also start a new thread in an existing conversation.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -72,7 +72,7 @@ export class ThreadsRequestBuilder {
         return requestInfo;
     };
     /**
-     * The group's conversation threads. Nullable.
+     * Get all the threads of a group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConversationThreadCollectionResponse
@@ -88,7 +88,7 @@ export class ThreadsRequestBuilder {
         return this.requestAdapter?.sendAsync<ConversationThreadCollectionResponse>(requestInfo, createConversationThreadCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Create new navigation property to threads for groups
+     * Start a new group conversation by first creating a thread. A new conversation, conversation thread, and post are created in the group.Use reply thread or reply post to further post to that thread. Note: You can also start a new thread in an existing conversation.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

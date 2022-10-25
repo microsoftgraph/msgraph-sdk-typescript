@@ -3,6 +3,7 @@ import {createUnifiedRolePermissionFromDiscriminatorValue} from './createUnified
 import {Entity, UnifiedRolePermission} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreement entities. */
 export class UnifiedRoleDefinition extends Entity implements Parsable {
     /** The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true. */
     private _description?: string | undefined;
