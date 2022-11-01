@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum CategoryColor {
     None = "none",
     Preset0 = "preset0",

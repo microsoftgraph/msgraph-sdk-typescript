@@ -2,7 +2,7 @@ import {createAgreementFileVersionFromDiscriminatorValue} from './createAgreemen
 import {AgreementFileProperties, AgreementFileVersion} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class AgreementFileLocalization extends AgreementFileProperties implements Parsable {
     /** Read-only. Customized versions of the terms of use agreement in the Azure AD tenant. */
     private _versions?: AgreementFileVersion[] | undefined;

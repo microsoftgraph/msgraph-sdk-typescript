@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {LongRunningOperationStatus} from './longRunningOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class LongRunningOperation extends Entity implements Parsable {
     /** The start time of the operation. */
     private _createdDateTime?: Date | undefined;

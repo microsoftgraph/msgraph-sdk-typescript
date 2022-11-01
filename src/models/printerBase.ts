@@ -6,6 +6,7 @@ import {createPrintJobFromDiscriminatorValue} from './createPrintJobFromDiscrimi
 import {Entity, PrinterCapabilities, PrinterDefaults, PrinterLocation, PrinterStatus, PrintJob} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class PrinterBase extends Entity implements Parsable {
     /** The capabilities of the printer/printerShare. */
     private _capabilities?: PrinterCapabilities | undefined;

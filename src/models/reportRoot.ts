@@ -1,6 +1,7 @@
 import {createPrintUsageByPrinterFromDiscriminatorValue} from './createPrintUsageByPrinterFromDiscriminatorValue';
 import {createPrintUsageByUserFromDiscriminatorValue} from './createPrintUsageByUserFromDiscriminatorValue';
-import {Entity, PrintUsageByPrinter, PrintUsageByUser} from './index';
+import {createSecurityReportsRootFromDiscriminatorValue} from './createSecurityReportsRootFromDiscriminatorValue';
+import {Entity, PrintUsageByPrinter, PrintUsageByUser, SecurityReportsRoot} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ReportRoot extends Entity implements Parsable {
@@ -12,6 +13,8 @@ export class ReportRoot extends Entity implements Parsable {
     private _monthlyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
     /** The monthlyPrintUsageByUser property */
     private _monthlyPrintUsageByUser?: PrintUsageByUser[] | undefined;
+    /** The security property */
+    private _security?: SecurityReportsRoot | undefined;
     /**
      * Instantiates a new ReportRoot and sets the default values.
      */
@@ -57,6 +60,7 @@ export class ReportRoot extends Entity implements Parsable {
             "dailyPrintUsageByUser": n => { this.dailyPrintUsageByUser = n.getCollectionOfObjectValues<PrintUsageByUser>(createPrintUsageByUserFromDiscriminatorValue); },
             "monthlyPrintUsageByPrinter": n => { this.monthlyPrintUsageByPrinter = n.getCollectionOfObjectValues<PrintUsageByPrinter>(createPrintUsageByPrinterFromDiscriminatorValue); },
             "monthlyPrintUsageByUser": n => { this.monthlyPrintUsageByUser = n.getCollectionOfObjectValues<PrintUsageByUser>(createPrintUsageByUserFromDiscriminatorValue); },
+            "security": n => { this.security = n.getObjectValue<SecurityReportsRoot>(createSecurityReportsRootFromDiscriminatorValue); },
         };
     };
     /**
@@ -88,6 +92,20 @@ export class ReportRoot extends Entity implements Parsable {
         this._monthlyPrintUsageByUser = value;
     };
     /**
+     * Gets the security property value. The security property
+     * @returns a securityReportsRoot
+     */
+    public get security() {
+        return this._security;
+    };
+    /**
+     * Sets the security property value. The security property
+     * @param value Value to set for the security property.
+     */
+    public set security(value: SecurityReportsRoot | undefined) {
+        this._security = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -98,5 +116,6 @@ export class ReportRoot extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<PrintUsageByUser>("dailyPrintUsageByUser", this.dailyPrintUsageByUser);
         writer.writeCollectionOfObjectValues<PrintUsageByPrinter>("monthlyPrintUsageByPrinter", this.monthlyPrintUsageByPrinter);
         writer.writeCollectionOfObjectValues<PrintUsageByUser>("monthlyPrintUsageByUser", this.monthlyPrintUsageByUser);
+        writer.writeObjectValue<SecurityReportsRoot>("security", this.security);
     };
 }

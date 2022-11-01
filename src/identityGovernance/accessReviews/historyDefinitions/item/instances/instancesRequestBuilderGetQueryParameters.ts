@@ -1,5 +1,5 @@
 
-/** If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that does not recur will have exactly one instance. */
+/** Retrieve the instances of an access review history definition created in the last 30 days. */
 export class InstancesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

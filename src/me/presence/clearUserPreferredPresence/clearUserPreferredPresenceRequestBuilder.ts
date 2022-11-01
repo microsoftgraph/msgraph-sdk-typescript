@@ -25,7 +25,7 @@ export class ClearUserPreferredPresenceRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action clearUserPreferredPresence
+     * Clear the preferred availability and activity status for a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class ClearUserPreferredPresenceRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action clearUserPreferredPresence
+     * Clear the preferred availability and activity status for a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */

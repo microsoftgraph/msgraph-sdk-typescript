@@ -7,6 +7,7 @@ import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFrom
 import {AccessReviewHistoryInstance, AccessReviewHistoryScheduleSettings, AccessReviewScope, Entity, UserIdentity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class AccessReviewHistoryDefinition extends Entity implements Parsable {
     /** The createdBy property */
     private _createdBy?: UserIdentity | undefined;
@@ -29,7 +30,7 @@ export class AccessReviewHistoryDefinition extends Entity implements Parsable {
     /** Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. */
     private _status?: AccessReviewHistoryStatus | undefined;
     /**
-     * Instantiates a new AccessReviewHistoryDefinition and sets the default values.
+     * Instantiates a new accessReviewHistoryDefinition and sets the default values.
      */
     public constructor() {
         super();

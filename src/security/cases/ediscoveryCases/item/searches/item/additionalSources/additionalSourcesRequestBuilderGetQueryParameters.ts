@@ -1,5 +1,5 @@
 
-/** Adds an additional source to the eDiscovery search. */
+/** Get the list of additional sources associated with an eDiscovery search. */
 export class AdditionalSourcesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

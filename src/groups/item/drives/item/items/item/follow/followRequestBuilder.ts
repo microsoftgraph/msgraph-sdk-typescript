@@ -27,7 +27,7 @@ export class FollowRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action follow
+     * Follow a driveItem.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -44,7 +44,7 @@ export class FollowRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action follow
+     * Follow a driveItem.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveItem

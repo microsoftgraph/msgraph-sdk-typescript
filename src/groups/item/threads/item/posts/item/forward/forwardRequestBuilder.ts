@@ -26,7 +26,7 @@ export class ForwardRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action forward
+     * Forward a post to a recipient. You can specify both the parent conversation and thread in the request, or, you can specify just the parent thread without the parent conversation. 
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -45,7 +45,7 @@ export class ForwardRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action forward
+     * Forward a post to a recipient. You can specify both the parent conversation and thread in the request, or, you can specify just the parent thread without the parent conversation. 
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

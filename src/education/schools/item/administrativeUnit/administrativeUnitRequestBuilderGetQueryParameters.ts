@@ -1,5 +1,5 @@
 
-/** The underlying administrativeUnit for this school. */
+/** Get a list of **administrativeUnits** associated with an educationSchool object. */
 export class AdministrativeUnitRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -4,7 +4,7 @@ import {Entity, IdentitySet, TeamworkBot} from './index';
 import {TeamsAppPublishingState} from './teamsAppPublishingState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the appCatalogs singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class TeamsAppDefinition extends Entity implements Parsable {
     /** The details of the bot specified in the Teams app manifest. */
     private _bot?: TeamworkBot | undefined;

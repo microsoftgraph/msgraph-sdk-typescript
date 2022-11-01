@@ -1,5 +1,5 @@
 
-/** List of channels either hosted in or shared with the team (incoming channels). */
+/** Get the list of channels either in this team or shared with this team (incoming channels). */
 export class AllChannelsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -18,7 +18,7 @@ export class EdiscoveryEstimateOperation extends CaseOperation implements Parsab
     /** The estimated size of unindexed items for the collection. */
     private _unindexedItemsSize?: number | undefined;
     /**
-     * Instantiates a new ediscoveryEstimateOperation and sets the default values.
+     * Instantiates a new EdiscoveryEstimateOperation and sets the default values.
      */
     public constructor() {
         super();

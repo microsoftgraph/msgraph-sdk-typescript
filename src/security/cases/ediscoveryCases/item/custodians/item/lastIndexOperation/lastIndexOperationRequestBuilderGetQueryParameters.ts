@@ -1,5 +1,5 @@
 
-/** Operation entity that represents the latest indexing for the custodian. */
+/** Get a list of the ediscoveryIndexOperations associated with an ediscoveryCustodian. */
 export class LastIndexOperationRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

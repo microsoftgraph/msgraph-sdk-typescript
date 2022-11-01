@@ -27,7 +27,7 @@ export class GetAvailableExtensionPropertiesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action getAvailableExtensionProperties
+     * Return all directory extension definitions that have been registered in a directory, including through multi-tenant apps. The following entities support extension properties:+ user+ group+ administrativeUnit+ application+ device+ organization
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -47,7 +47,7 @@ export class GetAvailableExtensionPropertiesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action getAvailableExtensionProperties
+     * Return all directory extension definitions that have been registered in a directory, including through multi-tenant apps. The following entities support extension properties:+ user+ group+ administrativeUnit+ application+ device+ organization
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

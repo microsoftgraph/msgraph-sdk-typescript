@@ -1,5 +1,5 @@
 
-/** The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application. */
+/** Get a list of claimsMappingPolicy objects. */
 export class ClaimsMappingPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

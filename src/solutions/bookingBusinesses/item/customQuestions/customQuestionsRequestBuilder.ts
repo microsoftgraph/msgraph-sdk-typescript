@@ -28,13 +28,13 @@ export class CustomQuestionsRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customQuestions{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}";
+        this.urlTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customQuestions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * All the custom questions of this business. Read-only. Nullable.
+     * Get the bookingCustomQuestion resources associated with a bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -52,7 +52,7 @@ export class CustomQuestionsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to customQuestions for solutions
+     * Create a new bookingCustomQuestion object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -72,7 +72,7 @@ export class CustomQuestionsRequestBuilder {
         return requestInfo;
     };
     /**
-     * All the custom questions of this business. Read-only. Nullable.
+     * Get the bookingCustomQuestion resources associated with a bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingCustomQuestionCollectionResponse
@@ -88,7 +88,7 @@ export class CustomQuestionsRequestBuilder {
         return this.requestAdapter?.sendAsync<BookingCustomQuestionCollectionResponse>(requestInfo, createBookingCustomQuestionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Create new navigation property to customQuestions for solutions
+     * Create a new bookingCustomQuestion object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

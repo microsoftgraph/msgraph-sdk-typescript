@@ -3,6 +3,7 @@ import {IdentityUserFlowAttributeType} from './identityUserFlowAttributeType';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class IdentityUserFlowAttribute extends Entity implements Parsable {
     /** The dataType property */
     private _dataType?: IdentityUserFlowAttributeDataType | undefined;

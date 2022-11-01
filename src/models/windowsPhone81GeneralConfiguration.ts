@@ -6,7 +6,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class WindowsPhone81GeneralConfiguration extends DeviceConfiguration implements Parsable {
     /** Value indicating whether this policy only applies to Windows Phone 8.1. This property is read-only. */
-    private _applyOnlyToWindowsPhone81?: boolean | undefined;
+    private readonly _applyOnlyToWindowsPhone81?: boolean | undefined;
     /** Indicates whether or not to block copy paste. */
     private _appsBlockCopyPaste?: boolean | undefined;
     /** Indicates whether or not to block bluetooth. */
@@ -422,7 +422,6 @@ export class WindowsPhone81GeneralConfiguration extends DeviceConfiguration impl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeBooleanValue("applyOnlyToWindowsPhone81", this.applyOnlyToWindowsPhone81);
         writer.writeBooleanValue("appsBlockCopyPaste", this.appsBlockCopyPaste);
         writer.writeBooleanValue("bluetoothBlocked", this.bluetoothBlocked);
         writer.writeBooleanValue("cameraBlocked", this.cameraBlocked);

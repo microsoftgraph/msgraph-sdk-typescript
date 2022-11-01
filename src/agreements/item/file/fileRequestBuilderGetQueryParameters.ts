@@ -1,5 +1,5 @@
 
-/** Default PDF linked to this agreement. */
+/** Retrieve the details of the default file for an agreement, including the language and version information. The file information is specified through the agreementFile object. */
 export class FileRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;
