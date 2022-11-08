@@ -1,5 +1,5 @@
 
-/** The software OATH TOTP applications registered to a user for authentication. */
+/** Retrieve a list of a user's software OATH token authentication method objects and their properties. */
 export class SoftwareOathMethodsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

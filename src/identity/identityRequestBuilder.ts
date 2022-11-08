@@ -17,19 +17,19 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the identityContainer singleton. */
 export class IdentityRequestBuilder {
-    /** The apiConnectors property */
+    /** Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity. */
     public get apiConnectors(): ApiConnectorsRequestBuilder {
         return new ApiConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The b2xUserFlows property */
+    /** Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity. */
     public get b2xUserFlows(): B2xUserFlowsRequestBuilder {
         return new B2xUserFlowsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The conditionalAccess property */
+    /** Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity. */
     public get conditionalAccess(): ConditionalAccessRequestBuilder {
         return new ConditionalAccessRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The identityProviders property */
+    /** Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity. */
     public get identityProviders(): IdentityProvidersRequestBuilder {
         return new IdentityProvidersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -39,12 +39,12 @@ export class IdentityRequestBuilder {
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The userFlowAttributes property */
+    /** Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity. */
     public get userFlowAttributes(): UserFlowAttributesRequestBuilder {
         return new UserFlowAttributesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.apiConnectors.item collection
+     * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
      * @param id Unique identifier of the item
      * @returns a IdentityApiConnectorItemRequestBuilder
      */
@@ -55,7 +55,7 @@ export class IdentityRequestBuilder {
         return new IdentityApiConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item collection
+     * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
      * @param id Unique identifier of the item
      * @returns a B2xIdentityUserFlowItemRequestBuilder
      */
@@ -108,6 +108,7 @@ export class IdentityRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -129,10 +130,10 @@ export class IdentityRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<IdentityContainer>(requestInfo, createIdentityContainerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<IdentityContainer>(requestInfo, createIdentityContainerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.identityProviders.item collection
+     * Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity.
      * @param id Unique identifier of the item
      * @returns a IdentityProviderBaseItemRequestBuilder
      */
@@ -147,8 +148,9 @@ export class IdentityRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of IdentityContainer
      */
-    public patch(body: IdentityContainer | undefined, requestConfiguration?: IdentityRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: IdentityContainer | undefined, requestConfiguration?: IdentityRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityContainer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -157,10 +159,10 @@ export class IdentityRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<IdentityContainer>(requestInfo, createIdentityContainerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.userFlowAttributes.item collection
+     * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
      * @param id Unique identifier of the item
      * @returns a IdentityUserFlowAttributeItemRequestBuilder
      */

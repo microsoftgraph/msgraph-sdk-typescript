@@ -10,7 +10,7 @@ import {OpenShiftItemRequestBuilder} from './openShifts/item/openShiftItemReques
 import {OpenShiftsRequestBuilder} from './openShifts/openShiftsRequestBuilder';
 import {ScheduleRequestBuilderDeleteRequestConfiguration} from './scheduleRequestBuilderDeleteRequestConfiguration';
 import {ScheduleRequestBuilderGetRequestConfiguration} from './scheduleRequestBuilderGetRequestConfiguration';
-import {ScheduleRequestBuilderPatchRequestConfiguration} from './scheduleRequestBuilderPatchRequestConfiguration';
+import {ScheduleRequestBuilderPutRequestConfiguration} from './scheduleRequestBuilderPutRequestConfiguration';
 import {SchedulingGroupItemRequestBuilder} from './schedulingGroups/item/schedulingGroupItemRequestBuilder';
 import {SchedulingGroupsRequestBuilder} from './schedulingGroups/schedulingGroupsRequestBuilder';
 import {ShareRequestBuilder} from './share/shareRequestBuilder';
@@ -28,15 +28,15 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the schedule property of the microsoft.graph.team entity. */
 export class ScheduleRequestBuilder {
-    /** The offerShiftRequests property */
+    /** Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity. */
     public get offerShiftRequests(): OfferShiftRequestsRequestBuilder {
         return new OfferShiftRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The openShiftChangeRequests property */
+    /** Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity. */
     public get openShiftChangeRequests(): OpenShiftChangeRequestsRequestBuilder {
         return new OpenShiftChangeRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The openShifts property */
+    /** Provides operations to manage the openShifts property of the microsoft.graph.schedule entity. */
     public get openShifts(): OpenShiftsRequestBuilder {
         return new OpenShiftsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,31 +44,31 @@ export class ScheduleRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The schedulingGroups property */
+    /** Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity. */
     public get schedulingGroups(): SchedulingGroupsRequestBuilder {
         return new SchedulingGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The share property */
+    /** Provides operations to call the share method. */
     public get share(): ShareRequestBuilder {
         return new ShareRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The shifts property */
+    /** Provides operations to manage the shifts property of the microsoft.graph.schedule entity. */
     public get shifts(): ShiftsRequestBuilder {
         return new ShiftsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The swapShiftsChangeRequests property */
+    /** Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity. */
     public get swapShiftsChangeRequests(): SwapShiftsChangeRequestsRequestBuilder {
         return new SwapShiftsChangeRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The timeOffReasons property */
+    /** Provides operations to manage the timeOffReasons property of the microsoft.graph.schedule entity. */
     public get timeOffReasons(): TimeOffReasonsRequestBuilder {
         return new TimeOffReasonsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The timeOffRequests property */
+    /** Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity. */
     public get timeOffRequests(): TimeOffRequestsRequestBuilder {
         return new TimeOffRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The timesOff property */
+    /** Provides operations to manage the timesOff property of the microsoft.graph.schedule entity. */
     public get timesOff(): TimesOffRequestBuilder {
         return new TimesOffRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -104,7 +104,7 @@ export class ScheduleRequestBuilder {
         return requestInfo;
     };
     /**
-     * The schedule of shifts for this team.
+     * Retrieve the properties and relationships of a schedule object. The schedule creation process conforms to the One API guideline for resource based long running operations (RELO).When clients use the PUT method, if the schedule is provisioned, the operation updates the schedule; otherwise, the operation starts the schedule provisioning process in the background. During schedule provisioning, clients can use the GET method to get the schedule and look at the `provisionStatus` property for the current state of the provisioning. If the provisioning failed, clients can get additional information from the `provisionStatusCode` property. Clients can also inspect the configuration of the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -127,12 +127,13 @@ export class ScheduleRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Schedule | undefined, requestConfiguration?: ScheduleRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public createPutRequestInformation(body: Schedule | undefined, requestConfiguration?: ScheduleRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.httpMethod = HttpMethod.PUT;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -153,10 +154,10 @@ export class ScheduleRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The schedule of shifts for this team.
+     * Retrieve the properties and relationships of a schedule object. The schedule creation process conforms to the One API guideline for resource based long running operations (RELO).When clients use the PUT method, if the schedule is provisioned, the operation updates the schedule; otherwise, the operation starts the schedule provisioning process in the background. During schedule provisioning, clients can use the GET method to get the schedule and look at the `provisionStatus` property for the current state of the provisioning. If the provisioning failed, clients can get additional information from the `provisionStatusCode` property. Clients can also inspect the configuration of the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Schedule
@@ -169,10 +170,10 @@ export class ScheduleRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Schedule>(requestInfo, createScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Schedule>(requestInfo, createScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.team.schedule.offerShiftRequests.item collection
+     * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
      * @param id Unique identifier of the item
      * @returns a OfferShiftRequestItemRequestBuilder
      */
@@ -183,7 +184,7 @@ export class ScheduleRequestBuilder {
         return new OfferShiftRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.team.schedule.openShiftChangeRequests.item collection
+     * Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.
      * @param id Unique identifier of the item
      * @returns a OpenShiftChangeRequestItemRequestBuilder
      */
@@ -194,7 +195,7 @@ export class ScheduleRequestBuilder {
         return new OpenShiftChangeRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.team.schedule.openShifts.item collection
+     * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
      * @param id Unique identifier of the item
      * @returns a OpenShiftItemRequestBuilder
      */
@@ -209,20 +210,21 @@ export class ScheduleRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Schedule
      */
-    public patch(body: Schedule | undefined, requestConfiguration?: ScheduleRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public put(body: Schedule | undefined, requestConfiguration?: ScheduleRequestBuilderPutRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Schedule | undefined> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInformation(
+        const requestInfo = this.createPutRequestInformation(
             body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Schedule>(requestInfo, createScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.team.schedule.schedulingGroups.item collection
+     * Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.
      * @param id Unique identifier of the item
      * @returns a SchedulingGroupItemRequestBuilder
      */
@@ -233,7 +235,7 @@ export class ScheduleRequestBuilder {
         return new SchedulingGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.team.schedule.shifts.item collection
+     * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
      * @param id Unique identifier of the item
      * @returns a ShiftItemRequestBuilder
      */
@@ -244,7 +246,7 @@ export class ScheduleRequestBuilder {
         return new ShiftItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.team.schedule.swapShiftsChangeRequests.item collection
+     * Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity.
      * @param id Unique identifier of the item
      * @returns a SwapShiftsChangeRequestItemRequestBuilder
      */
@@ -255,7 +257,7 @@ export class ScheduleRequestBuilder {
         return new SwapShiftsChangeRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.team.schedule.timeOffReasons.item collection
+     * Provides operations to manage the timeOffReasons property of the microsoft.graph.schedule entity.
      * @param id Unique identifier of the item
      * @returns a TimeOffReasonItemRequestBuilder
      */
@@ -266,7 +268,7 @@ export class ScheduleRequestBuilder {
         return new TimeOffReasonItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.team.schedule.timeOffRequests.item collection
+     * Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity.
      * @param id Unique identifier of the item
      * @returns a TimeOffRequestItemRequestBuilder
      */
@@ -277,7 +279,7 @@ export class ScheduleRequestBuilder {
         return new TimeOffRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.team.schedule.timesOff.item collection
+     * Provides operations to manage the timesOff property of the microsoft.graph.schedule entity.
      * @param id Unique identifier of the item
      * @returns a TimeOffItemRequestBuilder
      */

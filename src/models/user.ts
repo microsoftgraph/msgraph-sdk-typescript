@@ -3,6 +3,7 @@ import {createAppRoleAssignmentFromDiscriminatorValue} from './createAppRoleAssi
 import {createAssignedLicenseFromDiscriminatorValue} from './createAssignedLicenseFromDiscriminatorValue';
 import {createAssignedPlanFromDiscriminatorValue} from './createAssignedPlanFromDiscriminatorValue';
 import {createAuthenticationFromDiscriminatorValue} from './createAuthenticationFromDiscriminatorValue';
+import {createAuthorizationInfoFromDiscriminatorValue} from './createAuthorizationInfoFromDiscriminatorValue';
 import {createCalendarFromDiscriminatorValue} from './createCalendarFromDiscriminatorValue';
 import {createCalendarGroupFromDiscriminatorValue} from './createCalendarGroupFromDiscriminatorValue';
 import {createChatFromDiscriminatorValue} from './createChatFromDiscriminatorValue';
@@ -43,7 +44,7 @@ import {createTodoFromDiscriminatorValue} from './createTodoFromDiscriminatorVal
 import {createUserActivityFromDiscriminatorValue} from './createUserActivityFromDiscriminatorValue';
 import {createUserSettingsFromDiscriminatorValue} from './createUserSettingsFromDiscriminatorValue';
 import {createUserTeamworkFromDiscriminatorValue} from './createUserTeamworkFromDiscriminatorValue';
-import {AgreementAcceptance, AppRoleAssignment, AssignedLicense, AssignedPlan, Authentication, Calendar, CalendarGroup, Chat, Contact, ContactFolder, DeviceManagementTroubleshootingEvent, DirectoryObject, Drive, EmployeeOrgData, Event, Extension, InferenceClassification, LicenseAssignmentState, LicenseDetails, MailboxSettings, MailFolder, ManagedAppRegistration, ManagedDevice, Message, OAuth2PermissionGrant, ObjectIdentity, OfficeGraphInsights, Onenote, OnlineMeeting, OnPremisesExtensionAttributes, OnPremisesProvisioningError, OutlookUser, PasswordProfile, Person, PlannerUser, Presence, ProfilePhoto, ProvisionedPlan, ScopedRoleMembership, Site, Team, Todo, UserActivity, UserSettings, UserTeamwork} from './index';
+import {AgreementAcceptance, AppRoleAssignment, AssignedLicense, AssignedPlan, Authentication, AuthorizationInfo, Calendar, CalendarGroup, Chat, Contact, ContactFolder, DeviceManagementTroubleshootingEvent, DirectoryObject, Drive, EmployeeOrgData, Event, Extension, InferenceClassification, LicenseAssignmentState, LicenseDetails, MailboxSettings, MailFolder, ManagedAppRegistration, ManagedDevice, Message, OAuth2PermissionGrant, ObjectIdentity, OfficeGraphInsights, Onenote, OnlineMeeting, OnPremisesExtensionAttributes, OnPremisesProvisioningError, OutlookUser, PasswordProfile, Person, PlannerUser, Presence, ProfilePhoto, ProvisionedPlan, ScopedRoleMembership, Site, Team, Todo, UserActivity, UserSettings, UserTeamwork} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class User extends DirectoryObject implements Parsable {
@@ -59,12 +60,14 @@ export class User extends DirectoryObject implements Parsable {
     private _agreementAcceptances?: AgreementAcceptance[] | undefined;
     /** Represents the app roles a user has been granted for an application. Supports $expand. */
     private _appRoleAssignments?: AppRoleAssignment[] | undefined;
-    /** The licenses that are assigned to the user, including inherited (group-based) licenses.  Not nullable. Returned only on $select. Supports $filter (eq, not, and counting empty collections). */
+    /** The licenses that are assigned to the user, including inherited (group-based) licenses. This property doesn't differentiate directly-assigned and inherited licenses. Use the licenseAssignmentStates property to identify the directly-assigned and inherited licenses.  Not nullable. Returned only on $select. Supports $filter (eq, not, and counting empty collections). */
     private _assignedLicenses?: AssignedLicense[] | undefined;
     /** The plans that are assigned to the user. Read-only. Not nullable. Returned only on $select. Supports $filter (eq and not). */
     private _assignedPlans?: AssignedPlan[] | undefined;
     /** The authentication methods that are supported for the user. */
     private _authentication?: Authentication | undefined;
+    /** The authorizationInfo property */
+    private _authorizationInfo?: AuthorizationInfo | undefined;
     /** The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned only on $select. */
     private _birthday?: Date | undefined;
     /** The telephone numbers for the user. NOTE: Although this is a string collection, only one number can be set for this property. Read-only for users synced from on-premises directory. Returned by default. Supports $filter (eq, not, ge, le, startsWith). */
@@ -91,7 +94,7 @@ export class User extends DirectoryObject implements Parsable {
     private _contacts?: Contact[] | undefined;
     /** The country/region in which the user is located; for example, US or UK. Maximum length is 128 characters. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     private _country?: string | undefined;
-    /** The created date of the user object. Read-only. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in). */
+    /** The date and time the user was created, in ISO 8601 format and in UTC time. The value cannot be modified and is automatically populated when the entity is created. Nullable. For on-premises users, the value represents when they were first created in Azure AD. Property is null for some users created before June 2018 and on-premises users that were synced to Azure AD before June 2018. Read-only.  Read-only. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in). */
     private _createdDateTime?: Date | undefined;
     /** Directory objects that were created by the user. Read-only. Nullable. */
     private _createdObjects?: DirectoryObject[] | undefined;
@@ -155,7 +158,7 @@ export class User extends DirectoryObject implements Parsable {
     private _lastPasswordChangeDateTime?: Date | undefined;
     /** Used by enterprise applications to determine the legal age group of the user. This property is read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, MinorWithOutParentalConsent, MinorWithParentalConsent, MinorNoParentalConsentRequired, NotAdult and Adult. Refer to the legal age group property definitions for further information. Returned only on $select. */
     private _legalAgeGroupClassification?: string | undefined;
-    /** State of license assignments for this user. Read-only. Returned only on $select. */
+    /** State of license assignments for this user. Also indicates licenses that are directly-assigned and those that the user has inherited through group memberships. Read-only. Returned only on $select. */
     private _licenseAssignmentStates?: LicenseAssignmentState[] | undefined;
     /** A collection of this user's license details. Read-only. */
     private _licenseDetails?: LicenseDetails[] | undefined;
@@ -366,14 +369,14 @@ export class User extends DirectoryObject implements Parsable {
         this._appRoleAssignments = value;
     };
     /**
-     * Gets the assignedLicenses property value. The licenses that are assigned to the user, including inherited (group-based) licenses.  Not nullable. Returned only on $select. Supports $filter (eq, not, and counting empty collections).
+     * Gets the assignedLicenses property value. The licenses that are assigned to the user, including inherited (group-based) licenses. This property doesn't differentiate directly-assigned and inherited licenses. Use the licenseAssignmentStates property to identify the directly-assigned and inherited licenses.  Not nullable. Returned only on $select. Supports $filter (eq, not, and counting empty collections).
      * @returns a assignedLicense
      */
     public get assignedLicenses() {
         return this._assignedLicenses;
     };
     /**
-     * Sets the assignedLicenses property value. The licenses that are assigned to the user, including inherited (group-based) licenses.  Not nullable. Returned only on $select. Supports $filter (eq, not, and counting empty collections).
+     * Sets the assignedLicenses property value. The licenses that are assigned to the user, including inherited (group-based) licenses. This property doesn't differentiate directly-assigned and inherited licenses. Use the licenseAssignmentStates property to identify the directly-assigned and inherited licenses.  Not nullable. Returned only on $select. Supports $filter (eq, not, and counting empty collections).
      * @param value Value to set for the assignedLicenses property.
      */
     public set assignedLicenses(value: AssignedLicense[] | undefined) {
@@ -406,6 +409,20 @@ export class User extends DirectoryObject implements Parsable {
      */
     public set authentication(value: Authentication | undefined) {
         this._authentication = value;
+    };
+    /**
+     * Gets the authorizationInfo property value. The authorizationInfo property
+     * @returns a authorizationInfo
+     */
+    public get authorizationInfo() {
+        return this._authorizationInfo;
+    };
+    /**
+     * Sets the authorizationInfo property value. The authorizationInfo property
+     * @param value Value to set for the authorizationInfo property.
+     */
+    public set authorizationInfo(value: AuthorizationInfo | undefined) {
+        this._authorizationInfo = value;
     };
     /**
      * Gets the birthday property value. The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned only on $select.
@@ -597,14 +614,14 @@ export class User extends DirectoryObject implements Parsable {
         this._country = value;
     };
     /**
-     * Gets the createdDateTime property value. The created date of the user object. Read-only. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in).
+     * Gets the createdDateTime property value. The date and time the user was created, in ISO 8601 format and in UTC time. The value cannot be modified and is automatically populated when the entity is created. Nullable. For on-premises users, the value represents when they were first created in Azure AD. Property is null for some users created before June 2018 and on-premises users that were synced to Azure AD before June 2018. Read-only.  Read-only. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in).
      * @returns a Date
      */
     public get createdDateTime() {
         return this._createdDateTime;
     };
     /**
-     * Sets the createdDateTime property value. The created date of the user object. Read-only. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in).
+     * Sets the createdDateTime property value. The date and time the user was created, in ISO 8601 format and in UTC time. The value cannot be modified and is automatically populated when the entity is created. Nullable. For on-premises users, the value represents when they were first created in Azure AD. Property is null for some users created before June 2018 and on-premises users that were synced to Azure AD before June 2018. Read-only.  Read-only. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in).
      * @param value Value to set for the createdDateTime property.
      */
     public set createdDateTime(value: Date | undefined) {
@@ -891,6 +908,7 @@ export class User extends DirectoryObject implements Parsable {
             "assignedLicenses": n => { this.assignedLicenses = n.getCollectionOfObjectValues<AssignedLicense>(createAssignedLicenseFromDiscriminatorValue); },
             "assignedPlans": n => { this.assignedPlans = n.getCollectionOfObjectValues<AssignedPlan>(createAssignedPlanFromDiscriminatorValue); },
             "authentication": n => { this.authentication = n.getObjectValue<Authentication>(createAuthenticationFromDiscriminatorValue); },
+            "authorizationInfo": n => { this.authorizationInfo = n.getObjectValue<AuthorizationInfo>(createAuthorizationInfoFromDiscriminatorValue); },
             "birthday": n => { this.birthday = n.getDateValue(); },
             "businessPhones": n => { this.businessPhones = n.getCollectionOfPrimitiveValues<string>(); },
             "calendar": n => { this.calendar = n.getObjectValue<Calendar>(createCalendarFromDiscriminatorValue); },
@@ -1170,14 +1188,14 @@ export class User extends DirectoryObject implements Parsable {
         this._legalAgeGroupClassification = value;
     };
     /**
-     * Gets the licenseAssignmentStates property value. State of license assignments for this user. Read-only. Returned only on $select.
+     * Gets the licenseAssignmentStates property value. State of license assignments for this user. Also indicates licenses that are directly-assigned and those that the user has inherited through group memberships. Read-only. Returned only on $select.
      * @returns a licenseAssignmentState
      */
     public get licenseAssignmentStates() {
         return this._licenseAssignmentStates;
     };
     /**
-     * Sets the licenseAssignmentStates property value. State of license assignments for this user. Read-only. Returned only on $select.
+     * Sets the licenseAssignmentStates property value. State of license assignments for this user. Also indicates licenses that are directly-assigned and those that the user has inherited through group memberships. Read-only. Returned only on $select.
      * @param value Value to set for the licenseAssignmentStates property.
      */
     public set licenseAssignmentStates(value: LicenseAssignmentState[] | undefined) {
@@ -1885,6 +1903,7 @@ export class User extends DirectoryObject implements Parsable {
         writer.writeCollectionOfObjectValues<AssignedLicense>("assignedLicenses", this.assignedLicenses);
         writer.writeCollectionOfObjectValues<AssignedPlan>("assignedPlans", this.assignedPlans);
         writer.writeObjectValue<Authentication>("authentication", this.authentication);
+        writer.writeObjectValue<AuthorizationInfo>("authorizationInfo", this.authorizationInfo);
         writer.writeDateValue("birthday", this.birthday);
         writer.writeCollectionOfPrimitiveValues<string>("businessPhones", this.businessPhones);
         writer.writeObjectValue<Calendar>("calendar", this.calendar);

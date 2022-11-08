@@ -31,11 +31,13 @@ export class BookingBusiness extends Entity implements Parsable {
     /** The email address for the business. */
     private _email?: string | undefined;
     /** The scheduling page has been made available to external customers. Use the publish and unpublish actions to set this property. Read-only. */
-    private _isPublished?: boolean | undefined;
+    private readonly _isPublished?: boolean | undefined;
+    /** The languageTag property */
+    private _languageTag?: string | undefined;
     /** The telephone number for the business. The phone property, together with address and webSiteUrl, appear in the footer of a business scheduling page. */
     private _phone?: string | undefined;
     /** The URL for the scheduling page, which is set after you publish or unpublish the page. Read-only. */
-    private _publicUrl?: string | undefined;
+    private readonly _publicUrl?: string | undefined;
     /** Specifies how bookings can be created for this business. */
     private _schedulingPolicy?: BookingSchedulingPolicy | undefined;
     /** All the services offered by this business. Read-only. Nullable. */
@@ -208,6 +210,7 @@ export class BookingBusiness extends Entity implements Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "email": n => { this.email = n.getStringValue(); },
             "isPublished": n => { this.isPublished = n.getBooleanValue(); },
+            "languageTag": n => { this.languageTag = n.getStringValue(); },
             "phone": n => { this.phone = n.getStringValue(); },
             "publicUrl": n => { this.publicUrl = n.getStringValue(); },
             "schedulingPolicy": n => { this.schedulingPolicy = n.getObjectValue<BookingSchedulingPolicy>(createBookingSchedulingPolicyFromDiscriminatorValue); },
@@ -229,6 +232,20 @@ export class BookingBusiness extends Entity implements Parsable {
      */
     public set isPublished(value: boolean | undefined) {
         this._isPublished = value;
+    };
+    /**
+     * Gets the languageTag property value. The languageTag property
+     * @returns a string
+     */
+    public get languageTag() {
+        return this._languageTag;
+    };
+    /**
+     * Sets the languageTag property value. The languageTag property
+     * @param value Value to set for the languageTag property.
+     */
+    public set languageTag(value: string | undefined) {
+        this._languageTag = value;
     };
     /**
      * Gets the phone property value. The telephone number for the business. The phone property, together with address and webSiteUrl, appear in the footer of a business scheduling page.
@@ -289,9 +306,8 @@ export class BookingBusiness extends Entity implements Parsable {
         writer.writeStringValue("defaultCurrencyIso", this.defaultCurrencyIso);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("email", this.email);
-        writer.writeBooleanValue("isPublished", this.isPublished);
+        writer.writeStringValue("languageTag", this.languageTag);
         writer.writeStringValue("phone", this.phone);
-        writer.writeStringValue("publicUrl", this.publicUrl);
         writer.writeObjectValue<BookingSchedulingPolicy>("schedulingPolicy", this.schedulingPolicy);
         writer.writeCollectionOfObjectValues<BookingService>("services", this.services);
         writer.writeCollectionOfObjectValues<BookingStaffMemberBase>("staffMembers", this.staffMembers);

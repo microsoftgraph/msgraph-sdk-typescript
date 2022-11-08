@@ -1,5 +1,5 @@
 
-/** A collection of all the members in the chat. Nullable. */
+/** List all conversation members in a chat. This method supports federation. For one-on-one chats, at least one chat member must belong to the tenant the request initiates from. For group chats, the chat must be initiated by a user in the tenant the request initiates from. */
 export class MembersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -8,7 +8,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the filesFolder property of the microsoft.graph.channel entity. */
 export class FilesFolderRequestBuilder {
-    /** The content property */
+    /** Provides operations to manage the media for the group entity. */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -32,7 +32,7 @@ export class FilesFolderRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Metadata for the location where the channel's files are stored.
+     * Get the metadata for the location where the files of a channel are stored. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -50,7 +50,7 @@ export class FilesFolderRequestBuilder {
         return requestInfo;
     };
     /**
-     * Metadata for the location where the channel's files are stored.
+     * Get the metadata for the location where the files of a channel are stored. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveItem
@@ -63,6 +63,6 @@ export class FilesFolderRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

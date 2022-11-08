@@ -1,5 +1,5 @@
 
-/** Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive. */
+/** Get a list of all the [bundles][bundle] in a user's drive. */
 export class BundlesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

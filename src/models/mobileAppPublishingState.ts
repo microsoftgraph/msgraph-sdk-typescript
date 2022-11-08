@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the deviceAppManagement singleton. */
 export enum MobileAppPublishingState {
     /** The app is not yet published. */
     NotPublished = "notPublished",

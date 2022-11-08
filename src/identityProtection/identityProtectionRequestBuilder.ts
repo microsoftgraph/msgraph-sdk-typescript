@@ -16,11 +16,11 @@ export class IdentityProtectionRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The riskDetections property */
+    /** Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity. */
     public get riskDetections(): RiskDetectionsRequestBuilder {
         return new RiskDetectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The riskyUsers property */
+    /** Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity. */
     public get riskyUsers(): RiskyUsersRequestBuilder {
         return new RiskyUsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -69,6 +69,7 @@ export class IdentityProtectionRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -90,15 +91,16 @@ export class IdentityProtectionRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<IdentityProtectionRoot>(requestInfo, createIdentityProtectionRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<IdentityProtectionRoot>(requestInfo, createIdentityProtectionRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update identityProtection
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of IdentityProtectionRoot
      */
-    public patch(body: IdentityProtectionRoot | undefined, requestConfiguration?: IdentityProtectionRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: IdentityProtectionRoot | undefined, requestConfiguration?: IdentityProtectionRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityProtectionRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -107,10 +109,10 @@ export class IdentityProtectionRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<IdentityProtectionRoot>(requestInfo, createIdentityProtectionRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityProtection.riskDetections.item collection
+     * Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity.
      * @param id Unique identifier of the item
      * @returns a RiskDetectionItemRequestBuilder
      */
@@ -121,7 +123,7 @@ export class IdentityProtectionRequestBuilder {
         return new RiskDetectionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityProtection.riskyUsers.item collection
+     * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
      * @param id Unique identifier of the item
      * @returns a RiskyUserItemRequestBuilder
      */

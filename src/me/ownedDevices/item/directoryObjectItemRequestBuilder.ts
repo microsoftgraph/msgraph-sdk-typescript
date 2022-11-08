@@ -10,15 +10,15 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the ownedDevices property of the microsoft.graph.user entity. */
 export class DirectoryObjectItemRequestBuilder {
-    /** The appRoleAssignment property */
+    /** Casts the previous resource to appRoleAssignment. */
     public get appRoleAssignment(): AppRoleAssignmentRequestBuilder {
         return new AppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The device property */
+    /** Casts the previous resource to device. */
     public get device(): DeviceRequestBuilder {
         return new DeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The endpoint property */
+    /** Casts the previous resource to endpoint. */
     public get endpoint(): EndpointRequestBuilder {
         return new EndpointRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -73,6 +73,6 @@ export class DirectoryObjectItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

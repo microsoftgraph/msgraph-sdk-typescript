@@ -23,50 +23,50 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the contentTypes property of the microsoft.graph.list entity. */
 export class ContentTypeItemRequestBuilder {
-    /** The associateWithHubSites property */
+    /** Provides operations to call the associateWithHubSites method. */
     public get associateWithHubSites(): AssociateWithHubSitesRequestBuilder {
         return new AssociateWithHubSitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The base property */
+    /** Provides operations to manage the base property of the microsoft.graph.contentType entity. */
     public get base(): BaseRequestBuilder {
         return new BaseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The baseTypes property */
+    /** Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity. */
     public get baseTypes(): BaseTypesRequestBuilder {
         return new BaseTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The columnLinks property */
+    /** Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity. */
     public get columnLinks(): ColumnLinksRequestBuilder {
         return new ColumnLinksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The columnPositions property */
+    /** Provides operations to manage the columnPositions property of the microsoft.graph.contentType entity. */
     public get columnPositions(): ColumnPositionsRequestBuilder {
         return new ColumnPositionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The columns property */
+    /** Provides operations to manage the columns property of the microsoft.graph.contentType entity. */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The copyToDefaultContentLocation property */
+    /** Provides operations to call the copyToDefaultContentLocation method. */
     public get copyToDefaultContentLocation(): CopyToDefaultContentLocationRequestBuilder {
         return new CopyToDefaultContentLocationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The publish property */
+    /** Provides operations to call the publish method. */
     public get publish(): PublishRequestBuilder {
         return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The unpublish property */
+    /** Provides operations to call the unpublish method. */
     public get unpublish(): UnpublishRequestBuilder {
         return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.contentTypes.item.baseTypes.item collection
+     * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
      * @param id Unique identifier of the item
      * @returns a ContentTypeItemRequestBuilder
      */
@@ -77,7 +77,7 @@ export class ContentTypeItemRequestBuilder {
         return new i683ba782b03ecbc1af5179f54dbe4760e76421ce94982cba7260978194b0cc8d(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.contentTypes.item.columnLinks.item collection
+     * Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity.
      * @param id Unique identifier of the item
      * @returns a ColumnLinkItemRequestBuilder
      */
@@ -88,7 +88,7 @@ export class ContentTypeItemRequestBuilder {
         return new ColumnLinkItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.contentTypes.item.columnPositions.item collection
+     * Provides operations to manage the columnPositions property of the microsoft.graph.contentType entity.
      * @param id Unique identifier of the item
      * @returns a ColumnDefinitionItemRequestBuilder
      */
@@ -99,7 +99,7 @@ export class ContentTypeItemRequestBuilder {
         return new i72c7145f7164e79eb322cf9047c9f788eef8bc776c105e2460d78408d40a139b(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.contentTypes.item.columns.item collection
+     * Provides operations to manage the columns property of the microsoft.graph.contentType entity.
      * @param id Unique identifier of the item
      * @returns a ColumnDefinitionItemRequestBuilder
      */
@@ -168,6 +168,7 @@ export class ContentTypeItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -188,7 +189,7 @@ export class ContentTypeItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * The collection of content types present in this list.
@@ -204,7 +205,7 @@ export class ContentTypeItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Provides operations to call the isPublished method.
@@ -218,8 +219,9 @@ export class ContentTypeItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ContentType
      */
-    public patch(body: ContentType | undefined, requestConfiguration?: ContentTypeItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ContentType | undefined, requestConfiguration?: ContentTypeItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -228,6 +230,6 @@ export class ContentTypeItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

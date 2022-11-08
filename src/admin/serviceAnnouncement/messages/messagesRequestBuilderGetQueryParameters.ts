@@ -1,5 +1,5 @@
 
-/** A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly. */
+/** Retrieve the serviceUpdateMessage resources from the **messages** navigation property. This operation retrieves all service update messages that exist for the tenant. */
 export class MessagesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -13,15 +13,15 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the contentTypes property of the microsoft.graph.list entity. */
 export class ContentTypesRequestBuilder {
-    /** The addCopy property */
+    /** Provides operations to call the addCopy method. */
     public get addCopy(): AddCopyRequestBuilder {
         return new AddCopyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The addCopyFromContentTypeHub property */
+    /** Provides operations to call the addCopyFromContentTypeHub method. */
     public get addCopyFromContentTypeHub(): AddCopyFromContentTypeHubRequestBuilder {
         return new AddCopyFromContentTypeHubRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The Count property */
+    /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -39,13 +39,13 @@ export class ContentTypesRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drive/list/contentTypes{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}";
+        this.urlTemplate = "{+baseurl}/drive/list/contentTypes{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The collection of content types present in this list.
+     * Get the collection of [contentType][contentType] resources in a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -83,7 +83,7 @@ export class ContentTypesRequestBuilder {
         return requestInfo;
     };
     /**
-     * The collection of content types present in this list.
+     * Get the collection of [contentType][contentType] resources in a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentTypeCollectionResponse
@@ -96,7 +96,7 @@ export class ContentTypesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ContentTypeCollectionResponse>(requestInfo, createContentTypeCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ContentTypeCollectionResponse>(requestInfo, createContentTypeCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Provides operations to call the getCompatibleHubContentTypes method.
@@ -121,6 +121,6 @@ export class ContentTypesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

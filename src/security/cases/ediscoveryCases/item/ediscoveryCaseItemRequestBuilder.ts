@@ -24,43 +24,43 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity. */
 export class EdiscoveryCaseItemRequestBuilder {
-    /** The close property */
+    /** Provides operations to call the close method. */
     public get close(): CloseRequestBuilder {
         return new CloseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The custodians property */
+    /** Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity. */
     public get custodians(): CustodiansRequestBuilder {
         return new CustodiansRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The noncustodialDataSources property */
+    /** Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity. */
     public get noncustodialDataSources(): NoncustodialDataSourcesRequestBuilder {
         return new NoncustodialDataSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The operations property */
+    /** Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity. */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The reopen property */
+    /** Provides operations to call the reopen method. */
     public get reopen(): ReopenRequestBuilder {
         return new ReopenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The reviewSets property */
+    /** Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity. */
     public get reviewSets(): ReviewSetsRequestBuilder {
         return new ReviewSetsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The searches property */
+    /** Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity. */
     public get searches(): SearchesRequestBuilder {
         return new SearchesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The settings property */
+    /** Provides operations to manage the settings property of the microsoft.graph.security.ediscoveryCase entity. */
     public get settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The tags property */
+    /** Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity. */
     public get tags(): TagsRequestBuilder {
         return new TagsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -125,6 +125,7 @@ export class EdiscoveryCaseItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -133,7 +134,7 @@ export class EdiscoveryCaseItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.cases.ediscoveryCases.item.custodians.item collection
+     * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
      * @param id Unique identifier of the item
      * @returns a EdiscoveryCustodianItemRequestBuilder
      */
@@ -156,7 +157,7 @@ export class EdiscoveryCaseItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Get ediscoveryCases from security
@@ -172,10 +173,10 @@ export class EdiscoveryCaseItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EdiscoveryCase>(requestInfo, createEdiscoveryCaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EdiscoveryCase>(requestInfo, createEdiscoveryCaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.cases.ediscoveryCases.item.noncustodialDataSources.item collection
+     * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity.
      * @param id Unique identifier of the item
      * @returns a EdiscoveryNoncustodialDataSourceItemRequestBuilder
      */
@@ -186,7 +187,7 @@ export class EdiscoveryCaseItemRequestBuilder {
         return new EdiscoveryNoncustodialDataSourceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.cases.ediscoveryCases.item.operations.item collection
+     * Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity.
      * @param id Unique identifier of the item
      * @returns a CaseOperationItemRequestBuilder
      */
@@ -201,8 +202,9 @@ export class EdiscoveryCaseItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of EdiscoveryCase
      */
-    public patch(body: EdiscoveryCase | undefined, requestConfiguration?: EdiscoveryCaseItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: EdiscoveryCase | undefined, requestConfiguration?: EdiscoveryCaseItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryCase | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -211,10 +213,10 @@ export class EdiscoveryCaseItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EdiscoveryCase>(requestInfo, createEdiscoveryCaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.cases.ediscoveryCases.item.reviewSets.item collection
+     * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
      * @param id Unique identifier of the item
      * @returns a EdiscoveryReviewSetItemRequestBuilder
      */
@@ -225,7 +227,7 @@ export class EdiscoveryCaseItemRequestBuilder {
         return new EdiscoveryReviewSetItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.cases.ediscoveryCases.item.searches.item collection
+     * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
      * @param id Unique identifier of the item
      * @returns a EdiscoverySearchItemRequestBuilder
      */
@@ -236,7 +238,7 @@ export class EdiscoveryCaseItemRequestBuilder {
         return new EdiscoverySearchItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.cases.ediscoveryCases.item.tags.item collection
+     * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
      * @param id Unique identifier of the item
      * @returns a EdiscoveryReviewTagItemRequestBuilder
      */

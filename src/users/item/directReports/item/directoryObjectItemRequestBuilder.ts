@@ -9,7 +9,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the directReports property of the microsoft.graph.user entity. */
 export class DirectoryObjectItemRequestBuilder {
-    /** The orgContact property */
+    /** Casts the previous resource to orgContact. */
     public get orgContact(): OrgContactRequestBuilder {
         return new OrgContactRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -19,7 +19,7 @@ export class DirectoryObjectItemRequestBuilder {
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The user property */
+    /** Casts the previous resource to user. */
     public get user(): UserRequestBuilder {
         return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -68,6 +68,6 @@ export class DirectoryObjectItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

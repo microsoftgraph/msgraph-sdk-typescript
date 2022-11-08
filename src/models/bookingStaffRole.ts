@@ -5,4 +5,6 @@ export enum BookingStaffRole {
     Viewer = "viewer",
     ExternalGuest = "externalGuest",
     UnknownFutureValue = "unknownFutureValue",
+    Scheduler = "scheduler",
+    TeamMember = "teamMember",
 }

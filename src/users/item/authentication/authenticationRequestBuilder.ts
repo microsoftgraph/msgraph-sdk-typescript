@@ -29,49 +29,49 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the authentication property of the microsoft.graph.user entity. */
 export class AuthenticationRequestBuilder {
-    /** The emailMethods property */
+    /** Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity. */
     public get emailMethods(): EmailMethodsRequestBuilder {
         return new EmailMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The fido2Methods property */
+    /** Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity. */
     public get fido2Methods(): Fido2MethodsRequestBuilder {
         return new Fido2MethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The methods property */
+    /** Provides operations to manage the methods property of the microsoft.graph.authentication entity. */
     public get methods(): MethodsRequestBuilder {
         return new MethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The microsoftAuthenticatorMethods property */
+    /** Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity. */
     public get microsoftAuthenticatorMethods(): MicrosoftAuthenticatorMethodsRequestBuilder {
         return new MicrosoftAuthenticatorMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The operations property */
+    /** Provides operations to manage the operations property of the microsoft.graph.authentication entity. */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The passwordMethods property */
+    /** Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity. */
     public get passwordMethods(): PasswordMethodsRequestBuilder {
         return new PasswordMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The phoneMethods property */
+    /** Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity. */
     public get phoneMethods(): PhoneMethodsRequestBuilder {
         return new PhoneMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The softwareOathMethods property */
+    /** Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity. */
     public get softwareOathMethods(): SoftwareOathMethodsRequestBuilder {
         return new SoftwareOathMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The temporaryAccessPassMethods property */
+    /** Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity. */
     public get temporaryAccessPassMethods(): TemporaryAccessPassMethodsRequestBuilder {
         return new TemporaryAccessPassMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The windowsHelloForBusinessMethods property */
+    /** Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity. */
     public get windowsHelloForBusinessMethods(): WindowsHelloForBusinessMethodsRequestBuilder {
         return new WindowsHelloForBusinessMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -134,6 +134,7 @@ export class AuthenticationRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -154,10 +155,10 @@ export class AuthenticationRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.emailMethods.item collection
+     * Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
      * @param id Unique identifier of the item
      * @returns a EmailAuthenticationMethodItemRequestBuilder
      */
@@ -168,7 +169,7 @@ export class AuthenticationRequestBuilder {
         return new EmailAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.fido2Methods.item collection
+     * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
      * @param id Unique identifier of the item
      * @returns a Fido2AuthenticationMethodItemRequestBuilder
      */
@@ -192,10 +193,10 @@ export class AuthenticationRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Authentication>(requestInfo, createAuthenticationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Authentication>(requestInfo, createAuthenticationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.methods.item collection
+     * Provides operations to manage the methods property of the microsoft.graph.authentication entity.
      * @param id Unique identifier of the item
      * @returns a AuthenticationMethodItemRequestBuilder
      */
@@ -206,7 +207,7 @@ export class AuthenticationRequestBuilder {
         return new AuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.microsoftAuthenticatorMethods.item collection
+     * Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
      * @param id Unique identifier of the item
      * @returns a MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder
      */
@@ -217,7 +218,7 @@ export class AuthenticationRequestBuilder {
         return new MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.operations.item collection
+     * Provides operations to manage the operations property of the microsoft.graph.authentication entity.
      * @param id Unique identifier of the item
      * @returns a LongRunningOperationItemRequestBuilder
      */
@@ -228,7 +229,7 @@ export class AuthenticationRequestBuilder {
         return new LongRunningOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.passwordMethods.item collection
+     * Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity.
      * @param id Unique identifier of the item
      * @returns a PasswordAuthenticationMethodItemRequestBuilder
      */
@@ -243,8 +244,9 @@ export class AuthenticationRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Authentication
      */
-    public patch(body: Authentication | undefined, requestConfiguration?: AuthenticationRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Authentication | undefined, requestConfiguration?: AuthenticationRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Authentication | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -253,10 +255,10 @@ export class AuthenticationRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Authentication>(requestInfo, createAuthenticationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.phoneMethods.item collection
+     * Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity.
      * @param id Unique identifier of the item
      * @returns a PhoneAuthenticationMethodItemRequestBuilder
      */
@@ -267,7 +269,7 @@ export class AuthenticationRequestBuilder {
         return new PhoneAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.softwareOathMethods.item collection
+     * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
      * @param id Unique identifier of the item
      * @returns a SoftwareOathAuthenticationMethodItemRequestBuilder
      */
@@ -278,7 +280,7 @@ export class AuthenticationRequestBuilder {
         return new SoftwareOathAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.temporaryAccessPassMethods.item collection
+     * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
      * @param id Unique identifier of the item
      * @returns a TemporaryAccessPassAuthenticationMethodItemRequestBuilder
      */
@@ -289,7 +291,7 @@ export class AuthenticationRequestBuilder {
         return new TemporaryAccessPassAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.windowsHelloForBusinessMethods.item collection
+     * Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
      * @param id Unique identifier of the item
      * @returns a WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder
      */

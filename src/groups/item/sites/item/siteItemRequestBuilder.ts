@@ -36,70 +36,70 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the sites property of the microsoft.graph.group entity. */
 export class SiteItemRequestBuilder {
-    /** The analytics property */
+    /** Provides operations to manage the analytics property of the microsoft.graph.site entity. */
     public get analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The columns property */
+    /** Provides operations to manage the columns property of the microsoft.graph.site entity. */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The contentTypes property */
+    /** Provides operations to manage the contentTypes property of the microsoft.graph.site entity. */
     public get contentTypes(): ContentTypesRequestBuilder {
         return new ContentTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The drive property */
+    /** Provides operations to manage the drive property of the microsoft.graph.site entity. */
     public get drive(): DriveRequestBuilder {
         return new DriveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The drives property */
+    /** Provides operations to manage the drives property of the microsoft.graph.site entity. */
     public get drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The externalColumns property */
+    /** Provides operations to manage the externalColumns property of the microsoft.graph.site entity. */
     public get externalColumns(): ExternalColumnsRequestBuilder {
         return new ExternalColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The items property */
+    /** Provides operations to manage the items property of the microsoft.graph.site entity. */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The lists property */
+    /** Provides operations to manage the lists property of the microsoft.graph.site entity. */
     public get lists(): ListsRequestBuilder {
         return new ListsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The onenote property */
+    /** Provides operations to manage the onenote property of the microsoft.graph.site entity. */
     public get onenote(): OnenoteRequestBuilder {
         return new OnenoteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The operations property */
+    /** Provides operations to manage the operations property of the microsoft.graph.site entity. */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The permissions property */
+    /** Provides operations to manage the permissions property of the microsoft.graph.site entity. */
     public get permissions(): PermissionsRequestBuilder {
         return new PermissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The sites property */
+    /** Provides operations to manage the sites property of the microsoft.graph.site entity. */
     public get sites(): SitesRequestBuilder {
         return new SitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The termStore property */
+    /** Provides operations to manage the termStore property of the microsoft.graph.site entity. */
     public get termStore(): TermStoreRequestBuilder {
         return new TermStoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The termStores property */
+    /** Provides operations to manage the termStores property of the microsoft.graph.site entity. */
     public get termStores(): TermStoresRequestBuilder {
         return new TermStoresRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.columns.item collection
+     * Provides operations to manage the columns property of the microsoft.graph.site entity.
      * @param id Unique identifier of the item
      * @returns a ColumnDefinitionItemRequestBuilder
      */
@@ -123,7 +123,7 @@ export class SiteItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.contentTypes.item collection
+     * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
      * @param id Unique identifier of the item
      * @returns a ContentTypeItemRequestBuilder
      */
@@ -163,6 +163,7 @@ export class SiteItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -171,7 +172,7 @@ export class SiteItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.drives.item collection
+     * Provides operations to manage the drives property of the microsoft.graph.site entity.
      * @param id Unique identifier of the item
      * @returns a DriveItemRequestBuilder
      */
@@ -182,7 +183,7 @@ export class SiteItemRequestBuilder {
         return new DriveItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.externalColumns.item collection
+     * Provides operations to manage the externalColumns property of the microsoft.graph.site entity.
      * @param id Unique identifier of the item
      * @returns a ColumnDefinitionItemRequestBuilder
      */
@@ -206,7 +207,7 @@ export class SiteItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Site>(requestInfo, createSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Site>(requestInfo, createSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Provides operations to call the getActivitiesByInterval method.
@@ -247,7 +248,7 @@ export class SiteItemRequestBuilder {
         return new GetByPathWithPathRequestBuilder(this.pathParameters, this.requestAdapter, path);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.items.item collection
+     * Provides operations to manage the items property of the microsoft.graph.site entity.
      * @param id Unique identifier of the item
      * @returns a BaseItemItemRequestBuilder
      */
@@ -258,7 +259,7 @@ export class SiteItemRequestBuilder {
         return new BaseItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item collection
+     * Provides operations to manage the lists property of the microsoft.graph.site entity.
      * @param id Unique identifier of the item
      * @returns a ListItemRequestBuilder
      */
@@ -269,7 +270,7 @@ export class SiteItemRequestBuilder {
         return new ListItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.operations.item collection
+     * Provides operations to manage the operations property of the microsoft.graph.site entity.
      * @param id Unique identifier of the item
      * @returns a RichLongRunningOperationItemRequestBuilder
      */
@@ -284,8 +285,9 @@ export class SiteItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Site
      */
-    public patch(body: Site | undefined, requestConfiguration?: SiteItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Site | undefined, requestConfiguration?: SiteItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Site | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -294,10 +296,10 @@ export class SiteItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Site>(requestInfo, createSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item collection
+     * Provides operations to manage the permissions property of the microsoft.graph.site entity.
      * @param id Unique identifier of the item
      * @returns a PermissionItemRequestBuilder
      */
@@ -308,7 +310,7 @@ export class SiteItemRequestBuilder {
         return new PermissionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.sites.item collection
+     * Provides operations to manage the sites property of the microsoft.graph.site entity.
      * @param id Unique identifier of the item
      * @returns a SiteItemRequestBuilder
      */
@@ -319,7 +321,7 @@ export class SiteItemRequestBuilder {
         return new i34352243acde4f04025d9bd40412abb7026aa82d69720baf2648e482ee4fba2a(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.termStores.item collection
+     * Provides operations to manage the termStores property of the microsoft.graph.site entity.
      * @param id Unique identifier of the item
      * @returns a StoreItemRequestBuilder
      */

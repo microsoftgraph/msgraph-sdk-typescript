@@ -24,50 +24,50 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity. */
 export class BookingBusinessItemRequestBuilder {
-    /** The appointments property */
+    /** Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity. */
     public get appointments(): AppointmentsRequestBuilder {
         return new AppointmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The calendarView property */
+    /** Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity. */
     public get calendarView(): CalendarViewRequestBuilder {
         return new CalendarViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The customers property */
+    /** Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity. */
     public get customers(): CustomersRequestBuilder {
         return new CustomersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The customQuestions property */
+    /** Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity. */
     public get customQuestions(): CustomQuestionsRequestBuilder {
         return new CustomQuestionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getStaffAvailability property */
+    /** Provides operations to call the getStaffAvailability method. */
     public get getStaffAvailability(): GetStaffAvailabilityRequestBuilder {
         return new GetStaffAvailabilityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The publish property */
+    /** Provides operations to call the publish method. */
     public get publish(): PublishRequestBuilder {
         return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The services property */
+    /** Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity. */
     public get services(): ServicesRequestBuilder {
         return new ServicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The staffMembers property */
+    /** Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity. */
     public get staffMembers(): StaffMembersRequestBuilder {
         return new StaffMembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The unpublish property */
+    /** Provides operations to call the unpublish method. */
     public get unpublish(): UnpublishRequestBuilder {
         return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.appointments.item collection
+     * Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity.
      * @param id Unique identifier of the item
      * @returns a BookingAppointmentItemRequestBuilder
      */
@@ -78,7 +78,7 @@ export class BookingBusinessItemRequestBuilder {
         return new if8492a98c98902c4f6ba4863614de95da278d3415d72f020e0e93895216cb97d(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.calendarView.item collection
+     * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
      * @param id Unique identifier of the item
      * @returns a BookingAppointmentItemRequestBuilder
      */
@@ -147,6 +147,7 @@ export class BookingBusinessItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -155,7 +156,7 @@ export class BookingBusinessItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.customers.item collection
+     * Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity.
      * @param id Unique identifier of the item
      * @returns a BookingCustomerBaseItemRequestBuilder
      */
@@ -166,7 +167,7 @@ export class BookingBusinessItemRequestBuilder {
         return new BookingCustomerBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.customQuestions.item collection
+     * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
      * @param id Unique identifier of the item
      * @returns a BookingCustomQuestionItemRequestBuilder
      */
@@ -189,7 +190,7 @@ export class BookingBusinessItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Get bookingBusinesses from solutions
@@ -205,15 +206,16 @@ export class BookingBusinessItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<BookingBusiness>(requestInfo, createBookingBusinessFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<BookingBusiness>(requestInfo, createBookingBusinessFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property bookingBusinesses in solutions
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of BookingBusiness
      */
-    public patch(body: BookingBusiness | undefined, requestConfiguration?: BookingBusinessItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: BookingBusiness | undefined, requestConfiguration?: BookingBusinessItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingBusiness | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -222,10 +224,10 @@ export class BookingBusinessItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<BookingBusiness>(requestInfo, createBookingBusinessFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.services.item collection
+     * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
      * @param id Unique identifier of the item
      * @returns a BookingServiceItemRequestBuilder
      */
@@ -236,7 +238,7 @@ export class BookingBusinessItemRequestBuilder {
         return new BookingServiceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item.staffMembers.item collection
+     * Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity.
      * @param id Unique identifier of the item
      * @returns a BookingStaffMemberBaseItemRequestBuilder
      */

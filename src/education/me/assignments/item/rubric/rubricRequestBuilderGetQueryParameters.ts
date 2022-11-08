@@ -1,5 +1,5 @@
 
-/** When set, the grading rubric attached to this assignment. */
+/** Get the educationRubric object attached to an educationAssignment, if one exists. */
 export class RubricRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

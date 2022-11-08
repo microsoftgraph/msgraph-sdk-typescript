@@ -21,45 +21,45 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity. */
 export class EdiscoveryCustodianItemRequestBuilder {
-    /** The activate property */
+    /** Provides operations to call the activate method. */
     public get activate(): ActivateRequestBuilder {
         return new ActivateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The applyHold property */
+    /** Provides operations to call the applyHold method. */
     public get applyHold(): ApplyHoldRequestBuilder {
         return new ApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The lastIndexOperation property */
+    /** Provides operations to manage the lastIndexOperation property of the microsoft.graph.security.ediscoveryCustodian entity. */
     public get lastIndexOperation(): LastIndexOperationRequestBuilder {
         return new LastIndexOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The release property */
+    /** Provides operations to call the release method. */
     public get release(): ReleaseRequestBuilder {
         return new ReleaseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The removeHold property */
+    /** Provides operations to call the removeHold method. */
     public get removeHold(): RemoveHoldRequestBuilder {
         return new RemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The siteSources property */
+    /** Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity. */
     public get siteSources(): SiteSourcesRequestBuilder {
         return new SiteSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The unifiedGroupSources property */
+    /** Provides operations to manage the unifiedGroupSources property of the microsoft.graph.security.ediscoveryCustodian entity. */
     public get unifiedGroupSources(): UnifiedGroupSourcesRequestBuilder {
         return new UnifiedGroupSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The updateIndex property */
+    /** Provides operations to call the updateIndex method. */
     public get updateIndex(): UpdateIndexRequestBuilder {
         return new UpdateIndexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The userSources property */
+    /** Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity. */
     public get userSources(): UserSourcesRequestBuilder {
         return new UserSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -122,6 +122,7 @@ export class EdiscoveryCustodianItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -142,7 +143,7 @@ export class EdiscoveryCustodianItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Returns a list of case ediscoveryCustodian objects for this case.
@@ -158,15 +159,16 @@ export class EdiscoveryCustodianItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EdiscoveryCustodian>(requestInfo, createEdiscoveryCustodianFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EdiscoveryCustodian>(requestInfo, createEdiscoveryCustodianFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property custodians in security
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of EdiscoveryCustodian
      */
-    public patch(body: EdiscoveryCustodian | undefined, requestConfiguration?: EdiscoveryCustodianItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: EdiscoveryCustodian | undefined, requestConfiguration?: EdiscoveryCustodianItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryCustodian | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -175,10 +177,10 @@ export class EdiscoveryCustodianItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EdiscoveryCustodian>(requestInfo, createEdiscoveryCustodianFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.cases.ediscoveryCases.item.custodians.item.siteSources.item collection
+     * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity.
      * @param id Unique identifier of the item
      * @returns a SiteSourceItemRequestBuilder
      */
@@ -189,7 +191,7 @@ export class EdiscoveryCustodianItemRequestBuilder {
         return new SiteSourceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.cases.ediscoveryCases.item.custodians.item.unifiedGroupSources.item collection
+     * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.security.ediscoveryCustodian entity.
      * @param id Unique identifier of the item
      * @returns a UnifiedGroupSourceItemRequestBuilder
      */
@@ -200,7 +202,7 @@ export class EdiscoveryCustodianItemRequestBuilder {
         return new UnifiedGroupSourceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.cases.ediscoveryCases.item.custodians.item.userSources.item collection
+     * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity.
      * @param id Unique identifier of the item
      * @returns a UserSourceItemRequestBuilder
      */

@@ -3,7 +3,7 @@ import {createChannelFromDiscriminatorValue} from '../../../../models/createChan
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CompleteMigrationRequestBuilder} from './completeMigration/completeMigrationRequestBuilder';
-import {DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder} from './doesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalName/doesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder';
+import {DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder} from './doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName/doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder';
 import {FilesFolderRequestBuilder} from './filesFolder/filesFolderRequestBuilder';
 import {ConversationMemberItemRequestBuilder} from './members/item/conversationMemberItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
@@ -22,39 +22,39 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the primaryChannel property of the microsoft.graph.team entity. */
 export class PrimaryChannelRequestBuilder {
-    /** The completeMigration property */
+    /** Provides operations to call the completeMigration method. */
     public get completeMigration(): CompleteMigrationRequestBuilder {
         return new CompleteMigrationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The filesFolder property */
+    /** Provides operations to manage the filesFolder property of the microsoft.graph.channel entity. */
     public get filesFolder(): FilesFolderRequestBuilder {
         return new FilesFolderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The members property */
+    /** Provides operations to manage the members property of the microsoft.graph.channel entity. */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The messages property */
+    /** Provides operations to manage the messages property of the microsoft.graph.channel entity. */
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The provisionEmail property */
+    /** Provides operations to call the provisionEmail method. */
     public get provisionEmail(): ProvisionEmailRequestBuilder {
         return new ProvisionEmailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The removeEmail property */
+    /** Provides operations to call the removeEmail method. */
     public get removeEmail(): RemoveEmailRequestBuilder {
         return new RemoveEmailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The sharedWithTeams property */
+    /** Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity. */
     public get sharedWithTeams(): SharedWithTeamsRequestBuilder {
         return new SharedWithTeamsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The tabs property */
+    /** Provides operations to manage the tabs property of the microsoft.graph.channel entity. */
     public get tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -90,7 +90,7 @@ export class PrimaryChannelRequestBuilder {
         return requestInfo;
     };
     /**
-     * The general channel for the team.
+     * Get the default channel, **General**, of a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -119,6 +119,7 @@ export class PrimaryChannelRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -139,17 +140,17 @@ export class PrimaryChannelRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Provides operations to call the doesUserHaveAccess method.
-     * @returns a doesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder
+     * @returns a doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder
      */
-    public doesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalName() : DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder {
-        return new DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilder(this.pathParameters, this.requestAdapter);
+    public doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName() : DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder {
+        return new DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * The general channel for the team.
+     * Get the default channel, **General**, of a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Channel
@@ -162,10 +163,10 @@ export class PrimaryChannelRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.joinedTeams.item.primaryChannel.members.item collection
+     * Provides operations to manage the members property of the microsoft.graph.channel entity.
      * @param id Unique identifier of the item
      * @returns a ConversationMemberItemRequestBuilder
      */
@@ -176,7 +177,7 @@ export class PrimaryChannelRequestBuilder {
         return new ConversationMemberItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.joinedTeams.item.primaryChannel.messages.item collection
+     * Provides operations to manage the messages property of the microsoft.graph.channel entity.
      * @param id Unique identifier of the item
      * @returns a ChatMessageItemRequestBuilder
      */
@@ -191,8 +192,9 @@ export class PrimaryChannelRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Channel
      */
-    public patch(body: Channel | undefined, requestConfiguration?: PrimaryChannelRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Channel | undefined, requestConfiguration?: PrimaryChannelRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Channel | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -201,10 +203,10 @@ export class PrimaryChannelRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.joinedTeams.item.primaryChannel.sharedWithTeams.item collection
+     * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.
      * @param id Unique identifier of the item
      * @returns a SharedWithChannelTeamInfoItemRequestBuilder
      */
@@ -215,7 +217,7 @@ export class PrimaryChannelRequestBuilder {
         return new SharedWithChannelTeamInfoItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.joinedTeams.item.primaryChannel.tabs.item collection
+     * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
      * @param id Unique identifier of the item
      * @returns a TeamsTabItemRequestBuilder
      */

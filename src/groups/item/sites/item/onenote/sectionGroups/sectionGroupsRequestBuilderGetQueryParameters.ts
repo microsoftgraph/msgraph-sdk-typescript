@@ -1,5 +1,5 @@
 
-/** The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable. */
+/** Retrieve a list of sectionGroup objects. */
 export class SectionGroupsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

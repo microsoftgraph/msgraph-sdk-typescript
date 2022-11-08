@@ -1,4 +1,5 @@
 import {createApplePushNotificationCertificateFromDiscriminatorValue} from './createApplePushNotificationCertificateFromDiscriminatorValue';
+import {createAuditEventFromDiscriminatorValue} from './createAuditEventFromDiscriminatorValue';
 import {createComplianceManagementPartnerFromDiscriminatorValue} from './createComplianceManagementPartnerFromDiscriminatorValue';
 import {createDetectedAppFromDiscriminatorValue} from './createDetectedAppFromDiscriminatorValue';
 import {createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue} from './createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue';
@@ -32,12 +33,14 @@ import {createWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from './crea
 import {createWindowsInformationProtectionAppLearningSummaryFromDiscriminatorValue} from './createWindowsInformationProtectionAppLearningSummaryFromDiscriminatorValue';
 import {createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue} from './createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue';
 import {DeviceManagementSubscriptionState} from './deviceManagementSubscriptionState';
-import {ApplePushNotificationCertificate, ComplianceManagementPartner, DetectedApp, DeviceAndAppManagementRoleAssignment, DeviceCategory, DeviceCompliancePolicy, DeviceCompliancePolicyDeviceStateSummary, DeviceCompliancePolicySettingStateSummary, DeviceConfiguration, DeviceConfigurationDeviceStateSummary, DeviceEnrollmentConfiguration, DeviceManagementExchangeConnector, DeviceManagementPartner, DeviceManagementReports, DeviceManagementSettings, DeviceManagementTroubleshootingEvent, Entity, ImportedWindowsAutopilotDeviceIdentity, IntuneBrand, IosUpdateDeviceStatus, ManagedDevice, ManagedDeviceOverview, MobileThreatDefenseConnector, NotificationMessageTemplate, OnPremisesConditionalAccessSettings, RemoteAssistancePartner, ResourceOperation, RoleDefinition, SoftwareUpdateStatusSummary, TelecomExpenseManagementPartner, TermsAndConditions, WindowsAutopilotDeviceIdentity, WindowsInformationProtectionAppLearningSummary, WindowsInformationProtectionNetworkLearningSummary} from './index';
+import {ApplePushNotificationCertificate, AuditEvent, ComplianceManagementPartner, DetectedApp, DeviceAndAppManagementRoleAssignment, DeviceCategory, DeviceCompliancePolicy, DeviceCompliancePolicyDeviceStateSummary, DeviceCompliancePolicySettingStateSummary, DeviceConfiguration, DeviceConfigurationDeviceStateSummary, DeviceEnrollmentConfiguration, DeviceManagementExchangeConnector, DeviceManagementPartner, DeviceManagementReports, DeviceManagementSettings, DeviceManagementTroubleshootingEvent, Entity, ImportedWindowsAutopilotDeviceIdentity, IntuneBrand, IosUpdateDeviceStatus, ManagedDevice, ManagedDeviceOverview, MobileThreatDefenseConnector, NotificationMessageTemplate, OnPremisesConditionalAccessSettings, RemoteAssistancePartner, ResourceOperation, RoleDefinition, SoftwareUpdateStatusSummary, TelecomExpenseManagementPartner, TermsAndConditions, WindowsAutopilotDeviceIdentity, WindowsInformationProtectionAppLearningSummary, WindowsInformationProtectionNetworkLearningSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceManagement extends Entity implements Parsable {
     /** Apple push notification certificate. */
     private _applePushNotificationCertificate?: ApplePushNotificationCertificate | undefined;
+    /** The Audit Events */
+    private _auditEvents?: AuditEvent[] | undefined;
     /** The list of Compliance Management Partners configured by the tenant. */
     private _complianceManagementPartners?: ComplianceManagementPartner[] | undefined;
     /** The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access */
@@ -119,6 +122,20 @@ export class DeviceManagement extends Entity implements Parsable {
      */
     public set applePushNotificationCertificate(value: ApplePushNotificationCertificate | undefined) {
         this._applePushNotificationCertificate = value;
+    };
+    /**
+     * Gets the auditEvents property value. The Audit Events
+     * @returns a auditEvent
+     */
+    public get auditEvents() {
+        return this._auditEvents;
+    };
+    /**
+     * Sets the auditEvents property value. The Audit Events
+     * @param value Value to set for the auditEvents property.
+     */
+    public set auditEvents(value: AuditEvent[] | undefined) {
+        this._auditEvents = value;
     };
     /**
      * Gets the complianceManagementPartners property value. The list of Compliance Management Partners configured by the tenant.
@@ -302,6 +319,7 @@ export class DeviceManagement extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "applePushNotificationCertificate": n => { this.applePushNotificationCertificate = n.getObjectValue<ApplePushNotificationCertificate>(createApplePushNotificationCertificateFromDiscriminatorValue); },
+            "auditEvents": n => { this.auditEvents = n.getCollectionOfObjectValues<AuditEvent>(createAuditEventFromDiscriminatorValue); },
             "complianceManagementPartners": n => { this.complianceManagementPartners = n.getCollectionOfObjectValues<ComplianceManagementPartner>(createComplianceManagementPartnerFromDiscriminatorValue); },
             "conditionalAccessSettings": n => { this.conditionalAccessSettings = n.getObjectValue<OnPremisesConditionalAccessSettings>(createOnPremisesConditionalAccessSettingsFromDiscriminatorValue); },
             "detectedApps": n => { this.detectedApps = n.getCollectionOfObjectValues<DetectedApp>(createDetectedAppFromDiscriminatorValue); },
@@ -528,6 +546,7 @@ export class DeviceManagement extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeObjectValue<ApplePushNotificationCertificate>("applePushNotificationCertificate", this.applePushNotificationCertificate);
+        writer.writeCollectionOfObjectValues<AuditEvent>("auditEvents", this.auditEvents);
         writer.writeCollectionOfObjectValues<ComplianceManagementPartner>("complianceManagementPartners", this.complianceManagementPartners);
         writer.writeObjectValue<OnPremisesConditionalAccessSettings>("conditionalAccessSettings", this.conditionalAccessSettings);
         writer.writeCollectionOfObjectValues<DetectedApp>("detectedApps", this.detectedApps);

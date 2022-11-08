@@ -18,6 +18,10 @@ import {GetEmailAppUsageUserDetailWithDateRequestBuilder} from './getEmailAppUsa
 import {GetEmailAppUsageUserDetailWithPeriodRequestBuilder} from './getEmailAppUsageUserDetailWithPeriod/getEmailAppUsageUserDetailWithPeriodRequestBuilder';
 import {GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder} from './getEmailAppUsageVersionsUserCountsWithPeriod/getEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder';
 import {GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder} from './getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime/getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder';
+import {GetM365AppPlatformUserCountsWithPeriodRequestBuilder} from './getM365AppPlatformUserCountsWithPeriod/getM365AppPlatformUserCountsWithPeriodRequestBuilder';
+import {GetM365AppUserCountsWithPeriodRequestBuilder} from './getM365AppUserCountsWithPeriod/getM365AppUserCountsWithPeriodRequestBuilder';
+import {GetM365AppUserDetailWithDateRequestBuilder} from './getM365AppUserDetailWithDate/getM365AppUserDetailWithDateRequestBuilder';
+import {GetM365AppUserDetailWithPeriodRequestBuilder} from './getM365AppUserDetailWithPeriod/getM365AppUserDetailWithPeriodRequestBuilder';
 import {GetMailboxUsageDetailWithPeriodRequestBuilder} from './getMailboxUsageDetailWithPeriod/getMailboxUsageDetailWithPeriodRequestBuilder';
 import {GetMailboxUsageMailboxCountsWithPeriodRequestBuilder} from './getMailboxUsageMailboxCountsWithPeriod/getMailboxUsageMailboxCountsWithPeriodRequestBuilder';
 import {GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder} from './getMailboxUsageQuotaStatusMailboxCountsWithPeriod/getMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder';
@@ -104,23 +108,24 @@ import {PrintUsageByUserItemRequestBuilder as ib890b4082f7b0793dcec266773608fab2
 import {MonthlyPrintUsageByUserRequestBuilder} from './monthlyPrintUsageByUser/monthlyPrintUsageByUserRequestBuilder';
 import {ReportsRequestBuilderGetRequestConfiguration} from './reportsRequestBuilderGetRequestConfiguration';
 import {ReportsRequestBuilderPatchRequestConfiguration} from './reportsRequestBuilderPatchRequestConfiguration';
+import {SecurityRequestBuilder} from './security/securityRequestBuilder';
 import {DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the reportRoot singleton. */
 export class ReportsRequestBuilder {
-    /** The dailyPrintUsageByPrinter property */
+    /** Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity. */
     public get dailyPrintUsageByPrinter(): DailyPrintUsageByPrinterRequestBuilder {
         return new DailyPrintUsageByPrinterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The dailyPrintUsageByUser property */
+    /** Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity. */
     public get dailyPrintUsageByUser(): DailyPrintUsageByUserRequestBuilder {
         return new DailyPrintUsageByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The monthlyPrintUsageByPrinter property */
+    /** Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity. */
     public get monthlyPrintUsageByPrinter(): MonthlyPrintUsageByPrinterRequestBuilder {
         return new MonthlyPrintUsageByPrinterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The monthlyPrintUsageByUser property */
+    /** Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity. */
     public get monthlyPrintUsageByUser(): MonthlyPrintUsageByUserRequestBuilder {
         return new MonthlyPrintUsageByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -128,6 +133,10 @@ export class ReportsRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
+    /** Provides operations to manage the security property of the microsoft.graph.reportRoot entity. */
+    public get security(): SecurityRequestBuilder {
+        return new SecurityRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
@@ -173,6 +182,7 @@ export class ReportsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -181,7 +191,7 @@ export class ReportsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.reports.dailyPrintUsageByPrinter.item collection
+     * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
      * @param id Unique identifier of the item
      * @returns a PrintUsageByPrinterItemRequestBuilder
      */
@@ -192,7 +202,7 @@ export class ReportsRequestBuilder {
         return new i040d432bf097a5c3e088b5b286dc35b17b6fde7ba1189da8ab6b5cbe1c14edd4(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.reports.dailyPrintUsageByUser.item collection
+     * Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
      * @param id Unique identifier of the item
      * @returns a PrintUsageByUserItemRequestBuilder
      */
@@ -230,7 +240,7 @@ export class ReportsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ReportRoot>(requestInfo, createReportRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ReportRoot>(requestInfo, createReportRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Provides operations to call the getEmailActivityCounts method.
@@ -315,9 +325,9 @@ export class ReportsRequestBuilder {
     };
     /**
      * Provides operations to call the getGroupArchivedPrintJobs method.
-     * @param endDateTime Usage: endDateTime='{endDateTime}'
+     * @param endDateTime Usage: endDateTime={endDateTime}
      * @param groupId Usage: groupId='{groupId}'
-     * @param startDateTime Usage: startDateTime='{startDateTime}'
+     * @param startDateTime Usage: startDateTime={startDateTime}
      * @returns a getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder
      */
     public getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime(endDateTime: Date | undefined, groupId: string | undefined, startDateTime: Date | undefined) : GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder {
@@ -325,6 +335,42 @@ export class ReportsRequestBuilder {
         if(!groupId) throw new Error("groupId cannot be undefined");
         if(!startDateTime) throw new Error("startDateTime cannot be undefined");
         return new GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, groupId, startDateTime);
+    };
+    /**
+     * Provides operations to call the getM365AppPlatformUserCounts method.
+     * @param period Usage: period='{period}'
+     * @returns a getM365AppPlatformUserCountsWithPeriodRequestBuilder
+     */
+    public getM365AppPlatformUserCountsWithPeriod(period: string | undefined) : GetM365AppPlatformUserCountsWithPeriodRequestBuilder {
+        if(!period) throw new Error("period cannot be undefined");
+        return new GetM365AppPlatformUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
+    };
+    /**
+     * Provides operations to call the getM365AppUserCounts method.
+     * @param period Usage: period='{period}'
+     * @returns a getM365AppUserCountsWithPeriodRequestBuilder
+     */
+    public getM365AppUserCountsWithPeriod(period: string | undefined) : GetM365AppUserCountsWithPeriodRequestBuilder {
+        if(!period) throw new Error("period cannot be undefined");
+        return new GetM365AppUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
+    };
+    /**
+     * Provides operations to call the getM365AppUserDetail method.
+     * @param date Usage: date={date}
+     * @returns a getM365AppUserDetailWithDateRequestBuilder
+     */
+    public getM365AppUserDetailWithDate(date: DateOnly | undefined) : GetM365AppUserDetailWithDateRequestBuilder {
+        if(!date) throw new Error("date cannot be undefined");
+        return new GetM365AppUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
+    };
+    /**
+     * Provides operations to call the getM365AppUserDetail method.
+     * @param period Usage: period='{period}'
+     * @returns a getM365AppUserDetailWithPeriodRequestBuilder
+     */
+    public getM365AppUserDetailWithPeriod(period: string | undefined) : GetM365AppUserDetailWithPeriodRequestBuilder {
+        if(!period) throw new Error("period cannot be undefined");
+        return new GetM365AppUserDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Provides operations to call the getMailboxUsageDetail method.
@@ -556,9 +602,9 @@ export class ReportsRequestBuilder {
     };
     /**
      * Provides operations to call the getPrinterArchivedPrintJobs method.
-     * @param endDateTime Usage: endDateTime='{endDateTime}'
+     * @param endDateTime Usage: endDateTime={endDateTime}
      * @param printerId Usage: printerId='{printerId}'
-     * @param startDateTime Usage: startDateTime='{startDateTime}'
+     * @param startDateTime Usage: startDateTime={startDateTime}
      * @returns a getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder
      */
     public getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime(endDateTime: Date | undefined, printerId: string | undefined, startDateTime: Date | undefined) : GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder {
@@ -893,8 +939,8 @@ export class ReportsRequestBuilder {
     };
     /**
      * Provides operations to call the getUserArchivedPrintJobs method.
-     * @param endDateTime Usage: endDateTime='{endDateTime}'
-     * @param startDateTime Usage: startDateTime='{startDateTime}'
+     * @param endDateTime Usage: endDateTime={endDateTime}
+     * @param startDateTime Usage: startDateTime={startDateTime}
      * @param userId Usage: userId='{userId}'
      * @returns a getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder
      */
@@ -1051,7 +1097,7 @@ export class ReportsRequestBuilder {
         return new ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.reports.monthlyPrintUsageByPrinter.item collection
+     * Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
      * @param id Unique identifier of the item
      * @returns a PrintUsageByPrinterItemRequestBuilder
      */
@@ -1062,7 +1108,7 @@ export class ReportsRequestBuilder {
         return new i464ef823ccbb3cda573d85f5b690bdfbadd75533d381eee43a717ec4bcf9e9da(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.reports.monthlyPrintUsageByUser.item collection
+     * Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
      * @param id Unique identifier of the item
      * @returns a PrintUsageByUserItemRequestBuilder
      */
@@ -1077,8 +1123,9 @@ export class ReportsRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ReportRoot
      */
-    public patch(body: ReportRoot | undefined, requestConfiguration?: ReportsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ReportRoot | undefined, requestConfiguration?: ReportsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ReportRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -1087,6 +1134,6 @@ export class ReportsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ReportRoot>(requestInfo, createReportRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

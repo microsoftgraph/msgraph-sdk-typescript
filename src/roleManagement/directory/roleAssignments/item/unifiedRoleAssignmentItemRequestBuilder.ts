@@ -13,23 +13,23 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity. */
 export class UnifiedRoleAssignmentItemRequestBuilder {
-    /** The appScope property */
+    /** Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleAssignment entity. */
     public get appScope(): AppScopeRequestBuilder {
         return new AppScopeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The directoryScope property */
+    /** Provides operations to manage the directoryScope property of the microsoft.graph.unifiedRoleAssignment entity. */
     public get directoryScope(): DirectoryScopeRequestBuilder {
         return new DirectoryScopeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The principal property */
+    /** Provides operations to manage the principal property of the microsoft.graph.unifiedRoleAssignment entity. */
     public get principal(): PrincipalRequestBuilder {
         return new PrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The roleDefinition property */
+    /** Provides operations to manage the roleDefinition property of the microsoft.graph.unifiedRoleAssignment entity. */
     public get roleDefinition(): RoleDefinitionRequestBuilder {
         return new RoleDefinitionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -94,6 +94,7 @@ export class UnifiedRoleAssignmentItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -114,7 +115,7 @@ export class UnifiedRoleAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Resource to grant access to users or groups.
@@ -130,15 +131,16 @@ export class UnifiedRoleAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<UnifiedRoleAssignment>(requestInfo, createUnifiedRoleAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UnifiedRoleAssignment>(requestInfo, createUnifiedRoleAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property roleAssignments in roleManagement
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of UnifiedRoleAssignment
      */
-    public patch(body: UnifiedRoleAssignment | undefined, requestConfiguration?: UnifiedRoleAssignmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: UnifiedRoleAssignment | undefined, requestConfiguration?: UnifiedRoleAssignmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -147,6 +149,6 @@ export class UnifiedRoleAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UnifiedRoleAssignment>(requestInfo, createUnifiedRoleAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

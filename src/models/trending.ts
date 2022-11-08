@@ -11,9 +11,9 @@ export class Trending extends Entity implements Parsable {
     /** Used for navigating to the trending document. */
     private _resource?: Entity | undefined;
     /** Reference properties of the trending document, such as the url and type of the document. */
-    private _resourceReference?: ResourceReference | undefined;
+    private readonly _resourceReference?: ResourceReference | undefined;
     /** Properties that you can use to visualize the document in your experience. */
-    private _resourceVisualization?: ResourceVisualization | undefined;
+    private readonly _resourceVisualization?: ResourceVisualization | undefined;
     /** Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value. */
     private _weight?: number | undefined;
     /**
@@ -101,8 +101,6 @@ export class Trending extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeObjectValue<Entity>("resource", this.resource);
-        writer.writeObjectValue<ResourceReference>("resourceReference", this.resourceReference);
-        writer.writeObjectValue<ResourceVisualization>("resourceVisualization", this.resourceVisualization);
         writer.writeNumberValue("weight", this.weight);
     };
     /**

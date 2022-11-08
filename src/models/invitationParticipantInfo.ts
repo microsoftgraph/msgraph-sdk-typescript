@@ -5,7 +5,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class InvitationParticipantInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The hidden property */
+    /** Optional. Whether to hide the participant from the roster. */
     private _hidden?: boolean | undefined;
     /** The identity property */
     private _identity?: IdentitySet | undefined;
@@ -13,7 +13,7 @@ export class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
     private _odataType?: string | undefined;
     /** Optional. The ID of the target participant. */
     private _participantId?: string | undefined;
-    /** The removeFromDefaultAudioRoutingGroup property */
+    /** Optional. Whether to remove them from the main mixer. */
     private _removeFromDefaultAudioRoutingGroup?: boolean | undefined;
     /** Optional. The call which the target identity is currently a part of. For peer-to-peer case, the call will be dropped once the participant is added successfully. */
     private _replacesCallId?: string | undefined;
@@ -53,14 +53,14 @@ export class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
         };
     };
     /**
-     * Gets the hidden property value. The hidden property
+     * Gets the hidden property value. Optional. Whether to hide the participant from the roster.
      * @returns a boolean
      */
     public get hidden() {
         return this._hidden;
     };
     /**
-     * Sets the hidden property value. The hidden property
+     * Sets the hidden property value. Optional. Whether to hide the participant from the roster.
      * @param value Value to set for the hidden property.
      */
     public set hidden(value: boolean | undefined) {
@@ -109,14 +109,14 @@ export class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
         this._participantId = value;
     };
     /**
-     * Gets the removeFromDefaultAudioRoutingGroup property value. The removeFromDefaultAudioRoutingGroup property
+     * Gets the removeFromDefaultAudioRoutingGroup property value. Optional. Whether to remove them from the main mixer.
      * @returns a boolean
      */
     public get removeFromDefaultAudioRoutingGroup() {
         return this._removeFromDefaultAudioRoutingGroup;
     };
     /**
-     * Sets the removeFromDefaultAudioRoutingGroup property value. The removeFromDefaultAudioRoutingGroup property
+     * Sets the removeFromDefaultAudioRoutingGroup property value. Optional. Whether to remove them from the main mixer.
      * @param value Value to set for the removeFromDefaultAudioRoutingGroup property.
      */
     public set removeFromDefaultAudioRoutingGroup(value: boolean | undefined) {

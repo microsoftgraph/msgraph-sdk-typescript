@@ -1,5 +1,5 @@
 
-/** Get entity from schemaExtensions by key */
+/** Get schemaExtension */
 export class SchemaExtensionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

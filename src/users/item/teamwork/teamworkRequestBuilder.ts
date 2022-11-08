@@ -14,11 +14,11 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the teamwork property of the microsoft.graph.user entity. */
 export class TeamworkRequestBuilder {
-    /** The associatedTeams property */
+    /** Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity. */
     public get associatedTeams(): AssociatedTeamsRequestBuilder {
         return new AssociatedTeamsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The installedApps property */
+    /** Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity. */
     public get installedApps(): InstalledAppsRequestBuilder {
         return new InstalledAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -26,14 +26,14 @@ export class TeamworkRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The sendActivityNotification property */
+    /** Provides operations to call the sendActivityNotification method. */
     public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
         return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.teamwork.associatedTeams.item collection
+     * Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity.
      * @param id Unique identifier of the item
      * @returns a AssociatedTeamInfoItemRequestBuilder
      */
@@ -102,6 +102,7 @@ export class TeamworkRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -122,7 +123,7 @@ export class TeamworkRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Get teamwork from users
@@ -138,10 +139,10 @@ export class TeamworkRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<UserTeamwork>(requestInfo, createUserTeamworkFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UserTeamwork>(requestInfo, createUserTeamworkFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.teamwork.installedApps.item collection
+     * Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity.
      * @param id Unique identifier of the item
      * @returns a UserScopeTeamsAppInstallationItemRequestBuilder
      */
@@ -156,8 +157,9 @@ export class TeamworkRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of UserTeamwork
      */
-    public patch(body: UserTeamwork | undefined, requestConfiguration?: TeamworkRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: UserTeamwork | undefined, requestConfiguration?: TeamworkRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserTeamwork | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -166,6 +168,6 @@ export class TeamworkRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UserTeamwork>(requestInfo, createUserTeamworkFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

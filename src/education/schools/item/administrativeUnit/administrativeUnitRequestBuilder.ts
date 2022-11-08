@@ -3,6 +3,7 @@ import {createAdministrativeUnitFromDiscriminatorValue} from '../../../../models
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AdministrativeUnitRequestBuilderGetRequestConfiguration} from './administrativeUnitRequestBuilderGetRequestConfiguration';
+import {AdministrativeUnitRequestBuilderPatchRequestConfiguration} from './administrativeUnitRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the administrativeUnit property of the microsoft.graph.educationSchool entity. */
@@ -27,7 +28,7 @@ export class AdministrativeUnitRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The underlying administrativeUnit for this school.
+     * Get a list of **administrativeUnits** associated with an educationSchool object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -45,7 +46,27 @@ export class AdministrativeUnitRequestBuilder {
         return requestInfo;
     };
     /**
-     * The underlying administrativeUnit for this school.
+     * Update the navigation property administrativeUnit in education
+     * @param body 
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public createPatchRequestInformation(body: AdministrativeUnit | undefined, requestConfiguration?: AdministrativeUnitRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+        if(!body) throw new Error("body cannot be undefined");
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        return requestInfo;
+    };
+    /**
+     * Get a list of **administrativeUnits** associated with an educationSchool object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AdministrativeUnit
@@ -58,6 +79,24 @@ export class AdministrativeUnitRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
+     * Update the navigation property administrativeUnit in education
+     * @param body 
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of AdministrativeUnit
+     */
+    public patch(body: AdministrativeUnit | undefined, requestConfiguration?: AdministrativeUnitRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AdministrativeUnit | undefined> {
+        if(!body) throw new Error("body cannot be undefined");
+        const requestInfo = this.createPatchRequestInformation(
+            body, requestConfiguration
+        );
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

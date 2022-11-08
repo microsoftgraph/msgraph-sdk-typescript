@@ -5,35 +5,35 @@ import {AuthenticationMethodConfiguration, AuthenticationMethodTarget, X509Certi
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class X509CertificateAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration implements Parsable {
-    /** The authenticationModeConfiguration property */
+    /** Defines strong authentication configurations. This configuration includes the default authentication mode and the different rules for strong authentication bindings. */
     private _authenticationModeConfiguration?: X509CertificateAuthenticationModeConfiguration | undefined;
-    /** The certificateUserBindings property */
+    /** Defines fields in the X.509 certificate that map to attributes of the Azure AD user object in order to bind the certificate to the user. The priority of the object determines the order in which the binding is carried out. The first binding that matches will be used and the rest ignored. */
     private _certificateUserBindings?: X509CertificateUserBinding[] | undefined;
-    /** The includeTargets property */
+    /** A collection of users or groups who are enabled to use the authentication method. */
     private _includeTargets?: AuthenticationMethodTarget[] | undefined;
     /**
-     * Gets the authenticationModeConfiguration property value. The authenticationModeConfiguration property
+     * Gets the authenticationModeConfiguration property value. Defines strong authentication configurations. This configuration includes the default authentication mode and the different rules for strong authentication bindings.
      * @returns a x509CertificateAuthenticationModeConfiguration
      */
     public get authenticationModeConfiguration() {
         return this._authenticationModeConfiguration;
     };
     /**
-     * Sets the authenticationModeConfiguration property value. The authenticationModeConfiguration property
+     * Sets the authenticationModeConfiguration property value. Defines strong authentication configurations. This configuration includes the default authentication mode and the different rules for strong authentication bindings.
      * @param value Value to set for the authenticationModeConfiguration property.
      */
     public set authenticationModeConfiguration(value: X509CertificateAuthenticationModeConfiguration | undefined) {
         this._authenticationModeConfiguration = value;
     };
     /**
-     * Gets the certificateUserBindings property value. The certificateUserBindings property
+     * Gets the certificateUserBindings property value. Defines fields in the X.509 certificate that map to attributes of the Azure AD user object in order to bind the certificate to the user. The priority of the object determines the order in which the binding is carried out. The first binding that matches will be used and the rest ignored.
      * @returns a x509CertificateUserBinding
      */
     public get certificateUserBindings() {
         return this._certificateUserBindings;
     };
     /**
-     * Sets the certificateUserBindings property value. The certificateUserBindings property
+     * Sets the certificateUserBindings property value. Defines fields in the X.509 certificate that map to attributes of the Azure AD user object in order to bind the certificate to the user. The priority of the object determines the order in which the binding is carried out. The first binding that matches will be used and the rest ignored.
      * @param value Value to set for the certificateUserBindings property.
      */
     public set certificateUserBindings(value: X509CertificateUserBinding[] | undefined) {
@@ -58,14 +58,14 @@ export class X509CertificateAuthenticationMethodConfiguration extends Authentica
         };
     };
     /**
-     * Gets the includeTargets property value. The includeTargets property
+     * Gets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
      * @returns a authenticationMethodTarget
      */
     public get includeTargets() {
         return this._includeTargets;
     };
     /**
-     * Sets the includeTargets property value. The includeTargets property
+     * Sets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
      * @param value Value to set for the includeTargets property.
      */
     public set includeTargets(value: AuthenticationMethodTarget[] | undefined) {

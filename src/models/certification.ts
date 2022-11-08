@@ -4,11 +4,11 @@ export class Certification implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** URL that shows certification details for the application. */
-    private _certificationDetailsUrl?: string | undefined;
+    private readonly _certificationDetailsUrl?: string | undefined;
     /** The timestamp when the current certification for the application will expire. */
     private _certificationExpirationDateTime?: Date | undefined;
     /** Indicates whether the application is certified by Microsoft. */
-    private _isCertifiedByMicrosoft?: boolean | undefined;
+    private readonly _isCertifiedByMicrosoft?: boolean | undefined;
     /** Indicates whether the application has been self-attested by the application developer or the publisher. */
     private _isPublisherAttested?: boolean | undefined;
     /** The timestamp when the certification for the application was most recently added or updated. */
@@ -140,9 +140,7 @@ export class Certification implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeStringValue("certificationDetailsUrl", this.certificationDetailsUrl);
         writer.writeDateValue("certificationExpirationDateTime", this.certificationExpirationDateTime);
-        writer.writeBooleanValue("isCertifiedByMicrosoft", this.isCertifiedByMicrosoft);
         writer.writeBooleanValue("isPublisherAttested", this.isPublisherAttested);
         writer.writeDateValue("lastCertificationDateTime", this.lastCertificationDateTime);
         writer.writeStringValue("@odata.type", this.odataType);
