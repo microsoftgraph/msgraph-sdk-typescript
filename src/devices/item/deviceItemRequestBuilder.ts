@@ -24,47 +24,47 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the collection of device entities. */
 export class DeviceItemRequestBuilder {
-    /** The checkMemberGroups property */
+    /** Provides operations to call the checkMemberGroups method. */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkMemberObjects property */
+    /** Provides operations to call the checkMemberObjects method. */
     public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The extensions property */
+    /** Provides operations to manage the extensions property of the microsoft.graph.device entity. */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMemberGroups property */
+    /** Provides operations to call the getMemberGroups method. */
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMemberObjects property */
+    /** Provides operations to call the getMemberObjects method. */
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The memberOf property */
+    /** Provides operations to manage the memberOf property of the microsoft.graph.device entity. */
     public get memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The registeredOwners property */
+    /** Provides operations to manage the registeredOwners property of the microsoft.graph.device entity. */
     public get registeredOwners(): RegisteredOwnersRequestBuilder {
         return new RegisteredOwnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The registeredUsers property */
+    /** Provides operations to manage the registeredUsers property of the microsoft.graph.device entity. */
     public get registeredUsers(): RegisteredUsersRequestBuilder {
         return new RegisteredUsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The restore property */
+    /** Provides operations to call the restore method. */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The transitiveMemberOf property */
+    /** Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity. */
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -129,6 +129,7 @@ export class DeviceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -149,10 +150,10 @@ export class DeviceItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.extensions.item collection
+     * Provides operations to manage the extensions property of the microsoft.graph.device entity.
      * @param id Unique identifier of the item
      * @returns a ExtensionItemRequestBuilder
      */
@@ -176,10 +177,10 @@ export class DeviceItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Device>(requestInfo, createDeviceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Device>(requestInfo, createDeviceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.memberOf.item collection
+     * Provides operations to manage the memberOf property of the microsoft.graph.device entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
@@ -194,8 +195,9 @@ export class DeviceItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Device
      */
-    public patch(body: Device | undefined, requestConfiguration?: DeviceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Device | undefined, requestConfiguration?: DeviceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Device | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -204,7 +206,7 @@ export class DeviceItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Device>(requestInfo, createDeviceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.registeredOwners.item collection
@@ -218,7 +220,7 @@ export class DeviceItemRequestBuilder {
         return new i80dfe08d1a2ce539e240e623e425436ce5284e327c094913d616a0fe77e913a1(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.registeredUsers.item collection
+     * Provides operations to manage the registeredUsers property of the microsoft.graph.device entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
@@ -229,7 +231,7 @@ export class DeviceItemRequestBuilder {
         return new i24805e1657cebb359b83b032b97bef5f336c4e3bd1f53deaf63c8bb9254ca92f(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.transitiveMemberOf.item collection
+     * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */

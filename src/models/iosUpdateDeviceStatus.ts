@@ -3,7 +3,7 @@ import {Entity} from './index';
 import {IosUpdatesInstallStatus} from './iosUpdatesInstallStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class IosUpdateDeviceStatus extends Entity implements Parsable {
     /** The DateTime when device compliance grace period expires */
     private _complianceGracePeriodExpirationDateTime?: Date | undefined;

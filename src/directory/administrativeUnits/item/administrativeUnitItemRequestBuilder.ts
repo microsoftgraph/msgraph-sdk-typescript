@@ -15,11 +15,11 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity. */
 export class AdministrativeUnitItemRequestBuilder {
-    /** The extensions property */
+    /** Provides operations to manage the extensions property of the microsoft.graph.administrativeUnit entity. */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The members property */
+    /** Provides operations to manage the members property of the microsoft.graph.administrativeUnit entity. */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -27,7 +27,7 @@ export class AdministrativeUnitItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The scopedRoleMembers property */
+    /** Provides operations to manage the scopedRoleMembers property of the microsoft.graph.administrativeUnit entity. */
     public get scopedRoleMembers(): ScopedRoleMembersRequestBuilder {
         return new ScopedRoleMembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -92,6 +92,7 @@ export class AdministrativeUnitItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -112,10 +113,10 @@ export class AdministrativeUnitItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directory.administrativeUnits.item.extensions.item collection
+     * Provides operations to manage the extensions property of the microsoft.graph.administrativeUnit entity.
      * @param id Unique identifier of the item
      * @returns a ExtensionItemRequestBuilder
      */
@@ -139,7 +140,7 @@ export class AdministrativeUnitItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directory.administrativeUnits.item.members.item collection
@@ -157,8 +158,9 @@ export class AdministrativeUnitItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of AdministrativeUnit
      */
-    public patch(body: AdministrativeUnit | undefined, requestConfiguration?: AdministrativeUnitItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AdministrativeUnit | undefined, requestConfiguration?: AdministrativeUnitItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AdministrativeUnit | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -167,10 +169,10 @@ export class AdministrativeUnitItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directory.administrativeUnits.item.scopedRoleMembers.item collection
+     * Provides operations to manage the scopedRoleMembers property of the microsoft.graph.administrativeUnit entity.
      * @param id Unique identifier of the item
      * @returns a ScopedRoleMembershipItemRequestBuilder
      */

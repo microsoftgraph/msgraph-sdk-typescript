@@ -13,15 +13,15 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the organizationalBranding singleton. */
 export class BrandingRequestBuilder {
-    /** The backgroundImage property */
+    /** Provides operations to manage the media for the organizationalBranding entity. */
     public get backgroundImage(): BackgroundImageRequestBuilder {
         return new BackgroundImageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The bannerLogo property */
+    /** Provides operations to manage the media for the organizationalBranding entity. */
     public get bannerLogo(): BannerLogoRequestBuilder {
         return new BannerLogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The localizations property */
+    /** Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity. */
     public get localizations(): LocalizationsRequestBuilder {
         return new LocalizationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -29,7 +29,7 @@ export class BrandingRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The squareLogo property */
+    /** Provides operations to manage the media for the organizationalBranding entity. */
     public get squareLogo(): SquareLogoRequestBuilder {
         return new SquareLogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -78,6 +78,7 @@ export class BrandingRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -99,10 +100,10 @@ export class BrandingRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<OrganizationalBranding>(requestInfo, createOrganizationalBrandingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OrganizationalBranding>(requestInfo, createOrganizationalBrandingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.branding.localizations.item collection
+     * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
      * @param id Unique identifier of the item
      * @returns a OrganizationalBrandingLocalizationItemRequestBuilder
      */
@@ -117,8 +118,9 @@ export class BrandingRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of OrganizationalBranding
      */
-    public patch(body: OrganizationalBranding | undefined, requestConfiguration?: BrandingRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: OrganizationalBranding | undefined, requestConfiguration?: BrandingRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OrganizationalBranding | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -127,6 +129,6 @@ export class BrandingRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OrganizationalBranding>(requestInfo, createOrganizationalBrandingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

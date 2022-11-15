@@ -18,19 +18,19 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity. */
 export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
-    /** The assign property */
+    /** Provides operations to call the assign method. */
     public get assign(): AssignRequestBuilder {
         return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The assignments property */
+    /** Provides operations to manage the assignments property of the microsoft.graph.managedDeviceMobileAppConfiguration entity. */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deviceStatuses property */
+    /** Provides operations to manage the deviceStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity. */
     public get deviceStatuses(): DeviceStatusesRequestBuilder {
         return new DeviceStatusesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deviceStatusSummary property */
+    /** Provides operations to manage the deviceStatusSummary property of the microsoft.graph.managedDeviceMobileAppConfiguration entity. */
     public get deviceStatusSummary(): DeviceStatusSummaryRequestBuilder {
         return new DeviceStatusSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -40,16 +40,16 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The userStatuses property */
+    /** Provides operations to manage the userStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity. */
     public get userStatuses(): UserStatusesRequestBuilder {
         return new UserStatusesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The userStatusSummary property */
+    /** Provides operations to manage the userStatusSummary property of the microsoft.graph.managedDeviceMobileAppConfiguration entity. */
     public get userStatusSummary(): UserStatusSummaryRequestBuilder {
         return new UserStatusSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mobileAppConfigurations.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
      * @param id Unique identifier of the item
      * @returns a ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder
      */
@@ -118,6 +118,7 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -138,10 +139,10 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mobileAppConfigurations.item.deviceStatuses.item collection
+     * Provides operations to manage the deviceStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
      * @param id Unique identifier of the item
      * @returns a ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder
      */
@@ -165,15 +166,16 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfiguration>(requestInfo, createManagedDeviceMobileAppConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfiguration>(requestInfo, createManagedDeviceMobileAppConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property mobileAppConfigurations in deviceAppManagement
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ManagedDeviceMobileAppConfiguration
      */
-    public patch(body: ManagedDeviceMobileAppConfiguration | undefined, requestConfiguration?: ManagedDeviceMobileAppConfigurationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ManagedDeviceMobileAppConfiguration | undefined, requestConfiguration?: ManagedDeviceMobileAppConfigurationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceMobileAppConfiguration | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -182,10 +184,10 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfiguration>(requestInfo, createManagedDeviceMobileAppConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mobileAppConfigurations.item.userStatuses.item collection
+     * Provides operations to manage the userStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
      * @param id Unique identifier of the item
      * @returns a ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder
      */

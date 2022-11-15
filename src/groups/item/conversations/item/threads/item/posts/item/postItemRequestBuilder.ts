@@ -10,9 +10,7 @@ import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
 import {InReplyToRequestBuilder} from './inReplyTo/inReplyToRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
-import {PostItemRequestBuilderDeleteRequestConfiguration} from './postItemRequestBuilderDeleteRequestConfiguration';
 import {PostItemRequestBuilderGetRequestConfiguration} from './postItemRequestBuilderGetRequestConfiguration';
-import {PostItemRequestBuilderPatchRequestConfiguration} from './postItemRequestBuilderPatchRequestConfiguration';
 import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
 import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyItemRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
@@ -20,42 +18,42 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the posts property of the microsoft.graph.conversationThread entity. */
 export class PostItemRequestBuilder {
-    /** The attachments property */
+    /** Provides operations to manage the attachments property of the microsoft.graph.post entity. */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The extensions property */
+    /** Provides operations to manage the extensions property of the microsoft.graph.post entity. */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The forward property */
+    /** Provides operations to call the forward method. */
     public get forward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The inReplyTo property */
+    /** Provides operations to manage the inReplyTo property of the microsoft.graph.post entity. */
     public get inReplyTo(): InReplyToRequestBuilder {
         return new InReplyToRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The multiValueExtendedProperties property */
+    /** Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.post entity. */
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The reply property */
+    /** Provides operations to call the reply method. */
     public get reply(): ReplyRequestBuilder {
         return new ReplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The singleValueExtendedProperties property */
+    /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.post entity. */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.conversations.item.threads.item.posts.item.attachments.item collection
+     * Provides operations to manage the attachments property of the microsoft.graph.post entity.
      * @param id Unique identifier of the item
      * @returns a AttachmentItemRequestBuilder
      */
@@ -79,22 +77,6 @@ export class PostItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete navigation property posts for groups
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createDeleteRequestInformation(requestConfiguration?: PostItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        return requestInfo;
-    };
-    /**
      * Get posts from groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -113,41 +95,7 @@ export class PostItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property posts in groups
-     * @param body 
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createPatchRequestInformation(body: Post | undefined, requestConfiguration?: PostItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        return requestInfo;
-    };
-    /**
-     * Delete navigation property posts for groups
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     */
-    public delete(requestConfiguration?: PostItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInformation(
-            requestConfiguration
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.conversations.item.threads.item.posts.item.extensions.item collection
+     * Provides operations to manage the extensions property of the microsoft.graph.post entity.
      * @param id Unique identifier of the item
      * @returns a ExtensionItemRequestBuilder
      */
@@ -171,10 +119,10 @@ export class PostItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Post>(requestInfo, createPostFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Post>(requestInfo, createPostFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.conversations.item.threads.item.posts.item.multiValueExtendedProperties.item collection
+     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.post entity.
      * @param id Unique identifier of the item
      * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
      */
@@ -185,24 +133,7 @@ export class PostItemRequestBuilder {
         return new MultiValueLegacyExtendedPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update the navigation property posts in groups
-     * @param body 
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     */
-    public patch(body: Post | undefined, requestConfiguration?: PostItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInformation(
-            body, requestConfiguration
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.conversations.item.threads.item.posts.item.singleValueExtendedProperties.item collection
+     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.post entity.
      * @param id Unique identifier of the item
      * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
      */

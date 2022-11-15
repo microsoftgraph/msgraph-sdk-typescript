@@ -28,7 +28,7 @@ export class CopyRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action copy
+     * Copy a message to a folder within the user's mailbox.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -48,7 +48,7 @@ export class CopyRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action copy
+     * Copy a message to a folder within the user's mailbox.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -63,6 +63,6 @@ export class CopyRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

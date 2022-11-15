@@ -25,7 +25,7 @@ export class ExternalConnection extends Entity implements Parsable {
     /** The schema property */
     private _schema?: Schema | undefined;
     /** Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue. */
-    private _state?: ConnectionState | undefined;
+    private readonly _state?: ConnectionState | undefined;
     /**
      * Gets the configuration property value. Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.
      * @returns a configuration
@@ -161,7 +161,6 @@ export class ExternalConnection extends Entity implements Parsable {
         writer.writeStringValue("name", this.name);
         writer.writeCollectionOfObjectValues<ConnectionOperation>("operations", this.operations);
         writer.writeObjectValue<Schema>("schema", this.schema);
-        writer.writeEnumValue<ConnectionState>("state", this.state);
     };
     /**
      * Gets the state property value. Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue.

@@ -12,7 +12,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 export class UnifiedRoleManagementPolicyAssignmentItemRequestBuilder {
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The policy property */
+    /** Provides operations to manage the policy property of the microsoft.graph.unifiedRoleManagementPolicyAssignment entity. */
     public get policy(): PolicyRequestBuilder {
         return new PolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -79,6 +79,7 @@ export class UnifiedRoleManagementPolicyAssignmentItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -99,7 +100,7 @@ export class UnifiedRoleManagementPolicyAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * The assignment of a role management policy to a role definition object.
@@ -115,15 +116,16 @@ export class UnifiedRoleManagementPolicyAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<UnifiedRoleManagementPolicyAssignment>(requestInfo, createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UnifiedRoleManagementPolicyAssignment>(requestInfo, createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property roleManagementPolicyAssignments in policies
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of UnifiedRoleManagementPolicyAssignment
      */
-    public patch(body: UnifiedRoleManagementPolicyAssignment | undefined, requestConfiguration?: UnifiedRoleManagementPolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: UnifiedRoleManagementPolicyAssignment | undefined, requestConfiguration?: UnifiedRoleManagementPolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleManagementPolicyAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -132,6 +134,6 @@ export class UnifiedRoleManagementPolicyAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UnifiedRoleManagementPolicyAssignment>(requestInfo, createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

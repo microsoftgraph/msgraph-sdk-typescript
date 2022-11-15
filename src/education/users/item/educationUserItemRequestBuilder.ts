@@ -20,11 +20,11 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the users property of the microsoft.graph.educationRoot entity. */
 export class EducationUserItemRequestBuilder {
-    /** The assignments property */
+    /** Provides operations to manage the assignments property of the microsoft.graph.educationUser entity. */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The classes property */
+    /** Provides operations to manage the classes property of the microsoft.graph.educationUser entity. */
     public get classes(): ClassesRequestBuilder {
         return new ClassesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -32,26 +32,26 @@ export class EducationUserItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The rubrics property */
+    /** Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity. */
     public get rubrics(): RubricsRequestBuilder {
         return new RubricsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The schools property */
+    /** Provides operations to manage the schools property of the microsoft.graph.educationUser entity. */
     public get schools(): SchoolsRequestBuilder {
         return new SchoolsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The taughtClasses property */
+    /** Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity. */
     public get taughtClasses(): TaughtClassesRequestBuilder {
         return new TaughtClassesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The user property */
+    /** Provides operations to manage the user property of the microsoft.graph.educationUser entity. */
     public get user(): UserRequestBuilder {
         return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.educationUser entity.
      * @param id Unique identifier of the item
      * @returns a EducationAssignmentItemRequestBuilder
      */
@@ -62,7 +62,7 @@ export class EducationUserItemRequestBuilder {
         return new EducationAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.classes.item collection
+     * Provides operations to manage the classes property of the microsoft.graph.educationUser entity.
      * @param id Unique identifier of the item
      * @returns a EducationClassItemRequestBuilder
      */
@@ -131,6 +131,7 @@ export class EducationUserItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -151,7 +152,7 @@ export class EducationUserItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Get users from education
@@ -167,15 +168,16 @@ export class EducationUserItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EducationUser>(requestInfo, createEducationUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationUser>(requestInfo, createEducationUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property users in education
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of EducationUser
      */
-    public patch(body: EducationUser | undefined, requestConfiguration?: EducationUserItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: EducationUser | undefined, requestConfiguration?: EducationUserItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationUser | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -184,10 +186,10 @@ export class EducationUserItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationUser>(requestInfo, createEducationUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.rubrics.item collection
+     * Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
      * @param id Unique identifier of the item
      * @returns a EducationRubricItemRequestBuilder
      */
@@ -198,7 +200,7 @@ export class EducationUserItemRequestBuilder {
         return new EducationRubricItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.schools.item collection
+     * Provides operations to manage the schools property of the microsoft.graph.educationUser entity.
      * @param id Unique identifier of the item
      * @returns a EducationSchoolItemRequestBuilder
      */
@@ -209,7 +211,7 @@ export class EducationUserItemRequestBuilder {
         return new EducationSchoolItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.taughtClasses.item collection
+     * Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
      * @param id Unique identifier of the item
      * @returns a EducationClassItemRequestBuilder
      */

@@ -1,5 +1,5 @@
 
-/** Classes for which the user is a teacher. */
+/** Get the educationClass resources owned by an educationUser. */
 export class TaughtClassesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

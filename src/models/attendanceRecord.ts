@@ -3,7 +3,7 @@ import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscrimi
 import {AttendanceInterval, Entity, Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class AttendanceRecord extends Entity implements Parsable {
     /** List of time periods between joining and leaving a meeting. */
     private _attendanceIntervals?: AttendanceInterval[] | undefined;

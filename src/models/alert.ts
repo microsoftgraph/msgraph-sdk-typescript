@@ -21,7 +21,7 @@ import {createVulnerabilityStateFromDiscriminatorValue} from './createVulnerabil
 import {AlertDetection, AlertHistoryState, AlertTrigger, CloudAppSecurityState, Entity, FileSecurityState, HostSecurityState, InvestigationSecurityState, MalwareState, MessageSecurityState, NetworkConnection, Process, RegistryKeyState, SecurityResource, SecurityVendorInformation, UriClickSecurityState, UserSecurityState, VulnerabilityState} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class Alert extends Entity implements Parsable {
     /** Name or alias of the activity group (attacker) this alert is attributed to. */
     private _activityGroupName?: string | undefined;

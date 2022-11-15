@@ -12,11 +12,11 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity. */
 export class OnlineMeetingItemRequestBuilder {
-    /** The attendanceReports property */
+    /** Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity. */
     public get attendanceReports(): AttendanceReportsRequestBuilder {
         return new AttendanceReportsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The attendeeReport property */
+    /** Provides operations to manage the media for the user entity. */
     public get attendeeReport(): AttendeeReportRequestBuilder {
         return new AttendeeReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -27,7 +27,7 @@ export class OnlineMeetingItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.onlineMeetings.item.attendanceReports.item collection
+     * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
      * @param id Unique identifier of the item
      * @returns a MeetingAttendanceReportItemRequestBuilder
      */
@@ -96,6 +96,7 @@ export class OnlineMeetingItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -116,7 +117,7 @@ export class OnlineMeetingItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Get onlineMeetings from users
@@ -132,15 +133,16 @@ export class OnlineMeetingItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<OnlineMeeting>(requestInfo, createOnlineMeetingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OnlineMeeting>(requestInfo, createOnlineMeetingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property onlineMeetings in users
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of OnlineMeeting
      */
-    public patch(body: OnlineMeeting | undefined, requestConfiguration?: OnlineMeetingItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: OnlineMeeting | undefined, requestConfiguration?: OnlineMeetingItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnlineMeeting | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -149,6 +151,6 @@ export class OnlineMeetingItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OnlineMeeting>(requestInfo, createOnlineMeetingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

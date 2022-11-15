@@ -11,7 +11,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the file property of the microsoft.graph.agreement entity. */
 export class FileRequestBuilder {
-    /** The localizations property */
+    /** Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity. */
     public get localizations(): LocalizationsRequestBuilder {
         return new LocalizationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -51,7 +51,7 @@ export class FileRequestBuilder {
         return requestInfo;
     };
     /**
-     * Default PDF linked to this agreement.
+     * Retrieve the details of the default file for an agreement, including the language and version information. The file information is specified through the agreementFile object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -80,6 +80,7 @@ export class FileRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -100,10 +101,10 @@ export class FileRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Default PDF linked to this agreement.
+     * Retrieve the details of the default file for an agreement, including the language and version information. The file information is specified through the agreementFile object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AgreementFile
@@ -116,10 +117,10 @@ export class FileRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AgreementFile>(requestInfo, createAgreementFileFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AgreementFile>(requestInfo, createAgreementFileFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.agreements.item.file.localizations.item collection
+     * Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.
      * @param id Unique identifier of the item
      * @returns a AgreementFileLocalizationItemRequestBuilder
      */
@@ -134,8 +135,9 @@ export class FileRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of AgreementFile
      */
-    public patch(body: AgreementFile | undefined, requestConfiguration?: FileRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AgreementFile | undefined, requestConfiguration?: FileRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AgreementFile | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -144,6 +146,6 @@ export class FileRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AgreementFile>(requestInfo, createAgreementFileFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

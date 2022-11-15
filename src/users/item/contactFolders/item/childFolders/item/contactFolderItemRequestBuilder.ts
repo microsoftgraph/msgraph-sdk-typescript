@@ -15,11 +15,11 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the childFolders property of the microsoft.graph.contactFolder entity. */
 export class ContactFolderItemRequestBuilder {
-    /** The contacts property */
+    /** Provides operations to manage the contacts property of the microsoft.graph.contactFolder entity. */
     public get contacts(): ContactsRequestBuilder {
         return new ContactsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The multiValueExtendedProperties property */
+    /** Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.contactFolder entity. */
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -27,7 +27,7 @@ export class ContactFolderItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The singleValueExtendedProperties property */
+    /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.contactFolder entity. */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -47,7 +47,7 @@ export class ContactFolderItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.contactFolders.item.childFolders.item.contacts.item collection
+     * Provides operations to manage the contacts property of the microsoft.graph.contactFolder entity.
      * @param id Unique identifier of the item
      * @returns a ContactItemRequestBuilder
      */
@@ -103,6 +103,7 @@ export class ContactFolderItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -123,7 +124,7 @@ export class ContactFolderItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * The collection of child folders in the folder. Navigation property. Read-only. Nullable.
@@ -139,10 +140,10 @@ export class ContactFolderItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ContactFolder>(requestInfo, createContactFolderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ContactFolder>(requestInfo, createContactFolderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.contactFolders.item.childFolders.item.multiValueExtendedProperties.item collection
+     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.contactFolder entity.
      * @param id Unique identifier of the item
      * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
      */
@@ -157,8 +158,9 @@ export class ContactFolderItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ContactFolder
      */
-    public patch(body: ContactFolder | undefined, requestConfiguration?: ContactFolderItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ContactFolder | undefined, requestConfiguration?: ContactFolderItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContactFolder | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -167,10 +169,10 @@ export class ContactFolderItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ContactFolder>(requestInfo, createContactFolderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.contactFolders.item.childFolders.item.singleValueExtendedProperties.item collection
+     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.contactFolder entity.
      * @param id Unique identifier of the item
      * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
      */

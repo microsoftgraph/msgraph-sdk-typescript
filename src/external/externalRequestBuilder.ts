@@ -10,7 +10,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the external singleton. */
 export class ExternalRequestBuilder {
-    /** The connections property */
+    /** Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity. */
     public get connections(): ConnectionsRequestBuilder {
         return new ConnectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -21,7 +21,7 @@ export class ExternalRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.external.connections.item collection
+     * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
      * @param id Unique identifier of the item
      * @returns a ExternalConnectionItemRequestBuilder
      */
@@ -74,6 +74,7 @@ export class ExternalRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -95,15 +96,16 @@ export class ExternalRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<External>(requestInfo, createExternalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<External>(requestInfo, createExternalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update external
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of External
      */
-    public patch(body: External | undefined, requestConfiguration?: ExternalRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: External | undefined, requestConfiguration?: ExternalRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<External | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -112,6 +114,6 @@ export class ExternalRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<External>(requestInfo, createExternalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

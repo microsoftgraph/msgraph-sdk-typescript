@@ -26,7 +26,7 @@ export class SetOrderRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action setOrder
+     * Set the order of identityUserFlowAttributeAssignments being collected within a user flow.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -45,7 +45,7 @@ export class SetOrderRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action setOrder
+     * Set the order of identityUserFlowAttributeAssignments being collected within a user flow.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -59,6 +59,6 @@ export class SetOrderRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

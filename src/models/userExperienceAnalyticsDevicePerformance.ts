@@ -4,11 +4,11 @@ import {UserExperienceAnalyticsHealthState} from './userExperienceAnalyticsHealt
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsable {
-    /** Average (mean) number of Blue Screens per device in the last 14 days. Valid values 0 to 9999999 */
+    /** Average (mean) number of Blue Screens per device in the last 30 days. Valid values 0 to 9999999 */
     private _averageBlueScreens?: number | undefined;
-    /** Average (mean) number of Restarts per device in the last 14 days. Valid values 0 to 9999999 */
+    /** Average (mean) number of Restarts per device in the last 30 days. Valid values 0 to 9999999 */
     private _averageRestarts?: number | undefined;
-    /** Number of Blue Screens in the last 14 days. Valid values 0 to 9999999 */
+    /** Number of Blue Screens in the last 30 days. Valid values 0 to 9999999 */
     private _blueScreenCount?: number | undefined;
     /** The user experience analytics device boot score. */
     private _bootScore?: number | undefined;
@@ -40,47 +40,47 @@ export class UserExperienceAnalyticsDevicePerformance extends Entity implements 
     private _operatingSystemVersion?: string | undefined;
     /** The user experience analytics responsive desktop time in milliseconds. */
     private _responsiveDesktopTimeInMs?: number | undefined;
-    /** Number of Restarts in the last 14 days. Valid values 0 to 9999999 */
+    /** Number of Restarts in the last 30 days. Valid values 0 to 9999999 */
     private _restartCount?: number | undefined;
     /** The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private _startupPerformanceScore?: number | undefined;
     /**
-     * Gets the averageBlueScreens property value. Average (mean) number of Blue Screens per device in the last 14 days. Valid values 0 to 9999999
+     * Gets the averageBlueScreens property value. Average (mean) number of Blue Screens per device in the last 30 days. Valid values 0 to 9999999
      * @returns a double
      */
     public get averageBlueScreens() {
         return this._averageBlueScreens;
     };
     /**
-     * Sets the averageBlueScreens property value. Average (mean) number of Blue Screens per device in the last 14 days. Valid values 0 to 9999999
+     * Sets the averageBlueScreens property value. Average (mean) number of Blue Screens per device in the last 30 days. Valid values 0 to 9999999
      * @param value Value to set for the averageBlueScreens property.
      */
     public set averageBlueScreens(value: number | undefined) {
         this._averageBlueScreens = value;
     };
     /**
-     * Gets the averageRestarts property value. Average (mean) number of Restarts per device in the last 14 days. Valid values 0 to 9999999
+     * Gets the averageRestarts property value. Average (mean) number of Restarts per device in the last 30 days. Valid values 0 to 9999999
      * @returns a double
      */
     public get averageRestarts() {
         return this._averageRestarts;
     };
     /**
-     * Sets the averageRestarts property value. Average (mean) number of Restarts per device in the last 14 days. Valid values 0 to 9999999
+     * Sets the averageRestarts property value. Average (mean) number of Restarts per device in the last 30 days. Valid values 0 to 9999999
      * @param value Value to set for the averageRestarts property.
      */
     public set averageRestarts(value: number | undefined) {
         this._averageRestarts = value;
     };
     /**
-     * Gets the blueScreenCount property value. Number of Blue Screens in the last 14 days. Valid values 0 to 9999999
+     * Gets the blueScreenCount property value. Number of Blue Screens in the last 30 days. Valid values 0 to 9999999
      * @returns a integer
      */
     public get blueScreenCount() {
         return this._blueScreenCount;
     };
     /**
-     * Sets the blueScreenCount property value. Number of Blue Screens in the last 14 days. Valid values 0 to 9999999
+     * Sets the blueScreenCount property value. Number of Blue Screens in the last 30 days. Valid values 0 to 9999999
      * @param value Value to set for the blueScreenCount property.
      */
     public set blueScreenCount(value: number | undefined) {
@@ -332,14 +332,14 @@ export class UserExperienceAnalyticsDevicePerformance extends Entity implements 
         this._responsiveDesktopTimeInMs = value;
     };
     /**
-     * Gets the restartCount property value. Number of Restarts in the last 14 days. Valid values 0 to 9999999
+     * Gets the restartCount property value. Number of Restarts in the last 30 days. Valid values 0 to 9999999
      * @returns a integer
      */
     public get restartCount() {
         return this._restartCount;
     };
     /**
-     * Sets the restartCount property value. Number of Restarts in the last 14 days. Valid values 0 to 9999999
+     * Sets the restartCount property value. Number of Restarts in the last 30 days. Valid values 0 to 9999999
      * @param value Value to set for the restartCount property.
      */
     public set restartCount(value: number | undefined) {

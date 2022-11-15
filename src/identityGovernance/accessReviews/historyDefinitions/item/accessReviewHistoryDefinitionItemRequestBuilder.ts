@@ -11,7 +11,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity. */
 export class AccessReviewHistoryDefinitionItemRequestBuilder {
-    /** The instances property */
+    /** Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity. */
     public get instances(): InstancesRequestBuilder {
         return new InstancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -80,6 +80,7 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -100,7 +101,7 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Represents a collection of access review history data and the scopes used to collect that data.
@@ -116,10 +117,10 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AccessReviewHistoryDefinition>(requestInfo, createAccessReviewHistoryDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessReviewHistoryDefinition>(requestInfo, createAccessReviewHistoryDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.accessReviews.historyDefinitions.item.instances.item collection
+     * Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity.
      * @param id Unique identifier of the item
      * @returns a AccessReviewHistoryInstanceItemRequestBuilder
      */
@@ -134,8 +135,9 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of AccessReviewHistoryDefinition
      */
-    public patch(body: AccessReviewHistoryDefinition | undefined, requestConfiguration?: AccessReviewHistoryDefinitionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AccessReviewHistoryDefinition | undefined, requestConfiguration?: AccessReviewHistoryDefinitionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewHistoryDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -144,6 +146,6 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessReviewHistoryDefinition>(requestInfo, createAccessReviewHistoryDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

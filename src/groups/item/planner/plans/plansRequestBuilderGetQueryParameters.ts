@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. Returns the plannerPlans owned by the group. */
+/** Retrieve a list of **plannerPlan** objects owned by a group object. */
 export class PlansRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

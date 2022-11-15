@@ -12,7 +12,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity. */
 export class UserAttributeAssignmentsRequestBuilder {
-    /** The Count property */
+    /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -20,7 +20,7 @@ export class UserAttributeAssignmentsRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The setOrder property */
+    /** Provides operations to call the setOrder method. */
     public get setOrder(): SetOrderRequestBuilder {
         return new SetOrderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -34,13 +34,13 @@ export class UserAttributeAssignmentsRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userAttributeAssignments{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}";
+        this.urlTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userAttributeAssignments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The user attribute assignments included in the user flow.
+     * Get the identityUserFlowAttributeAssignment resources from the userAttributeAssignments navigation property in a b2xIdentityUserFlow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -58,7 +58,7 @@ export class UserAttributeAssignmentsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to userAttributeAssignments for identity
+     * Create a new identityUserFlowAttributeAssignment object in a b2xIdentityUserFlow.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -78,7 +78,7 @@ export class UserAttributeAssignmentsRequestBuilder {
         return requestInfo;
     };
     /**
-     * The user attribute assignments included in the user flow.
+     * Get the identityUserFlowAttributeAssignment resources from the userAttributeAssignments navigation property in a b2xIdentityUserFlow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityUserFlowAttributeAssignmentCollectionResponse
@@ -91,7 +91,7 @@ export class UserAttributeAssignmentsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<IdentityUserFlowAttributeAssignmentCollectionResponse>(requestInfo, createIdentityUserFlowAttributeAssignmentCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<IdentityUserFlowAttributeAssignmentCollectionResponse>(requestInfo, createIdentityUserFlowAttributeAssignmentCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Provides operations to call the getOrder method.
@@ -101,7 +101,7 @@ export class UserAttributeAssignmentsRequestBuilder {
         return new GetOrderRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * Create new navigation property to userAttributeAssignments for identity
+     * Create a new identityUserFlowAttributeAssignment object in a b2xIdentityUserFlow.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -116,6 +116,6 @@ export class UserAttributeAssignmentsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<IdentityUserFlowAttributeAssignment>(requestInfo, createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<IdentityUserFlowAttributeAssignment>(requestInfo, createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

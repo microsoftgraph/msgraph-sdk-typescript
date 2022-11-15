@@ -14,11 +14,11 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 export class ConversationThreadItemRequestBuilder {
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The posts property */
+    /** Provides operations to manage the posts property of the microsoft.graph.conversationThread entity. */
     public get posts(): PostsRequestBuilder {
         return new PostsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The reply property */
+    /** Provides operations to call the reply method. */
     public get reply(): ReplyRequestBuilder {
         return new ReplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -85,6 +85,7 @@ export class ConversationThreadItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -105,7 +106,7 @@ export class ConversationThreadItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
@@ -121,15 +122,16 @@ export class ConversationThreadItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ConversationThread>(requestInfo, createConversationThreadFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ConversationThread>(requestInfo, createConversationThreadFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property threads in groups
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ConversationThread
      */
-    public patch(body: ConversationThread | undefined, requestConfiguration?: ConversationThreadItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ConversationThread | undefined, requestConfiguration?: ConversationThreadItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConversationThread | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -138,10 +140,10 @@ export class ConversationThreadItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ConversationThread>(requestInfo, createConversationThreadFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.conversations.item.threads.item.posts.item collection
+     * Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
      * @param id Unique identifier of the item
      * @returns a PostItemRequestBuilder
      */

@@ -2,13 +2,13 @@ import {createRiskUserActivityFromDiscriminatorValue} from './createRiskUserActi
 import {RiskUserActivity, RiskyUser} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class RiskyUserHistoryItem extends RiskyUser implements Parsable {
     /** The activity related to user risk level change. */
     private _activity?: RiskUserActivity | undefined;
-    /** The id of actor that does the operation. */
+    /** The ID of actor that does the operation. */
     private _initiatedBy?: string | undefined;
-    /** The id of the user. */
+    /** The ID of the user. */
     private _userId?: string | undefined;
     /**
      * Gets the activity property value. The activity related to user risk level change.
@@ -43,14 +43,14 @@ export class RiskyUserHistoryItem extends RiskyUser implements Parsable {
         };
     };
     /**
-     * Gets the initiatedBy property value. The id of actor that does the operation.
+     * Gets the initiatedBy property value. The ID of actor that does the operation.
      * @returns a string
      */
     public get initiatedBy() {
         return this._initiatedBy;
     };
     /**
-     * Sets the initiatedBy property value. The id of actor that does the operation.
+     * Sets the initiatedBy property value. The ID of actor that does the operation.
      * @param value Value to set for the initiatedBy property.
      */
     public set initiatedBy(value: string | undefined) {
@@ -68,14 +68,14 @@ export class RiskyUserHistoryItem extends RiskyUser implements Parsable {
         writer.writeStringValue("userId", this.userId);
     };
     /**
-     * Gets the userId property value. The id of the user.
+     * Gets the userId property value. The ID of the user.
      * @returns a string
      */
     public get userId() {
         return this._userId;
     };
     /**
-     * Sets the userId property value. The id of the user.
+     * Sets the userId property value. The ID of the user.
      * @param value Value to set for the userId property.
      */
     public set userId(value: string | undefined) {

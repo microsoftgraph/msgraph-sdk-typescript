@@ -21,7 +21,7 @@ import {AddIn, AppRole, AppRoleAssignment, ClaimsMappingPolicy, DelegatedPermiss
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ServicePrincipal extends DirectoryObject implements Parsable {
-    /** true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in). */
+    /** true if the service principal account is enabled; otherwise, false. If set to false, then no users will be able to sign in to this app, even if they are assigned to it. Supports $filter (eq, ne, not, in). */
     private _accountEnabled?: boolean | undefined;
     /** Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Microsoft 365 call the application in the context of a document the user is working on. */
     private _addIns?: AddIn[] | undefined;
@@ -118,14 +118,14 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     /** Specifies the verified publisher of the application which this service principal represents. */
     private _verifiedPublisher?: VerifiedPublisher | undefined;
     /**
-     * Gets the accountEnabled property value. true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in).
+     * Gets the accountEnabled property value. true if the service principal account is enabled; otherwise, false. If set to false, then no users will be able to sign in to this app, even if they are assigned to it. Supports $filter (eq, ne, not, in).
      * @returns a boolean
      */
     public get accountEnabled() {
         return this._accountEnabled;
     };
     /**
-     * Sets the accountEnabled property value. true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in).
+     * Sets the accountEnabled property value. true if the service principal account is enabled; otherwise, false. If set to false, then no users will be able to sign in to this app, even if they are assigned to it. Supports $filter (eq, ne, not, in).
      * @param value Value to set for the accountEnabled property.
      */
     public set accountEnabled(value: boolean | undefined) {

@@ -2,7 +2,7 @@ import {AgreementAcceptanceState} from './agreementAcceptanceState';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class AgreementAcceptance extends Entity implements Parsable {
     /** The identifier of the agreement file accepted by the user. */
     private _agreementFileId?: string | undefined;
@@ -10,13 +10,13 @@ export class AgreementAcceptance extends Entity implements Parsable {
     private _agreementId?: string | undefined;
     /** The display name of the device used for accepting the agreement. */
     private _deviceDisplayName?: string | undefined;
-    /** The unique identifier of the device used for accepting the agreement. */
+    /** The unique identifier of the device used for accepting the agreement. Supports $filter (eq) and eq for null values. */
     private _deviceId?: string | undefined;
     /** The operating system used to accept the agreement. */
     private _deviceOSType?: string | undefined;
     /** The operating system version of the device used to accept the agreement. */
     private _deviceOSVersion?: string | undefined;
-    /** The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    /** The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ge, le) and eq for null values. */
     private _expirationDateTime?: Date | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _recordedDateTime?: Date | undefined;
@@ -26,7 +26,7 @@ export class AgreementAcceptance extends Entity implements Parsable {
     private _userDisplayName?: string | undefined;
     /** Email of the user when the acceptance was recorded. */
     private _userEmail?: string | undefined;
-    /** The identifier of the user who accepted the agreement. */
+    /** The identifier of the user who accepted the agreement. Supports $filter (eq). */
     private _userId?: string | undefined;
     /** UPN of the user when the acceptance was recorded. */
     private _userPrincipalName?: string | undefined;
@@ -80,14 +80,14 @@ export class AgreementAcceptance extends Entity implements Parsable {
         this._deviceDisplayName = value;
     };
     /**
-     * Gets the deviceId property value. The unique identifier of the device used for accepting the agreement.
+     * Gets the deviceId property value. The unique identifier of the device used for accepting the agreement. Supports $filter (eq) and eq for null values.
      * @returns a string
      */
     public get deviceId() {
         return this._deviceId;
     };
     /**
-     * Sets the deviceId property value. The unique identifier of the device used for accepting the agreement.
+     * Sets the deviceId property value. The unique identifier of the device used for accepting the agreement. Supports $filter (eq) and eq for null values.
      * @param value Value to set for the deviceId property.
      */
     public set deviceId(value: string | undefined) {
@@ -122,14 +122,14 @@ export class AgreementAcceptance extends Entity implements Parsable {
         this._deviceOSVersion = value;
     };
     /**
-     * Gets the expirationDateTime property value. The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the expirationDateTime property value. The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ge, le) and eq for null values.
      * @returns a Date
      */
     public get expirationDateTime() {
         return this._expirationDateTime;
     };
     /**
-     * Sets the expirationDateTime property value. The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the expirationDateTime property value. The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ge, le) and eq for null values.
      * @param value Value to set for the expirationDateTime property.
      */
     public set expirationDateTime(value: Date | undefined) {
@@ -234,14 +234,14 @@ export class AgreementAcceptance extends Entity implements Parsable {
         this._userEmail = value;
     };
     /**
-     * Gets the userId property value. The identifier of the user who accepted the agreement.
+     * Gets the userId property value. The identifier of the user who accepted the agreement. Supports $filter (eq).
      * @returns a string
      */
     public get userId() {
         return this._userId;
     };
     /**
-     * Sets the userId property value. The identifier of the user who accepted the agreement.
+     * Sets the userId property value. The identifier of the user who accepted the agreement. Supports $filter (eq).
      * @param value Value to set for the userId property.
      */
     public set userId(value: string | undefined) {

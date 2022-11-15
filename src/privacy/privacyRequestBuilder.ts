@@ -14,7 +14,7 @@ export class PrivacyRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The subjectRightsRequests property */
+    /** Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity. */
     public get subjectRightsRequests(): SubjectRightsRequestsRequestBuilder {
         return new SubjectRightsRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -63,6 +63,7 @@ export class PrivacyRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -84,15 +85,16 @@ export class PrivacyRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Privacy>(requestInfo, createPrivacyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Privacy>(requestInfo, createPrivacyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update privacy
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Privacy
      */
-    public patch(body: Privacy | undefined, requestConfiguration?: PrivacyRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Privacy | undefined, requestConfiguration?: PrivacyRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Privacy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -101,10 +103,10 @@ export class PrivacyRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Privacy>(requestInfo, createPrivacyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.privacy.subjectRightsRequests.item collection
+     * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
      * @param id Unique identifier of the item
      * @returns a SubjectRightsRequestItemRequestBuilder
      */

@@ -16,7 +16,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the printers property of the microsoft.graph.print entity. */
 export class PrinterItemRequestBuilder {
-    /** The connectors property */
+    /** Provides operations to manage the connectors property of the microsoft.graph.printer entity. */
     public get connectors(): ConnectorsRequestBuilder {
         return new ConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -24,22 +24,22 @@ export class PrinterItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The restoreFactoryDefaults property */
+    /** Provides operations to call the restoreFactoryDefaults method. */
     public get restoreFactoryDefaults(): RestoreFactoryDefaultsRequestBuilder {
         return new RestoreFactoryDefaultsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The shares property */
+    /** Provides operations to manage the shares property of the microsoft.graph.printer entity. */
     public get shares(): SharesRequestBuilder {
         return new SharesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The taskTriggers property */
+    /** Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity. */
     public get taskTriggers(): TaskTriggersRequestBuilder {
         return new TaskTriggersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.printers.item.connectors.item collection
+     * Provides operations to manage the connectors property of the microsoft.graph.printer entity.
      * @param id Unique identifier of the item
      * @returns a PrintConnectorItemRequestBuilder
      */
@@ -108,6 +108,7 @@ export class PrinterItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -128,7 +129,7 @@ export class PrinterItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * The list of printers registered in the tenant.
@@ -144,15 +145,16 @@ export class PrinterItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Printer>(requestInfo, createPrinterFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Printer>(requestInfo, createPrinterFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property printers in print
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Printer
      */
-    public patch(body: Printer | undefined, requestConfiguration?: PrinterItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Printer | undefined, requestConfiguration?: PrinterItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Printer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -161,10 +163,10 @@ export class PrinterItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Printer>(requestInfo, createPrinterFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.printers.item.shares.item collection
+     * Provides operations to manage the shares property of the microsoft.graph.printer entity.
      * @param id Unique identifier of the item
      * @returns a PrinterShareItemRequestBuilder
      */
@@ -175,7 +177,7 @@ export class PrinterItemRequestBuilder {
         return new PrinterShareItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.printers.item.taskTriggers.item collection
+     * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
      * @param id Unique identifier of the item
      * @returns a PrintTaskTriggerItemRequestBuilder
      */

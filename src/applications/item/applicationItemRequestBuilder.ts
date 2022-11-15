@@ -34,83 +34,83 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the collection of application entities. */
 export class ApplicationItemRequestBuilder {
-    /** The addKey property */
+    /** Provides operations to call the addKey method. */
     public get addKey(): AddKeyRequestBuilder {
         return new AddKeyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The addPassword property */
+    /** Provides operations to call the addPassword method. */
     public get addPassword(): AddPasswordRequestBuilder {
         return new AddPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkMemberGroups property */
+    /** Provides operations to call the checkMemberGroups method. */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkMemberObjects property */
+    /** Provides operations to call the checkMemberObjects method. */
     public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createdOnBehalfOf property */
+    /** Provides operations to manage the createdOnBehalfOf property of the microsoft.graph.application entity. */
     public get createdOnBehalfOf(): CreatedOnBehalfOfRequestBuilder {
         return new CreatedOnBehalfOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The extensionProperties property */
+    /** Provides operations to manage the extensionProperties property of the microsoft.graph.application entity. */
     public get extensionProperties(): ExtensionPropertiesRequestBuilder {
         return new ExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The federatedIdentityCredentials property */
+    /** Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity. */
     public get federatedIdentityCredentials(): FederatedIdentityCredentialsRequestBuilder {
         return new FederatedIdentityCredentialsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMemberGroups property */
+    /** Provides operations to call the getMemberGroups method. */
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMemberObjects property */
+    /** Provides operations to call the getMemberObjects method. */
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The homeRealmDiscoveryPolicies property */
+    /** Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.application entity. */
     public get homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
         return new HomeRealmDiscoveryPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The logo property */
+    /** Provides operations to manage the media for the application entity. */
     public get logo(): LogoRequestBuilder {
         return new LogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The owners property */
+    /** Provides operations to manage the owners property of the microsoft.graph.application entity. */
     public get owners(): OwnersRequestBuilder {
         return new OwnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The removeKey property */
+    /** Provides operations to call the removeKey method. */
     public get removeKey(): RemoveKeyRequestBuilder {
         return new RemoveKeyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The removePassword property */
+    /** Provides operations to call the removePassword method. */
     public get removePassword(): RemovePasswordRequestBuilder {
         return new RemovePasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The restore property */
+    /** Provides operations to call the restore method. */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The setVerifiedPublisher property */
+    /** Provides operations to call the setVerifiedPublisher method. */
     public get setVerifiedPublisher(): SetVerifiedPublisherRequestBuilder {
         return new SetVerifiedPublisherRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The tokenIssuancePolicies property */
+    /** Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.application entity. */
     public get tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {
         return new TokenIssuancePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The tokenLifetimePolicies property */
+    /** Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.application entity. */
     public get tokenLifetimePolicies(): TokenLifetimePoliciesRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The unsetVerifiedPublisher property */
+    /** Provides operations to call the unsetVerifiedPublisher method. */
     public get unsetVerifiedPublisher(): UnsetVerifiedPublisherRequestBuilder {
         return new UnsetVerifiedPublisherRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -175,6 +175,7 @@ export class ApplicationItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -195,10 +196,10 @@ export class ApplicationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.extensionProperties.item collection
+     * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
      * @param id Unique identifier of the item
      * @returns a ExtensionPropertyItemRequestBuilder
      */
@@ -209,7 +210,7 @@ export class ApplicationItemRequestBuilder {
         return new ExtensionPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.federatedIdentityCredentials.item collection
+     * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.
      * @param id Unique identifier of the item
      * @returns a FederatedIdentityCredentialItemRequestBuilder
      */
@@ -233,10 +234,10 @@ export class ApplicationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Application>(requestInfo, createApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Application>(requestInfo, createApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.homeRealmDiscoveryPolicies.item collection
+     * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.application entity.
      * @param id Unique identifier of the item
      * @returns a HomeRealmDiscoveryPolicyItemRequestBuilder
      */
@@ -262,8 +263,9 @@ export class ApplicationItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Application
      */
-    public patch(body: Application | undefined, requestConfiguration?: ApplicationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Application | undefined, requestConfiguration?: ApplicationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Application | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -272,7 +274,7 @@ export class ApplicationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Application>(requestInfo, createApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.tokenIssuancePolicies.item collection

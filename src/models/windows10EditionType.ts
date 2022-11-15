@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum Windows10EditionType {
     /** Windows 10 Enterprise */
     Windows10Enterprise = "windows10Enterprise",

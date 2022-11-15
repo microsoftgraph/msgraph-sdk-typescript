@@ -14,11 +14,11 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the plans property of the microsoft.graph.plannerUser entity. */
 export class PlannerPlanItemRequestBuilder {
-    /** The buckets property */
+    /** Provides operations to manage the buckets property of the microsoft.graph.plannerPlan entity. */
     public get buckets(): BucketsRequestBuilder {
         return new BucketsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The details property */
+    /** Provides operations to manage the details property of the microsoft.graph.plannerPlan entity. */
     public get details(): DetailsRequestBuilder {
         return new DetailsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -26,14 +26,14 @@ export class PlannerPlanItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The tasks property */
+    /** Provides operations to manage the tasks property of the microsoft.graph.plannerPlan entity. */
     public get tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.planner.plans.item.buckets.item collection
+     * Provides operations to manage the buckets property of the microsoft.graph.plannerPlan entity.
      * @param id Unique identifier of the item
      * @returns a PlannerBucketItemRequestBuilder
      */
@@ -102,6 +102,7 @@ export class PlannerPlanItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -122,7 +123,7 @@ export class PlannerPlanItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Read-only. Nullable. Returns the plannerTasks assigned to the user.
@@ -138,15 +139,16 @@ export class PlannerPlanItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<PlannerPlan>(requestInfo, createPlannerPlanFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PlannerPlan>(requestInfo, createPlannerPlanFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property plans in users
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of PlannerPlan
      */
-    public patch(body: PlannerPlan | undefined, requestConfiguration?: PlannerPlanItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: PlannerPlan | undefined, requestConfiguration?: PlannerPlanItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerPlan | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -155,10 +157,10 @@ export class PlannerPlanItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PlannerPlan>(requestInfo, createPlannerPlanFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.planner.plans.item.tasks.item collection
+     * Provides operations to manage the tasks property of the microsoft.graph.plannerPlan entity.
      * @param id Unique identifier of the item
      * @returns a PlannerTaskItemRequestBuilder
      */

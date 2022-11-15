@@ -13,13 +13,13 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the messages property of the microsoft.graph.chat entity. */
 export class ChatMessageItemRequestBuilder {
-    /** The hostedContents property */
+    /** Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity. */
     public get hostedContents(): HostedContentsRequestBuilder {
         return new HostedContentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The replies property */
+    /** Provides operations to manage the replies property of the microsoft.graph.chatMessage entity. */
     public get replies(): RepliesRequestBuilder {
         return new RepliesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -86,6 +86,7 @@ export class ChatMessageItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -106,7 +107,7 @@ export class ChatMessageItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * A collection of all the messages in the chat. Nullable.
@@ -122,10 +123,10 @@ export class ChatMessageItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ChatMessage>(requestInfo, createChatMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ChatMessage>(requestInfo, createChatMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.chats.item.messages.item.hostedContents.item collection
+     * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
      * @param id Unique identifier of the item
      * @returns a ChatMessageHostedContentItemRequestBuilder
      */
@@ -140,8 +141,9 @@ export class ChatMessageItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ChatMessage
      */
-    public patch(body: ChatMessage | undefined, requestConfiguration?: ChatMessageItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ChatMessage | undefined, requestConfiguration?: ChatMessageItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessage | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -150,10 +152,10 @@ export class ChatMessageItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ChatMessage>(requestInfo, createChatMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.chats.item.messages.item.replies.item collection
+     * Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.
      * @param id Unique identifier of the item
      * @returns a ChatMessageItemRequestBuilder
      */

@@ -4,6 +4,7 @@ import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AlertsRequestBuilder} from './alerts/alertsRequestBuilder';
 import {AlertItemRequestBuilder} from './alerts/item/alertItemRequestBuilder';
+import {AttackSimulationRequestBuilder} from './attackSimulation/attackSimulationRequestBuilder';
 import {CasesRequestBuilder} from './cases/casesRequestBuilder';
 import {SecureScoreControlProfileItemRequestBuilder} from './secureScoreControlProfiles/item/secureScoreControlProfileItemRequestBuilder';
 import {SecureScoreControlProfilesRequestBuilder} from './secureScoreControlProfiles/secureScoreControlProfilesRequestBuilder';
@@ -15,11 +16,15 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the security singleton. */
 export class SecurityRequestBuilder {
-    /** The alerts property */
+    /** Provides operations to manage the alerts property of the microsoft.graph.security entity. */
     public get alerts(): AlertsRequestBuilder {
         return new AlertsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The cases property */
+    /** Provides operations to manage the attackSimulation property of the microsoft.graph.security entity. */
+    public get attackSimulation(): AttackSimulationRequestBuilder {
+        return new AttackSimulationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the cases property of the microsoft.graph.security entity. */
     public get cases(): CasesRequestBuilder {
         return new CasesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -27,18 +32,18 @@ export class SecurityRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The secureScoreControlProfiles property */
+    /** Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity. */
     public get secureScoreControlProfiles(): SecureScoreControlProfilesRequestBuilder {
         return new SecureScoreControlProfilesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The secureScores property */
+    /** Provides operations to manage the secureScores property of the microsoft.graph.security entity. */
     public get secureScores(): SecureScoresRequestBuilder {
         return new SecureScoresRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.alerts.item collection
+     * Provides operations to manage the alerts property of the microsoft.graph.security entity.
      * @param id Unique identifier of the item
      * @returns a AlertItemRequestBuilder
      */
@@ -91,6 +96,7 @@ export class SecurityRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -112,15 +118,16 @@ export class SecurityRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Security>(requestInfo, createSecurityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Security>(requestInfo, createSecurityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update security
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Security
      */
-    public patch(body: Security | undefined, requestConfiguration?: SecurityRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Security | undefined, requestConfiguration?: SecurityRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Security | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -129,10 +136,10 @@ export class SecurityRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Security>(requestInfo, createSecurityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.secureScoreControlProfiles.item collection
+     * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
      * @param id Unique identifier of the item
      * @returns a SecureScoreControlProfileItemRequestBuilder
      */
@@ -143,7 +150,7 @@ export class SecurityRequestBuilder {
         return new SecureScoreControlProfileItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.secureScores.item collection
+     * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
      * @param id Unique identifier of the item
      * @returns a SecureScoreItemRequestBuilder
      */

@@ -1,5 +1,5 @@
 
-/** Get provisioning from auditLogs */
+/** Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system.  */
 export class ProvisioningRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

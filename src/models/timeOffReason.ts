@@ -5,7 +5,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class TimeOffReason extends ChangeTrackedEntity implements Parsable {
     /** The name of the timeOffReason. Required. */
     private _displayName?: string | undefined;
-    /** Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required. */
+    /** Supported icon types are: none, car, calendar, running, plane, firstAid, doctor, notWorking, clock, juryDuty, globe, cup, phone, weather, umbrella, piggyBank, dog, cake, trafficCone, pin, sunny. Required. */
     private _iconType?: TimeOffReasonIconType | undefined;
     /** Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required. */
     private _isActive?: boolean | undefined;
@@ -42,14 +42,14 @@ export class TimeOffReason extends ChangeTrackedEntity implements Parsable {
         };
     };
     /**
-     * Gets the iconType property value. Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required.
+     * Gets the iconType property value. Supported icon types are: none, car, calendar, running, plane, firstAid, doctor, notWorking, clock, juryDuty, globe, cup, phone, weather, umbrella, piggyBank, dog, cake, trafficCone, pin, sunny. Required.
      * @returns a timeOffReasonIconType
      */
     public get iconType() {
         return this._iconType;
     };
     /**
-     * Sets the iconType property value. Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required.
+     * Sets the iconType property value. Supported icon types are: none, car, calendar, running, plane, firstAid, doctor, notWorking, clock, juryDuty, globe, cup, phone, weather, umbrella, piggyBank, dog, cake, trafficCone, pin, sunny. Required.
      * @param value Value to set for the iconType property.
      */
     public set iconType(value: TimeOffReasonIconType | undefined) {

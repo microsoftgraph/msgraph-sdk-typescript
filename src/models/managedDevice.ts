@@ -5,11 +5,12 @@ import {createDeviceCategoryFromDiscriminatorValue} from './createDeviceCategory
 import {createDeviceCompliancePolicyStateFromDiscriminatorValue} from './createDeviceCompliancePolicyStateFromDiscriminatorValue';
 import {createDeviceConfigurationStateFromDiscriminatorValue} from './createDeviceConfigurationStateFromDiscriminatorValue';
 import {createDeviceHealthAttestationStateFromDiscriminatorValue} from './createDeviceHealthAttestationStateFromDiscriminatorValue';
+import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorValue';
 import {DeviceEnrollmentType} from './deviceEnrollmentType';
 import {DeviceManagementExchangeAccessState} from './deviceManagementExchangeAccessState';
 import {DeviceManagementExchangeAccessStateReason} from './deviceManagementExchangeAccessStateReason';
 import {DeviceRegistrationState} from './deviceRegistrationState';
-import {ConfigurationManagerClientEnabledFeatures, DeviceActionResult, DeviceCategory, DeviceCompliancePolicyState, DeviceConfigurationState, DeviceHealthAttestationState, Entity} from './index';
+import {ConfigurationManagerClientEnabledFeatures, DeviceActionResult, DeviceCategory, DeviceCompliancePolicyState, DeviceConfigurationState, DeviceHealthAttestationState, Entity, User} from './index';
 import {ManagedDeviceOwnerType} from './managedDeviceOwnerType';
 import {ManagedDevicePartnerReportedHealthState} from './managedDevicePartnerReportedHealthState';
 import {ManagementAgentType} from './managementAgentType';
@@ -18,25 +19,25 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Devices that are managed or pre-enrolled through Intune */
 export class ManagedDevice extends Entity implements Parsable {
     /** Code that allows the Activation Lock on a device to be bypassed. This property is read-only. */
-    private _activationLockBypassCode?: string | undefined;
+    private readonly _activationLockBypassCode?: string | undefined;
     /** Android security patch level. This property is read-only. */
-    private _androidSecurityPatchLevel?: string | undefined;
+    private readonly _androidSecurityPatchLevel?: string | undefined;
     /** The unique identifier for the Azure Active Directory device. Read only. This property is read-only. */
-    private _azureADDeviceId?: string | undefined;
+    private readonly _azureADDeviceId?: string | undefined;
     /** Whether the device is Azure Active Directory registered. This property is read-only. */
-    private _azureADRegistered?: boolean | undefined;
+    private readonly _azureADRegistered?: boolean | undefined;
     /** The DateTime when device compliance grace period expires. This property is read-only. */
-    private _complianceGracePeriodExpirationDateTime?: Date | undefined;
+    private readonly _complianceGracePeriodExpirationDateTime?: Date | undefined;
     /** Compliance state. */
     private _complianceState?: ComplianceState | undefined;
     /** ConfigrMgr client enabled features. This property is read-only. */
-    private _configurationManagerClientEnabledFeatures?: ConfigurationManagerClientEnabledFeatures | undefined;
+    private readonly _configurationManagerClientEnabledFeatures?: ConfigurationManagerClientEnabledFeatures | undefined;
     /** List of ComplexType deviceActionResult objects. This property is read-only. */
-    private _deviceActionResults?: DeviceActionResult[] | undefined;
+    private readonly _deviceActionResults?: DeviceActionResult[] | undefined;
     /** Device category */
     private _deviceCategory?: DeviceCategory | undefined;
     /** Device category display name. This property is read-only. */
-    private _deviceCategoryDisplayName?: string | undefined;
+    private readonly _deviceCategoryDisplayName?: string | undefined;
     /** Device compliance policy states for this device. */
     private _deviceCompliancePolicyStates?: DeviceCompliancePolicyState[] | undefined;
     /** Device configuration states for this device. */
@@ -44,87 +45,93 @@ export class ManagedDevice extends Entity implements Parsable {
     /** Possible ways of adding a mobile device to management. */
     private _deviceEnrollmentType?: DeviceEnrollmentType | undefined;
     /** The device health attestation state. This property is read-only. */
-    private _deviceHealthAttestationState?: DeviceHealthAttestationState | undefined;
+    private readonly _deviceHealthAttestationState?: DeviceHealthAttestationState | undefined;
     /** Name of the device. This property is read-only. */
-    private _deviceName?: string | undefined;
+    private readonly _deviceName?: string | undefined;
     /** Device registration status. */
     private _deviceRegistrationState?: DeviceRegistrationState | undefined;
     /** Whether the device is Exchange ActiveSync activated. This property is read-only. */
-    private _easActivated?: boolean | undefined;
+    private readonly _easActivated?: boolean | undefined;
     /** Exchange ActivationSync activation time of the device. This property is read-only. */
-    private _easActivationDateTime?: Date | undefined;
+    private readonly _easActivationDateTime?: Date | undefined;
     /** Exchange ActiveSync Id of the device. This property is read-only. */
-    private _easDeviceId?: string | undefined;
+    private readonly _easDeviceId?: string | undefined;
     /** Email(s) for the user associated with the device. This property is read-only. */
-    private _emailAddress?: string | undefined;
+    private readonly _emailAddress?: string | undefined;
     /** Enrollment time of the device. This property is read-only. */
-    private _enrolledDateTime?: Date | undefined;
+    private readonly _enrolledDateTime?: Date | undefined;
     /** Ethernet MAC. This property is read-only. */
-    private _ethernetMacAddress?: string | undefined;
+    private readonly _ethernetMacAddress?: string | undefined;
     /** Device Exchange Access State. */
     private _exchangeAccessState?: DeviceManagementExchangeAccessState | undefined;
     /** Device Exchange Access State Reason. */
     private _exchangeAccessStateReason?: DeviceManagementExchangeAccessStateReason | undefined;
     /** Last time the device contacted Exchange. This property is read-only. */
-    private _exchangeLastSuccessfulSyncDateTime?: Date | undefined;
-    /** Free Storage in Bytes. This property is read-only. */
-    private _freeStorageSpaceInBytes?: number | undefined;
-    /** Integrated Circuit Card Identifier, it is A SIM card's unique identification number. This property is read-only. */
-    private _iccid?: string | undefined;
+    private readonly _exchangeLastSuccessfulSyncDateTime?: Date | undefined;
+    /** Free Storage in Bytes. Default value is 0. Read-only. This property is read-only. */
+    private readonly _freeStorageSpaceInBytes?: number | undefined;
+    /** Integrated Circuit Card Identifier, it is A SIM card's unique identification number. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only. */
+    private readonly _iccid?: string | undefined;
     /** IMEI. This property is read-only. */
-    private _imei?: string | undefined;
+    private readonly _imei?: string | undefined;
     /** Device encryption status. This property is read-only. */
-    private _isEncrypted?: boolean | undefined;
+    private readonly _isEncrypted?: boolean | undefined;
     /** Device supervised status. This property is read-only. */
-    private _isSupervised?: boolean | undefined;
+    private readonly _isSupervised?: boolean | undefined;
     /** whether the device is jail broken or rooted. This property is read-only. */
-    private _jailBroken?: string | undefined;
+    private readonly _jailBroken?: string | undefined;
     /** The date and time that the device last completed a successful sync with Intune. This property is read-only. */
-    private _lastSyncDateTime?: Date | undefined;
+    private readonly _lastSyncDateTime?: Date | undefined;
     /** Automatically generated name to identify a device. Can be overwritten to a user friendly name. */
     private _managedDeviceName?: string | undefined;
     /** Owner type of device. */
     private _managedDeviceOwnerType?: ManagedDeviceOwnerType | undefined;
     /** The managementAgent property */
     private _managementAgent?: ManagementAgentType | undefined;
+    /** Reports device management certificate expiration date. This property is read-only. */
+    private readonly _managementCertificateExpirationDate?: Date | undefined;
     /** Manufacturer of the device. This property is read-only. */
-    private _manufacturer?: string | undefined;
+    private readonly _manufacturer?: string | undefined;
     /** MEID. This property is read-only. */
-    private _meid?: string | undefined;
+    private readonly _meid?: string | undefined;
     /** Model of the device. This property is read-only. */
-    private _model?: string | undefined;
-    /** Notes on the device created by IT Admin */
+    private readonly _model?: string | undefined;
+    /** Notes on the device created by IT Admin. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select.  $Search is not supported. */
     private _notes?: string | undefined;
     /** Operating system of the device. Windows, iOS, etc. This property is read-only. */
-    private _operatingSystem?: string | undefined;
+    private readonly _operatingSystem?: string | undefined;
     /** Operating system version of the device. This property is read-only. */
-    private _osVersion?: string | undefined;
+    private readonly _osVersion?: string | undefined;
     /** Available health states for the Device Health API */
     private _partnerReportedThreatState?: ManagedDevicePartnerReportedHealthState | undefined;
     /** Phone number of the device. This property is read-only. */
-    private _phoneNumber?: string | undefined;
-    /** Total Memory in Bytes. This property is read-only. */
-    private _physicalMemoryInBytes?: number | undefined;
+    private readonly _phoneNumber?: string | undefined;
+    /** Total Memory in Bytes. Return default value 0 in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. Default value is 0. Read-only. This property is read-only. */
+    private readonly _physicalMemoryInBytes?: number | undefined;
     /** An error string that identifies issues when creating Remote Assistance session objects. This property is read-only. */
-    private _remoteAssistanceSessionErrorDetails?: string | undefined;
+    private readonly _remoteAssistanceSessionErrorDetails?: string | undefined;
     /** Url that allows a Remote Assistance session to be established with the device. This property is read-only. */
-    private _remoteAssistanceSessionUrl?: string | undefined;
+    private readonly _remoteAssistanceSessionUrl?: string | undefined;
+    /** Reports if the managed iOS device is user approval enrollment. This property is read-only. */
+    private readonly _requireUserEnrollmentApproval?: boolean | undefined;
     /** SerialNumber. This property is read-only. */
-    private _serialNumber?: string | undefined;
+    private readonly _serialNumber?: string | undefined;
     /** Subscriber Carrier. This property is read-only. */
-    private _subscriberCarrier?: string | undefined;
+    private readonly _subscriberCarrier?: string | undefined;
     /** Total Storage in Bytes. This property is read-only. */
-    private _totalStorageSpaceInBytes?: number | undefined;
-    /** Unique Device Identifier for iOS and macOS devices. This property is read-only. */
-    private _udid?: string | undefined;
+    private readonly _totalStorageSpaceInBytes?: number | undefined;
+    /** Unique Device Identifier for iOS and macOS devices. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only. */
+    private readonly _udid?: string | undefined;
     /** User display name. This property is read-only. */
-    private _userDisplayName?: string | undefined;
+    private readonly _userDisplayName?: string | undefined;
     /** Unique Identifier for the user associated with the device. This property is read-only. */
-    private _userId?: string | undefined;
+    private readonly _userId?: string | undefined;
     /** Device user principal name. This property is read-only. */
-    private _userPrincipalName?: string | undefined;
+    private readonly _userPrincipalName?: string | undefined;
+    /** The primary users associated with the managed device. */
+    private _users?: User[] | undefined;
     /** Wi-Fi MAC. This property is read-only. */
-    private _wiFiMacAddress?: string | undefined;
+    private readonly _wiFiMacAddress?: string | undefined;
     /**
      * Gets the activationLockBypassCode property value. Code that allows the Activation Lock on a device to be bypassed. This property is read-only.
      * @returns a string
@@ -483,14 +490,14 @@ export class ManagedDevice extends Entity implements Parsable {
         this._exchangeLastSuccessfulSyncDateTime = value;
     };
     /**
-     * Gets the freeStorageSpaceInBytes property value. Free Storage in Bytes. This property is read-only.
+     * Gets the freeStorageSpaceInBytes property value. Free Storage in Bytes. Default value is 0. Read-only. This property is read-only.
      * @returns a int64
      */
     public get freeStorageSpaceInBytes() {
         return this._freeStorageSpaceInBytes;
     };
     /**
-     * Sets the freeStorageSpaceInBytes property value. Free Storage in Bytes. This property is read-only.
+     * Sets the freeStorageSpaceInBytes property value. Free Storage in Bytes. Default value is 0. Read-only. This property is read-only.
      * @param value Value to set for the freeStorageSpaceInBytes property.
      */
     public set freeStorageSpaceInBytes(value: number | undefined) {
@@ -537,6 +544,7 @@ export class ManagedDevice extends Entity implements Parsable {
             "managedDeviceName": n => { this.managedDeviceName = n.getStringValue(); },
             "managedDeviceOwnerType": n => { this.managedDeviceOwnerType = n.getEnumValue<ManagedDeviceOwnerType>(ManagedDeviceOwnerType); },
             "managementAgent": n => { this.managementAgent = n.getEnumValue<ManagementAgentType>(ManagementAgentType); },
+            "managementCertificateExpirationDate": n => { this.managementCertificateExpirationDate = n.getDateValue(); },
             "manufacturer": n => { this.manufacturer = n.getStringValue(); },
             "meid": n => { this.meid = n.getStringValue(); },
             "model": n => { this.model = n.getStringValue(); },
@@ -548,6 +556,7 @@ export class ManagedDevice extends Entity implements Parsable {
             "physicalMemoryInBytes": n => { this.physicalMemoryInBytes = n.getNumberValue(); },
             "remoteAssistanceSessionErrorDetails": n => { this.remoteAssistanceSessionErrorDetails = n.getStringValue(); },
             "remoteAssistanceSessionUrl": n => { this.remoteAssistanceSessionUrl = n.getStringValue(); },
+            "requireUserEnrollmentApproval": n => { this.requireUserEnrollmentApproval = n.getBooleanValue(); },
             "serialNumber": n => { this.serialNumber = n.getStringValue(); },
             "subscriberCarrier": n => { this.subscriberCarrier = n.getStringValue(); },
             "totalStorageSpaceInBytes": n => { this.totalStorageSpaceInBytes = n.getNumberValue(); },
@@ -555,18 +564,19 @@ export class ManagedDevice extends Entity implements Parsable {
             "userDisplayName": n => { this.userDisplayName = n.getStringValue(); },
             "userId": n => { this.userId = n.getStringValue(); },
             "userPrincipalName": n => { this.userPrincipalName = n.getStringValue(); },
+            "users": n => { this.users = n.getCollectionOfObjectValues<User>(createUserFromDiscriminatorValue); },
             "wiFiMacAddress": n => { this.wiFiMacAddress = n.getStringValue(); },
         };
     };
     /**
-     * Gets the iccid property value. Integrated Circuit Card Identifier, it is A SIM card's unique identification number. This property is read-only.
+     * Gets the iccid property value. Integrated Circuit Card Identifier, it is A SIM card's unique identification number. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
      * @returns a string
      */
     public get iccid() {
         return this._iccid;
     };
     /**
-     * Sets the iccid property value. Integrated Circuit Card Identifier, it is A SIM card's unique identification number. This property is read-only.
+     * Sets the iccid property value. Integrated Circuit Card Identifier, it is A SIM card's unique identification number. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
      * @param value Value to set for the iccid property.
      */
     public set iccid(value: string | undefined) {
@@ -685,6 +695,20 @@ export class ManagedDevice extends Entity implements Parsable {
         this._managementAgent = value;
     };
     /**
+     * Gets the managementCertificateExpirationDate property value. Reports device management certificate expiration date. This property is read-only.
+     * @returns a Date
+     */
+    public get managementCertificateExpirationDate() {
+        return this._managementCertificateExpirationDate;
+    };
+    /**
+     * Sets the managementCertificateExpirationDate property value. Reports device management certificate expiration date. This property is read-only.
+     * @param value Value to set for the managementCertificateExpirationDate property.
+     */
+    public set managementCertificateExpirationDate(value: Date | undefined) {
+        this._managementCertificateExpirationDate = value;
+    };
+    /**
      * Gets the manufacturer property value. Manufacturer of the device. This property is read-only.
      * @returns a string
      */
@@ -727,14 +751,14 @@ export class ManagedDevice extends Entity implements Parsable {
         this._model = value;
     };
     /**
-     * Gets the notes property value. Notes on the device created by IT Admin
+     * Gets the notes property value. Notes on the device created by IT Admin. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select.  $Search is not supported.
      * @returns a string
      */
     public get notes() {
         return this._notes;
     };
     /**
-     * Sets the notes property value. Notes on the device created by IT Admin
+     * Sets the notes property value. Notes on the device created by IT Admin. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select.  $Search is not supported.
      * @param value Value to set for the notes property.
      */
     public set notes(value: string | undefined) {
@@ -797,14 +821,14 @@ export class ManagedDevice extends Entity implements Parsable {
         this._phoneNumber = value;
     };
     /**
-     * Gets the physicalMemoryInBytes property value. Total Memory in Bytes. This property is read-only.
+     * Gets the physicalMemoryInBytes property value. Total Memory in Bytes. Return default value 0 in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. Default value is 0. Read-only. This property is read-only.
      * @returns a int64
      */
     public get physicalMemoryInBytes() {
         return this._physicalMemoryInBytes;
     };
     /**
-     * Sets the physicalMemoryInBytes property value. Total Memory in Bytes. This property is read-only.
+     * Sets the physicalMemoryInBytes property value. Total Memory in Bytes. Return default value 0 in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. Default value is 0. Read-only. This property is read-only.
      * @param value Value to set for the physicalMemoryInBytes property.
      */
     public set physicalMemoryInBytes(value: number | undefined) {
@@ -839,66 +863,40 @@ export class ManagedDevice extends Entity implements Parsable {
         this._remoteAssistanceSessionUrl = value;
     };
     /**
+     * Gets the requireUserEnrollmentApproval property value. Reports if the managed iOS device is user approval enrollment. This property is read-only.
+     * @returns a boolean
+     */
+    public get requireUserEnrollmentApproval() {
+        return this._requireUserEnrollmentApproval;
+    };
+    /**
+     * Sets the requireUserEnrollmentApproval property value. Reports if the managed iOS device is user approval enrollment. This property is read-only.
+     * @param value Value to set for the requireUserEnrollmentApproval property.
+     */
+    public set requireUserEnrollmentApproval(value: boolean | undefined) {
+        this._requireUserEnrollmentApproval = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeStringValue("activationLockBypassCode", this.activationLockBypassCode);
-        writer.writeStringValue("androidSecurityPatchLevel", this.androidSecurityPatchLevel);
-        writer.writeStringValue("azureADDeviceId", this.azureADDeviceId);
-        writer.writeBooleanValue("azureADRegistered", this.azureADRegistered);
-        writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
         writer.writeEnumValue<ComplianceState>("complianceState", this.complianceState);
-        writer.writeObjectValue<ConfigurationManagerClientEnabledFeatures>("configurationManagerClientEnabledFeatures", this.configurationManagerClientEnabledFeatures);
-        writer.writeCollectionOfObjectValues<DeviceActionResult>("deviceActionResults", this.deviceActionResults);
         writer.writeObjectValue<DeviceCategory>("deviceCategory", this.deviceCategory);
-        writer.writeStringValue("deviceCategoryDisplayName", this.deviceCategoryDisplayName);
         writer.writeCollectionOfObjectValues<DeviceCompliancePolicyState>("deviceCompliancePolicyStates", this.deviceCompliancePolicyStates);
         writer.writeCollectionOfObjectValues<DeviceConfigurationState>("deviceConfigurationStates", this.deviceConfigurationStates);
         writer.writeEnumValue<DeviceEnrollmentType>("deviceEnrollmentType", this.deviceEnrollmentType);
-        writer.writeObjectValue<DeviceHealthAttestationState>("deviceHealthAttestationState", this.deviceHealthAttestationState);
-        writer.writeStringValue("deviceName", this.deviceName);
         writer.writeEnumValue<DeviceRegistrationState>("deviceRegistrationState", this.deviceRegistrationState);
-        writer.writeBooleanValue("easActivated", this.easActivated);
-        writer.writeDateValue("easActivationDateTime", this.easActivationDateTime);
-        writer.writeStringValue("easDeviceId", this.easDeviceId);
-        writer.writeStringValue("emailAddress", this.emailAddress);
-        writer.writeDateValue("enrolledDateTime", this.enrolledDateTime);
-        writer.writeStringValue("ethernetMacAddress", this.ethernetMacAddress);
         writer.writeEnumValue<DeviceManagementExchangeAccessState>("exchangeAccessState", this.exchangeAccessState);
         writer.writeEnumValue<DeviceManagementExchangeAccessStateReason>("exchangeAccessStateReason", this.exchangeAccessStateReason);
-        writer.writeDateValue("exchangeLastSuccessfulSyncDateTime", this.exchangeLastSuccessfulSyncDateTime);
-        writer.writeNumberValue("freeStorageSpaceInBytes", this.freeStorageSpaceInBytes);
-        writer.writeStringValue("iccid", this.iccid);
-        writer.writeStringValue("imei", this.imei);
-        writer.writeBooleanValue("isEncrypted", this.isEncrypted);
-        writer.writeBooleanValue("isSupervised", this.isSupervised);
-        writer.writeStringValue("jailBroken", this.jailBroken);
-        writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
         writer.writeStringValue("managedDeviceName", this.managedDeviceName);
         writer.writeEnumValue<ManagedDeviceOwnerType>("managedDeviceOwnerType", this.managedDeviceOwnerType);
         writer.writeEnumValue<ManagementAgentType>("managementAgent", this.managementAgent);
-        writer.writeStringValue("manufacturer", this.manufacturer);
-        writer.writeStringValue("meid", this.meid);
-        writer.writeStringValue("model", this.model);
         writer.writeStringValue("notes", this.notes);
-        writer.writeStringValue("operatingSystem", this.operatingSystem);
-        writer.writeStringValue("osVersion", this.osVersion);
         writer.writeEnumValue<ManagedDevicePartnerReportedHealthState>("partnerReportedThreatState", this.partnerReportedThreatState);
-        writer.writeStringValue("phoneNumber", this.phoneNumber);
-        writer.writeNumberValue("physicalMemoryInBytes", this.physicalMemoryInBytes);
-        writer.writeStringValue("remoteAssistanceSessionErrorDetails", this.remoteAssistanceSessionErrorDetails);
-        writer.writeStringValue("remoteAssistanceSessionUrl", this.remoteAssistanceSessionUrl);
-        writer.writeStringValue("serialNumber", this.serialNumber);
-        writer.writeStringValue("subscriberCarrier", this.subscriberCarrier);
-        writer.writeNumberValue("totalStorageSpaceInBytes", this.totalStorageSpaceInBytes);
-        writer.writeStringValue("udid", this.udid);
-        writer.writeStringValue("userDisplayName", this.userDisplayName);
-        writer.writeStringValue("userId", this.userId);
-        writer.writeStringValue("userPrincipalName", this.userPrincipalName);
-        writer.writeStringValue("wiFiMacAddress", this.wiFiMacAddress);
+        writer.writeCollectionOfObjectValues<User>("users", this.users);
     };
     /**
      * Gets the serialNumber property value. SerialNumber. This property is read-only.
@@ -943,14 +941,14 @@ export class ManagedDevice extends Entity implements Parsable {
         this._totalStorageSpaceInBytes = value;
     };
     /**
-     * Gets the udid property value. Unique Device Identifier for iOS and macOS devices. This property is read-only.
+     * Gets the udid property value. Unique Device Identifier for iOS and macOS devices. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
      * @returns a string
      */
     public get udid() {
         return this._udid;
     };
     /**
-     * Sets the udid property value. Unique Device Identifier for iOS and macOS devices. This property is read-only.
+     * Sets the udid property value. Unique Device Identifier for iOS and macOS devices. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
      * @param value Value to set for the udid property.
      */
     public set udid(value: string | undefined) {
@@ -997,6 +995,20 @@ export class ManagedDevice extends Entity implements Parsable {
      */
     public set userPrincipalName(value: string | undefined) {
         this._userPrincipalName = value;
+    };
+    /**
+     * Gets the users property value. The primary users associated with the managed device.
+     * @returns a user
+     */
+    public get users() {
+        return this._users;
+    };
+    /**
+     * Sets the users property value. The primary users associated with the managed device.
+     * @param value Value to set for the users property.
+     */
+    public set users(value: User[] | undefined) {
+        this._users = value;
     };
     /**
      * Gets the wiFiMacAddress property value. Wi-Fi MAC. This property is read-only.

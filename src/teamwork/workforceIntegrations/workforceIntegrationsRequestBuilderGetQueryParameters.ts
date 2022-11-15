@@ -1,5 +1,5 @@
 
-/** Get workforceIntegrations from teamwork */
+/** Retrieve a list of workforceIntegration objects. */
 export class WorkforceIntegrationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

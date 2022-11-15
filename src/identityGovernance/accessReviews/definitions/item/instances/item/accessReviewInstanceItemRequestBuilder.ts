@@ -21,23 +21,23 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity. */
 export class AccessReviewInstanceItemRequestBuilder {
-    /** The acceptRecommendations property */
+    /** Provides operations to call the acceptRecommendations method. */
     public get acceptRecommendations(): AcceptRecommendationsRequestBuilder {
         return new AcceptRecommendationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The applyDecisions property */
+    /** Provides operations to call the applyDecisions method. */
     public get applyDecisions(): ApplyDecisionsRequestBuilder {
         return new ApplyDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The batchRecordDecisions property */
+    /** Provides operations to call the batchRecordDecisions method. */
     public get batchRecordDecisions(): BatchRecordDecisionsRequestBuilder {
         return new BatchRecordDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The contactedReviewers property */
+    /** Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity. */
     public get contactedReviewers(): ContactedReviewersRequestBuilder {
         return new ContactedReviewersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The decisions property */
+    /** Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity. */
     public get decisions(): DecisionsRequestBuilder {
         return new DecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -45,19 +45,19 @@ export class AccessReviewInstanceItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The resetDecisions property */
+    /** Provides operations to call the resetDecisions method. */
     public get resetDecisions(): ResetDecisionsRequestBuilder {
         return new ResetDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The sendReminder property */
+    /** Provides operations to call the sendReminder method. */
     public get sendReminder(): SendReminderRequestBuilder {
         return new SendReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The stages property */
+    /** Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity. */
     public get stages(): StagesRequestBuilder {
         return new StagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The stop property */
+    /** Provides operations to call the stop method. */
     public get stop(): StopRequestBuilder {
         return new StopRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -77,7 +77,7 @@ export class AccessReviewInstanceItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.accessReviews.definitions.item.instances.item.contactedReviewers.item collection
+     * Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.
      * @param id Unique identifier of the item
      * @returns a AccessReviewReviewerItemRequestBuilder
      */
@@ -133,6 +133,7 @@ export class AccessReviewInstanceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -141,7 +142,7 @@ export class AccessReviewInstanceItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.accessReviews.definitions.item.instances.item.decisions.item collection
+     * Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.
      * @param id Unique identifier of the item
      * @returns a AccessReviewInstanceDecisionItemItemRequestBuilder
      */
@@ -164,7 +165,7 @@ export class AccessReviewInstanceItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that does not recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource will have a unique instance for each recurrence.
@@ -180,15 +181,16 @@ export class AccessReviewInstanceItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AccessReviewInstance>(requestInfo, createAccessReviewInstanceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessReviewInstance>(requestInfo, createAccessReviewInstanceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property instances in identityGovernance
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of AccessReviewInstance
      */
-    public patch(body: AccessReviewInstance | undefined, requestConfiguration?: AccessReviewInstanceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AccessReviewInstance | undefined, requestConfiguration?: AccessReviewInstanceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewInstance | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -197,10 +199,10 @@ export class AccessReviewInstanceItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessReviewInstance>(requestInfo, createAccessReviewInstanceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.accessReviews.definitions.item.instances.item.stages.item collection
+     * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
      * @param id Unique identifier of the item
      * @returns a AccessReviewStageItemRequestBuilder
      */

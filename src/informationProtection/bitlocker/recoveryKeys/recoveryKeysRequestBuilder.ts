@@ -1,16 +1,14 @@
-import {BitlockerRecoveryKey, BitlockerRecoveryKeyCollectionResponse} from '../../../models/';
+import {BitlockerRecoveryKeyCollectionResponse} from '../../../models/';
 import {createBitlockerRecoveryKeyCollectionResponseFromDiscriminatorValue} from '../../../models/createBitlockerRecoveryKeyCollectionResponseFromDiscriminatorValue';
-import {createBitlockerRecoveryKeyFromDiscriminatorValue} from '../../../models/createBitlockerRecoveryKeyFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RecoveryKeysRequestBuilderGetRequestConfiguration} from './recoveryKeysRequestBuilderGetRequestConfiguration';
-import {RecoveryKeysRequestBuilderPostRequestConfiguration} from './recoveryKeysRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity. */
 export class RecoveryKeysRequestBuilder {
-    /** The Count property */
+    /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -28,13 +26,13 @@ export class RecoveryKeysRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/informationProtection/bitlocker/recoveryKeys{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}";
+        this.urlTemplate = "{+baseurl}/informationProtection/bitlocker/recoveryKeys{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The recovery keys associated with the bitlocker entity.
+     * Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the **key** property. For information about how to read the **key** property, see Get bitlockerRecoveryKey.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -52,27 +50,7 @@ export class RecoveryKeysRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to recoveryKeys for informationProtection
-     * @param body 
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createPostRequestInformation(body: BitlockerRecoveryKey | undefined, requestConfiguration?: RecoveryKeysRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        return requestInfo;
-    };
-    /**
-     * The recovery keys associated with the bitlocker entity.
+     * Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the **key** property. For information about how to read the **key** property, see Get bitlockerRecoveryKey.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BitlockerRecoveryKeyCollectionResponse
@@ -85,24 +63,6 @@ export class RecoveryKeysRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<BitlockerRecoveryKeyCollectionResponse>(requestInfo, createBitlockerRecoveryKeyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * Create new navigation property to recoveryKeys for informationProtection
-     * @param body 
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of BitlockerRecoveryKey
-     */
-    public post(body: BitlockerRecoveryKey | undefined, requestConfiguration?: RecoveryKeysRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BitlockerRecoveryKey | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPostRequestInformation(
-            body, requestConfiguration
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendAsync<BitlockerRecoveryKey>(requestInfo, createBitlockerRecoveryKeyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<BitlockerRecoveryKeyCollectionResponse>(requestInfo, createBitlockerRecoveryKeyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

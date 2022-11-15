@@ -22,6 +22,8 @@ import {PhotoRequestBuilder} from './photo/photoRequestBuilder';
 import {PrimaryChannelRequestBuilder} from './primaryChannel/primaryChannelRequestBuilder';
 import {ScheduleRequestBuilder} from './schedule/scheduleRequestBuilder';
 import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
+import {TeamworkTagItemRequestBuilder} from './tags/item/teamworkTagItemRequestBuilder';
+import {TagsRequestBuilder} from './tags/tagsRequestBuilder';
 import {TeamItemRequestBuilderDeleteRequestConfiguration} from './teamItemRequestBuilderDeleteRequestConfiguration';
 import {TeamItemRequestBuilderGetRequestConfiguration} from './teamItemRequestBuilderGetRequestConfiguration';
 import {TeamItemRequestBuilderPatchRequestConfiguration} from './teamItemRequestBuilderPatchRequestConfiguration';
@@ -31,78 +33,82 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the collection of team entities. */
 export class TeamItemRequestBuilder {
-    /** The allChannels property */
+    /** Provides operations to manage the allChannels property of the microsoft.graph.team entity. */
     public get allChannels(): AllChannelsRequestBuilder {
         return new AllChannelsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The archive property */
+    /** Provides operations to call the archive method. */
     public get archive(): ArchiveRequestBuilder {
         return new ArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The channels property */
+    /** Provides operations to manage the channels property of the microsoft.graph.team entity. */
     public get channels(): ChannelsRequestBuilder {
         return new ChannelsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The clone property */
+    /** Provides operations to call the clone method. */
     public get clone(): CloneRequestBuilder {
         return new CloneRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The completeMigration property */
+    /** Provides operations to call the completeMigration method. */
     public get completeMigration(): CompleteMigrationRequestBuilder {
         return new CompleteMigrationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The group property */
+    /** Provides operations to manage the group property of the microsoft.graph.team entity. */
     public get group(): GroupRequestBuilder {
         return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The incomingChannels property */
+    /** Provides operations to manage the incomingChannels property of the microsoft.graph.team entity. */
     public get incomingChannels(): IncomingChannelsRequestBuilder {
         return new IncomingChannelsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The installedApps property */
+    /** Provides operations to manage the installedApps property of the microsoft.graph.team entity. */
     public get installedApps(): InstalledAppsRequestBuilder {
         return new InstalledAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The members property */
+    /** Provides operations to manage the members property of the microsoft.graph.team entity. */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The operations property */
+    /** Provides operations to manage the operations property of the microsoft.graph.team entity. */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The photo property */
+    /** Provides operations to manage the photo property of the microsoft.graph.team entity. */
     public get photo(): PhotoRequestBuilder {
         return new PhotoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The primaryChannel property */
+    /** Provides operations to manage the primaryChannel property of the microsoft.graph.team entity. */
     public get primaryChannel(): PrimaryChannelRequestBuilder {
         return new PrimaryChannelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The schedule property */
+    /** Provides operations to manage the schedule property of the microsoft.graph.team entity. */
     public get schedule(): ScheduleRequestBuilder {
         return new ScheduleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The sendActivityNotification property */
+    /** Provides operations to call the sendActivityNotification method. */
     public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
         return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The template property */
+    /** Provides operations to manage the tags property of the microsoft.graph.team entity. */
+    public get tags(): TagsRequestBuilder {
+        return new TagsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the template property of the microsoft.graph.team entity. */
     public get template(): TemplateRequestBuilder {
         return new TemplateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The unarchive property */
+    /** Provides operations to call the unarchive method. */
     public get unarchive(): UnarchiveRequestBuilder {
         return new UnarchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.allChannels.item collection
+     * Provides operations to manage the allChannels property of the microsoft.graph.team entity.
      * @param id Unique identifier of the item
      * @returns a ChannelItemRequestBuilder
      */
@@ -113,7 +119,7 @@ export class TeamItemRequestBuilder {
         return new icf114396fb81475b8d9ce385f2cc70e4c0eaf886b18392a08b4e16ab9eb28ec4(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.channels.item collection
+     * Provides operations to manage the channels property of the microsoft.graph.team entity.
      * @param id Unique identifier of the item
      * @returns a ChannelItemRequestBuilder
      */
@@ -182,6 +188,7 @@ export class TeamItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -202,7 +209,7 @@ export class TeamItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Retrieve the properties and relationships of the specified team.
@@ -218,10 +225,10 @@ export class TeamItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Team>(requestInfo, createTeamFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Team>(requestInfo, createTeamFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.incomingChannels.item collection
+     * Provides operations to manage the incomingChannels property of the microsoft.graph.team entity.
      * @param id Unique identifier of the item
      * @returns a ChannelItemRequestBuilder
      */
@@ -232,7 +239,7 @@ export class TeamItemRequestBuilder {
         return new ie19e9c752da0af7521b61999d30001f8459fe510e7393c96a650b3f7a61ac5ec(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.installedApps.item collection
+     * Provides operations to manage the installedApps property of the microsoft.graph.team entity.
      * @param id Unique identifier of the item
      * @returns a TeamsAppInstallationItemRequestBuilder
      */
@@ -243,7 +250,7 @@ export class TeamItemRequestBuilder {
         return new TeamsAppInstallationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.members.item collection
+     * Provides operations to manage the members property of the microsoft.graph.team entity.
      * @param id Unique identifier of the item
      * @returns a ConversationMemberItemRequestBuilder
      */
@@ -254,7 +261,7 @@ export class TeamItemRequestBuilder {
         return new ConversationMemberItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.operations.item collection
+     * Provides operations to manage the operations property of the microsoft.graph.team entity.
      * @param id Unique identifier of the item
      * @returns a TeamsAsyncOperationItemRequestBuilder
      */
@@ -269,8 +276,9 @@ export class TeamItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Team
      */
-    public patch(body: Team | undefined, requestConfiguration?: TeamItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Team | undefined, requestConfiguration?: TeamItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Team | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -279,6 +287,17 @@ export class TeamItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Team>(requestInfo, createTeamFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
+     * Provides operations to manage the tags property of the microsoft.graph.team entity.
+     * @param id Unique identifier of the item
+     * @returns a TeamworkTagItemRequestBuilder
+     */
+    public tagsById(id: string) : TeamworkTagItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["teamworkTag%2Did"] = id
+        return new TeamworkTagItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

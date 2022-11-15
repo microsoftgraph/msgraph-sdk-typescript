@@ -1,5 +1,5 @@
 
-/** Get oauth2PermissionGrants from me */
+/** Retrieve a list of oAuth2PermissionGrant entities, which represent delegated permissions granted to enable a client application to access an API on behalf of the user. */
 export class Oauth2PermissionGrantsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

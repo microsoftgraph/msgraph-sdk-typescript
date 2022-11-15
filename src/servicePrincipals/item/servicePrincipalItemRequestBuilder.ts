@@ -49,114 +49,114 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the collection of servicePrincipal entities. */
 export class ServicePrincipalItemRequestBuilder {
-    /** The addKey property */
+    /** Provides operations to call the addKey method. */
     public get addKey(): AddKeyRequestBuilder {
         return new AddKeyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The addPassword property */
+    /** Provides operations to call the addPassword method. */
     public get addPassword(): AddPasswordRequestBuilder {
         return new AddPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The addTokenSigningCertificate property */
+    /** Provides operations to call the addTokenSigningCertificate method. */
     public get addTokenSigningCertificate(): AddTokenSigningCertificateRequestBuilder {
         return new AddTokenSigningCertificateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The appRoleAssignedTo property */
+    /** Provides operations to manage the appRoleAssignedTo property of the microsoft.graph.servicePrincipal entity. */
     public get appRoleAssignedTo(): AppRoleAssignedToRequestBuilder {
         return new AppRoleAssignedToRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The appRoleAssignments property */
+    /** Provides operations to manage the appRoleAssignments property of the microsoft.graph.servicePrincipal entity. */
     public get appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
         return new AppRoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkMemberGroups property */
+    /** Provides operations to call the checkMemberGroups method. */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkMemberObjects property */
+    /** Provides operations to call the checkMemberObjects method. */
     public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The claimsMappingPolicies property */
+    /** Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.servicePrincipal entity. */
     public get claimsMappingPolicies(): ClaimsMappingPoliciesRequestBuilder {
         return new ClaimsMappingPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createdObjects property */
+    /** Provides operations to manage the createdObjects property of the microsoft.graph.servicePrincipal entity. */
     public get createdObjects(): CreatedObjectsRequestBuilder {
         return new CreatedObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The delegatedPermissionClassifications property */
+    /** Provides operations to manage the delegatedPermissionClassifications property of the microsoft.graph.servicePrincipal entity. */
     public get delegatedPermissionClassifications(): DelegatedPermissionClassificationsRequestBuilder {
         return new DelegatedPermissionClassificationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The endpoints property */
+    /** Provides operations to manage the endpoints property of the microsoft.graph.servicePrincipal entity. */
     public get endpoints(): EndpointsRequestBuilder {
         return new EndpointsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The federatedIdentityCredentials property */
+    /** Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.servicePrincipal entity. */
     public get federatedIdentityCredentials(): FederatedIdentityCredentialsRequestBuilder {
         return new FederatedIdentityCredentialsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMemberGroups property */
+    /** Provides operations to call the getMemberGroups method. */
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMemberObjects property */
+    /** Provides operations to call the getMemberObjects method. */
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The homeRealmDiscoveryPolicies property */
+    /** Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.servicePrincipal entity. */
     public get homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
         return new HomeRealmDiscoveryPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The memberOf property */
+    /** Provides operations to manage the memberOf property of the microsoft.graph.servicePrincipal entity. */
     public get memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The oauth2PermissionGrants property */
+    /** Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.servicePrincipal entity. */
     public get oauth2PermissionGrants(): Oauth2PermissionGrantsRequestBuilder {
         return new Oauth2PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The ownedObjects property */
+    /** Provides operations to manage the ownedObjects property of the microsoft.graph.servicePrincipal entity. */
     public get ownedObjects(): OwnedObjectsRequestBuilder {
         return new OwnedObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The owners property */
+    /** Provides operations to manage the owners property of the microsoft.graph.servicePrincipal entity. */
     public get owners(): OwnersRequestBuilder {
         return new OwnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The removeKey property */
+    /** Provides operations to call the removeKey method. */
     public get removeKey(): RemoveKeyRequestBuilder {
         return new RemoveKeyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The removePassword property */
+    /** Provides operations to call the removePassword method. */
     public get removePassword(): RemovePasswordRequestBuilder {
         return new RemovePasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The restore property */
+    /** Provides operations to call the restore method. */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The tokenIssuancePolicies property */
+    /** Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.servicePrincipal entity. */
     public get tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {
         return new TokenIssuancePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The tokenLifetimePolicies property */
+    /** Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.servicePrincipal entity. */
     public get tokenLifetimePolicies(): TokenLifetimePoliciesRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The transitiveMemberOf property */
+    /** Provides operations to manage the transitiveMemberOf property of the microsoft.graph.servicePrincipal entity. */
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.appRoleAssignedTo.item collection
+     * Provides operations to manage the appRoleAssignedTo property of the microsoft.graph.servicePrincipal entity.
      * @param id Unique identifier of the item
      * @returns a AppRoleAssignmentItemRequestBuilder
      */
@@ -167,7 +167,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new i93168b8558556722da9cecc35d7553892e9e7c2bde1e1fb43b3db6857cf15658(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.appRoleAssignments.item collection
+     * Provides operations to manage the appRoleAssignments property of the microsoft.graph.servicePrincipal entity.
      * @param id Unique identifier of the item
      * @returns a AppRoleAssignmentItemRequestBuilder
      */
@@ -218,7 +218,7 @@ export class ServicePrincipalItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.createdObjects.item collection
+     * Provides operations to manage the createdObjects property of the microsoft.graph.servicePrincipal entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
@@ -258,6 +258,7 @@ export class ServicePrincipalItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -266,7 +267,7 @@ export class ServicePrincipalItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.delegatedPermissionClassifications.item collection
+     * Provides operations to manage the delegatedPermissionClassifications property of the microsoft.graph.servicePrincipal entity.
      * @param id Unique identifier of the item
      * @returns a DelegatedPermissionClassificationItemRequestBuilder
      */
@@ -289,10 +290,10 @@ export class ServicePrincipalItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.endpoints.item collection
+     * Provides operations to manage the endpoints property of the microsoft.graph.servicePrincipal entity.
      * @param id Unique identifier of the item
      * @returns a EndpointItemRequestBuilder
      */
@@ -303,7 +304,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new EndpointItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.federatedIdentityCredentials.item collection
+     * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.servicePrincipal entity.
      * @param id Unique identifier of the item
      * @returns a FederatedIdentityCredentialItemRequestBuilder
      */
@@ -327,7 +328,7 @@ export class ServicePrincipalItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ServicePrincipal>(requestInfo, createServicePrincipalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ServicePrincipal>(requestInfo, createServicePrincipalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.homeRealmDiscoveryPolicies.item collection
@@ -341,7 +342,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new HomeRealmDiscoveryPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.memberOf.item collection
+     * Provides operations to manage the memberOf property of the microsoft.graph.servicePrincipal entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
@@ -352,7 +353,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new if04f7937796df91a9e5b988ef3bf59350050b50c9239bd5559c64c4c55486c2a(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.oauth2PermissionGrants.item collection
+     * Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.servicePrincipal entity.
      * @param id Unique identifier of the item
      * @returns a OAuth2PermissionGrantItemRequestBuilder
      */
@@ -363,7 +364,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new OAuth2PermissionGrantItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.ownedObjects.item collection
+     * Provides operations to manage the ownedObjects property of the microsoft.graph.servicePrincipal entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
@@ -389,8 +390,9 @@ export class ServicePrincipalItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ServicePrincipal
      */
-    public patch(body: ServicePrincipal | undefined, requestConfiguration?: ServicePrincipalItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ServicePrincipal | undefined, requestConfiguration?: ServicePrincipalItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipal | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -399,10 +401,10 @@ export class ServicePrincipalItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ServicePrincipal>(requestInfo, createServicePrincipalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.tokenIssuancePolicies.item collection
+     * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.servicePrincipal entity.
      * @param id Unique identifier of the item
      * @returns a TokenIssuancePolicyItemRequestBuilder
      */
@@ -413,7 +415,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new TokenIssuancePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.tokenLifetimePolicies.item collection
+     * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.servicePrincipal entity.
      * @param id Unique identifier of the item
      * @returns a TokenLifetimePolicyItemRequestBuilder
      */
@@ -424,7 +426,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new TokenLifetimePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.transitiveMemberOf.item collection
+     * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.servicePrincipal entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */

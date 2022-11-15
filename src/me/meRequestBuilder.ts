@@ -105,262 +105,262 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the user singleton. */
 export class MeRequestBuilder {
-    /** The activities property */
+    /** Provides operations to manage the activities property of the microsoft.graph.user entity. */
     public get activities(): ActivitiesRequestBuilder {
         return new ActivitiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The agreementAcceptances property */
+    /** Provides operations to manage the agreementAcceptances property of the microsoft.graph.user entity. */
     public get agreementAcceptances(): AgreementAcceptancesRequestBuilder {
         return new AgreementAcceptancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The appRoleAssignments property */
+    /** Provides operations to manage the appRoleAssignments property of the microsoft.graph.user entity. */
     public get appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
         return new AppRoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The assignLicense property */
+    /** Provides operations to call the assignLicense method. */
     public get assignLicense(): AssignLicenseRequestBuilder {
         return new AssignLicenseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The authentication property */
+    /** Provides operations to manage the authentication property of the microsoft.graph.user entity. */
     public get authentication(): AuthenticationRequestBuilder {
         return new AuthenticationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The calendar property */
+    /** Provides operations to manage the calendar property of the microsoft.graph.user entity. */
     public get calendar(): CalendarRequestBuilder {
         return new CalendarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The calendarGroups property */
+    /** Provides operations to manage the calendarGroups property of the microsoft.graph.user entity. */
     public get calendarGroups(): CalendarGroupsRequestBuilder {
         return new CalendarGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The calendars property */
+    /** Provides operations to manage the calendars property of the microsoft.graph.user entity. */
     public get calendars(): CalendarsRequestBuilder {
         return new CalendarsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The calendarView property */
+    /** Provides operations to manage the calendarView property of the microsoft.graph.user entity. */
     public get calendarView(): CalendarViewRequestBuilder {
         return new CalendarViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The changePassword property */
+    /** Provides operations to call the changePassword method. */
     public get changePassword(): ChangePasswordRequestBuilder {
         return new ChangePasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The chats property */
+    /** Provides operations to manage the chats property of the microsoft.graph.user entity. */
     public get chats(): ChatsRequestBuilder {
         return new ChatsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkMemberGroups property */
+    /** Provides operations to call the checkMemberGroups method. */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkMemberObjects property */
+    /** Provides operations to call the checkMemberObjects method. */
     public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The contactFolders property */
+    /** Provides operations to manage the contactFolders property of the microsoft.graph.user entity. */
     public get contactFolders(): ContactFoldersRequestBuilder {
         return new ContactFoldersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The contacts property */
+    /** Provides operations to manage the contacts property of the microsoft.graph.user entity. */
     public get contacts(): ContactsRequestBuilder {
         return new ContactsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createdObjects property */
+    /** Provides operations to manage the createdObjects property of the microsoft.graph.user entity. */
     public get createdObjects(): CreatedObjectsRequestBuilder {
         return new CreatedObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deviceManagementTroubleshootingEvents property */
+    /** Provides operations to manage the deviceManagementTroubleshootingEvents property of the microsoft.graph.user entity. */
     public get deviceManagementTroubleshootingEvents(): DeviceManagementTroubleshootingEventsRequestBuilder {
         return new DeviceManagementTroubleshootingEventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The directReports property */
+    /** Provides operations to manage the directReports property of the microsoft.graph.user entity. */
     public get directReports(): DirectReportsRequestBuilder {
         return new DirectReportsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The drive property */
+    /** Provides operations to manage the drive property of the microsoft.graph.user entity. */
     public get drive(): DriveRequestBuilder {
         return new DriveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The drives property */
+    /** Provides operations to manage the drives property of the microsoft.graph.user entity. */
     public get drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The events property */
+    /** Provides operations to manage the events property of the microsoft.graph.user entity. */
     public get events(): EventsRequestBuilder {
         return new EventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The exportPersonalData property */
+    /** Provides operations to call the exportPersonalData method. */
     public get exportPersonalData(): ExportPersonalDataRequestBuilder {
         return new ExportPersonalDataRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The extensions property */
+    /** Provides operations to manage the extensions property of the microsoft.graph.user entity. */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The findMeetingTimes property */
+    /** Provides operations to call the findMeetingTimes method. */
     public get findMeetingTimes(): FindMeetingTimesRequestBuilder {
         return new FindMeetingTimesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The followedSites property */
+    /** Provides operations to manage the followedSites property of the microsoft.graph.user entity. */
     public get followedSites(): FollowedSitesRequestBuilder {
         return new FollowedSitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMailTips property */
+    /** Provides operations to call the getMailTips method. */
     public get getMailTips(): GetMailTipsRequestBuilder {
         return new GetMailTipsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMemberGroups property */
+    /** Provides operations to call the getMemberGroups method. */
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMemberObjects property */
+    /** Provides operations to call the getMemberObjects method. */
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The inferenceClassification property */
+    /** Provides operations to manage the inferenceClassification property of the microsoft.graph.user entity. */
     public get inferenceClassification(): InferenceClassificationRequestBuilder {
         return new InferenceClassificationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The insights property */
+    /** Provides operations to manage the insights property of the microsoft.graph.user entity. */
     public get insights(): InsightsRequestBuilder {
         return new InsightsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The joinedTeams property */
+    /** Provides operations to manage the joinedTeams property of the microsoft.graph.user entity. */
     public get joinedTeams(): JoinedTeamsRequestBuilder {
         return new JoinedTeamsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The licenseDetails property */
+    /** Provides operations to manage the licenseDetails property of the microsoft.graph.user entity. */
     public get licenseDetails(): LicenseDetailsRequestBuilder {
         return new LicenseDetailsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The mailFolders property */
+    /** Provides operations to manage the mailFolders property of the microsoft.graph.user entity. */
     public get mailFolders(): MailFoldersRequestBuilder {
         return new MailFoldersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The managedAppRegistrations property */
+    /** Provides operations to manage the managedAppRegistrations property of the microsoft.graph.user entity. */
     public get managedAppRegistrations(): ManagedAppRegistrationsRequestBuilder {
         return new ManagedAppRegistrationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The managedDevices property */
+    /** Provides operations to manage the managedDevices property of the microsoft.graph.user entity. */
     public get managedDevices(): ManagedDevicesRequestBuilder {
         return new ManagedDevicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The manager property */
+    /** Provides operations to manage the manager property of the microsoft.graph.user entity. */
     public get manager(): ManagerRequestBuilder {
         return new ManagerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The memberOf property */
+    /** Provides operations to manage the memberOf property of the microsoft.graph.user entity. */
     public get memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The messages property */
+    /** Provides operations to manage the messages property of the microsoft.graph.user entity. */
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The oauth2PermissionGrants property */
+    /** Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.user entity. */
     public get oauth2PermissionGrants(): Oauth2PermissionGrantsRequestBuilder {
         return new Oauth2PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The onenote property */
+    /** Provides operations to manage the onenote property of the microsoft.graph.user entity. */
     public get onenote(): OnenoteRequestBuilder {
         return new OnenoteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The onlineMeetings property */
+    /** Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity. */
     public get onlineMeetings(): OnlineMeetingsRequestBuilder {
         return new OnlineMeetingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The outlook property */
+    /** Provides operations to manage the outlook property of the microsoft.graph.user entity. */
     public get outlook(): OutlookRequestBuilder {
         return new OutlookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The ownedDevices property */
+    /** Provides operations to manage the ownedDevices property of the microsoft.graph.user entity. */
     public get ownedDevices(): OwnedDevicesRequestBuilder {
         return new OwnedDevicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The ownedObjects property */
+    /** Provides operations to manage the ownedObjects property of the microsoft.graph.user entity. */
     public get ownedObjects(): OwnedObjectsRequestBuilder {
         return new OwnedObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The people property */
+    /** Provides operations to manage the people property of the microsoft.graph.user entity. */
     public get people(): PeopleRequestBuilder {
         return new PeopleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The photo property */
+    /** Provides operations to manage the photo property of the microsoft.graph.user entity. */
     public get photo(): PhotoRequestBuilder {
         return new PhotoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The photos property */
+    /** Provides operations to manage the photos property of the microsoft.graph.user entity. */
     public get photos(): PhotosRequestBuilder {
         return new PhotosRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The planner property */
+    /** Provides operations to manage the planner property of the microsoft.graph.user entity. */
     public get planner(): PlannerRequestBuilder {
         return new PlannerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The presence property */
+    /** Provides operations to manage the presence property of the microsoft.graph.user entity. */
     public get presence(): PresenceRequestBuilder {
         return new PresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The registeredDevices property */
+    /** Provides operations to manage the registeredDevices property of the microsoft.graph.user entity. */
     public get registeredDevices(): RegisteredDevicesRequestBuilder {
         return new RegisteredDevicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The removeAllDevicesFromManagement property */
+    /** Provides operations to call the removeAllDevicesFromManagement method. */
     public get removeAllDevicesFromManagement(): RemoveAllDevicesFromManagementRequestBuilder {
         return new RemoveAllDevicesFromManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The reprocessLicenseAssignment property */
+    /** Provides operations to call the reprocessLicenseAssignment method. */
     public get reprocessLicenseAssignment(): ReprocessLicenseAssignmentRequestBuilder {
         return new ReprocessLicenseAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The restore property */
+    /** Provides operations to call the restore method. */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The revokeSignInSessions property */
+    /** Provides operations to call the revokeSignInSessions method. */
     public get revokeSignInSessions(): RevokeSignInSessionsRequestBuilder {
         return new RevokeSignInSessionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The scopedRoleMemberOf property */
+    /** Provides operations to manage the scopedRoleMemberOf property of the microsoft.graph.user entity. */
     public get scopedRoleMemberOf(): ScopedRoleMemberOfRequestBuilder {
         return new ScopedRoleMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The sendMail property */
+    /** Provides operations to call the sendMail method. */
     public get sendMail(): SendMailRequestBuilder {
         return new SendMailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The settings property */
+    /** Provides operations to manage the settings property of the microsoft.graph.user entity. */
     public get settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The teamwork property */
+    /** Provides operations to manage the teamwork property of the microsoft.graph.user entity. */
     public get teamwork(): TeamworkRequestBuilder {
         return new TeamworkRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The todo property */
+    /** Provides operations to manage the todo property of the microsoft.graph.user entity. */
     public get todo(): TodoRequestBuilder {
         return new TodoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The transitiveMemberOf property */
+    /** Provides operations to manage the transitiveMemberOf property of the microsoft.graph.user entity. */
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The translateExchangeIds property */
+    /** Provides operations to call the translateExchangeIds method. */
     public get translateExchangeIds(): TranslateExchangeIdsRequestBuilder {
         return new TranslateExchangeIdsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The wipeManagedAppRegistrationsByDeviceTag property */
+    /** Provides operations to call the wipeManagedAppRegistrationsByDeviceTag method. */
     public get wipeManagedAppRegistrationsByDeviceTag(): WipeManagedAppRegistrationsByDeviceTagRequestBuilder {
         return new WipeManagedAppRegistrationsByDeviceTagRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.activities.item collection
+     * Provides operations to manage the activities property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a UserActivityItemRequestBuilder
      */
@@ -371,7 +371,7 @@ export class MeRequestBuilder {
         return new UserActivityItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.agreementAcceptances.item collection
+     * Provides operations to manage the agreementAcceptances property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a AgreementAcceptanceItemRequestBuilder
      */
@@ -382,7 +382,7 @@ export class MeRequestBuilder {
         return new AgreementAcceptanceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.appRoleAssignments.item collection
+     * Provides operations to manage the appRoleAssignments property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a AppRoleAssignmentItemRequestBuilder
      */
@@ -393,7 +393,7 @@ export class MeRequestBuilder {
         return new AppRoleAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.calendarGroups.item collection
+     * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a CalendarGroupItemRequestBuilder
      */
@@ -404,7 +404,7 @@ export class MeRequestBuilder {
         return new CalendarGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.calendars.item collection
+     * Provides operations to manage the calendars property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a CalendarItemRequestBuilder
      */
@@ -415,7 +415,7 @@ export class MeRequestBuilder {
         return new CalendarItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.calendarView.item collection
+     * Provides operations to manage the calendarView property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
@@ -426,7 +426,7 @@ export class MeRequestBuilder {
         return new ic0012b44e83dbd54f9a85dde6d61ab21bc695dc55c3a599e4d5357af115bb944(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.chats.item collection
+     * Provides operations to manage the chats property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a ChatItemRequestBuilder
      */
@@ -450,7 +450,7 @@ export class MeRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.contactFolders.item collection
+     * Provides operations to manage the contactFolders property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a ContactFolderItemRequestBuilder
      */
@@ -461,7 +461,7 @@ export class MeRequestBuilder {
         return new ContactFolderItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.contacts.item collection
+     * Provides operations to manage the contacts property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a ContactItemRequestBuilder
      */
@@ -472,7 +472,7 @@ export class MeRequestBuilder {
         return new ContactItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.createdObjects.item collection
+     * Provides operations to manage the createdObjects property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
@@ -483,7 +483,7 @@ export class MeRequestBuilder {
         return new i4dbc01d8051d709f97c06b2f82221a24c4d11b54c682680bc45c1c907c74058d(urlTplParams, this.requestAdapter);
     };
     /**
-     * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
+     * Retrieve the properties and relationships of user object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -512,6 +512,7 @@ export class MeRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -520,7 +521,7 @@ export class MeRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.deviceManagementTroubleshootingEvents.item collection
+     * Provides operations to manage the deviceManagementTroubleshootingEvents property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a DeviceManagementTroubleshootingEventItemRequestBuilder
      */
@@ -531,7 +532,7 @@ export class MeRequestBuilder {
         return new DeviceManagementTroubleshootingEventItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.directReports.item collection
+     * Provides operations to manage the directReports property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
@@ -542,7 +543,7 @@ export class MeRequestBuilder {
         return new ifcf15c01e639484987e654575aab697ba7d64ceef6b1b6ca8f69a252d645cfbd(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.drives.item collection
+     * Provides operations to manage the drives property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a DriveItemRequestBuilder
      */
@@ -553,7 +554,7 @@ export class MeRequestBuilder {
         return new DriveItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.events.item collection
+     * Provides operations to manage the events property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
@@ -564,7 +565,7 @@ export class MeRequestBuilder {
         return new iae02e6049890a306e0da37d8ea3286086c0c6a3750c636f16fb94b8f099458b4(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.extensions.item collection
+     * Provides operations to manage the extensions property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a ExtensionItemRequestBuilder
      */
@@ -575,7 +576,7 @@ export class MeRequestBuilder {
         return new ExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.followedSites.item collection
+     * Provides operations to manage the followedSites property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a SiteItemRequestBuilder
      */
@@ -586,7 +587,7 @@ export class MeRequestBuilder {
         return new SiteItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
+     * Retrieve the properties and relationships of user object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of User
@@ -599,7 +600,7 @@ export class MeRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Provides operations to call the getManagedAppDiagnosticStatuses method.
@@ -616,7 +617,7 @@ export class MeRequestBuilder {
         return new GetManagedAppPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.joinedTeams.item collection
+     * Provides operations to manage the joinedTeams property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a TeamItemRequestBuilder
      */
@@ -627,7 +628,7 @@ export class MeRequestBuilder {
         return new TeamItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.licenseDetails.item collection
+     * Provides operations to manage the licenseDetails property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a LicenseDetailsItemRequestBuilder
      */
@@ -638,7 +639,7 @@ export class MeRequestBuilder {
         return new LicenseDetailsItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.mailFolders.item collection
+     * Provides operations to manage the mailFolders property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a MailFolderItemRequestBuilder
      */
@@ -649,7 +650,7 @@ export class MeRequestBuilder {
         return new MailFolderItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.managedAppRegistrations.item collection
+     * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a ManagedAppRegistrationItemRequestBuilder
      */
@@ -660,7 +661,7 @@ export class MeRequestBuilder {
         return new ManagedAppRegistrationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.managedDevices.item collection
+     * Provides operations to manage the managedDevices property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a ManagedDeviceItemRequestBuilder
      */
@@ -671,7 +672,7 @@ export class MeRequestBuilder {
         return new ManagedDeviceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.memberOf.item collection
+     * Provides operations to manage the memberOf property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
@@ -682,7 +683,7 @@ export class MeRequestBuilder {
         return new i1afe3dd8375f860d20edb9901bac84c9a600b26d2205f620eacadbe6904bdb8f(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.messages.item collection
+     * Provides operations to manage the messages property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a MessageItemRequestBuilder
      */
@@ -693,7 +694,7 @@ export class MeRequestBuilder {
         return new MessageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.oauth2PermissionGrants.item collection
+     * Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a OAuth2PermissionGrantItemRequestBuilder
      */
@@ -704,7 +705,7 @@ export class MeRequestBuilder {
         return new OAuth2PermissionGrantItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.onlineMeetings.item collection
+     * Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a OnlineMeetingItemRequestBuilder
      */
@@ -715,7 +716,7 @@ export class MeRequestBuilder {
         return new OnlineMeetingItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.ownedDevices.item collection
+     * Provides operations to manage the ownedDevices property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
@@ -726,7 +727,7 @@ export class MeRequestBuilder {
         return new i8e2e5adf873d4771df88bfdad6558877fbdd00c60ec44554c1c5c1879e4b095d(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.ownedObjects.item collection
+     * Provides operations to manage the ownedObjects property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
@@ -741,8 +742,9 @@ export class MeRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of User
      */
-    public patch(body: User | undefined, requestConfiguration?: MeRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: User | undefined, requestConfiguration?: MeRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<User | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -751,10 +753,10 @@ export class MeRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.people.item collection
+     * Provides operations to manage the people property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a PersonItemRequestBuilder
      */
@@ -765,7 +767,7 @@ export class MeRequestBuilder {
         return new PersonItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.photos.item collection
+     * Provides operations to manage the photos property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a ProfilePhotoItemRequestBuilder
      */
@@ -776,7 +778,7 @@ export class MeRequestBuilder {
         return new ProfilePhotoItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.registeredDevices.item collection
+     * Provides operations to manage the registeredDevices property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
@@ -798,7 +800,7 @@ export class MeRequestBuilder {
         return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, startDateTime);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.scopedRoleMemberOf.item collection
+     * Provides operations to manage the scopedRoleMemberOf property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a ScopedRoleMembershipItemRequestBuilder
      */
@@ -809,7 +811,7 @@ export class MeRequestBuilder {
         return new ScopedRoleMembershipItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.transitiveMemberOf.item collection
+     * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */

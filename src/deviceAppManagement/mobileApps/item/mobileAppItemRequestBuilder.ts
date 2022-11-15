@@ -16,23 +16,23 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity. */
 export class MobileAppItemRequestBuilder {
-    /** The assign property */
+    /** Provides operations to call the assign method. */
     public get assign(): AssignRequestBuilder {
         return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The assignments property */
+    /** Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity. */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The categories property */
+    /** Provides operations to manage the categories property of the microsoft.graph.mobileApp entity. */
     public get categories(): CategoriesRequestBuilder {
         return new CategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The managedMobileLobApp property */
+    /** Casts the previous resource to managedMobileLobApp. */
     public get managedMobileLobApp(): ManagedMobileLobAppRequestBuilder {
         return new ManagedMobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The mobileLobApp property */
+    /** Casts the previous resource to mobileLobApp. */
     public get mobileLobApp(): MobileLobAppRequestBuilder {
         return new MobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -43,7 +43,7 @@ export class MobileAppItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mobileApps.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.
      * @param id Unique identifier of the item
      * @returns a MobileAppAssignmentItemRequestBuilder
      */
@@ -54,7 +54,7 @@ export class MobileAppItemRequestBuilder {
         return new MobileAppAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mobileApps.item.categories.item collection
+     * Provides operations to manage the categories property of the microsoft.graph.mobileApp entity.
      * @param id Unique identifier of the item
      * @returns a MobileAppCategoryItemRequestBuilder
      */
@@ -123,6 +123,7 @@ export class MobileAppItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -143,7 +144,7 @@ export class MobileAppItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * The mobile apps.
@@ -159,15 +160,16 @@ export class MobileAppItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property mobileApps in deviceAppManagement
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of MobileApp
      */
-    public patch(body: MobileApp | undefined, requestConfiguration?: MobileAppItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: MobileApp | undefined, requestConfiguration?: MobileAppItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MobileApp | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -176,6 +178,6 @@ export class MobileAppItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

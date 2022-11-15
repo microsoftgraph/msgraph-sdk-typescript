@@ -14,15 +14,15 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the directory singleton. */
 export class DirectoryRequestBuilder {
-    /** The administrativeUnits property */
+    /** Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity. */
     public get administrativeUnits(): AdministrativeUnitsRequestBuilder {
         return new AdministrativeUnitsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deletedItems property */
+    /** Provides operations to manage the deletedItems property of the microsoft.graph.directory entity. */
     public get deletedItems(): DeletedItemsRequestBuilder {
         return new DeletedItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The federationConfigurations property */
+    /** Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity. */
     public get federationConfigurations(): FederationConfigurationsRequestBuilder {
         return new FederationConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -33,7 +33,7 @@ export class DirectoryRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directory.administrativeUnits.item collection
+     * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
      * @param id Unique identifier of the item
      * @returns a AdministrativeUnitItemRequestBuilder
      */
@@ -86,6 +86,7 @@ export class DirectoryRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -94,7 +95,7 @@ export class DirectoryRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directory.deletedItems.item collection
+     * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
@@ -105,7 +106,7 @@ export class DirectoryRequestBuilder {
         return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directory.federationConfigurations.item collection
+     * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.
      * @param id Unique identifier of the item
      * @returns a IdentityProviderBaseItemRequestBuilder
      */
@@ -129,15 +130,16 @@ export class DirectoryRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Directory>(requestInfo, createDirectoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Directory>(requestInfo, createDirectoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update directory
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Directory
      */
-    public patch(body: Directory | undefined, requestConfiguration?: DirectoryRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Directory | undefined, requestConfiguration?: DirectoryRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Directory | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -146,6 +148,6 @@ export class DirectoryRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Directory>(requestInfo, createDirectoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

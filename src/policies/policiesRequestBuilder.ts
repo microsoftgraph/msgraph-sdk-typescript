@@ -34,78 +34,78 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the policyRoot singleton. */
 export class PoliciesRequestBuilder {
-    /** The activityBasedTimeoutPolicies property */
+    /** Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity. */
     public get activityBasedTimeoutPolicies(): ActivityBasedTimeoutPoliciesRequestBuilder {
         return new ActivityBasedTimeoutPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The adminConsentRequestPolicy property */
+    /** Provides operations to manage the adminConsentRequestPolicy property of the microsoft.graph.policyRoot entity. */
     public get adminConsentRequestPolicy(): AdminConsentRequestPolicyRequestBuilder {
         return new AdminConsentRequestPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The authenticationFlowsPolicy property */
+    /** Provides operations to manage the authenticationFlowsPolicy property of the microsoft.graph.policyRoot entity. */
     public get authenticationFlowsPolicy(): AuthenticationFlowsPolicyRequestBuilder {
         return new AuthenticationFlowsPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The authenticationMethodsPolicy property */
+    /** Provides operations to manage the authenticationMethodsPolicy property of the microsoft.graph.policyRoot entity. */
     public get authenticationMethodsPolicy(): AuthenticationMethodsPolicyRequestBuilder {
         return new AuthenticationMethodsPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The authorizationPolicy property */
+    /** Provides operations to manage the authorizationPolicy property of the microsoft.graph.policyRoot entity. */
     public get authorizationPolicy(): AuthorizationPolicyRequestBuilder {
         return new AuthorizationPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The claimsMappingPolicies property */
+    /** Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity. */
     public get claimsMappingPolicies(): ClaimsMappingPoliciesRequestBuilder {
         return new ClaimsMappingPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The conditionalAccessPolicies property */
+    /** Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity. */
     public get conditionalAccessPolicies(): ConditionalAccessPoliciesRequestBuilder {
         return new ConditionalAccessPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The crossTenantAccessPolicy property */
+    /** Provides operations to manage the crossTenantAccessPolicy property of the microsoft.graph.policyRoot entity. */
     public get crossTenantAccessPolicy(): CrossTenantAccessPolicyRequestBuilder {
         return new CrossTenantAccessPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The featureRolloutPolicies property */
+    /** Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity. */
     public get featureRolloutPolicies(): FeatureRolloutPoliciesRequestBuilder {
         return new FeatureRolloutPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The homeRealmDiscoveryPolicies property */
+    /** Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity. */
     public get homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
         return new HomeRealmDiscoveryPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The identitySecurityDefaultsEnforcementPolicy property */
+    /** Provides operations to manage the identitySecurityDefaultsEnforcementPolicy property of the microsoft.graph.policyRoot entity. */
     public get identitySecurityDefaultsEnforcementPolicy(): IdentitySecurityDefaultsEnforcementPolicyRequestBuilder {
         return new IdentitySecurityDefaultsEnforcementPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The permissionGrantPolicies property */
+    /** Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity. */
     public get permissionGrantPolicies(): PermissionGrantPoliciesRequestBuilder {
         return new PermissionGrantPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The roleManagementPolicies property */
+    /** Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity. */
     public get roleManagementPolicies(): RoleManagementPoliciesRequestBuilder {
         return new RoleManagementPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The roleManagementPolicyAssignments property */
+    /** Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity. */
     public get roleManagementPolicyAssignments(): RoleManagementPolicyAssignmentsRequestBuilder {
         return new RoleManagementPolicyAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The tokenIssuancePolicies property */
+    /** Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity. */
     public get tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {
         return new TokenIssuancePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The tokenLifetimePolicies property */
+    /** Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.policyRoot entity. */
     public get tokenLifetimePolicies(): TokenLifetimePoliciesRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.activityBasedTimeoutPolicies.item collection
+     * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
      * @param id Unique identifier of the item
      * @returns a ActivityBasedTimeoutPolicyItemRequestBuilder
      */
@@ -116,7 +116,7 @@ export class PoliciesRequestBuilder {
         return new ActivityBasedTimeoutPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.claimsMappingPolicies.item collection
+     * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
      * @param id Unique identifier of the item
      * @returns a ClaimsMappingPolicyItemRequestBuilder
      */
@@ -127,7 +127,7 @@ export class PoliciesRequestBuilder {
         return new ClaimsMappingPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.conditionalAccessPolicies.item collection
+     * Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity.
      * @param id Unique identifier of the item
      * @returns a ConditionalAccessPolicyItemRequestBuilder
      */
@@ -180,6 +180,7 @@ export class PoliciesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -188,7 +189,7 @@ export class PoliciesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.featureRolloutPolicies.item collection
+     * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
      * @param id Unique identifier of the item
      * @returns a FeatureRolloutPolicyItemRequestBuilder
      */
@@ -212,10 +213,10 @@ export class PoliciesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<PolicyRoot>(requestInfo, createPolicyRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PolicyRoot>(requestInfo, createPolicyRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.homeRealmDiscoveryPolicies.item collection
+     * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity.
      * @param id Unique identifier of the item
      * @returns a HomeRealmDiscoveryPolicyItemRequestBuilder
      */
@@ -230,8 +231,9 @@ export class PoliciesRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of PolicyRoot
      */
-    public patch(body: PolicyRoot | undefined, requestConfiguration?: PoliciesRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: PolicyRoot | undefined, requestConfiguration?: PoliciesRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PolicyRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -240,10 +242,10 @@ export class PoliciesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PolicyRoot>(requestInfo, createPolicyRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.permissionGrantPolicies.item collection
+     * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
      * @param id Unique identifier of the item
      * @returns a PermissionGrantPolicyItemRequestBuilder
      */
@@ -254,7 +256,7 @@ export class PoliciesRequestBuilder {
         return new PermissionGrantPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.roleManagementPolicies.item collection
+     * Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleManagementPolicyItemRequestBuilder
      */
@@ -265,7 +267,7 @@ export class PoliciesRequestBuilder {
         return new UnifiedRoleManagementPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.roleManagementPolicyAssignments.item collection
+     * Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleManagementPolicyAssignmentItemRequestBuilder
      */
@@ -276,7 +278,7 @@ export class PoliciesRequestBuilder {
         return new UnifiedRoleManagementPolicyAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.tokenIssuancePolicies.item collection
+     * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity.
      * @param id Unique identifier of the item
      * @returns a TokenIssuancePolicyItemRequestBuilder
      */
@@ -287,7 +289,7 @@ export class PoliciesRequestBuilder {
         return new TokenIssuancePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.tokenLifetimePolicies.item collection
+     * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.policyRoot entity.
      * @param id Unique identifier of the item
      * @returns a TokenLifetimePolicyItemRequestBuilder
      */

@@ -16,15 +16,15 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the collection of externalConnection entities. */
 export class ExternalConnectionItemRequestBuilder {
-    /** The groups property */
+    /** Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity. */
     public get groups(): GroupsRequestBuilder {
         return new GroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The items property */
+    /** Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity. */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The operations property */
+    /** Provides operations to manage the operations property of the microsoft.graph.externalConnectors.externalConnection entity. */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -32,7 +32,7 @@ export class ExternalConnectionItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The schema property */
+    /** Provides operations to manage the schema property of the microsoft.graph.externalConnectors.externalConnection entity. */
     public get schema(): SchemaRequestBuilder {
         return new SchemaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -97,6 +97,7 @@ export class ExternalConnectionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -117,7 +118,7 @@ export class ExternalConnectionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Get entity from connections by key
@@ -133,10 +134,10 @@ export class ExternalConnectionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ExternalConnection>(requestInfo, createExternalConnectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ExternalConnection>(requestInfo, createExternalConnectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.connections.item.groups.item collection
+     * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
      * @param id Unique identifier of the item
      * @returns a ExternalGroupItemRequestBuilder
      */
@@ -147,7 +148,7 @@ export class ExternalConnectionItemRequestBuilder {
         return new ExternalGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.connections.item.items.item collection
+     * Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.
      * @param id Unique identifier of the item
      * @returns a ExternalItemItemRequestBuilder
      */
@@ -158,7 +159,7 @@ export class ExternalConnectionItemRequestBuilder {
         return new ExternalItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.connections.item.operations.item collection
+     * Provides operations to manage the operations property of the microsoft.graph.externalConnectors.externalConnection entity.
      * @param id Unique identifier of the item
      * @returns a ConnectionOperationItemRequestBuilder
      */
@@ -173,8 +174,9 @@ export class ExternalConnectionItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ExternalConnection
      */
-    public patch(body: ExternalConnection | undefined, requestConfiguration?: ExternalConnectionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ExternalConnection | undefined, requestConfiguration?: ExternalConnectionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalConnection | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -183,6 +185,6 @@ export class ExternalConnectionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ExternalConnection>(requestInfo, createExternalConnectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

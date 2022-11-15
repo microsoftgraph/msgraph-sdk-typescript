@@ -1,4 +1,4 @@
-import {AadUserNotificationRecipient, TeamworkNotificationRecipient} from './index';
+import {AadUserNotificationRecipient, ChannelMembersNotificationRecipient, ChatMembersNotificationRecipient, TeamMembersNotificationRecipient, TeamworkNotificationRecipient} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createTeamworkNotificationRecipientFromDiscriminatorValue(parseNode: ParseNode | undefined) : TeamworkNotificationRecipient {
@@ -10,6 +10,12 @@ export function createTeamworkNotificationRecipientFromDiscriminatorValue(parseN
             switch (mappingValue) {
                 case "#microsoft.graph.aadUserNotificationRecipient":
                     return new AadUserNotificationRecipient();
+                case "#microsoft.graph.channelMembersNotificationRecipient":
+                    return new ChannelMembersNotificationRecipient();
+                case "#microsoft.graph.chatMembersNotificationRecipient":
+                    return new ChatMembersNotificationRecipient();
+                case "#microsoft.graph.teamMembersNotificationRecipient":
+                    return new TeamMembersNotificationRecipient();
             }
         }
     }
