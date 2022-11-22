@@ -45,7 +45,6 @@ export class Website implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.website";
     };
     /**
      * Gets the displayName property value. The display name of the web site.

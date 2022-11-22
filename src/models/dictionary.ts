@@ -24,7 +24,6 @@ export class Dictionary implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.Dictionary";
     };
     /**
      * The deserialization information for the current model

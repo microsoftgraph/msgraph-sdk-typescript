@@ -128,7 +128,6 @@ export class EducationClass extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.educationClass";
     };
     /**
      * Gets the course property value. The course property

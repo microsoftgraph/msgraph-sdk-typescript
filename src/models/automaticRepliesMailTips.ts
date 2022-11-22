@@ -35,7 +35,6 @@ export class AutomaticRepliesMailTips implements AdditionalDataHolder, Parsable 
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.automaticRepliesMailTips";
     };
     /**
      * The deserialization information for the current model

@@ -25,7 +25,6 @@ export class MobileAppAssignmentSettings implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.mobileAppAssignmentSettings";
     };
     /**
      * The deserialization information for the current model

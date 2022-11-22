@@ -28,7 +28,6 @@ export class WorkbookChartAxes extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookChartAxes";
     };
     /**
      * The deserialization information for the current model

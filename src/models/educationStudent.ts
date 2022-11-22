@@ -51,7 +51,6 @@ export class EducationStudent implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.educationStudent";
     };
     /**
      * Gets the externalId property value. ID of the student in the source system.

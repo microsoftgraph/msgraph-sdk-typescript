@@ -31,7 +31,6 @@ export class WindowsInformationProtectionIPRangeCollection implements Additional
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.windowsInformationProtectionIPRangeCollection";
     };
     /**
      * Gets the displayName property value. Display name

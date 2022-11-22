@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class ServiceAnnouncementAttachment extends Entity implements Parsable {
     /** The attachment content. */
     private _content?: string | undefined;
@@ -18,7 +18,6 @@ export class ServiceAnnouncementAttachment extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.serviceAnnouncementAttachment";
     };
     /**
      * Gets the content property value. The attachment content.

@@ -12,7 +12,6 @@ export class MobileAppCategory extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.mobileAppCategory";
     };
     /**
      * Gets the displayName property value. The name of the app category.

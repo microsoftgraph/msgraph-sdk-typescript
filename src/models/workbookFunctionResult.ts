@@ -12,7 +12,6 @@ export class WorkbookFunctionResult extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookFunctionResult";
     };
     /**
      * Gets the error property value. The error property

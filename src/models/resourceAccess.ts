@@ -28,7 +28,6 @@ export class ResourceAccess implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.resourceAccess";
     };
     /**
      * The deserialization information for the current model

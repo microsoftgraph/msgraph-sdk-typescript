@@ -38,7 +38,6 @@ export class Quota implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.quota";
     };
     /**
      * Gets the deleted property value. Total space consumed by files in the recycle bin, in bytes. Read-only.

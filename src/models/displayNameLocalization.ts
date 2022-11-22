@@ -28,7 +28,6 @@ export class DisplayNameLocalization implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.displayNameLocalization";
     };
     /**
      * Gets the displayName property value. If present, the value of this field contains the displayName string that has been set for the language present in the languageTag field.

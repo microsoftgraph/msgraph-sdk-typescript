@@ -37,7 +37,6 @@ export class BucketAggregationDefinition implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.bucketAggregationDefinition";
     };
     /**
      * The deserialization information for the current model

@@ -2,7 +2,7 @@ import {createEducationResourceFromDiscriminatorValue} from './createEducationRe
 import {EducationResource, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class EducationAssignmentResource extends Entity implements Parsable {
     /** Indicates whether this resource should be copied to each student submission for modification and submission. Required */
     private _distributeForStudentWork?: boolean | undefined;
@@ -13,7 +13,6 @@ export class EducationAssignmentResource extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.educationAssignmentResource";
     };
     /**
      * Gets the distributeForStudentWork property value. Indicates whether this resource should be copied to each student submission for modification and submission. Required

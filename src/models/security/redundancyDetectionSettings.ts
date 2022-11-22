@@ -32,7 +32,6 @@ export class RedundancyDetectionSettings implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.security.redundancyDetectionSettings";
     };
     /**
      * The deserialization information for the current model

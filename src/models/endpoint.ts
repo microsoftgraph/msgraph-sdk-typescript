@@ -1,7 +1,7 @@
 import {DirectoryObject} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the instantiate method. */
+/** Provides operations to manage the admin singleton. */
 export class Endpoint extends DirectoryObject implements Parsable {
     /** The capability property */
     private _capability?: string | undefined;

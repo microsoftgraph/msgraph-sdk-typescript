@@ -30,7 +30,6 @@ export class TimeSlot implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.timeSlot";
     };
     /**
      * Gets the end property value. The end property

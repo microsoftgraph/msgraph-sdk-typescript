@@ -47,7 +47,6 @@ export class WorkbookChartFont extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookChartFont";
     };
     /**
      * The deserialization information for the current model

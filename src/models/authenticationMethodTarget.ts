@@ -2,7 +2,7 @@ import {AuthenticationMethodTargetType} from './authenticationMethodTargetType';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
+/** Provides operations to manage the admin singleton. */
 export class AuthenticationMethodTarget extends Entity implements Parsable {
     /** Determines if the user is enforced to register the authentication method. */
     private _isRegistrationRequired?: boolean | undefined;
@@ -13,7 +13,6 @@ export class AuthenticationMethodTarget extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.authenticationMethodTarget";
     };
     /**
      * The deserialization information for the current model

@@ -17,7 +17,6 @@ export class EdiscoveryCaseSettings extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.security.ediscoveryCaseSettings";
     };
     /**
      * The deserialization information for the current model

@@ -50,7 +50,6 @@ export class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleIn
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.unifiedRoleAssignmentScheduleInstance";
     };
     /**
      * Gets the endDateTime property value. The end date of the schedule instance.

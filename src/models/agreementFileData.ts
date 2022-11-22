@@ -26,7 +26,6 @@ export class AgreementFileData implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.agreementFileData";
     };
     /**
      * Gets the data property value. Data that represents the terms of use PDF document. Read-only.

@@ -7,7 +7,6 @@ export class StartHoldMusicOperation extends CommsOperation implements Parsable 
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.startHoldMusicOperation";
     };
     /**
      * The deserialization information for the current model

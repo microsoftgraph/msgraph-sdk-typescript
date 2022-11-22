@@ -54,7 +54,6 @@ export class SettingStateDeviceSummary extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.settingStateDeviceSummary";
     };
     /**
      * Gets the errorDeviceCount property value. Device error count for the setting

@@ -31,7 +31,6 @@ export class IosHomeScreenPage implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.iosHomeScreenPage";
     };
     /**
      * Gets the displayName property value. Name of the page

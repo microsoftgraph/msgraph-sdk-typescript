@@ -34,7 +34,6 @@ export class ResourceSpecificPermission implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.resourceSpecificPermission";
     };
     /**
      * Gets the description property value. Describes the level of access that the resource-specific permission represents.

@@ -35,7 +35,6 @@ export class StandardTimeZoneOffset implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.standardTimeZoneOffset";
     };
     /**
      * Gets the dayOccurrence property value. Represents the nth occurrence of the day of week that the transition from daylight saving time to standard time occurs.

@@ -31,7 +31,6 @@ export class MobileAppInstallTimeSettings implements AdditionalDataHolder, Parsa
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.mobileAppInstallTimeSettings";
     };
     /**
      * Gets the deadlineDateTime property value. The time at which the app should be installed.

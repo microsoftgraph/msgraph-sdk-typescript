@@ -35,7 +35,6 @@ export class RubricLevel implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.rubricLevel";
     };
     /**
      * Gets the description property value. The description of this rubric level.

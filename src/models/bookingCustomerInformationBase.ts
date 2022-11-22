@@ -24,7 +24,6 @@ export class BookingCustomerInformationBase implements AdditionalDataHolder, Par
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.bookingCustomerInformationBase";
     };
     /**
      * The deserialization information for the current model

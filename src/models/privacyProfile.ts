@@ -28,7 +28,6 @@ export class PrivacyProfile implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.privacyProfile";
     };
     /**
      * Gets the contactEmail property value. A valid smtp email address for the privacy statement contact. Not required.

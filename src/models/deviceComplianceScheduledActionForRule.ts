@@ -13,7 +13,6 @@ export class DeviceComplianceScheduledActionForRule extends Entity implements Pa
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceComplianceScheduledActionForRule";
     };
     /**
      * The deserialization information for the current model

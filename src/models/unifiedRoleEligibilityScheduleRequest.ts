@@ -86,7 +86,6 @@ export class UnifiedRoleEligibilityScheduleRequest extends Request implements Pa
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.unifiedRoleEligibilityScheduleRequest";
     };
     /**
      * Gets the directoryScope property value. The directory object that is the scope of the role eligibility. Read-only. Supports $expand.

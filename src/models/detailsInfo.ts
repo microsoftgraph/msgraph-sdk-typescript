@@ -24,7 +24,6 @@ export class DetailsInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.detailsInfo";
     };
     /**
      * The deserialization information for the current model

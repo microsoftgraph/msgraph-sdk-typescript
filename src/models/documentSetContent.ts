@@ -32,7 +32,6 @@ export class DocumentSetContent implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.documentSetContent";
     };
     /**
      * Gets the contentType property value. Content type information of the file.

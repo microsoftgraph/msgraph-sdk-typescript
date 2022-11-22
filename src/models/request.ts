@@ -49,7 +49,6 @@ export class Request extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.request";
     };
     /**
      * Gets the createdBy property value. The principal that created the request.

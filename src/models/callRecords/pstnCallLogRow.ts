@@ -183,7 +183,6 @@ export class PstnCallLogRow implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.callRecords.pstnCallLogRow";
     };
     /**
      * Gets the currency property value. Type of currency used to calculate the cost of the call (ISO 4217).

@@ -7,7 +7,6 @@ export class CancelMediaProcessingOperation extends CommsOperation implements Pa
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.cancelMediaProcessingOperation";
     };
     /**
      * The deserialization information for the current model

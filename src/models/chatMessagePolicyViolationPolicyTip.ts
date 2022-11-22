@@ -44,7 +44,6 @@ export class ChatMessagePolicyViolationPolicyTip implements AdditionalDataHolder
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.chatMessagePolicyViolationPolicyTip";
     };
     /**
      * Gets the generalText property value. Explanatory text shown to the sender of the message.

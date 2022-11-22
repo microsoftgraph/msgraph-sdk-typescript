@@ -14,7 +14,6 @@ export class WorkbookChartAxisTitle extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookChartAxisTitle";
     };
     /**
      * Gets the format property value. Represents the formatting of chart axis title. Read-only.

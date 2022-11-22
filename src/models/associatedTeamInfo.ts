@@ -7,7 +7,6 @@ export class AssociatedTeamInfo extends TeamInfo implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.associatedTeamInfo";
     };
     /**
      * The deserialization information for the current model

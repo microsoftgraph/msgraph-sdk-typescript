@@ -9,7 +9,6 @@ export class DeviceAndAppManagementRoleAssignment extends RoleAssignment impleme
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceAndAppManagementRoleAssignment";
     };
     /**
      * The deserialization information for the current model

@@ -11,7 +11,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the appConsent property of the microsoft.graph.identityGovernance entity. */
 export class AppConsentRequestBuilder {
-    /** The appConsentRequests property */
+    /** Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity. */
     public get appConsentRequests(): AppConsentRequestsRequestBuilder {
         return new AppConsentRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -22,7 +22,7 @@ export class AppConsentRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.appConsent.appConsentRequests.item collection
+     * Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity.
      * @param id Unique identifier of the item
      * @returns a AppConsentRequestItemRequestBuilder
      */
@@ -91,6 +91,7 @@ export class AppConsentRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -111,7 +112,7 @@ export class AppConsentRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Get appConsent from identityGovernance
@@ -127,15 +128,16 @@ export class AppConsentRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AppConsentApprovalRoute>(requestInfo, createAppConsentApprovalRouteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AppConsentApprovalRoute>(requestInfo, createAppConsentApprovalRouteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property appConsent in identityGovernance
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of AppConsentApprovalRoute
      */
-    public patch(body: AppConsentApprovalRoute | undefined, requestConfiguration?: AppConsentRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AppConsentApprovalRoute | undefined, requestConfiguration?: AppConsentRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AppConsentApprovalRoute | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -144,6 +146,6 @@ export class AppConsentRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AppConsentApprovalRoute>(requestInfo, createAppConsentApprovalRouteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

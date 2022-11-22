@@ -54,7 +54,6 @@ export class OnPremisesExtensionAttributes implements AdditionalDataHolder, Pars
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.onPremisesExtensionAttributes";
     };
     /**
      * Gets the extensionAttribute1 property value. First customizable extension attribute.

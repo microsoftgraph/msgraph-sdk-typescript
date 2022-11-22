@@ -17,11 +17,11 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity. */
 export class B2xIdentityUserFlowItemRequestBuilder {
-    /** The identityProviders property */
+    /** Provides operations to manage the identityProviders property of the microsoft.graph.b2xIdentityUserFlow entity. */
     public get identityProviders(): IdentityProvidersRequestBuilder {
         return new IdentityProvidersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The languages property */
+    /** Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity. */
     public get languages(): LanguagesRequestBuilder {
         return new LanguagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,11 +31,11 @@ export class B2xIdentityUserFlowItemRequestBuilder {
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The userAttributeAssignments property */
+    /** Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity. */
     public get userAttributeAssignments(): UserAttributeAssignmentsRequestBuilder {
         return new UserAttributeAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The userFlowIdentityProviders property */
+    /** Provides operations to manage the userFlowIdentityProviders property of the microsoft.graph.b2xIdentityUserFlow entity. */
     public get userFlowIdentityProviders(): UserFlowIdentityProvidersRequestBuilder {
         return new UserFlowIdentityProvidersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -98,6 +98,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -118,7 +119,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Represents entry point for B2X/self-service sign-up identity userflows.
@@ -134,10 +135,10 @@ export class B2xIdentityUserFlowItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<B2xIdentityUserFlow>(requestInfo, createB2xIdentityUserFlowFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<B2xIdentityUserFlow>(requestInfo, createB2xIdentityUserFlowFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.identityProviders.item collection
+     * Provides operations to manage the identityProviders property of the microsoft.graph.b2xIdentityUserFlow entity.
      * @param id Unique identifier of the item
      * @returns a IdentityProviderItemRequestBuilder
      */
@@ -148,7 +149,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
         return new IdentityProviderItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.languages.item collection
+     * Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity.
      * @param id Unique identifier of the item
      * @returns a UserFlowLanguageConfigurationItemRequestBuilder
      */
@@ -163,8 +164,9 @@ export class B2xIdentityUserFlowItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of B2xIdentityUserFlow
      */
-    public patch(body: B2xIdentityUserFlow | undefined, requestConfiguration?: B2xIdentityUserFlowItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: B2xIdentityUserFlow | undefined, requestConfiguration?: B2xIdentityUserFlowItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<B2xIdentityUserFlow | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -173,10 +175,10 @@ export class B2xIdentityUserFlowItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<B2xIdentityUserFlow>(requestInfo, createB2xIdentityUserFlowFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.userAttributeAssignments.item collection
+     * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.
      * @param id Unique identifier of the item
      * @returns a IdentityUserFlowAttributeAssignmentItemRequestBuilder
      */

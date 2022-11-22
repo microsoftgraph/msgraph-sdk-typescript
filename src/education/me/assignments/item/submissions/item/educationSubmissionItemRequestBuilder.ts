@@ -20,39 +20,39 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity. */
 export class EducationSubmissionItemRequestBuilder {
-    /** The outcomes property */
+    /** Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity. */
     public get outcomes(): OutcomesRequestBuilder {
         return new OutcomesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The reassign property */
+    /** Provides operations to call the reassign method. */
     public get reassign(): ReassignRequestBuilder {
         return new ReassignRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The resources property */
+    /** Provides operations to manage the resources property of the microsoft.graph.educationSubmission entity. */
     public get resources(): ResourcesRequestBuilder {
         return new ResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The return property */
+    /** Provides operations to call the return method. */
     public get return_escaped(): ReturnRequestBuilder {
         return new ReturnRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The setUpResourcesFolder property */
+    /** Provides operations to call the setUpResourcesFolder method. */
     public get setUpResourcesFolder(): SetUpResourcesFolderRequestBuilder {
         return new SetUpResourcesFolderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The submit property */
+    /** Provides operations to call the submit method. */
     public get submit(): SubmitRequestBuilder {
         return new SubmitRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The submittedResources property */
+    /** Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity. */
     public get submittedResources(): SubmittedResourcesRequestBuilder {
         return new SubmittedResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The unsubmit property */
+    /** Provides operations to call the unsubmit method. */
     public get unsubmit(): UnsubmitRequestBuilder {
         return new UnsubmitRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -117,6 +117,7 @@ export class EducationSubmissionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -137,7 +138,7 @@ export class EducationSubmissionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
@@ -153,10 +154,10 @@ export class EducationSubmissionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EducationSubmission>(requestInfo, createEducationSubmissionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationSubmission>(requestInfo, createEducationSubmissionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.me.assignments.item.submissions.item.outcomes.item collection
+     * Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity.
      * @param id Unique identifier of the item
      * @returns a EducationOutcomeItemRequestBuilder
      */
@@ -171,8 +172,9 @@ export class EducationSubmissionItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of EducationSubmission
      */
-    public patch(body: EducationSubmission | undefined, requestConfiguration?: EducationSubmissionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: EducationSubmission | undefined, requestConfiguration?: EducationSubmissionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSubmission | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -181,10 +183,10 @@ export class EducationSubmissionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationSubmission>(requestInfo, createEducationSubmissionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.me.assignments.item.submissions.item.resources.item collection
+     * Provides operations to manage the resources property of the microsoft.graph.educationSubmission entity.
      * @param id Unique identifier of the item
      * @returns a EducationSubmissionResourceItemRequestBuilder
      */
@@ -195,7 +197,7 @@ export class EducationSubmissionItemRequestBuilder {
         return new ie6e240bf6d2125d4ac92291b6d932203325a569b5806e7039f13fd9954c22f62(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.me.assignments.item.submissions.item.submittedResources.item collection
+     * Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity.
      * @param id Unique identifier of the item
      * @returns a EducationSubmissionResourceItemRequestBuilder
      */

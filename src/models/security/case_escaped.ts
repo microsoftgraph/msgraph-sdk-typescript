@@ -3,7 +3,7 @@ import {createIdentitySetFromDiscriminatorValue} from '../createIdentitySetFromD
 import {CaseStatus} from './caseStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class Case_escaped extends Entity implements Parsable {
     /** The createdDateTime property */
     private _createdDateTime?: Date | undefined;
@@ -22,7 +22,6 @@ export class Case_escaped extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.security.case";
     };
     /**
      * Gets the createdDateTime property value. The createdDateTime property

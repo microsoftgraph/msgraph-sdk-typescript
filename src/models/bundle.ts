@@ -58,7 +58,6 @@ export class Bundle implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.bundle";
     };
     /**
      * The deserialization information for the current model

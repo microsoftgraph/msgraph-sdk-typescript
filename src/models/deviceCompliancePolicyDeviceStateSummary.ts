@@ -67,7 +67,6 @@ export class DeviceCompliancePolicyDeviceStateSummary extends Entity implements 
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceCompliancePolicyDeviceStateSummary";
     };
     /**
      * Gets the errorDeviceCount property value. Number of error devices

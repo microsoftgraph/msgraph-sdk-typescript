@@ -38,90 +38,90 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the root property of the microsoft.graph.drive entity. */
 export class RootRequestBuilder {
-    /** The analytics property */
+    /** Provides operations to manage the analytics property of the microsoft.graph.driveItem entity. */
     public get analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkin property */
+    /** Provides operations to call the checkin method. */
     public get checkin(): CheckinRequestBuilder {
         return new CheckinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkout property */
+    /** Provides operations to call the checkout method. */
     public get checkout(): CheckoutRequestBuilder {
         return new CheckoutRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The children property */
+    /** Provides operations to manage the children property of the microsoft.graph.driveItem entity. */
     public get children(): ChildrenRequestBuilder {
         return new ChildrenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The content property */
+    /** Provides operations to manage the media for the user entity. */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The copy property */
+    /** Provides operations to call the copy method. */
     public get copy(): CopyRequestBuilder {
         return new CopyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createLink property */
+    /** Provides operations to call the createLink method. */
     public get createLink(): CreateLinkRequestBuilder {
         return new CreateLinkRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createUploadSession property */
+    /** Provides operations to call the createUploadSession method. */
     public get createUploadSession(): CreateUploadSessionRequestBuilder {
         return new CreateUploadSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The follow property */
+    /** Provides operations to call the follow method. */
     public get follow(): FollowRequestBuilder {
         return new FollowRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The invite property */
+    /** Provides operations to call the invite method. */
     public get invite(): InviteRequestBuilder {
         return new InviteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The listItem property */
+    /** Provides operations to manage the listItem property of the microsoft.graph.driveItem entity. */
     public get listItem(): ListItemRequestBuilder {
         return new ListItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The permissions property */
+    /** Provides operations to manage the permissions property of the microsoft.graph.driveItem entity. */
     public get permissions(): PermissionsRequestBuilder {
         return new PermissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The preview property */
+    /** Provides operations to call the preview method. */
     public get preview(): PreviewRequestBuilder {
         return new PreviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The restore property */
+    /** Provides operations to call the restore method. */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The subscriptions property */
+    /** Provides operations to manage the subscriptions property of the microsoft.graph.driveItem entity. */
     public get subscriptions(): SubscriptionsRequestBuilder {
         return new SubscriptionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The thumbnails property */
+    /** Provides operations to manage the thumbnails property of the microsoft.graph.driveItem entity. */
     public get thumbnails(): ThumbnailsRequestBuilder {
         return new ThumbnailsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The unfollow property */
+    /** Provides operations to call the unfollow method. */
     public get unfollow(): UnfollowRequestBuilder {
         return new UnfollowRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The validatePermission property */
+    /** Provides operations to call the validatePermission method. */
     public get validatePermission(): ValidatePermissionRequestBuilder {
         return new ValidatePermissionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The versions property */
+    /** Provides operations to manage the versions property of the microsoft.graph.driveItem entity. */
     public get versions(): VersionsRequestBuilder {
         return new VersionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item.root.children.item collection
+     * Provides operations to manage the children property of the microsoft.graph.driveItem entity.
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
@@ -161,7 +161,7 @@ export class RootRequestBuilder {
         return requestInfo;
     };
     /**
-     * The root folder of the drive. Read-only.
+     * Retrieve the metadata for a driveItem in a drive by file system path or ID.`item-id` is the ID of a driveItem. It may also be the unique ID of a SharePoint list item.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -190,6 +190,7 @@ export class RootRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -210,7 +211,7 @@ export class RootRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Provides operations to call the delta method.
@@ -229,7 +230,7 @@ export class RootRequestBuilder {
         return new DeltaWithTokenRequestBuilder(this.pathParameters, this.requestAdapter, token);
     };
     /**
-     * The root folder of the drive. Read-only.
+     * Retrieve the metadata for a driveItem in a drive by file system path or ID.`item-id` is the ID of a driveItem. It may also be the unique ID of a SharePoint list item.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveItem
@@ -242,7 +243,7 @@ export class RootRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Provides operations to call the getActivitiesByInterval method.
@@ -269,8 +270,9 @@ export class RootRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of DriveItem
      */
-    public patch(body: DriveItem | undefined, requestConfiguration?: RootRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: DriveItem | undefined, requestConfiguration?: RootRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -279,10 +281,10 @@ export class RootRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item.root.permissions.item collection
+     * Provides operations to manage the permissions property of the microsoft.graph.driveItem entity.
      * @param id Unique identifier of the item
      * @returns a PermissionItemRequestBuilder
      */
@@ -302,7 +304,7 @@ export class RootRequestBuilder {
         return new SearchWithQRequestBuilder(this.pathParameters, this.requestAdapter, q);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item.root.subscriptions.item collection
+     * Provides operations to manage the subscriptions property of the microsoft.graph.driveItem entity.
      * @param id Unique identifier of the item
      * @returns a SubscriptionItemRequestBuilder
      */
@@ -313,7 +315,7 @@ export class RootRequestBuilder {
         return new SubscriptionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item.root.thumbnails.item collection
+     * Provides operations to manage the thumbnails property of the microsoft.graph.driveItem entity.
      * @param id Unique identifier of the item
      * @returns a ThumbnailSetItemRequestBuilder
      */
@@ -324,7 +326,7 @@ export class RootRequestBuilder {
         return new ThumbnailSetItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.drives.item.root.versions.item collection
+     * Provides operations to manage the versions property of the microsoft.graph.driveItem entity.
      * @param id Unique identifier of the item
      * @returns a DriveItemVersionItemRequestBuilder
      */

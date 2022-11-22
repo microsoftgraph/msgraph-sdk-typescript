@@ -23,7 +23,6 @@ export class WorkbookRangeFill extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookRangeFill";
     };
     /**
      * The deserialization information for the current model

@@ -1,5 +1,5 @@
 
-/** DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand. */
+/** Retrieves a list of domainDnsRecord objects needed to enable services for the domain. Use the returned list to add records to the zone file of the domain. This can be done through the domain registrar or DNS server configuration. */
 export class ServiceConfigurationRecordsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

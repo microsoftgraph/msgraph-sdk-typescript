@@ -48,7 +48,6 @@ export class PublicInnerError implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.publicInnerError";
     };
     /**
      * Gets the details property value. A collection of error details.

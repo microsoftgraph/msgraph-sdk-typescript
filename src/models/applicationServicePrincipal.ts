@@ -45,7 +45,6 @@ export class ApplicationServicePrincipal implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.applicationServicePrincipal";
     };
     /**
      * The deserialization information for the current model

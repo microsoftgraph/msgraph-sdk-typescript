@@ -15,7 +15,6 @@ export class Operation extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.operation";
     };
     /**
      * Gets the createdDateTime property value. The start time of the operation.

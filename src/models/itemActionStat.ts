@@ -56,7 +56,6 @@ export class ItemActionStat implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.itemActionStat";
     };
     /**
      * The deserialization information for the current model

@@ -24,7 +24,6 @@ export class MicrosoftAuthenticatorAuthenticationMethodTarget extends Authentica
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodTarget";
     };
     /**
      * The deserialization information for the current model

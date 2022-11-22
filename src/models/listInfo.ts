@@ -30,7 +30,6 @@ export class ListInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.listInfo";
     };
     /**
      * Gets the contentTypesEnabled property value. If true, indicates that content types are enabled for this list.

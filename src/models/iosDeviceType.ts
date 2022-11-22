@@ -29,7 +29,6 @@ export class IosDeviceType implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.iosDeviceType";
     };
     /**
      * The deserialization information for the current model

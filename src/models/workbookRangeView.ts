@@ -61,7 +61,6 @@ export class WorkbookRangeView extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookRangeView";
     };
     /**
      * Gets the formulas property value. Represents the formula in A1-style notation.

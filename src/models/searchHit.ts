@@ -38,7 +38,6 @@ export class SearchHit implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.searchHit";
     };
     /**
      * Gets the contentSource property value. The name of the content source that the externalItem is part of.

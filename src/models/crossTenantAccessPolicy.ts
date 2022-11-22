@@ -4,10 +4,26 @@ import {CrossTenantAccessPolicyConfigurationDefault, CrossTenantAccessPolicyConf
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CrossTenantAccessPolicy extends PolicyBase implements Parsable {
+    /** The allowedCloudEndpoints property */
+    private _allowedCloudEndpoints?: string[] | undefined;
     /** Defines the default configuration for how your organization interacts with external Azure Active Directory organizations. */
     private _default_escaped?: CrossTenantAccessPolicyConfigurationDefault | undefined;
     /** Defines partner-specific configurations for external Azure Active Directory organizations. */
     private _partners?: CrossTenantAccessPolicyConfigurationPartner[] | undefined;
+    /**
+     * Gets the allowedCloudEndpoints property value. The allowedCloudEndpoints property
+     * @returns a string
+     */
+    public get allowedCloudEndpoints() {
+        return this._allowedCloudEndpoints;
+    };
+    /**
+     * Sets the allowedCloudEndpoints property value. The allowedCloudEndpoints property
+     * @param value Value to set for the allowedCloudEndpoints property.
+     */
+    public set allowedCloudEndpoints(value: string[] | undefined) {
+        this._allowedCloudEndpoints = value;
+    };
     /**
      * Instantiates a new CrossTenantAccessPolicy and sets the default values.
      */
@@ -35,6 +51,7 @@ export class CrossTenantAccessPolicy extends PolicyBase implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
+            "allowedCloudEndpoints": n => { this.allowedCloudEndpoints = n.getCollectionOfPrimitiveValues<string>(); },
             "default": n => { this.default_escaped = n.getObjectValue<CrossTenantAccessPolicyConfigurationDefault>(createCrossTenantAccessPolicyConfigurationDefaultFromDiscriminatorValue); },
             "partners": n => { this.partners = n.getCollectionOfObjectValues<CrossTenantAccessPolicyConfigurationPartner>(createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue); },
         };
@@ -60,6 +77,7 @@ export class CrossTenantAccessPolicy extends PolicyBase implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeCollectionOfPrimitiveValues<string>("allowedCloudEndpoints", this.allowedCloudEndpoints);
         writer.writeObjectValue<CrossTenantAccessPolicyConfigurationDefault>("default", this.default_escaped);
         writer.writeCollectionOfObjectValues<CrossTenantAccessPolicyConfigurationPartner>("partners", this.partners);
     };

@@ -56,7 +56,6 @@ export class IntuneBrand implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.intuneBrand";
     };
     /**
      * Gets the contactITEmailAddress property value. Email address of the person/organization responsible for IT support.

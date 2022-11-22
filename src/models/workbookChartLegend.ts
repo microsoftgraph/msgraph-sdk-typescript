@@ -16,7 +16,6 @@ export class WorkbookChartLegend extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookChartLegend";
     };
     /**
      * Gets the format property value. Represents the formatting of a chart legend, which includes fill and font formatting. Read-only.

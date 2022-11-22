@@ -26,7 +26,6 @@ export class ProvisionChannelEmailResult implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.provisionChannelEmailResult";
     };
     /**
      * Gets the email property value. Represents the provisioned email address.

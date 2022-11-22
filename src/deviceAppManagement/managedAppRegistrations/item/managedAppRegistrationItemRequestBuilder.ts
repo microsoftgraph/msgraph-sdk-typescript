@@ -15,15 +15,15 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity. */
 export class ManagedAppRegistrationItemRequestBuilder {
-    /** The appliedPolicies property */
+    /** Provides operations to manage the appliedPolicies property of the microsoft.graph.managedAppRegistration entity. */
     public get appliedPolicies(): AppliedPoliciesRequestBuilder {
         return new AppliedPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The intendedPolicies property */
+    /** Provides operations to manage the intendedPolicies property of the microsoft.graph.managedAppRegistration entity. */
     public get intendedPolicies(): IntendedPoliciesRequestBuilder {
         return new IntendedPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The operations property */
+    /** Provides operations to manage the operations property of the microsoft.graph.managedAppRegistration entity. */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -34,7 +34,7 @@ export class ManagedAppRegistrationItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedAppRegistrations.item.appliedPolicies.item collection
+     * Provides operations to manage the appliedPolicies property of the microsoft.graph.managedAppRegistration entity.
      * @param id Unique identifier of the item
      * @returns a ManagedAppPolicyItemRequestBuilder
      */
@@ -103,6 +103,7 @@ export class ManagedAppRegistrationItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -123,7 +124,7 @@ export class ManagedAppRegistrationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * The managed app registrations.
@@ -139,10 +140,10 @@ export class ManagedAppRegistrationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ManagedAppRegistration>(requestInfo, createManagedAppRegistrationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedAppRegistration>(requestInfo, createManagedAppRegistrationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedAppRegistrations.item.intendedPolicies.item collection
+     * Provides operations to manage the intendedPolicies property of the microsoft.graph.managedAppRegistration entity.
      * @param id Unique identifier of the item
      * @returns a ManagedAppPolicyItemRequestBuilder
      */
@@ -153,7 +154,7 @@ export class ManagedAppRegistrationItemRequestBuilder {
         return new idd29f9cb721ede8ef48ce7470339b90954dc8da5b1ca8bab07978f58c2ea4e3c(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedAppRegistrations.item.operations.item collection
+     * Provides operations to manage the operations property of the microsoft.graph.managedAppRegistration entity.
      * @param id Unique identifier of the item
      * @returns a ManagedAppOperationItemRequestBuilder
      */
@@ -168,8 +169,9 @@ export class ManagedAppRegistrationItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ManagedAppRegistration
      */
-    public patch(body: ManagedAppRegistration | undefined, requestConfiguration?: ManagedAppRegistrationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ManagedAppRegistration | undefined, requestConfiguration?: ManagedAppRegistrationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedAppRegistration | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -178,6 +180,6 @@ export class ManagedAppRegistrationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedAppRegistration>(requestInfo, createManagedAppRegistrationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

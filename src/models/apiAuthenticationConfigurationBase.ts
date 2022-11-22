@@ -24,7 +24,6 @@ export class ApiAuthenticationConfigurationBase implements AdditionalDataHolder,
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.apiAuthenticationConfigurationBase";
     };
     /**
      * The deserialization information for the current model

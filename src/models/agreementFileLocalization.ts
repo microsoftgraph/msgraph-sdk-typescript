@@ -11,7 +11,6 @@ export class AgreementFileLocalization extends AgreementFileProperties implement
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.agreementFileLocalization";
     };
     /**
      * The deserialization information for the current model

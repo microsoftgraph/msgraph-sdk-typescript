@@ -200,7 +200,6 @@ export class WorkbookWorksheetProtectionOptions implements AdditionalDataHolder,
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.workbookWorksheetProtectionOptions";
     };
     /**
      * The deserialization information for the current model

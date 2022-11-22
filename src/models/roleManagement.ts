@@ -30,7 +30,6 @@ export class RoleManagement implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.roleManagement";
     };
     /**
      * Gets the directory property value. The directory property

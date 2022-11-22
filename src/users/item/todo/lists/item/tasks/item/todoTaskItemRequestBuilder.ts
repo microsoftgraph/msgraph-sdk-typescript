@@ -19,23 +19,23 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity. */
 export class TodoTaskItemRequestBuilder {
-    /** The attachments property */
+    /** Provides operations to manage the attachments property of the microsoft.graph.todoTask entity. */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The attachmentSessions property */
+    /** Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity. */
     public get attachmentSessions(): AttachmentSessionsRequestBuilder {
         return new AttachmentSessionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checklistItems property */
+    /** Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity. */
     public get checklistItems(): ChecklistItemsRequestBuilder {
         return new ChecklistItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The extensions property */
+    /** Provides operations to manage the extensions property of the microsoft.graph.todoTask entity. */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The linkedResources property */
+    /** Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity. */
     public get linkedResources(): LinkedResourcesRequestBuilder {
         return new LinkedResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -46,7 +46,7 @@ export class TodoTaskItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.todo.lists.item.tasks.item.attachments.item collection
+     * Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.
      * @param id Unique identifier of the item
      * @returns a AttachmentBaseItemRequestBuilder
      */
@@ -57,7 +57,7 @@ export class TodoTaskItemRequestBuilder {
         return new AttachmentBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.todo.lists.item.tasks.item.attachmentSessions.item collection
+     * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.
      * @param id Unique identifier of the item
      * @returns a AttachmentSessionItemRequestBuilder
      */
@@ -68,7 +68,7 @@ export class TodoTaskItemRequestBuilder {
         return new AttachmentSessionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.todo.lists.item.tasks.item.checklistItems.item collection
+     * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
      * @param id Unique identifier of the item
      * @returns a ChecklistItemItemRequestBuilder
      */
@@ -137,6 +137,7 @@ export class TodoTaskItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -157,10 +158,10 @@ export class TodoTaskItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.todo.lists.item.tasks.item.extensions.item collection
+     * Provides operations to manage the extensions property of the microsoft.graph.todoTask entity.
      * @param id Unique identifier of the item
      * @returns a ExtensionItemRequestBuilder
      */
@@ -184,10 +185,10 @@ export class TodoTaskItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TodoTask>(requestInfo, createTodoTaskFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TodoTask>(requestInfo, createTodoTaskFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.todo.lists.item.tasks.item.linkedResources.item collection
+     * Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity.
      * @param id Unique identifier of the item
      * @returns a LinkedResourceItemRequestBuilder
      */
@@ -202,8 +203,9 @@ export class TodoTaskItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of TodoTask
      */
-    public patch(body: TodoTask | undefined, requestConfiguration?: TodoTaskItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: TodoTask | undefined, requestConfiguration?: TodoTaskItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TodoTask | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -212,6 +214,6 @@ export class TodoTaskItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TodoTask>(requestInfo, createTodoTaskFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

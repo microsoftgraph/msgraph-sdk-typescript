@@ -23,23 +23,23 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity. */
 export class DeviceCompliancePolicyItemRequestBuilder {
-    /** The assign property */
+    /** Provides operations to call the assign method. */
     public get assign(): AssignRequestBuilder {
         return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The assignments property */
+    /** Provides operations to manage the assignments property of the microsoft.graph.deviceCompliancePolicy entity. */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deviceSettingStateSummaries property */
+    /** Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceCompliancePolicy entity. */
     public get deviceSettingStateSummaries(): DeviceSettingStateSummariesRequestBuilder {
         return new DeviceSettingStateSummariesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deviceStatuses property */
+    /** Provides operations to manage the deviceStatuses property of the microsoft.graph.deviceCompliancePolicy entity. */
     public get deviceStatuses(): DeviceStatusesRequestBuilder {
         return new DeviceStatusesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deviceStatusOverview property */
+    /** Provides operations to manage the deviceStatusOverview property of the microsoft.graph.deviceCompliancePolicy entity. */
     public get deviceStatusOverview(): DeviceStatusOverviewRequestBuilder {
         return new DeviceStatusOverviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -47,26 +47,26 @@ export class DeviceCompliancePolicyItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The scheduleActionsForRules property */
+    /** Provides operations to call the scheduleActionsForRules method. */
     public get scheduleActionsForRules(): ScheduleActionsForRulesRequestBuilder {
         return new ScheduleActionsForRulesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The scheduledActionsForRule property */
+    /** Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity. */
     public get scheduledActionsForRule(): ScheduledActionsForRuleRequestBuilder {
         return new ScheduledActionsForRuleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The userStatuses property */
+    /** Provides operations to manage the userStatuses property of the microsoft.graph.deviceCompliancePolicy entity. */
     public get userStatuses(): UserStatusesRequestBuilder {
         return new UserStatusesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The userStatusOverview property */
+    /** Provides operations to manage the userStatusOverview property of the microsoft.graph.deviceCompliancePolicy entity. */
     public get userStatusOverview(): UserStatusOverviewRequestBuilder {
         return new UserStatusOverviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.deviceCompliancePolicy entity.
      * @param id Unique identifier of the item
      * @returns a DeviceCompliancePolicyAssignmentItemRequestBuilder
      */
@@ -135,6 +135,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -155,10 +156,10 @@ export class DeviceCompliancePolicyItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item.deviceSettingStateSummaries.item collection
+     * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceCompliancePolicy entity.
      * @param id Unique identifier of the item
      * @returns a SettingStateDeviceSummaryItemRequestBuilder
      */
@@ -169,7 +170,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
         return new SettingStateDeviceSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item.deviceStatuses.item collection
+     * Provides operations to manage the deviceStatuses property of the microsoft.graph.deviceCompliancePolicy entity.
      * @param id Unique identifier of the item
      * @returns a DeviceComplianceDeviceStatusItemRequestBuilder
      */
@@ -193,15 +194,16 @@ export class DeviceCompliancePolicyItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceCompliancePolicy>(requestInfo, createDeviceCompliancePolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceCompliancePolicy>(requestInfo, createDeviceCompliancePolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property deviceCompliancePolicies in deviceManagement
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of DeviceCompliancePolicy
      */
-    public patch(body: DeviceCompliancePolicy | undefined, requestConfiguration?: DeviceCompliancePolicyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: DeviceCompliancePolicy | undefined, requestConfiguration?: DeviceCompliancePolicyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCompliancePolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -210,10 +212,10 @@ export class DeviceCompliancePolicyItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceCompliancePolicy>(requestInfo, createDeviceCompliancePolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item.scheduledActionsForRule.item collection
+     * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.
      * @param id Unique identifier of the item
      * @returns a DeviceComplianceScheduledActionForRuleItemRequestBuilder
      */
@@ -224,7 +226,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
         return new DeviceComplianceScheduledActionForRuleItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item.userStatuses.item collection
+     * Provides operations to manage the userStatuses property of the microsoft.graph.deviceCompliancePolicy entity.
      * @param id Unique identifier of the item
      * @returns a DeviceComplianceUserStatusItemRequestBuilder
      */

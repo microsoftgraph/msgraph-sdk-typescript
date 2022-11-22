@@ -27,7 +27,6 @@ export class IosHomeScreenItem implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.iosHomeScreenItem";
     };
     /**
      * Gets the displayName property value. Name of the app

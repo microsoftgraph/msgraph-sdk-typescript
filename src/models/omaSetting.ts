@@ -31,7 +31,6 @@ export class OmaSetting implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.omaSetting";
     };
     /**
      * Gets the description property value. Description.

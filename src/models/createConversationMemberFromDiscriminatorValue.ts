@@ -1,4 +1,4 @@
-import {AadUserConversationMember, ConversationMember} from './index';
+import {AadUserConversationMember, AnonymousGuestConversationMember, ConversationMember, MicrosoftAccountUserConversationMember, SkypeForBusinessUserConversationMember, SkypeUserConversationMember} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createConversationMemberFromDiscriminatorValue(parseNode: ParseNode | undefined) : ConversationMember {
@@ -10,6 +10,14 @@ export function createConversationMemberFromDiscriminatorValue(parseNode: ParseN
             switch (mappingValue) {
                 case "#microsoft.graph.aadUserConversationMember":
                     return new AadUserConversationMember();
+                case "#microsoft.graph.anonymousGuestConversationMember":
+                    return new AnonymousGuestConversationMember();
+                case "#microsoft.graph.microsoftAccountUserConversationMember":
+                    return new MicrosoftAccountUserConversationMember();
+                case "#microsoft.graph.skypeForBusinessUserConversationMember":
+                    return new SkypeForBusinessUserConversationMember();
+                case "#microsoft.graph.skypeUserConversationMember":
+                    return new SkypeUserConversationMember();
             }
         }
     }

@@ -1,4 +1,6 @@
 import {BroadcastMeetingAudience} from './broadcastMeetingAudience';
+import {createBroadcastMeetingCaptionSettingsFromDiscriminatorValue} from './createBroadcastMeetingCaptionSettingsFromDiscriminatorValue';
+import {BroadcastMeetingCaptionSettings} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable {
@@ -6,6 +8,8 @@ export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable 
     private _additionalData: Record<string, unknown>;
     /** Defines who can join the Teams live event. Possible values are listed in the following table. */
     private _allowedAudience?: BroadcastMeetingAudience | undefined;
+    /** Caption settings of a Teams live event. */
+    private _captions?: BroadcastMeetingCaptionSettings | undefined;
     /** Indicates whether attendee report is enabled for this Teams live event. Default value is false. */
     private _isAttendeeReportEnabled?: boolean | undefined;
     /** Indicates whether Q&A is enabled for this Teams live event. Default value is false. */
@@ -45,11 +49,24 @@ export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable 
         this._allowedAudience = value;
     };
     /**
+     * Gets the captions property value. Caption settings of a Teams live event.
+     * @returns a broadcastMeetingCaptionSettings
+     */
+    public get captions() {
+        return this._captions;
+    };
+    /**
+     * Sets the captions property value. Caption settings of a Teams live event.
+     * @param value Value to set for the captions property.
+     */
+    public set captions(value: BroadcastMeetingCaptionSettings | undefined) {
+        this._captions = value;
+    };
+    /**
      * Instantiates a new broadcastMeetingSettings and sets the default values.
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.broadcastMeetingSettings";
     };
     /**
      * The deserialization information for the current model
@@ -58,6 +75,7 @@ export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable 
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "allowedAudience": n => { this.allowedAudience = n.getEnumValue<BroadcastMeetingAudience>(BroadcastMeetingAudience); },
+            "captions": n => { this.captions = n.getObjectValue<BroadcastMeetingCaptionSettings>(createBroadcastMeetingCaptionSettingsFromDiscriminatorValue); },
             "isAttendeeReportEnabled": n => { this.isAttendeeReportEnabled = n.getBooleanValue(); },
             "isQuestionAndAnswerEnabled": n => { this.isQuestionAndAnswerEnabled = n.getBooleanValue(); },
             "isRecordingEnabled": n => { this.isRecordingEnabled = n.getBooleanValue(); },
@@ -142,6 +160,7 @@ export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeEnumValue<BroadcastMeetingAudience>("allowedAudience", this.allowedAudience);
+        writer.writeObjectValue<BroadcastMeetingCaptionSettings>("captions", this.captions);
         writer.writeBooleanValue("isAttendeeReportEnabled", this.isAttendeeReportEnabled);
         writer.writeBooleanValue("isQuestionAndAnswerEnabled", this.isQuestionAndAnswerEnabled);
         writer.writeBooleanValue("isRecordingEnabled", this.isRecordingEnabled);

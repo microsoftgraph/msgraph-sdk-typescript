@@ -33,7 +33,6 @@ export class EducationFeedback implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.educationFeedback";
     };
     /**
      * Gets the feedbackBy property value. User who created the feedback.

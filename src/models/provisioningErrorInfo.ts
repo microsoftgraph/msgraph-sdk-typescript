@@ -49,7 +49,6 @@ export class ProvisioningErrorInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.provisioningErrorInfo";
     };
     /**
      * Gets the errorCategory property value. Categorizes the error code. Possible values are failure, nonServiceFailure, success, unknownFutureValue

@@ -7,7 +7,6 @@ export class TeamsTemplate extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.teamsTemplate";
     };
     /**
      * The deserialization information for the current model

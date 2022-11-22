@@ -21,15 +21,15 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the onenote property of the microsoft.graph.site entity. */
 export class OnenoteRequestBuilder {
-    /** The notebooks property */
+    /** Provides operations to manage the notebooks property of the microsoft.graph.onenote entity. */
     public get notebooks(): NotebooksRequestBuilder {
         return new NotebooksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The operations property */
+    /** Provides operations to manage the operations property of the microsoft.graph.onenote entity. */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The pages property */
+    /** Provides operations to manage the pages property of the microsoft.graph.onenote entity. */
     public get pages(): PagesRequestBuilder {
         return new PagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -37,15 +37,15 @@ export class OnenoteRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The resources property */
+    /** Provides operations to manage the resources property of the microsoft.graph.onenote entity. */
     public get resources(): ResourcesRequestBuilder {
         return new ResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The sectionGroups property */
+    /** Provides operations to manage the sectionGroups property of the microsoft.graph.onenote entity. */
     public get sectionGroups(): SectionGroupsRequestBuilder {
         return new SectionGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The sections property */
+    /** Provides operations to manage the sections property of the microsoft.graph.onenote entity. */
     public get sections(): SectionsRequestBuilder {
         return new SectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -110,6 +110,7 @@ export class OnenoteRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -130,7 +131,7 @@ export class OnenoteRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Calls the OneNote service for notebook related operations.
@@ -146,10 +147,10 @@ export class OnenoteRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Onenote>(requestInfo, createOnenoteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Onenote>(requestInfo, createOnenoteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.onenote.notebooks.item collection
+     * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
      * @param id Unique identifier of the item
      * @returns a NotebookItemRequestBuilder
      */
@@ -160,7 +161,7 @@ export class OnenoteRequestBuilder {
         return new NotebookItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.onenote.operations.item collection
+     * Provides operations to manage the operations property of the microsoft.graph.onenote entity.
      * @param id Unique identifier of the item
      * @returns a OnenoteOperationItemRequestBuilder
      */
@@ -171,7 +172,7 @@ export class OnenoteRequestBuilder {
         return new OnenoteOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.onenote.pages.item collection
+     * Provides operations to manage the pages property of the microsoft.graph.onenote entity.
      * @param id Unique identifier of the item
      * @returns a OnenotePageItemRequestBuilder
      */
@@ -186,8 +187,9 @@ export class OnenoteRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Onenote
      */
-    public patch(body: Onenote | undefined, requestConfiguration?: OnenoteRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Onenote | undefined, requestConfiguration?: OnenoteRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Onenote | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -196,10 +198,10 @@ export class OnenoteRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Onenote>(requestInfo, createOnenoteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.onenote.resources.item collection
+     * Provides operations to manage the resources property of the microsoft.graph.onenote entity.
      * @param id Unique identifier of the item
      * @returns a OnenoteResourceItemRequestBuilder
      */
@@ -210,7 +212,7 @@ export class OnenoteRequestBuilder {
         return new OnenoteResourceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.onenote.sectionGroups.item collection
+     * Provides operations to manage the sectionGroups property of the microsoft.graph.onenote entity.
      * @param id Unique identifier of the item
      * @returns a SectionGroupItemRequestBuilder
      */
@@ -221,7 +223,7 @@ export class OnenoteRequestBuilder {
         return new SectionGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.onenote.sections.item collection
+     * Provides operations to manage the sections property of the microsoft.graph.onenote entity.
      * @param id Unique identifier of the item
      * @returns a OnenoteSectionItemRequestBuilder
      */

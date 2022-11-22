@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {PermissionType} from './permissionType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the admin singleton. */
 export class PermissionGrantConditionSet extends Entity implements Parsable {
     /** A list of appId values for the client applications to match with, or a list with the single value all to match any client application. Default is the single value all. */
     private _clientApplicationIds?: string[] | undefined;
@@ -81,7 +81,6 @@ export class PermissionGrantConditionSet extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.permissionGrantConditionSet";
     };
     /**
      * The deserialization information for the current model

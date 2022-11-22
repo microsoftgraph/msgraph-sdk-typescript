@@ -29,7 +29,6 @@ export class EducationItemBody implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.educationItemBody";
     };
     /**
      * Gets the content property value. The content property

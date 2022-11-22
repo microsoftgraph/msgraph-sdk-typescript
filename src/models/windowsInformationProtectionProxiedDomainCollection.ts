@@ -31,7 +31,6 @@ export class WindowsInformationProtectionProxiedDomainCollection implements Addi
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.windowsInformationProtectionProxiedDomainCollection";
     };
     /**
      * Gets the displayName property value. Display name

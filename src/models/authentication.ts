@@ -37,7 +37,6 @@ export class Authentication extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.authentication";
     };
     /**
      * Gets the emailMethods property value. The email address registered to a user for authentication.

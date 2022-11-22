@@ -52,7 +52,6 @@ export class SubjectRightsRequestHistory implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.subjectRightsRequestHistory";
     };
     /**
      * Gets the eventDateTime property value. Data and time when the entity was changed.

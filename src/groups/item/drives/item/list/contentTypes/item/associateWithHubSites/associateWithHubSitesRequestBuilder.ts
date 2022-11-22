@@ -26,7 +26,7 @@ export class AssociateWithHubSitesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action associateWithHubSites
+     * Associate a published [content type][contentType] present in a content type hub with a list of hub sites.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -45,7 +45,7 @@ export class AssociateWithHubSitesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action associateWithHubSites
+     * Associate a published [content type][contentType] present in a content type hub with a list of hub sites.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -59,6 +59,6 @@ export class AssociateWithHubSitesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

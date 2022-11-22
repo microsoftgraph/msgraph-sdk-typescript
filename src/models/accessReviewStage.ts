@@ -22,7 +22,6 @@ export class AccessReviewStage extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.accessReviewStage";
     };
     /**
      * Gets the decisions property value. Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed.

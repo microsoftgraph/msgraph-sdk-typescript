@@ -1,4 +1,4 @@
-/** Provides operations to call the instantiate method. */
+/** Provides operations to manage the admin singleton. */
 export enum PermissionClassificationType {
     Low = "low",
     Medium = "medium",

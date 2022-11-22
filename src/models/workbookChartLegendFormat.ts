@@ -13,7 +13,6 @@ export class WorkbookChartLegendFormat extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookChartLegendFormat";
     };
     /**
      * Gets the fill property value. Represents the fill format of an object, which includes background formating information. Read-only.

@@ -53,7 +53,6 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceCompliancePolicy";
     };
     /**
      * Gets the createdDateTime property value. DateTime the object was created.

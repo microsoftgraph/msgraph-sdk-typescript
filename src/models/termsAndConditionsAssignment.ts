@@ -11,7 +11,6 @@ export class TermsAndConditionsAssignment extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.termsAndConditionsAssignment";
     };
     /**
      * The deserialization information for the current model

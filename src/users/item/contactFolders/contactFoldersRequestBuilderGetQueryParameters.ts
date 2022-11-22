@@ -1,5 +1,5 @@
 
-/** The user's contacts folders. Read-only. Nullable. */
+/** Get the contact folder collection in the default Contacts folder of the signed-in user. */
 export class ContactFoldersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

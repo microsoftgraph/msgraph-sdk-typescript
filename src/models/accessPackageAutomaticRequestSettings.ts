@@ -30,7 +30,6 @@ export class AccessPackageAutomaticRequestSettings implements AdditionalDataHold
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.accessPackageAutomaticRequestSettings";
     };
     /**
      * The deserialization information for the current model

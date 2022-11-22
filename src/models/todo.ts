@@ -10,7 +10,6 @@ export class Todo extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.todo";
     };
     /**
      * The deserialization information for the current model

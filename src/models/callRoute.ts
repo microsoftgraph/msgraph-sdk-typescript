@@ -33,7 +33,6 @@ export class CallRoute implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.callRoute";
     };
     /**
      * Gets the final property value. The final property

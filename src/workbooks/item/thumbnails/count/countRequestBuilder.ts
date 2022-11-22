@@ -55,6 +55,6 @@ export class CountRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendPrimitiveAsync<number>(requestInfo, "number", responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<number>(requestInfo, "number", responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

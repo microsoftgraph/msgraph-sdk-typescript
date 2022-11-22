@@ -13,7 +13,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the termStore property of the microsoft.graph.site entity. */
 export class TermStoreRequestBuilder {
-    /** The groups property */
+    /** Provides operations to manage the groups property of the microsoft.graph.termStore.store entity. */
     public get groups(): GroupsRequestBuilder {
         return new GroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -21,7 +21,7 @@ export class TermStoreRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The sets property */
+    /** Provides operations to manage the sets property of the microsoft.graph.termStore.store entity. */
     public get sets(): SetsRequestBuilder {
         return new SetsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -57,7 +57,7 @@ export class TermStoreRequestBuilder {
         return requestInfo;
     };
     /**
-     * The default termStore under this site.
+     * Read the properties and relationships of a store object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -75,7 +75,7 @@ export class TermStoreRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property termStore in sites
+     * Update the properties of a store object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -86,6 +86,7 @@ export class TermStoreRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -106,10 +107,10 @@ export class TermStoreRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The default termStore under this site.
+     * Read the properties and relationships of a store object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Store
@@ -122,10 +123,10 @@ export class TermStoreRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Store>(requestInfo, createStoreFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Store>(requestInfo, createStoreFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.termStore.groups.item collection
+     * Provides operations to manage the groups property of the microsoft.graph.termStore.store entity.
      * @param id Unique identifier of the item
      * @returns a GroupItemRequestBuilder
      */
@@ -136,12 +137,13 @@ export class TermStoreRequestBuilder {
         return new GroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update the navigation property termStore in sites
+     * Update the properties of a store object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Store
      */
-    public patch(body: Store | undefined, requestConfiguration?: TermStoreRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Store | undefined, requestConfiguration?: TermStoreRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Store | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -150,10 +152,10 @@ export class TermStoreRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Store>(requestInfo, createStoreFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.termStore.sets.item collection
+     * Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.
      * @param id Unique identifier of the item
      * @returns a SetItemRequestBuilder
      */

@@ -12,11 +12,11 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the crossTenantAccessPolicy property of the microsoft.graph.policyRoot entity. */
 export class CrossTenantAccessPolicyRequestBuilder {
-    /** The default property */
+    /** Provides operations to manage the default property of the microsoft.graph.crossTenantAccessPolicy entity. */
     public get default_escaped(): DefaultRequestBuilder {
         return new DefaultRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The partners property */
+    /** Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity. */
     public get partners(): PartnersRequestBuilder {
         return new PartnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -56,7 +56,7 @@ export class CrossTenantAccessPolicyRequestBuilder {
         return requestInfo;
     };
     /**
-     * The custom rules that define an access scenario when interacting with external Azure AD tenants.
+     * Read the properties and relationships of a crossTenantAccessPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -74,7 +74,7 @@ export class CrossTenantAccessPolicyRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property crossTenantAccessPolicy in policies
+     * Update the properties of a cross-tenant access policy.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -85,6 +85,7 @@ export class CrossTenantAccessPolicyRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -105,10 +106,10 @@ export class CrossTenantAccessPolicyRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The custom rules that define an access scenario when interacting with external Azure AD tenants.
+     * Read the properties and relationships of a crossTenantAccessPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CrossTenantAccessPolicy
@@ -121,10 +122,10 @@ export class CrossTenantAccessPolicyRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<CrossTenantAccessPolicy>(requestInfo, createCrossTenantAccessPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CrossTenantAccessPolicy>(requestInfo, createCrossTenantAccessPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.crossTenantAccessPolicy.partners.item collection
+     * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
      * @param id Unique identifier of the item
      * @returns a CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
      */
@@ -135,12 +136,13 @@ export class CrossTenantAccessPolicyRequestBuilder {
         return new CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update the navigation property crossTenantAccessPolicy in policies
+     * Update the properties of a cross-tenant access policy.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of CrossTenantAccessPolicy
      */
-    public patch(body: CrossTenantAccessPolicy | undefined, requestConfiguration?: CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: CrossTenantAccessPolicy | undefined, requestConfiguration?: CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CrossTenantAccessPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -149,6 +151,6 @@ export class CrossTenantAccessPolicyRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CrossTenantAccessPolicy>(requestInfo, createCrossTenantAccessPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

@@ -26,7 +26,6 @@ export class UserConsentRequest extends Request implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.userConsentRequest";
     };
     /**
      * The deserialization information for the current model

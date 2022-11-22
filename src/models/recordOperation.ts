@@ -11,7 +11,6 @@ export class RecordOperation extends CommsOperation implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.recordOperation";
     };
     /**
      * The deserialization information for the current model

@@ -41,7 +41,6 @@ export class TermsOfUseContainer extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.termsOfUseContainer";
     };
     /**
      * The deserialization information for the current model

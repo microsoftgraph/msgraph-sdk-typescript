@@ -14,7 +14,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity. */
 export class SubjectRightsRequestItemRequestBuilder {
-    /** The notes property */
+    /** Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity. */
     public get notes(): NotesRequestBuilder {
         return new NotesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -22,7 +22,7 @@ export class SubjectRightsRequestItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The team property */
+    /** Provides operations to manage the team property of the microsoft.graph.subjectRightsRequest entity. */
     public get team(): TeamRequestBuilder {
         return new TeamRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -87,6 +87,7 @@ export class SubjectRightsRequestItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -107,7 +108,7 @@ export class SubjectRightsRequestItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Get subjectRightsRequests from privacy
@@ -123,7 +124,7 @@ export class SubjectRightsRequestItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SubjectRightsRequest>(requestInfo, createSubjectRightsRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SubjectRightsRequest>(requestInfo, createSubjectRightsRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Provides operations to call the getFinalAttachment method.
@@ -140,7 +141,7 @@ export class SubjectRightsRequestItemRequestBuilder {
         return new GetFinalReportRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.privacy.subjectRightsRequests.item.notes.item collection
+     * Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity.
      * @param id Unique identifier of the item
      * @returns a AuthoredNoteItemRequestBuilder
      */
@@ -155,8 +156,9 @@ export class SubjectRightsRequestItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of SubjectRightsRequest
      */
-    public patch(body: SubjectRightsRequest | undefined, requestConfiguration?: SubjectRightsRequestItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: SubjectRightsRequest | undefined, requestConfiguration?: SubjectRightsRequestItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SubjectRightsRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -165,6 +167,6 @@ export class SubjectRightsRequestItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SubjectRightsRequest>(requestInfo, createSubjectRightsRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

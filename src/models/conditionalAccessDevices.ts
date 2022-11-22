@@ -28,7 +28,6 @@ export class ConditionalAccessDevices implements AdditionalDataHolder, Parsable 
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.conditionalAccessDevices";
     };
     /**
      * Gets the deviceFilter property value. Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them.

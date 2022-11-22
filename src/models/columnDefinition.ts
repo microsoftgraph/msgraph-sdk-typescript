@@ -20,7 +20,7 @@ import {createThumbnailColumnFromDiscriminatorValue} from './createThumbnailColu
 import {BooleanColumn, CalculatedColumn, ChoiceColumn, ColumnValidation, ContentApprovalStatusColumn, ContentTypeInfo, CurrencyColumn, DateTimeColumn, DefaultColumnValue, Entity, GeolocationColumn, HyperlinkOrPictureColumn, LookupColumn, NumberColumn, PersonOrGroupColumn, TermColumn, TextColumn, ThumbnailColumn} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class ColumnDefinition extends Entity implements Parsable {
     /** This column stores boolean values. */
     private _boolean?: BooleanColumn | undefined;
@@ -147,7 +147,6 @@ export class ColumnDefinition extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.columnDefinition";
     };
     /**
      * Gets the contentApprovalStatus property value. This column stores content approval status.

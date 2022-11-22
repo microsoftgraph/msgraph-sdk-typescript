@@ -28,7 +28,6 @@ export class LocaleInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.localeInfo";
     };
     /**
      * Gets the displayName property value. A name representing the user's locale in natural language, for example, 'English (United States)'.

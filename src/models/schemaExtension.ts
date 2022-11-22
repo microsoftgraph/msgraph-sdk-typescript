@@ -18,7 +18,6 @@ export class SchemaExtension extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.schemaExtension";
     };
     /**
      * Gets the description property value. Description for the schema extension. Supports $filter (eq).

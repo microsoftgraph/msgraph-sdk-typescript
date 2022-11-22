@@ -10,7 +10,6 @@ export class InviteParticipantsOperation extends CommsOperation implements Parsa
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.inviteParticipantsOperation";
     };
     /**
      * The deserialization information for the current model

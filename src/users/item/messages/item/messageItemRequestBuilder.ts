@@ -27,70 +27,70 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the messages property of the microsoft.graph.user entity. */
 export class MessageItemRequestBuilder {
-    /** The attachments property */
+    /** Provides operations to manage the attachments property of the microsoft.graph.message entity. */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The Content property */
+    /** Provides operations to manage the media for the user entity. */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The copy property */
+    /** Provides operations to call the copy method. */
     public get copy(): CopyRequestBuilder {
         return new CopyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createForward property */
+    /** Provides operations to call the createForward method. */
     public get createForward(): CreateForwardRequestBuilder {
         return new CreateForwardRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createReply property */
+    /** Provides operations to call the createReply method. */
     public get createReply(): CreateReplyRequestBuilder {
         return new CreateReplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createReplyAll property */
+    /** Provides operations to call the createReplyAll method. */
     public get createReplyAll(): CreateReplyAllRequestBuilder {
         return new CreateReplyAllRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The extensions property */
+    /** Provides operations to manage the extensions property of the microsoft.graph.message entity. */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The forward property */
+    /** Provides operations to call the forward method. */
     public get forward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The move property */
+    /** Provides operations to call the move method. */
     public get move(): MoveRequestBuilder {
         return new MoveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The multiValueExtendedProperties property */
+    /** Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.message entity. */
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The reply property */
+    /** Provides operations to call the reply method. */
     public get reply(): ReplyRequestBuilder {
         return new ReplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The replyAll property */
+    /** Provides operations to call the replyAll method. */
     public get replyAll(): ReplyAllRequestBuilder {
         return new ReplyAllRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The send property */
+    /** Provides operations to call the send method. */
     public get send(): SendRequestBuilder {
         return new SendRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The singleValueExtendedProperties property */
+    /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.message entity. */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.messages.item.attachments.item collection
+     * Provides operations to manage the attachments property of the microsoft.graph.message entity.
      * @param id Unique identifier of the item
      * @returns a AttachmentItemRequestBuilder
      */
@@ -159,6 +159,7 @@ export class MessageItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -179,10 +180,10 @@ export class MessageItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.messages.item.extensions.item collection
+     * Provides operations to manage the extensions property of the microsoft.graph.message entity.
      * @param id Unique identifier of the item
      * @returns a ExtensionItemRequestBuilder
      */
@@ -206,10 +207,10 @@ export class MessageItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.messages.item.multiValueExtendedProperties.item collection
+     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.message entity.
      * @param id Unique identifier of the item
      * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
      */
@@ -224,8 +225,9 @@ export class MessageItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Message
      */
-    public patch(body: Message | undefined, requestConfiguration?: MessageItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Message | undefined, requestConfiguration?: MessageItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Message | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -234,10 +236,10 @@ export class MessageItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.messages.item.singleValueExtendedProperties.item collection
+     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.message entity.
      * @param id Unique identifier of the item
      * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
      */

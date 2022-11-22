@@ -52,7 +52,6 @@ export class SharingLink implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.sharingLink";
     };
     /**
      * The deserialization information for the current model

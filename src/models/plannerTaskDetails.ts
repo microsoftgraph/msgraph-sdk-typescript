@@ -32,7 +32,6 @@ export class PlannerTaskDetails extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.plannerTaskDetails";
     };
     /**
      * Gets the description property value. Description of the task.

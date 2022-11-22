@@ -15,11 +15,11 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the educationRoot singleton. */
 export class EducationRequestBuilder {
-    /** The classes property */
+    /** Provides operations to manage the classes property of the microsoft.graph.educationRoot entity. */
     public get classes(): ClassesRequestBuilder {
         return new ClassesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The me property */
+    /** Provides operations to manage the me property of the microsoft.graph.educationRoot entity. */
     public get me(): MeRequestBuilder {
         return new MeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -27,18 +27,18 @@ export class EducationRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The schools property */
+    /** Provides operations to manage the schools property of the microsoft.graph.educationRoot entity. */
     public get schools(): SchoolsRequestBuilder {
         return new SchoolsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The users property */
+    /** Provides operations to manage the users property of the microsoft.graph.educationRoot entity. */
     public get users(): UsersRequestBuilder {
         return new UsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.classes.item collection
+     * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
      * @param id Unique identifier of the item
      * @returns a EducationClassItemRequestBuilder
      */
@@ -91,6 +91,7 @@ export class EducationRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -112,15 +113,16 @@ export class EducationRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EducationRoot>(requestInfo, createEducationRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationRoot>(requestInfo, createEducationRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update education
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of EducationRoot
      */
-    public patch(body: EducationRoot | undefined, requestConfiguration?: EducationRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: EducationRoot | undefined, requestConfiguration?: EducationRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -129,10 +131,10 @@ export class EducationRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationRoot>(requestInfo, createEducationRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.schools.item collection
+     * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
      * @param id Unique identifier of the item
      * @returns a EducationSchoolItemRequestBuilder
      */
@@ -143,7 +145,7 @@ export class EducationRequestBuilder {
         return new EducationSchoolItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item collection
+     * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
      * @param id Unique identifier of the item
      * @returns a EducationUserItemRequestBuilder
      */

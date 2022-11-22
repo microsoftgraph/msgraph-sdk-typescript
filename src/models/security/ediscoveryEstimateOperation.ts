@@ -22,7 +22,6 @@ export class EdiscoveryEstimateOperation extends CaseOperation implements Parsab
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.security.ediscoveryEstimateOperation";
     };
     /**
      * The deserialization information for the current model

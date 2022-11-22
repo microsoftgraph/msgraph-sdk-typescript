@@ -7,7 +7,6 @@ export class UnmuteParticipantOperation extends CommsOperation implements Parsab
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.unmuteParticipantOperation";
     };
     /**
      * The deserialization information for the current model

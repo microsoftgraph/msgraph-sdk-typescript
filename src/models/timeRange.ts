@@ -28,7 +28,6 @@ export class TimeRange implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.timeRange";
     };
     /**
      * Gets the endTime property value. End time for the time range.

@@ -58,7 +58,6 @@ export class ComplianceInformation implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.complianceInformation";
     };
     /**
      * The deserialization information for the current model

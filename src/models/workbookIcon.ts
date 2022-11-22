@@ -28,7 +28,6 @@ export class WorkbookIcon implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.workbookIcon";
     };
     /**
      * The deserialization information for the current model

@@ -4,8 +4,20 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class DeviceOperatingSystemSummary implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The count of Corporate work profile Android devices. Also known as Corporate Owned Personally Enabled (COPE). Valid values -1 to 2147483647 */
+    private _androidCorporateWorkProfileCount?: number | undefined;
     /** Number of android device count. */
     private _androidCount?: number | undefined;
+    /** Number of dedicated Android devices. */
+    private _androidDedicatedCount?: number | undefined;
+    /** Number of device admin Android devices. */
+    private _androidDeviceAdminCount?: number | undefined;
+    /** Number of fully managed Android devices. */
+    private _androidFullyManagedCount?: number | undefined;
+    /** Number of work profile Android devices. */
+    private _androidWorkProfileCount?: number | undefined;
+    /** Number of ConfigMgr managed devices. */
+    private _configMgrDeviceCount?: number | undefined;
     /** Number of iOS device count. */
     private _iosCount?: number | undefined;
     /** Number of Mac OS X device count. */
@@ -33,6 +45,20 @@ export class DeviceOperatingSystemSummary implements AdditionalDataHolder, Parsa
         this._additionalData = value;
     };
     /**
+     * Gets the androidCorporateWorkProfileCount property value. The count of Corporate work profile Android devices. Also known as Corporate Owned Personally Enabled (COPE). Valid values -1 to 2147483647
+     * @returns a integer
+     */
+    public get androidCorporateWorkProfileCount() {
+        return this._androidCorporateWorkProfileCount;
+    };
+    /**
+     * Sets the androidCorporateWorkProfileCount property value. The count of Corporate work profile Android devices. Also known as Corporate Owned Personally Enabled (COPE). Valid values -1 to 2147483647
+     * @param value Value to set for the androidCorporateWorkProfileCount property.
+     */
+    public set androidCorporateWorkProfileCount(value: number | undefined) {
+        this._androidCorporateWorkProfileCount = value;
+    };
+    /**
      * Gets the androidCount property value. Number of android device count.
      * @returns a integer
      */
@@ -47,11 +73,80 @@ export class DeviceOperatingSystemSummary implements AdditionalDataHolder, Parsa
         this._androidCount = value;
     };
     /**
+     * Gets the androidDedicatedCount property value. Number of dedicated Android devices.
+     * @returns a integer
+     */
+    public get androidDedicatedCount() {
+        return this._androidDedicatedCount;
+    };
+    /**
+     * Sets the androidDedicatedCount property value. Number of dedicated Android devices.
+     * @param value Value to set for the androidDedicatedCount property.
+     */
+    public set androidDedicatedCount(value: number | undefined) {
+        this._androidDedicatedCount = value;
+    };
+    /**
+     * Gets the androidDeviceAdminCount property value. Number of device admin Android devices.
+     * @returns a integer
+     */
+    public get androidDeviceAdminCount() {
+        return this._androidDeviceAdminCount;
+    };
+    /**
+     * Sets the androidDeviceAdminCount property value. Number of device admin Android devices.
+     * @param value Value to set for the androidDeviceAdminCount property.
+     */
+    public set androidDeviceAdminCount(value: number | undefined) {
+        this._androidDeviceAdminCount = value;
+    };
+    /**
+     * Gets the androidFullyManagedCount property value. Number of fully managed Android devices.
+     * @returns a integer
+     */
+    public get androidFullyManagedCount() {
+        return this._androidFullyManagedCount;
+    };
+    /**
+     * Sets the androidFullyManagedCount property value. Number of fully managed Android devices.
+     * @param value Value to set for the androidFullyManagedCount property.
+     */
+    public set androidFullyManagedCount(value: number | undefined) {
+        this._androidFullyManagedCount = value;
+    };
+    /**
+     * Gets the androidWorkProfileCount property value. Number of work profile Android devices.
+     * @returns a integer
+     */
+    public get androidWorkProfileCount() {
+        return this._androidWorkProfileCount;
+    };
+    /**
+     * Sets the androidWorkProfileCount property value. Number of work profile Android devices.
+     * @param value Value to set for the androidWorkProfileCount property.
+     */
+    public set androidWorkProfileCount(value: number | undefined) {
+        this._androidWorkProfileCount = value;
+    };
+    /**
+     * Gets the configMgrDeviceCount property value. Number of ConfigMgr managed devices.
+     * @returns a integer
+     */
+    public get configMgrDeviceCount() {
+        return this._configMgrDeviceCount;
+    };
+    /**
+     * Sets the configMgrDeviceCount property value. Number of ConfigMgr managed devices.
+     * @param value Value to set for the configMgrDeviceCount property.
+     */
+    public set configMgrDeviceCount(value: number | undefined) {
+        this._configMgrDeviceCount = value;
+    };
+    /**
      * Instantiates a new deviceOperatingSystemSummary and sets the default values.
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.deviceOperatingSystemSummary";
     };
     /**
      * The deserialization information for the current model
@@ -59,7 +154,13 @@ export class DeviceOperatingSystemSummary implements AdditionalDataHolder, Parsa
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "androidCorporateWorkProfileCount": n => { this.androidCorporateWorkProfileCount = n.getNumberValue(); },
             "androidCount": n => { this.androidCount = n.getNumberValue(); },
+            "androidDedicatedCount": n => { this.androidDedicatedCount = n.getNumberValue(); },
+            "androidDeviceAdminCount": n => { this.androidDeviceAdminCount = n.getNumberValue(); },
+            "androidFullyManagedCount": n => { this.androidFullyManagedCount = n.getNumberValue(); },
+            "androidWorkProfileCount": n => { this.androidWorkProfileCount = n.getNumberValue(); },
+            "configMgrDeviceCount": n => { this.configMgrDeviceCount = n.getNumberValue(); },
             "iosCount": n => { this.iosCount = n.getNumberValue(); },
             "macOSCount": n => { this.macOSCount = n.getNumberValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
@@ -116,7 +217,13 @@ export class DeviceOperatingSystemSummary implements AdditionalDataHolder, Parsa
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeNumberValue("androidCorporateWorkProfileCount", this.androidCorporateWorkProfileCount);
         writer.writeNumberValue("androidCount", this.androidCount);
+        writer.writeNumberValue("androidDedicatedCount", this.androidDedicatedCount);
+        writer.writeNumberValue("androidDeviceAdminCount", this.androidDeviceAdminCount);
+        writer.writeNumberValue("androidFullyManagedCount", this.androidFullyManagedCount);
+        writer.writeNumberValue("androidWorkProfileCount", this.androidWorkProfileCount);
+        writer.writeNumberValue("configMgrDeviceCount", this.configMgrDeviceCount);
         writer.writeNumberValue("iosCount", this.iosCount);
         writer.writeNumberValue("macOSCount", this.macOSCount);
         writer.writeStringValue("@odata.type", this.odataType);

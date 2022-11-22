@@ -37,7 +37,6 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity impl
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.managedDeviceMobileAppConfigurationDeviceStatus";
     };
     /**
      * Gets the deviceDisplayName property value. Device name of the DevicePolicyStatus.

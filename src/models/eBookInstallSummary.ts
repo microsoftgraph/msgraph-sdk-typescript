@@ -19,7 +19,6 @@ export class EBookInstallSummary extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.eBookInstallSummary";
     };
     /**
      * Gets the failedDeviceCount property value. Number of Devices that have failed to install this book.

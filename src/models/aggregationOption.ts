@@ -46,7 +46,6 @@ export class AggregationOption implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.aggregationOption";
     };
     /**
      * Gets the field property value. Computes aggregation on the field while the field exists in current entity type. Required.

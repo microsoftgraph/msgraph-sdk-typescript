@@ -23,7 +23,6 @@ export class WorkbookChartLineFormat extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookChartLineFormat";
     };
     /**
      * The deserialization information for the current model

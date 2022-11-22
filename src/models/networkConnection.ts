@@ -81,7 +81,6 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.networkConnection";
     };
     /**
      * Gets the destinationAddress property value. Destination IP address (of the network connection).

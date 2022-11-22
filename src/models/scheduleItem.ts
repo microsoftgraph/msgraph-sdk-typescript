@@ -39,7 +39,6 @@ export class ScheduleItem implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.scheduleItem";
     };
     /**
      * Gets the end property value. The date, time, and time zone that the corresponding event ends.

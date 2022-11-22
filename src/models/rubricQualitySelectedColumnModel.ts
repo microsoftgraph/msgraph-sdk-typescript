@@ -42,7 +42,6 @@ export class RubricQualitySelectedColumnModel implements AdditionalDataHolder, P
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.rubricQualitySelectedColumnModel";
     };
     /**
      * The deserialization information for the current model

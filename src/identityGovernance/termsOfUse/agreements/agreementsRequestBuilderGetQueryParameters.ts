@@ -1,5 +1,5 @@
 
-/** Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD). */
+/** Retrieve a list of agreement objects. */
 export class AgreementsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

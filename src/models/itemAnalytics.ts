@@ -28,7 +28,6 @@ export class ItemAnalytics extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.itemAnalytics";
     };
     /**
      * The deserialization information for the current model

@@ -15,16 +15,16 @@ export class GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDat
     private readonly urlTemplate: string;
     /**
      * Instantiates a new GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder and sets the default values.
-     * @param endDateTime Usage: endDateTime='{endDateTime}'
+     * @param endDateTime Usage: endDateTime={endDateTime}
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param printerId Usage: printerId='{printerId}'
      * @param requestAdapter The request adapter to use to execute the requests.
-     * @param startDateTime Usage: startDateTime='{startDateTime}'
+     * @param startDateTime Usage: startDateTime={startDateTime}
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, endDateTime?: Date | undefined, printerId?: string | undefined, startDateTime?: Date | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/reports/microsoft.graph.getPrinterArchivedPrintJobs(printerId='{printerId}',startDateTime='{startDateTime}',endDateTime='{endDateTime}')";
+        this.urlTemplate = "{+baseurl}/reports/microsoft.graph.getPrinterArchivedPrintJobs(printerId='{printerId}',startDateTime={startDateTime},endDateTime={endDateTime}){?%24top,%24skip,%24search,%24filter,%24count}";
         const urlTplParams = getPathParameters(pathParameters);
         urlTplParams["endDateTime"] = endDateTime
         urlTplParams["printerId"] = printerId
@@ -45,6 +45,7 @@ export class GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDat
         requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
         return requestInfo;
@@ -63,6 +64,6 @@ export class GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDat
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponse>(requestInfo, createGetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponse>(requestInfo, createGetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

@@ -38,7 +38,6 @@ export class ProvisioningStep implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.provisioningStep";
     };
     /**
      * Gets the description property value. Summary of what occurred during the step.

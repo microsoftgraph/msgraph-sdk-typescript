@@ -30,7 +30,6 @@ export class AccessReviewHistoryScheduleSettings implements AdditionalDataHolder
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.accessReviewHistoryScheduleSettings";
     };
     /**
      * The deserialization information for the current model

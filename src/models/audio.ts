@@ -126,7 +126,6 @@ export class Audio implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.audio";
     };
     /**
      * Gets the copyright property value. Copyright information for the audio file.

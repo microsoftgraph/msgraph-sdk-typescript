@@ -29,7 +29,6 @@ export class CallTranscriptionInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.callTranscriptionInfo";
     };
     /**
      * The deserialization information for the current model

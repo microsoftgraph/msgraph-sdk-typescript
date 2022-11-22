@@ -3,7 +3,7 @@ import {createWorkbookChartPointFormatFromDiscriminatorValue} from './createWork
 import {Entity, Json, WorkbookChartPointFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookChartPoint extends Entity implements Parsable {
     /** Encapsulates the format properties chart point. Read-only. */
     private _format?: WorkbookChartPointFormat | undefined;
@@ -14,7 +14,6 @@ export class WorkbookChartPoint extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookChartPoint";
     };
     /**
      * Gets the format property value. Encapsulates the format properties chart point. Read-only.

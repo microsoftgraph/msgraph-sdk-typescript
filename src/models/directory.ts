@@ -30,7 +30,6 @@ export class Directory extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.directory";
     };
     /**
      * Gets the deletedItems property value. Recently deleted items. Read-only. Nullable.

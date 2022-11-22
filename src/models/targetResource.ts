@@ -39,7 +39,6 @@ export class TargetResource implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.targetResource";
     };
     /**
      * Gets the displayName property value. Indicates the visible name defined for the resource. Typically specified when the resource is created.

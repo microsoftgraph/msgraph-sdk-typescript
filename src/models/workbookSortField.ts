@@ -66,7 +66,6 @@ export class WorkbookSortField implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.workbookSortField";
     };
     /**
      * Gets the dataOption property value. Represents additional sorting options for this field. The possible values are: Normal, TextAsNumber.

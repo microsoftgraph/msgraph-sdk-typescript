@@ -95,7 +95,6 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.conditionalAccessConditionSet";
     };
     /**
      * Gets the devices property value. Devices in the policy.

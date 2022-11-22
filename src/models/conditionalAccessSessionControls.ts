@@ -67,7 +67,6 @@ export class ConditionalAccessSessionControls implements AdditionalDataHolder, P
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.conditionalAccessSessionControls";
     };
     /**
      * Gets the disableResilienceDefaults property value. Session control that determines whether it is acceptable for Azure AD to extend existing sessions based on information collected prior to an outage or not.

@@ -32,7 +32,6 @@ export class TeamsTabConfiguration implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.teamsTabConfiguration";
     };
     /**
      * Gets the contentUrl property value. Url used for rendering tab contents in Teams. Required.

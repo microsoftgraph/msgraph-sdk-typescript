@@ -1,5 +1,5 @@
 
-/** Get participants from communications */
+/** Retrieve a list of participant objects in the call. */
 export class ParticipantsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

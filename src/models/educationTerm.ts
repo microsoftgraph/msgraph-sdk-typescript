@@ -32,7 +32,6 @@ export class EducationTerm implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.educationTerm";
     };
     /**
      * Gets the displayName property value. Display name of the term.

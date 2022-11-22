@@ -24,7 +24,6 @@ export class PlannerAssignments implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.plannerAssignments";
     };
     /**
      * The deserialization information for the current model

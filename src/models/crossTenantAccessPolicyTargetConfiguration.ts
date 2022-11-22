@@ -45,7 +45,6 @@ export class CrossTenantAccessPolicyTargetConfiguration implements AdditionalDat
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.crossTenantAccessPolicyTargetConfiguration";
     };
     /**
      * The deserialization information for the current model

@@ -28,7 +28,6 @@ export class MediaInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.mediaInfo";
     };
     /**
      * The deserialization information for the current model

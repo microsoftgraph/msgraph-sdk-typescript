@@ -30,7 +30,6 @@ export class OcrSettings implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.security.ocrSettings";
     };
     /**
      * The deserialization information for the current model

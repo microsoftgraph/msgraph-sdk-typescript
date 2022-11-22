@@ -1,7 +1,7 @@
 import {DirectoryObject} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class AppRoleAssignment extends DirectoryObject implements Parsable {
     /** The identifier (id) for the app role which is assigned to the principal. This app role must be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to the resource app without any specific app roles. Required on create. */
     private _appRoleId?: string | undefined;
@@ -9,7 +9,7 @@ export class AppRoleAssignment extends DirectoryObject implements Parsable {
     private _createdDateTime?: Date | undefined;
     /** The display name of the user, group, or service principal that was granted the app role assignment. Read-only. Supports $filter (eq and startswith). */
     private _principalDisplayName?: string | undefined;
-    /** The unique identifier (id) for the user, group, or service principal being granted the app role. Required on create. */
+    /** The unique identifier (id) for the user, security group, or service principal being granted the app role. Security groups with dynamic memberships are supported. Required on create. */
     private _principalId?: string | undefined;
     /** The type of the assigned principal. This can either be User, Group, or ServicePrincipal. Read-only. */
     private _principalType?: string | undefined;
@@ -82,14 +82,14 @@ export class AppRoleAssignment extends DirectoryObject implements Parsable {
         this._principalDisplayName = value;
     };
     /**
-     * Gets the principalId property value. The unique identifier (id) for the user, group, or service principal being granted the app role. Required on create.
+     * Gets the principalId property value. The unique identifier (id) for the user, security group, or service principal being granted the app role. Security groups with dynamic memberships are supported. Required on create.
      * @returns a string
      */
     public get principalId() {
         return this._principalId;
     };
     /**
-     * Sets the principalId property value. The unique identifier (id) for the user, group, or service principal being granted the app role. Required on create.
+     * Sets the principalId property value. The unique identifier (id) for the user, security group, or service principal being granted the app role. Security groups with dynamic memberships are supported. Required on create.
      * @param value Value to set for the principalId property.
      */
     public set principalId(value: string | undefined) {

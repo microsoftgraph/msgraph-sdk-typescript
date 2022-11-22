@@ -79,7 +79,6 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.printerDefaults";
     };
     /**
      * Gets the contentType property value. The default content (MIME) type to use when processing documents.

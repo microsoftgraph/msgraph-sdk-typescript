@@ -9,7 +9,6 @@ export class ResetPasscodeActionResult extends DeviceActionResult implements Par
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.resetPasscodeActionResult";
     };
     /**
      * The deserialization information for the current model

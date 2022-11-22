@@ -12,7 +12,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity. */
 export class CallRecordsRequestBuilder {
-    /** The Count property */
+    /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -30,7 +30,7 @@ export class CallRecordsRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/communications/callRecords{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}";
+        this.urlTemplate = "{+baseurl}/communications/callRecords{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
@@ -87,12 +87,12 @@ export class CallRecordsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<CallRecordCollectionResponse>(requestInfo, createCallRecordCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CallRecordCollectionResponse>(requestInfo, createCallRecordCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Provides operations to call the getDirectRoutingCalls method.
-     * @param fromDateTime Usage: fromDateTime='{fromDateTime}'
-     * @param toDateTime Usage: toDateTime='{toDateTime}'
+     * @param fromDateTime Usage: fromDateTime={fromDateTime}
+     * @param toDateTime Usage: toDateTime={toDateTime}
      * @returns a getDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder
      */
     public getDirectRoutingCallsWithFromDateTimeWithToDateTime(fromDateTime: Date | undefined, toDateTime: Date | undefined) : GetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder {
@@ -102,8 +102,8 @@ export class CallRecordsRequestBuilder {
     };
     /**
      * Provides operations to call the getPstnCalls method.
-     * @param fromDateTime Usage: fromDateTime='{fromDateTime}'
-     * @param toDateTime Usage: toDateTime='{toDateTime}'
+     * @param fromDateTime Usage: fromDateTime={fromDateTime}
+     * @param toDateTime Usage: toDateTime={toDateTime}
      * @returns a getPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder
      */
     public getPstnCallsWithFromDateTimeWithToDateTime(fromDateTime: Date | undefined, toDateTime: Date | undefined) : GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder {
@@ -127,6 +127,6 @@ export class CallRecordsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<CallRecord>(requestInfo, createCallRecordFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CallRecord>(requestInfo, createCallRecordFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

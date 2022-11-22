@@ -32,7 +32,6 @@ export class ColumnValidation implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.columnValidation";
     };
     /**
      * Gets the defaultLanguage property value. Default BCP 47 language tag for the description.

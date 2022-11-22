@@ -1,5 +1,5 @@
 
-/** A collection of all the messages in the chat. Nullable. */
+/** Retrieve the list of messages in a chat. This method supports federation. To list chat messages in application context, the request must be made from the tenant that the channel owner belongs to (represented by the **tenantId** property on the channel). */
 export class MessagesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

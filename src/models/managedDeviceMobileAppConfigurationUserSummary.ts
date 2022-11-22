@@ -35,7 +35,6 @@ export class ManagedDeviceMobileAppConfigurationUserSummary extends Entity imple
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.managedDeviceMobileAppConfigurationUserSummary";
     };
     /**
      * Gets the errorCount property value. Number of error Users

@@ -9,7 +9,6 @@ export class BookingCurrency extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.bookingCurrency";
     };
     /**
      * The deserialization information for the current model

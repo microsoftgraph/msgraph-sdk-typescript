@@ -2,7 +2,7 @@ import {createWorkbookCommentReplyFromDiscriminatorValue} from './createWorkbook
 import {Entity, WorkbookCommentReply} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookComment extends Entity implements Parsable {
     /** The content of comment. */
     private _content?: string | undefined;
@@ -15,7 +15,6 @@ export class WorkbookComment extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookComment";
     };
     /**
      * Gets the content property value. The content of comment.

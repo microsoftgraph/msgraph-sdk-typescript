@@ -19,7 +19,6 @@ export class ManagedDeviceMobileAppConfigurationUserStatus extends Entity implem
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.managedDeviceMobileAppConfigurationUserStatus";
     };
     /**
      * Gets the devicesCount property value. Devices count for that user.

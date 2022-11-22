@@ -30,7 +30,6 @@ export class AlertDetection implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.alertDetection";
     };
     /**
      * Gets the detectionType property value. The detectionType property

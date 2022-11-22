@@ -87,7 +87,6 @@ export class ArchivedPrintJob implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.archivedPrintJob";
     };
     /**
      * Gets the copiesPrinted property value. The number of copies that were printed. Read-only.

@@ -132,7 +132,6 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.messageRulePredicates";
     };
     /**
      * Gets the fromAddresses property value. Represents the specific sender email addresses of an incoming message in order for the condition or exception to apply.

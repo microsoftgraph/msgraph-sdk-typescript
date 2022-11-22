@@ -13,7 +13,6 @@ export class PlannerUser extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.plannerUser";
     };
     /**
      * The deserialization information for the current model

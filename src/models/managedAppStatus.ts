@@ -12,7 +12,6 @@ export class ManagedAppStatus extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.managedAppStatus";
     };
     /**
      * Gets the displayName property value. Friendly name of the status report.

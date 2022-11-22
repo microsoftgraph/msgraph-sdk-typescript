@@ -76,7 +76,6 @@ export class LookupColumn implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.lookupColumn";
     };
     /**
      * The deserialization information for the current model

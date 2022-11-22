@@ -43,7 +43,6 @@ export class PlannerPlan extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.plannerPlan";
     };
     /**
      * Gets the container property value. Identifies the container of the plan. After it is set, this property can’t be updated. Required.

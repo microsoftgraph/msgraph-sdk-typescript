@@ -30,7 +30,6 @@ export class CalculatedColumn implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.calculatedColumn";
     };
     /**
      * Gets the format property value. For dateTime output types, the format of the value. Must be one of dateOnly or dateTime.

@@ -82,7 +82,6 @@ export class AlertHistoryState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.alertHistoryState";
     };
     /**
      * Gets the feedback property value. The feedback property

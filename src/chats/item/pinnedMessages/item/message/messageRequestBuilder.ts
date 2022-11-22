@@ -27,7 +27,7 @@ export class MessageRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get message from chats
+     * Represents details about the chat message that is pinned.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -45,7 +45,7 @@ export class MessageRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get message from chats
+     * Represents details about the chat message that is pinned.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessage
@@ -58,6 +58,6 @@ export class MessageRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ChatMessage>(requestInfo, createChatMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ChatMessage>(requestInfo, createChatMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

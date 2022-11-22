@@ -54,7 +54,6 @@ export class AccessPackageAssignmentRequestRequirements implements AdditionalDat
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.accessPackageAssignmentRequestRequirements";
     };
     /**
      * The deserialization information for the current model

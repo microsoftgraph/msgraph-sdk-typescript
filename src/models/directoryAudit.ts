@@ -5,7 +5,7 @@ import {AuditActivityInitiator, Entity, KeyValue, TargetResource} from './index'
 import {OperationResult} from './operationResult';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class DirectoryAudit extends Entity implements Parsable {
     /** Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _activityDateTime?: Date | undefined;
@@ -13,7 +13,7 @@ export class DirectoryAudit extends Entity implements Parsable {
     private _activityDisplayName?: string | undefined;
     /** Indicates additional details on the activity. */
     private _additionalDetails?: KeyValue[] | undefined;
-    /** Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..) */
+    /** Indicates which resource category that's targeted by the activity. For example: UserManagement, GroupManagement, ApplicationManagement, RoleManagement. */
     private _category?: string | undefined;
     /** Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services. */
     private _correlationId?: string | undefined;
@@ -72,14 +72,14 @@ export class DirectoryAudit extends Entity implements Parsable {
         this._additionalDetails = value;
     };
     /**
-     * Gets the category property value. Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..)
+     * Gets the category property value. Indicates which resource category that's targeted by the activity. For example: UserManagement, GroupManagement, ApplicationManagement, RoleManagement.
      * @returns a string
      */
     public get category() {
         return this._category;
     };
     /**
-     * Sets the category property value. Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..)
+     * Sets the category property value. Indicates which resource category that's targeted by the activity. For example: UserManagement, GroupManagement, ApplicationManagement, RoleManagement.
      * @param value Value to set for the category property.
      */
     public set category(value: string | undefined) {
@@ -90,7 +90,6 @@ export class DirectoryAudit extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.directoryAudit";
     };
     /**
      * Gets the correlationId property value. Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services.

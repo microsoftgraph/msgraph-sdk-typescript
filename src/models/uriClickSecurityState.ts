@@ -64,7 +64,6 @@ export class UriClickSecurityState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.uriClickSecurityState";
     };
     /**
      * The deserialization information for the current model

@@ -30,7 +30,6 @@ export class DeviceManagementSettings implements AdditionalDataHolder, Parsable 
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.deviceManagementSettings";
     };
     /**
      * Gets the deviceComplianceCheckinThresholdDays property value. The number of days a device is allowed to go without checking in to remain compliant.

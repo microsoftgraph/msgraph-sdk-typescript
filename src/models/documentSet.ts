@@ -56,7 +56,6 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.documentSet";
     };
     /**
      * Gets the defaultContents property value. Default contents of document set.

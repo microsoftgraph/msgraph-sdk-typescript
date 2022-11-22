@@ -14,7 +14,6 @@ export class AccessReviewReviewer extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.accessReviewReviewer";
     };
     /**
      * Gets the createdDateTime property value. The date when the reviewer was added for the access review.

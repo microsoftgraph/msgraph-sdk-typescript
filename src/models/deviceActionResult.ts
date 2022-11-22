@@ -62,7 +62,6 @@ export class DeviceActionResult implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.deviceActionResult";
     };
     /**
      * The deserialization information for the current model

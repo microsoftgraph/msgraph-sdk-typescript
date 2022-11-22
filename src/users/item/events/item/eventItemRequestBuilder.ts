@@ -27,43 +27,43 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the events property of the microsoft.graph.user entity. */
 export class EventItemRequestBuilder {
-    /** The accept property */
+    /** Provides operations to call the accept method. */
     public get accept(): AcceptRequestBuilder {
         return new AcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The attachments property */
+    /** Provides operations to manage the attachments property of the microsoft.graph.event entity. */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The calendar property */
+    /** Provides operations to manage the calendar property of the microsoft.graph.event entity. */
     public get calendar(): CalendarRequestBuilder {
         return new CalendarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The cancel property */
+    /** Provides operations to call the cancel method. */
     public get cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The decline property */
+    /** Provides operations to call the decline method. */
     public get decline(): DeclineRequestBuilder {
         return new DeclineRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The dismissReminder property */
+    /** Provides operations to call the dismissReminder method. */
     public get dismissReminder(): DismissReminderRequestBuilder {
         return new DismissReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The extensions property */
+    /** Provides operations to manage the extensions property of the microsoft.graph.event entity. */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The forward property */
+    /** Provides operations to call the forward method. */
     public get forward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The instances property */
+    /** Provides operations to manage the instances property of the microsoft.graph.event entity. */
     public get instances(): InstancesRequestBuilder {
         return new InstancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The multiValueExtendedProperties property */
+    /** Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.event entity. */
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -71,22 +71,22 @@ export class EventItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The singleValueExtendedProperties property */
+    /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.event entity. */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The snoozeReminder property */
+    /** Provides operations to call the snoozeReminder method. */
     public get snoozeReminder(): SnoozeReminderRequestBuilder {
         return new SnoozeReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The tentativelyAccept property */
+    /** Provides operations to call the tentativelyAccept method. */
     public get tentativelyAccept(): TentativelyAcceptRequestBuilder {
         return new TentativelyAcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.events.item.attachments.item collection
+     * Provides operations to manage the attachments property of the microsoft.graph.event entity.
      * @param id Unique identifier of the item
      * @returns a AttachmentItemRequestBuilder
      */
@@ -155,6 +155,7 @@ export class EventItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -175,10 +176,10 @@ export class EventItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.events.item.extensions.item collection
+     * Provides operations to manage the extensions property of the microsoft.graph.event entity.
      * @param id Unique identifier of the item
      * @returns a ExtensionItemRequestBuilder
      */
@@ -202,10 +203,10 @@ export class EventItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Event>(requestInfo, createEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Event>(requestInfo, createEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.events.item.instances.item collection
+     * Provides operations to manage the instances property of the microsoft.graph.event entity.
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
@@ -216,7 +217,7 @@ export class EventItemRequestBuilder {
         return new i69546fe14ea8162dc81eac5fd269874f752bf6e5cda0a9707c71fdc75ff2afb7(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.events.item.multiValueExtendedProperties.item collection
+     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.event entity.
      * @param id Unique identifier of the item
      * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
      */
@@ -231,8 +232,9 @@ export class EventItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Event
      */
-    public patch(body: Event | undefined, requestConfiguration?: EventItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Event | undefined, requestConfiguration?: EventItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Event | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -241,10 +243,10 @@ export class EventItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Event>(requestInfo, createEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.events.item.singleValueExtendedProperties.item collection
+     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.event entity.
      * @param id Unique identifier of the item
      * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
      */

@@ -44,7 +44,6 @@ export class SearchAggregation implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.searchAggregation";
     };
     /**
      * Gets the field property value. The field property

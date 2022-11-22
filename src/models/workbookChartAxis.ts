@@ -27,7 +27,6 @@ export class WorkbookChartAxis extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookChartAxis";
     };
     /**
      * Gets the format property value. Represents the formatting of a chart object, which includes line and font formatting. Read-only.

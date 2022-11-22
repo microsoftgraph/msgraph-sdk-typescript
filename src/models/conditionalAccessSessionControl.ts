@@ -26,7 +26,6 @@ export class ConditionalAccessSessionControl implements AdditionalDataHolder, Pa
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.conditionalAccessSessionControl";
     };
     /**
      * The deserialization information for the current model

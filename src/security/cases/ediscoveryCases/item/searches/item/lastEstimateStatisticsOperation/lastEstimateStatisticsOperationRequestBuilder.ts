@@ -27,7 +27,7 @@ export class LastEstimateStatisticsOperationRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The last estimate operation associated with the eDiscovery search.
+     * Get the last  ediscoveryEstimateOperation objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -45,7 +45,7 @@ export class LastEstimateStatisticsOperationRequestBuilder {
         return requestInfo;
     };
     /**
-     * The last estimate operation associated with the eDiscovery search.
+     * Get the last  ediscoveryEstimateOperation objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryEstimateOperation
@@ -58,6 +58,6 @@ export class LastEstimateStatisticsOperationRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EdiscoveryEstimateOperation>(requestInfo, createEdiscoveryEstimateOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EdiscoveryEstimateOperation>(requestInfo, createEdiscoveryEstimateOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

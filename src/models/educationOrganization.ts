@@ -2,7 +2,7 @@ import {EducationExternalSource} from './educationExternalSource';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class EducationOrganization extends Entity implements Parsable {
     /** Organization description. */
     private _description?: string | undefined;
@@ -17,7 +17,6 @@ export class EducationOrganization extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.educationOrganization";
     };
     /**
      * Gets the description property value. Organization description.

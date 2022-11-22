@@ -6,15 +6,15 @@ export class EducationResource implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The individual who created the resource. */
-    private _createdBy?: IdentitySet | undefined;
+    private readonly _createdBy?: IdentitySet | undefined;
     /** Moment in time when the resource was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    private _createdDateTime?: Date | undefined;
+    private readonly _createdDateTime?: Date | undefined;
     /** Display name of resource. */
     private _displayName?: string | undefined;
     /** The last user to modify the resource. */
-    private _lastModifiedBy?: IdentitySet | undefined;
+    private readonly _lastModifiedBy?: IdentitySet | undefined;
     /** Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    private _lastModifiedDateTime?: Date | undefined;
+    private readonly _lastModifiedDateTime?: Date | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /**
@@ -36,7 +36,6 @@ export class EducationResource implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.educationResource";
     };
     /**
      * Gets the createdBy property value. The individual who created the resource.
@@ -142,11 +141,7 @@ export class EducationResource implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<IdentitySet>("createdBy", this.createdBy);
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", this.lastModifiedBy);
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };

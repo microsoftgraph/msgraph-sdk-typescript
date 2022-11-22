@@ -16,7 +16,6 @@ export class RichLongRunningOperation extends LongRunningOperation implements Pa
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.richLongRunningOperation";
     };
     /**
      * Gets the error property value. Error that caused the operation to fail.

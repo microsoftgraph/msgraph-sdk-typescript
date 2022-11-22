@@ -100,7 +100,6 @@ export class PrinterLocation implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.printerLocation";
     };
     /**
      * Gets the countryOrRegion property value. The country or region that the printer is located in.

@@ -74,7 +74,6 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.remoteItem";
     };
     /**
      * Gets the createdBy property value. Identity of the user, device, and application which created the item. Read-only.

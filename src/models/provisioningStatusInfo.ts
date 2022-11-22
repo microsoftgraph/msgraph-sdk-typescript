@@ -31,7 +31,6 @@ export class ProvisioningStatusInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.provisioningStatusInfo";
     };
     /**
      * Gets the errorInformation property value. The errorInformation property

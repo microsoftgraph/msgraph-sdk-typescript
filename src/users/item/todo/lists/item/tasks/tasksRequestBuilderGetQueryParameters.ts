@@ -1,5 +1,5 @@
 
-/** The tasks in this task list. Read-only. Nullable. */
+/** Get the **todoTask** resources from the **tasks** navigation property of a specified todoTaskList. */
 export class TasksRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

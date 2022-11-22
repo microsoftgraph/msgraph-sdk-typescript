@@ -15,31 +15,31 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity. */
 export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
-    /** The applyHold property */
+    /** Provides operations to call the applyHold method. */
     public get applyHold(): ApplyHoldRequestBuilder {
         return new ApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The dataSource property */
+    /** Provides operations to manage the dataSource property of the microsoft.graph.security.ediscoveryNoncustodialDataSource entity. */
     public get dataSource(): DataSourceRequestBuilder {
         return new DataSourceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The lastIndexOperation property */
+    /** Provides operations to manage the lastIndexOperation property of the microsoft.graph.security.ediscoveryNoncustodialDataSource entity. */
     public get lastIndexOperation(): LastIndexOperationRequestBuilder {
         return new LastIndexOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The release property */
+    /** Provides operations to call the release method. */
     public get release(): ReleaseRequestBuilder {
         return new ReleaseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The removeHold property */
+    /** Provides operations to call the removeHold method. */
     public get removeHold(): RemoveHoldRequestBuilder {
         return new RemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The updateIndex property */
+    /** Provides operations to call the updateIndex method. */
     public get updateIndex(): UpdateIndexRequestBuilder {
         return new UpdateIndexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -104,6 +104,7 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -124,7 +125,7 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Returns a list of case ediscoveryNoncustodialDataSource objects for this case.
@@ -140,15 +141,16 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EdiscoveryNoncustodialDataSource>(requestInfo, createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EdiscoveryNoncustodialDataSource>(requestInfo, createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property noncustodialDataSources in security
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of EdiscoveryNoncustodialDataSource
      */
-    public patch(body: EdiscoveryNoncustodialDataSource | undefined, requestConfiguration?: EdiscoveryNoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: EdiscoveryNoncustodialDataSource | undefined, requestConfiguration?: EdiscoveryNoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryNoncustodialDataSource | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -157,6 +159,6 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EdiscoveryNoncustodialDataSource>(requestInfo, createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

@@ -52,7 +52,6 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.scheduleInformation";
     };
     /**
      * Gets the error property value. Error information from attempting to get the availability of the user, distribution list, or resource.

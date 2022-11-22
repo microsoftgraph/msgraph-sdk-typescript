@@ -26,7 +26,6 @@ export class AssignmentOrder implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.assignmentOrder";
     };
     /**
      * The deserialization information for the current model

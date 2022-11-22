@@ -17,35 +17,35 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the collection of sharedDriveItem entities. */
 export class SharedDriveItemItemRequestBuilder {
-    /** The driveItem property */
+    /** Provides operations to manage the driveItem property of the microsoft.graph.sharedDriveItem entity. */
     public get driveItem(): DriveItemRequestBuilder {
         return new DriveItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The items property */
+    /** Provides operations to manage the items property of the microsoft.graph.sharedDriveItem entity. */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The list property */
+    /** Provides operations to manage the list property of the microsoft.graph.sharedDriveItem entity. */
     public get list(): ListRequestBuilder {
         return new ListRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The listItem property */
+    /** Provides operations to manage the listItem property of the microsoft.graph.sharedDriveItem entity. */
     public get listItem(): ListItemRequestBuilder {
         return new ListItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The permission property */
+    /** Provides operations to manage the permission property of the microsoft.graph.sharedDriveItem entity. */
     public get permission(): PermissionRequestBuilder {
         return new PermissionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The root property */
+    /** Provides operations to manage the root property of the microsoft.graph.sharedDriveItem entity. */
     public get root(): RootRequestBuilder {
         return new RootRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The site property */
+    /** Provides operations to manage the site property of the microsoft.graph.sharedDriveItem entity. */
     public get site(): SiteRequestBuilder {
         return new SiteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -110,6 +110,7 @@ export class SharedDriveItemItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -130,7 +131,7 @@ export class SharedDriveItemItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Access a shared DriveItem or a collection of shared items by using a **shareId** or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
@@ -146,10 +147,10 @@ export class SharedDriveItemItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SharedDriveItem>(requestInfo, createSharedDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SharedDriveItem>(requestInfo, createSharedDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.items.item collection
+     * Provides operations to manage the items property of the microsoft.graph.sharedDriveItem entity.
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
@@ -164,8 +165,9 @@ export class SharedDriveItemItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of SharedDriveItem
      */
-    public patch(body: SharedDriveItem | undefined, requestConfiguration?: SharedDriveItemItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: SharedDriveItem | undefined, requestConfiguration?: SharedDriveItemItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SharedDriveItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -174,6 +176,6 @@ export class SharedDriveItemItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SharedDriveItem>(requestInfo, createSharedDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

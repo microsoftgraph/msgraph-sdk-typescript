@@ -28,7 +28,6 @@ export class IncompleteData implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.incompleteData";
     };
     /**
      * The deserialization information for the current model

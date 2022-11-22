@@ -12,7 +12,7 @@ export class DirectoryObjectItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The servicePrincipal property */
+    /** Casts the previous resource to servicePrincipal. */
     public get servicePrincipal(): ServicePrincipalRequestBuilder {
         return new ServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -63,6 +63,6 @@ export class DirectoryObjectItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

@@ -17,7 +17,6 @@ export class RemoteAssistancePartner extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.remoteAssistancePartner";
     };
     /**
      * Gets the displayName property value. Display name of the partner.

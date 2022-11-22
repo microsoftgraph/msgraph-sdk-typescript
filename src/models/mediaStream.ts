@@ -36,7 +36,6 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.mediaStream";
     };
     /**
      * Gets the direction property value. The direction property

@@ -3,7 +3,7 @@ import {createPublicationFacetFromDiscriminatorValue} from './createPublicationF
 import {Entity, IdentitySet, PublicationFacet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class BaseItemVersion extends Entity implements Parsable {
     /** Identity of the user which last modified the version. Read-only. */
     private _lastModifiedBy?: IdentitySet | undefined;
@@ -16,7 +16,6 @@ export class BaseItemVersion extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.baseItemVersion";
     };
     /**
      * The deserialization information for the current model

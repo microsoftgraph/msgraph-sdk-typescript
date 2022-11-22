@@ -71,7 +71,6 @@ export class DeviceAppManagement extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceAppManagement";
     };
     /**
      * Gets the defaultManagedAppProtections property value. Default managed app policies.

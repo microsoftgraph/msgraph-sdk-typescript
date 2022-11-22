@@ -30,7 +30,6 @@ export class AccessReviewInstanceDecisionItemResource implements AdditionalDataH
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.accessReviewInstanceDecisionItemResource";
     };
     /**
      * Gets the displayName property value. Display name of the resource

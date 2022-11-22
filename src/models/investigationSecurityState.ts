@@ -28,7 +28,6 @@ export class InvestigationSecurityState implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.investigationSecurityState";
     };
     /**
      * The deserialization information for the current model

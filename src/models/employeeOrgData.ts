@@ -28,7 +28,6 @@ export class EmployeeOrgData implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.employeeOrgData";
     };
     /**
      * Gets the costCenter property value. The cost center associated with the user. Returned only on $select. Supports $filter.

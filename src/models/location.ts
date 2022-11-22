@@ -59,7 +59,6 @@ export class Location implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.location";
     };
     /**
      * Gets the coordinates property value. The geographic coordinates and elevation of the location.

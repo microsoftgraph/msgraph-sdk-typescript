@@ -44,7 +44,6 @@ export class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, 
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.crossTenantAccessPolicyB2BSetting";
     };
     /**
      * The deserialization information for the current model

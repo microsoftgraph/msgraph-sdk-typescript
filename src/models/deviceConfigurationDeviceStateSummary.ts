@@ -49,7 +49,6 @@ export class DeviceConfigurationDeviceStateSummary extends Entity implements Par
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceConfigurationDeviceStateSummary";
     };
     /**
      * Gets the errorDeviceCount property value. Number of error devices

@@ -29,7 +29,6 @@ export class SecurityResource implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.securityResource";
     };
     /**
      * The deserialization information for the current model

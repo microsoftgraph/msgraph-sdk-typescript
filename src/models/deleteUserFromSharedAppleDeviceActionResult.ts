@@ -9,7 +9,6 @@ export class DeleteUserFromSharedAppleDeviceActionResult extends DeviceActionRes
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deleteUserFromSharedAppleDeviceActionResult";
     };
     /**
      * The deserialization information for the current model

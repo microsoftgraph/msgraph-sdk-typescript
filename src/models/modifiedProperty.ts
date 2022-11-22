@@ -30,7 +30,6 @@ export class ModifiedProperty implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.modifiedProperty";
     };
     /**
      * Gets the displayName property value. Indicates the property name of the target attribute that was changed.

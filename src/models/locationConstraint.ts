@@ -32,7 +32,6 @@ export class LocationConstraint implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.locationConstraint";
     };
     /**
      * The deserialization information for the current model

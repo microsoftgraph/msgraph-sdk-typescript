@@ -46,7 +46,6 @@ export class BitLockerRemovableDrivePolicy implements AdditionalDataHolder, Pars
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.bitLockerRemovableDrivePolicy";
     };
     /**
      * Gets the encryptionMethod property value. Select the encryption method for removable  drives. Possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256.

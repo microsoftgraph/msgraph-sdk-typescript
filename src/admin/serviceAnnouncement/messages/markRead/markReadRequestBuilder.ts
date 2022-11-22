@@ -27,7 +27,7 @@ export class MarkReadRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action markRead
+     * Mark a list of serviceUpdateMessages as **read** for the signed in user.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -47,7 +47,7 @@ export class MarkReadRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action markRead
+     * Mark a list of serviceUpdateMessages as **read** for the signed in user.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -62,6 +62,6 @@ export class MarkReadRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<MarkReadResponse>(requestInfo, createMarkReadResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MarkReadResponse>(requestInfo, createMarkReadResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

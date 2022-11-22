@@ -1,5 +1,5 @@
 
-/** The group's default drive. Read-only. */
+/** Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries. */
 export class DriveRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

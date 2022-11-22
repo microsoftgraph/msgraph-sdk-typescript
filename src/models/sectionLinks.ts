@@ -30,7 +30,6 @@ export class SectionLinks implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.sectionLinks";
     };
     /**
      * The deserialization information for the current model

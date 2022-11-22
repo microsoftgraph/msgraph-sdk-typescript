@@ -18,7 +18,6 @@ export class Store extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.termStore.store";
     };
     /**
      * Gets the defaultLanguageTag property value. Default language of the term store.

@@ -10,7 +10,6 @@ export class WorkbookFilter extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookFilter";
     };
     /**
      * Gets the criteria property value. The currently applied filter on the given column. Read-only.

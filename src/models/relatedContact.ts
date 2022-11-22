@@ -49,7 +49,6 @@ export class RelatedContact implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.relatedContact";
     };
     /**
      * Gets the displayName property value. Name of the contact. Required.

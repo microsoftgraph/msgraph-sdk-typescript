@@ -68,7 +68,6 @@ export class MailTips implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.mailTips";
     };
     /**
      * Gets the customMailTip property value. A custom mail tip that can be set on the recipient's mailbox.

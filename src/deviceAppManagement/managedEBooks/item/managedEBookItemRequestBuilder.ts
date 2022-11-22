@@ -17,19 +17,19 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity. */
 export class ManagedEBookItemRequestBuilder {
-    /** The assign property */
+    /** Provides operations to call the assign method. */
     public get assign(): AssignRequestBuilder {
         return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The assignments property */
+    /** Provides operations to manage the assignments property of the microsoft.graph.managedEBook entity. */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deviceStates property */
+    /** Provides operations to manage the deviceStates property of the microsoft.graph.managedEBook entity. */
     public get deviceStates(): DeviceStatesRequestBuilder {
         return new DeviceStatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The installSummary property */
+    /** Provides operations to manage the installSummary property of the microsoft.graph.managedEBook entity. */
     public get installSummary(): InstallSummaryRequestBuilder {
         return new InstallSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -39,12 +39,12 @@ export class ManagedEBookItemRequestBuilder {
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The userStateSummary property */
+    /** Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity. */
     public get userStateSummary(): UserStateSummaryRequestBuilder {
         return new UserStateSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedEBooks.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.managedEBook entity.
      * @param id Unique identifier of the item
      * @returns a ManagedEBookAssignmentItemRequestBuilder
      */
@@ -113,6 +113,7 @@ export class ManagedEBookItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -133,10 +134,10 @@ export class ManagedEBookItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedEBooks.item.deviceStates.item collection
+     * Provides operations to manage the deviceStates property of the microsoft.graph.managedEBook entity.
      * @param id Unique identifier of the item
      * @returns a DeviceInstallStateItemRequestBuilder
      */
@@ -160,15 +161,16 @@ export class ManagedEBookItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ManagedEBook>(requestInfo, createManagedEBookFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedEBook>(requestInfo, createManagedEBookFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property managedEBooks in deviceAppManagement
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ManagedEBook
      */
-    public patch(body: ManagedEBook | undefined, requestConfiguration?: ManagedEBookItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ManagedEBook | undefined, requestConfiguration?: ManagedEBookItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedEBook | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -177,10 +179,10 @@ export class ManagedEBookItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedEBook>(requestInfo, createManagedEBookFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedEBooks.item.userStateSummary.item collection
+     * Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.
      * @param id Unique identifier of the item
      * @returns a UserInstallStateSummaryItemRequestBuilder
      */

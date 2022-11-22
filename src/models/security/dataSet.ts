@@ -14,7 +14,6 @@ export class DataSet extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.security.dataSet";
     };
     /**
      * Gets the createdBy property value. The createdBy property

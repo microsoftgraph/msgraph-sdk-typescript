@@ -13,7 +13,6 @@ export class WorkbookChartSeriesFormat extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookChartSeriesFormat";
     };
     /**
      * Gets the fill property value. Represents the fill format of a chart series, which includes background formating information. Read-only.

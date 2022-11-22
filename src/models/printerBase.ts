@@ -44,7 +44,6 @@ export class PrinterBase extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.printerBase";
     };
     /**
      * Gets the defaults property value. The default print settings of printer/printerShare.

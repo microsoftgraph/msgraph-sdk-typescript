@@ -45,7 +45,6 @@ export class Fido2KeyRestrictions implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.fido2KeyRestrictions";
     };
     /**
      * Gets the enforcementType property value. Enforcement type. Possible values are: allow, block.

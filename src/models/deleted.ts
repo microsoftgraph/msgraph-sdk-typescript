@@ -26,7 +26,6 @@ export class Deleted implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.deleted";
     };
     /**
      * The deserialization information for the current model

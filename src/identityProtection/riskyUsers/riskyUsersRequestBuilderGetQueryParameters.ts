@@ -1,5 +1,5 @@
 
-/** Users that are flagged as at-risk by Azure AD Identity Protection. */
+/** Get a list of the riskyUser objects and their properties. */
 export class RiskyUsersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

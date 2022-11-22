@@ -58,7 +58,6 @@ export class PersonOrGroupColumn implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.personOrGroupColumn";
     };
     /**
      * Gets the displayAs property value. How to display the information about the person or group chosen. See below.

@@ -24,7 +24,6 @@ export class AppConsentApprovalRoute extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.appConsentApprovalRoute";
     };
     /**
      * The deserialization information for the current model

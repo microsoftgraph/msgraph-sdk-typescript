@@ -32,7 +32,6 @@ export class NumberColumn implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.numberColumn";
     };
     /**
      * Gets the decimalPlaces property value. How many decimal places to display. See below for information about the possible values.

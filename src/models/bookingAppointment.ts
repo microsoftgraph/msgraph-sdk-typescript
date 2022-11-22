@@ -9,16 +9,18 @@ import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kio
 export class BookingAppointment extends Entity implements Parsable {
     /** Additional information that is sent to the customer when an appointment is confirmed. */
     private _additionalInformation?: string | undefined;
+    /** The anonymousJoinWebUrl property */
+    private _anonymousJoinWebUrl?: string | undefined;
     /** It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional. */
     private _customers?: BookingCustomerInformationBase[] | undefined;
     /** The time zone of the customer. For a list of possible values, see dateTimeTimeZone. */
     private _customerTimeZone?: string | undefined;
     /** The length of the appointment, denoted in ISO8601 format. */
-    private _duration?: Duration | undefined;
+    private readonly _duration?: Duration | undefined;
     /** The endDateTime property */
     private _endDateTime?: DateTimeTimeZone | undefined;
     /** The current number of customers in the appointment */
-    private _filledAttendeesCount?: number | undefined;
+    private readonly _filledAttendeesCount?: number | undefined;
     /** If true, indicates that the appointment will be held online. Default value is false. */
     private _isLocationOnline?: boolean | undefined;
     /** The URL of the online meeting for the appointment. */
@@ -68,11 +70,24 @@ export class BookingAppointment extends Entity implements Parsable {
         this._additionalInformation = value;
     };
     /**
+     * Gets the anonymousJoinWebUrl property value. The anonymousJoinWebUrl property
+     * @returns a string
+     */
+    public get anonymousJoinWebUrl() {
+        return this._anonymousJoinWebUrl;
+    };
+    /**
+     * Sets the anonymousJoinWebUrl property value. The anonymousJoinWebUrl property
+     * @param value Value to set for the anonymousJoinWebUrl property.
+     */
+    public set anonymousJoinWebUrl(value: string | undefined) {
+        this._anonymousJoinWebUrl = value;
+    };
+    /**
      * Instantiates a new BookingAppointment and sets the default values.
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.bookingAppointment";
     };
     /**
      * Gets the customers property value. It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.
@@ -151,6 +166,7 @@ export class BookingAppointment extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "additionalInformation": n => { this.additionalInformation = n.getStringValue(); },
+            "anonymousJoinWebUrl": n => { this.anonymousJoinWebUrl = n.getStringValue(); },
             "customers": n => { this.customers = n.getCollectionOfObjectValues<BookingCustomerInformationBase>(createBookingCustomerInformationBaseFromDiscriminatorValue); },
             "customerTimeZone": n => { this.customerTimeZone = n.getStringValue(); },
             "duration": n => { this.duration = n.getDurationValue(); },
@@ -323,11 +339,10 @@ export class BookingAppointment extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("additionalInformation", this.additionalInformation);
+        writer.writeStringValue("anonymousJoinWebUrl", this.anonymousJoinWebUrl);
         writer.writeCollectionOfObjectValues<BookingCustomerInformationBase>("customers", this.customers);
         writer.writeStringValue("customerTimeZone", this.customerTimeZone);
-        writer.writeDurationValue("duration", this.duration);
         writer.writeObjectValue<DateTimeTimeZone>("endDateTime", this.endDateTime);
-        writer.writeNumberValue("filledAttendeesCount", this.filledAttendeesCount);
         writer.writeBooleanValue("isLocationOnline", this.isLocationOnline);
         writer.writeStringValue("joinWebUrl", this.joinWebUrl);
         writer.writeNumberValue("maximumAttendeesCount", this.maximumAttendeesCount);

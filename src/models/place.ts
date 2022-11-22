@@ -31,7 +31,6 @@ export class Place extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.place";
     };
     /**
      * Gets the displayName property value. The name associated with the place.

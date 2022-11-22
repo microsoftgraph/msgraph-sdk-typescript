@@ -53,7 +53,6 @@ export class CaseOperation extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.security.caseOperation";
     };
     /**
      * Gets the createdBy property value. The user that created the operation.

@@ -9,7 +9,6 @@ export class PlannerProgressTaskBoardTaskFormat extends Entity implements Parsab
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.plannerProgressTaskBoardTaskFormat";
     };
     /**
      * The deserialization information for the current model

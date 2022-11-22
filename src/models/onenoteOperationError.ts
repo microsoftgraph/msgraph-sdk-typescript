@@ -42,7 +42,6 @@ export class OnenoteOperationError implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.onenoteOperationError";
     };
     /**
      * The deserialization information for the current model

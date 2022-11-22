@@ -29,7 +29,6 @@ export class CrossTenantAccessPolicyTarget implements AdditionalDataHolder, Pars
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.crossTenantAccessPolicyTarget";
     };
     /**
      * The deserialization information for the current model

@@ -35,7 +35,6 @@ export class AvailabilityItem implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.availabilityItem";
     };
     /**
      * Gets the endDateTime property value. The endDateTime property

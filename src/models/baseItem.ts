@@ -32,7 +32,6 @@ export class BaseItem extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.baseItem";
     };
     /**
      * Gets the createdBy property value. Identity of the user, device, or application which created the item. Read-only.

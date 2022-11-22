@@ -16,7 +16,6 @@ export class AuditLogRoot extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.auditLogRoot";
     };
     /**
      * Gets the directoryAudits property value. The directoryAudits property

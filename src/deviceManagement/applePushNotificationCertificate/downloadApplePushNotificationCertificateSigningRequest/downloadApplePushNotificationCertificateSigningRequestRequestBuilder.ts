@@ -57,6 +57,6 @@ export class DownloadApplePushNotificationCertificateSigningRequestRequestBuilde
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DownloadApplePushNotificationCertificateSigningRequestResponse>(requestInfo, createDownloadApplePushNotificationCertificateSigningRequestResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DownloadApplePushNotificationCertificateSigningRequestResponse>(requestInfo, createDownloadApplePushNotificationCertificateSigningRequestResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

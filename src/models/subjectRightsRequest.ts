@@ -84,7 +84,6 @@ export class SubjectRightsRequest extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.subjectRightsRequest";
     };
     /**
      * Gets the createdBy property value. Identity information for the entity that created the request.

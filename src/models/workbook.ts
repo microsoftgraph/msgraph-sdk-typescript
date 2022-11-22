@@ -56,7 +56,6 @@ export class Workbook extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbook";
     };
     /**
      * Gets the functions property value. The functions property

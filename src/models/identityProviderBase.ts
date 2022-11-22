@@ -9,7 +9,6 @@ export class IdentityProviderBase extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.identityProviderBase";
     };
     /**
      * Gets the displayName property value. The display name of the identity provider.

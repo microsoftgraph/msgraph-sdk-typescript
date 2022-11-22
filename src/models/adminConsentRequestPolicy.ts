@@ -20,7 +20,6 @@ export class AdminConsentRequestPolicy extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.adminConsentRequestPolicy";
     };
     /**
      * The deserialization information for the current model

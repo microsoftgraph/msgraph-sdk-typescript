@@ -53,7 +53,6 @@ export class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHold
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.unifiedRoleManagementPolicyRuleTarget";
     };
     /**
      * Gets the enforcedSettings property value. The list of role settings that are enforced and cannot be overridden by child scopes. Use All for all settings.

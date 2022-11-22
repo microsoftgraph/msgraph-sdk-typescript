@@ -28,7 +28,6 @@ export class DefaultColumnValue implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.defaultColumnValue";
     };
     /**
      * Gets the formula property value. The formula used to compute the default value for this column.

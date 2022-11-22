@@ -14,42 +14,47 @@ import {EstimateStatisticsRequestBuilder} from './estimateStatistics/estimateSta
 import {LastEstimateStatisticsOperationRequestBuilder} from './lastEstimateStatisticsOperation/lastEstimateStatisticsOperationRequestBuilder';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilder} from './noncustodialSources/item/ediscoveryNoncustodialDataSourceItemRequestBuilder';
 import {NoncustodialSourcesRequestBuilder} from './noncustodialSources/noncustodialSourcesRequestBuilder';
+import {PurgeDataRequestBuilder} from './purgeData/purgeDataRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity. */
 export class EdiscoverySearchItemRequestBuilder {
-    /** The additionalSources property */
+    /** Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity. */
     public get additionalSources(): AdditionalSourcesRequestBuilder {
         return new AdditionalSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The addToReviewSetOperation property */
+    /** Provides operations to manage the addToReviewSetOperation property of the microsoft.graph.security.ediscoverySearch entity. */
     public get addToReviewSetOperation(): AddToReviewSetOperationRequestBuilder {
         return new AddToReviewSetOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The custodianSources property */
+    /** Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity. */
     public get custodianSources(): CustodianSourcesRequestBuilder {
         return new CustodianSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The estimateStatistics property */
+    /** Provides operations to call the estimateStatistics method. */
     public get estimateStatistics(): EstimateStatisticsRequestBuilder {
         return new EstimateStatisticsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The lastEstimateStatisticsOperation property */
+    /** Provides operations to manage the lastEstimateStatisticsOperation property of the microsoft.graph.security.ediscoverySearch entity. */
     public get lastEstimateStatisticsOperation(): LastEstimateStatisticsOperationRequestBuilder {
         return new LastEstimateStatisticsOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The noncustodialSources property */
+    /** Provides operations to manage the noncustodialSources property of the microsoft.graph.security.ediscoverySearch entity. */
     public get noncustodialSources(): NoncustodialSourcesRequestBuilder {
         return new NoncustodialSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
+    /** Provides operations to call the purgeData method. */
+    public get purgeData(): PurgeDataRequestBuilder {
+        return new PurgeDataRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.cases.ediscoveryCases.item.searches.item.additionalSources.item collection
+     * Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity.
      * @param id Unique identifier of the item
      * @returns a DataSourceItemRequestBuilder
      */
@@ -118,6 +123,7 @@ export class EdiscoverySearchItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -126,7 +132,7 @@ export class EdiscoverySearchItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.cases.ediscoveryCases.item.searches.item.custodianSources.item collection
+     * Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity.
      * @param id Unique identifier of the item
      * @returns a DataSourceItemRequestBuilder
      */
@@ -149,7 +155,7 @@ export class EdiscoverySearchItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Returns a list of eDiscoverySearch objects associated with this case.
@@ -165,10 +171,10 @@ export class EdiscoverySearchItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EdiscoverySearch>(requestInfo, createEdiscoverySearchFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EdiscoverySearch>(requestInfo, createEdiscoverySearchFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.cases.ediscoveryCases.item.searches.item.noncustodialSources.item collection
+     * Provides operations to manage the noncustodialSources property of the microsoft.graph.security.ediscoverySearch entity.
      * @param id Unique identifier of the item
      * @returns a EdiscoveryNoncustodialDataSourceItemRequestBuilder
      */
@@ -183,8 +189,9 @@ export class EdiscoverySearchItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of EdiscoverySearch
      */
-    public patch(body: EdiscoverySearch | undefined, requestConfiguration?: EdiscoverySearchItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: EdiscoverySearch | undefined, requestConfiguration?: EdiscoverySearchItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoverySearch | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -193,6 +200,6 @@ export class EdiscoverySearchItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EdiscoverySearch>(requestInfo, createEdiscoverySearchFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

@@ -65,7 +65,6 @@ export class IdentityGovernance implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.identityGovernance";
     };
     /**
      * Gets the entitlementManagement property value. The entitlementManagement property

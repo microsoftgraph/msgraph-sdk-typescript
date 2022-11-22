@@ -12,11 +12,10 @@ export class ServiceAnnouncement extends Entity implements Parsable {
     /** A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly. */
     private _messages?: ServiceUpdateMessage[] | undefined;
     /**
-     * Instantiates a new serviceAnnouncement and sets the default values.
+     * Instantiates a new ServiceAnnouncement and sets the default values.
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.serviceAnnouncement";
     };
     /**
      * The deserialization information for the current model

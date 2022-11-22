@@ -5,9 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {AllowedCalendarSharingRolesWithUserRequestBuilder} from './allowedCalendarSharingRolesWithUser/allowedCalendarSharingRolesWithUserRequestBuilder';
 import {CalendarPermissionsRequestBuilder} from './calendarPermissions/calendarPermissionsRequestBuilder';
 import {CalendarPermissionItemRequestBuilder} from './calendarPermissions/item/calendarPermissionItemRequestBuilder';
-import {CalendarRequestBuilderDeleteRequestConfiguration} from './calendarRequestBuilderDeleteRequestConfiguration';
 import {CalendarRequestBuilderGetRequestConfiguration} from './calendarRequestBuilderGetRequestConfiguration';
-import {CalendarRequestBuilderPatchRequestConfiguration} from './calendarRequestBuilderPatchRequestConfiguration';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
 import {EventItemRequestBuilder as ia37c4f2788e8539b4ad493ef0f7564284b2653562101b1c5610d87bd28473e54} from './calendarView/item/eventItemRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
@@ -21,23 +19,23 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the calendar property of the microsoft.graph.group entity. */
 export class CalendarRequestBuilder {
-    /** The calendarPermissions property */
+    /** Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity. */
     public get calendarPermissions(): CalendarPermissionsRequestBuilder {
         return new CalendarPermissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The calendarView property */
+    /** Provides operations to manage the calendarView property of the microsoft.graph.calendar entity. */
     public get calendarView(): CalendarViewRequestBuilder {
         return new CalendarViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The events property */
+    /** Provides operations to manage the events property of the microsoft.graph.calendar entity. */
     public get events(): EventsRequestBuilder {
         return new EventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getSchedule property */
+    /** Provides operations to call the getSchedule method. */
     public get getSchedule(): GetScheduleRequestBuilder {
         return new GetScheduleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The multiValueExtendedProperties property */
+    /** Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.calendar entity. */
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -45,7 +43,7 @@ export class CalendarRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The singleValueExtendedProperties property */
+    /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.calendar entity. */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -61,7 +59,7 @@ export class CalendarRequestBuilder {
         return new AllowedCalendarSharingRolesWithUserRequestBuilder(this.pathParameters, this.requestAdapter, user);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.calendar.calendarPermissions.item collection
+     * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
      * @param id Unique identifier of the item
      * @returns a CalendarPermissionItemRequestBuilder
      */
@@ -72,7 +70,7 @@ export class CalendarRequestBuilder {
         return new CalendarPermissionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.calendar.calendarView.item collection
+     * Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
@@ -96,22 +94,6 @@ export class CalendarRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete navigation property calendar for groups
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createDeleteRequestInformation(requestConfiguration?: CalendarRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        return requestInfo;
-    };
-    /**
      * The group's calendar. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -130,41 +112,7 @@ export class CalendarRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property calendar in groups
-     * @param body 
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createPatchRequestInformation(body: Calendar | undefined, requestConfiguration?: CalendarRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        return requestInfo;
-    };
-    /**
-     * Delete navigation property calendar for groups
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     */
-    public delete(requestConfiguration?: CalendarRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInformation(
-            requestConfiguration
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.calendar.events.item collection
+     * Provides operations to manage the events property of the microsoft.graph.calendar entity.
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
@@ -188,10 +136,10 @@ export class CalendarRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Calendar>(requestInfo, createCalendarFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Calendar>(requestInfo, createCalendarFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.calendar.multiValueExtendedProperties.item collection
+     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.calendar entity.
      * @param id Unique identifier of the item
      * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
      */
@@ -202,24 +150,7 @@ export class CalendarRequestBuilder {
         return new MultiValueLegacyExtendedPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update the navigation property calendar in groups
-     * @param body 
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     */
-    public patch(body: Calendar | undefined, requestConfiguration?: CalendarRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInformation(
-            body, requestConfiguration
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.calendar.singleValueExtendedProperties.item collection
+     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.calendar entity.
      * @param id Unique identifier of the item
      * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
      */

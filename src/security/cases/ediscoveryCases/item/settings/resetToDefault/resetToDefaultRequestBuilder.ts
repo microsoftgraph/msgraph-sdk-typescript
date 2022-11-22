@@ -25,7 +25,7 @@ export class ResetToDefaultRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action resetToDefault
+     * Reset a caseSettings object to the default values.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class ResetToDefaultRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action resetToDefault
+     * Reset a caseSettings object to the default values.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -53,6 +53,6 @@ export class ResetToDefaultRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

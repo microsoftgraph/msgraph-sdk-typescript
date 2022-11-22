@@ -29,7 +29,6 @@ export class ConditionalAccessFilter implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.conditionalAccessFilter";
     };
     /**
      * The deserialization information for the current model

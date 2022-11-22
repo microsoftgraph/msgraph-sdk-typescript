@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo. */
+/** Retrieve the properties and relationships of **plannerAssignedToTaskBoardTaskFormat** object. */
 export class AssignedToTaskBoardFormatRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

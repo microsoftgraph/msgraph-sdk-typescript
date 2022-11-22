@@ -21,7 +21,6 @@ import {createWebApplicationFromDiscriminatorValue} from './createWebApplication
 import {AddIn, ApiApplication, AppRole, Certification, DirectoryObject, ExtensionProperty, FederatedIdentityCredential, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OptionalClaims, ParentalControlSettings, PasswordCredential, PublicClientApplication, RequiredResourceAccess, SpaApplication, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher, WebApplication} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities. */
 export class Application extends DirectoryObject implements Parsable {
     /** Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Office 365 call the application in the context of a document the user is working on. */
     private _addIns?: AddIn[] | undefined;
@@ -31,7 +30,7 @@ export class Application extends DirectoryObject implements Parsable {
     private _appId?: string | undefined;
     /** Unique identifier of the applicationTemplate. Supports $filter (eq, not, ne). */
     private _applicationTemplateId?: string | undefined;
-    /** The collection of roles assigned to the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable. */
+    /** The collection of roles defined for the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable. */
     private _appRoles?: AppRole[] | undefined;
     /** Specifies the certification status of the application. */
     private _certification?: Certification | undefined;
@@ -83,13 +82,13 @@ export class Application extends DirectoryObject implements Parsable {
     private _publicClient?: PublicClientApplication | undefined;
     /** The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application's publisher domain. Supports $filter (eq, ne, ge, le, startsWith). */
     private _publisherDomain?: string | undefined;
-    /** Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, not, ge, le). */
+    /** Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. For more information, see Limits on requested permissions per app. Not nullable. Supports $filter (eq, not, ge, le). */
     private _requiredResourceAccess?: RequiredResourceAccess[] | undefined;
     /** The URL where the service exposes SAML metadata for federation. This property is valid only for single-tenant applications. Nullable. */
     private _samlMetadataUrl?: string | undefined;
     /** References application or service contact information from a Service or Asset Management database. Nullable. */
     private _serviceManagementReference?: string | undefined;
-    /** Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, not). */
+    /** Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table. The value of this object also limits the number of permissions an app can request. For more information, see Limits on requested permissions per app. Supports $filter (eq, ne, not). */
     private _signInAudience?: string | undefined;
     /** Specifies settings for a single-page application, including sign out URLs and redirect URIs for authorization codes and access tokens. */
     private _spa?: SpaApplication | undefined;
@@ -162,14 +161,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._applicationTemplateId = value;
     };
     /**
-     * Gets the appRoles property value. The collection of roles assigned to the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.
+     * Gets the appRoles property value. The collection of roles defined for the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.
      * @returns a appRole
      */
     public get appRoles() {
         return this._appRoles;
     };
     /**
-     * Sets the appRoles property value. The collection of roles assigned to the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.
+     * Sets the appRoles property value. The collection of roles defined for the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.
      * @param value Value to set for the appRoles property.
      */
     public set appRoles(value: AppRole[] | undefined) {
@@ -190,7 +189,7 @@ export class Application extends DirectoryObject implements Parsable {
         this._certification = value;
     };
     /**
-     * Instantiates a new application and sets the default values.
+     * Instantiates a new Application and sets the default values.
      */
     public constructor() {
         super();
@@ -582,14 +581,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._publisherDomain = value;
     };
     /**
-     * Gets the requiredResourceAccess property value. Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, not, ge, le).
+     * Gets the requiredResourceAccess property value. Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. For more information, see Limits on requested permissions per app. Not nullable. Supports $filter (eq, not, ge, le).
      * @returns a requiredResourceAccess
      */
     public get requiredResourceAccess() {
         return this._requiredResourceAccess;
     };
     /**
-     * Sets the requiredResourceAccess property value. Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, not, ge, le).
+     * Sets the requiredResourceAccess property value. Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. For more information, see Limits on requested permissions per app. Not nullable. Supports $filter (eq, not, ge, le).
      * @param value Value to set for the requiredResourceAccess property.
      */
     public set requiredResourceAccess(value: RequiredResourceAccess[] | undefined) {
@@ -673,14 +672,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._serviceManagementReference = value;
     };
     /**
-     * Gets the signInAudience property value. Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, not).
+     * Gets the signInAudience property value. Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table. The value of this object also limits the number of permissions an app can request. For more information, see Limits on requested permissions per app. Supports $filter (eq, ne, not).
      * @returns a string
      */
     public get signInAudience() {
         return this._signInAudience;
     };
     /**
-     * Sets the signInAudience property value. Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, not).
+     * Sets the signInAudience property value. Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table. The value of this object also limits the number of permissions an app can request. For more information, see Limits on requested permissions per app. Supports $filter (eq, ne, not).
      * @param value Value to set for the signInAudience property.
      */
     public set signInAudience(value: string | undefined) {

@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {PermissionClassificationType} from './permissionClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the instantiate method. */
+/** Provides operations to manage the admin singleton. */
 export class DelegatedPermissionClassification extends Entity implements Parsable {
     /** The classification value being given. Possible value: low. Does not support $filter. */
     private _classification?: PermissionClassificationType | undefined;
@@ -29,7 +29,6 @@ export class DelegatedPermissionClassification extends Entity implements Parsabl
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.delegatedPermissionClassification";
     };
     /**
      * The deserialization information for the current model

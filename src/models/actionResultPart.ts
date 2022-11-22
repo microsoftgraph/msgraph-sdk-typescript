@@ -28,7 +28,6 @@ export class ActionResultPart implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.actionResultPart";
     };
     /**
      * Gets the error property value. The error that occurred, if any, during the course of the bulk operation.

@@ -13,7 +13,6 @@ export class EdiscoveryAddToReviewSetOperation extends CaseOperation implements 
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.security.ediscoveryAddToReviewSetOperation";
     };
     /**
      * The deserialization information for the current model

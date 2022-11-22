@@ -49,7 +49,6 @@ export class BookingSchedulingPolicy implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.bookingSchedulingPolicy";
     };
     /**
      * The deserialization information for the current model

@@ -76,7 +76,6 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.mailboxSettings";
     };
     /**
      * Gets the dateFormat property value. The date format for the user's mailbox.

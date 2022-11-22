@@ -16,7 +16,6 @@ export class ManagedAppOperation extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.managedAppOperation";
     };
     /**
      * Gets the displayName property value. The operation name.

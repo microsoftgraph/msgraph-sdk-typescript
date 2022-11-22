@@ -28,7 +28,6 @@ export class RubricCriterion implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.rubricCriterion";
     };
     /**
      * Gets the description property value. The description of this criterion.

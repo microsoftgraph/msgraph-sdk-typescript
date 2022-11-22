@@ -23,7 +23,6 @@ export class DomainDnsCnameRecord extends DomainDnsRecord implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.domainDnsCnameRecord";
     };
     /**
      * The deserialization information for the current model

@@ -13,19 +13,19 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the memberOf property of the microsoft.graph.orgContact entity. */
 export class DirectoryObjectItemRequestBuilder {
-    /** The application property */
+    /** Casts the previous resource to application. */
     public get application(): ApplicationRequestBuilder {
         return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The device property */
+    /** Casts the previous resource to device. */
     public get device(): DeviceRequestBuilder {
         return new DeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The group property */
+    /** Casts the previous resource to group. */
     public get group(): GroupRequestBuilder {
         return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The orgContact property */
+    /** Casts the previous resource to orgContact. */
     public get orgContact(): OrgContactRequestBuilder {
         return new OrgContactRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -33,13 +33,13 @@ export class DirectoryObjectItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The servicePrincipal property */
+    /** Casts the previous resource to servicePrincipal. */
     public get servicePrincipal(): ServicePrincipalRequestBuilder {
         return new ServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The user property */
+    /** Casts the previous resource to user. */
     public get user(): UserRequestBuilder {
         return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -88,6 +88,6 @@ export class DirectoryObjectItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

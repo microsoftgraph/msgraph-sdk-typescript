@@ -30,7 +30,6 @@ export class MediaContentRatingAustralia implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.mediaContentRatingAustralia";
     };
     /**
      * The deserialization information for the current model

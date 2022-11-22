@@ -31,7 +31,6 @@ export class SettingSource implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.settingSource";
     };
     /**
      * Gets the displayName property value. Not yet documented

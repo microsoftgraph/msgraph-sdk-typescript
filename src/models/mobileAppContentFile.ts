@@ -55,7 +55,6 @@ export class MobileAppContentFile extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.mobileAppContentFile";
     };
     /**
      * Gets the createdDateTime property value. The time the file was created.

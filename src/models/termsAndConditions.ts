@@ -86,7 +86,6 @@ export class TermsAndConditions extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.termsAndConditions";
     };
     /**
      * Gets the createdDateTime property value. DateTime the object was created.

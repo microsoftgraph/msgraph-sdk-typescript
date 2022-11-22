@@ -31,7 +31,6 @@ export class Win32LobAppRestartSettings implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.win32LobAppRestartSettings";
     };
     /**
      * Gets the countdownDisplayBeforeRestartInMinutes property value. The number of minutes before the restart time to display the countdown dialog for pending restarts.

@@ -29,7 +29,6 @@ export class WindowsInformationProtectionResourceCollection implements Additiona
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.windowsInformationProtectionResourceCollection";
     };
     /**
      * Gets the displayName property value. Display name

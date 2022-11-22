@@ -84,7 +84,6 @@ export class ManagedAppRegistration extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.managedAppRegistration";
     };
     /**
      * Gets the createdDateTime property value. Date and time of creation

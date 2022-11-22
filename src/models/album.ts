@@ -26,7 +26,6 @@ export class Album implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.album";
     };
     /**
      * Gets the coverImageItemId property value. Unique identifier of the [driveItem][] that is the cover of the album.

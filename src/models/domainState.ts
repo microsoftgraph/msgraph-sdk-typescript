@@ -30,7 +30,6 @@ export class DomainState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.domainState";
     };
     /**
      * The deserialization information for the current model

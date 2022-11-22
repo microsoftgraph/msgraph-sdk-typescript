@@ -41,7 +41,6 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.teamsAsyncOperation";
     };
     /**
      * Gets the createdDateTime property value. Time when the operation was created.

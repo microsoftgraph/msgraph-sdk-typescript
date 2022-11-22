@@ -9,7 +9,6 @@ export class WindowsDefenderScanActionResult extends DeviceActionResult implemen
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.windowsDefenderScanActionResult";
     };
     /**
      * The deserialization information for the current model

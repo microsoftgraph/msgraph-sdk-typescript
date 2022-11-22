@@ -16,7 +16,6 @@ export class OfficeGraphInsights extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.officeGraphInsights";
     };
     /**
      * The deserialization information for the current model

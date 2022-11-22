@@ -26,7 +26,6 @@ export class PendingContentUpdate implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.pendingContentUpdate";
     };
     /**
      * The deserialization information for the current model

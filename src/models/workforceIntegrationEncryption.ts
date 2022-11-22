@@ -29,7 +29,6 @@ export class WorkforceIntegrationEncryption implements AdditionalDataHolder, Par
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.workforceIntegrationEncryption";
     };
     /**
      * The deserialization information for the current model

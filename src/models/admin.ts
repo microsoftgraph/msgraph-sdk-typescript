@@ -28,7 +28,6 @@ export class Admin implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.admin";
     };
     /**
      * The deserialization information for the current model

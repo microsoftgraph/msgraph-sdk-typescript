@@ -40,7 +40,6 @@ export class SubjectRightsRequestDetail implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.subjectRightsRequestDetail";
     };
     /**
      * Gets the excludedItemCount property value. Count of items that are excluded from the request.

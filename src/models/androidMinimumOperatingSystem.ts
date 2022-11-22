@@ -26,6 +26,18 @@ export class AndroidMinimumOperatingSystem implements AdditionalDataHolder, Pars
     private _v5_0?: boolean | undefined;
     /** Version 5.1 or later. */
     private _v5_1?: boolean | undefined;
+    /** Version 6.0 or later. */
+    private _v6_0?: boolean | undefined;
+    /** Version 7.0 or later. */
+    private _v7_0?: boolean | undefined;
+    /** Version 7.1 or later. */
+    private _v7_1?: boolean | undefined;
+    /** Version 8.0 or later. */
+    private _v8_0?: boolean | undefined;
+    /** Version 8.1 or later. */
+    private _v8_1?: boolean | undefined;
+    /** Version 9.0 or later. */
+    private _v9_0?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -45,7 +57,6 @@ export class AndroidMinimumOperatingSystem implements AdditionalDataHolder, Pars
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.androidMinimumOperatingSystem";
     };
     /**
      * The deserialization information for the current model
@@ -64,6 +75,12 @@ export class AndroidMinimumOperatingSystem implements AdditionalDataHolder, Pars
             "v4_4": n => { this.v4_4 = n.getBooleanValue(); },
             "v5_0": n => { this.v5_0 = n.getBooleanValue(); },
             "v5_1": n => { this.v5_1 = n.getBooleanValue(); },
+            "v6_0": n => { this.v6_0 = n.getBooleanValue(); },
+            "v7_0": n => { this.v7_0 = n.getBooleanValue(); },
+            "v7_1": n => { this.v7_1 = n.getBooleanValue(); },
+            "v8_0": n => { this.v8_0 = n.getBooleanValue(); },
+            "v8_1": n => { this.v8_1 = n.getBooleanValue(); },
+            "v9_0": n => { this.v9_0 = n.getBooleanValue(); },
         };
     };
     /**
@@ -97,6 +114,12 @@ export class AndroidMinimumOperatingSystem implements AdditionalDataHolder, Pars
         writer.writeBooleanValue("v4_4", this.v4_4);
         writer.writeBooleanValue("v5_0", this.v5_0);
         writer.writeBooleanValue("v5_1", this.v5_1);
+        writer.writeBooleanValue("v6_0", this.v6_0);
+        writer.writeBooleanValue("v7_0", this.v7_0);
+        writer.writeBooleanValue("v7_1", this.v7_1);
+        writer.writeBooleanValue("v8_0", this.v8_0);
+        writer.writeBooleanValue("v8_1", this.v8_1);
+        writer.writeBooleanValue("v9_0", this.v9_0);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -238,5 +261,89 @@ export class AndroidMinimumOperatingSystem implements AdditionalDataHolder, Pars
      */
     public set v5_1(value: boolean | undefined) {
         this._v5_1 = value;
+    };
+    /**
+     * Gets the v6_0 property value. Version 6.0 or later.
+     * @returns a boolean
+     */
+    public get v6_0() {
+        return this._v6_0;
+    };
+    /**
+     * Sets the v6_0 property value. Version 6.0 or later.
+     * @param value Value to set for the v6_0 property.
+     */
+    public set v6_0(value: boolean | undefined) {
+        this._v6_0 = value;
+    };
+    /**
+     * Gets the v7_0 property value. Version 7.0 or later.
+     * @returns a boolean
+     */
+    public get v7_0() {
+        return this._v7_0;
+    };
+    /**
+     * Sets the v7_0 property value. Version 7.0 or later.
+     * @param value Value to set for the v7_0 property.
+     */
+    public set v7_0(value: boolean | undefined) {
+        this._v7_0 = value;
+    };
+    /**
+     * Gets the v7_1 property value. Version 7.1 or later.
+     * @returns a boolean
+     */
+    public get v7_1() {
+        return this._v7_1;
+    };
+    /**
+     * Sets the v7_1 property value. Version 7.1 or later.
+     * @param value Value to set for the v7_1 property.
+     */
+    public set v7_1(value: boolean | undefined) {
+        this._v7_1 = value;
+    };
+    /**
+     * Gets the v8_0 property value. Version 8.0 or later.
+     * @returns a boolean
+     */
+    public get v8_0() {
+        return this._v8_0;
+    };
+    /**
+     * Sets the v8_0 property value. Version 8.0 or later.
+     * @param value Value to set for the v8_0 property.
+     */
+    public set v8_0(value: boolean | undefined) {
+        this._v8_0 = value;
+    };
+    /**
+     * Gets the v8_1 property value. Version 8.1 or later.
+     * @returns a boolean
+     */
+    public get v8_1() {
+        return this._v8_1;
+    };
+    /**
+     * Sets the v8_1 property value. Version 8.1 or later.
+     * @param value Value to set for the v8_1 property.
+     */
+    public set v8_1(value: boolean | undefined) {
+        this._v8_1 = value;
+    };
+    /**
+     * Gets the v9_0 property value. Version 9.0 or later.
+     * @returns a boolean
+     */
+    public get v9_0() {
+        return this._v9_0;
+    };
+    /**
+     * Sets the v9_0 property value. Version 9.0 or later.
+     * @param value Value to set for the v9_0 property.
+     */
+    public set v9_0(value: boolean | undefined) {
+        this._v9_0 = value;
     };
 }

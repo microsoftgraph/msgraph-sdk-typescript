@@ -56,7 +56,6 @@ export class AccessPackageAssignmentRequestorSettings implements AdditionalDataH
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.accessPackageAssignmentRequestorSettings";
     };
     /**
      * Gets the enableOnBehalfRequestorsToAddAccess property value. If true, allows on-behalf-of requestors to create a request to add access for another principal.

@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class Attachment extends Entity implements Parsable {
     /** The MIME type. */
     private _contentType?: string | undefined;
@@ -18,7 +18,6 @@ export class Attachment extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.attachment";
     };
     /**
      * Gets the contentType property value. The MIME type.

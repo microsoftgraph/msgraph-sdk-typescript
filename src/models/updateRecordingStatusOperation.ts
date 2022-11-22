@@ -7,7 +7,6 @@ export class UpdateRecordingStatusOperation extends CommsOperation implements Pa
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.updateRecordingStatusOperation";
     };
     /**
      * The deserialization information for the current model

@@ -164,7 +164,6 @@ export class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, P
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.teleconferenceDeviceMediaQuality";
     };
     /**
      * The deserialization information for the current model

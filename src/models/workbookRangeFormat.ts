@@ -57,7 +57,6 @@ export class WorkbookRangeFormat extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookRangeFormat";
     };
     /**
      * Gets the fill property value. Returns the fill object defined on the overall range. Read-only.

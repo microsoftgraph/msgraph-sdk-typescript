@@ -58,7 +58,6 @@ export class ItemActivityStat extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.itemActivityStat";
     };
     /**
      * Gets the create property value. Statistics about the create actions in this interval. Read-only.

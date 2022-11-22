@@ -34,7 +34,6 @@ export class DriveItemUploadableProperties implements AdditionalDataHolder, Pars
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.driveItemUploadableProperties";
     };
     /**
      * Gets the description property value. Provides a user-visible description of the item. Read-write. Only on OneDrive Personal.

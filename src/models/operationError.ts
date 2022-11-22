@@ -42,7 +42,6 @@ export class OperationError implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.operationError";
     };
     /**
      * The deserialization information for the current model
