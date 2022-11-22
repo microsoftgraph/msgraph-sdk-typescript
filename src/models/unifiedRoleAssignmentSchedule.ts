@@ -45,7 +45,6 @@ export class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase imple
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.unifiedRoleAssignmentSchedule";
     };
     /**
      * The deserialization information for the current model

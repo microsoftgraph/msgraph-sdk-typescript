@@ -77,7 +77,6 @@ export class CrossTenantAccessPolicyConfigurationDefault extends Entity implemen
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.crossTenantAccessPolicyConfigurationDefault";
     };
     /**
      * The deserialization information for the current model

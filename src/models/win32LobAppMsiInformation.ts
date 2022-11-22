@@ -40,7 +40,6 @@ export class Win32LobAppMsiInformation implements AdditionalDataHolder, Parsable
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.win32LobAppMsiInformation";
     };
     /**
      * The deserialization information for the current model

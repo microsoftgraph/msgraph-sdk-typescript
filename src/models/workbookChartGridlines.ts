@@ -12,7 +12,6 @@ export class WorkbookChartGridlines extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookChartGridlines";
     };
     /**
      * Gets the format property value. Represents the formatting of chart gridlines. Read-only.

@@ -12,7 +12,6 @@ export class PlannerAssignedToTaskBoardTaskFormat extends Entity implements Pars
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.plannerAssignedToTaskBoardTaskFormat";
     };
     /**
      * The deserialization information for the current model

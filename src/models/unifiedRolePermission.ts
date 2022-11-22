@@ -58,7 +58,6 @@ export class UnifiedRolePermission implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.unifiedRolePermission";
     };
     /**
      * Gets the excludedResourceActions property value. Set of tasks that may not be performed on a resource. Not yet supported.

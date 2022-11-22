@@ -35,7 +35,6 @@ export class WorkingHours implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.workingHours";
     };
     /**
      * Gets the daysOfWeek property value. The days of the week on which the user works.

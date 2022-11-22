@@ -55,7 +55,6 @@ export class UnifiedRoleScheduleInstanceBase extends Entity implements Parsable 
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.unifiedRoleScheduleInstanceBase";
     };
     /**
      * Gets the directoryScope property value. The directory object that is the scope of the assignment or role eligibility. Read-only.

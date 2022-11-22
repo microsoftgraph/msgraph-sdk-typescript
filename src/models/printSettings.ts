@@ -26,7 +26,6 @@ export class PrintSettings implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.printSettings";
     };
     /**
      * Gets the documentConversionEnabled property value. Specifies whether document conversion is enabled for the tenant. If document conversion is enabled, Universal Print service will automatically convert documents into a format compatible with the printer (xps to pdf) when needed.

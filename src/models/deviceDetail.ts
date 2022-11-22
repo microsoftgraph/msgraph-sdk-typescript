@@ -52,7 +52,6 @@ export class DeviceDetail implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.deviceDetail";
     };
     /**
      * Gets the deviceId property value. Refers to the UniqueID of the device used for signing in.

@@ -17,25 +17,25 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the cloudCommunications singleton. */
 export class CommunicationsRequestBuilder {
-    /** The callRecords property */
+    /** Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity. */
     public get callRecords(): CallRecordsRequestBuilder {
         return new CallRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The calls property */
+    /** Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity. */
     public get calls(): CallsRequestBuilder {
         return new CallsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getPresencesByUserId property */
+    /** Provides operations to call the getPresencesByUserId method. */
     public get getPresencesByUserId(): GetPresencesByUserIdRequestBuilder {
         return new GetPresencesByUserIdRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The onlineMeetings property */
+    /** Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity. */
     public get onlineMeetings(): OnlineMeetingsRequestBuilder {
         return new OnlineMeetingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The presences property */
+    /** Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity. */
     public get presences(): PresencesRequestBuilder {
         return new PresencesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,7 +44,7 @@ export class CommunicationsRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.callRecords.item collection
+     * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
      * @param id Unique identifier of the item
      * @returns a CallRecordItemRequestBuilder
      */
@@ -55,7 +55,7 @@ export class CommunicationsRequestBuilder {
         return new CallRecordItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.calls.item collection
+     * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
      * @param id Unique identifier of the item
      * @returns a CallItemRequestBuilder
      */
@@ -108,6 +108,7 @@ export class CommunicationsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -129,10 +130,10 @@ export class CommunicationsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<CloudCommunications>(requestInfo, createCloudCommunicationsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CloudCommunications>(requestInfo, createCloudCommunicationsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.onlineMeetings.item collection
+     * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
      * @param id Unique identifier of the item
      * @returns a OnlineMeetingItemRequestBuilder
      */
@@ -147,8 +148,9 @@ export class CommunicationsRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of CloudCommunications
      */
-    public patch(body: CloudCommunications | undefined, requestConfiguration?: CommunicationsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: CloudCommunications | undefined, requestConfiguration?: CommunicationsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CloudCommunications | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -157,10 +159,10 @@ export class CommunicationsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CloudCommunications>(requestInfo, createCloudCommunicationsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.presences.item collection
+     * Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity.
      * @param id Unique identifier of the item
      * @returns a PresenceItemRequestBuilder
      */

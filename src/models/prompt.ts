@@ -24,7 +24,6 @@ export class Prompt implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.prompt";
     };
     /**
      * The deserialization information for the current model

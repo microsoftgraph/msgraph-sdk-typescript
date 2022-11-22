@@ -5,6 +5,7 @@ import {Entity, MimeContent, MobileAppAssignment, MobileAppCategory} from './ind
 import {MobileAppPublishingState} from './mobileAppPublishingState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** An abstract class containing the base properties for Intune mobile apps. */
 export class MobileApp extends Entity implements Parsable {
     /** The list of group assignments for this mobile app. */
     private _assignments?: MobileAppAssignment[] | undefined;
@@ -65,11 +66,10 @@ export class MobileApp extends Entity implements Parsable {
         this._categories = value;
     };
     /**
-     * Instantiates a new MobileApp and sets the default values.
+     * Instantiates a new mobileApp and sets the default values.
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.mobileApp";
     };
     /**
      * Gets the createdDateTime property value. The date and time the app was created.

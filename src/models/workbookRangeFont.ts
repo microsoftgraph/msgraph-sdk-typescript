@@ -47,7 +47,6 @@ export class WorkbookRangeFont extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookRangeFont";
     };
     /**
      * The deserialization information for the current model

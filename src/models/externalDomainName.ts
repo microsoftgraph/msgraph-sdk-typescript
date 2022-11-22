@@ -1,14 +1,13 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class ExternalDomainName extends Entity implements Parsable {
     /**
      * Instantiates a new externalDomainName and sets the default values.
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.externalDomainName";
     };
     /**
      * The deserialization information for the current model

@@ -5,22 +5,21 @@ import {createUsageDetailsFromDiscriminatorValue} from './createUsageDetailsFrom
 import {Entity, ResourceReference, ResourceVisualization, UsageDetails} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class UsedInsight extends Entity implements Parsable {
     /** Information about when the item was last viewed or modified by the user. Read only. */
     private _lastUsed?: UsageDetails | undefined;
     /** Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem. */
     private _resource?: Entity | undefined;
     /** Reference properties of the used document, such as the url and type of the document. Read-only */
-    private _resourceReference?: ResourceReference | undefined;
+    private readonly _resourceReference?: ResourceReference | undefined;
     /** Properties that you can use to visualize the document in your experience. Read-only */
-    private _resourceVisualization?: ResourceVisualization | undefined;
+    private readonly _resourceVisualization?: ResourceVisualization | undefined;
     /**
      * Instantiates a new usedInsight and sets the default values.
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.usedInsight";
     };
     /**
      * The deserialization information for the current model
@@ -99,7 +98,5 @@ export class UsedInsight extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<UsageDetails>("lastUsed", this.lastUsed);
         writer.writeObjectValue<Entity>("resource", this.resource);
-        writer.writeObjectValue<ResourceReference>("resourceReference", this.resourceReference);
-        writer.writeObjectValue<ResourceVisualization>("resourceVisualization", this.resourceVisualization);
     };
 }

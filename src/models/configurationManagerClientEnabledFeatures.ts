@@ -51,7 +51,6 @@ export class ConfigurationManagerClientEnabledFeatures implements AdditionalData
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.configurationManagerClientEnabledFeatures";
     };
     /**
      * Gets the deviceConfiguration property value. Whether device configuration is managed by Intune

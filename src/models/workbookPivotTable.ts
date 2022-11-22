@@ -2,7 +2,7 @@ import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWor
 import {Entity, WorkbookWorksheet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookPivotTable extends Entity implements Parsable {
     /** Name of the PivotTable. */
     private _name?: string | undefined;
@@ -13,7 +13,6 @@ export class WorkbookPivotTable extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookPivotTable";
     };
     /**
      * The deserialization information for the current model

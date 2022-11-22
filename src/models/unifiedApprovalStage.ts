@@ -52,7 +52,6 @@ export class UnifiedApprovalStage implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.unifiedApprovalStage";
     };
     /**
      * Gets the escalationApprovers property value. The escalation approvers for this stage when the primary approvers don't respond.

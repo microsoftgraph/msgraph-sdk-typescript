@@ -24,7 +24,6 @@ export class AccessReviewNotificationRecipientScope implements AdditionalDataHol
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.accessReviewNotificationRecipientScope";
     };
     /**
      * The deserialization information for the current model

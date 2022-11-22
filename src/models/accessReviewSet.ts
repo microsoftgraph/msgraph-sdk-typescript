@@ -13,7 +13,6 @@ export class AccessReviewSet extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.accessReviewSet";
     };
     /**
      * Gets the definitions property value. Represents the template and scheduling for an access review.

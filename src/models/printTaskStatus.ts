@@ -29,7 +29,6 @@ export class PrintTaskStatus implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.printTaskStatus";
     };
     /**
      * Gets the description property value. A human-readable description of the current processing state of the printTask.

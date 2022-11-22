@@ -25,7 +25,7 @@ export class UnpublishRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action unpublish
+     * Unpublish a [contentType][] from a content type hub site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -41,7 +41,7 @@ export class UnpublishRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action unpublish
+     * Unpublish a [contentType][] from a content type hub site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -53,6 +53,6 @@ export class UnpublishRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

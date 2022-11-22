@@ -69,7 +69,6 @@ export class WindowsAutopilotDeviceIdentity extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.windowsAutopilotDeviceIdentity";
     };
     /**
      * Gets the displayName property value. Display Name

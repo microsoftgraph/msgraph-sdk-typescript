@@ -37,7 +37,6 @@ export class RubricQuality implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.rubricQuality";
     };
     /**
      * Gets the criteria property value. The collection of criteria for this rubric quality.

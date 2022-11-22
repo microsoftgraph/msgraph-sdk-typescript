@@ -47,7 +47,6 @@ export class WindowsInformationProtectionDataRecoveryCertificate implements Addi
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.windowsInformationProtectionDataRecoveryCertificate";
     };
     /**
      * Gets the description property value. Data recovery Certificate description

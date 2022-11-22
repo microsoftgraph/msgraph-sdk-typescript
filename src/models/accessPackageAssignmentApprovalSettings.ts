@@ -32,7 +32,6 @@ export class AccessPackageAssignmentApprovalSettings implements AdditionalDataHo
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.accessPackageAssignmentApprovalSettings";
     };
     /**
      * The deserialization information for the current model

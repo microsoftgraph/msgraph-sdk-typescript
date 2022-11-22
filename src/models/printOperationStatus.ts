@@ -29,7 +29,6 @@ export class PrintOperationStatus implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.printOperationStatus";
     };
     /**
      * Gets the description property value. A human-readable description of the printOperation's current processing state. Read-only.

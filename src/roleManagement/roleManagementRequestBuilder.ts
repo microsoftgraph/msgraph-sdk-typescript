@@ -10,11 +10,11 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the roleManagement singleton. */
 export class RoleManagementRequestBuilder {
-    /** The directory property */
+    /** Provides operations to manage the directory property of the microsoft.graph.roleManagement entity. */
     public get directory(): DirectoryRequestBuilder {
         return new DirectoryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The entitlementManagement property */
+    /** Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity. */
     public get entitlementManagement(): EntitlementManagementRequestBuilder {
         return new EntitlementManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -67,6 +67,7 @@ export class RoleManagementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -88,15 +89,16 @@ export class RoleManagementRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<RoleManagement>(requestInfo, createRoleManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<RoleManagement>(requestInfo, createRoleManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update roleManagement
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of RoleManagement
      */
-    public patch(body: RoleManagement | undefined, requestConfiguration?: RoleManagementRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: RoleManagement | undefined, requestConfiguration?: RoleManagementRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RoleManagement | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -105,6 +107,6 @@ export class RoleManagementRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<RoleManagement>(requestInfo, createRoleManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

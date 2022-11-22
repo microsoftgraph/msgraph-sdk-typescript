@@ -7,7 +7,6 @@ export class WorkbookRangeSort extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookRangeSort";
     };
     /**
      * The deserialization information for the current model

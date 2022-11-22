@@ -52,7 +52,6 @@ export class UpdateWindowsDeviceAccountActionParameter implements AdditionalData
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.updateWindowsDeviceAccountActionParameter";
     };
     /**
      * Gets the deviceAccount property value. Not yet documented

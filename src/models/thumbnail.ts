@@ -34,7 +34,6 @@ export class Thumbnail implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.thumbnail";
     };
     /**
      * Gets the content property value. The content stream for the thumbnail.

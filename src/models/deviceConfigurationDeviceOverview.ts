@@ -35,7 +35,6 @@ export class DeviceConfigurationDeviceOverview extends Entity implements Parsabl
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceConfigurationDeviceOverview";
     };
     /**
      * Gets the errorCount property value. Number of error devices

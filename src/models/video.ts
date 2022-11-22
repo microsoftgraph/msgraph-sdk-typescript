@@ -114,7 +114,6 @@ export class Video implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.video";
     };
     /**
      * Gets the duration property value. Duration of the file in milliseconds.

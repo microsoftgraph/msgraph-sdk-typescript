@@ -26,7 +26,7 @@ export class CancelRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Cancels the giving booking appointment, sending a message to the involved parties.
+     * Cancel the specified bookingAppointment in the specified bookingBusiness and send a message to the involved customer and staff members.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -45,7 +45,7 @@ export class CancelRequestBuilder {
         return requestInfo;
     };
     /**
-     * Cancels the giving booking appointment, sending a message to the involved parties.
+     * Cancel the specified bookingAppointment in the specified bookingBusiness and send a message to the involved customer and staff members.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -59,6 +59,6 @@ export class CancelRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

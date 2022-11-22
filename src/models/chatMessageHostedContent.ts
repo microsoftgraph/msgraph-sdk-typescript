@@ -7,7 +7,6 @@ export class ChatMessageHostedContent extends TeamworkHostedContent implements P
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.chatMessageHostedContent";
     };
     /**
      * The deserialization information for the current model

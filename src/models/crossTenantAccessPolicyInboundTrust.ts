@@ -30,7 +30,6 @@ export class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.crossTenantAccessPolicyInboundTrust";
     };
     /**
      * The deserialization information for the current model

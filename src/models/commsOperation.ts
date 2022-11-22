@@ -3,7 +3,7 @@ import {Entity, ResultInfo} from './index';
 import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class CommsOperation extends Entity implements Parsable {
     /** Unique Client Context string. Max limit is 256 chars. */
     private _clientContext?: string | undefined;
@@ -30,7 +30,6 @@ export class CommsOperation extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.commsOperation";
     };
     /**
      * The deserialization information for the current model

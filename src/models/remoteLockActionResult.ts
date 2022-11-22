@@ -9,7 +9,6 @@ export class RemoteLockActionResult extends DeviceActionResult implements Parsab
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.remoteLockActionResult";
     };
     /**
      * The deserialization information for the current model

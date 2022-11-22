@@ -1,5 +1,5 @@
 
-/** All users in the class. Nullable. */
+/** Retrieves the educationUser members of an educationClass. */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

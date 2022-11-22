@@ -9,7 +9,6 @@ export class EducationAssignmentSettings extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.educationAssignmentSettings";
     };
     /**
      * The deserialization information for the current model

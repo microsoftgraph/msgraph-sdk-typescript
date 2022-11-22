@@ -34,7 +34,6 @@ export class FileSecurityState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.fileSecurityState";
     };
     /**
      * Gets the fileHash property value. Complex type containing file hashes (cryptographic and location-sensitive).

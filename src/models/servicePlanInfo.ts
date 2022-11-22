@@ -46,7 +46,6 @@ export class ServicePlanInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.servicePlanInfo";
     };
     /**
      * The deserialization information for the current model

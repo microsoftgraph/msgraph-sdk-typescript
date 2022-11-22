@@ -31,7 +31,6 @@ export class PatternedRecurrence implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.patternedRecurrence";
     };
     /**
      * The deserialization information for the current model

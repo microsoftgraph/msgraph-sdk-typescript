@@ -33,7 +33,6 @@ export class ImportedWindowsAutopilotDeviceIdentityState implements AdditionalDa
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.importedWindowsAutopilotDeviceIdentityState";
     };
     /**
      * Gets the deviceErrorCode property value. Device error code reported by Device Directory Service(DDS).

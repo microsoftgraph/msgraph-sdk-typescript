@@ -61,7 +61,6 @@ export class VppToken extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.vppToken";
     };
     /**
      * Gets the countryOrRegion property value. Whether or not apps for the VPP token will be automatically updated.

@@ -12,11 +12,11 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the defaultManagedAppProtections property of the microsoft.graph.deviceAppManagement entity. */
 export class DefaultManagedAppProtectionItemRequestBuilder {
-    /** The apps property */
+    /** Provides operations to manage the apps property of the microsoft.graph.defaultManagedAppProtection entity. */
     public get apps(): AppsRequestBuilder {
         return new AppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deploymentSummary property */
+    /** Provides operations to manage the deploymentSummary property of the microsoft.graph.defaultManagedAppProtection entity. */
     public get deploymentSummary(): DeploymentSummaryRequestBuilder {
         return new DeploymentSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -27,7 +27,7 @@ export class DefaultManagedAppProtectionItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.defaultManagedAppProtections.item.apps.item collection
+     * Provides operations to manage the apps property of the microsoft.graph.defaultManagedAppProtection entity.
      * @param id Unique identifier of the item
      * @returns a ManagedMobileAppItemRequestBuilder
      */
@@ -96,6 +96,7 @@ export class DefaultManagedAppProtectionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -116,7 +117,7 @@ export class DefaultManagedAppProtectionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Default managed app policies.
@@ -132,15 +133,16 @@ export class DefaultManagedAppProtectionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DefaultManagedAppProtection>(requestInfo, createDefaultManagedAppProtectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DefaultManagedAppProtection>(requestInfo, createDefaultManagedAppProtectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property defaultManagedAppProtections in deviceAppManagement
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of DefaultManagedAppProtection
      */
-    public patch(body: DefaultManagedAppProtection | undefined, requestConfiguration?: DefaultManagedAppProtectionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: DefaultManagedAppProtection | undefined, requestConfiguration?: DefaultManagedAppProtectionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DefaultManagedAppProtection | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -149,6 +151,6 @@ export class DefaultManagedAppProtectionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DefaultManagedAppProtection>(requestInfo, createDefaultManagedAppProtectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

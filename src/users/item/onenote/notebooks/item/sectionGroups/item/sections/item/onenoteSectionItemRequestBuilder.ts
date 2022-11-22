@@ -15,23 +15,23 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the sections property of the microsoft.graph.sectionGroup entity. */
 export class OnenoteSectionItemRequestBuilder {
-    /** The copyToNotebook property */
+    /** Provides operations to call the copyToNotebook method. */
     public get copyToNotebook(): CopyToNotebookRequestBuilder {
         return new CopyToNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The copyToSectionGroup property */
+    /** Provides operations to call the copyToSectionGroup method. */
     public get copyToSectionGroup(): CopyToSectionGroupRequestBuilder {
         return new CopyToSectionGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The pages property */
+    /** Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity. */
     public get pages(): PagesRequestBuilder {
         return new PagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The parentNotebook property */
+    /** Provides operations to manage the parentNotebook property of the microsoft.graph.onenoteSection entity. */
     public get parentNotebook(): ParentNotebookRequestBuilder {
         return new ParentNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The parentSectionGroup property */
+    /** Provides operations to manage the parentSectionGroup property of the microsoft.graph.onenoteSection entity. */
     public get parentSectionGroup(): ParentSectionGroupRequestBuilder {
         return new ParentSectionGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -100,6 +100,7 @@ export class OnenoteSectionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -120,7 +121,7 @@ export class OnenoteSectionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * The sections in the section group. Read-only. Nullable.
@@ -136,10 +137,10 @@ export class OnenoteSectionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<OnenoteSection>(requestInfo, createOnenoteSectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OnenoteSection>(requestInfo, createOnenoteSectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.onenote.notebooks.item.sectionGroups.item.sections.item.pages.item collection
+     * Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity.
      * @param id Unique identifier of the item
      * @returns a OnenotePageItemRequestBuilder
      */
@@ -154,8 +155,9 @@ export class OnenoteSectionItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of OnenoteSection
      */
-    public patch(body: OnenoteSection | undefined, requestConfiguration?: OnenoteSectionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: OnenoteSection | undefined, requestConfiguration?: OnenoteSectionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteSection | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -164,6 +166,6 @@ export class OnenoteSectionItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OnenoteSection>(requestInfo, createOnenoteSectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

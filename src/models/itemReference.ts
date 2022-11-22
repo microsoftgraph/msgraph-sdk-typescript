@@ -42,7 +42,6 @@ export class ItemReference implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.itemReference";
     };
     /**
      * Gets the driveId property value. Unique identifier of the drive instance that contains the item. Read-only.

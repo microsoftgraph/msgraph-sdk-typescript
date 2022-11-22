@@ -25,9 +25,9 @@ export class Schedule extends Entity implements Parsable {
     /** Indicates whether open shifts are enabled for the schedule. */
     private _openShiftsEnabled?: boolean | undefined;
     /** The status of the schedule provisioning. The possible values are notStarted, running, completed, failed. */
-    private _provisionStatus?: OperationStatus | undefined;
+    private readonly _provisionStatus?: OperationStatus | undefined;
     /** Additional information about why schedule provisioning failed. */
-    private _provisionStatusCode?: string | undefined;
+    private readonly _provisionStatusCode?: string | undefined;
     /** The logical grouping of users in the schedule (usually by role). */
     private _schedulingGroups?: SchedulingGroup[] | undefined;
     /** The shifts in the schedule. */
@@ -55,7 +55,6 @@ export class Schedule extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.schedule";
     };
     /**
      * Gets the enabled property value. Indicates whether the schedule is enabled for the team. Required.
@@ -223,8 +222,6 @@ export class Schedule extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<OpenShiftChangeRequest>("openShiftChangeRequests", this.openShiftChangeRequests);
         writer.writeCollectionOfObjectValues<OpenShift>("openShifts", this.openShifts);
         writer.writeBooleanValue("openShiftsEnabled", this.openShiftsEnabled);
-        writer.writeEnumValue<OperationStatus>("provisionStatus", this.provisionStatus);
-        writer.writeStringValue("provisionStatusCode", this.provisionStatusCode);
         writer.writeCollectionOfObjectValues<SchedulingGroup>("schedulingGroups", this.schedulingGroups);
         writer.writeCollectionOfObjectValues<Shift>("shifts", this.shifts);
         writer.writeCollectionOfObjectValues<SwapShiftsChangeRequest>("swapShiftsChangeRequests", this.swapShiftsChangeRequests);

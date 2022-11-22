@@ -25,7 +25,6 @@ export class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshoot
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.enrollmentTroubleshootingEvent";
     };
     /**
      * Gets the deviceId property value. Azure AD device identifier.

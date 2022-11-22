@@ -21,27 +21,27 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the mailFolders property of the microsoft.graph.user entity. */
 export class MailFolderItemRequestBuilder {
-    /** The childFolders property */
+    /** Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity. */
     public get childFolders(): ChildFoldersRequestBuilder {
         return new ChildFoldersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The copy property */
+    /** Provides operations to call the copy method. */
     public get copy(): CopyRequestBuilder {
         return new CopyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The messageRules property */
+    /** Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity. */
     public get messageRules(): MessageRulesRequestBuilder {
         return new MessageRulesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The messages property */
+    /** Provides operations to manage the messages property of the microsoft.graph.mailFolder entity. */
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The move property */
+    /** Provides operations to call the move method. */
     public get move(): MoveRequestBuilder {
         return new MoveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The multiValueExtendedProperties property */
+    /** Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.mailFolder entity. */
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -49,14 +49,14 @@ export class MailFolderItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The singleValueExtendedProperties property */
+    /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.mailFolder entity. */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.mailFolders.item.childFolders.item collection
+     * Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.
      * @param id Unique identifier of the item
      * @returns a MailFolderItemRequestBuilder
      */
@@ -125,6 +125,7 @@ export class MailFolderItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -145,7 +146,7 @@ export class MailFolderItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * The user's mail folders. Read-only. Nullable.
@@ -161,10 +162,10 @@ export class MailFolderItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<MailFolder>(requestInfo, createMailFolderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MailFolder>(requestInfo, createMailFolderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.mailFolders.item.messageRules.item collection
+     * Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.
      * @param id Unique identifier of the item
      * @returns a MessageRuleItemRequestBuilder
      */
@@ -175,7 +176,7 @@ export class MailFolderItemRequestBuilder {
         return new MessageRuleItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.mailFolders.item.messages.item collection
+     * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
      * @param id Unique identifier of the item
      * @returns a MessageItemRequestBuilder
      */
@@ -186,7 +187,7 @@ export class MailFolderItemRequestBuilder {
         return new MessageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.mailFolders.item.multiValueExtendedProperties.item collection
+     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.mailFolder entity.
      * @param id Unique identifier of the item
      * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
      */
@@ -201,8 +202,9 @@ export class MailFolderItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of MailFolder
      */
-    public patch(body: MailFolder | undefined, requestConfiguration?: MailFolderItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: MailFolder | undefined, requestConfiguration?: MailFolderItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MailFolder | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -211,10 +213,10 @@ export class MailFolderItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MailFolder>(requestInfo, createMailFolderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.mailFolders.item.singleValueExtendedProperties.item collection
+     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.mailFolder entity.
      * @param id Unique identifier of the item
      * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
      */

@@ -28,7 +28,6 @@ export class Win32LobAppRule implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.win32LobAppRule";
     };
     /**
      * The deserialization information for the current model

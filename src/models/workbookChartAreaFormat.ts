@@ -13,7 +13,6 @@ export class WorkbookChartAreaFormat extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookChartAreaFormat";
     };
     /**
      * Gets the fill property value. Represents the fill format of an object, which includes background formatting information. Read-only.

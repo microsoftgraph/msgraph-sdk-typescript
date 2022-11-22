@@ -20,38 +20,38 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the print singleton. */
 export class PrintRequestBuilder {
-    /** The connectors property */
+    /** Provides operations to manage the connectors property of the microsoft.graph.print entity. */
     public get connectors(): ConnectorsRequestBuilder {
         return new ConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The operations property */
+    /** Provides operations to manage the operations property of the microsoft.graph.print entity. */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The printers property */
+    /** Provides operations to manage the printers property of the microsoft.graph.print entity. */
     public get printers(): PrintersRequestBuilder {
         return new PrintersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The services property */
+    /** Provides operations to manage the services property of the microsoft.graph.print entity. */
     public get services(): ServicesRequestBuilder {
         return new ServicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The shares property */
+    /** Provides operations to manage the shares property of the microsoft.graph.print entity. */
     public get shares(): SharesRequestBuilder {
         return new SharesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The taskDefinitions property */
+    /** Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity. */
     public get taskDefinitions(): TaskDefinitionsRequestBuilder {
         return new TaskDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.connectors.item collection
+     * Provides operations to manage the connectors property of the microsoft.graph.print entity.
      * @param id Unique identifier of the item
      * @returns a PrintConnectorItemRequestBuilder
      */
@@ -104,6 +104,7 @@ export class PrintRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -125,10 +126,10 @@ export class PrintRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Print>(requestInfo, createPrintFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Print>(requestInfo, createPrintFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.operations.item collection
+     * Provides operations to manage the operations property of the microsoft.graph.print entity.
      * @param id Unique identifier of the item
      * @returns a PrintOperationItemRequestBuilder
      */
@@ -143,8 +144,9 @@ export class PrintRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Print
      */
-    public patch(body: Print | undefined, requestConfiguration?: PrintRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Print | undefined, requestConfiguration?: PrintRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Print | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -153,10 +155,10 @@ export class PrintRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Print>(requestInfo, createPrintFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.printers.item collection
+     * Provides operations to manage the printers property of the microsoft.graph.print entity.
      * @param id Unique identifier of the item
      * @returns a PrinterItemRequestBuilder
      */
@@ -167,7 +169,7 @@ export class PrintRequestBuilder {
         return new PrinterItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.services.item collection
+     * Provides operations to manage the services property of the microsoft.graph.print entity.
      * @param id Unique identifier of the item
      * @returns a PrintServiceItemRequestBuilder
      */
@@ -178,7 +180,7 @@ export class PrintRequestBuilder {
         return new PrintServiceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.shares.item collection
+     * Provides operations to manage the shares property of the microsoft.graph.print entity.
      * @param id Unique identifier of the item
      * @returns a PrinterShareItemRequestBuilder
      */
@@ -189,7 +191,7 @@ export class PrintRequestBuilder {
         return new PrinterShareItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.taskDefinitions.item collection
+     * Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity.
      * @param id Unique identifier of the item
      * @returns a PrintTaskDefinitionItemRequestBuilder
      */

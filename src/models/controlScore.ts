@@ -32,7 +32,6 @@ export class ControlScore implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.controlScore";
     };
     /**
      * Gets the controlCategory property value. Control action category (Identity, Data, Device, Apps, Infrastructure).

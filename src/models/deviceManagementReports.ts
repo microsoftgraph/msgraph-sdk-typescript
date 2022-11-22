@@ -10,7 +10,6 @@ export class DeviceManagementReports extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceManagementReports";
     };
     /**
      * Gets the exportJobs property value. Entity representing a job to export a report

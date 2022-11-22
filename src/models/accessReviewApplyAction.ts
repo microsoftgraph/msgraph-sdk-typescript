@@ -24,7 +24,6 @@ export class AccessReviewApplyAction implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.accessReviewApplyAction";
     };
     /**
      * The deserialization information for the current model

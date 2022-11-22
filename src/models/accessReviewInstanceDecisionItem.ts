@@ -93,7 +93,6 @@ export class AccessReviewInstanceDecisionItem extends Entity implements Parsable
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.accessReviewInstanceDecisionItem";
     };
     /**
      * Gets the decision property value. Result of the review. Possible values: Approve, Deny, NotReviewed, or DontKnow. Supports $select, $orderby, and $filter (eq only).

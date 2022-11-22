@@ -40,7 +40,6 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.keyCredential";
     };
     /**
      * Gets the customKeyIdentifier property value. Custom key identifier

@@ -13,7 +13,6 @@ export class WorkbookChartAxisFormat extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookChartAxisFormat";
     };
     /**
      * Gets the font property value. Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.

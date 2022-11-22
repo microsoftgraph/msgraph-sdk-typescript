@@ -101,7 +101,6 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.printJobConfiguration";
     };
     /**
      * Gets the copies property value. The number of copies that should be printed. Read-only.

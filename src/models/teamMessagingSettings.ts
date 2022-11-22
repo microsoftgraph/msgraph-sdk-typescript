@@ -104,7 +104,6 @@ export class TeamMessagingSettings implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.teamMessagingSettings";
     };
     /**
      * The deserialization information for the current model

@@ -3,7 +3,7 @@ import {Entity, WorkbookOperationError} from './index';
 import {WorkbookOperationStatus} from './workbookOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookOperation extends Entity implements Parsable {
     /** The error returned by the operation. */
     private _error_escaped?: WorkbookOperationError | undefined;
@@ -16,7 +16,6 @@ export class WorkbookOperation extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookOperation";
     };
     /**
      * Gets the error property value. The error returned by the operation.

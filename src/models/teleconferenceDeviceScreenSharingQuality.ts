@@ -7,7 +7,6 @@ export class TeleconferenceDeviceScreenSharingQuality extends TeleconferenceDevi
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.teleconferenceDeviceScreenSharingQuality";
     };
     /**
      * The deserialization information for the current model

@@ -63,7 +63,6 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.messageRuleActions";
     };
     /**
      * Gets the copyToFolder property value. The ID of a folder that a message is to be copied to.

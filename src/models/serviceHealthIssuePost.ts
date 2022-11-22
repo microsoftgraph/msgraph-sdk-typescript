@@ -8,7 +8,7 @@ export class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The published time of the post. */
     private _createdDateTime?: Date | undefined;
-    /** The content of the service issue post. */
+    /** The content of the service issue post. The supported value for the contentType property is html. */
     private _description?: ItemBody | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
@@ -33,7 +33,6 @@ export class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.serviceHealthIssuePost";
     };
     /**
      * Gets the createdDateTime property value. The published time of the post.
@@ -50,14 +49,14 @@ export class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable {
         this._createdDateTime = value;
     };
     /**
-     * Gets the description property value. The content of the service issue post.
+     * Gets the description property value. The content of the service issue post. The supported value for the contentType property is html.
      * @returns a itemBody
      */
     public get description() {
         return this._description;
     };
     /**
-     * Sets the description property value. The content of the service issue post.
+     * Sets the description property value. The content of the service issue post. The supported value for the contentType property is html.
      * @param value Value to set for the description property.
      */
     public set description(value: ItemBody | undefined) {

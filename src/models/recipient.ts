@@ -28,7 +28,6 @@ export class Recipient implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.recipient";
     };
     /**
      * Gets the emailAddress property value. The recipient's email address.

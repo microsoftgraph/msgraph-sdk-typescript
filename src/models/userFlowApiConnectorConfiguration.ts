@@ -30,7 +30,6 @@ export class UserFlowApiConnectorConfiguration implements AdditionalDataHolder, 
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.userFlowApiConnectorConfiguration";
     };
     /**
      * The deserialization information for the current model

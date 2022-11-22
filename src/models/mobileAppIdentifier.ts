@@ -25,7 +25,6 @@ export class MobileAppIdentifier implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.mobileAppIdentifier";
     };
     /**
      * The deserialization information for the current model

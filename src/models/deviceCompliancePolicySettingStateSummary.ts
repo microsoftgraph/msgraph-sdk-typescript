@@ -60,7 +60,6 @@ export class DeviceCompliancePolicySettingStateSummary extends Entity implements
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceCompliancePolicySettingStateSummary";
     };
     /**
      * Gets the deviceComplianceSettingStates property value. Not yet documented

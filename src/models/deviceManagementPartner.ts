@@ -26,7 +26,6 @@ export class DeviceManagementPartner extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceManagementPartner";
     };
     /**
      * Gets the displayName property value. Partner display name

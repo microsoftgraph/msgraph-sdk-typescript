@@ -27,7 +27,7 @@ export class UnfavoriteRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action unfavorite
+     * Remove the favorite status of serviceUpdateMessages for the signed in user.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -47,7 +47,7 @@ export class UnfavoriteRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action unfavorite
+     * Remove the favorite status of serviceUpdateMessages for the signed in user.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -62,6 +62,6 @@ export class UnfavoriteRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<UnfavoriteResponse>(requestInfo, createUnfavoriteResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UnfavoriteResponse>(requestInfo, createUnfavoriteResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

@@ -28,7 +28,6 @@ export class ExtensionSchemaProperty implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.extensionSchemaProperty";
     };
     /**
      * The deserialization information for the current model

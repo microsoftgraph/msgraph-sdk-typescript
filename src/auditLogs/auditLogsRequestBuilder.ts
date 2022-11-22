@@ -14,19 +14,19 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the auditLogRoot singleton. */
 export class AuditLogsRequestBuilder {
-    /** The directoryAudits property */
+    /** Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity. */
     public get directoryAudits(): DirectoryAuditsRequestBuilder {
         return new DirectoryAuditsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The provisioning property */
+    /** Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity. */
     public get provisioning(): ProvisioningRequestBuilder {
         return new ProvisioningRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The signIns property */
+    /** Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity. */
     public get signIns(): SignInsRequestBuilder {
         return new SignInsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -75,6 +75,7 @@ export class AuditLogsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -83,7 +84,7 @@ export class AuditLogsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.auditLogs.directoryAudits.item collection
+     * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryAuditItemRequestBuilder
      */
@@ -107,15 +108,16 @@ export class AuditLogsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AuditLogRoot>(requestInfo, createAuditLogRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AuditLogRoot>(requestInfo, createAuditLogRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update auditLogs
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of AuditLogRoot
      */
-    public patch(body: AuditLogRoot | undefined, requestConfiguration?: AuditLogsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AuditLogRoot | undefined, requestConfiguration?: AuditLogsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuditLogRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -124,10 +126,10 @@ export class AuditLogsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AuditLogRoot>(requestInfo, createAuditLogRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.auditLogs.provisioning.item collection
+     * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
      * @param id Unique identifier of the item
      * @returns a ProvisioningObjectSummaryItemRequestBuilder
      */
@@ -138,7 +140,7 @@ export class AuditLogsRequestBuilder {
         return new ProvisioningObjectSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.auditLogs.signIns.item collection
+     * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
      * @param id Unique identifier of the item
      * @returns a SignInItemRequestBuilder
      */

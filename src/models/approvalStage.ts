@@ -37,7 +37,6 @@ export class ApprovalStage extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.approvalStage";
     };
     /**
      * Gets the displayName property value. The label provided by the policy creator to identify an approval stage. Read-only.

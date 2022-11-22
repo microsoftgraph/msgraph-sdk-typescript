@@ -24,7 +24,6 @@ export class IdentitySource implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.identitySource";
     };
     /**
      * The deserialization information for the current model

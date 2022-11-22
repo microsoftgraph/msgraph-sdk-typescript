@@ -18,6 +18,8 @@ export class Invitation extends Entity implements Parsable {
     private _inviteRedeemUrl?: string | undefined;
     /** The URL the user should be redirected to once the invitation is redeemed. Required. */
     private _inviteRedirectUrl?: string | undefined;
+    /** The resetRedemption property */
+    private _resetRedemption?: boolean | undefined;
     /** Indicates whether an email should be sent to the user being invited. The default is false. */
     private _sendInvitationMessage?: boolean | undefined;
     /** The status of the invitation. Possible values are: PendingAcceptance, Completed, InProgress, and Error. */
@@ -27,7 +29,6 @@ export class Invitation extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.invitation";
     };
     /**
      * The deserialization information for the current model
@@ -42,6 +43,7 @@ export class Invitation extends Entity implements Parsable {
             "invitedUserType": n => { this.invitedUserType = n.getStringValue(); },
             "inviteRedeemUrl": n => { this.inviteRedeemUrl = n.getStringValue(); },
             "inviteRedirectUrl": n => { this.inviteRedirectUrl = n.getStringValue(); },
+            "resetRedemption": n => { this.resetRedemption = n.getBooleanValue(); },
             "sendInvitationMessage": n => { this.sendInvitationMessage = n.getBooleanValue(); },
             "status": n => { this.status = n.getStringValue(); },
         };
@@ -145,6 +147,20 @@ export class Invitation extends Entity implements Parsable {
         this._inviteRedirectUrl = value;
     };
     /**
+     * Gets the resetRedemption property value. The resetRedemption property
+     * @returns a boolean
+     */
+    public get resetRedemption() {
+        return this._resetRedemption;
+    };
+    /**
+     * Sets the resetRedemption property value. The resetRedemption property
+     * @param value Value to set for the resetRedemption property.
+     */
+    public set resetRedemption(value: boolean | undefined) {
+        this._resetRedemption = value;
+    };
+    /**
      * Gets the sendInvitationMessage property value. Indicates whether an email should be sent to the user being invited. The default is false.
      * @returns a boolean
      */
@@ -172,6 +188,7 @@ export class Invitation extends Entity implements Parsable {
         writer.writeStringValue("invitedUserType", this.invitedUserType);
         writer.writeStringValue("inviteRedeemUrl", this.inviteRedeemUrl);
         writer.writeStringValue("inviteRedirectUrl", this.inviteRedirectUrl);
+        writer.writeBooleanValue("resetRedemption", this.resetRedemption);
         writer.writeBooleanValue("sendInvitationMessage", this.sendInvitationMessage);
         writer.writeStringValue("status", this.status);
     };

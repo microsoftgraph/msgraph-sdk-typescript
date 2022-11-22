@@ -53,7 +53,6 @@ export class MobileThreatDefenseConnector extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.mobileThreatDefenseConnector";
     };
     /**
      * The deserialization information for the current model

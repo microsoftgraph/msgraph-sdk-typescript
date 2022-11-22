@@ -32,7 +32,6 @@ export class ConditionalAccessApplications implements AdditionalDataHolder, Pars
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.conditionalAccessApplications";
     };
     /**
      * Gets the excludeApplications property value. Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365

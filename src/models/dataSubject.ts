@@ -32,7 +32,6 @@ export class DataSubject implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.dataSubject";
     };
     /**
      * Gets the email property value. Email of the data subject.

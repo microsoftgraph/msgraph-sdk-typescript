@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class LinkedResource extends Entity implements Parsable {
     /** Field indicating the app name of the source that is sending the linkedResource. */
     private _applicationName?: string | undefined;
@@ -30,7 +30,6 @@ export class LinkedResource extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.linkedResource";
     };
     /**
      * Gets the displayName property value. Field indicating the title of the linkedResource.

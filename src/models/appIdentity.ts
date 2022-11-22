@@ -46,7 +46,6 @@ export class AppIdentity implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.appIdentity";
     };
     /**
      * Gets the displayName property value. Refers to the Application Name displayed in the Azure Portal.

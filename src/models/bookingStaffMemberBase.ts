@@ -8,7 +8,6 @@ export class BookingStaffMemberBase extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.bookingStaffMemberBase";
     };
     /**
      * The deserialization information for the current model

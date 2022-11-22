@@ -9,7 +9,6 @@ export class DirectoryObject extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.directoryObject";
     };
     /**
      * Gets the deletedDateTime property value. Date and time when this object was deleted. Always null when the object hasn't been deleted.

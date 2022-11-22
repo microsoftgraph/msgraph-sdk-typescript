@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export enum CaseAction {
     ContentExport = "contentExport",
     ApplyTags = "applyTags",
@@ -8,4 +8,5 @@ export enum CaseAction {
     AddToReviewSet = "addToReviewSet",
     HoldUpdate = "holdUpdate",
     UnknownFutureValue = "unknownFutureValue",
+    PurgeData = "purgeData",
 }

@@ -44,7 +44,6 @@ export class InnerError implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.InnerError";
     };
     /**
      * Gets the date property value. Date when the error occured.

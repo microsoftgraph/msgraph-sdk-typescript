@@ -47,7 +47,6 @@ export class AttachmentInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.attachmentInfo";
     };
     /**
      * Gets the contentType property value. The contentType property

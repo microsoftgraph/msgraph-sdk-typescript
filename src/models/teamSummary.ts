@@ -30,7 +30,6 @@ export class TeamSummary implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.teamSummary";
     };
     /**
      * The deserialization information for the current model

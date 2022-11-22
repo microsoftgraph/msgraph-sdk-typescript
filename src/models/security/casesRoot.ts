@@ -11,7 +11,6 @@ export class CasesRoot extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.security.casesRoot";
     };
     /**
      * Gets the ediscoveryCases property value. The ediscoveryCases property

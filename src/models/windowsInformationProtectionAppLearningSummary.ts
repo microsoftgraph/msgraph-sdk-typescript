@@ -43,7 +43,6 @@ export class WindowsInformationProtectionAppLearningSummary extends Entity imple
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.windowsInformationProtectionAppLearningSummary";
     };
     /**
      * Gets the deviceCount property value. Device Count

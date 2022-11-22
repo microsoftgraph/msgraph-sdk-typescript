@@ -103,7 +103,6 @@ export class UnifiedRoleAssignmentScheduleRequest extends Request implements Par
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.unifiedRoleAssignmentScheduleRequest";
     };
     /**
      * Gets the directoryScope property value. The directory object that is the scope of the assignment. Read-only. Supports $expand.

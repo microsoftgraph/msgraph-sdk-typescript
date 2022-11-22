@@ -7,7 +7,6 @@ export class EdiscoveryHoldOperation extends CaseOperation implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.security.ediscoveryHoldOperation";
     };
     /**
      * The deserialization information for the current model

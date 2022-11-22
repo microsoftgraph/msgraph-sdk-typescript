@@ -27,7 +27,6 @@ export class Report implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.report";
     };
     /**
      * Gets the content property value. Not yet documented

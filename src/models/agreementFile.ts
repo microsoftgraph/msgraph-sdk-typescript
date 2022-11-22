@@ -10,7 +10,6 @@ export class AgreementFile extends AgreementFileProperties implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.agreementFile";
     };
     /**
      * The deserialization information for the current model

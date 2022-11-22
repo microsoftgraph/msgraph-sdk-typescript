@@ -15,7 +15,6 @@ export class TeamInfo extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.teamInfo";
     };
     /**
      * Gets the displayName property value. The name of the team.

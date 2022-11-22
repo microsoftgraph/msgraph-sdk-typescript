@@ -51,7 +51,6 @@ export class SubscribedSku extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.subscribedSku";
     };
     /**
      * Gets the consumedUnits property value. The number of licenses that have been assigned.

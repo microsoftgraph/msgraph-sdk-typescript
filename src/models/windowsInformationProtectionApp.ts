@@ -35,7 +35,6 @@ export class WindowsInformationProtectionApp implements AdditionalDataHolder, Pa
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.windowsInformationProtectionApp";
     };
     /**
      * Gets the denied property value. If true, app is denied protection or exemption.

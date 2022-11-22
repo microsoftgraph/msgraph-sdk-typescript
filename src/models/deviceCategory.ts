@@ -11,7 +11,6 @@ export class DeviceCategory extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceCategory";
     };
     /**
      * Gets the description property value. Optional description for the device category.

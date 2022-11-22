@@ -100,7 +100,6 @@ export class IosNotificationSettings implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.iosNotificationSettings";
     };
     /**
      * Gets the enabled property value. Indicates whether notifications are allowed for this app.

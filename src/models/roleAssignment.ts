@@ -17,7 +17,6 @@ export class RoleAssignment extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.roleAssignment";
     };
     /**
      * Gets the description property value. Description of the Role Assignment.

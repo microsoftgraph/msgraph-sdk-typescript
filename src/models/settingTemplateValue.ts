@@ -32,7 +32,6 @@ export class SettingTemplateValue implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.settingTemplateValue";
     };
     /**
      * Gets the defaultValue property value. Default value for the setting.

@@ -5,7 +5,7 @@ import {createPropertiesFromDiscriminatorValue} from './createPropertiesFromDisc
 import {Acl, ExternalItemContent, Properties} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of externalConnection entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class ExternalItem extends Entity implements Parsable {
     /** An array of access control entries. Each entry specifies the access granted to a user or group. Required. */
     private _acl?: Acl[] | undefined;
@@ -32,7 +32,6 @@ export class ExternalItem extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.externalConnectors.externalItem";
     };
     /**
      * Gets the content property value. A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.

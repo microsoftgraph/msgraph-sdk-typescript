@@ -48,7 +48,6 @@ export class PhysicalAddress implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.physicalAddress";
     };
     /**
      * Gets the countryOrRegion property value. The country or region. It's a free-format string value, for example, 'United States'.

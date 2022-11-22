@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. Returns a collection of the specified buckets */
+/** Retrieve a list of **plannerbucket** objects. */
 export class BucketsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

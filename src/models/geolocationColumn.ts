@@ -24,7 +24,6 @@ export class GeolocationColumn implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.geolocationColumn";
     };
     /**
      * The deserialization information for the current model

@@ -34,7 +34,6 @@ export class PrintJobStatus implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.printJobStatus";
     };
     /**
      * Gets the description property value. A human-readable description of the print job's current processing state. Read-only.

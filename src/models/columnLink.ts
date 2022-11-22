@@ -10,7 +10,6 @@ export class ColumnLink extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.columnLink";
     };
     /**
      * The deserialization information for the current model

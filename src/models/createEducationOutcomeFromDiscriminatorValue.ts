@@ -1,4 +1,4 @@
-import {EducationFeedbackOutcome, EducationOutcome, EducationPointsOutcome, EducationRubricOutcome} from './index';
+import {EducationFeedbackOutcome, EducationFeedbackResourceOutcome, EducationOutcome, EducationPointsOutcome, EducationRubricOutcome} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createEducationOutcomeFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationOutcome {
@@ -10,6 +10,8 @@ export function createEducationOutcomeFromDiscriminatorValue(parseNode: ParseNod
             switch (mappingValue) {
                 case "#microsoft.graph.educationFeedbackOutcome":
                     return new EducationFeedbackOutcome();
+                case "#microsoft.graph.educationFeedbackResourceOutcome":
+                    return new EducationFeedbackResourceOutcome();
                 case "#microsoft.graph.educationPointsOutcome":
                     return new EducationPointsOutcome();
                 case "#microsoft.graph.educationRubricOutcome":

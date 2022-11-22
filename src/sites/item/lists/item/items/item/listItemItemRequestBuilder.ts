@@ -18,19 +18,19 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the items property of the microsoft.graph.list entity. */
 export class ListItemItemRequestBuilder {
-    /** The analytics property */
+    /** Provides operations to manage the analytics property of the microsoft.graph.listItem entity. */
     public get analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The documentSetVersions property */
+    /** Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity. */
     public get documentSetVersions(): DocumentSetVersionsRequestBuilder {
         return new DocumentSetVersionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The driveItem property */
+    /** Provides operations to manage the driveItem property of the microsoft.graph.listItem entity. */
     public get driveItem(): DriveItemRequestBuilder {
         return new DriveItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The fields property */
+    /** Provides operations to manage the fields property of the microsoft.graph.listItem entity. */
     public get fields(): FieldsRequestBuilder {
         return new FieldsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -40,7 +40,7 @@ export class ListItemItemRequestBuilder {
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The versions property */
+    /** Provides operations to manage the versions property of the microsoft.graph.listItem entity. */
     public get versions(): VersionsRequestBuilder {
         return new VersionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -103,6 +103,7 @@ export class ListItemItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -123,10 +124,10 @@ export class ListItemItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.documentSetVersions.item collection
+     * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
      * @param id Unique identifier of the item
      * @returns a DocumentSetVersionItemRequestBuilder
      */
@@ -150,7 +151,7 @@ export class ListItemItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ListItem>(requestInfo, createListItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ListItem>(requestInfo, createListItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Provides operations to call the getActivitiesByInterval method.
@@ -177,8 +178,9 @@ export class ListItemItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ListItem
      */
-    public patch(body: ListItem | undefined, requestConfiguration?: ListItemItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ListItem | undefined, requestConfiguration?: ListItemItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ListItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -187,10 +189,10 @@ export class ListItemItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ListItem>(requestInfo, createListItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.versions.item collection
+     * Provides operations to manage the versions property of the microsoft.graph.listItem entity.
      * @param id Unique identifier of the item
      * @returns a ListItemVersionItemRequestBuilder
      */

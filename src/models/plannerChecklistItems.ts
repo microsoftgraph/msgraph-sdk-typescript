@@ -24,7 +24,6 @@ export class PlannerChecklistItems implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.plannerChecklistItems";
     };
     /**
      * The deserialization information for the current model

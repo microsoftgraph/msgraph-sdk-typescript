@@ -24,7 +24,6 @@ export class SubjectSet implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.subjectSet";
     };
     /**
      * The deserialization information for the current model

@@ -97,7 +97,6 @@ export class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDa
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.crossTenantAccessPolicyConfigurationPartner";
     };
     /**
      * The deserialization information for the current model

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export enum RecurrenceRangeType {
     EndDate = "endDate",
     NoEnd = "noEnd",

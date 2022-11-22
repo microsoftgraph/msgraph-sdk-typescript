@@ -15,15 +15,15 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity. */
 export class ServiceAnnouncementRequestBuilder {
-    /** The healthOverviews property */
+    /** Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity. */
     public get healthOverviews(): HealthOverviewsRequestBuilder {
         return new HealthOverviewsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The issues property */
+    /** Provides operations to manage the issues property of the microsoft.graph.serviceAnnouncement entity. */
     public get issues(): IssuesRequestBuilder {
         return new IssuesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The messages property */
+    /** Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity. */
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -92,6 +92,7 @@ export class ServiceAnnouncementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -112,7 +113,7 @@ export class ServiceAnnouncementRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * A container for service communications resources. Read-only.
@@ -128,10 +129,10 @@ export class ServiceAnnouncementRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ServiceAnnouncement>(requestInfo, createServiceAnnouncementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ServiceAnnouncement>(requestInfo, createServiceAnnouncementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.healthOverviews.item collection
+     * Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
      * @param id Unique identifier of the item
      * @returns a ServiceHealthItemRequestBuilder
      */
@@ -142,7 +143,7 @@ export class ServiceAnnouncementRequestBuilder {
         return new ServiceHealthItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.issues.item collection
+     * Provides operations to manage the issues property of the microsoft.graph.serviceAnnouncement entity.
      * @param id Unique identifier of the item
      * @returns a ServiceHealthIssueItemRequestBuilder
      */
@@ -153,7 +154,7 @@ export class ServiceAnnouncementRequestBuilder {
         return new ServiceHealthIssueItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.messages.item collection
+     * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
      * @param id Unique identifier of the item
      * @returns a ServiceUpdateMessageItemRequestBuilder
      */
@@ -168,8 +169,9 @@ export class ServiceAnnouncementRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ServiceAnnouncement
      */
-    public patch(body: ServiceAnnouncement | undefined, requestConfiguration?: ServiceAnnouncementRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ServiceAnnouncement | undefined, requestConfiguration?: ServiceAnnouncementRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServiceAnnouncement | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -178,6 +180,6 @@ export class ServiceAnnouncementRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ServiceAnnouncement>(requestInfo, createServiceAnnouncementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

@@ -47,7 +47,6 @@ export class TermsAndConditionsAcceptanceStatus extends Entity implements Parsab
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.termsAndConditionsAcceptanceStatus";
     };
     /**
      * The deserialization information for the current model

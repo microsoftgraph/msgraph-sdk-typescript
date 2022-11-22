@@ -3,7 +3,7 @@ import {createWorkbookFilterFromDiscriminatorValue} from './createWorkbookFilter
 import {Entity, Json, WorkbookFilter} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookTableColumn extends Entity implements Parsable {
     /** Retrieve the filter applied to the column. Read-only. */
     private _filter?: WorkbookFilter | undefined;
@@ -18,7 +18,6 @@ export class WorkbookTableColumn extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookTableColumn";
     };
     /**
      * Gets the filter property value. Retrieve the filter applied to the column. Read-only.

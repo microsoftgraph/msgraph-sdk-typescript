@@ -48,7 +48,6 @@ export class OnenotePatchContentCommand implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.onenotePatchContentCommand";
     };
     /**
      * Gets the content property value. A string of well-formed HTML to add to the page, and any image or file binary data. If the content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' part.

@@ -16,7 +16,6 @@ export class PrintTaskDefinition extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.printTaskDefinition";
     };
     /**
      * Gets the createdBy property value. The createdBy property

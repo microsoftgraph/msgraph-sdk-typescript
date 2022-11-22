@@ -14,7 +14,6 @@ export class AuthenticationFlowsPolicy extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.authenticationFlowsPolicy";
     };
     /**
      * Gets the description property value. Inherited property. A description of the policy. Optional. Read-only.

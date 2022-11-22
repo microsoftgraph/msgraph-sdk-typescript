@@ -24,7 +24,6 @@ export class WindowsUpdateInstallScheduleType implements AdditionalDataHolder, P
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.windowsUpdateInstallScheduleType";
     };
     /**
      * The deserialization information for the current model

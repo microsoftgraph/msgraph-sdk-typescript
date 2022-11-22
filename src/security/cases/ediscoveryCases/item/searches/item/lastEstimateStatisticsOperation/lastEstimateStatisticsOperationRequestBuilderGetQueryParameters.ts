@@ -1,5 +1,5 @@
 
-/** The last estimate operation associated with the eDiscovery search. */
+/** Get the last  ediscoveryEstimateOperation objects and their properties. */
 export class LastEstimateStatisticsOperationRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

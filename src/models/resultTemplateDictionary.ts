@@ -7,7 +7,6 @@ export class ResultTemplateDictionary extends Dictionary implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.resultTemplateDictionary";
     };
     /**
      * The deserialization information for the current model

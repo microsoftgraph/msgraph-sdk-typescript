@@ -52,7 +52,6 @@ export class DeviceCompliancePolicySettingState implements AdditionalDataHolder,
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.deviceCompliancePolicySettingState";
     };
     /**
      * Gets the currentValue property value. Current value of setting on device

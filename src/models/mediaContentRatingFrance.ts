@@ -30,7 +30,6 @@ export class MediaContentRatingFrance implements AdditionalDataHolder, Parsable 
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.mediaContentRatingFrance";
     };
     /**
      * The deserialization information for the current model

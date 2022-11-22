@@ -153,7 +153,6 @@ export class PolicyRoot extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.policyRoot";
     };
     /**
      * Gets the crossTenantAccessPolicy property value. The custom rules that define an access scenario when interacting with external Azure AD tenants.

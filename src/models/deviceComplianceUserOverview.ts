@@ -35,7 +35,6 @@ export class DeviceComplianceUserOverview extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceComplianceUserOverview";
     };
     /**
      * Gets the errorCount property value. Number of error Users

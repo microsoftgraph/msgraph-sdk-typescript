@@ -42,7 +42,6 @@ export class DeviceManagementExchangeConnector extends Entity implements Parsabl
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceManagementExchangeConnector";
     };
     /**
      * Gets the exchangeAlias property value. An alias assigned to the Exchange server

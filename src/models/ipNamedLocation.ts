@@ -12,7 +12,6 @@ export class IpNamedLocation extends NamedLocation implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.ipNamedLocation";
     };
     /**
      * The deserialization information for the current model

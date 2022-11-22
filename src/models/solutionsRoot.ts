@@ -59,7 +59,6 @@ export class SolutionsRoot implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.solutionsRoot";
     };
     /**
      * The deserialization information for the current model

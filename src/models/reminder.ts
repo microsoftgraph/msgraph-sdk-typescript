@@ -57,7 +57,6 @@ export class Reminder implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.reminder";
     };
     /**
      * Gets the eventEndTime property value. The date, time and time zone that the event ends.

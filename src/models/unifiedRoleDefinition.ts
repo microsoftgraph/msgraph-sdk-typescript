@@ -27,7 +27,6 @@ export class UnifiedRoleDefinition extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.unifiedRoleDefinition";
     };
     /**
      * Gets the description property value. The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true.

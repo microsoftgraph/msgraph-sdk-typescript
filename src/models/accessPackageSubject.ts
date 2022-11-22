@@ -37,7 +37,6 @@ export class AccessPackageSubject extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.accessPackageSubject";
     };
     /**
      * Gets the displayName property value. The display name of the subject.

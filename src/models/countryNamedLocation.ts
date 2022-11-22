@@ -14,7 +14,6 @@ export class CountryNamedLocation extends NamedLocation implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.countryNamedLocation";
     };
     /**
      * Gets the countriesAndRegions property value. List of countries and/or regions in two-letter format specified by ISO 3166-2. Required.

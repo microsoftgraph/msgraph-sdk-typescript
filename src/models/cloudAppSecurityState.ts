@@ -30,7 +30,6 @@ export class CloudAppSecurityState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.cloudAppSecurityState";
     };
     /**
      * Gets the destinationServiceIp property value. Destination IP Address of the connection to the cloud application/service.

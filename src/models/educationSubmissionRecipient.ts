@@ -24,7 +24,6 @@ export class EducationSubmissionRecipient implements AdditionalDataHolder, Parsa
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.educationSubmissionRecipient";
     };
     /**
      * The deserialization information for the current model

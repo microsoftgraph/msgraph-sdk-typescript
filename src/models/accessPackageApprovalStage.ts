@@ -42,7 +42,6 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.accessPackageApprovalStage";
     };
     /**
      * Gets the durationBeforeAutomaticDenial property value. The number of days that a request can be pending a response before it is automatically denied.

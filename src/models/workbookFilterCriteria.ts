@@ -57,7 +57,6 @@ export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.workbookFilterCriteria";
     };
     /**
      * Gets the criterion1 property value. The criterion1 property

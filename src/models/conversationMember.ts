@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class ConversationMember extends Entity implements Parsable {
     /** The display name of the user. */
     private _displayName?: string | undefined;
@@ -14,7 +14,6 @@ export class ConversationMember extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.conversationMember";
     };
     /**
      * Gets the displayName property value. The display name of the user.

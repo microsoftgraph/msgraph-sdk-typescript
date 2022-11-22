@@ -28,7 +28,7 @@ export class SubscribeToToneRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action subscribeToTone
+     * Subscribe to DTMF (dual-tone multi-frequency signaling). This allows you to be notified when the user presses keys on a 'dialpad'.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -48,7 +48,7 @@ export class SubscribeToToneRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action subscribeToTone
+     * Subscribe to DTMF (dual-tone multi-frequency signaling). This allows you to be notified when the user presses keys on a 'dialpad'.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -63,6 +63,6 @@ export class SubscribeToToneRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<SubscribeToToneOperation>(requestInfo, createSubscribeToToneOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SubscribeToToneOperation>(requestInfo, createSubscribeToToneOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

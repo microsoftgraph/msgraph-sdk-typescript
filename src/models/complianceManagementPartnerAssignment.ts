@@ -29,7 +29,6 @@ export class ComplianceManagementPartnerAssignment implements AdditionalDataHold
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.complianceManagementPartnerAssignment";
     };
     /**
      * The deserialization information for the current model

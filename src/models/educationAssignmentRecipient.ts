@@ -24,7 +24,6 @@ export class EducationAssignmentRecipient implements AdditionalDataHolder, Parsa
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.educationAssignmentRecipient";
     };
     /**
      * The deserialization information for the current model

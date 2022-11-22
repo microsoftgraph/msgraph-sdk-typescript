@@ -5,11 +5,11 @@ export class X509CertificateUserBinding implements AdditionalDataHolder, Parsabl
     private _additionalData: Record<string, unknown>;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The priority property */
+    /** The priority of the binding. Azure AD uses the binding with the highest priority. This value must be a non-negative integer and unique in the collection of objects in the certificateUserBindings property of an x509CertificateAuthenticationMethodConfiguration object. Required */
     private _priority?: number | undefined;
-    /** The userProperty property */
+    /** Defines the Azure AD user property of the user object to use for the binding. The possible values are: userPrincipalName, onPremisesUserPrincipalName, certificateUserIds. Required. */
     private _userProperty?: string | undefined;
-    /** The x509CertificateField property */
+    /** The field on the X.509 certificate to use for the binding. The possible values are: PrincipalName, RFC822Name, SubjectKeyIdentifier, SHA1PublicKey. */
     private _x509CertificateField?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -30,7 +30,6 @@ export class X509CertificateUserBinding implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.x509CertificateUserBinding";
     };
     /**
      * The deserialization information for the current model
@@ -59,14 +58,14 @@ export class X509CertificateUserBinding implements AdditionalDataHolder, Parsabl
         this._odataType = value;
     };
     /**
-     * Gets the priority property value. The priority property
+     * Gets the priority property value. The priority of the binding. Azure AD uses the binding with the highest priority. This value must be a non-negative integer and unique in the collection of objects in the certificateUserBindings property of an x509CertificateAuthenticationMethodConfiguration object. Required
      * @returns a integer
      */
     public get priority() {
         return this._priority;
     };
     /**
-     * Sets the priority property value. The priority property
+     * Sets the priority property value. The priority of the binding. Azure AD uses the binding with the highest priority. This value must be a non-negative integer and unique in the collection of objects in the certificateUserBindings property of an x509CertificateAuthenticationMethodConfiguration object. Required
      * @param value Value to set for the priority property.
      */
     public set priority(value: number | undefined) {
@@ -85,28 +84,28 @@ export class X509CertificateUserBinding implements AdditionalDataHolder, Parsabl
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the userProperty property value. The userProperty property
+     * Gets the userProperty property value. Defines the Azure AD user property of the user object to use for the binding. The possible values are: userPrincipalName, onPremisesUserPrincipalName, certificateUserIds. Required.
      * @returns a string
      */
     public get userProperty() {
         return this._userProperty;
     };
     /**
-     * Sets the userProperty property value. The userProperty property
+     * Sets the userProperty property value. Defines the Azure AD user property of the user object to use for the binding. The possible values are: userPrincipalName, onPremisesUserPrincipalName, certificateUserIds. Required.
      * @param value Value to set for the userProperty property.
      */
     public set userProperty(value: string | undefined) {
         this._userProperty = value;
     };
     /**
-     * Gets the x509CertificateField property value. The x509CertificateField property
+     * Gets the x509CertificateField property value. The field on the X.509 certificate to use for the binding. The possible values are: PrincipalName, RFC822Name, SubjectKeyIdentifier, SHA1PublicKey.
      * @returns a string
      */
     public get x509CertificateField() {
         return this._x509CertificateField;
     };
     /**
-     * Sets the x509CertificateField property value. The x509CertificateField property
+     * Sets the x509CertificateField property value. The field on the X.509 certificate to use for the binding. The possible values are: PrincipalName, RFC822Name, SubjectKeyIdentifier, SHA1PublicKey.
      * @param value Value to set for the x509CertificateField property.
      */
     public set x509CertificateField(value: string | undefined) {

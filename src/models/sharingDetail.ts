@@ -13,7 +13,7 @@ export class SharingDetail implements AdditionalDataHolder, Parsable {
     /** The date and time the file was last shared. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _sharedDateTime?: Date | undefined;
     /** The sharingReference property */
-    private _sharingReference?: ResourceReference | undefined;
+    private readonly _sharingReference?: ResourceReference | undefined;
     /** The subject with which the document was shared. */
     private _sharingSubject?: string | undefined;
     /** Determines the way the document was shared, can be by a 'Link', 'Attachment', 'Group', 'Site'. */
@@ -37,7 +37,6 @@ export class SharingDetail implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.sharingDetail";
     };
     /**
      * The deserialization information for the current model
@@ -76,7 +75,6 @@ export class SharingDetail implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<InsightIdentity>("sharedBy", this.sharedBy);
         writer.writeDateValue("sharedDateTime", this.sharedDateTime);
-        writer.writeObjectValue<ResourceReference>("sharingReference", this.sharingReference);
         writer.writeStringValue("sharingSubject", this.sharingSubject);
         writer.writeStringValue("sharingType", this.sharingType);
         writer.writeAdditionalData(this.additionalData);

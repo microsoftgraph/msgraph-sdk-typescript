@@ -1,4 +1,4 @@
-import {Identity, Initiator, ProvisionedIdentity, ProvisioningServicePrincipal, ProvisioningSystem, ServicePrincipalIdentity, SharePointIdentity, TeamworkApplicationIdentity, TeamworkConversationIdentity, TeamworkTagIdentity, TeamworkUserIdentity, UserIdentity} from './index';
+import {EmailIdentity, Identity, Initiator, ProvisionedIdentity, ProvisioningServicePrincipal, ProvisioningSystem, ServicePrincipalIdentity, SharePointIdentity, TeamworkApplicationIdentity, TeamworkConversationIdentity, TeamworkTagIdentity, TeamworkUserIdentity, UserIdentity} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) : Identity {
@@ -8,6 +8,8 @@ export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | unde
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
+                case "#microsoft.graph.emailIdentity":
+                    return new EmailIdentity();
                 case "#microsoft.graph.initiator":
                     return new Initiator();
                 case "#microsoft.graph.provisionedIdentity":

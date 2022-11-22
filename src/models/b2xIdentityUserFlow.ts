@@ -36,7 +36,6 @@ export class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.b2xIdentityUserFlow";
     };
     /**
      * The deserialization information for the current model

@@ -56,7 +56,6 @@ export class ComplianceManagementPartner extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.complianceManagementPartner";
     };
     /**
      * Gets the displayName property value. Partner display name

@@ -30,7 +30,6 @@ export class AccessReviewNotificationRecipientItem implements AdditionalDataHold
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.accessReviewNotificationRecipientItem";
     };
     /**
      * The deserialization information for the current model

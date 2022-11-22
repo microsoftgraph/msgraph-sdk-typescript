@@ -5,7 +5,7 @@ import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 export class DirectoryObjectItemRequestBuilder {
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The Ref property */
+    /** Provides operations to manage the collection of identityGovernance entities. */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }

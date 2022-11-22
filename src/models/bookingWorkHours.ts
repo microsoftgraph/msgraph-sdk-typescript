@@ -32,7 +32,6 @@ export class BookingWorkHours implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.bookingWorkHours";
     };
     /**
      * Gets the day property value. The day property

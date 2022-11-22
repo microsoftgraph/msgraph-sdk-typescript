@@ -30,7 +30,6 @@ export class MediaContentRatingNewZealand implements AdditionalDataHolder, Parsa
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.mediaContentRatingNewZealand";
     };
     /**
      * The deserialization information for the current model

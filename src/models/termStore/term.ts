@@ -44,7 +44,6 @@ export class Term extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.termStore.term";
     };
     /**
      * Gets the createdDateTime property value. Date and time of term creation. Read-only.

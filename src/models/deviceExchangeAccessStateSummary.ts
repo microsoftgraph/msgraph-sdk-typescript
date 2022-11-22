@@ -63,7 +63,6 @@ export class DeviceExchangeAccessStateSummary implements AdditionalDataHolder, P
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.deviceExchangeAccessStateSummary";
     };
     /**
      * The deserialization information for the current model

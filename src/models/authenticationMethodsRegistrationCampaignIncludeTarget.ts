@@ -31,7 +31,6 @@ export class AuthenticationMethodsRegistrationCampaignIncludeTarget implements A
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.authenticationMethodsRegistrationCampaignIncludeTarget";
     };
     /**
      * The deserialization information for the current model

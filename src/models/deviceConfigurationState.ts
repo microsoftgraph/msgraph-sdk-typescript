@@ -23,7 +23,6 @@ export class DeviceConfigurationState extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceConfigurationState";
     };
     /**
      * Gets the displayName property value. The name of the policy for this policyBase

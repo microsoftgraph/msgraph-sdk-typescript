@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of externalConnection entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum Label {
     Title = "title",
     Url = "url",

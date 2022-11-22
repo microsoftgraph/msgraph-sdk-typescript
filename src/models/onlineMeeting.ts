@@ -10,7 +10,7 @@ import {MeetingChatMode} from './meetingChatMode';
 import {OnlineMeetingPresenters} from './onlineMeetingPresenters';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class OnlineMeeting extends Entity implements Parsable {
     /** Indicates whether attendees can turn on their camera. */
     private _allowAttendeeToEnableCamera?: boolean | undefined;
@@ -203,7 +203,6 @@ export class OnlineMeeting extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.onlineMeeting";
     };
     /**
      * Gets the creationDateTime property value. The meeting creation time in UTC. Read-only.

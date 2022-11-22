@@ -19,7 +19,6 @@ export class LongRunningOperation extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.longRunningOperation";
     };
     /**
      * Gets the createdDateTime property value. The start time of the operation.

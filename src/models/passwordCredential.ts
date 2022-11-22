@@ -38,7 +38,6 @@ export class PasswordCredential implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.passwordCredential";
     };
     /**
      * Gets the customKeyIdentifier property value. Do not use.

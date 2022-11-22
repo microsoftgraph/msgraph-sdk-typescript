@@ -21,19 +21,19 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the drive singleton. */
 export class DriveRequestBuilder {
-    /** The bundles property */
+    /** Provides operations to manage the bundles property of the microsoft.graph.drive entity. */
     public get bundles(): BundlesRequestBuilder {
         return new BundlesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The following property */
+    /** Provides operations to manage the following property of the microsoft.graph.drive entity. */
     public get following(): FollowingRequestBuilder {
         return new FollowingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The items property */
+    /** Provides operations to manage the items property of the microsoft.graph.drive entity. */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The list property */
+    /** Provides operations to manage the list property of the microsoft.graph.drive entity. */
     public get list(): ListRequestBuilder {
         return new ListRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -41,18 +41,18 @@ export class DriveRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The root property */
+    /** Provides operations to manage the root property of the microsoft.graph.drive entity. */
     public get root(): RootRequestBuilder {
         return new RootRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The special property */
+    /** Provides operations to manage the special property of the microsoft.graph.drive entity. */
     public get special(): SpecialRequestBuilder {
         return new SpecialRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.bundles.item collection
+     * Provides operations to manage the bundles property of the microsoft.graph.drive entity.
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
@@ -105,6 +105,7 @@ export class DriveRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -113,7 +114,7 @@ export class DriveRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.following.item collection
+     * Provides operations to manage the following property of the microsoft.graph.drive entity.
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
@@ -137,10 +138,10 @@ export class DriveRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Drive>(requestInfo, createDriveFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Drive>(requestInfo, createDriveFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.items.item collection
+     * Provides operations to manage the items property of the microsoft.graph.drive entity.
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
@@ -155,8 +156,9 @@ export class DriveRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Drive
      */
-    public patch(body: Drive | undefined, requestConfiguration?: DriveRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Drive | undefined, requestConfiguration?: DriveRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Drive | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -165,7 +167,7 @@ export class DriveRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Drive>(requestInfo, createDriveFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Provides operations to call the recent method.
@@ -191,7 +193,7 @@ export class DriveRequestBuilder {
         return new SharedWithMeRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.special.item collection
+     * Provides operations to manage the special property of the microsoft.graph.drive entity.
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */

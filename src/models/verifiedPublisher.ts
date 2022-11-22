@@ -44,7 +44,6 @@ export class VerifiedPublisher implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.verifiedPublisher";
     };
     /**
      * Gets the displayName property value. The verified publisher name from the app publisher's Partner Center account.

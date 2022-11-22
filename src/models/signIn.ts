@@ -10,7 +10,7 @@ import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class SignIn extends Entity implements Parsable {
     /** App name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only). */
     private _appDisplayName?: string | undefined;
@@ -133,7 +133,6 @@ export class SignIn extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.signIn";
     };
     /**
      * Gets the correlationId property value. The request ID sent from the client when the sign-in is initiated; used to troubleshoot sign-in activity. Supports $filter (eq operator only).

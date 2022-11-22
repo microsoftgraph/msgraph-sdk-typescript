@@ -8,7 +8,7 @@ export class PlannerPlanContainer implements AdditionalDataHolder, Parsable {
     private _containerId?: string | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The type property */
+    /** The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster. */
     private _type?: PlannerContainerType | undefined;
     /** The full canonical URL of the container. */
     private _url?: string | undefined;
@@ -31,7 +31,6 @@ export class PlannerPlanContainer implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.plannerPlanContainer";
     };
     /**
      * Gets the containerId property value. The identifier of the resource that contains the plan.
@@ -86,14 +85,14 @@ export class PlannerPlanContainer implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. The type property
+     * Gets the type property value. The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.
      * @returns a plannerContainerType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The type property
+     * Sets the type property value. The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.
      * @param value Value to set for the type property.
      */
     public set type(value: PlannerContainerType | undefined) {

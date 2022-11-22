@@ -74,7 +74,6 @@ export class DefaultUserRolePermissions implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.defaultUserRolePermissions";
     };
     /**
      * The deserialization information for the current model

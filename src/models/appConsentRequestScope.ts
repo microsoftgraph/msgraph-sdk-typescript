@@ -26,7 +26,6 @@ export class AppConsentRequestScope implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.appConsentRequestScope";
     };
     /**
      * Gets the displayName property value. The name of the scope.

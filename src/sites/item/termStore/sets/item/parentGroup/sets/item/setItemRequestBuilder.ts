@@ -15,26 +15,26 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the sets property of the microsoft.graph.termStore.group entity. */
 export class SetItemRequestBuilder {
-    /** The children property */
+    /** Provides operations to manage the children property of the microsoft.graph.termStore.set entity. */
     public get children(): ChildrenRequestBuilder {
         return new ChildrenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The relations property */
+    /** Provides operations to manage the relations property of the microsoft.graph.termStore.set entity. */
     public get relations(): RelationsRequestBuilder {
         return new RelationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The terms property */
+    /** Provides operations to manage the terms property of the microsoft.graph.termStore.set entity. */
     public get terms(): TermsRequestBuilder {
         return new TermsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.termStore.sets.item.parentGroup.sets.item.children.item collection
+     * Provides operations to manage the children property of the microsoft.graph.termStore.set entity.
      * @param id Unique identifier of the item
      * @returns a TermItemRequestBuilder
      */
@@ -103,6 +103,7 @@ export class SetItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -123,7 +124,7 @@ export class SetItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * All sets under the group in a term [store].
@@ -139,15 +140,16 @@ export class SetItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Set>(requestInfo, createSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Set>(requestInfo, createSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property sets in sites
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Set
      */
-    public patch(body: Set | undefined, requestConfiguration?: SetItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Set | undefined, requestConfiguration?: SetItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Set | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -156,10 +158,10 @@ export class SetItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Set>(requestInfo, createSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.termStore.sets.item.parentGroup.sets.item.relations.item collection
+     * Provides operations to manage the relations property of the microsoft.graph.termStore.set entity.
      * @param id Unique identifier of the item
      * @returns a RelationItemRequestBuilder
      */
@@ -170,7 +172,7 @@ export class SetItemRequestBuilder {
         return new RelationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.termStore.sets.item.parentGroup.sets.item.terms.item collection
+     * Provides operations to manage the terms property of the microsoft.graph.termStore.set entity.
      * @param id Unique identifier of the item
      * @returns a TermItemRequestBuilder
      */

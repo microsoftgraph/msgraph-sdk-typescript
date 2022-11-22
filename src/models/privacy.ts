@@ -28,7 +28,6 @@ export class Privacy implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.privacy";
     };
     /**
      * The deserialization information for the current model

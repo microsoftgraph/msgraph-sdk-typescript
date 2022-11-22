@@ -26,7 +26,6 @@ export class LicenseProcessingState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.licenseProcessingState";
     };
     /**
      * The deserialization information for the current model

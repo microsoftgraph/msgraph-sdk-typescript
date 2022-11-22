@@ -30,7 +30,6 @@ export class FileSystemInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.fileSystemInfo";
     };
     /**
      * Gets the createdDateTime property value. The UTC date and time the file was created on a client.

@@ -27,7 +27,6 @@ export class EducationSubmissionResource extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.educationSubmissionResource";
     };
     /**
      * The deserialization information for the current model

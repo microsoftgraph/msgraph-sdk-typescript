@@ -1,14 +1,17 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Apple push notification certificate. */
 export class ApplePushNotificationCertificate extends Entity implements Parsable {
     /** Apple Id of the account used to create the MDM push certificate. */
     private _appleIdentifier?: string | undefined;
     /** Not yet documented */
     private _certificate?: string | undefined;
     /** Certificate serial number. This property is read-only. */
-    private _certificateSerialNumber?: string | undefined;
+    private readonly _certificateSerialNumber?: string | undefined;
+    /** The reason the certificate upload failed. */
+    private _certificateUploadFailureReason?: string | undefined;
+    /** The certificate upload status. */
+    private _certificateUploadStatus?: string | undefined;
     /** The expiration date and time for Apple push notification certificate. */
     private _expirationDateTime?: Date | undefined;
     /** Last modified date and time for Apple push notification certificate. */
@@ -58,11 +61,38 @@ export class ApplePushNotificationCertificate extends Entity implements Parsable
         this._certificateSerialNumber = value;
     };
     /**
+     * Gets the certificateUploadFailureReason property value. The reason the certificate upload failed.
+     * @returns a string
+     */
+    public get certificateUploadFailureReason() {
+        return this._certificateUploadFailureReason;
+    };
+    /**
+     * Sets the certificateUploadFailureReason property value. The reason the certificate upload failed.
+     * @param value Value to set for the certificateUploadFailureReason property.
+     */
+    public set certificateUploadFailureReason(value: string | undefined) {
+        this._certificateUploadFailureReason = value;
+    };
+    /**
+     * Gets the certificateUploadStatus property value. The certificate upload status.
+     * @returns a string
+     */
+    public get certificateUploadStatus() {
+        return this._certificateUploadStatus;
+    };
+    /**
+     * Sets the certificateUploadStatus property value. The certificate upload status.
+     * @param value Value to set for the certificateUploadStatus property.
+     */
+    public set certificateUploadStatus(value: string | undefined) {
+        this._certificateUploadStatus = value;
+    };
+    /**
      * Instantiates a new applePushNotificationCertificate and sets the default values.
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.applePushNotificationCertificate";
     };
     /**
      * Gets the expirationDateTime property value. The expiration date and time for Apple push notification certificate.
@@ -87,6 +117,8 @@ export class ApplePushNotificationCertificate extends Entity implements Parsable
             "appleIdentifier": n => { this.appleIdentifier = n.getStringValue(); },
             "certificate": n => { this.certificate = n.getStringValue(); },
             "certificateSerialNumber": n => { this.certificateSerialNumber = n.getStringValue(); },
+            "certificateUploadFailureReason": n => { this.certificateUploadFailureReason = n.getStringValue(); },
+            "certificateUploadStatus": n => { this.certificateUploadStatus = n.getStringValue(); },
             "expirationDateTime": n => { this.expirationDateTime = n.getDateValue(); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "topicIdentifier": n => { this.topicIdentifier = n.getStringValue(); },
@@ -115,7 +147,8 @@ export class ApplePushNotificationCertificate extends Entity implements Parsable
         super.serialize(writer);
         writer.writeStringValue("appleIdentifier", this.appleIdentifier);
         writer.writeStringValue("certificate", this.certificate);
-        writer.writeStringValue("certificateSerialNumber", this.certificateSerialNumber);
+        writer.writeStringValue("certificateUploadFailureReason", this.certificateUploadFailureReason);
+        writer.writeStringValue("certificateUploadStatus", this.certificateUploadStatus);
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeStringValue("topicIdentifier", this.topicIdentifier);

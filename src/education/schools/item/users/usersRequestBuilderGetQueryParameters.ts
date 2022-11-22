@@ -1,5 +1,5 @@
 
-/** Users in the school. Nullable. */
+/** Get the educationUser resources associated with an educationSchool. */
 export class UsersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

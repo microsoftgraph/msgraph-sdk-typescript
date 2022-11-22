@@ -27,7 +27,7 @@ export class ChatRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The chat between the user and Teams app.
+     * Retrieve the chat of the specified user and Teams app.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -45,7 +45,7 @@ export class ChatRequestBuilder {
         return requestInfo;
     };
     /**
-     * The chat between the user and Teams app.
+     * Retrieve the chat of the specified user and Teams app.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Chat
@@ -58,6 +58,6 @@ export class ChatRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Chat>(requestInfo, createChatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Chat>(requestInfo, createChatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

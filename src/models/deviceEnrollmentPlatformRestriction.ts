@@ -33,7 +33,6 @@ export class DeviceEnrollmentPlatformRestriction implements AdditionalDataHolder
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.deviceEnrollmentPlatformRestriction";
     };
     /**
      * The deserialization information for the current model

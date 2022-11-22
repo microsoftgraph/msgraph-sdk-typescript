@@ -19,7 +19,6 @@ export class ManagedDeviceOverview extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.managedDeviceOverview";
     };
     /**
      * Gets the deviceExchangeAccessStateSummary property value. Distribution of Exchange Access State in Intune

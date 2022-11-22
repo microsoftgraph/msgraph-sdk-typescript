@@ -30,7 +30,6 @@ export class AlternativeSecurityId implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.alternativeSecurityId";
     };
     /**
      * The deserialization information for the current model

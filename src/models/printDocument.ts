@@ -14,7 +14,6 @@ export class PrintDocument extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.printDocument";
     };
     /**
      * Gets the contentType property value. The document's content (MIME) type. Read-only.

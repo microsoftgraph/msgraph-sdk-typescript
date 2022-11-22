@@ -28,7 +28,6 @@ export class ConditionalAccessLocations implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.conditionalAccessLocations";
     };
     /**
      * Gets the excludeLocations property value. Location IDs excluded from scope of policy.

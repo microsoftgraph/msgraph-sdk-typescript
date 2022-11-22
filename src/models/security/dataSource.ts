@@ -3,7 +3,7 @@ import {createIdentitySetFromDiscriminatorValue} from '../createIdentitySetFromD
 import {DataSourceHoldStatus} from './dataSourceHoldStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class DataSource extends Entity implements Parsable {
     /** The user who created the dataSource. */
     private _createdBy?: IdentitySet | undefined;
@@ -18,7 +18,6 @@ export class DataSource extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.security.dataSource";
     };
     /**
      * Gets the createdBy property value. The user who created the dataSource.

@@ -8,6 +8,7 @@ import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFrom
 import {AccessReviewInstance, AccessReviewNotificationRecipientItem, AccessReviewReviewerScope, AccessReviewScheduleSettings, AccessReviewScope, AccessReviewStageSettings, Entity, UserIdentity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class AccessReviewScheduleDefinition extends Entity implements Parsable {
     /** Defines the list of additional users or group members to be notified of the access review progress. */
     private _additionalNotificationRecipients?: AccessReviewNotificationRecipientItem[] | undefined;
@@ -54,11 +55,10 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
         this._additionalNotificationRecipients = value;
     };
     /**
-     * Instantiates a new AccessReviewScheduleDefinition and sets the default values.
+     * Instantiates a new accessReviewScheduleDefinition and sets the default values.
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.accessReviewScheduleDefinition";
     };
     /**
      * Gets the createdBy property value. User who created this review. Read-only.

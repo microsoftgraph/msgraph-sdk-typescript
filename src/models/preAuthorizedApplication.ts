@@ -42,7 +42,6 @@ export class PreAuthorizedApplication implements AdditionalDataHolder, Parsable 
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.preAuthorizedApplication";
     };
     /**
      * Gets the delegatedPermissionIds property value. The unique identifier for the oauth2PermissionScopes the application requires.

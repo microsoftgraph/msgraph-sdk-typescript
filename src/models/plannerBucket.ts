@@ -17,7 +17,6 @@ export class PlannerBucket extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.plannerBucket";
     };
     /**
      * The deserialization information for the current model

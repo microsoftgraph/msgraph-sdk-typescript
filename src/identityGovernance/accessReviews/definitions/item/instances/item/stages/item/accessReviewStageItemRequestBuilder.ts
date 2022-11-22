@@ -12,7 +12,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity. */
 export class AccessReviewStageItemRequestBuilder {
-    /** The decisions property */
+    /** Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity. */
     public get decisions(): DecisionsRequestBuilder {
         return new DecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -20,7 +20,7 @@ export class AccessReviewStageItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The stop property */
+    /** Provides operations to call the stop method. */
     public get stop(): StopRequestBuilder {
         return new StopRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -85,6 +85,7 @@ export class AccessReviewStageItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -93,7 +94,7 @@ export class AccessReviewStageItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.accessReviews.definitions.item.instances.item.stages.item.decisions.item collection
+     * Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.
      * @param id Unique identifier of the item
      * @returns a AccessReviewInstanceDecisionItemItemRequestBuilder
      */
@@ -116,7 +117,7 @@ export class AccessReviewStageItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * If the instance has multiple stages, this returns the collection of stages. A new stage will only be created when the previous stage ends. The existence, number, and settings of stages on a review instance are created based on the accessReviewStageSettings on the parent accessReviewScheduleDefinition.
@@ -132,15 +133,16 @@ export class AccessReviewStageItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AccessReviewStage>(requestInfo, createAccessReviewStageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessReviewStage>(requestInfo, createAccessReviewStageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property stages in identityGovernance
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of AccessReviewStage
      */
-    public patch(body: AccessReviewStage | undefined, requestConfiguration?: AccessReviewStageItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AccessReviewStage | undefined, requestConfiguration?: AccessReviewStageItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewStage | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -149,6 +151,6 @@ export class AccessReviewStageItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessReviewStage>(requestInfo, createAccessReviewStageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

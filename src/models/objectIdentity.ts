@@ -30,7 +30,6 @@ export class ObjectIdentity implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.objectIdentity";
     };
     /**
      * The deserialization information for the current model

@@ -15,7 +15,6 @@ export class GroupSetting extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.groupSetting";
     };
     /**
      * Gets the displayName property value. Display name of this group of settings, which comes from the associated template.

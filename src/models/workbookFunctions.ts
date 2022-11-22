@@ -7,7 +7,6 @@ export class WorkbookFunctions extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookFunctions";
     };
     /**
      * The deserialization information for the current model

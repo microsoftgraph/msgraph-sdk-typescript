@@ -31,7 +31,6 @@ export class ScheduleEntity implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.scheduleEntity";
     };
     /**
      * Gets the endDateTime property value. The endDateTime property

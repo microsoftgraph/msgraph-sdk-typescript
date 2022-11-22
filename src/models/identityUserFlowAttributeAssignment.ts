@@ -4,7 +4,7 @@ import {IdentityUserFlowAttributeInputType} from './identityUserFlowAttributeInp
 import {Entity, IdentityUserFlowAttribute, UserAttributeValuesItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class IdentityUserFlowAttributeAssignment extends Entity implements Parsable {
     /** The display name of the identityUserFlowAttribute within a user flow. */
     private _displayName?: string | undefined;
@@ -23,7 +23,6 @@ export class IdentityUserFlowAttributeAssignment extends Entity implements Parsa
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.identityUserFlowAttributeAssignment";
     };
     /**
      * Gets the displayName property value. The display name of the identityUserFlowAttribute within a user flow.

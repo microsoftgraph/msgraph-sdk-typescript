@@ -24,7 +24,6 @@ export class ContentApprovalStatusColumn implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.contentApprovalStatusColumn";
     };
     /**
      * The deserialization information for the current model

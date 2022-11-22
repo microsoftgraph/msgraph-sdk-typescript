@@ -74,7 +74,6 @@ export class AppConfigurationSettingItem implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.appConfigurationSettingItem";
     };
     /**
      * The deserialization information for the current model

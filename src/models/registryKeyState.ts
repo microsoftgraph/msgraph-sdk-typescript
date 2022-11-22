@@ -47,7 +47,6 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.registryKeyState";
     };
     /**
      * The deserialization information for the current model

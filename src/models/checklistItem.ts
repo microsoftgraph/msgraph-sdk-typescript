@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class ChecklistItem extends Entity implements Parsable {
     /** The date and time when the checklistItem was finished. */
     private _checkedDateTime?: Date | undefined;
@@ -30,7 +30,6 @@ export class ChecklistItem extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.checklistItem";
     };
     /**
      * Gets the createdDateTime property value. The date and time when the checklistItem was created.

@@ -28,7 +28,6 @@ export class LocalizedDescription implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.termStore.localizedDescription";
     };
     /**
      * Gets the description property value. The description in the localized language.

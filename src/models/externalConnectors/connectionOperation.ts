@@ -3,7 +3,7 @@ import {createPublicErrorFromDiscriminatorValue} from '../createPublicErrorFromD
 import {ConnectionOperationStatus} from './connectionOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of externalConnection entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class ConnectionOperation extends Entity implements Parsable {
     /** If status is failed, provides more information about the error that caused the failure. */
     private _error_escaped?: PublicError | undefined;
@@ -14,7 +14,6 @@ export class ConnectionOperation extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.externalConnectors.connectionOperation";
     };
     /**
      * Gets the error property value. If status is failed, provides more information about the error that caused the failure.

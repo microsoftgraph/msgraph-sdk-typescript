@@ -1,5 +1,5 @@
 
-/** Get ref of tokenLifetimePolicies from applications */
+/** List the tokenLifetimePolicy objects that are assigned to an application. */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

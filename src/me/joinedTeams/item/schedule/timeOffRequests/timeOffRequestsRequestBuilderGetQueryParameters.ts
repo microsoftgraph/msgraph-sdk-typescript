@@ -1,5 +1,5 @@
 
-/** Get timeOffRequests from me */
+/** Retrieve a list of timeOffRequest objects in the team. */
 export class TimeOffRequestsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

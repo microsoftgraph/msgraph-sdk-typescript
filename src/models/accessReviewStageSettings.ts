@@ -40,7 +40,6 @@ export class AccessReviewStageSettings implements AdditionalDataHolder, Parsable
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.accessReviewStageSettings";
     };
     /**
      * Gets the decisionsThatWillMoveToNextStage property value. Indicate which decisions will go to the next stage. Can be a sub-set of Approve, Deny, Recommendation, or NotReviewed. If not provided, all decisions will go to the next stage. Optional.

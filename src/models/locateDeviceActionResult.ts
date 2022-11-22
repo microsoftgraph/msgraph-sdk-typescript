@@ -10,7 +10,6 @@ export class LocateDeviceActionResult extends DeviceActionResult implements Pars
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.locateDeviceActionResult";
     };
     /**
      * Gets the deviceLocation property value. device location

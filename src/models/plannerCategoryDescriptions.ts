@@ -424,7 +424,6 @@ export class PlannerCategoryDescriptions implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.plannerCategoryDescriptions";
     };
     /**
      * The deserialization information for the current model

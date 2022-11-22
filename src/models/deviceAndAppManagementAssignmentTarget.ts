@@ -25,7 +25,6 @@ export class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHol
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.deviceAndAppManagementAssignmentTarget";
     };
     /**
      * The deserialization information for the current model

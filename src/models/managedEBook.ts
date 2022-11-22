@@ -53,7 +53,6 @@ export class ManagedEBook extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.managedEBook";
     };
     /**
      * Gets the createdDateTime property value. The date and time when the eBook file was created.

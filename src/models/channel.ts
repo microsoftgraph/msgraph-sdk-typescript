@@ -40,7 +40,6 @@ export class Channel extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.channel";
     };
     /**
      * Gets the createdDateTime property value. Read only. Timestamp at which the channel was created.

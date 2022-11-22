@@ -15,7 +15,6 @@ export class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleI
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.unifiedRoleEligibilityScheduleInstance";
     };
     /**
      * Gets the endDateTime property value. The end date of the schedule instance.

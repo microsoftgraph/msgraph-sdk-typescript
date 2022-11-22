@@ -3,7 +3,7 @@ import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWor
 import {Entity, Json, WorkbookWorksheet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class WorkbookNamedItem extends Entity implements Parsable {
     /** Represents the comment associated with this name. */
     private _comment?: string | undefined;
@@ -38,7 +38,6 @@ export class WorkbookNamedItem extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookNamedItem";
     };
     /**
      * The deserialization information for the current model

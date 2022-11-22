@@ -19,7 +19,6 @@ export class DeviceConfigurationUserStatus extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceConfigurationUserStatus";
     };
     /**
      * Gets the devicesCount property value. Devices count for that user.

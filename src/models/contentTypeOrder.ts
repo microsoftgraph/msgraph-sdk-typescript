@@ -28,7 +28,6 @@ export class ContentTypeOrder implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.contentTypeOrder";
     };
     /**
      * Gets the default property value. Whether this is the default Content Type

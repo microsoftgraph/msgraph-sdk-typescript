@@ -30,7 +30,6 @@ export class Win32LobAppReturnCode implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.win32LobAppReturnCode";
     };
     /**
      * The deserialization information for the current model

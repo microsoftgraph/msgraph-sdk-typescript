@@ -34,7 +34,6 @@ export class EducationCourse implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.educationCourse";
     };
     /**
      * Gets the courseNumber property value. Unique identifier for the course.

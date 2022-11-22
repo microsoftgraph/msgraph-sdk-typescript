@@ -46,7 +46,6 @@ export class ManagedAppPolicyDeploymentSummary extends Entity implements Parsabl
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.managedAppPolicyDeploymentSummary";
     };
     /**
      * Gets the displayName property value. Not yet documented

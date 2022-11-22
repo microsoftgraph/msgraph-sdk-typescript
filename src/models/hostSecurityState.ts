@@ -42,7 +42,6 @@ export class HostSecurityState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.hostSecurityState";
     };
     /**
      * Gets the fqdn property value. Host FQDN (Fully Qualified Domain Name) (for example, machine.company.com).

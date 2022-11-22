@@ -56,7 +56,6 @@ export class ActivityHistoryItem extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.activityHistoryItem";
     };
     /**
      * Gets the createdDateTime property value. Set by the server. DateTime in UTC when the object was created on the server.

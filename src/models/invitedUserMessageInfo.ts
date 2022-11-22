@@ -46,7 +46,6 @@ export class InvitedUserMessageInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.invitedUserMessageInfo";
     };
     /**
      * Gets the customizedMessageBody property value. Customized message body you want to send if you don't want the default message.

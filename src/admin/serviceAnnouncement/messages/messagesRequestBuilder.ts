@@ -16,23 +16,23 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity. */
 export class MessagesRequestBuilder {
-    /** The archive property */
+    /** Provides operations to call the archive method. */
     public get archive(): ArchiveRequestBuilder {
         return new ArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The Count property */
+    /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The favorite property */
+    /** Provides operations to call the favorite method. */
     public get favorite(): FavoriteRequestBuilder {
         return new FavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The markRead property */
+    /** Provides operations to call the markRead method. */
     public get markRead(): MarkReadRequestBuilder {
         return new MarkReadRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The markUnread property */
+    /** Provides operations to call the markUnread method. */
     public get markUnread(): MarkUnreadRequestBuilder {
         return new MarkUnreadRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -40,11 +40,11 @@ export class MessagesRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The unarchive property */
+    /** Provides operations to call the unarchive method. */
     public get unarchive(): UnarchiveRequestBuilder {
         return new UnarchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The unfavorite property */
+    /** Provides operations to call the unfavorite method. */
     public get unfavorite(): UnfavoriteRequestBuilder {
         return new UnfavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -58,13 +58,13 @@ export class MessagesRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/admin/serviceAnnouncement/messages{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}";
+        this.urlTemplate = "{+baseurl}/admin/serviceAnnouncement/messages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
+     * Retrieve the serviceUpdateMessage resources from the **messages** navigation property. This operation retrieves all service update messages that exist for the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +102,7 @@ export class MessagesRequestBuilder {
         return requestInfo;
     };
     /**
-     * A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
+     * Retrieve the serviceUpdateMessage resources from the **messages** navigation property. This operation retrieves all service update messages that exist for the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServiceUpdateMessageCollectionResponse
@@ -115,7 +115,7 @@ export class MessagesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ServiceUpdateMessageCollectionResponse>(requestInfo, createServiceUpdateMessageCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ServiceUpdateMessageCollectionResponse>(requestInfo, createServiceUpdateMessageCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Create new navigation property to messages for admin
@@ -133,6 +133,6 @@ export class MessagesRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ServiceUpdateMessage>(requestInfo, createServiceUpdateMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ServiceUpdateMessage>(requestInfo, createServiceUpdateMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

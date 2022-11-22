@@ -16,15 +16,15 @@ export class TeamsAppInstallationItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The teamsApp property */
+    /** Provides operations to manage the teamsApp property of the microsoft.graph.teamsAppInstallation entity. */
     public get teamsApp(): TeamsAppRequestBuilder {
         return new TeamsAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The teamsAppDefinition property */
+    /** Provides operations to manage the teamsAppDefinition property of the microsoft.graph.teamsAppInstallation entity. */
     public get teamsAppDefinition(): TeamsAppDefinitionRequestBuilder {
         return new TeamsAppDefinitionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The upgrade property */
+    /** Provides operations to call the upgrade method. */
     public get upgrade(): UpgradeRequestBuilder {
         return new UpgradeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -89,6 +89,7 @@ export class TeamsAppInstallationItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -109,7 +110,7 @@ export class TeamsAppInstallationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * The apps installed in this team.
@@ -125,15 +126,16 @@ export class TeamsAppInstallationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TeamsAppInstallation>(requestInfo, createTeamsAppInstallationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TeamsAppInstallation>(requestInfo, createTeamsAppInstallationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property installedApps in groups
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of TeamsAppInstallation
      */
-    public patch(body: TeamsAppInstallation | undefined, requestConfiguration?: TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: TeamsAppInstallation | undefined, requestConfiguration?: TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsAppInstallation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -142,6 +144,6 @@ export class TeamsAppInstallationItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TeamsAppInstallation>(requestInfo, createTeamsAppInstallationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

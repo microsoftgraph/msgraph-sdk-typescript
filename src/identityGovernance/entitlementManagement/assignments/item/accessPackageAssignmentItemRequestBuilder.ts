@@ -13,23 +13,23 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity. */
 export class AccessPackageAssignmentItemRequestBuilder {
-    /** The accessPackage property */
+    /** Provides operations to manage the accessPackage property of the microsoft.graph.accessPackageAssignment entity. */
     public get accessPackage(): AccessPackageRequestBuilder {
         return new AccessPackageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The assignmentPolicy property */
+    /** Provides operations to manage the assignmentPolicy property of the microsoft.graph.accessPackageAssignment entity. */
     public get assignmentPolicy(): AssignmentPolicyRequestBuilder {
         return new AssignmentPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The reprocess property */
+    /** Provides operations to call the reprocess method. */
     public get reprocess(): ReprocessRequestBuilder {
         return new ReprocessRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The target property */
+    /** Provides operations to manage the target property of the microsoft.graph.accessPackageAssignment entity. */
     public get target(): TargetRequestBuilder {
         return new TargetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -94,6 +94,7 @@ export class AccessPackageAssignmentItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -114,7 +115,7 @@ export class AccessPackageAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * The assignment of an access package to a subject for a period of time.
@@ -130,15 +131,16 @@ export class AccessPackageAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<AccessPackageAssignment>(requestInfo, createAccessPackageAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessPackageAssignment>(requestInfo, createAccessPackageAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property assignments in identityGovernance
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of AccessPackageAssignment
      */
-    public patch(body: AccessPackageAssignment | undefined, requestConfiguration?: AccessPackageAssignmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AccessPackageAssignment | undefined, requestConfiguration?: AccessPackageAssignmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -147,6 +149,6 @@ export class AccessPackageAssignmentItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessPackageAssignment>(requestInfo, createAccessPackageAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

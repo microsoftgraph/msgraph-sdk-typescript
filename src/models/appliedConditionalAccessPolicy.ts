@@ -35,7 +35,6 @@ export class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Par
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.appliedConditionalAccessPolicy";
     };
     /**
      * Gets the displayName property value. Refers to the Name of the conditional access policy (example: 'Require MFA for Salesforce').

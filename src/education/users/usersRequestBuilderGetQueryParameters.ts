@@ -1,5 +1,5 @@
 
-/** Get users from education */
+/** Get a list of the educationUser objects and their properties. */
 export class UsersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

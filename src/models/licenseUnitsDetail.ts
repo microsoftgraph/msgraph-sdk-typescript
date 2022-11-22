@@ -30,7 +30,6 @@ export class LicenseUnitsDetail implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.licenseUnitsDetail";
     };
     /**
      * Gets the enabled property value. The number of units that are enabled for the active subscription of the service SKU.

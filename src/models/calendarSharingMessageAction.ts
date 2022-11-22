@@ -61,7 +61,6 @@ export class CalendarSharingMessageAction implements AdditionalDataHolder, Parsa
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.calendarSharingMessageAction";
     };
     /**
      * The deserialization information for the current model

@@ -32,7 +32,6 @@ export class BookingReminder implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.bookingReminder";
     };
     /**
      * The deserialization information for the current model

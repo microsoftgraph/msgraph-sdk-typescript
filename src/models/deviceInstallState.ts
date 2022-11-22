@@ -25,7 +25,6 @@ export class DeviceInstallState extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceInstallState";
     };
     /**
      * Gets the deviceId property value. Device Id.

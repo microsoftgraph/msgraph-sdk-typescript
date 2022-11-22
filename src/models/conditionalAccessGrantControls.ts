@@ -47,7 +47,6 @@ export class ConditionalAccessGrantControls implements AdditionalDataHolder, Par
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.conditionalAccessGrantControls";
     };
     /**
      * Gets the customAuthenticationFactors property value. List of custom controls IDs required by the policy. For more information, see Custom controls.

@@ -33,7 +33,6 @@ export class EntitlementManagementSchedule implements AdditionalDataHolder, Pars
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.entitlementManagementSchedule";
     };
     /**
      * Gets the expiration property value. When the access should expire.

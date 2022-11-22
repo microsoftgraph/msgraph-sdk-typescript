@@ -122,7 +122,6 @@ export class DirectRoutingLogRow implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.callRecords.directRoutingLogRow";
     };
     /**
      * Gets the correlationId property value. Identifier for the call that you can use when calling Microsoft Support. GUID.

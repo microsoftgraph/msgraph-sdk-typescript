@@ -32,7 +32,6 @@ export class Hashes implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.hashes";
     };
     /**
      * Gets the crc32Hash property value. The CRC32 value of the file in little endian (if available). Read-only.

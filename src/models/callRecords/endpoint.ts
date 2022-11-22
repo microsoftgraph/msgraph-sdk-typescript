@@ -28,7 +28,6 @@ export class Endpoint implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.callRecords.endpoint";
     };
     /**
      * The deserialization information for the current model

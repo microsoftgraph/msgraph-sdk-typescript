@@ -32,7 +32,6 @@ export class AddIn implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.addIn";
     };
     /**
      * The deserialization information for the current model

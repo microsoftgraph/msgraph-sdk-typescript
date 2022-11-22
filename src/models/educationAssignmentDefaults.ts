@@ -45,7 +45,6 @@ export class EducationAssignmentDefaults extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.educationAssignmentDefaults";
     };
     /**
      * Gets the dueTime property value. Class-level default value for due time field. Default value is 23:59:00.

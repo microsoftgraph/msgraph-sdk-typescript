@@ -42,7 +42,6 @@ export class TimeZoneInformation implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.timeZoneInformation";
     };
     /**
      * Gets the displayName property value. A display string that represents the time zone.

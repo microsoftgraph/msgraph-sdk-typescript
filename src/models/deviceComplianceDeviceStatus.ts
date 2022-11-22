@@ -37,7 +37,6 @@ export class DeviceComplianceDeviceStatus extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceComplianceDeviceStatus";
     };
     /**
      * Gets the deviceDisplayName property value. Device name of the DevicePolicyStatus.

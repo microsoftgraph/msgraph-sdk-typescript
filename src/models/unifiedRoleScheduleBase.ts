@@ -62,7 +62,6 @@ export class UnifiedRoleScheduleBase extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.unifiedRoleScheduleBase";
     };
     /**
      * Gets the createdDateTime property value. When the schedule was created.

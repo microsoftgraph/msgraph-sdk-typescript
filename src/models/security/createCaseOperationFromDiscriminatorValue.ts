@@ -1,4 +1,4 @@
-import {CaseOperation, EdiscoveryAddToReviewSetOperation, EdiscoveryEstimateOperation, EdiscoveryHoldOperation, EdiscoveryIndexOperation, EdiscoveryTagOperation} from './index';
+import {CaseOperation, EdiscoveryAddToReviewSetOperation, EdiscoveryEstimateOperation, EdiscoveryHoldOperation, EdiscoveryIndexOperation, EdiscoveryPurgeDataOperation, EdiscoveryTagOperation} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createCaseOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : CaseOperation {
@@ -16,6 +16,8 @@ export function createCaseOperationFromDiscriminatorValue(parseNode: ParseNode |
                     return new EdiscoveryHoldOperation();
                 case "#microsoft.graph.security.ediscoveryIndexOperation":
                     return new EdiscoveryIndexOperation();
+                case "#microsoft.graph.security.ediscoveryPurgeDataOperation":
+                    return new EdiscoveryPurgeDataOperation();
                 case "#microsoft.graph.security.ediscoveryTagOperation":
                     return new EdiscoveryTagOperation();
             }

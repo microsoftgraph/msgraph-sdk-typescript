@@ -14,15 +14,15 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the collection of agreement entities. */
 export class AgreementItemRequestBuilder {
-    /** The acceptances property */
+    /** Provides operations to manage the acceptances property of the microsoft.graph.agreement entity. */
     public get acceptances(): AcceptancesRequestBuilder {
         return new AcceptancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The file property */
+    /** Provides operations to manage the file property of the microsoft.graph.agreement entity. */
     public get file(): FileRequestBuilder {
         return new FileRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The files property */
+    /** Provides operations to manage the files property of the microsoft.graph.agreement entity. */
     public get files(): FilesRequestBuilder {
         return new FilesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -33,7 +33,7 @@ export class AgreementItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.agreements.item.acceptances.item collection
+     * Provides operations to manage the acceptances property of the microsoft.graph.agreement entity.
      * @param id Unique identifier of the item
      * @returns a AgreementAcceptanceItemRequestBuilder
      */
@@ -102,6 +102,7 @@ export class AgreementItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -122,10 +123,10 @@ export class AgreementItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.agreements.item.files.item collection
+     * Provides operations to manage the files property of the microsoft.graph.agreement entity.
      * @param id Unique identifier of the item
      * @returns a AgreementFileLocalizationItemRequestBuilder
      */
@@ -149,15 +150,16 @@ export class AgreementItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update entity in agreements
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Agreement
      */
-    public patch(body: Agreement | undefined, requestConfiguration?: AgreementItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Agreement | undefined, requestConfiguration?: AgreementItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Agreement | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -166,6 +168,6 @@ export class AgreementItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

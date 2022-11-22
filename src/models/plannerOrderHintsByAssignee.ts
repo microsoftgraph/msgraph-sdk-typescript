@@ -24,7 +24,6 @@ export class PlannerOrderHintsByAssignee implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.plannerOrderHintsByAssignee";
     };
     /**
      * The deserialization information for the current model

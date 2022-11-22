@@ -32,7 +32,6 @@ export class SiteCollection implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.siteCollection";
     };
     /**
      * Gets the dataLocationCode property value. The geographic region code for where this site collection resides. Read-only.

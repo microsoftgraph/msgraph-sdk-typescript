@@ -28,7 +28,6 @@ export class IntegerRange implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.integerRange";
     };
     /**
      * Gets the end property value. The inclusive upper bound of the integer range.

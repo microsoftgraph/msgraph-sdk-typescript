@@ -15,7 +15,6 @@ export class ImportedWindowsAutopilotDeviceIdentityUpload extends Entity impleme
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.importedWindowsAutopilotDeviceIdentityUpload";
     };
     /**
      * Gets the createdDateTimeUtc property value. DateTime when the entity is created.

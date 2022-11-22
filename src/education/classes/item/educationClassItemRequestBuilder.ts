@@ -22,27 +22,27 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the classes property of the microsoft.graph.educationRoot entity. */
 export class EducationClassItemRequestBuilder {
-    /** The assignmentCategories property */
+    /** Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity. */
     public get assignmentCategories(): AssignmentCategoriesRequestBuilder {
         return new AssignmentCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The assignmentDefaults property */
+    /** Provides operations to manage the assignmentDefaults property of the microsoft.graph.educationClass entity. */
     public get assignmentDefaults(): AssignmentDefaultsRequestBuilder {
         return new AssignmentDefaultsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The assignments property */
+    /** Provides operations to manage the assignments property of the microsoft.graph.educationClass entity. */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The assignmentSettings property */
+    /** Provides operations to manage the assignmentSettings property of the microsoft.graph.educationClass entity. */
     public get assignmentSettings(): AssignmentSettingsRequestBuilder {
         return new AssignmentSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The group property */
+    /** Provides operations to manage the group property of the microsoft.graph.educationClass entity. */
     public get group(): GroupRequestBuilder {
         return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The members property */
+    /** Provides operations to manage the members property of the microsoft.graph.educationClass entity. */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -50,18 +50,18 @@ export class EducationClassItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The schools property */
+    /** Provides operations to manage the schools property of the microsoft.graph.educationClass entity. */
     public get schools(): SchoolsRequestBuilder {
         return new SchoolsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The teachers property */
+    /** Provides operations to manage the teachers property of the microsoft.graph.educationClass entity. */
     public get teachers(): TeachersRequestBuilder {
         return new TeachersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.classes.item.assignmentCategories.item collection
+     * Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity.
      * @param id Unique identifier of the item
      * @returns a EducationCategoryItemRequestBuilder
      */
@@ -72,7 +72,7 @@ export class EducationClassItemRequestBuilder {
         return new EducationCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.classes.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.educationClass entity.
      * @param id Unique identifier of the item
      * @returns a EducationAssignmentItemRequestBuilder
      */
@@ -141,6 +141,7 @@ export class EducationClassItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -161,7 +162,7 @@ export class EducationClassItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Get classes from education
@@ -177,7 +178,7 @@ export class EducationClassItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EducationClass>(requestInfo, createEducationClassFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationClass>(requestInfo, createEducationClassFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.classes.item.members.item collection
@@ -195,8 +196,9 @@ export class EducationClassItemRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of EducationClass
      */
-    public patch(body: EducationClass | undefined, requestConfiguration?: EducationClassItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: EducationClass | undefined, requestConfiguration?: EducationClassItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationClass | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -205,10 +207,10 @@ export class EducationClassItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationClass>(requestInfo, createEducationClassFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.classes.item.schools.item collection
+     * Provides operations to manage the schools property of the microsoft.graph.educationClass entity.
      * @param id Unique identifier of the item
      * @returns a EducationSchoolItemRequestBuilder
      */

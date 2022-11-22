@@ -10,7 +10,6 @@ export class OnenoteEntityBaseModel extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.onenoteEntityBaseModel";
     };
     /**
      * The deserialization information for the current model

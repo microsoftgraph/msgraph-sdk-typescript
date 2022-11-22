@@ -78,7 +78,6 @@ export class WindowsFirewallNetworkProfile implements AdditionalDataHolder, Pars
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.windowsFirewallNetworkProfile";
     };
     /**
      * Gets the firewallEnabled property value. State Management Setting.

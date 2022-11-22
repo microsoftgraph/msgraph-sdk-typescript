@@ -12,7 +12,6 @@ export class DeviceManagementTroubleshootingEvent extends Entity implements Pars
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceManagementTroubleshootingEvent";
     };
     /**
      * Gets the correlationId property value. Id used for tracing the failure in the service.

@@ -27,7 +27,7 @@ export class TranslateExchangeIdsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Invoke action translateExchangeIds
+     * Translate identifiers of Outlook-related resources between formats.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -47,7 +47,7 @@ export class TranslateExchangeIdsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Invoke action translateExchangeIds
+     * Translate identifiers of Outlook-related resources between formats.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -62,6 +62,6 @@ export class TranslateExchangeIdsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TranslateExchangeIdsResponse>(requestInfo, createTranslateExchangeIdsResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TranslateExchangeIdsResponse>(requestInfo, createTranslateExchangeIdsResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

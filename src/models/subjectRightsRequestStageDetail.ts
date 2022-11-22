@@ -34,7 +34,6 @@ export class SubjectRightsRequestStageDetail implements AdditionalDataHolder, Pa
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.subjectRightsRequestStageDetail";
     };
     /**
      * Gets the error property value. Describes the error, if any, for the current stage.

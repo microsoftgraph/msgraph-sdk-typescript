@@ -31,7 +31,6 @@ export class ManagedAppDiagnosticStatus implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.managedAppDiagnosticStatus";
     };
     /**
      * The deserialization information for the current model

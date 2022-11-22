@@ -24,7 +24,6 @@ export class TeamworkNotificationRecipient implements AdditionalDataHolder, Pars
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.teamworkNotificationRecipient";
     };
     /**
      * The deserialization information for the current model

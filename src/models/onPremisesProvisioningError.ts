@@ -46,7 +46,6 @@ export class OnPremisesProvisioningError implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.onPremisesProvisioningError";
     };
     /**
      * The deserialization information for the current model

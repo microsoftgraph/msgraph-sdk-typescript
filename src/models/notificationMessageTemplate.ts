@@ -34,7 +34,6 @@ export class NotificationMessageTemplate extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.notificationMessageTemplate";
     };
     /**
      * Gets the defaultLocale property value. The default locale to fallback onto when the requested locale is not available.

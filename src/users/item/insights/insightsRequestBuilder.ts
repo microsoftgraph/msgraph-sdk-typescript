@@ -19,17 +19,17 @@ export class InsightsRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The shared property */
+    /** Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity. */
     public get shared(): SharedRequestBuilder {
         return new SharedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The trending property */
+    /** Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity. */
     public get trending(): TrendingRequestBuilder {
         return new TrendingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The used property */
+    /** Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity. */
     public get used(): UsedRequestBuilder {
         return new UsedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -92,6 +92,7 @@ export class InsightsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -112,7 +113,7 @@ export class InsightsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Get insights from users
@@ -128,15 +129,16 @@ export class InsightsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<OfficeGraphInsights>(requestInfo, createOfficeGraphInsightsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OfficeGraphInsights>(requestInfo, createOfficeGraphInsightsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the navigation property insights in users
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of OfficeGraphInsights
      */
-    public patch(body: OfficeGraphInsights | undefined, requestConfiguration?: InsightsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: OfficeGraphInsights | undefined, requestConfiguration?: InsightsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OfficeGraphInsights | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -145,10 +147,10 @@ export class InsightsRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OfficeGraphInsights>(requestInfo, createOfficeGraphInsightsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.insights.shared.item collection
+     * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
      * @param id Unique identifier of the item
      * @returns a SharedInsightItemRequestBuilder
      */
@@ -159,7 +161,7 @@ export class InsightsRequestBuilder {
         return new SharedInsightItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.insights.trending.item collection
+     * Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity.
      * @param id Unique identifier of the item
      * @returns a TrendingItemRequestBuilder
      */
@@ -170,7 +172,7 @@ export class InsightsRequestBuilder {
         return new TrendingItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.insights.used.item collection
+     * Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.
      * @param id Unique identifier of the item
      * @returns a UsedInsightItemRequestBuilder
      */

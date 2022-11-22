@@ -46,7 +46,6 @@ export class IdentitySet implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.identitySet";
     };
     /**
      * Gets the device property value. Optional. The device associated with this action.

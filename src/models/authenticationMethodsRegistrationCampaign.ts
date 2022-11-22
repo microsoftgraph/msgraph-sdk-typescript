@@ -36,7 +36,6 @@ export class AuthenticationMethodsRegistrationCampaign implements AdditionalData
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.authenticationMethodsRegistrationCampaign";
     };
     /**
      * Gets the excludeTargets property value. Users and groups of users that are excluded from being prompted to set up the authentication method.

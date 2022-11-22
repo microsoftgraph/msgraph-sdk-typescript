@@ -28,7 +28,6 @@ export class AssignedLabel implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.assignedLabel";
     };
     /**
      * Gets the displayName property value. The display name of the label. Read-only.

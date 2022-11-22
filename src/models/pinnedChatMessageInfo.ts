@@ -2,16 +2,15 @@ import {createChatMessageFromDiscriminatorValue} from './createChatMessageFromDi
 import {ChatMessage, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class PinnedChatMessageInfo extends Entity implements Parsable {
-    /** The message property */
+    /** Represents details about the chat message that is pinned. */
     private _message?: ChatMessage | undefined;
     /**
      * Instantiates a new pinnedChatMessageInfo and sets the default values.
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.pinnedChatMessageInfo";
     };
     /**
      * The deserialization information for the current model
@@ -23,14 +22,14 @@ export class PinnedChatMessageInfo extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the message property value. The message property
+     * Gets the message property value. Represents details about the chat message that is pinned.
      * @returns a chatMessage
      */
     public get message() {
         return this._message;
     };
     /**
-     * Sets the message property value. The message property
+     * Sets the message property value. Represents details about the chat message that is pinned.
      * @param value Value to set for the message property.
      */
     public set message(value: ChatMessage | undefined) {

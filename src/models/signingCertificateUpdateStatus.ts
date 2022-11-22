@@ -42,7 +42,6 @@ export class SigningCertificateUpdateStatus implements AdditionalDataHolder, Par
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.signingCertificateUpdateStatus";
     };
     /**
      * The deserialization information for the current model

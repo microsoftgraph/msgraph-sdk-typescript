@@ -26,7 +26,6 @@ export class SearchQuery implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.searchQuery";
     };
     /**
      * The deserialization information for the current model

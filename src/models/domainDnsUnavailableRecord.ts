@@ -9,7 +9,6 @@ export class DomainDnsUnavailableRecord extends DomainDnsRecord implements Parsa
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.domainDnsUnavailableRecord";
     };
     /**
      * Gets the description property value. Provides the reason why the DomainDnsUnavailableRecord entity is returned.

@@ -26,7 +26,6 @@ export class WorkbookChartDataLabels extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookChartDataLabels";
     };
     /**
      * Gets the format property value. Represents the format of chart data labels, which includes fill and font formatting. Read-only.

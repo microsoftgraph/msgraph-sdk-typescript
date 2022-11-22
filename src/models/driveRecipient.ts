@@ -44,7 +44,6 @@ export class DriveRecipient implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.driveRecipient";
     };
     /**
      * Gets the email property value. The email address for the recipient, if the recipient has an associated email address.

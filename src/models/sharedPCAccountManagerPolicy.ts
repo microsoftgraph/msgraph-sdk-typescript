@@ -62,7 +62,6 @@ export class SharedPCAccountManagerPolicy implements AdditionalDataHolder, Parsa
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.sharedPCAccountManagerPolicy";
     };
     /**
      * The deserialization information for the current model

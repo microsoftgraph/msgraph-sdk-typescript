@@ -20,23 +20,23 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the list property of the microsoft.graph.drive entity. */
 export class ListRequestBuilder {
-    /** The columns property */
+    /** Provides operations to manage the columns property of the microsoft.graph.list entity. */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The contentTypes property */
+    /** Provides operations to manage the contentTypes property of the microsoft.graph.list entity. */
     public get contentTypes(): ContentTypesRequestBuilder {
         return new ContentTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The drive property */
+    /** Provides operations to manage the drive property of the microsoft.graph.list entity. */
     public get drive(): DriveRequestBuilder {
         return new DriveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The items property */
+    /** Provides operations to manage the items property of the microsoft.graph.list entity. */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The operations property */
+    /** Provides operations to manage the operations property of the microsoft.graph.list entity. */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,14 +44,14 @@ export class ListRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The subscriptions property */
+    /** Provides operations to manage the subscriptions property of the microsoft.graph.list entity. */
     public get subscriptions(): SubscriptionsRequestBuilder {
         return new SubscriptionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.list.columns.item collection
+     * Provides operations to manage the columns property of the microsoft.graph.list entity.
      * @param id Unique identifier of the item
      * @returns a ColumnDefinitionItemRequestBuilder
      */
@@ -75,7 +75,7 @@ export class ListRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.list.contentTypes.item collection
+     * Provides operations to manage the contentTypes property of the microsoft.graph.list entity.
      * @param id Unique identifier of the item
      * @returns a ContentTypeItemRequestBuilder
      */
@@ -131,6 +131,7 @@ export class ListRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -151,7 +152,7 @@ export class ListRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * For drives in SharePoint, the underlying document library list. Read-only. Nullable.
@@ -167,10 +168,10 @@ export class ListRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<List>(requestInfo, createListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<List>(requestInfo, createListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.list.items.item collection
+     * Provides operations to manage the items property of the microsoft.graph.list entity.
      * @param id Unique identifier of the item
      * @returns a ListItemItemRequestBuilder
      */
@@ -181,7 +182,7 @@ export class ListRequestBuilder {
         return new ListItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.list.operations.item collection
+     * Provides operations to manage the operations property of the microsoft.graph.list entity.
      * @param id Unique identifier of the item
      * @returns a RichLongRunningOperationItemRequestBuilder
      */
@@ -196,8 +197,9 @@ export class ListRequestBuilder {
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of List
      */
-    public patch(body: List | undefined, requestConfiguration?: ListRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: List | undefined, requestConfiguration?: ListRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<List | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -206,10 +208,10 @@ export class ListRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<List>(requestInfo, createListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.drive.list.subscriptions.item collection
+     * Provides operations to manage the subscriptions property of the microsoft.graph.list entity.
      * @param id Unique identifier of the item
      * @returns a SubscriptionItemRequestBuilder
      */

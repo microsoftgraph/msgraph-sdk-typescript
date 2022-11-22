@@ -42,7 +42,6 @@ export class External implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.externalConnectors.external";
     };
     /**
      * The deserialization information for the current model

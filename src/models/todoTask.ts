@@ -11,7 +11,7 @@ import {AttachmentBase, AttachmentSession, ChecklistItem, DateTimeTimeZone, Enti
 import {TaskStatus} from './taskStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class TodoTask extends Entity implements Parsable {
     /** The attachments property */
     private _attachments?: AttachmentBase[] | undefined;
@@ -156,7 +156,6 @@ export class TodoTask extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.todoTask";
     };
     /**
      * Gets the createdDateTime property value. The date and time when the task was created. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.

@@ -4,7 +4,7 @@ import {createSecurityVendorInformationFromDiscriminatorValue} from './createSec
 import {AverageComparativeScore, ControlScore, Entity, SecurityVendorInformation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class SecureScore extends Entity implements Parsable {
     /** Active user count of the given tenant. */
     private _activeUserCount?: number | undefined;
@@ -73,7 +73,6 @@ export class SecureScore extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.secureScore";
     };
     /**
      * Gets the controlScores property value. Contains tenant scores for a set of controls.

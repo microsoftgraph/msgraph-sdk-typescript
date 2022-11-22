@@ -13,7 +13,7 @@ import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscrimi
 import {ChannelIdentity, ChatMessageAttachment, ChatMessageFromIdentitySet, ChatMessageHostedContent, ChatMessageMention, ChatMessagePolicyViolation, ChatMessageReaction, Entity, EventMessageDetail, ItemBody} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of chat entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class ChatMessage extends Entity implements Parsable {
     /** References to attached objects like files, tabs, meetings etc. */
     private _attachments?: ChatMessageAttachment[] | undefined;
@@ -122,7 +122,6 @@ export class ChatMessage extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.chatMessage";
     };
     /**
      * Gets the createdDateTime property value. Timestamp of when the chat message was created.

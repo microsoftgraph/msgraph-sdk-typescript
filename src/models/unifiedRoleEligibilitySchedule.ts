@@ -12,7 +12,6 @@ export class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase impl
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.unifiedRoleEligibilitySchedule";
     };
     /**
      * The deserialization information for the current model

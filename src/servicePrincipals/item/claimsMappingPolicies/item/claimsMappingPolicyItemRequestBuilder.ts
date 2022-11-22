@@ -5,7 +5,7 @@ import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 export class ClaimsMappingPolicyItemRequestBuilder {
     /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The Ref property */
+    /** Provides operations to manage the collection of servicePrincipal entities. */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }

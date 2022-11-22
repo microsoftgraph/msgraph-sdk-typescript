@@ -16,7 +16,6 @@ export class WindowsInformationProtectionAppLockerFile extends Entity implements
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.windowsInformationProtectionAppLockerFile";
     };
     /**
      * Gets the displayName property value. The friendly name

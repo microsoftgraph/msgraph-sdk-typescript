@@ -32,7 +32,6 @@ export class Pkcs12CertificateInformation implements AdditionalDataHolder, Parsa
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.pkcs12CertificateInformation";
     };
     /**
      * The deserialization information for the current model

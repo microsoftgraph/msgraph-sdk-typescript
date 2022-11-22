@@ -45,7 +45,6 @@ export class Windows10NetworkProxyServer implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.windows10NetworkProxyServer";
     };
     /**
      * Gets the exceptions property value. Addresses that should not use the proxy server. The system will not use the proxy server for addresses beginning with what is specified in this node.

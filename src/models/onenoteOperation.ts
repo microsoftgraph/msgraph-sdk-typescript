@@ -16,7 +16,6 @@ export class OnenoteOperation extends Operation implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.onenoteOperation";
     };
     /**
      * Gets the error property value. The error returned by the operation.

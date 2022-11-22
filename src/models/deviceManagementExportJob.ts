@@ -31,7 +31,6 @@ export class DeviceManagementExportJob extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceManagementExportJob";
     };
     /**
      * Gets the expirationDateTime property value. Time that the exported report expires

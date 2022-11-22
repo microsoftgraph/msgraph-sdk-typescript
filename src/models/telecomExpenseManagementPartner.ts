@@ -32,7 +32,6 @@ export class TelecomExpenseManagementPartner extends Entity implements Parsable 
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.telecomExpenseManagementPartner";
     };
     /**
      * Gets the displayName property value. Display name of the TEM partner.

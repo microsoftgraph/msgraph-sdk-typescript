@@ -58,7 +58,6 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.CopyNotebookModel";
     };
     /**
      * Gets the createdBy property value. The createdBy property

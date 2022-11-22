@@ -30,7 +30,6 @@ export class ServiceUpdateMessageViewpoint implements AdditionalDataHolder, Pars
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.serviceUpdateMessageViewpoint";
     };
     /**
      * The deserialization information for the current model

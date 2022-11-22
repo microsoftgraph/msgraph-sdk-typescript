@@ -8,7 +8,7 @@ import {ThreatCategory} from './threatCategory';
 import {ThreatExpectedAssessment} from './threatExpectedAssessment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class ThreatAssessmentRequest extends Entity implements Parsable {
     /** The category property */
     private _category?: ThreatCategory | undefined;
@@ -45,7 +45,6 @@ export class ThreatAssessmentRequest extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.threatAssessmentRequest";
     };
     /**
      * Gets the contentType property value. The content type of threat assessment. Possible values are: mail, url, file.

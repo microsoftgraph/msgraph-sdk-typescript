@@ -50,7 +50,6 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.licenseAssignmentState";
     };
     /**
      * Gets the disabledPlans property value. The disabledPlans property

@@ -50,7 +50,6 @@ export class AudioConferencing implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.audioConferencing";
     };
     /**
      * Gets the dialinUrl property value. A URL to the externally-accessible web page that contains dial-in information.

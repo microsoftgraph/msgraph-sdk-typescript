@@ -28,7 +28,6 @@ export class PrintCertificateSigningRequest implements AdditionalDataHolder, Par
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.printCertificateSigningRequest";
     };
     /**
      * Gets the content property value. A base64-encoded pkcs10 certificate request. Read-only.

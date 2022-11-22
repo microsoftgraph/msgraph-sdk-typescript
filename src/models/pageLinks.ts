@@ -30,7 +30,6 @@ export class PageLinks implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.pageLinks";
     };
     /**
      * The deserialization information for the current model

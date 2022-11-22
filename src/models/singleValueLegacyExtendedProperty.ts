@@ -1,7 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class SingleValueLegacyExtendedProperty extends Entity implements Parsable {
     /** A property value. */
     private _value?: string | undefined;
@@ -10,7 +10,6 @@ export class SingleValueLegacyExtendedProperty extends Entity implements Parsabl
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.singleValueLegacyExtendedProperty";
     };
     /**
      * The deserialization information for the current model

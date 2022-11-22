@@ -19,15 +19,15 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the collection of domain entities. */
 export class DomainItemRequestBuilder {
-    /** The domainNameReferences property */
+    /** Provides operations to manage the domainNameReferences property of the microsoft.graph.domain entity. */
     public get domainNameReferences(): DomainNameReferencesRequestBuilder {
         return new DomainNameReferencesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The federationConfiguration property */
+    /** Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity. */
     public get federationConfiguration(): FederationConfigurationRequestBuilder {
         return new FederationConfigurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The forceDelete property */
+    /** Provides operations to call the forceDelete method. */
     public get forceDelete(): ForceDeleteRequestBuilder {
         return new ForceDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -35,17 +35,17 @@ export class DomainItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The serviceConfigurationRecords property */
+    /** Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity. */
     public get serviceConfigurationRecords(): ServiceConfigurationRecordsRequestBuilder {
         return new ServiceConfigurationRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The verificationDnsRecords property */
+    /** Provides operations to manage the verificationDnsRecords property of the microsoft.graph.domain entity. */
     public get verificationDnsRecords(): VerificationDnsRecordsRequestBuilder {
         return new VerificationDnsRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The verify property */
+    /** Provides operations to call the verify method. */
     public get verify(): VerifyRequestBuilder {
         return new VerifyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -108,6 +108,7 @@ export class DomainItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = "application/json";
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -128,10 +129,10 @@ export class DomainItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.domains.item.domainNameReferences.item collection
+     * Provides operations to manage the domainNameReferences property of the microsoft.graph.domain entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
@@ -142,7 +143,7 @@ export class DomainItemRequestBuilder {
         return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.domains.item.federationConfiguration.item collection
+     * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
      * @param id Unique identifier of the item
      * @returns a InternalDomainFederationItemRequestBuilder
      */
@@ -166,15 +167,16 @@ export class DomainItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Domain>(requestInfo, createDomainFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Domain>(requestInfo, createDomainFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the properties of domain object.
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of Domain
      */
-    public patch(body: Domain | undefined, requestConfiguration?: DomainItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Domain | undefined, requestConfiguration?: DomainItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Domain | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration
@@ -183,10 +185,10 @@ export class DomainItemRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Domain>(requestInfo, createDomainFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.domains.item.serviceConfigurationRecords.item collection
+     * Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.
      * @param id Unique identifier of the item
      * @returns a DomainDnsRecordItemRequestBuilder
      */
@@ -197,7 +199,7 @@ export class DomainItemRequestBuilder {
         return new i645b7a6c2b2e75703879ecf7aedd6400ebb0b1e58a2b8a9feaf4bbea098347da(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.domains.item.verificationDnsRecords.item collection
+     * Provides operations to manage the verificationDnsRecords property of the microsoft.graph.domain entity.
      * @param id Unique identifier of the item
      * @returns a DomainDnsRecordItemRequestBuilder
      */

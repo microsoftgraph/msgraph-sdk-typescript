@@ -116,7 +116,6 @@ export class TeleconferenceDeviceQuality implements AdditionalDataHolder, Parsab
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.teleconferenceDeviceQuality";
     };
     /**
      * Gets the deviceDescription property value. Any additional description, such as VTC Bldg 30/21.

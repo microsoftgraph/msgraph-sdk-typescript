@@ -137,7 +137,6 @@ export class ContentType extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.contentType";
     };
     /**
      * Gets the description property value. The descriptive text for the item.

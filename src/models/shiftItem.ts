@@ -28,7 +28,6 @@ export class ShiftItem extends ScheduleEntity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.shiftItem";
     };
     /**
      * Gets the displayName property value. The shift label of the shiftItem.

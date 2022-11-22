@@ -28,7 +28,6 @@ export class AssignedLicense implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.assignedLicense";
     };
     /**
      * Gets the disabledPlans property value. A collection of the unique identifiers for plans that have been disabled.

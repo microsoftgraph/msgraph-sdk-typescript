@@ -28,7 +28,6 @@ export class GroupLifecyclePolicy extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.groupLifecyclePolicy";
     };
     /**
      * The deserialization information for the current model

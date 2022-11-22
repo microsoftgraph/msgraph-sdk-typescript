@@ -30,7 +30,6 @@ export class RubricQualityFeedbackModel implements AdditionalDataHolder, Parsabl
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.rubricQualityFeedbackModel";
     };
     /**
      * Gets the feedback property value. Specific feedback for one quality of this rubric.

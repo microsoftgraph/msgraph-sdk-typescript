@@ -36,7 +36,6 @@ export class ConditionalAccessUsers implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.conditionalAccessUsers";
     };
     /**
      * Gets the excludeGroups property value. Group IDs excluded from scope of policy.

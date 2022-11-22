@@ -45,7 +45,6 @@ export class DeviceComplianceSettingState extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.deviceComplianceSettingState";
     };
     /**
      * Gets the deviceId property value. The Device Id that is being reported

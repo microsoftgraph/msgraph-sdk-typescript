@@ -70,7 +70,6 @@ export class Photo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.photo";
     };
     /**
      * Gets the exposureDenominator property value. The denominator for the exposure time fraction from the camera. Read-only.

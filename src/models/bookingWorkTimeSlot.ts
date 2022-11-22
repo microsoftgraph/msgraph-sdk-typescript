@@ -28,7 +28,6 @@ export class BookingWorkTimeSlot implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.bookingWorkTimeSlot";
     };
     /**
      * Gets the endTime property value. The time of the day when work stops. For example, 17:00:00.0000000.

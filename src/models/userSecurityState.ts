@@ -83,7 +83,6 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.userSecurityState";
     };
     /**
      * Gets the domainName property value. NetBIOS/Active Directory domain of user account (that is, domain/account format).

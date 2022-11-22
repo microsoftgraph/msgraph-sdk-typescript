@@ -7,7 +7,6 @@ export class TeamworkBot extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.teamworkBot";
     };
     /**
      * The deserialization information for the current model

@@ -42,7 +42,6 @@ export class SelfSignedCertificate implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.selfSignedCertificate";
     };
     /**
      * Gets the customKeyIdentifier property value. The customKeyIdentifier property

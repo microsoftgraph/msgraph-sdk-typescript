@@ -6,8 +6,6 @@ export class ResetPasswordPostRequestBody implements AdditionalDataHolder, Parsa
     private _additionalData: Record<string, unknown>;
     /** The newPassword property */
     private _newPassword?: string | undefined;
-    /** The requireChangeOnNextSignIn property */
-    private _requireChangeOnNextSignIn?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -35,7 +33,6 @@ export class ResetPasswordPostRequestBody implements AdditionalDataHolder, Parsa
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "newPassword": n => { this.newPassword = n.getStringValue(); },
-            "requireChangeOnNextSignIn": n => { this.requireChangeOnNextSignIn = n.getBooleanValue(); },
         };
     };
     /**
@@ -53,27 +50,12 @@ export class ResetPasswordPostRequestBody implements AdditionalDataHolder, Parsa
         this._newPassword = value;
     };
     /**
-     * Gets the requireChangeOnNextSignIn property value. The requireChangeOnNextSignIn property
-     * @returns a boolean
-     */
-    public get requireChangeOnNextSignIn() {
-        return this._requireChangeOnNextSignIn;
-    };
-    /**
-     * Sets the requireChangeOnNextSignIn property value. The requireChangeOnNextSignIn property
-     * @param value Value to set for the requireChangeOnNextSignIn property.
-     */
-    public set requireChangeOnNextSignIn(value: boolean | undefined) {
-        this._requireChangeOnNextSignIn = value;
-    };
-    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("newPassword", this.newPassword);
-        writer.writeBooleanValue("requireChangeOnNextSignIn", this.requireChangeOnNextSignIn);
         writer.writeAdditionalData(this.additionalData);
     };
 }

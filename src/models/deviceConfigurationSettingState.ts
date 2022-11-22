@@ -52,7 +52,6 @@ export class DeviceConfigurationSettingState implements AdditionalDataHolder, Pa
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.deviceConfigurationSettingState";
     };
     /**
      * Gets the currentValue property value. Current value of setting on device

@@ -28,7 +28,6 @@ export class KeyValuePair implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.keyValuePair";
     };
     /**
      * The deserialization information for the current model

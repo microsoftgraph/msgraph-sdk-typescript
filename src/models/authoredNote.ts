@@ -29,7 +29,6 @@ export class AuthoredNote extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.authoredNote";
     };
     /**
      * Gets the content property value. The content of the note.

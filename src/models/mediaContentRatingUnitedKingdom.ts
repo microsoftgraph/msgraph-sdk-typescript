@@ -30,7 +30,6 @@ export class MediaContentRatingUnitedKingdom implements AdditionalDataHolder, Pa
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.mediaContentRatingUnitedKingdom";
     };
     /**
      * The deserialization information for the current model

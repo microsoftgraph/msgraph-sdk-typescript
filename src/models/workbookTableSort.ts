@@ -14,7 +14,6 @@ export class WorkbookTableSort extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.workbookTableSort";
     };
     /**
      * Gets the fields property value. Represents the current conditions used to last sort the table. Read-only.

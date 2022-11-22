@@ -31,7 +31,6 @@ export class RecordingInfo implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.recordingInfo";
     };
     /**
      * The deserialization information for the current model

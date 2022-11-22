@@ -10,7 +10,6 @@ export class PrintService extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.printService";
     };
     /**
      * Gets the endpoints property value. Endpoints that can be used to access the service. Read-only. Nullable.

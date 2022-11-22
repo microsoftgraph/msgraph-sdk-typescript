@@ -28,7 +28,6 @@ export class ConditionalAccessClientApplications implements AdditionalDataHolder
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.conditionalAccessClientApplications";
     };
     /**
      * Gets the excludeServicePrincipals property value. Service principal IDs excluded from the policy scope.

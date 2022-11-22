@@ -31,7 +31,6 @@ export class Win32LobAppInstallExperience implements AdditionalDataHolder, Parsa
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.win32LobAppInstallExperience";
     };
     /**
      * Gets the deviceRestartBehavior property value. Indicates the type of restart action.

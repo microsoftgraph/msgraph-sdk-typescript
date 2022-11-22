@@ -1,5 +1,5 @@
 
-/** A collection of serviceAnnouncementAttachments. */
+/** Get the list of attachments associated with a service message. */
 export class AttachmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

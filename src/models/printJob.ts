@@ -45,7 +45,6 @@ export class PrintJob extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.printJob";
     };
     /**
      * Gets the createdBy property value. The createdBy property

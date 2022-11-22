@@ -35,7 +35,6 @@ export class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity imp
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.managedDeviceMobileAppConfigurationDeviceSummary";
     };
     /**
      * Gets the errorCount property value. Number of error devices

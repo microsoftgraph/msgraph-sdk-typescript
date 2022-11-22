@@ -34,7 +34,6 @@ export class SharingInvitation implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.sharingInvitation";
     };
     /**
      * Gets the email property value. The email address provided for the recipient of the sharing invitation. Read-only.

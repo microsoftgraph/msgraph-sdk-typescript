@@ -228,7 +228,6 @@ export class DeviceHealthAttestationState implements AdditionalDataHolder, Parsa
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.deviceHealthAttestationState";
     };
     /**
      * Gets the contentNamespaceUrl property value. The DHA report version. (Namespace version)

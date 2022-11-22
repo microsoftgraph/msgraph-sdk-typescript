@@ -44,7 +44,6 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.accessPackageAssignmentReviewSettings";
     };
     /**
      * Gets the expirationBehavior property value. The default decision to apply if the access is not reviewed. The possible values are: keepAccess, removeAccess, acceptAccessRecommendation, unknownFutureValue.

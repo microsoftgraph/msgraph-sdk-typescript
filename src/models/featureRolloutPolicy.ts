@@ -3,7 +3,7 @@ import {DirectoryObject, Entity} from './index';
 import {StagedFeatureName} from './stagedFeatureName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class FeatureRolloutPolicy extends Entity implements Parsable {
     /** Nullable. Specifies a list of directoryObjects that feature is enabled for. */
     private _appliesTo?: DirectoryObject[] | undefined;
@@ -36,7 +36,6 @@ export class FeatureRolloutPolicy extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.featureRolloutPolicy";
     };
     /**
      * Gets the description property value. A description for this feature rollout policy.

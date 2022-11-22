@@ -2,7 +2,7 @@ import {createThumbnailFromDiscriminatorValue} from './createThumbnailFromDiscri
 import {Entity, Thumbnail} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the admin singleton. */
 export class ThumbnailSet extends Entity implements Parsable {
     /** A 1920x1920 scaled thumbnail. */
     private _large?: Thumbnail | undefined;
@@ -17,7 +17,6 @@ export class ThumbnailSet extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.thumbnailSet";
     };
     /**
      * The deserialization information for the current model

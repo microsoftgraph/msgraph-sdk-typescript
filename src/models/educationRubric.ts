@@ -8,9 +8,9 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class EducationRubric extends Entity implements Parsable {
     /** The user who created this resource. */
-    private _createdBy?: IdentitySet | undefined;
+    private readonly _createdBy?: IdentitySet | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    private _createdDateTime?: Date | undefined;
+    private readonly _createdDateTime?: Date | undefined;
     /** The description of this rubric. */
     private _description?: EducationItemBody | undefined;
     /** The name of this rubric. */
@@ -18,9 +18,9 @@ export class EducationRubric extends Entity implements Parsable {
     /** The grading type of this rubric -- null for a no-points rubric, or educationAssignmentPointsGradeType for a points rubric. */
     private _grading?: EducationAssignmentGradeType | undefined;
     /** The last user to modify the resource. */
-    private _lastModifiedBy?: IdentitySet | undefined;
+    private readonly _lastModifiedBy?: IdentitySet | undefined;
     /** Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    private _lastModifiedDateTime?: Date | undefined;
+    private readonly _lastModifiedDateTime?: Date | undefined;
     /** The collection of levels making up this rubric. */
     private _levels?: RubricLevel[] | undefined;
     /** The collection of qualities making up this rubric. */
@@ -30,7 +30,6 @@ export class EducationRubric extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.educationRubric";
     };
     /**
      * Gets the createdBy property value. The user who created this resource.
@@ -182,13 +181,9 @@ export class EducationRubric extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<IdentitySet>("createdBy", this.createdBy);
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeObjectValue<EducationItemBody>("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeObjectValue<EducationAssignmentGradeType>("grading", this.grading);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", this.lastModifiedBy);
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeCollectionOfObjectValues<RubricLevel>("levels", this.levels);
         writer.writeCollectionOfObjectValues<RubricQuality>("qualities", this.qualities);
     };

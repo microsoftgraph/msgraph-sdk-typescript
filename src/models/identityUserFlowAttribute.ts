@@ -17,7 +17,6 @@ export class IdentityUserFlowAttribute extends Entity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.identityUserFlowAttribute";
     };
     /**
      * Gets the dataType property value. The dataType property

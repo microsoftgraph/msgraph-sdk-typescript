@@ -9,7 +9,6 @@ export class TimeOffItem extends ScheduleEntity implements Parsable {
      */
     public constructor() {
         super();
-        this.odataType = "#microsoft.graph.timeOffItem";
     };
     /**
      * The deserialization information for the current model

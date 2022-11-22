@@ -26,7 +26,6 @@ export class SelfServiceSignUpAuthenticationFlowConfiguration implements Additio
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.selfServiceSignUpAuthenticationFlowConfiguration";
     };
     /**
      * The deserialization information for the current model

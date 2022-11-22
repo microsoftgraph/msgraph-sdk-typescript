@@ -1,5 +1,5 @@
 
-/** When set, enables users to easily find assignments of a given type.  Read-only. Nullable. */
+/** List all the categories associated with an assignment. */
 export class CategoriesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

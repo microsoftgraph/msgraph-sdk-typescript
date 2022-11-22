@@ -45,7 +45,6 @@ export class RgbColor implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.rgbColor";
     };
     /**
      * Gets the g property value. Green value

@@ -50,7 +50,6 @@ export class EducationRoot implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.educationRoot";
     };
     /**
      * The deserialization information for the current model

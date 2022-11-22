@@ -51,7 +51,6 @@ export class PublicError implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.publicError";
     };
     /**
      * Gets the details property value. Details of the error.

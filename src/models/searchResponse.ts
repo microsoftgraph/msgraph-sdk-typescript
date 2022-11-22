@@ -36,7 +36,6 @@ export class SearchResponse implements AdditionalDataHolder, Parsable {
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.searchResponse";
     };
     /**
      * The deserialization information for the current model

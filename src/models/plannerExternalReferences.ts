@@ -24,7 +24,6 @@ export class PlannerExternalReferences implements AdditionalDataHolder, Parsable
      */
     public constructor() {
         this._additionalData = {};
-        this.odataType = "#microsoft.graph.plannerExternalReferences";
     };
     /**
      * The deserialization information for the current model
