@@ -29,15 +29,15 @@ export class ExternalConnectionItemRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the schema property of the microsoft.graph.externalConnectors.externalConnection entity. */
     public get schema(): SchemaRequestBuilder {
         return new SchemaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Instantiates a new ExternalConnectionItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -41,13 +41,13 @@ export class EdiscoveryCaseItemRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the reopen method. */
     public get reopen(): ReopenRequestBuilder {
         return new ReopenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity. */
     public get reviewSets(): ReviewSetsRequestBuilder {
         return new ReviewSetsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -65,7 +65,7 @@ export class EdiscoveryCaseItemRequestBuilder {
         return new TagsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Instantiates a new EdiscoveryCaseItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

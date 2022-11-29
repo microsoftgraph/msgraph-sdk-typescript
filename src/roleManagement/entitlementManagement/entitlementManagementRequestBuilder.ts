@@ -26,9 +26,9 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 /** Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity. */
 export class EntitlementManagementRequestBuilder {
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity. */
     public get roleAssignments(): RoleAssignmentsRequestBuilder {
         return new RoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -62,7 +62,7 @@ export class EntitlementManagementRequestBuilder {
         return new RoleEligibilitySchedulesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Instantiates a new EntitlementManagementRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

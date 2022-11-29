@@ -70,7 +70,7 @@ export class ManagedDeviceItemRequestBuilder {
         return new LogoutSharedAppleDeviceActiveUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the rebootNow method. */
     public get rebootNow(): RebootNowRequestBuilder {
         return new RebootNowRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -84,7 +84,7 @@ export class ManagedDeviceItemRequestBuilder {
         return new RemoteLockRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to call the requestRemoteAssistance method. */
     public get requestRemoteAssistance(): RequestRemoteAssistanceRequestBuilder {
         return new RequestRemoteAssistanceRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -110,7 +110,7 @@ export class ManagedDeviceItemRequestBuilder {
         return new UpdateWindowsDeviceAccountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /** Provides operations to manage the users property of the microsoft.graph.managedDevice entity. */
     public get users(): UsersRequestBuilder {
         return new UsersRequestBuilder(this.pathParameters, this.requestAdapter);

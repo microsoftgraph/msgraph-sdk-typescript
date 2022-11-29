@@ -1,4 +1,4 @@
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum CalendarColor {
     Auto = "auto",
     LightBlue = "lightBlue",

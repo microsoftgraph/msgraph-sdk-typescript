@@ -1,4 +1,4 @@
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum StagedFeatureName {
     PassthroughAuthentication = "passthroughAuthentication",
     SeamlessSso = "seamlessSso",

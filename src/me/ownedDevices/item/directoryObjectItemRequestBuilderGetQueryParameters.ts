@@ -1,5 +1,5 @@
 
-/** Devices that are owned by the user. Read-only. Nullable. Supports $expand. */
+/** Devices that are owned by the user. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1). */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

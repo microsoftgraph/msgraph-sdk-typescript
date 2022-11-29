@@ -11,31 +11,31 @@ export class EducationSubmission extends Entity implements Parsable {
     /** The outcomes property */
     private _outcomes?: EducationOutcome[] | undefined;
     /** User who moved the status of this submission to reassigned. */
-    private readonly _reassignedBy?: IdentitySet | undefined;
+    private _reassignedBy?: IdentitySet | undefined;
     /** Moment in time when the submission was reassigned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    private readonly _reassignedDateTime?: Date | undefined;
+    private _reassignedDateTime?: Date | undefined;
     /** Who this submission is assigned to. */
     private _recipient?: EducationSubmissionRecipient | undefined;
     /** The resources property */
     private _resources?: EducationSubmissionResource[] | undefined;
     /** Folder where all file resources for this submission need to be stored. */
-    private readonly _resourcesFolderUrl?: string | undefined;
+    private _resourcesFolderUrl?: string | undefined;
     /** User who moved the status of this submission to returned. */
-    private readonly _returnedBy?: IdentitySet | undefined;
+    private _returnedBy?: IdentitySet | undefined;
     /** Moment in time when the submission was returned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    private readonly _returnedDateTime?: Date | undefined;
+    private _returnedDateTime?: Date | undefined;
     /** Read-only. Possible values are: working, submitted, released, returned, and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned. */
-    private readonly _status?: EducationSubmissionStatus | undefined;
+    private _status?: EducationSubmissionStatus | undefined;
     /** User who moved the resource into the submitted state. */
-    private readonly _submittedBy?: IdentitySet | undefined;
+    private _submittedBy?: IdentitySet | undefined;
     /** Moment in time when the submission was moved into the submitted state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    private readonly _submittedDateTime?: Date | undefined;
+    private _submittedDateTime?: Date | undefined;
     /** The submittedResources property */
     private _submittedResources?: EducationSubmissionResource[] | undefined;
     /** User who moved the resource from submitted into the working state. */
-    private readonly _unsubmittedBy?: IdentitySet | undefined;
+    private _unsubmittedBy?: IdentitySet | undefined;
     /** Moment in time when the submission was moved from submitted into the working state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    private readonly _unsubmittedDateTime?: Date | undefined;
+    private _unsubmittedDateTime?: Date | undefined;
     /**
      * Instantiates a new educationSubmission and sets the default values.
      */

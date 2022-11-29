@@ -1,4 +1,4 @@
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum ManagedAppClipboardSharingLevel {
     /** Sharing is allowed between all apps, managed or not */
     AllApps = "allApps",

@@ -1,2 +1,2 @@
-export * from './removeGroupResponse'
 export * from './removeGroupPostRequestBody'
+export * from './removeGroupResponse'

@@ -82,9 +82,9 @@ export class DeviceAppManagementRequestBuilder {
         return new MobileAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to call the syncMicrosoftStoreForBusinessApps method. */
     public get syncMicrosoftStoreForBusinessApps(): SyncMicrosoftStoreForBusinessAppsRequestBuilder {
         return new SyncMicrosoftStoreForBusinessAppsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -94,7 +94,7 @@ export class DeviceAppManagementRequestBuilder {
         return new TargetedManagedAppConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /** Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity. */
     public get vppTokens(): VppTokensRequestBuilder {
         return new VppTokensRequestBuilder(this.pathParameters, this.requestAdapter);

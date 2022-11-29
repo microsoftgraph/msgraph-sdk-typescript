@@ -2,7 +2,6 @@ import {createHomeRealmDiscoveryPolicyFromDiscriminatorValue} from './createHome
 import {BaseCollectionPaginationCountResponse, HomeRealmDiscoveryPolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.application entity. */
 export class HomeRealmDiscoveryPolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: HomeRealmDiscoveryPolicy[] | undefined;

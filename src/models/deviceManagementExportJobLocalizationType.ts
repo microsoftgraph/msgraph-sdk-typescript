@@ -1,4 +1,4 @@
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum DeviceManagementExportJobLocalizationType {
     /** Configures the export job to expose localized values as an additional column */
     LocalizedValuesAsAdditionalColumn = "localizedValuesAsAdditionalColumn",

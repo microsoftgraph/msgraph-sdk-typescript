@@ -44,15 +44,15 @@ export class EdiscoverySearchItemRequestBuilder {
         return new NoncustodialSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the purgeData method. */
     public get purgeData(): PurgeDataRequestBuilder {
         return new PurgeDataRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity.
      * @param id Unique identifier of the item

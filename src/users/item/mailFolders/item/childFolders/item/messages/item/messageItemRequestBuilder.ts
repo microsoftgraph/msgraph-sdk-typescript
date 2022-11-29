@@ -68,7 +68,7 @@ export class MessageItemRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the reply method. */
     public get reply(): ReplyRequestBuilder {
         return new ReplyRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -78,7 +78,7 @@ export class MessageItemRequestBuilder {
         return new ReplyAllRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to call the send method. */
     public get send(): SendRequestBuilder {
         return new SendRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -88,7 +88,7 @@ export class MessageItemRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Provides operations to manage the attachments property of the microsoft.graph.message entity.
      * @param id Unique identifier of the item

@@ -16,9 +16,9 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 /** Provides operations to manage the insights property of the microsoft.graph.user entity. */
 export class InsightsRequestBuilder {
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity. */
     public get shared(): SharedRequestBuilder {
         return new SharedRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -28,7 +28,7 @@ export class InsightsRequestBuilder {
         return new TrendingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /** Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity. */
     public get used(): UsedRequestBuilder {
         return new UsedRequestBuilder(this.pathParameters, this.requestAdapter);

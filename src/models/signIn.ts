@@ -10,7 +10,7 @@ import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class SignIn extends Entity implements Parsable {
     /** App name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only). */
     private _appDisplayName?: string | undefined;

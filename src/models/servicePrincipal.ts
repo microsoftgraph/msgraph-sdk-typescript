@@ -59,7 +59,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     private _displayName?: string | undefined;
     /** The endpoints property */
     private _endpoints?: Endpoint[] | undefined;
-    /** Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (eq when counting empty collections). */
+    /** Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (/$count eq 0, /$count ne 0). */
     private _federatedIdentityCredentials?: FederatedIdentityCredential[] | undefined;
     /** Home page or landing page of the application. */
     private _homepage?: string | undefined;
@@ -83,9 +83,9 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     private _oauth2PermissionGrants?: OAuth2PermissionGrant[] | undefined;
     /** The delegated permissions exposed by the application. For more information see the oauth2PermissionScopes property on the application entity's api property. Not nullable. */
     private _oauth2PermissionScopes?: PermissionScope[] | undefined;
-    /** Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand. */
+    /** Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1). */
     private _ownedObjects?: DirectoryObject[] | undefined;
-    /** Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable. Supports $expand. */
+    /** Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable.  Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1). */
     private _owners?: DirectoryObject[] | undefined;
     /** The collection of password credentials associated with the application. Not nullable. */
     private _passwordCredentials?: PasswordCredential[] | undefined;
@@ -391,14 +391,14 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._endpoints = value;
     };
     /**
-     * Gets the federatedIdentityCredentials property value. Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (eq when counting empty collections).
+     * Gets the federatedIdentityCredentials property value. Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (/$count eq 0, /$count ne 0).
      * @returns a federatedIdentityCredential
      */
     public get federatedIdentityCredentials() {
         return this._federatedIdentityCredentials;
     };
     /**
-     * Sets the federatedIdentityCredentials property value. Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (eq when counting empty collections).
+     * Sets the federatedIdentityCredentials property value. Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (/$count eq 0, /$count ne 0).
      * @param value Value to set for the federatedIdentityCredentials property.
      */
     public set federatedIdentityCredentials(value: FederatedIdentityCredential[] | undefined) {
@@ -615,28 +615,28 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._oauth2PermissionScopes = value;
     };
     /**
-     * Gets the ownedObjects property value. Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand.
+     * Gets the ownedObjects property value. Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      * @returns a directoryObject
      */
     public get ownedObjects() {
         return this._ownedObjects;
     };
     /**
-     * Sets the ownedObjects property value. Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand.
+     * Sets the ownedObjects property value. Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      * @param value Value to set for the ownedObjects property.
      */
     public set ownedObjects(value: DirectoryObject[] | undefined) {
         this._ownedObjects = value;
     };
     /**
-     * Gets the owners property value. Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable. Supports $expand.
+     * Gets the owners property value. Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable.  Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      * @returns a directoryObject
      */
     public get owners() {
         return this._owners;
     };
     /**
-     * Sets the owners property value. Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable. Supports $expand.
+     * Sets the owners property value. Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable.  Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      * @param value Value to set for the owners property.
      */
     public set owners(value: DirectoryObject[] | undefined) {

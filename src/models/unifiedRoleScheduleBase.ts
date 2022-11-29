@@ -4,6 +4,7 @@ import {createUnifiedRoleDefinitionFromDiscriminatorValue} from './createUnified
 import {AppScope, DirectoryObject, Entity, UnifiedRoleDefinition} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class UnifiedRoleScheduleBase extends Entity implements Parsable {
     /** Read-only property with details of the app-specific scope when the role eligibility or assignment is scoped to an app. Nullable. */
     private _appScope?: AppScope | undefined;

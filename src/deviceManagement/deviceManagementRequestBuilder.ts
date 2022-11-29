@@ -148,7 +148,7 @@ export class DeviceManagementRequestBuilder {
         return new NotificationMessageTemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the remoteAssistancePartners property of the microsoft.graph.deviceManagement entity. */
     public get remoteAssistancePartners(): RemoteAssistancePartnersRequestBuilder {
         return new RemoteAssistancePartnersRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -158,7 +158,7 @@ export class DeviceManagementRequestBuilder {
         return new ReportsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the resourceOperations property of the microsoft.graph.deviceManagement entity. */
     public get resourceOperations(): ResourceOperationsRequestBuilder {
         return new ResourceOperationsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -188,7 +188,7 @@ export class DeviceManagementRequestBuilder {
         return new TroubleshootingEventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /** Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity. */
     public get windowsAutopilotDeviceIdentities(): WindowsAutopilotDeviceIdentitiesRequestBuilder {
         return new WindowsAutopilotDeviceIdentitiesRequestBuilder(this.pathParameters, this.requestAdapter);

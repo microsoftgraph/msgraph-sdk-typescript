@@ -2,7 +2,6 @@ import {createServiceAnnouncementAttachmentFromDiscriminatorValue} from './creat
 import {BaseCollectionPaginationCountResponse, ServiceAnnouncementAttachment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity. */
 export class ServiceAnnouncementAttachmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ServiceAnnouncementAttachment[] | undefined;

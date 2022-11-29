@@ -2,6 +2,7 @@ import {createExtensionPropertyFromDiscriminatorValue} from './createExtensionPr
 import {BaseCollectionPaginationCountResponse, ExtensionProperty} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the extensionProperties property of the microsoft.graph.application entity. */
 export class ExtensionPropertyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ExtensionProperty[] | undefined;

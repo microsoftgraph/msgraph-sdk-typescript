@@ -1,4 +1,4 @@
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum DeviceManagementExchangeAccessState {
     /** No access state discovered from Exchange */
     None = "none",

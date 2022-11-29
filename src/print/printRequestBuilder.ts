@@ -29,13 +29,13 @@ export class PrintRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the printers property of the microsoft.graph.print entity. */
     public get printers(): PrintersRequestBuilder {
         return new PrintersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the services property of the microsoft.graph.print entity. */
     public get services(): ServicesRequestBuilder {
         return new ServicesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -49,7 +49,7 @@ export class PrintRequestBuilder {
         return new TaskDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Provides operations to manage the connectors property of the microsoft.graph.print entity.
      * @param id Unique identifier of the item

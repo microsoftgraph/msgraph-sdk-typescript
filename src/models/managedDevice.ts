@@ -19,25 +19,25 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 /** Devices that are managed or pre-enrolled through Intune */
 export class ManagedDevice extends Entity implements Parsable {
     /** Code that allows the Activation Lock on a device to be bypassed. This property is read-only. */
-    private readonly _activationLockBypassCode?: string | undefined;
+    private _activationLockBypassCode?: string | undefined;
     /** Android security patch level. This property is read-only. */
-    private readonly _androidSecurityPatchLevel?: string | undefined;
+    private _androidSecurityPatchLevel?: string | undefined;
     /** The unique identifier for the Azure Active Directory device. Read only. This property is read-only. */
-    private readonly _azureADDeviceId?: string | undefined;
+    private _azureADDeviceId?: string | undefined;
     /** Whether the device is Azure Active Directory registered. This property is read-only. */
-    private readonly _azureADRegistered?: boolean | undefined;
+    private _azureADRegistered?: boolean | undefined;
     /** The DateTime when device compliance grace period expires. This property is read-only. */
-    private readonly _complianceGracePeriodExpirationDateTime?: Date | undefined;
+    private _complianceGracePeriodExpirationDateTime?: Date | undefined;
     /** Compliance state. */
     private _complianceState?: ComplianceState | undefined;
     /** ConfigrMgr client enabled features. This property is read-only. */
-    private readonly _configurationManagerClientEnabledFeatures?: ConfigurationManagerClientEnabledFeatures | undefined;
+    private _configurationManagerClientEnabledFeatures?: ConfigurationManagerClientEnabledFeatures | undefined;
     /** List of ComplexType deviceActionResult objects. This property is read-only. */
-    private readonly _deviceActionResults?: DeviceActionResult[] | undefined;
+    private _deviceActionResults?: DeviceActionResult[] | undefined;
     /** Device category */
     private _deviceCategory?: DeviceCategory | undefined;
     /** Device category display name. This property is read-only. */
-    private readonly _deviceCategoryDisplayName?: string | undefined;
+    private _deviceCategoryDisplayName?: string | undefined;
     /** Device compliance policy states for this device. */
     private _deviceCompliancePolicyStates?: DeviceCompliancePolicyState[] | undefined;
     /** Device configuration states for this device. */
@@ -45,43 +45,43 @@ export class ManagedDevice extends Entity implements Parsable {
     /** Possible ways of adding a mobile device to management. */
     private _deviceEnrollmentType?: DeviceEnrollmentType | undefined;
     /** The device health attestation state. This property is read-only. */
-    private readonly _deviceHealthAttestationState?: DeviceHealthAttestationState | undefined;
+    private _deviceHealthAttestationState?: DeviceHealthAttestationState | undefined;
     /** Name of the device. This property is read-only. */
-    private readonly _deviceName?: string | undefined;
+    private _deviceName?: string | undefined;
     /** Device registration status. */
     private _deviceRegistrationState?: DeviceRegistrationState | undefined;
     /** Whether the device is Exchange ActiveSync activated. This property is read-only. */
-    private readonly _easActivated?: boolean | undefined;
+    private _easActivated?: boolean | undefined;
     /** Exchange ActivationSync activation time of the device. This property is read-only. */
-    private readonly _easActivationDateTime?: Date | undefined;
+    private _easActivationDateTime?: Date | undefined;
     /** Exchange ActiveSync Id of the device. This property is read-only. */
-    private readonly _easDeviceId?: string | undefined;
+    private _easDeviceId?: string | undefined;
     /** Email(s) for the user associated with the device. This property is read-only. */
-    private readonly _emailAddress?: string | undefined;
+    private _emailAddress?: string | undefined;
     /** Enrollment time of the device. This property is read-only. */
-    private readonly _enrolledDateTime?: Date | undefined;
+    private _enrolledDateTime?: Date | undefined;
     /** Ethernet MAC. This property is read-only. */
-    private readonly _ethernetMacAddress?: string | undefined;
+    private _ethernetMacAddress?: string | undefined;
     /** Device Exchange Access State. */
     private _exchangeAccessState?: DeviceManagementExchangeAccessState | undefined;
     /** Device Exchange Access State Reason. */
     private _exchangeAccessStateReason?: DeviceManagementExchangeAccessStateReason | undefined;
     /** Last time the device contacted Exchange. This property is read-only. */
-    private readonly _exchangeLastSuccessfulSyncDateTime?: Date | undefined;
+    private _exchangeLastSuccessfulSyncDateTime?: Date | undefined;
     /** Free Storage in Bytes. Default value is 0. Read-only. This property is read-only. */
-    private readonly _freeStorageSpaceInBytes?: number | undefined;
+    private _freeStorageSpaceInBytes?: number | undefined;
     /** Integrated Circuit Card Identifier, it is A SIM card's unique identification number. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only. */
-    private readonly _iccid?: string | undefined;
+    private _iccid?: string | undefined;
     /** IMEI. This property is read-only. */
-    private readonly _imei?: string | undefined;
+    private _imei?: string | undefined;
     /** Device encryption status. This property is read-only. */
-    private readonly _isEncrypted?: boolean | undefined;
+    private _isEncrypted?: boolean | undefined;
     /** Device supervised status. This property is read-only. */
-    private readonly _isSupervised?: boolean | undefined;
+    private _isSupervised?: boolean | undefined;
     /** whether the device is jail broken or rooted. This property is read-only. */
-    private readonly _jailBroken?: string | undefined;
+    private _jailBroken?: string | undefined;
     /** The date and time that the device last completed a successful sync with Intune. This property is read-only. */
-    private readonly _lastSyncDateTime?: Date | undefined;
+    private _lastSyncDateTime?: Date | undefined;
     /** Automatically generated name to identify a device. Can be overwritten to a user friendly name. */
     private _managedDeviceName?: string | undefined;
     /** Owner type of device. */
@@ -89,49 +89,49 @@ export class ManagedDevice extends Entity implements Parsable {
     /** The managementAgent property */
     private _managementAgent?: ManagementAgentType | undefined;
     /** Reports device management certificate expiration date. This property is read-only. */
-    private readonly _managementCertificateExpirationDate?: Date | undefined;
+    private _managementCertificateExpirationDate?: Date | undefined;
     /** Manufacturer of the device. This property is read-only. */
-    private readonly _manufacturer?: string | undefined;
+    private _manufacturer?: string | undefined;
     /** MEID. This property is read-only. */
-    private readonly _meid?: string | undefined;
+    private _meid?: string | undefined;
     /** Model of the device. This property is read-only. */
-    private readonly _model?: string | undefined;
+    private _model?: string | undefined;
     /** Notes on the device created by IT Admin. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select.  $Search is not supported. */
     private _notes?: string | undefined;
     /** Operating system of the device. Windows, iOS, etc. This property is read-only. */
-    private readonly _operatingSystem?: string | undefined;
+    private _operatingSystem?: string | undefined;
     /** Operating system version of the device. This property is read-only. */
-    private readonly _osVersion?: string | undefined;
+    private _osVersion?: string | undefined;
     /** Available health states for the Device Health API */
     private _partnerReportedThreatState?: ManagedDevicePartnerReportedHealthState | undefined;
     /** Phone number of the device. This property is read-only. */
-    private readonly _phoneNumber?: string | undefined;
+    private _phoneNumber?: string | undefined;
     /** Total Memory in Bytes. Return default value 0 in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. Default value is 0. Read-only. This property is read-only. */
-    private readonly _physicalMemoryInBytes?: number | undefined;
+    private _physicalMemoryInBytes?: number | undefined;
     /** An error string that identifies issues when creating Remote Assistance session objects. This property is read-only. */
-    private readonly _remoteAssistanceSessionErrorDetails?: string | undefined;
+    private _remoteAssistanceSessionErrorDetails?: string | undefined;
     /** Url that allows a Remote Assistance session to be established with the device. This property is read-only. */
-    private readonly _remoteAssistanceSessionUrl?: string | undefined;
+    private _remoteAssistanceSessionUrl?: string | undefined;
     /** Reports if the managed iOS device is user approval enrollment. This property is read-only. */
-    private readonly _requireUserEnrollmentApproval?: boolean | undefined;
+    private _requireUserEnrollmentApproval?: boolean | undefined;
     /** SerialNumber. This property is read-only. */
-    private readonly _serialNumber?: string | undefined;
+    private _serialNumber?: string | undefined;
     /** Subscriber Carrier. This property is read-only. */
-    private readonly _subscriberCarrier?: string | undefined;
+    private _subscriberCarrier?: string | undefined;
     /** Total Storage in Bytes. This property is read-only. */
-    private readonly _totalStorageSpaceInBytes?: number | undefined;
+    private _totalStorageSpaceInBytes?: number | undefined;
     /** Unique Device Identifier for iOS and macOS devices. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only. */
-    private readonly _udid?: string | undefined;
+    private _udid?: string | undefined;
     /** User display name. This property is read-only. */
-    private readonly _userDisplayName?: string | undefined;
+    private _userDisplayName?: string | undefined;
     /** Unique Identifier for the user associated with the device. This property is read-only. */
-    private readonly _userId?: string | undefined;
+    private _userId?: string | undefined;
     /** Device user principal name. This property is read-only. */
-    private readonly _userPrincipalName?: string | undefined;
+    private _userPrincipalName?: string | undefined;
     /** The primary users associated with the managed device. */
     private _users?: User[] | undefined;
     /** Wi-Fi MAC. This property is read-only. */
-    private readonly _wiFiMacAddress?: string | undefined;
+    private _wiFiMacAddress?: string | undefined;
     /**
      * Gets the activationLockBypassCode property value. Code that allows the Activation Lock on a device to be bypassed. This property is read-only.
      * @returns a string

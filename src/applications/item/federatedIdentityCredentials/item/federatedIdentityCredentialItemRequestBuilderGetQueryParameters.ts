@@ -1,5 +1,5 @@
 
-/** Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters). */
+/** Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0). */
 export class FederatedIdentityCredentialItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

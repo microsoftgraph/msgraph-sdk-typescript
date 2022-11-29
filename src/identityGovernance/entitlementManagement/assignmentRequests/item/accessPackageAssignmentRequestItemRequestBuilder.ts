@@ -27,19 +27,19 @@ export class AccessPackageAssignmentRequestItemRequestBuilder {
         return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the reprocess method. */
     public get reprocess(): ReprocessRequestBuilder {
         return new ReprocessRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the requestor property of the microsoft.graph.accessPackageAssignmentRequest entity. */
     public get requestor(): RequestorRequestBuilder {
         return new RequestorRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Instantiates a new AccessPackageAssignmentRequestItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

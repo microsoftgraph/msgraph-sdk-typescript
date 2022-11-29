@@ -3,6 +3,7 @@ import {createRolePermissionFromDiscriminatorValue} from './createRolePermission
 import {Entity, RoleAssignment, RolePermission} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** The Role Definition resource. The role definition is the foundation of role based access in Intune. The role combines an Intune resource such as a Mobile App and associated role permissions such as Create or Read for the resource. There are two types of roles, built-in and custom. Built-in roles cannot be modified. Both built-in roles and custom roles must have assignments to be enforced. Create custom roles if you want to define a role that allows any of the available resources and role permissions to be combined into a single role. */
 export class RoleDefinition extends Entity implements Parsable {
     /** Description of the Role definition. */
     private _description?: string | undefined;

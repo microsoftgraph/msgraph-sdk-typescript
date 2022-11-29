@@ -29,9 +29,9 @@ export class EducationUserItemRequestBuilder {
         return new ClassesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity. */
     public get rubrics(): RubricsRequestBuilder {
         return new RubricsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -45,7 +45,7 @@ export class EducationUserItemRequestBuilder {
         return new TaughtClassesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /** Provides operations to manage the user property of the microsoft.graph.educationUser entity. */
     public get user(): UserRequestBuilder {
         return new UserRequestBuilder(this.pathParameters, this.requestAdapter);

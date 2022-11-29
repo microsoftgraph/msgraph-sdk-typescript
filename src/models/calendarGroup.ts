@@ -2,7 +2,7 @@ import {createCalendarFromDiscriminatorValue} from './createCalendarFromDiscrimi
 import {Calendar, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class CalendarGroup extends Entity implements Parsable {
     /** The calendars in the calendar group. Navigation property. Read-only. Nullable. */
     private _calendars?: Calendar[] | undefined;

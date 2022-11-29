@@ -32,15 +32,15 @@ export class DomainItemRequestBuilder {
         return new ForceDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity. */
     public get serviceConfigurationRecords(): ServiceConfigurationRecordsRequestBuilder {
         return new ServiceConfigurationRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /** Provides operations to manage the verificationDnsRecords property of the microsoft.graph.domain entity. */
     public get verificationDnsRecords(): VerificationDnsRecordsRequestBuilder {
         return new VerificationDnsRecordsRequestBuilder(this.pathParameters, this.requestAdapter);

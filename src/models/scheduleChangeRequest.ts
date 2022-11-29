@@ -7,17 +7,17 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
     /** The assignedTo property */
     private _assignedTo?: ScheduleChangeRequestActor | undefined;
     /** The managerActionDateTime property */
-    private readonly _managerActionDateTime?: Date | undefined;
+    private _managerActionDateTime?: Date | undefined;
     /** The managerActionMessage property */
     private _managerActionMessage?: string | undefined;
     /** The managerUserId property */
-    private readonly _managerUserId?: string | undefined;
+    private _managerUserId?: string | undefined;
     /** The senderDateTime property */
-    private readonly _senderDateTime?: Date | undefined;
+    private _senderDateTime?: Date | undefined;
     /** The senderMessage property */
     private _senderMessage?: string | undefined;
     /** The senderUserId property */
-    private readonly _senderUserId?: string | undefined;
+    private _senderUserId?: string | undefined;
     /** The state property */
     private _state?: ScheduleChangeState | undefined;
     /**

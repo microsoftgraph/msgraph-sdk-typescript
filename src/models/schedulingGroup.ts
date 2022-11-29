@@ -5,7 +5,7 @@ export class SchedulingGroup extends ChangeTrackedEntity implements Parsable {
     /** The display name for the schedulingGroup. Required. */
     private _displayName?: string | undefined;
     /** Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required. */
-    private readonly _isActive?: boolean | undefined;
+    private _isActive?: boolean | undefined;
     /** The list of user IDs that are a member of the schedulingGroup. Required. */
     private _userIds?: string[] | undefined;
     /**

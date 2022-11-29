@@ -1,4 +1,4 @@
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum ManagementAgentType {
     /** The device is managed by Exchange server. */
     Eas = "eas",

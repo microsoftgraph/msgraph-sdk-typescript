@@ -8,7 +8,6 @@ import {createSchemaFromDiscriminatorValue} from './createSchemaFromDiscriminato
 import {Configuration, ConnectionOperation, ExternalGroup, ExternalItem, Schema} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class ExternalConnection extends Entity implements Parsable {
     /** Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional. */
     private _configuration?: Configuration | undefined;
@@ -25,7 +24,7 @@ export class ExternalConnection extends Entity implements Parsable {
     /** The schema property */
     private _schema?: Schema | undefined;
     /** Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue. */
-    private readonly _state?: ConnectionState | undefined;
+    private _state?: ConnectionState | undefined;
     /**
      * Gets the configuration property value. Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.
      * @returns a configuration
@@ -41,7 +40,7 @@ export class ExternalConnection extends Entity implements Parsable {
         this._configuration = value;
     };
     /**
-     * Instantiates a new externalConnection and sets the default values.
+     * Instantiates a new ExternalConnection and sets the default values.
      */
     public constructor() {
         super();
