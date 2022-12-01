@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
 import {EducationAssignmentItemRequestBuilder} from './assignments/item/educationAssignmentItemRequestBuilder';
 import {ClassesRequestBuilder} from './classes/classesRequestBuilder';
-import {EducationClassItemRequestBuilder as id3109a268da6a38f6dfd6149fe79ba9ccaaf7786e01e3d08ac5df2ffbc27931a} from './classes/item/educationClassItemRequestBuilder';
+import {EducationClassItemRequestBuilder as Id3109a268da6a38f6dfd6149fe79ba9ccaaf7786e01e3d08ac5df2ffbc27931a} from './classes/item/educationClassItemRequestBuilder';
 import {MeRequestBuilderDeleteRequestConfiguration} from './meRequestBuilderDeleteRequestConfiguration';
 import {MeRequestBuilderGetRequestConfiguration} from './meRequestBuilderGetRequestConfiguration';
 import {MeRequestBuilderPatchRequestConfiguration} from './meRequestBuilderPatchRequestConfiguration';
@@ -13,7 +13,7 @@ import {EducationRubricItemRequestBuilder} from './rubrics/item/educationRubricI
 import {RubricsRequestBuilder} from './rubrics/rubricsRequestBuilder';
 import {EducationSchoolItemRequestBuilder} from './schools/item/educationSchoolItemRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
-import {EducationClassItemRequestBuilder as iadc76037e88909abc2414d5ebc137eba5c39b805fd1cdccb4055ab7505e3f66b} from './taughtClasses/item/educationClassItemRequestBuilder';
+import {EducationClassItemRequestBuilder as Iadc76037e88909abc2414d5ebc137eba5c39b805fd1cdccb4055ab7505e3f66b} from './taughtClasses/item/educationClassItemRequestBuilder';
 import {TaughtClassesRequestBuilder} from './taughtClasses/taughtClassesRequestBuilder';
 import {UserRequestBuilder} from './user/userRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -66,11 +66,11 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EducationClassItemRequestBuilder
      */
-    public classesById(id: string) : id3109a268da6a38f6dfd6149fe79ba9ccaaf7786e01e3d08ac5df2ffbc27931a {
+    public classesById(id: string) : Id3109a268da6a38f6dfd6149fe79ba9ccaaf7786e01e3d08ac5df2ffbc27931a {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationClass%2Did"] = id
-        return new id3109a268da6a38f6dfd6149fe79ba9ccaaf7786e01e3d08ac5df2ffbc27931a(urlTplParams, this.requestAdapter);
+        return new Id3109a268da6a38f6dfd6149fe79ba9ccaaf7786e01e3d08ac5df2ffbc27931a(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new MeRequestBuilder and sets the default values.
@@ -215,10 +215,10 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EducationClassItemRequestBuilder
      */
-    public taughtClassesById(id: string) : iadc76037e88909abc2414d5ebc137eba5c39b805fd1cdccb4055ab7505e3f66b {
+    public taughtClassesById(id: string) : Iadc76037e88909abc2414d5ebc137eba5c39b805fd1cdccb4055ab7505e3f66b {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationClass%2Did"] = id
-        return new iadc76037e88909abc2414d5ebc137eba5c39b805fd1cdccb4055ab7505e3f66b(urlTplParams, this.requestAdapter);
+        return new Iadc76037e88909abc2414d5ebc137eba5c39b805fd1cdccb4055ab7505e3f66b(urlTplParams, this.requestAdapter);
     };
 }

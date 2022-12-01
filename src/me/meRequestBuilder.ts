@@ -16,7 +16,7 @@ import {CalendarGroupItemRequestBuilder} from './calendarGroups/item/calendarGro
 import {CalendarsRequestBuilder} from './calendars/calendarsRequestBuilder';
 import {CalendarItemRequestBuilder} from './calendars/item/calendarItemRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventItemRequestBuilder as ic0012b44e83dbd54f9a85dde6d61ab21bc695dc55c3a599e4d5357af115bb944} from './calendarView/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as Ic0012b44e83dbd54f9a85dde6d61ab21bc695dc55c3a599e4d5357af115bb944} from './calendarView/item/eventItemRequestBuilder';
 import {ChangePasswordRequestBuilder} from './changePassword/changePasswordRequestBuilder';
 import {ChatsRequestBuilder} from './chats/chatsRequestBuilder';
 import {ChatItemRequestBuilder} from './chats/item/chatItemRequestBuilder';
@@ -27,16 +27,16 @@ import {ContactFolderItemRequestBuilder} from './contactFolders/item/contactFold
 import {ContactsRequestBuilder} from './contacts/contactsRequestBuilder';
 import {ContactItemRequestBuilder} from './contacts/item/contactItemRequestBuilder';
 import {CreatedObjectsRequestBuilder} from './createdObjects/createdObjectsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i4dbc01d8051d709f97c06b2f82221a24c4d11b54c682680bc45c1c907c74058d} from './createdObjects/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I4dbc01d8051d709f97c06b2f82221a24c4d11b54c682680bc45c1c907c74058d} from './createdObjects/item/directoryObjectItemRequestBuilder';
 import {DeviceManagementTroubleshootingEventsRequestBuilder} from './deviceManagementTroubleshootingEvents/deviceManagementTroubleshootingEventsRequestBuilder';
 import {DeviceManagementTroubleshootingEventItemRequestBuilder} from './deviceManagementTroubleshootingEvents/item/deviceManagementTroubleshootingEventItemRequestBuilder';
 import {DirectReportsRequestBuilder} from './directReports/directReportsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as ifcf15c01e639484987e654575aab697ba7d64ceef6b1b6ca8f69a252d645cfbd} from './directReports/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as Ifcf15c01e639484987e654575aab697ba7d64ceef6b1b6ca8f69a252d645cfbd} from './directReports/item/directoryObjectItemRequestBuilder';
 import {DriveRequestBuilder} from './drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
 import {DriveItemRequestBuilder} from './drives/item/driveItemRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventItemRequestBuilder as iae02e6049890a306e0da37d8ea3286086c0c6a3750c636f16fb94b8f099458b4} from './events/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as Iae02e6049890a306e0da37d8ea3286086c0c6a3750c636f16fb94b8f099458b4} from './events/item/eventItemRequestBuilder';
 import {ExportPersonalDataRequestBuilder} from './exportPersonalData/exportPersonalDataRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
@@ -61,7 +61,7 @@ import {ManagedAppRegistrationsRequestBuilder} from './managedAppRegistrations/m
 import {ManagedDeviceItemRequestBuilder} from './managedDevices/item/managedDeviceItemRequestBuilder';
 import {ManagedDevicesRequestBuilder} from './managedDevices/managedDevicesRequestBuilder';
 import {ManagerRequestBuilder} from './manager/managerRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i1afe3dd8375f860d20edb9901bac84c9a600b26d2205f620eacadbe6904bdb8f} from './memberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I1afe3dd8375f860d20edb9901bac84c9a600b26d2205f620eacadbe6904bdb8f} from './memberOf/item/directoryObjectItemRequestBuilder';
 import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
 import {MeRequestBuilderGetRequestConfiguration} from './meRequestBuilderGetRequestConfiguration';
 import {MeRequestBuilderPatchRequestConfiguration} from './meRequestBuilderPatchRequestConfiguration';
@@ -73,9 +73,9 @@ import {OnenoteRequestBuilder} from './onenote/onenoteRequestBuilder';
 import {OnlineMeetingItemRequestBuilder} from './onlineMeetings/item/onlineMeetingItemRequestBuilder';
 import {OnlineMeetingsRequestBuilder} from './onlineMeetings/onlineMeetingsRequestBuilder';
 import {OutlookRequestBuilder} from './outlook/outlookRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i8e2e5adf873d4771df88bfdad6558877fbdd00c60ec44554c1c5c1879e4b095d} from './ownedDevices/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I8e2e5adf873d4771df88bfdad6558877fbdd00c60ec44554c1c5c1879e4b095d} from './ownedDevices/item/directoryObjectItemRequestBuilder';
 import {OwnedDevicesRequestBuilder} from './ownedDevices/ownedDevicesRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as iaa5f0cd94bb55a2d59f65a68e44b3c82f71eda72811c2182ffe255b5cfc146a5} from './ownedObjects/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as Iaa5f0cd94bb55a2d59f65a68e44b3c82f71eda72811c2182ffe255b5cfc146a5} from './ownedObjects/item/directoryObjectItemRequestBuilder';
 import {OwnedObjectsRequestBuilder} from './ownedObjects/ownedObjectsRequestBuilder';
 import {PersonItemRequestBuilder} from './people/item/personItemRequestBuilder';
 import {PeopleRequestBuilder} from './people/peopleRequestBuilder';
@@ -84,7 +84,7 @@ import {ProfilePhotoItemRequestBuilder} from './photos/item/profilePhotoItemRequ
 import {PhotosRequestBuilder} from './photos/photosRequestBuilder';
 import {PlannerRequestBuilder} from './planner/plannerRequestBuilder';
 import {PresenceRequestBuilder} from './presence/presenceRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i0023e0ed37f7c34111ba15d8368632614c1196b1169f66678176dca31de74ac7} from './registeredDevices/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I0023e0ed37f7c34111ba15d8368632614c1196b1169f66678176dca31de74ac7} from './registeredDevices/item/directoryObjectItemRequestBuilder';
 import {RegisteredDevicesRequestBuilder} from './registeredDevices/registeredDevicesRequestBuilder';
 import {ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder} from './reminderViewWithStartDateTimeWithEndDateTime/reminderViewWithStartDateTimeWithEndDateTimeRequestBuilder';
 import {RemoveAllDevicesFromManagementRequestBuilder} from './removeAllDevicesFromManagement/removeAllDevicesFromManagementRequestBuilder';
@@ -97,7 +97,7 @@ import {SendMailRequestBuilder} from './sendMail/sendMailRequestBuilder';
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
 import {TeamworkRequestBuilder} from './teamwork/teamworkRequestBuilder';
 import {TodoRequestBuilder} from './todo/todoRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as if0cd9385b2b0e89a82e916808c7cb33b5b4a89044783321b6c1cff3257bee48e} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as If0cd9385b2b0e89a82e916808c7cb33b5b4a89044783321b6c1cff3257bee48e} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {TranslateExchangeIdsRequestBuilder} from './translateExchangeIds/translateExchangeIdsRequestBuilder';
 import {WipeManagedAppRegistrationsByDeviceTagRequestBuilder} from './wipeManagedAppRegistrationsByDeviceTag/wipeManagedAppRegistrationsByDeviceTagRequestBuilder';
@@ -419,11 +419,11 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public calendarViewById(id: string) : ic0012b44e83dbd54f9a85dde6d61ab21bc695dc55c3a599e4d5357af115bb944 {
+    public calendarViewById(id: string) : Ic0012b44e83dbd54f9a85dde6d61ab21bc695dc55c3a599e4d5357af115bb944 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new ic0012b44e83dbd54f9a85dde6d61ab21bc695dc55c3a599e4d5357af115bb944(urlTplParams, this.requestAdapter);
+        return new Ic0012b44e83dbd54f9a85dde6d61ab21bc695dc55c3a599e4d5357af115bb944(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the chats property of the microsoft.graph.user entity.
@@ -476,11 +476,11 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public createdObjectsById(id: string) : i4dbc01d8051d709f97c06b2f82221a24c4d11b54c682680bc45c1c907c74058d {
+    public createdObjectsById(id: string) : I4dbc01d8051d709f97c06b2f82221a24c4d11b54c682680bc45c1c907c74058d {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i4dbc01d8051d709f97c06b2f82221a24c4d11b54c682680bc45c1c907c74058d(urlTplParams, this.requestAdapter);
+        return new I4dbc01d8051d709f97c06b2f82221a24c4d11b54c682680bc45c1c907c74058d(urlTplParams, this.requestAdapter);
     };
     /**
      * Retrieve the properties and relationships of user object.
@@ -536,11 +536,11 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public directReportsById(id: string) : ifcf15c01e639484987e654575aab697ba7d64ceef6b1b6ca8f69a252d645cfbd {
+    public directReportsById(id: string) : Ifcf15c01e639484987e654575aab697ba7d64ceef6b1b6ca8f69a252d645cfbd {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new ifcf15c01e639484987e654575aab697ba7d64ceef6b1b6ca8f69a252d645cfbd(urlTplParams, this.requestAdapter);
+        return new Ifcf15c01e639484987e654575aab697ba7d64ceef6b1b6ca8f69a252d645cfbd(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the drives property of the microsoft.graph.user entity.
@@ -558,11 +558,11 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public eventsById(id: string) : iae02e6049890a306e0da37d8ea3286086c0c6a3750c636f16fb94b8f099458b4 {
+    public eventsById(id: string) : Iae02e6049890a306e0da37d8ea3286086c0c6a3750c636f16fb94b8f099458b4 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new iae02e6049890a306e0da37d8ea3286086c0c6a3750c636f16fb94b8f099458b4(urlTplParams, this.requestAdapter);
+        return new Iae02e6049890a306e0da37d8ea3286086c0c6a3750c636f16fb94b8f099458b4(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the extensions property of the microsoft.graph.user entity.
@@ -676,11 +676,11 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public memberOfById(id: string) : i1afe3dd8375f860d20edb9901bac84c9a600b26d2205f620eacadbe6904bdb8f {
+    public memberOfById(id: string) : I1afe3dd8375f860d20edb9901bac84c9a600b26d2205f620eacadbe6904bdb8f {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i1afe3dd8375f860d20edb9901bac84c9a600b26d2205f620eacadbe6904bdb8f(urlTplParams, this.requestAdapter);
+        return new I1afe3dd8375f860d20edb9901bac84c9a600b26d2205f620eacadbe6904bdb8f(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the messages property of the microsoft.graph.user entity.
@@ -720,22 +720,22 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public ownedDevicesById(id: string) : i8e2e5adf873d4771df88bfdad6558877fbdd00c60ec44554c1c5c1879e4b095d {
+    public ownedDevicesById(id: string) : I8e2e5adf873d4771df88bfdad6558877fbdd00c60ec44554c1c5c1879e4b095d {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i8e2e5adf873d4771df88bfdad6558877fbdd00c60ec44554c1c5c1879e4b095d(urlTplParams, this.requestAdapter);
+        return new I8e2e5adf873d4771df88bfdad6558877fbdd00c60ec44554c1c5c1879e4b095d(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the ownedObjects property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public ownedObjectsById(id: string) : iaa5f0cd94bb55a2d59f65a68e44b3c82f71eda72811c2182ffe255b5cfc146a5 {
+    public ownedObjectsById(id: string) : Iaa5f0cd94bb55a2d59f65a68e44b3c82f71eda72811c2182ffe255b5cfc146a5 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new iaa5f0cd94bb55a2d59f65a68e44b3c82f71eda72811c2182ffe255b5cfc146a5(urlTplParams, this.requestAdapter);
+        return new Iaa5f0cd94bb55a2d59f65a68e44b3c82f71eda72811c2182ffe255b5cfc146a5(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
@@ -782,11 +782,11 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public registeredDevicesById(id: string) : i0023e0ed37f7c34111ba15d8368632614c1196b1169f66678176dca31de74ac7 {
+    public registeredDevicesById(id: string) : I0023e0ed37f7c34111ba15d8368632614c1196b1169f66678176dca31de74ac7 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i0023e0ed37f7c34111ba15d8368632614c1196b1169f66678176dca31de74ac7(urlTplParams, this.requestAdapter);
+        return new I0023e0ed37f7c34111ba15d8368632614c1196b1169f66678176dca31de74ac7(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to call the reminderView method.
@@ -815,10 +815,10 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public transitiveMemberOfById(id: string) : if0cd9385b2b0e89a82e916808c7cb33b5b4a89044783321b6c1cff3257bee48e {
+    public transitiveMemberOfById(id: string) : If0cd9385b2b0e89a82e916808c7cb33b5b4a89044783321b6c1cff3257bee48e {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new if0cd9385b2b0e89a82e916808c7cb33b5b4a89044783321b6c1cff3257bee48e(urlTplParams, this.requestAdapter);
+        return new If0cd9385b2b0e89a82e916808c7cb33b5b4a89044783321b6c1cff3257bee48e(urlTplParams, this.requestAdapter);
     };
 }

@@ -3,20 +3,20 @@ import {createDriveFromDiscriminatorValue} from '../../../models/createDriveFrom
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {BundlesRequestBuilder} from './bundles/bundlesRequestBuilder';
-import {DriveItemItemRequestBuilder as i32b0cecefc9ed2c7d8fce81391d540135f10646ed1dfbf05c76c19ef3c2ac911} from './bundles/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as I32b0cecefc9ed2c7d8fce81391d540135f10646ed1dfbf05c76c19ef3c2ac911} from './bundles/item/driveItemItemRequestBuilder';
 import {DriveItemRequestBuilderDeleteRequestConfiguration} from './driveItemRequestBuilderDeleteRequestConfiguration';
 import {DriveItemRequestBuilderGetRequestConfiguration} from './driveItemRequestBuilderGetRequestConfiguration';
 import {DriveItemRequestBuilderPatchRequestConfiguration} from './driveItemRequestBuilderPatchRequestConfiguration';
 import {FollowingRequestBuilder} from './following/followingRequestBuilder';
-import {DriveItemItemRequestBuilder as i880c804ad1d2b29d4ed22ca1bc3bf760805859194c50d82d86a6ca0d7c2008b9} from './following/item/driveItemItemRequestBuilder';
-import {DriveItemItemRequestBuilder as ifd6b04fee1f43471d3b181ab964da8e61aef658cc9ea4dcbdcd013d9f0135e0f} from './items/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as I880c804ad1d2b29d4ed22ca1bc3bf760805859194c50d82d86a6ca0d7c2008b9} from './following/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as Ifd6b04fee1f43471d3b181ab964da8e61aef658cc9ea4dcbdcd013d9f0135e0f} from './items/item/driveItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListRequestBuilder} from './list/listRequestBuilder';
 import {RecentRequestBuilder} from './recent/recentRequestBuilder';
 import {RootRequestBuilder} from './root/rootRequestBuilder';
 import {SearchWithQRequestBuilder} from './searchWithQ/searchWithQRequestBuilder';
 import {SharedWithMeRequestBuilder} from './sharedWithMe/sharedWithMeRequestBuilder';
-import {DriveItemItemRequestBuilder as i7fce5905b85b2128ebb180bdccddcf30ea7bec940079988f33cae1e1a25b8101} from './special/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as I7fce5905b85b2128ebb180bdccddcf30ea7bec940079988f33cae1e1a25b8101} from './special/item/driveItemItemRequestBuilder';
 import {SpecialRequestBuilder} from './special/specialRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -57,11 +57,11 @@ export class DriveItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
-    public bundlesById(id: string) : i32b0cecefc9ed2c7d8fce81391d540135f10646ed1dfbf05c76c19ef3c2ac911 {
+    public bundlesById(id: string) : I32b0cecefc9ed2c7d8fce81391d540135f10646ed1dfbf05c76c19ef3c2ac911 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new i32b0cecefc9ed2c7d8fce81391d540135f10646ed1dfbf05c76c19ef3c2ac911(urlTplParams, this.requestAdapter);
+        return new I32b0cecefc9ed2c7d8fce81391d540135f10646ed1dfbf05c76c19ef3c2ac911(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new DriveItemRequestBuilder and sets the default values.
@@ -150,11 +150,11 @@ export class DriveItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
-    public followingById(id: string) : i880c804ad1d2b29d4ed22ca1bc3bf760805859194c50d82d86a6ca0d7c2008b9 {
+    public followingById(id: string) : I880c804ad1d2b29d4ed22ca1bc3bf760805859194c50d82d86a6ca0d7c2008b9 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new i880c804ad1d2b29d4ed22ca1bc3bf760805859194c50d82d86a6ca0d7c2008b9(urlTplParams, this.requestAdapter);
+        return new I880c804ad1d2b29d4ed22ca1bc3bf760805859194c50d82d86a6ca0d7c2008b9(urlTplParams, this.requestAdapter);
     };
     /**
      * A collection of drives available for this user. Read-only.
@@ -177,11 +177,11 @@ export class DriveItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
-    public itemsById(id: string) : ifd6b04fee1f43471d3b181ab964da8e61aef658cc9ea4dcbdcd013d9f0135e0f {
+    public itemsById(id: string) : Ifd6b04fee1f43471d3b181ab964da8e61aef658cc9ea4dcbdcd013d9f0135e0f {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new ifd6b04fee1f43471d3b181ab964da8e61aef658cc9ea4dcbdcd013d9f0135e0f(urlTplParams, this.requestAdapter);
+        return new Ifd6b04fee1f43471d3b181ab964da8e61aef658cc9ea4dcbdcd013d9f0135e0f(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property drives in me
@@ -229,10 +229,10 @@ export class DriveItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
-    public specialById(id: string) : i7fce5905b85b2128ebb180bdccddcf30ea7bec940079988f33cae1e1a25b8101 {
+    public specialById(id: string) : I7fce5905b85b2128ebb180bdccddcf30ea7bec940079988f33cae1e1a25b8101 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new i7fce5905b85b2128ebb180bdccddcf30ea7bec940079988f33cae1e1a25b8101(urlTplParams, this.requestAdapter);
+        return new I7fce5905b85b2128ebb180bdccddcf30ea7bec940079988f33cae1e1a25b8101(urlTplParams, this.requestAdapter);
     };
 }

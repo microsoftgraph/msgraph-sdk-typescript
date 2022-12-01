@@ -7,7 +7,7 @@ import {ChatMessageItemRequestBuilderGetRequestConfiguration} from './chatMessag
 import {ChatMessageItemRequestBuilderPatchRequestConfiguration} from './chatMessageItemRequestBuilderPatchRequestConfiguration';
 import {HostedContentsRequestBuilder} from './hostedContents/hostedContentsRequestBuilder';
 import {ChatMessageHostedContentItemRequestBuilder} from './hostedContents/item/chatMessageHostedContentItemRequestBuilder';
-import {ChatMessageItemRequestBuilder as i56236aea3d1c0e1af44c31287c80aa35a14e6e38a86bf1cf59d44f2f37d404ca} from './replies/item/chatMessageItemRequestBuilder';
+import {ChatMessageItemRequestBuilder as I56236aea3d1c0e1af44c31287c80aa35a14e6e38a86bf1cf59d44f2f37d404ca} from './replies/item/chatMessageItemRequestBuilder';
 import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -159,10 +159,10 @@ export class ChatMessageItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ChatMessageItemRequestBuilder
      */
-    public repliesById(id: string) : i56236aea3d1c0e1af44c31287c80aa35a14e6e38a86bf1cf59d44f2f37d404ca {
+    public repliesById(id: string) : I56236aea3d1c0e1af44c31287c80aa35a14e6e38a86bf1cf59d44f2f37d404ca {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["chatMessage%2Did1"] = id
-        return new i56236aea3d1c0e1af44c31287c80aa35a14e6e38a86bf1cf59d44f2f37d404ca(urlTplParams, this.requestAdapter);
+        return new I56236aea3d1c0e1af44c31287c80aa35a14e6e38a86bf1cf59d44f2f37d404ca(urlTplParams, this.requestAdapter);
     };
 }

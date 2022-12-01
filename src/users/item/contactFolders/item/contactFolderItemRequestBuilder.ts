@@ -3,7 +3,7 @@ import {createContactFolderFromDiscriminatorValue} from '../../../../models/crea
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ChildFoldersRequestBuilder} from './childFolders/childFoldersRequestBuilder';
-import {ContactFolderItemRequestBuilder as ib3d4e782e14a554d30100ea0257a0cdd0333f0997f7ea93f174264d3c9d26d75} from './childFolders/item/contactFolderItemRequestBuilder';
+import {ContactFolderItemRequestBuilder as Ib3d4e782e14a554d30100ea0257a0cdd0333f0997f7ea93f174264d3c9d26d75} from './childFolders/item/contactFolderItemRequestBuilder';
 import {ContactFolderItemRequestBuilderDeleteRequestConfiguration} from './contactFolderItemRequestBuilderDeleteRequestConfiguration';
 import {ContactFolderItemRequestBuilderGetRequestConfiguration} from './contactFolderItemRequestBuilderGetRequestConfiguration';
 import {ContactFolderItemRequestBuilderPatchRequestConfiguration} from './contactFolderItemRequestBuilderPatchRequestConfiguration';
@@ -44,11 +44,11 @@ export class ContactFolderItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ContactFolderItemRequestBuilder
      */
-    public childFoldersById(id: string) : ib3d4e782e14a554d30100ea0257a0cdd0333f0997f7ea93f174264d3c9d26d75 {
+    public childFoldersById(id: string) : Ib3d4e782e14a554d30100ea0257a0cdd0333f0997f7ea93f174264d3c9d26d75 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contactFolder%2Did1"] = id
-        return new ib3d4e782e14a554d30100ea0257a0cdd0333f0997f7ea93f174264d3c9d26d75(urlTplParams, this.requestAdapter);
+        return new Ib3d4e782e14a554d30100ea0257a0cdd0333f0997f7ea93f174264d3c9d26d75(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new ContactFolderItemRequestBuilder and sets the default values.

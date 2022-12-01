@@ -3,12 +3,12 @@ import {createBookingBusinessFromDiscriminatorValue} from '../../../models/creat
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppointmentsRequestBuilder} from './appointments/appointmentsRequestBuilder';
-import {BookingAppointmentItemRequestBuilder as if8492a98c98902c4f6ba4863614de95da278d3415d72f020e0e93895216cb97d} from './appointments/item/bookingAppointmentItemRequestBuilder';
+import {BookingAppointmentItemRequestBuilder as If8492a98c98902c4f6ba4863614de95da278d3415d72f020e0e93895216cb97d} from './appointments/item/bookingAppointmentItemRequestBuilder';
 import {BookingBusinessItemRequestBuilderDeleteRequestConfiguration} from './bookingBusinessItemRequestBuilderDeleteRequestConfiguration';
 import {BookingBusinessItemRequestBuilderGetRequestConfiguration} from './bookingBusinessItemRequestBuilderGetRequestConfiguration';
 import {BookingBusinessItemRequestBuilderPatchRequestConfiguration} from './bookingBusinessItemRequestBuilderPatchRequestConfiguration';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {BookingAppointmentItemRequestBuilder as ibaa5b72e3646c195719ac2d5f1bdd23edfb26f61b42918c45bc195a6229375c4} from './calendarView/item/bookingAppointmentItemRequestBuilder';
+import {BookingAppointmentItemRequestBuilder as Ibaa5b72e3646c195719ac2d5f1bdd23edfb26f61b42918c45bc195a6229375c4} from './calendarView/item/bookingAppointmentItemRequestBuilder';
 import {CustomersRequestBuilder} from './customers/customersRequestBuilder';
 import {BookingCustomerBaseItemRequestBuilder} from './customers/item/bookingCustomerBaseItemRequestBuilder';
 import {CustomQuestionsRequestBuilder} from './customQuestions/customQuestionsRequestBuilder';
@@ -71,22 +71,22 @@ export class BookingBusinessItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a BookingAppointmentItemRequestBuilder
      */
-    public appointmentsById(id: string) : if8492a98c98902c4f6ba4863614de95da278d3415d72f020e0e93895216cb97d {
+    public appointmentsById(id: string) : If8492a98c98902c4f6ba4863614de95da278d3415d72f020e0e93895216cb97d {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bookingAppointment%2Did"] = id
-        return new if8492a98c98902c4f6ba4863614de95da278d3415d72f020e0e93895216cb97d(urlTplParams, this.requestAdapter);
+        return new If8492a98c98902c4f6ba4863614de95da278d3415d72f020e0e93895216cb97d(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
      * @param id Unique identifier of the item
      * @returns a BookingAppointmentItemRequestBuilder
      */
-    public calendarViewById(id: string) : ibaa5b72e3646c195719ac2d5f1bdd23edfb26f61b42918c45bc195a6229375c4 {
+    public calendarViewById(id: string) : Ibaa5b72e3646c195719ac2d5f1bdd23edfb26f61b42918c45bc195a6229375c4 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bookingAppointment%2Did"] = id
-        return new ibaa5b72e3646c195719ac2d5f1bdd23edfb26f61b42918c45bc195a6229375c4(urlTplParams, this.requestAdapter);
+        return new Ibaa5b72e3646c195719ac2d5f1bdd23edfb26f61b42918c45bc195a6229375c4(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new BookingBusinessItemRequestBuilder and sets the default values.

@@ -12,11 +12,11 @@ import {EducationClassItemRequestBuilderDeleteRequestConfiguration} from './educ
 import {EducationClassItemRequestBuilderGetRequestConfiguration} from './educationClassItemRequestBuilderGetRequestConfiguration';
 import {EducationClassItemRequestBuilderPatchRequestConfiguration} from './educationClassItemRequestBuilderPatchRequestConfiguration';
 import {GroupRequestBuilder} from './group/groupRequestBuilder';
-import {EducationUserItemRequestBuilder as ia3edcdf64f173b5339ac6447cfd80558917a57d192a2a1e0e3b4ec7f902db9b8} from './members/item/educationUserItemRequestBuilder';
+import {EducationUserItemRequestBuilder as Ia3edcdf64f173b5339ac6447cfd80558917a57d192a2a1e0e3b4ec7f902db9b8} from './members/item/educationUserItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {EducationSchoolItemRequestBuilder} from './schools/item/educationSchoolItemRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
-import {EducationUserItemRequestBuilder as i488920e98e9b46d483b4a3ff7deaa8b183c58943241a07131f8af31d7b0d171f} from './teachers/item/educationUserItemRequestBuilder';
+import {EducationUserItemRequestBuilder as I488920e98e9b46d483b4a3ff7deaa8b183c58943241a07131f8af31d7b0d171f} from './teachers/item/educationUserItemRequestBuilder';
 import {TeachersRequestBuilder} from './teachers/teachersRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -185,11 +185,11 @@ export class EducationClassItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EducationUserItemRequestBuilder
      */
-    public membersById(id: string) : ia3edcdf64f173b5339ac6447cfd80558917a57d192a2a1e0e3b4ec7f902db9b8 {
+    public membersById(id: string) : Ia3edcdf64f173b5339ac6447cfd80558917a57d192a2a1e0e3b4ec7f902db9b8 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationUser%2Did"] = id
-        return new ia3edcdf64f173b5339ac6447cfd80558917a57d192a2a1e0e3b4ec7f902db9b8(urlTplParams, this.requestAdapter);
+        return new Ia3edcdf64f173b5339ac6447cfd80558917a57d192a2a1e0e3b4ec7f902db9b8(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property classes in education
@@ -225,10 +225,10 @@ export class EducationClassItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EducationUserItemRequestBuilder
      */
-    public teachersById(id: string) : i488920e98e9b46d483b4a3ff7deaa8b183c58943241a07131f8af31d7b0d171f {
+    public teachersById(id: string) : I488920e98e9b46d483b4a3ff7deaa8b183c58943241a07131f8af31d7b0d171f {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationUser%2Did"] = id
-        return new i488920e98e9b46d483b4a3ff7deaa8b183c58943241a07131f8af31d7b0d171f(urlTplParams, this.requestAdapter);
+        return new I488920e98e9b46d483b4a3ff7deaa8b183c58943241a07131f8af31d7b0d171f(urlTplParams, this.requestAdapter);
     };
 }

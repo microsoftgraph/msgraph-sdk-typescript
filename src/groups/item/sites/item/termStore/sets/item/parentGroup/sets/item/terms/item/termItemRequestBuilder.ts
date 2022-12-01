@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {Term} from '../../../../../../../../../../../../models/termStore/';
 import {createTermFromDiscriminatorValue} from '../../../../../../../../../../../../models/termStore/createTermFromDiscriminatorValue';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {TermItemRequestBuilder as i2bc46a83fb7ad3897afdc35f8f48e59ef36a867dd9a415e5f9469d6ff97d6b97} from './children/item/termItemRequestBuilder';
+import {TermItemRequestBuilder as I2bc46a83fb7ad3897afdc35f8f48e59ef36a867dd9a415e5f9469d6ff97d6b97} from './children/item/termItemRequestBuilder';
 import {RelationItemRequestBuilder} from './relations/item/relationItemRequestBuilder';
 import {RelationsRequestBuilder} from './relations/relationsRequestBuilder';
 import {SetRequestBuilder} from './set/setRequestBuilder';
@@ -37,11 +37,11 @@ export class TermItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TermItemRequestBuilder
      */
-    public childrenById(id: string) : i2bc46a83fb7ad3897afdc35f8f48e59ef36a867dd9a415e5f9469d6ff97d6b97 {
+    public childrenById(id: string) : I2bc46a83fb7ad3897afdc35f8f48e59ef36a867dd9a415e5f9469d6ff97d6b97 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["term%2Did1"] = id
-        return new i2bc46a83fb7ad3897afdc35f8f48e59ef36a867dd9a415e5f9469d6ff97d6b97(urlTplParams, this.requestAdapter);
+        return new I2bc46a83fb7ad3897afdc35f8f48e59ef36a867dd9a415e5f9469d6ff97d6b97(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new TermItemRequestBuilder and sets the default values.

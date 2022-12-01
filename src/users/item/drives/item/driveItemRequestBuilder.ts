@@ -3,20 +3,20 @@ import {createDriveFromDiscriminatorValue} from '../../../../models/createDriveF
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {BundlesRequestBuilder} from './bundles/bundlesRequestBuilder';
-import {DriveItemItemRequestBuilder as i4985831dc2fa36844d7e5ed5bb5186e197fa2913328bff09f7cca2a8b6c5beb2} from './bundles/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as I4985831dc2fa36844d7e5ed5bb5186e197fa2913328bff09f7cca2a8b6c5beb2} from './bundles/item/driveItemItemRequestBuilder';
 import {DriveItemRequestBuilderDeleteRequestConfiguration} from './driveItemRequestBuilderDeleteRequestConfiguration';
 import {DriveItemRequestBuilderGetRequestConfiguration} from './driveItemRequestBuilderGetRequestConfiguration';
 import {DriveItemRequestBuilderPatchRequestConfiguration} from './driveItemRequestBuilderPatchRequestConfiguration';
 import {FollowingRequestBuilder} from './following/followingRequestBuilder';
-import {DriveItemItemRequestBuilder as iecee9453727d72053815e04f9927cc610c1a7d0e8413c31c5af458084b3521d2} from './following/item/driveItemItemRequestBuilder';
-import {DriveItemItemRequestBuilder as i3c9ac56da0b3f56da0e957dc2793d5e4912ee013bff2d3162206f14d5e87d15c} from './items/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as Iecee9453727d72053815e04f9927cc610c1a7d0e8413c31c5af458084b3521d2} from './following/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as I3c9ac56da0b3f56da0e957dc2793d5e4912ee013bff2d3162206f14d5e87d15c} from './items/item/driveItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListRequestBuilder} from './list/listRequestBuilder';
 import {RecentRequestBuilder} from './recent/recentRequestBuilder';
 import {RootRequestBuilder} from './root/rootRequestBuilder';
 import {SearchWithQRequestBuilder} from './searchWithQ/searchWithQRequestBuilder';
 import {SharedWithMeRequestBuilder} from './sharedWithMe/sharedWithMeRequestBuilder';
-import {DriveItemItemRequestBuilder as i84fa13b6eac9cfef44567037b23371a9c0c4988fff80929141a9c053db7be5d4} from './special/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as I84fa13b6eac9cfef44567037b23371a9c0c4988fff80929141a9c053db7be5d4} from './special/item/driveItemItemRequestBuilder';
 import {SpecialRequestBuilder} from './special/specialRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -57,11 +57,11 @@ export class DriveItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
-    public bundlesById(id: string) : i4985831dc2fa36844d7e5ed5bb5186e197fa2913328bff09f7cca2a8b6c5beb2 {
+    public bundlesById(id: string) : I4985831dc2fa36844d7e5ed5bb5186e197fa2913328bff09f7cca2a8b6c5beb2 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new i4985831dc2fa36844d7e5ed5bb5186e197fa2913328bff09f7cca2a8b6c5beb2(urlTplParams, this.requestAdapter);
+        return new I4985831dc2fa36844d7e5ed5bb5186e197fa2913328bff09f7cca2a8b6c5beb2(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new DriveItemRequestBuilder and sets the default values.
@@ -150,11 +150,11 @@ export class DriveItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
-    public followingById(id: string) : iecee9453727d72053815e04f9927cc610c1a7d0e8413c31c5af458084b3521d2 {
+    public followingById(id: string) : Iecee9453727d72053815e04f9927cc610c1a7d0e8413c31c5af458084b3521d2 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new iecee9453727d72053815e04f9927cc610c1a7d0e8413c31c5af458084b3521d2(urlTplParams, this.requestAdapter);
+        return new Iecee9453727d72053815e04f9927cc610c1a7d0e8413c31c5af458084b3521d2(urlTplParams, this.requestAdapter);
     };
     /**
      * A collection of drives available for this user. Read-only.
@@ -177,11 +177,11 @@ export class DriveItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
-    public itemsById(id: string) : i3c9ac56da0b3f56da0e957dc2793d5e4912ee013bff2d3162206f14d5e87d15c {
+    public itemsById(id: string) : I3c9ac56da0b3f56da0e957dc2793d5e4912ee013bff2d3162206f14d5e87d15c {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new i3c9ac56da0b3f56da0e957dc2793d5e4912ee013bff2d3162206f14d5e87d15c(urlTplParams, this.requestAdapter);
+        return new I3c9ac56da0b3f56da0e957dc2793d5e4912ee013bff2d3162206f14d5e87d15c(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property drives in users
@@ -229,10 +229,10 @@ export class DriveItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
-    public specialById(id: string) : i84fa13b6eac9cfef44567037b23371a9c0c4988fff80929141a9c053db7be5d4 {
+    public specialById(id: string) : I84fa13b6eac9cfef44567037b23371a9c0c4988fff80929141a9c053db7be5d4 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new i84fa13b6eac9cfef44567037b23371a9c0c4988fff80929141a9c053db7be5d4(urlTplParams, this.requestAdapter);
+        return new I84fa13b6eac9cfef44567037b23371a9c0c4988fff80929141a9c053db7be5d4(urlTplParams, this.requestAdapter);
     };
 }

@@ -3,7 +3,7 @@ import {createMailFolderFromDiscriminatorValue} from '../../../models/createMail
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ChildFoldersRequestBuilder} from './childFolders/childFoldersRequestBuilder';
-import {MailFolderItemRequestBuilder as i81520d24bedf5ecd79b6319021e07609a29618a762ae4ba311ea8ac5a468eaeb} from './childFolders/item/mailFolderItemRequestBuilder';
+import {MailFolderItemRequestBuilder as I81520d24bedf5ecd79b6319021e07609a29618a762ae4ba311ea8ac5a468eaeb} from './childFolders/item/mailFolderItemRequestBuilder';
 import {CopyRequestBuilder} from './copy/copyRequestBuilder';
 import {MailFolderItemRequestBuilderDeleteRequestConfiguration} from './mailFolderItemRequestBuilderDeleteRequestConfiguration';
 import {MailFolderItemRequestBuilderGetRequestConfiguration} from './mailFolderItemRequestBuilderGetRequestConfiguration';
@@ -60,11 +60,11 @@ export class MailFolderItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MailFolderItemRequestBuilder
      */
-    public childFoldersById(id: string) : i81520d24bedf5ecd79b6319021e07609a29618a762ae4ba311ea8ac5a468eaeb {
+    public childFoldersById(id: string) : I81520d24bedf5ecd79b6319021e07609a29618a762ae4ba311ea8ac5a468eaeb {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["mailFolder%2Did1"] = id
-        return new i81520d24bedf5ecd79b6319021e07609a29618a762ae4ba311ea8ac5a468eaeb(urlTplParams, this.requestAdapter);
+        return new I81520d24bedf5ecd79b6319021e07609a29618a762ae4ba311ea8ac5a468eaeb(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new MailFolderItemRequestBuilder and sets the default values.

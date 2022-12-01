@@ -8,12 +8,12 @@ import {EducationSubmissionItemRequestBuilderPatchRequestConfiguration} from './
 import {EducationOutcomeItemRequestBuilder} from './outcomes/item/educationOutcomeItemRequestBuilder';
 import {OutcomesRequestBuilder} from './outcomes/outcomesRequestBuilder';
 import {ReassignRequestBuilder} from './reassign/reassignRequestBuilder';
-import {EducationSubmissionResourceItemRequestBuilder as if48000cf4b8076c7a6ccdaead69d89d50bfdee15d5ab73cf8a8e0ff5b0b8c35a} from './resources/item/educationSubmissionResourceItemRequestBuilder';
+import {EducationSubmissionResourceItemRequestBuilder as If48000cf4b8076c7a6ccdaead69d89d50bfdee15d5ab73cf8a8e0ff5b0b8c35a} from './resources/item/educationSubmissionResourceItemRequestBuilder';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
 import {ReturnRequestBuilder} from './return_escaped/returnRequestBuilder';
 import {SetUpResourcesFolderRequestBuilder} from './setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
 import {SubmitRequestBuilder} from './submit/submitRequestBuilder';
-import {EducationSubmissionResourceItemRequestBuilder as i707258d0aeebe0dcc6217fa436bab84058c4f9dae600b8b3a2cc86341e6a5699} from './submittedResources/item/educationSubmissionResourceItemRequestBuilder';
+import {EducationSubmissionResourceItemRequestBuilder as I707258d0aeebe0dcc6217fa436bab84058c4f9dae600b8b3a2cc86341e6a5699} from './submittedResources/item/educationSubmissionResourceItemRequestBuilder';
 import {SubmittedResourcesRequestBuilder} from './submittedResources/submittedResourcesRequestBuilder';
 import {UnsubmitRequestBuilder} from './unsubmit/unsubmitRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -190,21 +190,21 @@ export class EducationSubmissionItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EducationSubmissionResourceItemRequestBuilder
      */
-    public resourcesById(id: string) : if48000cf4b8076c7a6ccdaead69d89d50bfdee15d5ab73cf8a8e0ff5b0b8c35a {
+    public resourcesById(id: string) : If48000cf4b8076c7a6ccdaead69d89d50bfdee15d5ab73cf8a8e0ff5b0b8c35a {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationSubmissionResource%2Did"] = id
-        return new if48000cf4b8076c7a6ccdaead69d89d50bfdee15d5ab73cf8a8e0ff5b0b8c35a(urlTplParams, this.requestAdapter);
+        return new If48000cf4b8076c7a6ccdaead69d89d50bfdee15d5ab73cf8a8e0ff5b0b8c35a(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity.
      * @param id Unique identifier of the item
      * @returns a EducationSubmissionResourceItemRequestBuilder
      */
-    public submittedResourcesById(id: string) : i707258d0aeebe0dcc6217fa436bab84058c4f9dae600b8b3a2cc86341e6a5699 {
+    public submittedResourcesById(id: string) : I707258d0aeebe0dcc6217fa436bab84058c4f9dae600b8b3a2cc86341e6a5699 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationSubmissionResource%2Did"] = id
-        return new i707258d0aeebe0dcc6217fa436bab84058c4f9dae600b8b3a2cc86341e6a5699(urlTplParams, this.requestAdapter);
+        return new I707258d0aeebe0dcc6217fa436bab84058c4f9dae600b8b3a2cc86341e6a5699(urlTplParams, this.requestAdapter);
     };
 }

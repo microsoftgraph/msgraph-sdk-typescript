@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {EdiscoveryReviewTag} from '../../../../../../models/security/';
 import {createEdiscoveryReviewTagFromDiscriminatorValue} from '../../../../../../models/security/createEdiscoveryReviewTagFromDiscriminatorValue';
 import {ChildTagsRequestBuilder} from './childTags/childTagsRequestBuilder';
-import {EdiscoveryReviewTagItemRequestBuilder as ie04ba6f0ce34de449e352ca037084834d656ce248273d13fdbcdf016b5e0ee16} from './childTags/item/ediscoveryReviewTagItemRequestBuilder';
+import {EdiscoveryReviewTagItemRequestBuilder as Ie04ba6f0ce34de449e352ca037084834d656ce248273d13fdbcdf016b5e0ee16} from './childTags/item/ediscoveryReviewTagItemRequestBuilder';
 import {EdiscoveryReviewTagItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryReviewTagItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoveryReviewTagItemRequestBuilderGetRequestConfiguration} from './ediscoveryReviewTagItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryReviewTagItemRequestBuilderPatchRequestConfiguration} from './ediscoveryReviewTagItemRequestBuilderPatchRequestConfiguration';
@@ -31,11 +31,11 @@ export class EdiscoveryReviewTagItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EdiscoveryReviewTagItemRequestBuilder
      */
-    public childTagsById(id: string) : ie04ba6f0ce34de449e352ca037084834d656ce248273d13fdbcdf016b5e0ee16 {
+    public childTagsById(id: string) : Ie04ba6f0ce34de449e352ca037084834d656ce248273d13fdbcdf016b5e0ee16 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["ediscoveryReviewTag%2Did1"] = id
-        return new ie04ba6f0ce34de449e352ca037084834d656ce248273d13fdbcdf016b5e0ee16(urlTplParams, this.requestAdapter);
+        return new Ie04ba6f0ce34de449e352ca037084834d656ce248273d13fdbcdf016b5e0ee16(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new EdiscoveryReviewTagItemRequestBuilder and sets the default values.

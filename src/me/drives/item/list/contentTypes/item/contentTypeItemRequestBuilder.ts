@@ -5,13 +5,13 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {AssociateWithHubSitesRequestBuilder} from './associateWithHubSites/associateWithHubSitesRequestBuilder';
 import {BaseRequestBuilder} from './base/baseRequestBuilder';
 import {BaseTypesRequestBuilder} from './baseTypes/baseTypesRequestBuilder';
-import {ContentTypeItemRequestBuilder as i329f2e52a03155c39ebfc20f92bc41d225a6b916c6b17fa2a9b13edf7df85c8e} from './baseTypes/item/contentTypeItemRequestBuilder';
+import {ContentTypeItemRequestBuilder as I329f2e52a03155c39ebfc20f92bc41d225a6b916c6b17fa2a9b13edf7df85c8e} from './baseTypes/item/contentTypeItemRequestBuilder';
 import {ColumnLinksRequestBuilder} from './columnLinks/columnLinksRequestBuilder';
 import {ColumnLinkItemRequestBuilder} from './columnLinks/item/columnLinkItemRequestBuilder';
 import {ColumnPositionsRequestBuilder} from './columnPositions/columnPositionsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as ifc38b3f95174169a018ab4ee4432603cb959ed9efbb3e7e68d26d182937a5526} from './columnPositions/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as Ifc38b3f95174169a018ab4ee4432603cb959ed9efbb3e7e68d26d182937a5526} from './columnPositions/item/columnDefinitionItemRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as i09829a82d3bbb0e3e96056220bfeb04945f05bdef93c54ab2ab6c53810b52711} from './columns/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as I09829a82d3bbb0e3e96056220bfeb04945f05bdef93c54ab2ab6c53810b52711} from './columns/item/columnDefinitionItemRequestBuilder';
 import {ContentTypeItemRequestBuilderDeleteRequestConfiguration} from './contentTypeItemRequestBuilderDeleteRequestConfiguration';
 import {ContentTypeItemRequestBuilderGetRequestConfiguration} from './contentTypeItemRequestBuilderGetRequestConfiguration';
 import {ContentTypeItemRequestBuilderPatchRequestConfiguration} from './contentTypeItemRequestBuilderPatchRequestConfiguration';
@@ -70,11 +70,11 @@ export class ContentTypeItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ContentTypeItemRequestBuilder
      */
-    public baseTypesById(id: string) : i329f2e52a03155c39ebfc20f92bc41d225a6b916c6b17fa2a9b13edf7df85c8e {
+    public baseTypesById(id: string) : I329f2e52a03155c39ebfc20f92bc41d225a6b916c6b17fa2a9b13edf7df85c8e {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contentType%2Did1"] = id
-        return new i329f2e52a03155c39ebfc20f92bc41d225a6b916c6b17fa2a9b13edf7df85c8e(urlTplParams, this.requestAdapter);
+        return new I329f2e52a03155c39ebfc20f92bc41d225a6b916c6b17fa2a9b13edf7df85c8e(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity.
@@ -92,22 +92,22 @@ export class ContentTypeItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ColumnDefinitionItemRequestBuilder
      */
-    public columnPositionsById(id: string) : ifc38b3f95174169a018ab4ee4432603cb959ed9efbb3e7e68d26d182937a5526 {
+    public columnPositionsById(id: string) : Ifc38b3f95174169a018ab4ee4432603cb959ed9efbb3e7e68d26d182937a5526 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new ifc38b3f95174169a018ab4ee4432603cb959ed9efbb3e7e68d26d182937a5526(urlTplParams, this.requestAdapter);
+        return new Ifc38b3f95174169a018ab4ee4432603cb959ed9efbb3e7e68d26d182937a5526(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the columns property of the microsoft.graph.contentType entity.
      * @param id Unique identifier of the item
      * @returns a ColumnDefinitionItemRequestBuilder
      */
-    public columnsById(id: string) : i09829a82d3bbb0e3e96056220bfeb04945f05bdef93c54ab2ab6c53810b52711 {
+    public columnsById(id: string) : I09829a82d3bbb0e3e96056220bfeb04945f05bdef93c54ab2ab6c53810b52711 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new i09829a82d3bbb0e3e96056220bfeb04945f05bdef93c54ab2ab6c53810b52711(urlTplParams, this.requestAdapter);
+        return new I09829a82d3bbb0e3e96056220bfeb04945f05bdef93c54ab2ab6c53810b52711(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new ContentTypeItemRequestBuilder and sets the default values.

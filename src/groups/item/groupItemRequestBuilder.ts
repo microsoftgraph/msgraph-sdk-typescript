@@ -3,14 +3,14 @@ import {createGroupFromDiscriminatorValue} from '../../models/createGroupFromDis
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AcceptedSendersRequestBuilder} from './acceptedSenders/acceptedSendersRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i7078dd311b5262a56d3c5e7479b4134b70aa9ffeb3de1030a0917132e0be6ef1} from './acceptedSenders/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I7078dd311b5262a56d3c5e7479b4134b70aa9ffeb3de1030a0917132e0be6ef1} from './acceptedSenders/item/directoryObjectItemRequestBuilder';
 import {AddFavoriteRequestBuilder} from './addFavorite/addFavoriteRequestBuilder';
 import {AppRoleAssignmentsRequestBuilder} from './appRoleAssignments/appRoleAssignmentsRequestBuilder';
 import {AppRoleAssignmentItemRequestBuilder} from './appRoleAssignments/item/appRoleAssignmentItemRequestBuilder';
 import {AssignLicenseRequestBuilder} from './assignLicense/assignLicenseRequestBuilder';
 import {CalendarRequestBuilder} from './calendar/calendarRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventItemRequestBuilder as i2b1e0585fb04d85a776edc6c5efe4fe6d3c6110e43bc0f11f69aa25de9608306} from './calendarView/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as I2b1e0585fb04d85a776edc6c5efe4fe6d3c6110e43bc0f11f69aa25de9608306} from './calendarView/item/eventItemRequestBuilder';
 import {CheckGrantedPermissionsForAppRequestBuilder} from './checkGrantedPermissionsForApp/checkGrantedPermissionsForAppRequestBuilder';
 import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
@@ -21,7 +21,7 @@ import {DriveRequestBuilder} from './drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
 import {DriveItemRequestBuilder} from './drives/item/driveItemRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventItemRequestBuilder as ie5d0b561fb23af8afd1816548753fadc6e57552e08b76fc25adbf65d2dbc0529} from './events/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as Ie5d0b561fb23af8afd1816548753fadc6e57552e08b76fc25adbf65d2dbc0529} from './events/item/eventItemRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
@@ -31,14 +31,14 @@ import {GroupItemRequestBuilderGetRequestConfiguration} from './groupItemRequest
 import {GroupItemRequestBuilderPatchRequestConfiguration} from './groupItemRequestBuilderPatchRequestConfiguration';
 import {GroupLifecyclePoliciesRequestBuilder} from './groupLifecyclePolicies/groupLifecyclePoliciesRequestBuilder';
 import {GroupLifecyclePolicyItemRequestBuilder} from './groupLifecyclePolicies/item/groupLifecyclePolicyItemRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i50b1d2e7d272dfc74d906e7df71cb641fbaf073faec9b3737cc7963d0b1d1ff6} from './memberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I50b1d2e7d272dfc74d906e7df71cb641fbaf073faec9b3737cc7963d0b1d1ff6} from './memberOf/item/directoryObjectItemRequestBuilder';
 import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as if711933078171881a5a7c3013697ba27e8464b53ef5092fe5cc79fab84112e58} from './members/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as If711933078171881a5a7c3013697ba27e8464b53ef5092fe5cc79fab84112e58} from './members/item/directoryObjectItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as iea01dc6c9d30cc8fe331f232004da183eff62bda12d7ddc2db73acc438f4bf11} from './membersWithLicenseErrors/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as Iea01dc6c9d30cc8fe331f232004da183eff62bda12d7ddc2db73acc438f4bf11} from './membersWithLicenseErrors/item/directoryObjectItemRequestBuilder';
 import {MembersWithLicenseErrorsRequestBuilder} from './membersWithLicenseErrors/membersWithLicenseErrorsRequestBuilder';
 import {OnenoteRequestBuilder} from './onenote/onenoteRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i00e2f6af68b759b048247b53eb0db77f110c5e4b6819d79f3dbca0bb17d3a9b4} from './owners/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I00e2f6af68b759b048247b53eb0db77f110c5e4b6819d79f3dbca0bb17d3a9b4} from './owners/item/directoryObjectItemRequestBuilder';
 import {OwnersRequestBuilder} from './owners/ownersRequestBuilder';
 import {ResourceSpecificPermissionGrantItemRequestBuilder} from './permissionGrants/item/resourceSpecificPermissionGrantItemRequestBuilder';
 import {PermissionGrantsRequestBuilder} from './permissionGrants/permissionGrantsRequestBuilder';
@@ -46,7 +46,7 @@ import {PhotoRequestBuilder} from './photo/photoRequestBuilder';
 import {ProfilePhotoItemRequestBuilder} from './photos/item/profilePhotoItemRequestBuilder';
 import {PhotosRequestBuilder} from './photos/photosRequestBuilder';
 import {PlannerRequestBuilder} from './planner/plannerRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i2445613ee9357f9bdf7f816fa1c4dba543e3738d8dfaa1d6c00833aa5c2f2ac2} from './rejectedSenders/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I2445613ee9357f9bdf7f816fa1c4dba543e3738d8dfaa1d6c00833aa5c2f2ac2} from './rejectedSenders/item/directoryObjectItemRequestBuilder';
 import {RejectedSendersRequestBuilder} from './rejectedSenders/rejectedSendersRequestBuilder';
 import {RemoveFavoriteRequestBuilder} from './removeFavorite/removeFavoriteRequestBuilder';
 import {RenewRequestBuilder} from './renew/renewRequestBuilder';
@@ -60,9 +60,9 @@ import {SubscribeByMailRequestBuilder} from './subscribeByMail/subscribeByMailRe
 import {TeamRequestBuilder} from './team/teamRequestBuilder';
 import {ConversationThreadItemRequestBuilder} from './threads/item/conversationThreadItemRequestBuilder';
 import {ThreadsRequestBuilder} from './threads/threadsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i484a42b65977280664fc7b52ebc191c4fb0a673e25e83d03173a540c9485ddf2} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I484a42b65977280664fc7b52ebc191c4fb0a673e25e83d03173a540c9485ddf2} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i69d4124d58845297b36757fd2ca82a87d8b0f6cd7afe1f1f52275124523dd1af} from './transitiveMembers/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I69d4124d58845297b36757fd2ca82a87d8b0f6cd7afe1f1f52275124523dd1af} from './transitiveMembers/item/directoryObjectItemRequestBuilder';
 import {TransitiveMembersRequestBuilder} from './transitiveMembers/transitiveMembersRequestBuilder';
 import {UnsubscribeByMailRequestBuilder} from './unsubscribeByMail/unsubscribeByMailRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
@@ -245,11 +245,11 @@ export class GroupItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public acceptedSendersById(id: string) : i7078dd311b5262a56d3c5e7479b4134b70aa9ffeb3de1030a0917132e0be6ef1 {
+    public acceptedSendersById(id: string) : I7078dd311b5262a56d3c5e7479b4134b70aa9ffeb3de1030a0917132e0be6ef1 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i7078dd311b5262a56d3c5e7479b4134b70aa9ffeb3de1030a0917132e0be6ef1(urlTplParams, this.requestAdapter);
+        return new I7078dd311b5262a56d3c5e7479b4134b70aa9ffeb3de1030a0917132e0be6ef1(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the appRoleAssignments property of the microsoft.graph.group entity.
@@ -267,11 +267,11 @@ export class GroupItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public calendarViewById(id: string) : i2b1e0585fb04d85a776edc6c5efe4fe6d3c6110e43bc0f11f69aa25de9608306 {
+    public calendarViewById(id: string) : I2b1e0585fb04d85a776edc6c5efe4fe6d3c6110e43bc0f11f69aa25de9608306 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new i2b1e0585fb04d85a776edc6c5efe4fe6d3c6110e43bc0f11f69aa25de9608306(urlTplParams, this.requestAdapter);
+        return new I2b1e0585fb04d85a776edc6c5efe4fe6d3c6110e43bc0f11f69aa25de9608306(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new GroupItemRequestBuilder and sets the default values.
@@ -382,11 +382,11 @@ export class GroupItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public eventsById(id: string) : ie5d0b561fb23af8afd1816548753fadc6e57552e08b76fc25adbf65d2dbc0529 {
+    public eventsById(id: string) : Ie5d0b561fb23af8afd1816548753fadc6e57552e08b76fc25adbf65d2dbc0529 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new ie5d0b561fb23af8afd1816548753fadc6e57552e08b76fc25adbf65d2dbc0529(urlTplParams, this.requestAdapter);
+        return new Ie5d0b561fb23af8afd1816548753fadc6e57552e08b76fc25adbf65d2dbc0529(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the extensions property of the microsoft.graph.group entity.
@@ -431,44 +431,44 @@ export class GroupItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public memberOfById(id: string) : i50b1d2e7d272dfc74d906e7df71cb641fbaf073faec9b3737cc7963d0b1d1ff6 {
+    public memberOfById(id: string) : I50b1d2e7d272dfc74d906e7df71cb641fbaf073faec9b3737cc7963d0b1d1ff6 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i50b1d2e7d272dfc74d906e7df71cb641fbaf073faec9b3737cc7963d0b1d1ff6(urlTplParams, this.requestAdapter);
+        return new I50b1d2e7d272dfc74d906e7df71cb641fbaf073faec9b3737cc7963d0b1d1ff6(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.members.item collection
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public membersById(id: string) : if711933078171881a5a7c3013697ba27e8464b53ef5092fe5cc79fab84112e58 {
+    public membersById(id: string) : If711933078171881a5a7c3013697ba27e8464b53ef5092fe5cc79fab84112e58 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new if711933078171881a5a7c3013697ba27e8464b53ef5092fe5cc79fab84112e58(urlTplParams, this.requestAdapter);
+        return new If711933078171881a5a7c3013697ba27e8464b53ef5092fe5cc79fab84112e58(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the membersWithLicenseErrors property of the microsoft.graph.group entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public membersWithLicenseErrorsById(id: string) : iea01dc6c9d30cc8fe331f232004da183eff62bda12d7ddc2db73acc438f4bf11 {
+    public membersWithLicenseErrorsById(id: string) : Iea01dc6c9d30cc8fe331f232004da183eff62bda12d7ddc2db73acc438f4bf11 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new iea01dc6c9d30cc8fe331f232004da183eff62bda12d7ddc2db73acc438f4bf11(urlTplParams, this.requestAdapter);
+        return new Iea01dc6c9d30cc8fe331f232004da183eff62bda12d7ddc2db73acc438f4bf11(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.owners.item collection
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public ownersById(id: string) : i00e2f6af68b759b048247b53eb0db77f110c5e4b6819d79f3dbca0bb17d3a9b4 {
+    public ownersById(id: string) : I00e2f6af68b759b048247b53eb0db77f110c5e4b6819d79f3dbca0bb17d3a9b4 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i00e2f6af68b759b048247b53eb0db77f110c5e4b6819d79f3dbca0bb17d3a9b4(urlTplParams, this.requestAdapter);
+        return new I00e2f6af68b759b048247b53eb0db77f110c5e4b6819d79f3dbca0bb17d3a9b4(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the properties of a group object.
@@ -515,11 +515,11 @@ export class GroupItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public rejectedSendersById(id: string) : i2445613ee9357f9bdf7f816fa1c4dba543e3738d8dfaa1d6c00833aa5c2f2ac2 {
+    public rejectedSendersById(id: string) : I2445613ee9357f9bdf7f816fa1c4dba543e3738d8dfaa1d6c00833aa5c2f2ac2 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i2445613ee9357f9bdf7f816fa1c4dba543e3738d8dfaa1d6c00833aa5c2f2ac2(urlTplParams, this.requestAdapter);
+        return new I2445613ee9357f9bdf7f816fa1c4dba543e3738d8dfaa1d6c00833aa5c2f2ac2(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the settings property of the microsoft.graph.group entity.
@@ -559,21 +559,21 @@ export class GroupItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public transitiveMemberOfById(id: string) : i484a42b65977280664fc7b52ebc191c4fb0a673e25e83d03173a540c9485ddf2 {
+    public transitiveMemberOfById(id: string) : I484a42b65977280664fc7b52ebc191c4fb0a673e25e83d03173a540c9485ddf2 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i484a42b65977280664fc7b52ebc191c4fb0a673e25e83d03173a540c9485ddf2(urlTplParams, this.requestAdapter);
+        return new I484a42b65977280664fc7b52ebc191c4fb0a673e25e83d03173a540c9485ddf2(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the transitiveMembers property of the microsoft.graph.group entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public transitiveMembersById(id: string) : i69d4124d58845297b36757fd2ca82a87d8b0f6cd7afe1f1f52275124523dd1af {
+    public transitiveMembersById(id: string) : I69d4124d58845297b36757fd2ca82a87d8b0f6cd7afe1f1f52275124523dd1af {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i69d4124d58845297b36757fd2ca82a87d8b0f6cd7afe1f1f52275124523dd1af(urlTplParams, this.requestAdapter);
+        return new I69d4124d58845297b36757fd2ca82a87d8b0f6cd7afe1f1f52275124523dd1af(urlTplParams, this.requestAdapter);
     };
 }

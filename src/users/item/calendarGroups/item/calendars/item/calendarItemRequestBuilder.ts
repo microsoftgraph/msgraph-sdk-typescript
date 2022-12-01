@@ -9,9 +9,9 @@ import {CalendarItemRequestBuilderPatchRequestConfiguration} from './calendarIte
 import {CalendarPermissionsRequestBuilder} from './calendarPermissions/calendarPermissionsRequestBuilder';
 import {CalendarPermissionItemRequestBuilder} from './calendarPermissions/item/calendarPermissionItemRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventItemRequestBuilder as i124f0649c0c9cab125b34f17dd1914f03cd492a6ee20ef7578c07e5fbfe1b1e5} from './calendarView/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as I124f0649c0c9cab125b34f17dd1914f03cd492a6ee20ef7578c07e5fbfe1b1e5} from './calendarView/item/eventItemRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventItemRequestBuilder as i5990f8cf6e7e11f8bc531c6ef12fb6f3112ac4927a65eabb063b84d884da63cf} from './events/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as I5990f8cf6e7e11f8bc531c6ef12fb6f3112ac4927a65eabb063b84d884da63cf} from './events/item/eventItemRequestBuilder';
 import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
@@ -76,11 +76,11 @@ export class CalendarItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public calendarViewById(id: string) : i124f0649c0c9cab125b34f17dd1914f03cd492a6ee20ef7578c07e5fbfe1b1e5 {
+    public calendarViewById(id: string) : I124f0649c0c9cab125b34f17dd1914f03cd492a6ee20ef7578c07e5fbfe1b1e5 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new i124f0649c0c9cab125b34f17dd1914f03cd492a6ee20ef7578c07e5fbfe1b1e5(urlTplParams, this.requestAdapter);
+        return new I124f0649c0c9cab125b34f17dd1914f03cd492a6ee20ef7578c07e5fbfe1b1e5(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new CalendarItemRequestBuilder and sets the default values.
@@ -169,11 +169,11 @@ export class CalendarItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public eventsById(id: string) : i5990f8cf6e7e11f8bc531c6ef12fb6f3112ac4927a65eabb063b84d884da63cf {
+    public eventsById(id: string) : I5990f8cf6e7e11f8bc531c6ef12fb6f3112ac4927a65eabb063b84d884da63cf {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new i5990f8cf6e7e11f8bc531c6ef12fb6f3112ac4927a65eabb063b84d884da63cf(urlTplParams, this.requestAdapter);
+        return new I5990f8cf6e7e11f8bc531c6ef12fb6f3112ac4927a65eabb063b84d884da63cf(urlTplParams, this.requestAdapter);
     };
     /**
      * The calendars in the calendar group. Navigation property. Read-only. Nullable.

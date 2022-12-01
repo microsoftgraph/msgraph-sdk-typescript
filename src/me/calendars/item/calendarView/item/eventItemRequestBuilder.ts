@@ -14,7 +14,7 @@ import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
 import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
 import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
-import {EventItemRequestBuilder as ia679bc2a63fd6a905ac705aadcd7b63da056cc99ca51d09eb1cea5002d77db74} from './instances/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as Ia679bc2a63fd6a905ac705aadcd7b63da056cc99ca51d09eb1cea5002d77db74} from './instances/item/eventItemRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
 import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyItemRequestBuilder';
@@ -157,11 +157,11 @@ export class EventItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public instancesById(id: string) : ia679bc2a63fd6a905ac705aadcd7b63da056cc99ca51d09eb1cea5002d77db74 {
+    public instancesById(id: string) : Ia679bc2a63fd6a905ac705aadcd7b63da056cc99ca51d09eb1cea5002d77db74 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did1"] = id
-        return new ia679bc2a63fd6a905ac705aadcd7b63da056cc99ca51d09eb1cea5002d77db74(urlTplParams, this.requestAdapter);
+        return new Ia679bc2a63fd6a905ac705aadcd7b63da056cc99ca51d09eb1cea5002d77db74(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.event entity.

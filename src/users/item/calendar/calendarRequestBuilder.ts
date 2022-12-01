@@ -8,9 +8,9 @@ import {CalendarPermissionItemRequestBuilder} from './calendarPermissions/item/c
 import {CalendarRequestBuilderGetRequestConfiguration} from './calendarRequestBuilderGetRequestConfiguration';
 import {CalendarRequestBuilderPatchRequestConfiguration} from './calendarRequestBuilderPatchRequestConfiguration';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventItemRequestBuilder as i22d0e0c9be94f86ba95e99373fd579a9804ac67237d949a3792d6cc478a7d165} from './calendarView/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as I22d0e0c9be94f86ba95e99373fd579a9804ac67237d949a3792d6cc478a7d165} from './calendarView/item/eventItemRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventItemRequestBuilder as i33ccd48b5ff0decc44fd7c0c91d361569f70ad870033ea276422579e99ea4209} from './events/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as I33ccd48b5ff0decc44fd7c0c91d361569f70ad870033ea276422579e99ea4209} from './events/item/eventItemRequestBuilder';
 import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
@@ -75,11 +75,11 @@ export class CalendarRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public calendarViewById(id: string) : i22d0e0c9be94f86ba95e99373fd579a9804ac67237d949a3792d6cc478a7d165 {
+    public calendarViewById(id: string) : I22d0e0c9be94f86ba95e99373fd579a9804ac67237d949a3792d6cc478a7d165 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new i22d0e0c9be94f86ba95e99373fd579a9804ac67237d949a3792d6cc478a7d165(urlTplParams, this.requestAdapter);
+        return new I22d0e0c9be94f86ba95e99373fd579a9804ac67237d949a3792d6cc478a7d165(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new CalendarRequestBuilder and sets the default values.
@@ -137,11 +137,11 @@ export class CalendarRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public eventsById(id: string) : i33ccd48b5ff0decc44fd7c0c91d361569f70ad870033ea276422579e99ea4209 {
+    public eventsById(id: string) : I33ccd48b5ff0decc44fd7c0c91d361569f70ad870033ea276422579e99ea4209 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new i33ccd48b5ff0decc44fd7c0c91d361569f70ad870033ea276422579e99ea4209(urlTplParams, this.requestAdapter);
+        return new I33ccd48b5ff0decc44fd7c0c91d361569f70ad870033ea276422579e99ea4209(urlTplParams, this.requestAdapter);
     };
     /**
      * Get the properties and relationships of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:

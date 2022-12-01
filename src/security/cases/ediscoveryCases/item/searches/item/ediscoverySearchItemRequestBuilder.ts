@@ -3,10 +3,10 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {EdiscoverySearch} from '../../../../../../models/security/';
 import {createEdiscoverySearchFromDiscriminatorValue} from '../../../../../../models/security/createEdiscoverySearchFromDiscriminatorValue';
 import {AdditionalSourcesRequestBuilder} from './additionalSources/additionalSourcesRequestBuilder';
-import {DataSourceItemRequestBuilder as i860231e803b45916356ab4415de9e4f00c75d6b57892bd05665f99af41076c06} from './additionalSources/item/dataSourceItemRequestBuilder';
+import {DataSourceItemRequestBuilder as I860231e803b45916356ab4415de9e4f00c75d6b57892bd05665f99af41076c06} from './additionalSources/item/dataSourceItemRequestBuilder';
 import {AddToReviewSetOperationRequestBuilder} from './addToReviewSetOperation/addToReviewSetOperationRequestBuilder';
 import {CustodianSourcesRequestBuilder} from './custodianSources/custodianSourcesRequestBuilder';
-import {DataSourceItemRequestBuilder as i816d4625b66c6d2c4612002c52b267d5854146b45897bff33e764e473e80311e} from './custodianSources/item/dataSourceItemRequestBuilder';
+import {DataSourceItemRequestBuilder as I816d4625b66c6d2c4612002c52b267d5854146b45897bff33e764e473e80311e} from './custodianSources/item/dataSourceItemRequestBuilder';
 import {EdiscoverySearchItemRequestBuilderDeleteRequestConfiguration} from './ediscoverySearchItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoverySearchItemRequestBuilderGetRequestConfiguration} from './ediscoverySearchItemRequestBuilderGetRequestConfiguration';
 import {EdiscoverySearchItemRequestBuilderPatchRequestConfiguration} from './ediscoverySearchItemRequestBuilderPatchRequestConfiguration';
@@ -58,11 +58,11 @@ export class EdiscoverySearchItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DataSourceItemRequestBuilder
      */
-    public additionalSourcesById(id: string) : i860231e803b45916356ab4415de9e4f00c75d6b57892bd05665f99af41076c06 {
+    public additionalSourcesById(id: string) : I860231e803b45916356ab4415de9e4f00c75d6b57892bd05665f99af41076c06 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["dataSource%2Did"] = id
-        return new i860231e803b45916356ab4415de9e4f00c75d6b57892bd05665f99af41076c06(urlTplParams, this.requestAdapter);
+        return new I860231e803b45916356ab4415de9e4f00c75d6b57892bd05665f99af41076c06(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new EdiscoverySearchItemRequestBuilder and sets the default values.
@@ -136,11 +136,11 @@ export class EdiscoverySearchItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DataSourceItemRequestBuilder
      */
-    public custodianSourcesById(id: string) : i816d4625b66c6d2c4612002c52b267d5854146b45897bff33e764e473e80311e {
+    public custodianSourcesById(id: string) : I816d4625b66c6d2c4612002c52b267d5854146b45897bff33e764e473e80311e {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["dataSource%2Did"] = id
-        return new i816d4625b66c6d2c4612002c52b267d5854146b45897bff33e764e473e80311e(urlTplParams, this.requestAdapter);
+        return new I816d4625b66c6d2c4612002c52b267d5854146b45897bff33e764e473e80311e(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property searches for security

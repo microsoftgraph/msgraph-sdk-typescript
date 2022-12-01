@@ -16,7 +16,7 @@ import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
 import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
 import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
-import {EventItemRequestBuilder as id447143c413966ccf64c0b2c2f0e08c601f0c9d56ea8e4d4d786025795e823e6} from './instances/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as Id447143c413966ccf64c0b2c2f0e08c601f0c9d56ea8e4d4d786025795e823e6} from './instances/item/eventItemRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
 import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyItemRequestBuilder';
@@ -210,11 +210,11 @@ export class EventItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public instancesById(id: string) : id447143c413966ccf64c0b2c2f0e08c601f0c9d56ea8e4d4d786025795e823e6 {
+    public instancesById(id: string) : Id447143c413966ccf64c0b2c2f0e08c601f0c9d56ea8e4d4d786025795e823e6 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did1"] = id
-        return new id447143c413966ccf64c0b2c2f0e08c601f0c9d56ea8e4d4d786025795e823e6(urlTplParams, this.requestAdapter);
+        return new Id447143c413966ccf64c0b2c2f0e08c601f0c9d56ea8e4d4d786025795e823e6(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.event entity.

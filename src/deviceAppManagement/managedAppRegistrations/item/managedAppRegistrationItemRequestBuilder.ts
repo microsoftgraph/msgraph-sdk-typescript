@@ -3,9 +3,9 @@ import {createManagedAppRegistrationFromDiscriminatorValue} from '../../../model
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppliedPoliciesRequestBuilder} from './appliedPolicies/appliedPoliciesRequestBuilder';
-import {ManagedAppPolicyItemRequestBuilder as ieeaba3839496ecf69dd412858bb89c71b8061bacc48d9e4f363c1d0603b278c9} from './appliedPolicies/item/managedAppPolicyItemRequestBuilder';
+import {ManagedAppPolicyItemRequestBuilder as Ieeaba3839496ecf69dd412858bb89c71b8061bacc48d9e4f363c1d0603b278c9} from './appliedPolicies/item/managedAppPolicyItemRequestBuilder';
 import {IntendedPoliciesRequestBuilder} from './intendedPolicies/intendedPoliciesRequestBuilder';
-import {ManagedAppPolicyItemRequestBuilder as idd29f9cb721ede8ef48ce7470339b90954dc8da5b1ca8bab07978f58c2ea4e3c} from './intendedPolicies/item/managedAppPolicyItemRequestBuilder';
+import {ManagedAppPolicyItemRequestBuilder as Idd29f9cb721ede8ef48ce7470339b90954dc8da5b1ca8bab07978f58c2ea4e3c} from './intendedPolicies/item/managedAppPolicyItemRequestBuilder';
 import {ManagedAppRegistrationItemRequestBuilderDeleteRequestConfiguration} from './managedAppRegistrationItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedAppRegistrationItemRequestBuilderGetRequestConfiguration} from './managedAppRegistrationItemRequestBuilderGetRequestConfiguration';
 import {ManagedAppRegistrationItemRequestBuilderPatchRequestConfiguration} from './managedAppRegistrationItemRequestBuilderPatchRequestConfiguration';
@@ -38,11 +38,11 @@ export class ManagedAppRegistrationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedAppPolicyItemRequestBuilder
      */
-    public appliedPoliciesById(id: string) : ieeaba3839496ecf69dd412858bb89c71b8061bacc48d9e4f363c1d0603b278c9 {
+    public appliedPoliciesById(id: string) : Ieeaba3839496ecf69dd412858bb89c71b8061bacc48d9e4f363c1d0603b278c9 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedAppPolicy%2Did"] = id
-        return new ieeaba3839496ecf69dd412858bb89c71b8061bacc48d9e4f363c1d0603b278c9(urlTplParams, this.requestAdapter);
+        return new Ieeaba3839496ecf69dd412858bb89c71b8061bacc48d9e4f363c1d0603b278c9(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new ManagedAppRegistrationItemRequestBuilder and sets the default values.
@@ -147,11 +147,11 @@ export class ManagedAppRegistrationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedAppPolicyItemRequestBuilder
      */
-    public intendedPoliciesById(id: string) : idd29f9cb721ede8ef48ce7470339b90954dc8da5b1ca8bab07978f58c2ea4e3c {
+    public intendedPoliciesById(id: string) : Idd29f9cb721ede8ef48ce7470339b90954dc8da5b1ca8bab07978f58c2ea4e3c {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedAppPolicy%2Did"] = id
-        return new idd29f9cb721ede8ef48ce7470339b90954dc8da5b1ca8bab07978f58c2ea4e3c(urlTplParams, this.requestAdapter);
+        return new Idd29f9cb721ede8ef48ce7470339b90954dc8da5b1ca8bab07978f58c2ea4e3c(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the operations property of the microsoft.graph.managedAppRegistration entity.

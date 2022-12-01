@@ -6,15 +6,15 @@ import {AddKeyRequestBuilder} from './addKey/addKeyRequestBuilder';
 import {AddPasswordRequestBuilder} from './addPassword/addPasswordRequestBuilder';
 import {AddTokenSigningCertificateRequestBuilder} from './addTokenSigningCertificate/addTokenSigningCertificateRequestBuilder';
 import {AppRoleAssignedToRequestBuilder} from './appRoleAssignedTo/appRoleAssignedToRequestBuilder';
-import {AppRoleAssignmentItemRequestBuilder as i93168b8558556722da9cecc35d7553892e9e7c2bde1e1fb43b3db6857cf15658} from './appRoleAssignedTo/item/appRoleAssignmentItemRequestBuilder';
+import {AppRoleAssignmentItemRequestBuilder as I93168b8558556722da9cecc35d7553892e9e7c2bde1e1fb43b3db6857cf15658} from './appRoleAssignedTo/item/appRoleAssignmentItemRequestBuilder';
 import {AppRoleAssignmentsRequestBuilder} from './appRoleAssignments/appRoleAssignmentsRequestBuilder';
-import {AppRoleAssignmentItemRequestBuilder as i0f96074f1bfce1552adeec4df64587124a7f4fef296a83e3a7d09766250b6d14} from './appRoleAssignments/item/appRoleAssignmentItemRequestBuilder';
+import {AppRoleAssignmentItemRequestBuilder as I0f96074f1bfce1552adeec4df64587124a7f4fef296a83e3a7d09766250b6d14} from './appRoleAssignments/item/appRoleAssignmentItemRequestBuilder';
 import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {ClaimsMappingPoliciesRequestBuilder} from './claimsMappingPolicies/claimsMappingPoliciesRequestBuilder';
 import {ClaimsMappingPolicyItemRequestBuilder} from './claimsMappingPolicies/item/claimsMappingPolicyItemRequestBuilder';
 import {CreatedObjectsRequestBuilder} from './createdObjects/createdObjectsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as idd5bcd509e8fa4de83b0ab51581c31faee151d3fe6ef9edcf927694965d73a2c} from './createdObjects/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as Idd5bcd509e8fa4de83b0ab51581c31faee151d3fe6ef9edcf927694965d73a2c} from './createdObjects/item/directoryObjectItemRequestBuilder';
 import {DelegatedPermissionClassificationsRequestBuilder} from './delegatedPermissionClassifications/delegatedPermissionClassificationsRequestBuilder';
 import {DelegatedPermissionClassificationItemRequestBuilder} from './delegatedPermissionClassifications/item/delegatedPermissionClassificationItemRequestBuilder';
 import {EndpointsRequestBuilder} from './endpoints/endpointsRequestBuilder';
@@ -25,13 +25,13 @@ import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRe
 import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
 import {HomeRealmDiscoveryPoliciesRequestBuilder} from './homeRealmDiscoveryPolicies/homeRealmDiscoveryPoliciesRequestBuilder';
 import {HomeRealmDiscoveryPolicyItemRequestBuilder} from './homeRealmDiscoveryPolicies/item/homeRealmDiscoveryPolicyItemRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as if04f7937796df91a9e5b988ef3bf59350050b50c9239bd5559c64c4c55486c2a} from './memberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as If04f7937796df91a9e5b988ef3bf59350050b50c9239bd5559c64c4c55486c2a} from './memberOf/item/directoryObjectItemRequestBuilder';
 import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
 import {OAuth2PermissionGrantItemRequestBuilder} from './oauth2PermissionGrants/item/oAuth2PermissionGrantItemRequestBuilder';
 import {Oauth2PermissionGrantsRequestBuilder} from './oauth2PermissionGrants/oauth2PermissionGrantsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as ia867b6ae3f11225ff7b901f1fce150f9e21290a6d6c449c35e70db3ddcd52411} from './ownedObjects/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as Ia867b6ae3f11225ff7b901f1fce150f9e21290a6d6c449c35e70db3ddcd52411} from './ownedObjects/item/directoryObjectItemRequestBuilder';
 import {OwnedObjectsRequestBuilder} from './ownedObjects/ownedObjectsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i0835d8d8ef8d42e8d6c78b47f39ee556ddd6a1be84094c5c876147cb74186e0f} from './owners/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I0835d8d8ef8d42e8d6c78b47f39ee556ddd6a1be84094c5c876147cb74186e0f} from './owners/item/directoryObjectItemRequestBuilder';
 import {OwnersRequestBuilder} from './owners/ownersRequestBuilder';
 import {RemoveKeyRequestBuilder} from './removeKey/removeKeyRequestBuilder';
 import {RemovePasswordRequestBuilder} from './removePassword/removePasswordRequestBuilder';
@@ -43,7 +43,7 @@ import {TokenIssuancePolicyItemRequestBuilder} from './tokenIssuancePolicies/ite
 import {TokenIssuancePoliciesRequestBuilder} from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
 import {TokenLifetimePolicyItemRequestBuilder} from './tokenLifetimePolicies/item/tokenLifetimePolicyItemRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilder} from './tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as ib912ed8d8ac5765b62081ae40c470fcf950149a603500b416773d4e060862120} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as Ib912ed8d8ac5765b62081ae40c470fcf950149a603500b416773d4e060862120} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -160,22 +160,22 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AppRoleAssignmentItemRequestBuilder
      */
-    public appRoleAssignedToById(id: string) : i93168b8558556722da9cecc35d7553892e9e7c2bde1e1fb43b3db6857cf15658 {
+    public appRoleAssignedToById(id: string) : I93168b8558556722da9cecc35d7553892e9e7c2bde1e1fb43b3db6857cf15658 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["appRoleAssignment%2Did"] = id
-        return new i93168b8558556722da9cecc35d7553892e9e7c2bde1e1fb43b3db6857cf15658(urlTplParams, this.requestAdapter);
+        return new I93168b8558556722da9cecc35d7553892e9e7c2bde1e1fb43b3db6857cf15658(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the appRoleAssignments property of the microsoft.graph.servicePrincipal entity.
      * @param id Unique identifier of the item
      * @returns a AppRoleAssignmentItemRequestBuilder
      */
-    public appRoleAssignmentsById(id: string) : i0f96074f1bfce1552adeec4df64587124a7f4fef296a83e3a7d09766250b6d14 {
+    public appRoleAssignmentsById(id: string) : I0f96074f1bfce1552adeec4df64587124a7f4fef296a83e3a7d09766250b6d14 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["appRoleAssignment%2Did"] = id
-        return new i0f96074f1bfce1552adeec4df64587124a7f4fef296a83e3a7d09766250b6d14(urlTplParams, this.requestAdapter);
+        return new I0f96074f1bfce1552adeec4df64587124a7f4fef296a83e3a7d09766250b6d14(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.claimsMappingPolicies.item collection
@@ -222,11 +222,11 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public createdObjectsById(id: string) : idd5bcd509e8fa4de83b0ab51581c31faee151d3fe6ef9edcf927694965d73a2c {
+    public createdObjectsById(id: string) : Idd5bcd509e8fa4de83b0ab51581c31faee151d3fe6ef9edcf927694965d73a2c {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new idd5bcd509e8fa4de83b0ab51581c31faee151d3fe6ef9edcf927694965d73a2c(urlTplParams, this.requestAdapter);
+        return new Idd5bcd509e8fa4de83b0ab51581c31faee151d3fe6ef9edcf927694965d73a2c(urlTplParams, this.requestAdapter);
     };
     /**
      * Retrieve the properties and relationships of a servicePrincipal object.
@@ -346,11 +346,11 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public memberOfById(id: string) : if04f7937796df91a9e5b988ef3bf59350050b50c9239bd5559c64c4c55486c2a {
+    public memberOfById(id: string) : If04f7937796df91a9e5b988ef3bf59350050b50c9239bd5559c64c4c55486c2a {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new if04f7937796df91a9e5b988ef3bf59350050b50c9239bd5559c64c4c55486c2a(urlTplParams, this.requestAdapter);
+        return new If04f7937796df91a9e5b988ef3bf59350050b50c9239bd5559c64c4c55486c2a(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.servicePrincipal entity.
@@ -368,22 +368,22 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public ownedObjectsById(id: string) : ia867b6ae3f11225ff7b901f1fce150f9e21290a6d6c449c35e70db3ddcd52411 {
+    public ownedObjectsById(id: string) : Ia867b6ae3f11225ff7b901f1fce150f9e21290a6d6c449c35e70db3ddcd52411 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new ia867b6ae3f11225ff7b901f1fce150f9e21290a6d6c449c35e70db3ddcd52411(urlTplParams, this.requestAdapter);
+        return new Ia867b6ae3f11225ff7b901f1fce150f9e21290a6d6c449c35e70db3ddcd52411(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.owners.item collection
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public ownersById(id: string) : i0835d8d8ef8d42e8d6c78b47f39ee556ddd6a1be84094c5c876147cb74186e0f {
+    public ownersById(id: string) : I0835d8d8ef8d42e8d6c78b47f39ee556ddd6a1be84094c5c876147cb74186e0f {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i0835d8d8ef8d42e8d6c78b47f39ee556ddd6a1be84094c5c876147cb74186e0f(urlTplParams, this.requestAdapter);
+        return new I0835d8d8ef8d42e8d6c78b47f39ee556ddd6a1be84094c5c876147cb74186e0f(urlTplParams, this.requestAdapter);
     };
     /**
      * Update entity in servicePrincipals
@@ -430,10 +430,10 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public transitiveMemberOfById(id: string) : ib912ed8d8ac5765b62081ae40c470fcf950149a603500b416773d4e060862120 {
+    public transitiveMemberOfById(id: string) : Ib912ed8d8ac5765b62081ae40c470fcf950149a603500b416773d4e060862120 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new ib912ed8d8ac5765b62081ae40c470fcf950149a603500b416773d4e060862120(urlTplParams, this.requestAdapter);
+        return new Ib912ed8d8ac5765b62081ae40c470fcf950149a603500b416773d4e060862120(urlTplParams, this.requestAdapter);
     };
 }

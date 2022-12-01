@@ -6,7 +6,7 @@ import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
 import {CheckinRequestBuilder} from './checkin/checkinRequestBuilder';
 import {CheckoutRequestBuilder} from './checkout/checkoutRequestBuilder';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {DriveItemItemRequestBuilder as ia4e06e3749d2f8c1033950e42c0135873f385a01b564411719748942874c067a} from './children/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as Ia4e06e3749d2f8c1033950e42c0135873f385a01b564411719748942874c067a} from './children/item/driveItemItemRequestBuilder';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {CopyRequestBuilder} from './copy/copyRequestBuilder';
 import {CreateLinkRequestBuilder} from './createLink/createLinkRequestBuilder';
@@ -125,11 +125,11 @@ export class DriveItemItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
-    public childrenById(id: string) : ia4e06e3749d2f8c1033950e42c0135873f385a01b564411719748942874c067a {
+    public childrenById(id: string) : Ia4e06e3749d2f8c1033950e42c0135873f385a01b564411719748942874c067a {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did1"] = id
-        return new ia4e06e3749d2f8c1033950e42c0135873f385a01b564411719748942874c067a(urlTplParams, this.requestAdapter);
+        return new Ia4e06e3749d2f8c1033950e42c0135873f385a01b564411719748942874c067a(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new DriveItemItemRequestBuilder and sets the default values.

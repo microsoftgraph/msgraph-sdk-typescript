@@ -6,9 +6,9 @@ import {ConnectedOrganizationItemRequestBuilderDeleteRequestConfiguration} from 
 import {ConnectedOrganizationItemRequestBuilderGetRequestConfiguration} from './connectedOrganizationItemRequestBuilderGetRequestConfiguration';
 import {ConnectedOrganizationItemRequestBuilderPatchRequestConfiguration} from './connectedOrganizationItemRequestBuilderPatchRequestConfiguration';
 import {ExternalSponsorsRequestBuilder} from './externalSponsors/externalSponsorsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i7878104e7b0ea53246ac468b5705cce3cfc580d4222a924819428d7221076aa2} from './externalSponsors/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I7878104e7b0ea53246ac468b5705cce3cfc580d4222a924819428d7221076aa2} from './externalSponsors/item/directoryObjectItemRequestBuilder';
 import {InternalSponsorsRequestBuilder} from './internalSponsors/internalSponsorsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i8a781ad6078cf6e70aa40eeebfc1c290e68a68bb1597594a6a8f9d0f0ea3b516} from './internalSponsors/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I8a781ad6078cf6e70aa40eeebfc1c290e68a68bb1597594a6a8f9d0f0ea3b516} from './internalSponsors/item/directoryObjectItemRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity. */
@@ -114,11 +114,11 @@ export class ConnectedOrganizationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public externalSponsorsById(id: string) : i7878104e7b0ea53246ac468b5705cce3cfc580d4222a924819428d7221076aa2 {
+    public externalSponsorsById(id: string) : I7878104e7b0ea53246ac468b5705cce3cfc580d4222a924819428d7221076aa2 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i7878104e7b0ea53246ac468b5705cce3cfc580d4222a924819428d7221076aa2(urlTplParams, this.requestAdapter);
+        return new I7878104e7b0ea53246ac468b5705cce3cfc580d4222a924819428d7221076aa2(urlTplParams, this.requestAdapter);
     };
     /**
      * References to a directory or domain of another organization whose users can request access.
@@ -141,11 +141,11 @@ export class ConnectedOrganizationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public internalSponsorsById(id: string) : i8a781ad6078cf6e70aa40eeebfc1c290e68a68bb1597594a6a8f9d0f0ea3b516 {
+    public internalSponsorsById(id: string) : I8a781ad6078cf6e70aa40eeebfc1c290e68a68bb1597594a6a8f9d0f0ea3b516 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i8a781ad6078cf6e70aa40eeebfc1c290e68a68bb1597594a6a8f9d0f0ea3b516(urlTplParams, this.requestAdapter);
+        return new I8a781ad6078cf6e70aa40eeebfc1c290e68a68bb1597594a6a8f9d0f0ea3b516(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property connectedOrganizations in identityGovernance

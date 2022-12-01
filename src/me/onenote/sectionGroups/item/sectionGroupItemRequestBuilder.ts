@@ -7,7 +7,7 @@ import {ParentSectionGroupRequestBuilder} from './parentSectionGroup/parentSecti
 import {SectionGroupItemRequestBuilderDeleteRequestConfiguration} from './sectionGroupItemRequestBuilderDeleteRequestConfiguration';
 import {SectionGroupItemRequestBuilderGetRequestConfiguration} from './sectionGroupItemRequestBuilderGetRequestConfiguration';
 import {SectionGroupItemRequestBuilderPatchRequestConfiguration} from './sectionGroupItemRequestBuilderPatchRequestConfiguration';
-import {SectionGroupItemRequestBuilder as ifd2be6e4ebe01b028a3794b6fc91cfbf2682b4e2d95629b5f9c99a40e84d6e05} from './sectionGroups/item/sectionGroupItemRequestBuilder';
+import {SectionGroupItemRequestBuilder as Ifd2be6e4ebe01b028a3794b6fc91cfbf2682b4e2d95629b5f9c99a40e84d6e05} from './sectionGroups/item/sectionGroupItemRequestBuilder';
 import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
 import {OnenoteSectionItemRequestBuilder} from './sections/item/onenoteSectionItemRequestBuilder';
 import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
@@ -158,11 +158,11 @@ export class SectionGroupItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SectionGroupItemRequestBuilder
      */
-    public sectionGroupsById(id: string) : ifd2be6e4ebe01b028a3794b6fc91cfbf2682b4e2d95629b5f9c99a40e84d6e05 {
+    public sectionGroupsById(id: string) : Ifd2be6e4ebe01b028a3794b6fc91cfbf2682b4e2d95629b5f9c99a40e84d6e05 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["sectionGroup%2Did1"] = id
-        return new ifd2be6e4ebe01b028a3794b6fc91cfbf2682b4e2d95629b5f9c99a40e84d6e05(urlTplParams, this.requestAdapter);
+        return new Ifd2be6e4ebe01b028a3794b6fc91cfbf2682b4e2d95629b5f9c99a40e84d6e05(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the sections property of the microsoft.graph.sectionGroup entity.

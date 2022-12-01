@@ -10,9 +10,9 @@ import {DirectoryObjectItemRequestBuilder} from './domainNameReferences/item/dir
 import {FederationConfigurationRequestBuilder} from './federationConfiguration/federationConfigurationRequestBuilder';
 import {InternalDomainFederationItemRequestBuilder} from './federationConfiguration/item/internalDomainFederationItemRequestBuilder';
 import {ForceDeleteRequestBuilder} from './forceDelete/forceDeleteRequestBuilder';
-import {DomainDnsRecordItemRequestBuilder as i645b7a6c2b2e75703879ecf7aedd6400ebb0b1e58a2b8a9feaf4bbea098347da} from './serviceConfigurationRecords/item/domainDnsRecordItemRequestBuilder';
+import {DomainDnsRecordItemRequestBuilder as I645b7a6c2b2e75703879ecf7aedd6400ebb0b1e58a2b8a9feaf4bbea098347da} from './serviceConfigurationRecords/item/domainDnsRecordItemRequestBuilder';
 import {ServiceConfigurationRecordsRequestBuilder} from './serviceConfigurationRecords/serviceConfigurationRecordsRequestBuilder';
-import {DomainDnsRecordItemRequestBuilder as ib1b6b04364f5e14b4cb6820dc9f0e89b24894aa2bef616b4a1220973381758c2} from './verificationDnsRecords/item/domainDnsRecordItemRequestBuilder';
+import {DomainDnsRecordItemRequestBuilder as Ib1b6b04364f5e14b4cb6820dc9f0e89b24894aa2bef616b4a1220973381758c2} from './verificationDnsRecords/item/domainDnsRecordItemRequestBuilder';
 import {VerificationDnsRecordsRequestBuilder} from './verificationDnsRecords/verificationDnsRecordsRequestBuilder';
 import {VerifyRequestBuilder} from './verify/verifyRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -192,21 +192,21 @@ export class DomainItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DomainDnsRecordItemRequestBuilder
      */
-    public serviceConfigurationRecordsById(id: string) : i645b7a6c2b2e75703879ecf7aedd6400ebb0b1e58a2b8a9feaf4bbea098347da {
+    public serviceConfigurationRecordsById(id: string) : I645b7a6c2b2e75703879ecf7aedd6400ebb0b1e58a2b8a9feaf4bbea098347da {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["domainDnsRecord%2Did"] = id
-        return new i645b7a6c2b2e75703879ecf7aedd6400ebb0b1e58a2b8a9feaf4bbea098347da(urlTplParams, this.requestAdapter);
+        return new I645b7a6c2b2e75703879ecf7aedd6400ebb0b1e58a2b8a9feaf4bbea098347da(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the verificationDnsRecords property of the microsoft.graph.domain entity.
      * @param id Unique identifier of the item
      * @returns a DomainDnsRecordItemRequestBuilder
      */
-    public verificationDnsRecordsById(id: string) : ib1b6b04364f5e14b4cb6820dc9f0e89b24894aa2bef616b4a1220973381758c2 {
+    public verificationDnsRecordsById(id: string) : Ib1b6b04364f5e14b4cb6820dc9f0e89b24894aa2bef616b4a1220973381758c2 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["domainDnsRecord%2Did"] = id
-        return new ib1b6b04364f5e14b4cb6820dc9f0e89b24894aa2bef616b4a1220973381758c2(urlTplParams, this.requestAdapter);
+        return new Ib1b6b04364f5e14b4cb6820dc9f0e89b24894aa2bef616b4a1220973381758c2(urlTplParams, this.requestAdapter);
     };
 }
