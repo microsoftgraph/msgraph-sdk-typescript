@@ -5,6 +5,7 @@ import {createGroupFromDiscriminatorValue} from './createGroupFromDiscriminatorV
 import {AccessPackageAssignmentPolicy, AccessPackageCatalog, Entity, Group} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class AccessPackage extends Entity implements Parsable {
     /** The access packages that are incompatible with this package. Read-only. */
     private _accessPackagesIncompatibleWith?: AccessPackage[] | undefined;

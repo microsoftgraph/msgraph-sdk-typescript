@@ -72,7 +72,7 @@ export class CallItemRequestBuilder {
         return new ParticipantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the playPrompt method. */
     public get playPrompt(): PlayPromptRequestBuilder {
         return new PlayPromptRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -90,7 +90,7 @@ export class CallItemRequestBuilder {
         return new RejectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to call the subscribeToTone method. */
     public get subscribeToTone(): SubscribeToToneRequestBuilder {
         return new SubscribeToToneRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -108,7 +108,7 @@ export class CallItemRequestBuilder {
         return new UpdateRecordingStatusRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
      * @param id Unique identifier of the item

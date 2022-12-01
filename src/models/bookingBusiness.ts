@@ -31,13 +31,13 @@ export class BookingBusiness extends Entity implements Parsable {
     /** The email address for the business. */
     private _email?: string | undefined;
     /** The scheduling page has been made available to external customers. Use the publish and unpublish actions to set this property. Read-only. */
-    private readonly _isPublished?: boolean | undefined;
+    private _isPublished?: boolean | undefined;
     /** The languageTag property */
     private _languageTag?: string | undefined;
     /** The telephone number for the business. The phone property, together with address and webSiteUrl, appear in the footer of a business scheduling page. */
     private _phone?: string | undefined;
     /** The URL for the scheduling page, which is set after you publish or unpublish the page. Read-only. */
-    private readonly _publicUrl?: string | undefined;
+    private _publicUrl?: string | undefined;
     /** Specifies how bookings can be created for this business. */
     private _schedulingPolicy?: BookingSchedulingPolicy | undefined;
     /** All the services offered by this business. Read-only. Nullable. */

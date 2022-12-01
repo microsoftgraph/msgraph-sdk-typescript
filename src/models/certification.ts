@@ -4,11 +4,11 @@ export class Certification implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** URL that shows certification details for the application. */
-    private readonly _certificationDetailsUrl?: string | undefined;
+    private _certificationDetailsUrl?: string | undefined;
     /** The timestamp when the current certification for the application will expire. */
     private _certificationExpirationDateTime?: Date | undefined;
     /** Indicates whether the application is certified by Microsoft. */
-    private readonly _isCertifiedByMicrosoft?: boolean | undefined;
+    private _isCertifiedByMicrosoft?: boolean | undefined;
     /** Indicates whether the application has been self-attested by the application developer or the publisher. */
     private _isPublisherAttested?: boolean | undefined;
     /** The timestamp when the certification for the application was most recently added or updated. */

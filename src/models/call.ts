@@ -20,7 +20,7 @@ import {AudioRoutingGroup, CallMediaState, CallOptions, CallRoute, CallTranscrip
 import {Modality} from './modality';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class Call extends Entity implements Parsable {
     /** The audioRoutingGroups property */
     private _audioRoutingGroups?: AudioRoutingGroup[] | undefined;

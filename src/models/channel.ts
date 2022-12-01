@@ -7,13 +7,13 @@ import {createTeamsTabFromDiscriminatorValue} from './createTeamsTabFromDiscrimi
 import {ChatMessage, ConversationMember, DriveItem, Entity, SharedWithChannelTeamInfo, TeamsTab} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export class Channel extends Entity implements Parsable {
     /** Read only. Timestamp at which the channel was created. */
     private _createdDateTime?: Date | undefined;
     /** Optional textual description for the channel. */
     private _description?: string | undefined;
-    /** Channel name as it will appear to the user in Microsoft Teams. */
+    /** Channel name as it will appear to the user in Microsoft Teams. The maximum length is 50 characters. */
     private _displayName?: string | undefined;
     /** The email address for sending messages to the channel. Read-only. */
     private _email?: string | undefined;
@@ -70,14 +70,14 @@ export class Channel extends Entity implements Parsable {
         this._description = value;
     };
     /**
-     * Gets the displayName property value. Channel name as it will appear to the user in Microsoft Teams.
+     * Gets the displayName property value. Channel name as it will appear to the user in Microsoft Teams. The maximum length is 50 characters.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. Channel name as it will appear to the user in Microsoft Teams.
+     * Sets the displayName property value. Channel name as it will appear to the user in Microsoft Teams. The maximum length is 50 characters.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {

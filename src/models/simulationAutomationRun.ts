@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {SimulationAutomationRunStatus} from './simulationAutomationRunStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class SimulationAutomationRun extends Entity implements Parsable {
     /** Date and time when the run ends in an attack simulation automation. */
     private _endDateTime?: Date | undefined;

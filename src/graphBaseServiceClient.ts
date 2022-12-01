@@ -293,7 +293,7 @@ export class GraphBaseServiceClient {
         return new OrganizationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the collection of resourceSpecificPermissionGrant entities. */
     public get permissionGrants(): PermissionGrantsRequestBuilder {
         return new PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -323,7 +323,7 @@ export class GraphBaseServiceClient {
         return new ReportsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the roleManagement singleton. */
     public get roleManagement(): RoleManagementRequestBuilder {
         return new RoleManagementRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -381,7 +381,7 @@ export class GraphBaseServiceClient {
         return new TeamworkRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /** Provides operations to manage the collection of user entities. */
     public get users(): UsersRequestBuilder {
         return new UsersRequestBuilder(this.pathParameters, this.requestAdapter);

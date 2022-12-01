@@ -1,4 +1,4 @@
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum ConditionalAccessStatus {
     Success = "success",
     Failure = "failure",

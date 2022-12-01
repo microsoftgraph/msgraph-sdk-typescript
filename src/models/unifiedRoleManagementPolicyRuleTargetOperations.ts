@@ -1,4 +1,4 @@
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum UnifiedRoleManagementPolicyRuleTargetOperations {
     All = "all",
     Activate = "activate",

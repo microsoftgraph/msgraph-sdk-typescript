@@ -9,9 +9,9 @@ import {CalendarItemRequestBuilderPatchRequestConfiguration} from './calendarIte
 import {CalendarPermissionsRequestBuilder} from './calendarPermissions/calendarPermissionsRequestBuilder';
 import {CalendarPermissionItemRequestBuilder} from './calendarPermissions/item/calendarPermissionItemRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventItemRequestBuilder as i42d633ee12d6c3f004529648b09ce8028416394222cef396639364bed7ce1df1} from './calendarView/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as I42d633ee12d6c3f004529648b09ce8028416394222cef396639364bed7ce1df1} from './calendarView/item/eventItemRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventItemRequestBuilder as ie77a32ed83cf8708859aba8ad4501f0022dcd39125dabf47cc0872a83e4107a7} from './events/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as Ie77a32ed83cf8708859aba8ad4501f0022dcd39125dabf47cc0872a83e4107a7} from './events/item/eventItemRequestBuilder';
 import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
@@ -42,15 +42,15 @@ export class CalendarItemRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.calendar entity. */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Provides operations to call the allowedCalendarSharingRoles method.
      * @param User Usage: User='{User}'
@@ -76,11 +76,11 @@ export class CalendarItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public calendarViewById(id: string) : i42d633ee12d6c3f004529648b09ce8028416394222cef396639364bed7ce1df1 {
+    public calendarViewById(id: string) : I42d633ee12d6c3f004529648b09ce8028416394222cef396639364bed7ce1df1 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new i42d633ee12d6c3f004529648b09ce8028416394222cef396639364bed7ce1df1(urlTplParams, this.requestAdapter);
+        return new I42d633ee12d6c3f004529648b09ce8028416394222cef396639364bed7ce1df1(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new CalendarItemRequestBuilder and sets the default values.
@@ -169,11 +169,11 @@ export class CalendarItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public eventsById(id: string) : ie77a32ed83cf8708859aba8ad4501f0022dcd39125dabf47cc0872a83e4107a7 {
+    public eventsById(id: string) : Ie77a32ed83cf8708859aba8ad4501f0022dcd39125dabf47cc0872a83e4107a7 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new ie77a32ed83cf8708859aba8ad4501f0022dcd39125dabf47cc0872a83e4107a7(urlTplParams, this.requestAdapter);
+        return new Ie77a32ed83cf8708859aba8ad4501f0022dcd39125dabf47cc0872a83e4107a7(urlTplParams, this.requestAdapter);
     };
     /**
      * The user's calendars. Read-only. Nullable.

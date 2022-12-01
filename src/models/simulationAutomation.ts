@@ -4,7 +4,7 @@ import {EmailIdentity, Entity, SimulationAutomationRun} from './index';
 import {SimulationAutomationStatus} from './simulationAutomationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export class SimulationAutomation extends Entity implements Parsable {
     /** Identity of the user who created the attack simulation automation. */
     private _createdBy?: EmailIdentity | undefined;

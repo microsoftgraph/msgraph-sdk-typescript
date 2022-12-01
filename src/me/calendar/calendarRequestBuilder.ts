@@ -8,9 +8,9 @@ import {CalendarPermissionItemRequestBuilder} from './calendarPermissions/item/c
 import {CalendarRequestBuilderGetRequestConfiguration} from './calendarRequestBuilderGetRequestConfiguration';
 import {CalendarRequestBuilderPatchRequestConfiguration} from './calendarRequestBuilderPatchRequestConfiguration';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventItemRequestBuilder as i8717b2ff9999edc987e50e19ca260bf061bc14637aa03acacac16ee28823c2d8} from './calendarView/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as I8717b2ff9999edc987e50e19ca260bf061bc14637aa03acacac16ee28823c2d8} from './calendarView/item/eventItemRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventItemRequestBuilder as i6a63e41c55ea886388af93804d8296c2f7baccd218302aba5ea371bd589b68b7} from './events/item/eventItemRequestBuilder';
+import {EventItemRequestBuilder as I6a63e41c55ea886388af93804d8296c2f7baccd218302aba5ea371bd589b68b7} from './events/item/eventItemRequestBuilder';
 import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
@@ -41,15 +41,15 @@ export class CalendarRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.calendar entity. */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Provides operations to call the allowedCalendarSharingRoles method.
      * @param User Usage: User='{User}'
@@ -75,11 +75,11 @@ export class CalendarRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public calendarViewById(id: string) : i8717b2ff9999edc987e50e19ca260bf061bc14637aa03acacac16ee28823c2d8 {
+    public calendarViewById(id: string) : I8717b2ff9999edc987e50e19ca260bf061bc14637aa03acacac16ee28823c2d8 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new i8717b2ff9999edc987e50e19ca260bf061bc14637aa03acacac16ee28823c2d8(urlTplParams, this.requestAdapter);
+        return new I8717b2ff9999edc987e50e19ca260bf061bc14637aa03acacac16ee28823c2d8(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new CalendarRequestBuilder and sets the default values.
@@ -137,11 +137,11 @@ export class CalendarRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public eventsById(id: string) : i6a63e41c55ea886388af93804d8296c2f7baccd218302aba5ea371bd589b68b7 {
+    public eventsById(id: string) : I6a63e41c55ea886388af93804d8296c2f7baccd218302aba5ea371bd589b68b7 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
-        return new i6a63e41c55ea886388af93804d8296c2f7baccd218302aba5ea371bd589b68b7(urlTplParams, this.requestAdapter);
+        return new I6a63e41c55ea886388af93804d8296c2f7baccd218302aba5ea371bd589b68b7(urlTplParams, this.requestAdapter);
     };
     /**
      * Get the properties and relationships of a calendar object. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. There are two scenarios where an app can get another user's calendar:

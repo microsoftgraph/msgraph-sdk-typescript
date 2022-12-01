@@ -49,7 +49,7 @@ export class BookingService extends Entity implements Parsable {
     /** Represents those staff members who provide this service. */
     private _staffMemberIds?: string[] | undefined;
     /** The URL a customer uses to access the service. */
-    private readonly _webUrl?: string | undefined;
+    private _webUrl?: string | undefined;
     /**
      * Gets the additionalInformation property value. Additional information that is sent to the customer when an appointment is confirmed.
      * @returns a string

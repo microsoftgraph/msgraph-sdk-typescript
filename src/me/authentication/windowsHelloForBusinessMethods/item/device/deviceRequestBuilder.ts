@@ -11,14 +11,14 @@ import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i1a57bc4558513fb54897aa46ecef98e525dad7a57818c5a91e0b1110c4893e59} from './memberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I1a57bc4558513fb54897aa46ecef98e525dad7a57818c5a91e0b1110c4893e59} from './memberOf/item/directoryObjectItemRequestBuilder';
 import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i04ad6e843cf3aa846ed11938441aed3363d825682f2aa0108f11e97d9fd65341} from './registeredOwners/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I04ad6e843cf3aa846ed11938441aed3363d825682f2aa0108f11e97d9fd65341} from './registeredOwners/item/directoryObjectItemRequestBuilder';
 import {RegisteredOwnersRequestBuilder} from './registeredOwners/registeredOwnersRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i2545e1619190fe96d2ecb8d0eb8a1d8925b6d834a577d5095bcf903c3dcc329c} from './registeredUsers/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I2545e1619190fe96d2ecb8d0eb8a1d8925b6d834a577d5095bcf903c3dcc329c} from './registeredUsers/item/directoryObjectItemRequestBuilder';
 import {RegisteredUsersRequestBuilder} from './registeredUsers/registeredUsersRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as i040e7b29df7c4223d097d7c44cfe8ba997594a7180ab31c6aa3bb831d16fa64e} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as I040e7b29df7c4223d097d7c44cfe8ba997594a7180ab31c6aa3bb831d16fa64e} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -49,7 +49,7 @@ export class DeviceRequestBuilder {
         return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the registeredOwners property of the microsoft.graph.device entity. */
     public get registeredOwners(): RegisteredOwnersRequestBuilder {
         return new RegisteredOwnersRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -59,7 +59,7 @@ export class DeviceRequestBuilder {
         return new RegisteredUsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to call the restore method. */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -69,7 +69,7 @@ export class DeviceRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Instantiates a new DeviceRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -184,11 +184,11 @@ export class DeviceRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public memberOfById(id: string) : i1a57bc4558513fb54897aa46ecef98e525dad7a57818c5a91e0b1110c4893e59 {
+    public memberOfById(id: string) : I1a57bc4558513fb54897aa46ecef98e525dad7a57818c5a91e0b1110c4893e59 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i1a57bc4558513fb54897aa46ecef98e525dad7a57818c5a91e0b1110c4893e59(urlTplParams, this.requestAdapter);
+        return new I1a57bc4558513fb54897aa46ecef98e525dad7a57818c5a91e0b1110c4893e59(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property device in me
@@ -213,32 +213,32 @@ export class DeviceRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public registeredOwnersById(id: string) : i04ad6e843cf3aa846ed11938441aed3363d825682f2aa0108f11e97d9fd65341 {
+    public registeredOwnersById(id: string) : I04ad6e843cf3aa846ed11938441aed3363d825682f2aa0108f11e97d9fd65341 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i04ad6e843cf3aa846ed11938441aed3363d825682f2aa0108f11e97d9fd65341(urlTplParams, this.requestAdapter);
+        return new I04ad6e843cf3aa846ed11938441aed3363d825682f2aa0108f11e97d9fd65341(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the registeredUsers property of the microsoft.graph.device entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public registeredUsersById(id: string) : i2545e1619190fe96d2ecb8d0eb8a1d8925b6d834a577d5095bcf903c3dcc329c {
+    public registeredUsersById(id: string) : I2545e1619190fe96d2ecb8d0eb8a1d8925b6d834a577d5095bcf903c3dcc329c {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i2545e1619190fe96d2ecb8d0eb8a1d8925b6d834a577d5095bcf903c3dcc329c(urlTplParams, this.requestAdapter);
+        return new I2545e1619190fe96d2ecb8d0eb8a1d8925b6d834a577d5095bcf903c3dcc329c(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity.
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public transitiveMemberOfById(id: string) : i040e7b29df7c4223d097d7c44cfe8ba997594a7180ab31c6aa3bb831d16fa64e {
+    public transitiveMemberOfById(id: string) : I040e7b29df7c4223d097d7c44cfe8ba997594a7180ab31c6aa3bb831d16fa64e {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
-        return new i040e7b29df7c4223d097d7c44cfe8ba997594a7180ab31c6aa3bb831d16fa64e(urlTplParams, this.requestAdapter);
+        return new I040e7b29df7c4223d097d7c44cfe8ba997594a7180ab31c6aa3bb831d16fa64e(urlTplParams, this.requestAdapter);
     };
 }

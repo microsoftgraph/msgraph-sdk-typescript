@@ -54,13 +54,13 @@ export class AuthenticationRequestBuilder {
         return new PasswordMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity. */
     public get phoneMethods(): PhoneMethodsRequestBuilder {
         return new PhoneMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity. */
     public get softwareOathMethods(): SoftwareOathMethodsRequestBuilder {
         return new SoftwareOathMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -70,7 +70,7 @@ export class AuthenticationRequestBuilder {
         return new TemporaryAccessPassMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /** Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity. */
     public get windowsHelloForBusinessMethods(): WindowsHelloForBusinessMethodsRequestBuilder {
         return new WindowsHelloForBusinessMethodsRequestBuilder(this.pathParameters, this.requestAdapter);

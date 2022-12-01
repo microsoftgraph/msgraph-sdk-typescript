@@ -1,4 +1,4 @@
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum ManagedAppDataStorageLocation {
     /** OneDrive for business */
     OneDriveForBusiness = "oneDriveForBusiness",

@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {Term} from '../../../../../../../../../../models/termStore/';
 import {createTermFromDiscriminatorValue} from '../../../../../../../../../../models/termStore/createTermFromDiscriminatorValue';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {TermItemRequestBuilder as i4d0d1256f202e39491d2f61848b15f852ed53384bf4eb5c754e90a4f9b5720aa} from './children/item/termItemRequestBuilder';
+import {TermItemRequestBuilder as I4d0d1256f202e39491d2f61848b15f852ed53384bf4eb5c754e90a4f9b5720aa} from './children/item/termItemRequestBuilder';
 import {RelationItemRequestBuilder} from './relations/item/relationItemRequestBuilder';
 import {RelationsRequestBuilder} from './relations/relationsRequestBuilder';
 import {SetRequestBuilder} from './set/setRequestBuilder';
@@ -19,29 +19,29 @@ export class TermItemRequestBuilder {
         return new ChildrenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the relations property of the microsoft.graph.termStore.term entity. */
     public get relations(): RelationsRequestBuilder {
         return new RelationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the set property of the microsoft.graph.termStore.term entity. */
     public get set(): SetRequestBuilder {
         return new SetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Provides operations to manage the children property of the microsoft.graph.termStore.term entity.
      * @param id Unique identifier of the item
      * @returns a TermItemRequestBuilder
      */
-    public childrenById(id: string) : i4d0d1256f202e39491d2f61848b15f852ed53384bf4eb5c754e90a4f9b5720aa {
+    public childrenById(id: string) : I4d0d1256f202e39491d2f61848b15f852ed53384bf4eb5c754e90a4f9b5720aa {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["term%2Did1"] = id
-        return new i4d0d1256f202e39491d2f61848b15f852ed53384bf4eb5c754e90a4f9b5720aa(urlTplParams, this.requestAdapter);
+        return new I4d0d1256f202e39491d2f61848b15f852ed53384bf4eb5c754e90a4f9b5720aa(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new TermItemRequestBuilder and sets the default values.

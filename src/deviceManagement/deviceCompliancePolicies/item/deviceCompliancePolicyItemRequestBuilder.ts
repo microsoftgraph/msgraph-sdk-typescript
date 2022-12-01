@@ -44,9 +44,9 @@ export class DeviceCompliancePolicyItemRequestBuilder {
         return new DeviceStatusOverviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to call the scheduleActionsForRules method. */
     public get scheduleActionsForRules(): ScheduleActionsForRulesRequestBuilder {
         return new ScheduleActionsForRulesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -56,7 +56,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
         return new ScheduledActionsForRuleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /** Provides operations to manage the userStatuses property of the microsoft.graph.deviceCompliancePolicy entity. */
     public get userStatuses(): UserStatusesRequestBuilder {
         return new UserStatusesRequestBuilder(this.pathParameters, this.requestAdapter);

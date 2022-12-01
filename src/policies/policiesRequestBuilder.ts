@@ -79,13 +79,13 @@ export class PoliciesRequestBuilder {
         return new IdentitySecurityDefaultsEnforcementPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity. */
     public get permissionGrantPolicies(): PermissionGrantPoliciesRequestBuilder {
         return new PermissionGrantPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity. */
     public get roleManagementPolicies(): RoleManagementPoliciesRequestBuilder {
         return new RoleManagementPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -103,7 +103,7 @@ export class PoliciesRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
      * @param id Unique identifier of the item

@@ -3,7 +3,7 @@ import {createMailFolderFromDiscriminatorValue} from '../../../../models/createM
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ChildFoldersRequestBuilder} from './childFolders/childFoldersRequestBuilder';
-import {MailFolderItemRequestBuilder as i367d46967f0d2f5279ef6b800a7ff7ea45865a3d90922c7daf148f70708b640f} from './childFolders/item/mailFolderItemRequestBuilder';
+import {MailFolderItemRequestBuilder as I367d46967f0d2f5279ef6b800a7ff7ea45865a3d90922c7daf148f70708b640f} from './childFolders/item/mailFolderItemRequestBuilder';
 import {CopyRequestBuilder} from './copy/copyRequestBuilder';
 import {MailFolderItemRequestBuilderDeleteRequestConfiguration} from './mailFolderItemRequestBuilderDeleteRequestConfiguration';
 import {MailFolderItemRequestBuilderGetRequestConfiguration} from './mailFolderItemRequestBuilderGetRequestConfiguration';
@@ -46,25 +46,25 @@ export class MailFolderItemRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.mailFolder entity. */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.
      * @param id Unique identifier of the item
      * @returns a MailFolderItemRequestBuilder
      */
-    public childFoldersById(id: string) : i367d46967f0d2f5279ef6b800a7ff7ea45865a3d90922c7daf148f70708b640f {
+    public childFoldersById(id: string) : I367d46967f0d2f5279ef6b800a7ff7ea45865a3d90922c7daf148f70708b640f {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["mailFolder%2Did1"] = id
-        return new i367d46967f0d2f5279ef6b800a7ff7ea45865a3d90922c7daf148f70708b640f(urlTplParams, this.requestAdapter);
+        return new I367d46967f0d2f5279ef6b800a7ff7ea45865a3d90922c7daf148f70708b640f(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new MailFolderItemRequestBuilder and sets the default values.

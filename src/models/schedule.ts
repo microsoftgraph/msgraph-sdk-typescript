@@ -25,9 +25,9 @@ export class Schedule extends Entity implements Parsable {
     /** Indicates whether open shifts are enabled for the schedule. */
     private _openShiftsEnabled?: boolean | undefined;
     /** The status of the schedule provisioning. The possible values are notStarted, running, completed, failed. */
-    private readonly _provisionStatus?: OperationStatus | undefined;
+    private _provisionStatus?: OperationStatus | undefined;
     /** Additional information about why schedule provisioning failed. */
-    private readonly _provisionStatusCode?: string | undefined;
+    private _provisionStatusCode?: string | undefined;
     /** The logical grouping of users in the schedule (usually by role). */
     private _schedulingGroups?: SchedulingGroup[] | undefined;
     /** The shifts in the schedule. */

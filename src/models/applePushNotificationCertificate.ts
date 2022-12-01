@@ -7,7 +7,7 @@ export class ApplePushNotificationCertificate extends Entity implements Parsable
     /** Not yet documented */
     private _certificate?: string | undefined;
     /** Certificate serial number. This property is read-only. */
-    private readonly _certificateSerialNumber?: string | undefined;
+    private _certificateSerialNumber?: string | undefined;
     /** The reason the certificate upload failed. */
     private _certificateUploadFailureReason?: string | undefined;
     /** The certificate upload status. */

@@ -54,13 +54,13 @@ export class ChatItemRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity. */
     public get pinnedMessages(): PinnedMessagesRequestBuilder {
         return new PinnedMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to call the sendActivityNotification method. */
     public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
         return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -74,7 +74,7 @@ export class ChatItemRequestBuilder {
         return new UnhideForUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Instantiates a new ChatItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

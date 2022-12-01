@@ -3,8 +3,8 @@ import {createUnifiedRoleManagementPolicyFromDiscriminatorValue} from '../../../
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EffectiveRulesRequestBuilder} from './effectiveRules/effectiveRulesRequestBuilder';
-import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as ic6f793d374160642c2768dc2f8671aa9a06b7f3811c80234f6e9d5cc58f5a0ba} from './effectiveRules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
-import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as i4ae2fbd1842d4f5f7e2d464a244d1228c38ab27331849285a85c0173edbf44da} from './rules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
+import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as Ic6f793d374160642c2768dc2f8671aa9a06b7f3811c80234f6e9d5cc58f5a0ba} from './effectiveRules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
+import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as I4ae2fbd1842d4f5f7e2d464a244d1228c38ab27331849285a85c0173edbf44da} from './rules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
 import {RulesRequestBuilder} from './rules/rulesRequestBuilder';
 import {UnifiedRoleManagementPolicyItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleManagementPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration} from './unifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration';
@@ -18,15 +18,15 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
         return new EffectiveRulesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the rules property of the microsoft.graph.unifiedRoleManagementPolicy entity. */
     public get rules(): RulesRequestBuilder {
         return new RulesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Instantiates a new UnifiedRoleManagementPolicyItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -114,11 +114,11 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleManagementPolicyRuleItemRequestBuilder
      */
-    public effectiveRulesById(id: string) : ic6f793d374160642c2768dc2f8671aa9a06b7f3811c80234f6e9d5cc58f5a0ba {
+    public effectiveRulesById(id: string) : Ic6f793d374160642c2768dc2f8671aa9a06b7f3811c80234f6e9d5cc58f5a0ba {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleManagementPolicyRule%2Did"] = id
-        return new ic6f793d374160642c2768dc2f8671aa9a06b7f3811c80234f6e9d5cc58f5a0ba(urlTplParams, this.requestAdapter);
+        return new Ic6f793d374160642c2768dc2f8671aa9a06b7f3811c80234f6e9d5cc58f5a0ba(urlTplParams, this.requestAdapter);
     };
     /**
      * Specifies the various policies associated with scopes and roles.
@@ -159,10 +159,10 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleManagementPolicyRuleItemRequestBuilder
      */
-    public rulesById(id: string) : i4ae2fbd1842d4f5f7e2d464a244d1228c38ab27331849285a85c0173edbf44da {
+    public rulesById(id: string) : I4ae2fbd1842d4f5f7e2d464a244d1228c38ab27331849285a85c0173edbf44da {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleManagementPolicyRule%2Did"] = id
-        return new i4ae2fbd1842d4f5f7e2d464a244d1228c38ab27331849285a85c0173edbf44da(urlTplParams, this.requestAdapter);
+        return new I4ae2fbd1842d4f5f7e2d464a244d1228c38ab27331849285a85c0173edbf44da(urlTplParams, this.requestAdapter);
     };
 }

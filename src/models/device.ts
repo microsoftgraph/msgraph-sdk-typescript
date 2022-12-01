@@ -39,7 +39,7 @@ export class Device extends DirectoryObject implements Parsable {
     private _operatingSystem?: string | undefined;
     /** The version of the operating system on the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values). */
     private _operatingSystemVersion?: string | undefined;
-    /** For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections). */
+    /** For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith,/$count eq 0, /$count ne 0). */
     private _physicalIds?: string[] | undefined;
     /** The profile type of the device. Possible values: RegisteredDevice (default), SecureVM, Printer, Shared, IoT. */
     private _profileType?: string | undefined;
@@ -47,7 +47,7 @@ export class Device extends DirectoryObject implements Parsable {
     private _registeredOwners?: DirectoryObject[] | undefined;
     /** Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable. Supports $expand. */
     private _registeredUsers?: DirectoryObject[] | undefined;
-    /** List of labels applied to the device by the system. Supports $filter (eq when counting empty collections). */
+    /** List of labels applied to the device by the system. Supports $filter (/$count eq 0, /$count ne 0). */
     private _systemLabels?: string[] | undefined;
     /** Groups and administrative units that the device is a member of. This operation is transitive. Supports $expand. */
     private _transitiveMemberOf?: DirectoryObject[] | undefined;
@@ -331,14 +331,14 @@ export class Device extends DirectoryObject implements Parsable {
         this._operatingSystemVersion = value;
     };
     /**
-     * Gets the physicalIds property value. For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).
+     * Gets the physicalIds property value. For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith,/$count eq 0, /$count ne 0).
      * @returns a string
      */
     public get physicalIds() {
         return this._physicalIds;
     };
     /**
-     * Sets the physicalIds property value. For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).
+     * Sets the physicalIds property value. For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith,/$count eq 0, /$count ne 0).
      * @param value Value to set for the physicalIds property.
      */
     public set physicalIds(value: string[] | undefined) {
@@ -419,14 +419,14 @@ export class Device extends DirectoryObject implements Parsable {
         writer.writeStringValue("trustType", this.trustType);
     };
     /**
-     * Gets the systemLabels property value. List of labels applied to the device by the system. Supports $filter (eq when counting empty collections).
+     * Gets the systemLabels property value. List of labels applied to the device by the system. Supports $filter (/$count eq 0, /$count ne 0).
      * @returns a string
      */
     public get systemLabels() {
         return this._systemLabels;
     };
     /**
-     * Sets the systemLabels property value. List of labels applied to the device by the system. Supports $filter (eq when counting empty collections).
+     * Sets the systemLabels property value. List of labels applied to the device by the system. Supports $filter (/$count eq 0, /$count ne 0).
      * @param value Value to set for the systemLabels property.
      */
     public set systemLabels(value: string[] | undefined) {

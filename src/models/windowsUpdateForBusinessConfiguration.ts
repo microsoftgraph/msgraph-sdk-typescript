@@ -42,7 +42,7 @@ export class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration i
     /** The Feature Updates Pause Expiry datetime. This value is 35 days from the time admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported. */
     private _featureUpdatesPauseExpiryDateTime?: Date | undefined;
     /** The Feature Updates Pause start date. This value is the time when the admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported. This property is read-only. */
-    private readonly _featureUpdatesPauseStartDate?: DateOnly | undefined;
+    private _featureUpdatesPauseStartDate?: DateOnly | undefined;
     /** The Feature Updates Rollback Start datetime.This value is the time when the admin rolled back the Feature update for the ring.Returned by default.Query parameters are not supported. */
     private _featureUpdatesRollbackStartDateTime?: Date | undefined;
     /** The number of days after a Feature Update for which a rollback is valid with valid range from 2 to 60 days. Returned by default. Query parameters are not supported. */
@@ -64,7 +64,7 @@ export class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration i
     /** The Quality Updates Pause Expiry datetime. This value is 35 days from the time admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported. */
     private _qualityUpdatesPauseExpiryDateTime?: Date | undefined;
     /** The Quality Updates Pause start date. This value is the time when the admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported. This property is read-only. */
-    private readonly _qualityUpdatesPauseStartDate?: DateOnly | undefined;
+    private _qualityUpdatesPauseStartDate?: DateOnly | undefined;
     /** The Quality Updates Rollback Start datetime. This value is the time when the admin rolled back the Quality update for the ring. Returned by default. Query parameters are not supported. */
     private _qualityUpdatesRollbackStartDateTime?: Date | undefined;
     /** When TRUE, rollback Quality Updates on the next device check in. When FALSE, do not rollback Quality Updates on the next device check in. Returned by default. Query parameters are not supported. */

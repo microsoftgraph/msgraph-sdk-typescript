@@ -3,7 +3,7 @@ import {createContactFolderFromDiscriminatorValue} from '../../../models/createC
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ChildFoldersRequestBuilder} from './childFolders/childFoldersRequestBuilder';
-import {ContactFolderItemRequestBuilder as i1fac09ed3e8d677cadb92cf21d87b2bc419ec92c783d40d2fed029fd073d72a2} from './childFolders/item/contactFolderItemRequestBuilder';
+import {ContactFolderItemRequestBuilder as I1fac09ed3e8d677cadb92cf21d87b2bc419ec92c783d40d2fed029fd073d72a2} from './childFolders/item/contactFolderItemRequestBuilder';
 import {ContactFolderItemRequestBuilderDeleteRequestConfiguration} from './contactFolderItemRequestBuilderDeleteRequestConfiguration';
 import {ContactFolderItemRequestBuilderGetRequestConfiguration} from './contactFolderItemRequestBuilderGetRequestConfiguration';
 import {ContactFolderItemRequestBuilderPatchRequestConfiguration} from './contactFolderItemRequestBuilderPatchRequestConfiguration';
@@ -30,25 +30,25 @@ export class ContactFolderItemRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.contactFolder entity. */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Provides operations to manage the childFolders property of the microsoft.graph.contactFolder entity.
      * @param id Unique identifier of the item
      * @returns a ContactFolderItemRequestBuilder
      */
-    public childFoldersById(id: string) : i1fac09ed3e8d677cadb92cf21d87b2bc419ec92c783d40d2fed029fd073d72a2 {
+    public childFoldersById(id: string) : I1fac09ed3e8d677cadb92cf21d87b2bc419ec92c783d40d2fed029fd073d72a2 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contactFolder%2Did1"] = id
-        return new i1fac09ed3e8d677cadb92cf21d87b2bc419ec92c783d40d2fed029fd073d72a2(urlTplParams, this.requestAdapter);
+        return new I1fac09ed3e8d677cadb92cf21d87b2bc419ec92c783d40d2fed029fd073d72a2(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new ContactFolderItemRequestBuilder and sets the default values.

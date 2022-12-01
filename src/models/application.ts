@@ -36,7 +36,7 @@ export class Application extends DirectoryObject implements Parsable {
     private _certification?: Certification | undefined;
     /** The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderBy. */
     private _createdDateTime?: Date | undefined;
-    /** Supports $filter (eq when counting empty collections). Read-only. */
+    /** Supports $filter (/$count eq 0, /$count ne 0). Read-only. */
     private _createdOnBehalfOf?: DirectoryObject | undefined;
     /** The defaultRedirectUri property */
     private _defaultRedirectUri?: string | undefined;
@@ -46,9 +46,9 @@ export class Application extends DirectoryObject implements Parsable {
     private _disabledByMicrosoftStatus?: string | undefined;
     /** The display name for the application. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
     private _displayName?: string | undefined;
-    /** Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters). */
+    /** Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0). */
     private _extensionProperties?: ExtensionProperty[] | undefined;
-    /** Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters). */
+    /** Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0). */
     private _federatedIdentityCredentials?: FederatedIdentityCredential[] | undefined;
     /** Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following valid string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of). */
     private _groupMembershipClaims?: string | undefined;
@@ -72,7 +72,7 @@ export class Application extends DirectoryObject implements Parsable {
     private _oauth2RequirePostResponse?: boolean | undefined;
     /** Application developers can configure optional claims in their Azure AD applications to specify the claims that are sent to their application by the Microsoft security token service. For more information, see How to: Provide optional claims to your app. */
     private _optionalClaims?: OptionalClaims | undefined;
-    /** Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections). */
+    /** Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1). */
     private _owners?: DirectoryObject[] | undefined;
     /** Specifies parental control settings for an application. */
     private _parentalControlSettings?: ParentalControlSettings | undefined;
@@ -210,14 +210,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._createdDateTime = value;
     };
     /**
-     * Gets the createdOnBehalfOf property value. Supports $filter (eq when counting empty collections). Read-only.
+     * Gets the createdOnBehalfOf property value. Supports $filter (/$count eq 0, /$count ne 0). Read-only.
      * @returns a directoryObject
      */
     public get createdOnBehalfOf() {
         return this._createdOnBehalfOf;
     };
     /**
-     * Sets the createdOnBehalfOf property value. Supports $filter (eq when counting empty collections). Read-only.
+     * Sets the createdOnBehalfOf property value. Supports $filter (/$count eq 0, /$count ne 0). Read-only.
      * @param value Value to set for the createdOnBehalfOf property.
      */
     public set createdOnBehalfOf(value: DirectoryObject | undefined) {
@@ -280,28 +280,28 @@ export class Application extends DirectoryObject implements Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
+     * Gets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
      * @returns a extensionProperty
      */
     public get extensionProperties() {
         return this._extensionProperties;
     };
     /**
-     * Sets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
+     * Sets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
      * @param value Value to set for the extensionProperties property.
      */
     public set extensionProperties(value: ExtensionProperty[] | undefined) {
         this._extensionProperties = value;
     };
     /**
-     * Gets the federatedIdentityCredentials property value. Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters).
+     * Gets the federatedIdentityCredentials property value. Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0).
      * @returns a federatedIdentityCredential
      */
     public get federatedIdentityCredentials() {
         return this._federatedIdentityCredentials;
     };
     /**
-     * Sets the federatedIdentityCredentials property value. Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters).
+     * Sets the federatedIdentityCredentials property value. Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0).
      * @param value Value to set for the federatedIdentityCredentials property.
      */
     public set federatedIdentityCredentials(value: FederatedIdentityCredential[] | undefined) {
@@ -511,14 +511,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._optionalClaims = value;
     };
     /**
-     * Gets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
+     * Gets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      * @returns a directoryObject
      */
     public get owners() {
         return this._owners;
     };
     /**
-     * Sets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
+     * Sets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      * @param value Value to set for the owners property.
      */
     public set owners(value: DirectoryObject[] | undefined) {

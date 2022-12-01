@@ -9,7 +9,7 @@ export class Windows81GeneralConfiguration extends DeviceConfiguration implement
     /** Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account. */
     private _accountsBlockAddingNonMicrosoftAccountEmail?: boolean | undefined;
     /** Value indicating whether this policy only applies to Windows 8.1. This property is read-only. */
-    private readonly _applyOnlyToWindows81?: boolean | undefined;
+    private _applyOnlyToWindows81?: boolean | undefined;
     /** Indicates whether or not to block auto fill. */
     private _browserBlockAutofill?: boolean | undefined;
     /** Indicates whether or not to block automatic detection of Intranet sites. */

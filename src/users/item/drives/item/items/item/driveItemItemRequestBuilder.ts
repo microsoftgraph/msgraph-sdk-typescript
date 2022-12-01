@@ -6,7 +6,7 @@ import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
 import {CheckinRequestBuilder} from './checkin/checkinRequestBuilder';
 import {CheckoutRequestBuilder} from './checkout/checkoutRequestBuilder';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {DriveItemItemRequestBuilder as i942517d4716c6900f71bce699b36f8859ee7ac2bf4e164b8431a7099a5a61af0} from './children/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as I942517d4716c6900f71bce699b36f8859ee7ac2bf4e164b8431a7099a5a61af0} from './children/item/driveItemItemRequestBuilder';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {CopyRequestBuilder} from './copy/copyRequestBuilder';
 import {CreateLinkRequestBuilder} from './createLink/createLinkRequestBuilder';
@@ -83,7 +83,7 @@ export class DriveItemItemRequestBuilder {
         return new ListItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the permissions property of the microsoft.graph.driveItem entity. */
     public get permissions(): PermissionsRequestBuilder {
         return new PermissionsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -93,7 +93,7 @@ export class DriveItemItemRequestBuilder {
         return new PreviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to call the restore method. */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -111,7 +111,7 @@ export class DriveItemItemRequestBuilder {
         return new UnfollowRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /** Provides operations to call the validatePermission method. */
     public get validatePermission(): ValidatePermissionRequestBuilder {
         return new ValidatePermissionRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -125,11 +125,11 @@ export class DriveItemItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
-    public childrenById(id: string) : i942517d4716c6900f71bce699b36f8859ee7ac2bf4e164b8431a7099a5a61af0 {
+    public childrenById(id: string) : I942517d4716c6900f71bce699b36f8859ee7ac2bf4e164b8431a7099a5a61af0 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did1"] = id
-        return new i942517d4716c6900f71bce699b36f8859ee7ac2bf4e164b8431a7099a5a61af0(urlTplParams, this.requestAdapter);
+        return new I942517d4716c6900f71bce699b36f8859ee7ac2bf4e164b8431a7099a5a61af0(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new DriveItemItemRequestBuilder and sets the default values.

@@ -8,11 +8,11 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 /** Provides operations to manage the createdOnBehalfOf property of the microsoft.graph.application entity. */
 export class CreatedOnBehalfOfRequestBuilder {
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Instantiates a new CreatedOnBehalfOfRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -27,7 +27,7 @@ export class CreatedOnBehalfOfRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Supports $filter (eq when counting empty collections). Read-only.
+     * Supports $filter (/$count eq 0, /$count ne 0). Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -45,7 +45,7 @@ export class CreatedOnBehalfOfRequestBuilder {
         return requestInfo;
     };
     /**
-     * Supports $filter (eq when counting empty collections). Read-only.
+     * Supports $filter (/$count eq 0, /$count ne 0). Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryObject

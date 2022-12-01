@@ -4,14 +4,14 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as ic5c5a962388fb63cc9ed08bfeb1992bad1d22528a8039fcf3e1d564ccf85f55f} from './columns/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as Ic5c5a962388fb63cc9ed08bfeb1992bad1d22528a8039fcf3e1d564ccf85f55f} from './columns/item/columnDefinitionItemRequestBuilder';
 import {ContentTypesRequestBuilder} from './contentTypes/contentTypesRequestBuilder';
 import {ContentTypeItemRequestBuilder} from './contentTypes/item/contentTypeItemRequestBuilder';
 import {DriveRequestBuilder} from './drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
 import {DriveItemRequestBuilder} from './drives/item/driveItemRequestBuilder';
 import {ExternalColumnsRequestBuilder} from './externalColumns/externalColumnsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as i05b0e95c6db100e902b5bbe2eedbdae577c635269cee074a241f96054e6495ab} from './externalColumns/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as I05b0e95c6db100e902b5bbe2eedbdae577c635269cee074a241f96054e6495ab} from './externalColumns/item/columnDefinitionItemRequestBuilder';
 import {GetActivitiesByIntervalRequestBuilder} from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
 import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
 import {GetApplicableContentTypesForListWithListIdRequestBuilder} from './getApplicableContentTypesForListWithListId/getApplicableContentTypesForListWithListIdRequestBuilder';
@@ -27,7 +27,7 @@ import {PermissionItemRequestBuilder} from './permissions/item/permissionItemReq
 import {PermissionsRequestBuilder} from './permissions/permissionsRequestBuilder';
 import {SiteItemRequestBuilderGetRequestConfiguration} from './siteItemRequestBuilderGetRequestConfiguration';
 import {SiteItemRequestBuilderPatchRequestConfiguration} from './siteItemRequestBuilderPatchRequestConfiguration';
-import {SiteItemRequestBuilder as i970c62a442bccf661328f8d074fc6478726d615df17f78fd01bbd631d128e3c9} from './sites/item/siteItemRequestBuilder';
+import {SiteItemRequestBuilder as I970c62a442bccf661328f8d074fc6478726d615df17f78fd01bbd631d128e3c9} from './sites/item/siteItemRequestBuilder';
 import {SitesRequestBuilder} from './sites/sitesRequestBuilder';
 import {TermStoreRequestBuilder} from './termStore/termStoreRequestBuilder';
 import {StoreItemRequestBuilder} from './termStores/item/storeItemRequestBuilder';
@@ -77,13 +77,13 @@ export class SiteItemRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the permissions property of the microsoft.graph.site entity. */
     public get permissions(): PermissionsRequestBuilder {
         return new PermissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the sites property of the microsoft.graph.site entity. */
     public get sites(): SitesRequestBuilder {
         return new SitesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -97,17 +97,17 @@ export class SiteItemRequestBuilder {
         return new TermStoresRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Provides operations to manage the columns property of the microsoft.graph.site entity.
      * @param id Unique identifier of the item
      * @returns a ColumnDefinitionItemRequestBuilder
      */
-    public columnsById(id: string) : ic5c5a962388fb63cc9ed08bfeb1992bad1d22528a8039fcf3e1d564ccf85f55f {
+    public columnsById(id: string) : Ic5c5a962388fb63cc9ed08bfeb1992bad1d22528a8039fcf3e1d564ccf85f55f {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new ic5c5a962388fb63cc9ed08bfeb1992bad1d22528a8039fcf3e1d564ccf85f55f(urlTplParams, this.requestAdapter);
+        return new Ic5c5a962388fb63cc9ed08bfeb1992bad1d22528a8039fcf3e1d564ccf85f55f(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new SiteItemRequestBuilder and sets the default values.
@@ -187,11 +187,11 @@ export class SiteItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ColumnDefinitionItemRequestBuilder
      */
-    public externalColumnsById(id: string) : i05b0e95c6db100e902b5bbe2eedbdae577c635269cee074a241f96054e6495ab {
+    public externalColumnsById(id: string) : I05b0e95c6db100e902b5bbe2eedbdae577c635269cee074a241f96054e6495ab {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new i05b0e95c6db100e902b5bbe2eedbdae577c635269cee074a241f96054e6495ab(urlTplParams, this.requestAdapter);
+        return new I05b0e95c6db100e902b5bbe2eedbdae577c635269cee074a241f96054e6495ab(urlTplParams, this.requestAdapter);
     };
     /**
      * Retrieve properties and relationships for a [site][] resource.A **site** resource represents a team site in SharePoint.
@@ -314,11 +314,11 @@ export class SiteItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SiteItemRequestBuilder
      */
-    public sitesById(id: string) : i970c62a442bccf661328f8d074fc6478726d615df17f78fd01bbd631d128e3c9 {
+    public sitesById(id: string) : I970c62a442bccf661328f8d074fc6478726d615df17f78fd01bbd631d128e3c9 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["site%2Did1"] = id
-        return new i970c62a442bccf661328f8d074fc6478726d615df17f78fd01bbd631d128e3c9(urlTplParams, this.requestAdapter);
+        return new I970c62a442bccf661328f8d074fc6478726d615df17f78fd01bbd631d128e3c9(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the termStores property of the microsoft.graph.site entity.

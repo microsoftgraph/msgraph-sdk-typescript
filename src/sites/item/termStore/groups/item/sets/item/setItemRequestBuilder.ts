@@ -3,14 +3,14 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {Set} from '../../../../../../../models/termStore/';
 import {createSetFromDiscriminatorValue} from '../../../../../../../models/termStore/createSetFromDiscriminatorValue';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {TermItemRequestBuilder as i132c6bf2b1b667b55092d1c12a4094d725294f1774ac0b14954e5eb064655ecc} from './children/item/termItemRequestBuilder';
+import {TermItemRequestBuilder as I132c6bf2b1b667b55092d1c12a4094d725294f1774ac0b14954e5eb064655ecc} from './children/item/termItemRequestBuilder';
 import {ParentGroupRequestBuilder} from './parentGroup/parentGroupRequestBuilder';
 import {RelationItemRequestBuilder} from './relations/item/relationItemRequestBuilder';
 import {RelationsRequestBuilder} from './relations/relationsRequestBuilder';
 import {SetItemRequestBuilderDeleteRequestConfiguration} from './setItemRequestBuilderDeleteRequestConfiguration';
 import {SetItemRequestBuilderGetRequestConfiguration} from './setItemRequestBuilderGetRequestConfiguration';
 import {SetItemRequestBuilderPatchRequestConfiguration} from './setItemRequestBuilderPatchRequestConfiguration';
-import {TermItemRequestBuilder as i5fc50034812a22d877d73a3824c5f92f635ac745595c80f78948f19b3da89863} from './terms/item/termItemRequestBuilder';
+import {TermItemRequestBuilder as I5fc50034812a22d877d73a3824c5f92f635ac745595c80f78948f19b3da89863} from './terms/item/termItemRequestBuilder';
 import {TermsRequestBuilder} from './terms/termsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -25,29 +25,29 @@ export class SetItemRequestBuilder {
         return new ParentGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the relations property of the microsoft.graph.termStore.set entity. */
     public get relations(): RelationsRequestBuilder {
         return new RelationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the terms property of the microsoft.graph.termStore.set entity. */
     public get terms(): TermsRequestBuilder {
         return new TermsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Provides operations to manage the children property of the microsoft.graph.termStore.set entity.
      * @param id Unique identifier of the item
      * @returns a TermItemRequestBuilder
      */
-    public childrenById(id: string) : i132c6bf2b1b667b55092d1c12a4094d725294f1774ac0b14954e5eb064655ecc {
+    public childrenById(id: string) : I132c6bf2b1b667b55092d1c12a4094d725294f1774ac0b14954e5eb064655ecc {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["term%2Did"] = id
-        return new i132c6bf2b1b667b55092d1c12a4094d725294f1774ac0b14954e5eb064655ecc(urlTplParams, this.requestAdapter);
+        return new I132c6bf2b1b667b55092d1c12a4094d725294f1774ac0b14954e5eb064655ecc(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new SetItemRequestBuilder and sets the default values.
@@ -181,10 +181,10 @@ export class SetItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TermItemRequestBuilder
      */
-    public termsById(id: string) : i5fc50034812a22d877d73a3824c5f92f635ac745595c80f78948f19b3da89863 {
+    public termsById(id: string) : I5fc50034812a22d877d73a3824c5f92f635ac745595c80f78948f19b3da89863 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["term%2Did"] = id
-        return new i5fc50034812a22d877d73a3824c5f92f635ac745595c80f78948f19b3da89863(urlTplParams, this.requestAdapter);
+        return new I5fc50034812a22d877d73a3824c5f92f635ac745595c80f78948f19b3da89863(urlTplParams, this.requestAdapter);
     };
 }

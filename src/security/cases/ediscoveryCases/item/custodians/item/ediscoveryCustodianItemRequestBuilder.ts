@@ -34,7 +34,7 @@ export class EdiscoveryCustodianItemRequestBuilder {
         return new LastIndexOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the release method. */
     public get release(): ReleaseRequestBuilder {
         return new ReleaseRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -44,7 +44,7 @@ export class EdiscoveryCustodianItemRequestBuilder {
         return new RemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity. */
     public get siteSources(): SiteSourcesRequestBuilder {
         return new SiteSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -58,7 +58,7 @@ export class EdiscoveryCustodianItemRequestBuilder {
         return new UpdateIndexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /** Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity. */
     public get userSources(): UserSourcesRequestBuilder {
         return new UserSourcesRequestBuilder(this.pathParameters, this.requestAdapter);

@@ -1,4 +1,4 @@
-/** Provides operations to manage the admin singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum MailDestinationRoutingReason {
     None = "none",
     MailFlowRule = "mailFlowRule",

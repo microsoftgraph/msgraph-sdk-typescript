@@ -3,15 +3,15 @@ import {createTeamFromDiscriminatorValue} from '../../../models/createTeamFromDi
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AllChannelsRequestBuilder} from './allChannels/allChannelsRequestBuilder';
-import {ChannelItemRequestBuilder as i22848ccd742a8e43a166587039e6d5d3a2aceea370d7e0da7825f0bdaf6601db} from './allChannels/item/channelItemRequestBuilder';
+import {ChannelItemRequestBuilder as I22848ccd742a8e43a166587039e6d5d3a2aceea370d7e0da7825f0bdaf6601db} from './allChannels/item/channelItemRequestBuilder';
 import {ArchiveRequestBuilder} from './archive/archiveRequestBuilder';
 import {ChannelsRequestBuilder} from './channels/channelsRequestBuilder';
-import {ChannelItemRequestBuilder as i4a03271500f6835ebaf3cc16a612410ec3e94369f5c5374741289d9d4cc63e61} from './channels/item/channelItemRequestBuilder';
+import {ChannelItemRequestBuilder as I4a03271500f6835ebaf3cc16a612410ec3e94369f5c5374741289d9d4cc63e61} from './channels/item/channelItemRequestBuilder';
 import {CloneRequestBuilder} from './clone/cloneRequestBuilder';
 import {CompleteMigrationRequestBuilder} from './completeMigration/completeMigrationRequestBuilder';
 import {GroupRequestBuilder} from './group/groupRequestBuilder';
 import {IncomingChannelsRequestBuilder} from './incomingChannels/incomingChannelsRequestBuilder';
-import {ChannelItemRequestBuilder as i3009ac958560dd418aa755ad41055bdfaa2a7269144dc8eeee1d3cb980284e13} from './incomingChannels/item/channelItemRequestBuilder';
+import {ChannelItemRequestBuilder as I3009ac958560dd418aa755ad41055bdfaa2a7269144dc8eeee1d3cb980284e13} from './incomingChannels/item/channelItemRequestBuilder';
 import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
 import {TeamsAppInstallationItemRequestBuilder} from './installedApps/item/teamsAppInstallationItemRequestBuilder';
 import {ConversationMemberItemRequestBuilder} from './members/item/conversationMemberItemRequestBuilder';
@@ -74,7 +74,7 @@ export class TeamItemRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the photo property of the microsoft.graph.team entity. */
     public get photo(): PhotoRequestBuilder {
         return new PhotoRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -84,7 +84,7 @@ export class TeamItemRequestBuilder {
         return new PrimaryChannelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the schedule property of the microsoft.graph.team entity. */
     public get schedule(): ScheduleRequestBuilder {
         return new ScheduleRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -106,28 +106,28 @@ export class TeamItemRequestBuilder {
         return new UnarchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Provides operations to manage the allChannels property of the microsoft.graph.team entity.
      * @param id Unique identifier of the item
      * @returns a ChannelItemRequestBuilder
      */
-    public allChannelsById(id: string) : i22848ccd742a8e43a166587039e6d5d3a2aceea370d7e0da7825f0bdaf6601db {
+    public allChannelsById(id: string) : I22848ccd742a8e43a166587039e6d5d3a2aceea370d7e0da7825f0bdaf6601db {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["channel%2Did"] = id
-        return new i22848ccd742a8e43a166587039e6d5d3a2aceea370d7e0da7825f0bdaf6601db(urlTplParams, this.requestAdapter);
+        return new I22848ccd742a8e43a166587039e6d5d3a2aceea370d7e0da7825f0bdaf6601db(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the channels property of the microsoft.graph.team entity.
      * @param id Unique identifier of the item
      * @returns a ChannelItemRequestBuilder
      */
-    public channelsById(id: string) : i4a03271500f6835ebaf3cc16a612410ec3e94369f5c5374741289d9d4cc63e61 {
+    public channelsById(id: string) : I4a03271500f6835ebaf3cc16a612410ec3e94369f5c5374741289d9d4cc63e61 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["channel%2Did"] = id
-        return new i4a03271500f6835ebaf3cc16a612410ec3e94369f5c5374741289d9d4cc63e61(urlTplParams, this.requestAdapter);
+        return new I4a03271500f6835ebaf3cc16a612410ec3e94369f5c5374741289d9d4cc63e61(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new TeamItemRequestBuilder and sets the default values.
@@ -232,11 +232,11 @@ export class TeamItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ChannelItemRequestBuilder
      */
-    public incomingChannelsById(id: string) : i3009ac958560dd418aa755ad41055bdfaa2a7269144dc8eeee1d3cb980284e13 {
+    public incomingChannelsById(id: string) : I3009ac958560dd418aa755ad41055bdfaa2a7269144dc8eeee1d3cb980284e13 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["channel%2Did"] = id
-        return new i3009ac958560dd418aa755ad41055bdfaa2a7269144dc8eeee1d3cb980284e13(urlTplParams, this.requestAdapter);
+        return new I3009ac958560dd418aa755ad41055bdfaa2a7269144dc8eeee1d3cb980284e13(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the installedApps property of the microsoft.graph.team entity.

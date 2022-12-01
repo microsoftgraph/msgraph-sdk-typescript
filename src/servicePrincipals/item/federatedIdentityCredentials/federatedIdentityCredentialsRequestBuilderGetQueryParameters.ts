@@ -1,5 +1,5 @@
 
-/** Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (eq when counting empty collections). */
+/** Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (/$count eq 0, /$count ne 0). */
 export class FederatedIdentityCredentialsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

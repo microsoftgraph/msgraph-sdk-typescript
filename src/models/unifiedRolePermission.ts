@@ -5,7 +5,7 @@ export class UnifiedRolePermission implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Set of tasks that can be performed on a resource. Required. */
     private _allowedResourceActions?: string[] | undefined;
-    /** Optional constraints that must be met for the permission to be effective. */
+    /** Optional constraints that must be met for the permission to be effective. Not supported for custom roles. */
     private _condition?: string | undefined;
     /** Set of tasks that may not be performed on a resource. Not yet supported. */
     private _excludedResourceActions?: string[] | undefined;
@@ -40,14 +40,14 @@ export class UnifiedRolePermission implements AdditionalDataHolder, Parsable {
         this._allowedResourceActions = value;
     };
     /**
-     * Gets the condition property value. Optional constraints that must be met for the permission to be effective.
+     * Gets the condition property value. Optional constraints that must be met for the permission to be effective. Not supported for custom roles.
      * @returns a string
      */
     public get condition() {
         return this._condition;
     };
     /**
-     * Sets the condition property value. Optional constraints that must be met for the permission to be effective.
+     * Sets the condition property value. Optional constraints that must be met for the permission to be effective. Not supported for custom roles.
      * @param value Value to set for the condition property.
      */
     public set condition(value: string | undefined) {

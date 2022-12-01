@@ -3,7 +3,7 @@ import {createUnifiedRoleDefinitionFromDiscriminatorValue} from '../../../../mod
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {InheritsPermissionsFromRequestBuilder} from './inheritsPermissionsFrom/inheritsPermissionsFromRequestBuilder';
-import {UnifiedRoleDefinitionItemRequestBuilder as i3282b25070c755a61081a0da62fa222ba1858c2768a9caf83d574225fafb2211} from './inheritsPermissionsFrom/item/unifiedRoleDefinitionItemRequestBuilder';
+import {UnifiedRoleDefinitionItemRequestBuilder as I3282b25070c755a61081a0da62fa222ba1858c2768a9caf83d574225fafb2211} from './inheritsPermissionsFrom/item/unifiedRoleDefinitionItemRequestBuilder';
 import {UnifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration} from './unifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration';
@@ -16,11 +16,11 @@ export class UnifiedRoleDefinitionItemRequestBuilder {
         return new InheritsPermissionsFromRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Instantiates a new UnifiedRoleDefinitionItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -124,11 +124,11 @@ export class UnifiedRoleDefinitionItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleDefinitionItemRequestBuilder
      */
-    public inheritsPermissionsFromById(id: string) : i3282b25070c755a61081a0da62fa222ba1858c2768a9caf83d574225fafb2211 {
+    public inheritsPermissionsFromById(id: string) : I3282b25070c755a61081a0da62fa222ba1858c2768a9caf83d574225fafb2211 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleDefinition%2Did1"] = id
-        return new i3282b25070c755a61081a0da62fa222ba1858c2768a9caf83d574225fafb2211(urlTplParams, this.requestAdapter);
+        return new I3282b25070c755a61081a0da62fa222ba1858c2768a9caf83d574225fafb2211(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property roleDefinitions in roleManagement

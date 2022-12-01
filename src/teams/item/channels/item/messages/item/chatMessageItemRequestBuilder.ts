@@ -7,7 +7,7 @@ import {ChatMessageItemRequestBuilderGetRequestConfiguration} from './chatMessag
 import {ChatMessageItemRequestBuilderPatchRequestConfiguration} from './chatMessageItemRequestBuilderPatchRequestConfiguration';
 import {HostedContentsRequestBuilder} from './hostedContents/hostedContentsRequestBuilder';
 import {ChatMessageHostedContentItemRequestBuilder} from './hostedContents/item/chatMessageHostedContentItemRequestBuilder';
-import {ChatMessageItemRequestBuilder as i52bb1e552af1eb167d43dcf0f01f3d698007f0fe00dcfb9e305faa75c5d364a0} from './replies/item/chatMessageItemRequestBuilder';
+import {ChatMessageItemRequestBuilder as I52bb1e552af1eb167d43dcf0f01f3d698007f0fe00dcfb9e305faa75c5d364a0} from './replies/item/chatMessageItemRequestBuilder';
 import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -18,15 +18,15 @@ export class ChatMessageItemRequestBuilder {
         return new HostedContentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the replies property of the microsoft.graph.chatMessage entity. */
     public get replies(): RepliesRequestBuilder {
         return new RepliesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Instantiates a new ChatMessageItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -159,10 +159,10 @@ export class ChatMessageItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ChatMessageItemRequestBuilder
      */
-    public repliesById(id: string) : i52bb1e552af1eb167d43dcf0f01f3d698007f0fe00dcfb9e305faa75c5d364a0 {
+    public repliesById(id: string) : I52bb1e552af1eb167d43dcf0f01f3d698007f0fe00dcfb9e305faa75c5d364a0 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["chatMessage%2Did1"] = id
-        return new i52bb1e552af1eb167d43dcf0f01f3d698007f0fe00dcfb9e305faa75c5d364a0(urlTplParams, this.requestAdapter);
+        return new I52bb1e552af1eb167d43dcf0f01f3d698007f0fe00dcfb9e305faa75c5d364a0(urlTplParams, this.requestAdapter);
     };
 }

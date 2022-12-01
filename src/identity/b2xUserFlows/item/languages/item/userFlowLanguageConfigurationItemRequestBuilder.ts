@@ -3,8 +3,8 @@ import {createUserFlowLanguageConfigurationFromDiscriminatorValue} from '../../.
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DefaultPagesRequestBuilder} from './defaultPages/defaultPagesRequestBuilder';
-import {UserFlowLanguagePageItemRequestBuilder as i3ab4d590052fd74eee324a8325a2f14715700a273414960dc723c4305963bba3} from './defaultPages/item/userFlowLanguagePageItemRequestBuilder';
-import {UserFlowLanguagePageItemRequestBuilder as idef24b8bfc0dc333f97f637fc58518fe3e107b5e98cdba63af20ee968a2c4339} from './overridesPages/item/userFlowLanguagePageItemRequestBuilder';
+import {UserFlowLanguagePageItemRequestBuilder as I3ab4d590052fd74eee324a8325a2f14715700a273414960dc723c4305963bba3} from './defaultPages/item/userFlowLanguagePageItemRequestBuilder';
+import {UserFlowLanguagePageItemRequestBuilder as Idef24b8bfc0dc333f97f637fc58518fe3e107b5e98cdba63af20ee968a2c4339} from './overridesPages/item/userFlowLanguagePageItemRequestBuilder';
 import {OverridesPagesRequestBuilder} from './overridesPages/overridesPagesRequestBuilder';
 import {UserFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration} from './userFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration';
 import {UserFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration} from './userFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration';
@@ -22,11 +22,11 @@ export class UserFlowLanguageConfigurationItemRequestBuilder {
         return new OverridesPagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
-    private readonly pathParameters: Record<string, unknown>;
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
-    private readonly requestAdapter: RequestAdapter;
+    private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
-    private readonly urlTemplate: string;
+    private urlTemplate: string;
     /**
      * Instantiates a new UserFlowLanguageConfigurationItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -99,11 +99,11 @@ export class UserFlowLanguageConfigurationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UserFlowLanguagePageItemRequestBuilder
      */
-    public defaultPagesById(id: string) : i3ab4d590052fd74eee324a8325a2f14715700a273414960dc723c4305963bba3 {
+    public defaultPagesById(id: string) : I3ab4d590052fd74eee324a8325a2f14715700a273414960dc723c4305963bba3 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["userFlowLanguagePage%2Did"] = id
-        return new i3ab4d590052fd74eee324a8325a2f14715700a273414960dc723c4305963bba3(urlTplParams, this.requestAdapter);
+        return new I3ab4d590052fd74eee324a8325a2f14715700a273414960dc723c4305963bba3(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property languages for identity
@@ -141,11 +141,11 @@ export class UserFlowLanguageConfigurationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UserFlowLanguagePageItemRequestBuilder
      */
-    public overridesPagesById(id: string) : idef24b8bfc0dc333f97f637fc58518fe3e107b5e98cdba63af20ee968a2c4339 {
+    public overridesPagesById(id: string) : Idef24b8bfc0dc333f97f637fc58518fe3e107b5e98cdba63af20ee968a2c4339 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["userFlowLanguagePage%2Did"] = id
-        return new idef24b8bfc0dc333f97f637fc58518fe3e107b5e98cdba63af20ee968a2c4339(urlTplParams, this.requestAdapter);
+        return new Idef24b8bfc0dc333f97f637fc58518fe3e107b5e98cdba63af20ee968a2c4339(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property languages in identity
