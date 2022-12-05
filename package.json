@@ -9,7 +9,7 @@
         "@microsoft/kiota-http-fetchlibrary": "1.0.0-preview.9",
         "@microsoft/kiota-serialization-json": "1.0.0-preview.9",
         "@microsoft/kiota-serialization-text": "1.0.0-preview.8",
-        "@microsoft/microsoft-graph-client": "4.0.0-Preview.1",
+        "@microsoft/microsoft-graph-client": "4.0.0-RestPreview.1",
         "tslib": "^2.3.1"
     },
     "files": [
