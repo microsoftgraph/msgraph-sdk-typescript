@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum TeamworkUserIdentityType {
     AadUser = "aadUser",
     OnPremiseAadUser = "onPremiseAadUser",

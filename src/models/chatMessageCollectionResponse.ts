@@ -2,6 +2,7 @@ import {createChatMessageFromDiscriminatorValue} from './createChatMessageFromDi
 import {BaseCollectionPaginationCountResponse, ChatMessage} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the messages property of the microsoft.graph.chat entity. */
 export class ChatMessageCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ChatMessage[] | undefined;

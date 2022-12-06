@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum DeviceManagementExchangeAccessStateReason {
     /** No access state reason discovered from Exchange */
     None = "none",

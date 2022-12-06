@@ -2,6 +2,7 @@ import {createEndpointFromDiscriminatorValue} from './createEndpointFromDiscrimi
 import {BaseCollectionPaginationCountResponse, Endpoint} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to endpoint. */
 export class EndpointCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Endpoint[] | undefined;

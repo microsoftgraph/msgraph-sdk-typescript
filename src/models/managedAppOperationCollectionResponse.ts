@@ -2,6 +2,7 @@ import {createManagedAppOperationFromDiscriminatorValue} from './createManagedAp
 import {BaseCollectionPaginationCountResponse, ManagedAppOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the operations property of the microsoft.graph.managedAppRegistration entity. */
 export class ManagedAppOperationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ManagedAppOperation[] | undefined;

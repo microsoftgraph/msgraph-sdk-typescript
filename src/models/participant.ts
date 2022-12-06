@@ -4,7 +4,7 @@ import {createRecordingInfoFromDiscriminatorValue} from './createRecordingInfoFr
 import {Entity, MediaStream, ParticipantInfo, RecordingInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class Participant extends Entity implements Parsable {
     /** The info property */
     private _info?: ParticipantInfo | undefined;

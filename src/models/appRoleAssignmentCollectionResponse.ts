@@ -2,6 +2,7 @@ import {createAppRoleAssignmentFromDiscriminatorValue} from './createAppRoleAssi
 import {AppRoleAssignment, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to appRoleAssignment. */
 export class AppRoleAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: AppRoleAssignment[] | undefined;

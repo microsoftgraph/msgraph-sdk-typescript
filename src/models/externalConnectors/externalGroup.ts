@@ -3,7 +3,7 @@ import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscrimi
 import {Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class ExternalGroup extends Entity implements Parsable {
     /** The description of the external group. Optional. */
     private _description?: string | undefined;

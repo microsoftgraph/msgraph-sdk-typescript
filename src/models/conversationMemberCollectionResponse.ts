@@ -2,6 +2,7 @@ import {createConversationMemberFromDiscriminatorValue} from './createConversati
 import {BaseCollectionPaginationCountResponse, ConversationMember} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the members property of the microsoft.graph.chat entity. */
 export class ConversationMemberCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ConversationMember[] | undefined;

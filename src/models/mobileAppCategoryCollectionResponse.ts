@@ -2,6 +2,7 @@ import {createMobileAppCategoryFromDiscriminatorValue} from './createMobileAppCa
 import {BaseCollectionPaginationCountResponse, MobileAppCategory} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the mobileAppCategories property of the microsoft.graph.deviceAppManagement entity. */
 export class MobileAppCategoryCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: MobileAppCategory[] | undefined;

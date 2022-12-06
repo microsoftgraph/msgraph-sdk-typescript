@@ -2,6 +2,7 @@ import {createIosManagedAppProtectionFromDiscriminatorValue} from './createIosMa
 import {BaseCollectionPaginationCountResponse, IosManagedAppProtection} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the iosManagedAppProtections property of the microsoft.graph.deviceAppManagement entity. */
 export class IosManagedAppProtectionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: IosManagedAppProtection[] | undefined;

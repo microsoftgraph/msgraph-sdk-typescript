@@ -2,6 +2,7 @@ import {createServiceUpdateMessageFromDiscriminatorValue} from './createServiceU
 import {BaseCollectionPaginationCountResponse, ServiceUpdateMessage} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity. */
 export class ServiceUpdateMessageCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ServiceUpdateMessage[] | undefined;

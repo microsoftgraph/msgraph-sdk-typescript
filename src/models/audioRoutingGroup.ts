@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {RoutingMode} from './routingMode';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class AudioRoutingGroup extends Entity implements Parsable {
     /** The receivers property */
     private _receivers?: string[] | undefined;

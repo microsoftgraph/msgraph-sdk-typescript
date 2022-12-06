@@ -2,6 +2,7 @@ import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLife
 import {BaseCollectionPaginationCountResponse, TokenLifetimePolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.application entity. */
 export class TokenLifetimePolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: TokenLifetimePolicy[] | undefined;

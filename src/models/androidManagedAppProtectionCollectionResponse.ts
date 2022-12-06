@@ -2,6 +2,7 @@ import {createAndroidManagedAppProtectionFromDiscriminatorValue} from './createA
 import {AndroidManagedAppProtection, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the androidManagedAppProtections property of the microsoft.graph.deviceAppManagement entity. */
 export class AndroidManagedAppProtectionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: AndroidManagedAppProtection[] | undefined;

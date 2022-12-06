@@ -2,6 +2,7 @@ import {createParticipantFromDiscriminatorValue} from './createParticipantFromDi
 import {BaseCollectionPaginationCountResponse, Participant} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the participants property of the microsoft.graph.call entity. */
 export class ParticipantCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Participant[] | undefined;

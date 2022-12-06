@@ -2,6 +2,7 @@ import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssu
 import {BaseCollectionPaginationCountResponse, TokenIssuancePolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.application entity. */
 export class TokenIssuancePolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: TokenIssuancePolicy[] | undefined;

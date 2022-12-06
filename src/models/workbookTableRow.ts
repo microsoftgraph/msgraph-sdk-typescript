@@ -2,7 +2,7 @@ import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorVal
 import {Entity, Json} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class WorkbookTableRow extends Entity implements Parsable {
     /** Returns the index number of the row within the rows collection of the table. Zero-indexed. Read-only. */
     private _index?: number | undefined;

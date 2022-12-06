@@ -2,6 +2,7 @@ import {createCertificateBasedAuthConfigurationFromDiscriminatorValue} from './c
 import {BaseCollectionPaginationCountResponse, CertificateBasedAuthConfiguration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of certificateBasedAuthConfiguration entities. */
 export class CertificateBasedAuthConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: CertificateBasedAuthConfiguration[] | undefined;

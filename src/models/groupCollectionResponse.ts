@@ -2,6 +2,7 @@ import {createGroupFromDiscriminatorValue} from './createGroupFromDiscriminatorV
 import {BaseCollectionPaginationCountResponse, Group} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to group. */
 export class GroupCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Group[] | undefined;

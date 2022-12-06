@@ -3,7 +3,6 @@ import {createAuditResourceFromDiscriminatorValue} from './createAuditResourceFr
 import {AuditActor, AuditResource, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** A class containing the properties for Audit Event. */
 export class AuditEvent extends Entity implements Parsable {
     /** Friendly name of the activity. */
     private _activity?: string | undefined;
@@ -140,7 +139,7 @@ export class AuditEvent extends Entity implements Parsable {
         this._componentName = value;
     };
     /**
-     * Instantiates a new auditEvent and sets the default values.
+     * Instantiates a new AuditEvent and sets the default values.
      */
     public constructor() {
         super();

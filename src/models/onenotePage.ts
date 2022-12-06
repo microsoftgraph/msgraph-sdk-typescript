@@ -4,7 +4,7 @@ import {createPageLinksFromDiscriminatorValue} from './createPageLinksFromDiscri
 import {Notebook, OnenoteEntitySchemaObjectModel, OnenoteSection, PageLinks} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsable {
     /** The page's HTML content. */
     private _content?: string | undefined;

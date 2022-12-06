@@ -2,7 +2,7 @@ import {createSettingValueFromDiscriminatorValue} from './createSettingValueFrom
 import {Entity, SettingValue} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class GroupSetting extends Entity implements Parsable {
     /** Display name of this group of settings, which comes from the associated template. */
     private _displayName?: string | undefined;

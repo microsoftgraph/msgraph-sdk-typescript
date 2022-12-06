@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum ManagementAgentType {
     /** The device is managed by Exchange server. */
     Eas = "eas",

@@ -2,6 +2,7 @@ import {createPinnedChatMessageInfoFromDiscriminatorValue} from './createPinnedC
 import {BaseCollectionPaginationCountResponse, PinnedChatMessageInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity. */
 export class PinnedChatMessageInfoCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: PinnedChatMessageInfo[] | undefined;
