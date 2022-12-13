@@ -3,7 +3,7 @@ import {SimulationAutomationRunStatus} from './simulationAutomationRunStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of authenticationMethodConfiguration entities.
+ * Provides operations to manage the collection of application entities.
  */
 export class SimulationAutomationRun extends Entity implements Parsable {
     /** Date and time when the run ends in an attack simulation automation. */

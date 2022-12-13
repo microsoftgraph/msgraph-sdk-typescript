@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the deviceAppManagement singleton. */
 export enum ManagedAppDataStorageLocation {
     /** OneDrive for business */
     OneDriveForBusiness = "oneDriveForBusiness",

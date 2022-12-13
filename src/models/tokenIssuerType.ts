@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the collection of applicationTemplate entities. */
 export enum TokenIssuerType {
     AzureAD = "AzureAD",
     ADFederationServices = "ADFederationServices",

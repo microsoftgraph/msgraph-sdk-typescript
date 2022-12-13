@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the deviceAppManagement singleton. */
 export enum ManagedAppDataTransferLevel {
     /** All apps. */
     AllApps = "allApps",

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the collection of applicationTemplate entities. */
 export enum EdgeCookiePolicy {
     /** Allow the user to set. */
     UserDefined = "userDefined",

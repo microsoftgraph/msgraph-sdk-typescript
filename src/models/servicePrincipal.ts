@@ -20,6 +20,9 @@ import {createVerifiedPublisherFromDiscriminatorValue} from './createVerifiedPub
 import {AddIn, AppRole, AppRoleAssignment, ClaimsMappingPolicy, DelegatedPermissionClassification, DirectoryObject, Endpoint, FederatedIdentityCredential, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OAuth2PermissionGrant, PasswordCredential, PermissionScope, ResourceSpecificPermission, SamlSingleSignOnSettings, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Casts the previous resource to servicePrincipal.
+ */
 export class ServicePrincipal extends DirectoryObject implements Parsable {
     /** true if the service principal account is enabled; otherwise, false. If set to false, then no users will be able to sign in to this app, even if they are assigned to it. Supports $filter (eq, ne, not, in). */
     private _accountEnabled?: boolean | undefined;
@@ -300,7 +303,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._claimsMappingPolicies = value;
     };
     /**
-     * Instantiates a new ServicePrincipal and sets the default values.
+     * Instantiates a new servicePrincipal and sets the default values.
      */
     public constructor() {
         super();

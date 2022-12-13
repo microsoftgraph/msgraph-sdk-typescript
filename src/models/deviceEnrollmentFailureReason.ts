@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of application entities. */
 export enum DeviceEnrollmentFailureReason {
     /** Default value, failure reason is unknown. */
     Unknown = "unknown",

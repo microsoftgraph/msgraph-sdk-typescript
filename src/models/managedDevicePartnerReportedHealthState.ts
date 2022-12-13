@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the collection of application entities. */
 export enum ManagedDevicePartnerReportedHealthState {
     /** Device health state is not yet reported */
     Unknown = "unknown",

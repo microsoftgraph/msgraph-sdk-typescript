@@ -41,7 +41,7 @@ export class EducationAssignmentDefaults extends Entity implements Parsable {
         this._addToCalendarAction = value;
     };
     /**
-     * Instantiates a new EducationAssignmentDefaults and sets the default values.
+     * Instantiates a new educationAssignmentDefaults and sets the default values.
      */
     public constructor() {
         super();

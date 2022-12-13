@@ -18,6 +18,9 @@ import {EducationUserRole} from './educationUserRole';
 import {AssignedLicense, AssignedPlan, EducationAssignment, EducationClass, EducationOnPremisesInfo, EducationRubric, EducationSchool, EducationStudent, EducationTeacher, Entity, IdentitySet, PasswordProfile, PhysicalAddress, ProvisionedPlan, RelatedContact, User} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the educationRoot singleton.
+ */
 export class EducationUser extends Entity implements Parsable {
     /** True if the account is enabled; otherwise, false. This property is required when a user is created. Supports $filter. */
     private _accountEnabled?: boolean | undefined;
@@ -180,7 +183,7 @@ export class EducationUser extends Entity implements Parsable {
         this._classes = value;
     };
     /**
-     * Instantiates a new EducationUser and sets the default values.
+     * Instantiates a new educationUser and sets the default values.
      */
     public constructor() {
         super();

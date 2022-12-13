@@ -2,6 +2,9 @@ import {createEducationUserFromDiscriminatorValue} from './createEducationUserFr
 import {BaseCollectionPaginationCountResponse, EducationUser} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the members property of the microsoft.graph.educationClass entity.
+ */
 export class EducationUserCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: EducationUser[] | undefined;

@@ -2,6 +2,9 @@ import {createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue} from '.
 import {BaseCollectionPaginationCountResponse, IdentityUserFlowAttributeAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.
+ */
 export class IdentityUserFlowAttributeAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: IdentityUserFlowAttributeAssignment[] | undefined;

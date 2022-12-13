@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
+/** Casts the previous resource to group. */
 export enum TeamsAsyncOperationType {
     Invalid = "invalid",
     CloneTeam = "cloneTeam",

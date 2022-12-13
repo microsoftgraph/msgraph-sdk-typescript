@@ -46,7 +46,7 @@ export class List extends BaseItem implements Parsable {
         this._columns = value;
     };
     /**
-     * Instantiates a new List and sets the default values.
+     * Instantiates a new list and sets the default values.
      */
     public constructor() {
         super();

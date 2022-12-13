@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Casts the previous resource to group. */
 export enum PlannerContainerType {
     Group = "group",
     UnknownFutureValue = "unknownFutureValue",

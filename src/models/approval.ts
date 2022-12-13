@@ -2,9 +2,6 @@ import {createApprovalStageFromDiscriminatorValue} from './createApprovalStageFr
 import {ApprovalStage, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of applicationTemplate entities.
- */
 export class Approval extends Entity implements Parsable {
     /** A collection of stages in the approval decision. */
     private _stages?: ApprovalStage[] | undefined;

@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of authenticationMethodConfiguration entities.
+ * Provides operations to manage the collection of applicationTemplate entities.
  */
 export class PrintUsage extends Entity implements Parsable {
     /** The completedBlackAndWhiteJobCount property */

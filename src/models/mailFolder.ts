@@ -6,6 +6,9 @@ import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './c
 import {Entity, Message, MessageRule, MultiValueLegacyExtendedProperty, SingleValueLegacyExtendedProperty} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of application entities.
+ */
 export class MailFolder extends Entity implements Parsable {
     /** The number of immediate child mailFolders in the current mailFolder. */
     private _childFolderCount?: number | undefined;
@@ -58,7 +61,7 @@ export class MailFolder extends Entity implements Parsable {
         this._childFolders = value;
     };
     /**
-     * Instantiates a new MailFolder and sets the default values.
+     * Instantiates a new mailFolder and sets the default values.
      */
     public constructor() {
         super();

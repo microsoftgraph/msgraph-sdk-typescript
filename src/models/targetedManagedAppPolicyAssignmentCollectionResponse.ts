@@ -2,6 +2,9 @@ import {createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue} from './
 import {BaseCollectionPaginationCountResponse, TargetedManagedAppPolicyAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the assignments property of the microsoft.graph.targetedManagedAppConfiguration entity.
+ */
 export class TargetedManagedAppPolicyAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: TargetedManagedAppPolicyAssignment[] | undefined;

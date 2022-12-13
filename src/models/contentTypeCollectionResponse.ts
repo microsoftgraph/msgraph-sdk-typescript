@@ -2,6 +2,9 @@ import {createContentTypeFromDiscriminatorValue} from './createContentTypeFromDi
 import {BaseCollectionPaginationCountResponse, ContentType} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the contentTypes property of the microsoft.graph.list entity.
+ */
 export class ContentTypeCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ContentType[] | undefined;

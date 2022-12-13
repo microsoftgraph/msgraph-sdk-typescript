@@ -9,7 +9,7 @@ export class AttackSimulationRoot extends Entity implements Parsable {
     /** Represents an attack simulation training campaign in a tenant. */
     private _simulations?: Simulation[] | undefined;
     /**
-     * Instantiates a new AttackSimulationRoot and sets the default values.
+     * Instantiates a new attackSimulationRoot and sets the default values.
      */
     public constructor() {
         super();

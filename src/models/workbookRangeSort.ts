@@ -3,7 +3,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class WorkbookRangeSort extends Entity implements Parsable {
     /**
-     * Instantiates a new WorkbookRangeSort and sets the default values.
+     * Instantiates a new workbookRangeSort and sets the default values.
      */
     public constructor() {
         super();

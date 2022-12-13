@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of applicationTemplate entities.
+ * Provides operations to manage the collection of application entities.
  */
 export class SingleValueLegacyExtendedProperty extends Entity implements Parsable {
     /** A property value. */

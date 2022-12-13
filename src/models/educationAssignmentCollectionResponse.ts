@@ -2,6 +2,9 @@ import {createEducationAssignmentFromDiscriminatorValue} from './createEducation
 import {BaseCollectionPaginationCountResponse, EducationAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the assignments property of the microsoft.graph.educationClass entity.
+ */
 export class EducationAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: EducationAssignment[] | undefined;

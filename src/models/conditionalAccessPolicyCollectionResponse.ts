@@ -2,6 +2,9 @@ import {createConditionalAccessPolicyFromDiscriminatorValue} from './createCondi
 import {BaseCollectionPaginationCountResponse, ConditionalAccessPolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity.
+ */
 export class ConditionalAccessPolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ConditionalAccessPolicy[] | undefined;

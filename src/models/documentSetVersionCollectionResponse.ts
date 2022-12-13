@@ -2,6 +2,9 @@ import {createDocumentSetVersionFromDiscriminatorValue} from './createDocumentSe
 import {BaseCollectionPaginationCountResponse, DocumentSetVersion} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
+ */
 export class DocumentSetVersionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DocumentSetVersion[] | undefined;

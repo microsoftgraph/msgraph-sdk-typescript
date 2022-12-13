@@ -7,7 +7,7 @@ import {Entity, IdentitySet, PlannerBucket, PlannerPlanContainer, PlannerPlanDet
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Casts the previous resource to group.
  */
 export class PlannerPlan extends Entity implements Parsable {
     /** Read-only. Nullable. Collection of buckets in the plan. */

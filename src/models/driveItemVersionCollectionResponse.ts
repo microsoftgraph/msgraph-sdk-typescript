@@ -2,6 +2,9 @@ import {createDriveItemVersionFromDiscriminatorValue} from './createDriveItemVer
 import {BaseCollectionPaginationCountResponse, DriveItemVersion} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the versions property of the microsoft.graph.driveItem entity.
+ */
 export class DriveItemVersionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DriveItemVersion[] | undefined;

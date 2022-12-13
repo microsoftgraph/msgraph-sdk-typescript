@@ -29,7 +29,7 @@ export class ConditionalAccessRoot extends Entity implements Parsable {
         this._authenticationContextClassReferences = value;
     };
     /**
-     * Instantiates a new ConditionalAccessRoot and sets the default values.
+     * Instantiates a new conditionalAccessRoot and sets the default values.
      */
     public constructor() {
         super();

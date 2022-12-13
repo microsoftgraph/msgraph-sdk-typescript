@@ -5,7 +5,7 @@ export class EducationAssignmentSettings extends Entity implements Parsable {
     /** Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false. */
     private _submissionAnimationDisabled?: boolean | undefined;
     /**
-     * Instantiates a new EducationAssignmentSettings and sets the default values.
+     * Instantiates a new educationAssignmentSettings and sets the default values.
      */
     public constructor() {
         super();

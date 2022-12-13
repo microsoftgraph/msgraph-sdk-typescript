@@ -2,6 +2,9 @@ import {createAgreementFileVersionFromDiscriminatorValue} from './createAgreemen
 import {AgreementFileVersion, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the versions property of the microsoft.graph.agreementFileLocalization entity.
+ */
 export class AgreementFileVersionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: AgreementFileVersion[] | undefined;

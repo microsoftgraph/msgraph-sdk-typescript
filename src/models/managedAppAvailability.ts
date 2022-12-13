@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of applicationTemplate entities. */
 export enum ManagedAppAvailability {
     /** A globally available app to all tenants. */
     Global = "global",

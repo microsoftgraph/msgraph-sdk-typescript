@@ -2,7 +2,7 @@ import {OrganizationalBrandingProperties} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the organizationalBranding singleton.
  */
 export class OrganizationalBrandingLocalization extends OrganizationalBrandingProperties implements Parsable {
     /**

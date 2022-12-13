@@ -2,6 +2,9 @@ import {createUserFlowLanguagePageFromDiscriminatorValue} from './createUserFlow
 import {BaseCollectionPaginationCountResponse, UserFlowLanguagePage} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the defaultPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
+ */
 export class UserFlowLanguagePageCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: UserFlowLanguagePage[] | undefined;

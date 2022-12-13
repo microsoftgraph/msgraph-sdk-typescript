@@ -2,6 +2,9 @@ import {createDomainDnsRecordFromDiscriminatorValue} from './createDomainDnsReco
 import {BaseCollectionPaginationCountResponse, DomainDnsRecord} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of domainDnsRecord entities.
+ */
 export class DomainDnsRecordCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DomainDnsRecord[] | undefined;

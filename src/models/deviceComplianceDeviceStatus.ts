@@ -3,7 +3,7 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of application entities.
+ * Provides operations to manage the collection of applicationTemplate entities.
  */
 export class DeviceComplianceDeviceStatus extends Entity implements Parsable {
     /** The DateTime when device compliance grace period expires */

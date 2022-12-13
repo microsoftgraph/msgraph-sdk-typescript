@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the collection of application entities. */
 export enum ApplicationType {
     /** The windows universal application */
     Universal = "universal",

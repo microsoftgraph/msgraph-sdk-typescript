@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the identityContainer singleton. */
 export enum TemplateScenarios {
     New_escaped = "new",
     SecureFoundation = "secureFoundation",

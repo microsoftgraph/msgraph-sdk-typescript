@@ -6,6 +6,9 @@ import {createLocationFromDiscriminatorValue} from './createLocationFromDiscrimi
 import {BookingQuestionAssignment, BookingReminder, BookingSchedulingPolicy, Entity, Location} from './index';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Represents a particular service offered by a booking business.
+ */
 export class BookingService extends Entity implements Parsable {
     /** Additional information that is sent to the customer when an appointment is confirmed. */
     private _additionalInformation?: string | undefined;
@@ -64,7 +67,7 @@ export class BookingService extends Entity implements Parsable {
         this._additionalInformation = value;
     };
     /**
-     * Instantiates a new BookingService and sets the default values.
+     * Instantiates a new bookingService and sets the default values.
      */
     public constructor() {
         super();

@@ -4,6 +4,9 @@ import {createSecurityVendorInformationFromDiscriminatorValue} from './createSec
 import {AverageComparativeScore, ControlScore, Entity, SecurityVendorInformation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of application entities.
+ */
 export class SecureScore extends Entity implements Parsable {
     /** Active user count of the given tenant. */
     private _activeUserCount?: number | undefined;
@@ -68,7 +71,7 @@ export class SecureScore extends Entity implements Parsable {
         this._azureTenantId = value;
     };
     /**
-     * Instantiates a new SecureScore and sets the default values.
+     * Instantiates a new secureScore and sets the default values.
      */
     public constructor() {
         super();

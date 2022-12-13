@@ -2,6 +2,9 @@ import {createOpenShiftItemFromDiscriminatorValue} from './createOpenShiftItemFr
 import {ChangeTrackedEntity, OpenShiftItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Casts the previous resource to group.
+ */
 export class OpenShift extends ChangeTrackedEntity implements Parsable {
     /** An unpublished open shift. */
     private _draftOpenShift?: OpenShiftItem | undefined;
@@ -10,7 +13,7 @@ export class OpenShift extends ChangeTrackedEntity implements Parsable {
     /** A published open shift. */
     private _sharedOpenShift?: OpenShiftItem | undefined;
     /**
-     * Instantiates a new OpenShift and sets the default values.
+     * Instantiates a new openShift and sets the default values.
      */
     public constructor() {
         super();

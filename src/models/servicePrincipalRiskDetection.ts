@@ -8,9 +8,6 @@ import {RiskState} from './riskState';
 import {TokenIssuerType} from './tokenIssuerType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of application entities.
- */
 export class ServicePrincipalRiskDetection extends Entity implements Parsable {
     /** Indicates the activity type the detected risk is linked to.  The possible values are: signin, servicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: servicePrincipal. */
     private _activity?: ActivityType | undefined;
@@ -109,7 +106,7 @@ export class ServicePrincipalRiskDetection extends Entity implements Parsable {
         this._appId = value;
     };
     /**
-     * Instantiates a new servicePrincipalRiskDetection and sets the default values.
+     * Instantiates a new ServicePrincipalRiskDetection and sets the default values.
      */
     public constructor() {
         super();

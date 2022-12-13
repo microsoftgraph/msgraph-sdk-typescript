@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
+/** Provides operations to manage the collection of application entities. */
 export enum ProvisioningAction {
     Other = "other",
     Create = "create",

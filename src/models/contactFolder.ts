@@ -5,6 +5,9 @@ import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './c
 import {Contact, Entity, MultiValueLegacyExtendedProperty, SingleValueLegacyExtendedProperty} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of application entities.
+ */
 export class ContactFolder extends Entity implements Parsable {
     /** The collection of child folders in the folder. Navigation property. Read-only. Nullable. */
     private _childFolders?: ContactFolder[] | undefined;
@@ -33,7 +36,7 @@ export class ContactFolder extends Entity implements Parsable {
         this._childFolders = value;
     };
     /**
-     * Instantiates a new ContactFolder and sets the default values.
+     * Instantiates a new contactFolder and sets the default values.
      */
     public constructor() {
         super();

@@ -5,6 +5,9 @@ import {createConditionalAccessSessionControlsFromDiscriminatorValue} from './cr
 import {ConditionalAccessConditionSet, ConditionalAccessGrantControls, ConditionalAccessSessionControls, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of application entities.
+ */
 export class ConditionalAccessPolicy extends Entity implements Parsable {
     /** The conditions property */
     private _conditions?: ConditionalAccessConditionSet | undefined;
@@ -37,7 +40,7 @@ export class ConditionalAccessPolicy extends Entity implements Parsable {
         this._conditions = value;
     };
     /**
-     * Instantiates a new ConditionalAccessPolicy and sets the default values.
+     * Instantiates a new conditionalAccessPolicy and sets the default values.
      */
     public constructor() {
         super();

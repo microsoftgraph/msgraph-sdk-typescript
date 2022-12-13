@@ -22,7 +22,7 @@ export class ConnectedOrganization extends Entity implements Parsable {
     /** The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not.  The possible values are: configured, proposed, unknownFutureValue. */
     private _state?: ConnectedOrganizationState | undefined;
     /**
-     * Instantiates a new ConnectedOrganization and sets the default values.
+     * Instantiates a new connectedOrganization and sets the default values.
      */
     public constructor() {
         super();

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
+/** Casts the previous resource to application. */
 export enum PermissionType {
     Application = "application",
     Delegated = "delegated",

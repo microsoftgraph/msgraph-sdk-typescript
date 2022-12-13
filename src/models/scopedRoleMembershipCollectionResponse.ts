@@ -3,7 +3,7 @@ import {BaseCollectionPaginationCountResponse, ScopedRoleMembership} from './ind
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the scopedMembers property of the microsoft.graph.directoryRole entity.
+ * Provides operations to manage the scopedRoleMembers property of the microsoft.graph.administrativeUnit entity.
  */
 export class ScopedRoleMembershipCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */

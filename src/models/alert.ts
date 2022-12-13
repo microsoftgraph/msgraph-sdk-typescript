@@ -21,6 +21,9 @@ import {createVulnerabilityStateFromDiscriminatorValue} from './createVulnerabil
 import {AlertDetection, AlertHistoryState, AlertTrigger, CloudAppSecurityState, Entity, FileSecurityState, HostSecurityState, InvestigationSecurityState, MalwareState, MessageSecurityState, NetworkConnection, Process, RegistryKeyState, SecurityResource, SecurityVendorInformation, UriClickSecurityState, UserSecurityState, VulnerabilityState} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of applicationTemplate entities.
+ */
 export class Alert extends Entity implements Parsable {
     /** Name or alias of the activity group (attacker) this alert is attributed to. */
     private _activityGroupName?: string | undefined;
@@ -241,7 +244,7 @@ export class Alert extends Entity implements Parsable {
         this._confidence = value;
     };
     /**
-     * Instantiates a new Alert and sets the default values.
+     * Instantiates a new alert and sets the default values.
      */
     public constructor() {
         super();

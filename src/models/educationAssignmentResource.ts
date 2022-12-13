@@ -3,7 +3,7 @@ import {EducationResource, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of application entities.
+ * Provides operations to manage the educationRoot singleton.
  */
 export class EducationAssignmentResource extends Entity implements Parsable {
     /** Indicates whether this resource should be copied to each student submission for modification and submission. Required */

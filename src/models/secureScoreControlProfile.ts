@@ -4,6 +4,9 @@ import {createSecurityVendorInformationFromDiscriminatorValue} from './createSec
 import {ComplianceInformation, Entity, SecureScoreControlStateUpdate, SecurityVendorInformation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of application entities.
+ */
 export class SecureScoreControlProfile extends Entity implements Parsable {
     /** Control action type (Config, Review, Behavior). */
     private _actionType?: string | undefined;
@@ -100,7 +103,7 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
         this._complianceInformation = value;
     };
     /**
-     * Instantiates a new SecureScoreControlProfile and sets the default values.
+     * Instantiates a new secureScoreControlProfile and sets the default values.
      */
     public constructor() {
         super();

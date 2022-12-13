@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the deviceAppManagement singleton. */
 export enum ManagedAppClipboardSharingLevel {
     /** Sharing is allowed between all apps, managed or not */
     AllApps = "allApps",

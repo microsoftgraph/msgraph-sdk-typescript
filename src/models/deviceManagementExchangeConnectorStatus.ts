@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Provides operations to manage the collection of application entities. */
 export enum DeviceManagementExchangeConnectorStatus {
     /** No Connector exists. */
     None = "none",

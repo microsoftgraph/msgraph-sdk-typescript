@@ -4,7 +4,7 @@ import {AccessReviewInstanceDecisionItem, AccessReviewReviewerScope, Entity} fro
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of application entities.
+ * Provides operations to manage the collection of applicationTemplate entities.
  */
 export class AccessReviewStage extends Entity implements Parsable {
     /** Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed. */

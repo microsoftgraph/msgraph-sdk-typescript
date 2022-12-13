@@ -1,6 +1,9 @@
 import {DirectoryObject} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Casts the previous resource to servicePrincipal.
+ */
 export class Endpoint extends DirectoryObject implements Parsable {
     /** The capability property */
     private _capability?: string | undefined;
@@ -27,7 +30,7 @@ export class Endpoint extends DirectoryObject implements Parsable {
         this._capability = value;
     };
     /**
-     * Instantiates a new Endpoint and sets the default values.
+     * Instantiates a new endpoint and sets the default values.
      */
     public constructor() {
         super();

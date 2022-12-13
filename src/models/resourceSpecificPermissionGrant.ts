@@ -2,7 +2,7 @@ import {DirectoryObject} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of authenticationMethodConfiguration entities.
+ * Casts the previous resource to group.
  */
 export class ResourceSpecificPermissionGrant extends DirectoryObject implements Parsable {
     /** ID of the service principal of the Azure AD app that has been granted access. Read-only. */

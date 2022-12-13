@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the collection of application entities. */
 export enum DeviceEnrollmentType {
     /** Default value, enrollment type was not collected. */
     Unknown = "unknown",

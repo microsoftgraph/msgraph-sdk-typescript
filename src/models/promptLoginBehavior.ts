@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the directory singleton. */
 export enum PromptLoginBehavior {
     TranslateToFreshPasswordAuthentication = "translateToFreshPasswordAuthentication",
     NativeSupport = "nativeSupport",

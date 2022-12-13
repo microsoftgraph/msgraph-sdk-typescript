@@ -10,7 +10,7 @@ import {PlannerPreviewType} from './plannerPreviewType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Casts the previous resource to group.
  */
 export class PlannerTask extends Entity implements Parsable {
     /** Number of checklist items with value set to false, representing incomplete items. */

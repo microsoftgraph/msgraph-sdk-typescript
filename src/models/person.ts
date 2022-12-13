@@ -7,7 +7,7 @@ import {Entity, Location, PersonType, Phone, ScoredEmailAddress, Website} from '
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of applicationTemplate entities.
+ * Provides operations to manage the collection of application entities.
  */
 export class Person extends Entity implements Parsable {
     /** The person's birthday. */

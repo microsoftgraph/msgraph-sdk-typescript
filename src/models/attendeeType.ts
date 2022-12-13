@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of application entities. */
 export enum AttendeeType {
     Required = "required",
     Optional = "optional",

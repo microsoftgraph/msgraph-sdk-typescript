@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the cloudCommunications singleton. */
 export enum OnlineMeetingRole {
     Attendee = "attendee",
     Presenter = "presenter",

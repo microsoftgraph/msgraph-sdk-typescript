@@ -2,6 +2,9 @@ import {createInvitationFromDiscriminatorValue} from './createInvitationFromDisc
 import {BaseCollectionPaginationCountResponse, Invitation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of invitation entities.
+ */
 export class InvitationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Invitation[] | undefined;

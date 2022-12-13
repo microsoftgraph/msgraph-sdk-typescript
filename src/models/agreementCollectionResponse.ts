@@ -2,6 +2,9 @@ import {createAgreementFromDiscriminatorValue} from './createAgreementFromDiscri
 import {Agreement, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of agreement entities.
+ */
 export class AgreementCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Agreement[] | undefined;

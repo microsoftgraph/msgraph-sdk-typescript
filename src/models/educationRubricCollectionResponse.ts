@@ -2,6 +2,9 @@ import {createEducationRubricFromDiscriminatorValue} from './createEducationRubr
 import {BaseCollectionPaginationCountResponse, EducationRubric} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
+ */
 export class EducationRubricCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: EducationRubric[] | undefined;

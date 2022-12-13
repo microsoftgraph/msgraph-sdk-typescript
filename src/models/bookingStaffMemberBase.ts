@@ -1,9 +1,12 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Booking entities that provide a display name.
+ */
 export class BookingStaffMemberBase extends Entity implements Parsable {
     /**
-     * Instantiates a new BookingStaffMemberBase and sets the default values.
+     * Instantiates a new bookingStaffMemberBase and sets the default values.
      */
     public constructor() {
         super();

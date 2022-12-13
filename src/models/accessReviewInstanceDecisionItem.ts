@@ -5,7 +5,7 @@ import {AccessReviewInstanceDecisionItemResource, Entity, Identity, UserIdentity
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of application entities.
+ * Provides operations to manage the collection of applicationTemplate entities.
  */
 export class AccessReviewInstanceDecisionItem extends Entity implements Parsable {
     /** The identifier of the accessReviewInstance parent. Supports $select. Read-only. */

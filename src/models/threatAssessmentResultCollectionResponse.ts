@@ -2,6 +2,9 @@ import {createThreatAssessmentResultFromDiscriminatorValue} from './createThreat
 import {BaseCollectionPaginationCountResponse, ThreatAssessmentResult} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the results property of the microsoft.graph.threatAssessmentRequest entity.
+ */
 export class ThreatAssessmentResultCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ThreatAssessmentResult[] | undefined;

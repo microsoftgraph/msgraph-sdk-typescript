@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
+/** Provides operations to manage the collection of applicationTemplate entities. */
 export enum ThreatCategory {
     Undefined = "undefined",
     Spam = "spam",

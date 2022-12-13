@@ -6,7 +6,7 @@ import {AccessPackageAssignmentPolicy, AccessPackageCatalog, Entity, Group} from
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of applicationTemplate entities.
+ * Provides operations to manage the collection of application entities.
  */
 export class AccessPackage extends Entity implements Parsable {
     /** The access packages that are incompatible with this package. Read-only. */

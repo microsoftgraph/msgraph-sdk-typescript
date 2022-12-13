@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of application entities. */
 export enum BookingStaffRole {
     Guest = "guest",
     Administrator = "administrator",

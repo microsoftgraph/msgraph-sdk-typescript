@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the collection of application entities. */
 export enum ActionState {
     /** Not a valid action state */
     None = "none",

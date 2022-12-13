@@ -8,7 +8,7 @@ import {ChatMessage, ConversationMember, DriveItem, Entity, SharedWithChannelTea
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of authenticationMethodConfiguration entities.
+ * Casts the previous resource to group.
  */
 export class Channel extends Entity implements Parsable {
     /** Read only. Timestamp at which the channel was created. */

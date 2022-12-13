@@ -2,6 +2,9 @@ import {createBitlockerRecoveryKeyFromDiscriminatorValue} from './createBitlocke
 import {BaseCollectionPaginationCountResponse, BitlockerRecoveryKey} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity.
+ */
 export class BitlockerRecoveryKeyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: BitlockerRecoveryKey[] | undefined;

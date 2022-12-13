@@ -12,6 +12,9 @@ import {EducationAssignmentStatus} from './educationAssignmentStatus';
 import {EducationAssignmentGradeType, EducationAssignmentRecipient, EducationAssignmentResource, EducationCategory, EducationItemBody, EducationRubric, EducationSubmission, Entity, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the educationRoot singleton.
+ */
 export class EducationAssignment extends Entity implements Parsable {
     /** Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none. Supported values are: none, assignIfOpen. For example, a teacher can use assignIfOpen to indicate that an assignment should be assigned to any new student who joins the class while the assignment is still open, and none to indicate that an assignment should not be assigned to new students. */
     private _addedStudentAction?: EducationAddedStudentAction | undefined;
@@ -206,7 +209,7 @@ export class EducationAssignment extends Entity implements Parsable {
         this._closeDateTime = value;
     };
     /**
-     * Instantiates a new EducationAssignment and sets the default values.
+     * Instantiates a new educationAssignment and sets the default values.
      */
     public constructor() {
         super();

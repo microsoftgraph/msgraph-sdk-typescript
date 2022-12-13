@@ -6,7 +6,7 @@ import {Entity, WorkbookTableColumn, WorkbookTableRow, WorkbookTableSort, Workbo
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreementAcceptance entities.
+ * Provides operations to manage the collection of applicationTemplate entities.
  */
 export class WorkbookTable extends Entity implements Parsable {
     /** Represents a collection of all the columns in the table. Read-only. */

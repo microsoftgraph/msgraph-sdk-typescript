@@ -4,7 +4,7 @@ import {InferenceClassificationType} from './inferenceClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the collection of application entities.
  */
 export class InferenceClassificationOverride extends Entity implements Parsable {
     /** Specifies how incoming messages from a specific sender should always be classified as. The possible values are: focused, other. */
