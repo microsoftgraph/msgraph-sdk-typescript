@@ -1,5 +1,7 @@
 
-/** Children of current term. */
+/**
+ * Children of current term.
+ */
 export class ChildrenRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

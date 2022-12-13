@@ -6,7 +6,7 @@ export class AddIn implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The id property */
-    private _id?: string | undefined;
+    private _id?: Guid | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /** The properties property */
@@ -39,7 +39,7 @@ export class AddIn implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "id": n => { this.id = n.getStringValue(); },
+            "id": n => { this.id = n.getGuidValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "properties": n => { this.properties = n.getCollectionOfObjectValues<KeyValue>(createKeyValueFromDiscriminatorValue); },
             "type": n => { this.type = n.getStringValue(); },
@@ -47,7 +47,7 @@ export class AddIn implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the id property value. The id property
-     * @returns a string
+     * @returns a Guid
      */
     public get id() {
         return this._id;
@@ -56,7 +56,7 @@ export class AddIn implements AdditionalDataHolder, Parsable {
      * Sets the id property value. The id property
      * @param value Value to set for the id property.
      */
-    public set id(value: string | undefined) {
+    public set id(value: Guid | undefined) {
         this._id = value;
     };
     /**
@@ -93,7 +93,7 @@ export class AddIn implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeStringValue("id", this.id);
+        writer.writeGuidValue("id", this.id);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<KeyValue>("properties", this.properties);
         writer.writeStringValue("type", this.type);

@@ -1,5 +1,7 @@
 
-/** Get a list of the accessReviewInstance objects and their properties. */
+/**
+ * Get a list of the accessReviewInstance objects and their properties.
+ */
 export class InstancesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

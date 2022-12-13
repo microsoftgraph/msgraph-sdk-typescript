@@ -31,7 +31,9 @@ import {TemplateRequestBuilder} from './template/templateRequestBuilder';
 import {UnarchiveRequestBuilder} from './unarchive/unarchiveRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the joinedTeams property of the microsoft.graph.user entity. */
+/**
+ * Provides operations to manage the joinedTeams property of the microsoft.graph.user entity.
+ */
 export class TeamItemRequestBuilder {
     /** Provides operations to manage the allChannels property of the microsoft.graph.team entity. */
     public get allChannels(): AllChannelsRequestBuilder {
@@ -168,7 +170,7 @@ export class TeamItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -178,7 +180,7 @@ export class TeamItemRequestBuilder {
     };
     /**
      * Update the navigation property joinedTeams in me
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -188,7 +190,7 @@ export class TeamItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -273,7 +275,7 @@ export class TeamItemRequestBuilder {
     };
     /**
      * Update the navigation property joinedTeams in me
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Team

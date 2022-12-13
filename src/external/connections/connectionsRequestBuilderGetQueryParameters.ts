@@ -1,5 +1,7 @@
 
-/** Get a list of the externalConnection objects and their properties. */
+/**
+ * Get a list of the externalConnection objects and their properties.
+ */
 export class ConnectionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

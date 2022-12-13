@@ -1,5 +1,7 @@
 
-/** Read-only. Information about acceptances of this agreement. */
+/**
+ * Read-only. Information about acceptances of this agreement.
+ */
 export class AgreementAcceptanceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

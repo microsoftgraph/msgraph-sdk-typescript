@@ -1,5 +1,7 @@
 
-/** Get connections from external */
+/**
+ * Get connections from external
+ */
 export class ExternalConnectionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

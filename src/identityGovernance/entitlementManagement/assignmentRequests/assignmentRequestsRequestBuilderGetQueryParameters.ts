@@ -1,5 +1,7 @@
 
-/** In Azure AD entitlement management, retrieve a list of accessPackageAssignmentRequest objects.  The resulting list includes all the assignment requests, current and well as expired, that the caller has access to read, across all catalogs and access packages. */
+/**
+ * In Azure AD entitlement management, retrieve a list of accessPackageAssignmentRequest objects.  The resulting list includes all the assignment requests, current and well as expired, that the caller has access to read, across all catalogs and access packages.
+ */
 export class AssignmentRequestsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,7 @@
 
-/** Indicates which terms have been pinned or reused directly under the set. */
+/**
+ * Indicates which terms have been pinned or reused directly under the set.
+ */
 export class RelationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -8,7 +8,9 @@ import {ExcludesRequestBuilderGetRequestConfiguration} from './excludesRequestBu
 import {ExcludesRequestBuilderPostRequestConfiguration} from './excludesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the excludes property of the microsoft.graph.permissionGrantPolicy entity. */
+/**
+ * Provides operations to manage the excludes property of the microsoft.graph.permissionGrantPolicy entity.
+ */
 export class ExcludesRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -43,7 +45,7 @@ export class ExcludesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -53,7 +55,7 @@ export class ExcludesRequestBuilder {
     };
     /**
      * Add conditions under which a permission grant event is *excluded* in a permission grant policy. You do this by adding a permissionGrantConditionSet to the **excludes** collection of a  permissionGrantPolicy.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +65,7 @@ export class ExcludesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -76,6 +78,7 @@ export class ExcludesRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PermissionGrantConditionSetCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/permissiongrantpolicy-list-excludes?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ExcludesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PermissionGrantConditionSetCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -89,10 +92,11 @@ export class ExcludesRequestBuilder {
     };
     /**
      * Add conditions under which a permission grant event is *excluded* in a permission grant policy. You do this by adding a permissionGrantConditionSet to the **excludes** collection of a  permissionGrantPolicy.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PermissionGrantConditionSet
+     * @see {@link https://docs.microsoft.com/graph/api/permissiongrantpolicy-post-excludes?view=graph-rest-1.0|Find more info here}
      */
     public post(body: PermissionGrantConditionSet | undefined, requestConfiguration?: ExcludesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PermissionGrantConditionSet | undefined> {
         if(!body) throw new Error("body cannot be undefined");

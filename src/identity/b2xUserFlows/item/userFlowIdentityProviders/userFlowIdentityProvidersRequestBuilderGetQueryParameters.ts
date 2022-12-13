@@ -1,5 +1,7 @@
 
-/** Get userFlowIdentityProviders from identity */
+/**
+ * Get userFlowIdentityProviders from identity
+ */
 export class UserFlowIdentityProvidersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

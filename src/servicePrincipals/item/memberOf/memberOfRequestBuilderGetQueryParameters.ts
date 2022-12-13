@@ -1,5 +1,7 @@
 
-/** Roles that this service principal is a member of. HTTP Methods: GET Read-only. Nullable. Supports $expand. */
+/**
+ * Roles that this service principal is a member of. HTTP Methods: GET Read-only. Nullable. Supports $expand.
+ */
 export class MemberOfRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

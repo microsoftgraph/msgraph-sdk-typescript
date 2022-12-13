@@ -1,5 +1,7 @@
 
-/** The remote assist partners. */
+/**
+ * The remote assist partners.
+ */
 export class RemoteAssistancePartnersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

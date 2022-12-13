@@ -1,5 +1,7 @@
 
-/** The IOS software update installation statuses for this account. */
+/**
+ * The IOS software update installation statuses for this account.
+ */
 export class IosUpdateStatusesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

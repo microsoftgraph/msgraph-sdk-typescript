@@ -1,5 +1,7 @@
 
-/** All driveItems contained in the sharing root. This collection cannot be enumerated. */
+/**
+ * All driveItems contained in the sharing root. This collection cannot be enumerated.
+ */
 export class ItemsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

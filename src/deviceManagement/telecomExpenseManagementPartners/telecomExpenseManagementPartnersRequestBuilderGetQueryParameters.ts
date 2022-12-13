@@ -1,5 +1,7 @@
 
-/** The telecom expense management partners. */
+/**
+ * The telecom expense management partners.
+ */
 export class TelecomExpenseManagementPartnersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

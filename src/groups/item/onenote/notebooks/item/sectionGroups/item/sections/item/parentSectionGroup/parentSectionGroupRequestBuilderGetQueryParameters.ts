@@ -1,5 +1,7 @@
 
-/** The section group that contains the section.  Read-only. */
+/**
+ * The section group that contains the section.  Read-only.
+ */
 export class ParentSectionGroupRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

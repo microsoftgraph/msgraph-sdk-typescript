@@ -5,7 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {SyncLicensesRequestBuilderPostRequestConfiguration} from './syncLicensesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the syncLicenses method. */
+/**
+ * Provides operations to call the syncLicenses method.
+ */
 export class SyncLicensesRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -36,7 +38,7 @@ export class SyncLicensesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);

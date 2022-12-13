@@ -1,5 +1,7 @@
 
-/** Get entities from domainDnsRecords */
+/**
+ * Get entities from domainDnsRecords
+ */
 export class DomainDnsRecordsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

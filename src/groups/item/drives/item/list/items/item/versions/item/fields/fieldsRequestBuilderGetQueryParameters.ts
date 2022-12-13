@@ -1,5 +1,7 @@
 
-/** A collection of the fields and values for this version of the list item. */
+/**
+ * A collection of the fields and values for this version of the list item.
+ */
 export class FieldsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

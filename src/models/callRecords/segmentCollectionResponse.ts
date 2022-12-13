@@ -3,6 +3,9 @@ import {createSegmentFromDiscriminatorValue} from './createSegmentFromDiscrimina
 import {Segment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
+ */
 export class SegmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Segment[] | undefined;

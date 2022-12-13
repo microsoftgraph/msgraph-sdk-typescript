@@ -9,7 +9,9 @@ import {UserConsentRequestsRequestBuilderGetRequestConfiguration} from './userCo
 import {UserConsentRequestsRequestBuilderPostRequestConfiguration} from './userConsentRequestsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity. */
+/**
+ * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
+ */
 export class UserConsentRequestsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -44,7 +46,7 @@ export class UserConsentRequestsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -54,7 +56,7 @@ export class UserConsentRequestsRequestBuilder {
     };
     /**
      * Create new navigation property to userConsentRequests for identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -64,7 +66,7 @@ export class UserConsentRequestsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -86,6 +88,7 @@ export class UserConsentRequestsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserConsentRequestCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/appconsentrequest-list-userconsentrequests?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserConsentRequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserConsentRequestCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -99,7 +102,7 @@ export class UserConsentRequestsRequestBuilder {
     };
     /**
      * Create new navigation property to userConsentRequests for identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserConsentRequest

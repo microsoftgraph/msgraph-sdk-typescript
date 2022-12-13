@@ -1,5 +1,7 @@
 
-/** The collection of open extensions defined for this administrative unit. Nullable. */
+/**
+ * The collection of open extensions defined for this administrative unit. Nullable.
+ */
 export class ExtensionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

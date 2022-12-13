@@ -1,5 +1,7 @@
 
-/** All items contained in the list. */
+/**
+ * All items contained in the list.
+ */
 export class ListItemItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

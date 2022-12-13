@@ -1,5 +1,7 @@
 
-/** Get followedSites from users */
+/**
+ * Get followedSites from users
+ */
 export class SiteItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

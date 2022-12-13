@@ -1,5 +1,7 @@
 
-/** A collection of all the tabs in the channel. A navigation property. */
+/**
+ * A collection of all the tabs in the channel. A navigation property.
+ */
 export class TeamsTabItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

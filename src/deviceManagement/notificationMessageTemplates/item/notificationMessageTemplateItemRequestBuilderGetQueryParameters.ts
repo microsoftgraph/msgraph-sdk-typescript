@@ -1,5 +1,7 @@
 
-/** The Notification Message Templates. */
+/**
+ * The Notification Message Templates.
+ */
 export class NotificationMessageTemplateItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

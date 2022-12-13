@@ -1,5 +1,7 @@
 
-/** Invoke function getUserIdsWithFlaggedAppRegistration */
+/**
+ * Invoke function getUserIdsWithFlaggedAppRegistration
+ */
 export class GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

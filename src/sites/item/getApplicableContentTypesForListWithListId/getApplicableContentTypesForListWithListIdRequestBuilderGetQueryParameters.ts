@@ -1,5 +1,7 @@
 
-/** Invoke function getApplicableContentTypesForList */
+/**
+ * Invoke function getApplicableContentTypesForList
+ */
 export class GetApplicableContentTypesForListWithListIdRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

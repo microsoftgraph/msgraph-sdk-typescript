@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {ResetPasscodeRequestBuilderPostRequestConfiguration} from './resetPasscodeRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the resetPasscode method. */
+/**
+ * Provides operations to call the resetPasscode method.
+ */
 export class ResetPasscodeRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

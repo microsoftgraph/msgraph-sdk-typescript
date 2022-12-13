@@ -1,5 +1,7 @@
 
-/** Retrieve the properties and relationships of domain object. */
+/**
+ * Retrieve the properties and relationships of domain object.
+ */
 export class DomainItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

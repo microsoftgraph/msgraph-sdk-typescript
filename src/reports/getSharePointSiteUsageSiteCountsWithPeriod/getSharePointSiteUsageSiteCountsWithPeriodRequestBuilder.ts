@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {GetSharePointSiteUsageSiteCountsWithPeriodRequestBuilderGetRequestConfiguration} from './getSharePointSiteUsageSiteCountsWithPeriodRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getSharePointSiteUsageSiteCounts method. */
+/**
+ * Provides operations to call the getSharePointSiteUsageSiteCounts method.
+ */
 export class GetSharePointSiteUsageSiteCountsWithPeriodRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

@@ -8,7 +8,9 @@ import {ExtensionPropertiesRequestBuilderGetRequestConfiguration} from './extens
 import {ExtensionPropertiesRequestBuilderPostRequestConfiguration} from './extensionPropertiesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the extensionProperties property of the microsoft.graph.application entity. */
+/**
+ * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
+ */
 export class ExtensionPropertiesRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -43,7 +45,7 @@ export class ExtensionPropertiesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -53,7 +55,7 @@ export class ExtensionPropertiesRequestBuilder {
     };
     /**
      * Create a new directory extension definition, represented by an extensionProperty object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +65,7 @@ export class ExtensionPropertiesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -76,6 +78,7 @@ export class ExtensionPropertiesRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExtensionPropertyCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/application-list-extensionproperty?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ExtensionPropertiesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExtensionPropertyCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -89,10 +92,11 @@ export class ExtensionPropertiesRequestBuilder {
     };
     /**
      * Create a new directory extension definition, represented by an extensionProperty object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExtensionProperty
+     * @see {@link https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ExtensionProperty | undefined, requestConfiguration?: ExtensionPropertiesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExtensionProperty | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,7 @@
 
-/** A collection of membership records associated with the channel. */
+/**
+ * A collection of membership records associated with the channel.
+ */
 export class ConversationMemberItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

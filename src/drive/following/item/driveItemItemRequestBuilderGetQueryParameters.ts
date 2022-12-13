@@ -1,5 +1,7 @@
 
-/** The list of items the user is following. Only in OneDrive for Business. */
+/**
+ * The list of items the user is following. Only in OneDrive for Business.
+ */
 export class DriveItemItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

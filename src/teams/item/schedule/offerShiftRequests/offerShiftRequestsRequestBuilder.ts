@@ -8,7 +8,9 @@ import {OfferShiftRequestsRequestBuilderGetRequestConfiguration} from './offerSh
 import {OfferShiftRequestsRequestBuilderPostRequestConfiguration} from './offerShiftRequestsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity. */
+/**
+ * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
+ */
 export class OfferShiftRequestsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -43,7 +45,7 @@ export class OfferShiftRequestsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -53,7 +55,7 @@ export class OfferShiftRequestsRequestBuilder {
     };
     /**
      * Create new navigation property to offerShiftRequests for teams
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +65,7 @@ export class OfferShiftRequestsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -76,6 +78,7 @@ export class OfferShiftRequestsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OfferShiftRequestCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/offershiftrequest-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OfferShiftRequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OfferShiftRequestCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -89,7 +92,7 @@ export class OfferShiftRequestsRequestBuilder {
     };
     /**
      * Create new navigation property to offerShiftRequests for teams
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OfferShiftRequest

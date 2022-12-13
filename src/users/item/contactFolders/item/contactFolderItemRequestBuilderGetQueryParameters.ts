@@ -1,5 +1,7 @@
 
-/** The user's contacts folders. Read-only. Nullable. */
+/**
+ * The user's contacts folders. Read-only. Nullable.
+ */
 export class ContactFolderItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

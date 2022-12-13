@@ -1,5 +1,7 @@
 
-/** Read-only. Nullable. Returns a collection of the specified plans */
+/**
+ * Read-only. Nullable. Returns a collection of the specified plans
+ */
 export class PlannerPlanItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

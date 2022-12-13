@@ -1,5 +1,7 @@
 
-/** Approval stages for decisions associated with access package assignment requests. */
+/**
+ * Approval stages for decisions associated with access package assignment requests.
+ */
 export class ApprovalItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

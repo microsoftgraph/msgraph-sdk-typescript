@@ -1,5 +1,7 @@
 
-/** If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand. */
+/**
+ * If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand.
+ */
 export class ActivatedUsingRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

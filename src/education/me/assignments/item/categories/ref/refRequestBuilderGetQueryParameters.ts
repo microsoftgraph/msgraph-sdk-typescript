@@ -1,5 +1,7 @@
 
-/** List all the categories associated with an assignment. */
+/**
+ * List all the categories associated with an assignment.
+ */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

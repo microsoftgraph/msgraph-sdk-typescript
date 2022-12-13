@@ -1,5 +1,7 @@
 
-/** Retrieve the serviceUpdateMessage resources from the **messages** navigation property. This operation retrieves all service update messages that exist for the tenant. */
+/**
+ * Retrieve the serviceUpdateMessage resources from the **messages** navigation property. This operation retrieves all service update messages that exist for the tenant.
+ */
 export class MessagesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

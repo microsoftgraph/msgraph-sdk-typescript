@@ -1,5 +1,7 @@
 
-/** the entry point for the Conditional Access (CA) object model. */
+/**
+ * the entry point for the Conditional Access (CA) object model.
+ */
 export class ConditionalAccessRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

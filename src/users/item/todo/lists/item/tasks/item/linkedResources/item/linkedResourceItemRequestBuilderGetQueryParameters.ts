@@ -1,5 +1,7 @@
 
-/** A collection of resources linked to the task. */
+/**
+ * A collection of resources linked to the task.
+ */
 export class LinkedResourceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

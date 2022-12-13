@@ -1,5 +1,7 @@
 
-/** Default managed app policies. */
+/**
+ * Default managed app policies.
+ */
 export class DefaultManagedAppProtectionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

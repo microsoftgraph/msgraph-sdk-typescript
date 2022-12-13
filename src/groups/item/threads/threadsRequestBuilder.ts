@@ -8,7 +8,9 @@ import {ThreadsRequestBuilderGetRequestConfiguration} from './threadsRequestBuil
 import {ThreadsRequestBuilderPostRequestConfiguration} from './threadsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the threads property of the microsoft.graph.group entity. */
+/**
+ * Provides operations to manage the threads property of the microsoft.graph.group entity.
+ */
 export class ThreadsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -43,7 +45,7 @@ export class ThreadsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -53,7 +55,7 @@ export class ThreadsRequestBuilder {
     };
     /**
      * Start a new group conversation by first creating a thread. A new conversation, conversation thread, and post are created in the group.Use reply thread or reply post to further post to that thread. Note: You can also start a new thread in an existing conversation.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +65,7 @@ export class ThreadsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -76,6 +78,7 @@ export class ThreadsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConversationThreadCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/group-list-threads?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ThreadsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConversationThreadCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -89,10 +92,11 @@ export class ThreadsRequestBuilder {
     };
     /**
      * Start a new group conversation by first creating a thread. A new conversation, conversation thread, and post are created in the group.Use reply thread or reply post to further post to that thread. Note: You can also start a new thread in an existing conversation.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConversationThread
+     * @see {@link https://docs.microsoft.com/graph/api/group-post-threads?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ConversationThread | undefined, requestConfiguration?: ThreadsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConversationThread | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,7 @@
 
-/** Retrieve a list of languages supported for customization in a B2X user flow. */
+/**
+ * Retrieve a list of languages supported for customization in a B2X user flow.
+ */
 export class LanguagesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

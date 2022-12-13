@@ -1,5 +1,7 @@
 
-/** Get onlineMeetings from communications */
+/**
+ * Get onlineMeetings from communications
+ */
 export class OnlineMeetingItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

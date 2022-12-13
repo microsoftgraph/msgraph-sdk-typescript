@@ -1,5 +1,7 @@
 
-/** Get the bookingCustomQuestion resources associated with a bookingBusiness. */
+/**
+ * Get the bookingCustomQuestion resources associated with a bookingBusiness.
+ */
 export class CustomQuestionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,7 @@
 
-/** Entry-point to the Planner resource that might exist for a user. Read-only. */
+/**
+ * Entry-point to the Planner resource that might exist for a user. Read-only.
+ */
 export class PlannerRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

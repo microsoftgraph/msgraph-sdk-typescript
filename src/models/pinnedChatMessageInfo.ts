@@ -2,7 +2,9 @@ import {createChatMessageFromDiscriminatorValue} from './createChatMessageFromDi
 import {ChatMessage, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the appCatalogs singleton.
+ */
 export class PinnedChatMessageInfo extends Entity implements Parsable {
     /** Represents details about the chat message that is pinned. */
     private _message?: ChatMessage | undefined;

@@ -1,5 +1,7 @@
 
-/** Get auditLogs */
+/**
+ * Get auditLogs
+ */
 export class AuditLogsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

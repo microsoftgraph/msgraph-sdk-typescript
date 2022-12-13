@@ -1,5 +1,7 @@
 
-/** The identity providers included in the user flow. */
+/**
+ * The identity providers included in the user flow.
+ */
 export class IdentityProviderItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

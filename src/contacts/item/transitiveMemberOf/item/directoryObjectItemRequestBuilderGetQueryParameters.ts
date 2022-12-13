@@ -1,5 +1,7 @@
 
-/** Get transitiveMemberOf from contacts */
+/**
+ * Get transitiveMemberOf from contacts
+ */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

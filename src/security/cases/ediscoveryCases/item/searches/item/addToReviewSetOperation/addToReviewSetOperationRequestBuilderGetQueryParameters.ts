@@ -1,5 +1,7 @@
 
-/** Adds the results of the eDiscovery search to the specified reviewSet. */
+/**
+ * Adds the results of the eDiscovery search to the specified reviewSet.
+ */
 export class AddToReviewSetOperationRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** Represents queries within the review set. */
+/**
+ * Represents queries within the review set.
+ */
 export class EdiscoveryReviewSetQueryItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

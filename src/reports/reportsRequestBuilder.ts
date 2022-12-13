@@ -111,7 +111,9 @@ import {ReportsRequestBuilderPatchRequestConfiguration} from './reportsRequestBu
 import {SecurityRequestBuilder} from './security/securityRequestBuilder';
 import {DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the reportRoot singleton. */
+/**
+ * Provides operations to manage the reportRoot singleton.
+ */
 export class ReportsRequestBuilder {
     /** Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity. */
     public get dailyPrintUsageByPrinter(): DailyPrintUsageByPrinterRequestBuilder {
@@ -162,7 +164,7 @@ export class ReportsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -172,7 +174,7 @@ export class ReportsRequestBuilder {
     };
     /**
      * Update reports
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -182,7 +184,7 @@ export class ReportsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -1120,7 +1122,7 @@ export class ReportsRequestBuilder {
     };
     /**
      * Update reports
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ReportRoot

@@ -1,5 +1,7 @@
 
-/** The access packages in this catalog. Read-only. Nullable. */
+/**
+ * The access packages in this catalog. Read-only. Nullable.
+ */
 export class AccessPackagesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

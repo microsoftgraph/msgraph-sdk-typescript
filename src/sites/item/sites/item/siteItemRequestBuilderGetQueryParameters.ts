@@ -1,5 +1,7 @@
 
-/** The collection of the sub-sites under this site. */
+/**
+ * The collection of the sub-sites under this site.
+ */
 export class SiteItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

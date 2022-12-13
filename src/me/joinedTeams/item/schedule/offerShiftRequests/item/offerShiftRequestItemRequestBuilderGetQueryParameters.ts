@@ -1,5 +1,7 @@
 
-/** Get offerShiftRequests from me */
+/**
+ * Get offerShiftRequests from me
+ */
 export class OfferShiftRequestItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

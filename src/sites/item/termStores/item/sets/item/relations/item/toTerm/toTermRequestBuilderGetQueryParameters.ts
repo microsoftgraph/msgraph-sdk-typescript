@@ -1,5 +1,7 @@
 
-/** The to [term] of the relation. The term to which the relationship is defined. */
+/**
+ * The to [term] of the relation. The term to which the relationship is defined.
+ */
 export class ToTermRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

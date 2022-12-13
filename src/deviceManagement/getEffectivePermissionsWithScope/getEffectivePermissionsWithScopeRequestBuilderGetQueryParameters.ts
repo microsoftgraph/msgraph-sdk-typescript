@@ -1,5 +1,7 @@
 
-/** Retrieves the effective permissions of the currently authenticated user */
+/**
+ * Retrieves the effective permissions of the currently authenticated user
+ */
 export class GetEffectivePermissionsWithScopeRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

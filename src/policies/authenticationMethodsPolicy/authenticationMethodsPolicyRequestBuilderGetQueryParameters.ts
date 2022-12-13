@@ -1,5 +1,7 @@
 
-/** Read the properties and relationships of an authenticationMethodsPolicy object. */
+/**
+ * Read the properties and relationships of an authenticationMethodsPolicy object.
+ */
 export class AuthenticationMethodsPolicyRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -20,7 +20,9 @@ import {TeamsTabItemRequestBuilder} from './tabs/item/teamsTabItemRequestBuilder
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the primaryChannel property of the microsoft.graph.team entity. */
+/**
+ * Provides operations to manage the primaryChannel property of the microsoft.graph.team entity.
+ */
 export class PrimaryChannelRequestBuilder {
     /** Provides operations to call the completeMigration method. */
     public get completeMigration(): CompleteMigrationRequestBuilder {
@@ -99,7 +101,7 @@ export class PrimaryChannelRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -109,7 +111,7 @@ export class PrimaryChannelRequestBuilder {
     };
     /**
      * Update the navigation property primaryChannel in groups
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -119,7 +121,7 @@ export class PrimaryChannelRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -154,6 +156,7 @@ export class PrimaryChannelRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Channel
+     * @see {@link https://docs.microsoft.com/graph/api/team-get-primarychannel?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PrimaryChannelRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Channel | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -189,7 +192,7 @@ export class PrimaryChannelRequestBuilder {
     };
     /**
      * Update the navigation property primaryChannel in groups
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Channel

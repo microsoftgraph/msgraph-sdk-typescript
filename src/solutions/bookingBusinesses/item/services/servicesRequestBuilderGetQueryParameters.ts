@@ -1,5 +1,7 @@
 
-/** Get a list of bookingService objects in the specified bookingBusiness. */
+/**
+ * Get a list of bookingService objects in the specified bookingBusiness.
+ */
 export class ServicesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

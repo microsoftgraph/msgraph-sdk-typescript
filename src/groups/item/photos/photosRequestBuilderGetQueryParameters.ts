@@ -1,5 +1,7 @@
 
-/** Retrieve a list of profilePhoto objects. */
+/**
+ * Retrieve a list of profilePhoto objects.
+ */
 export class PhotosRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

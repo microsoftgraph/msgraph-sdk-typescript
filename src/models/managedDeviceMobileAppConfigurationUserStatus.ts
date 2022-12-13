@@ -2,7 +2,9 @@ import {ComplianceStatus} from './complianceStatus';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains properties, inherited properties and actions for an MDM mobile app configuration status for a user. */
+/**
+ * Contains properties, inherited properties and actions for an MDM mobile app configuration status for a user.
+ */
 export class ManagedDeviceMobileAppConfigurationUserStatus extends Entity implements Parsable {
     /** Devices count for that user. */
     private _devicesCount?: number | undefined;

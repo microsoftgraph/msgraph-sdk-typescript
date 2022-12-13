@@ -1,5 +1,7 @@
 
-/** Get identityGovernance */
+/**
+ * Get identityGovernance
+ */
 export class IdentityGovernanceRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

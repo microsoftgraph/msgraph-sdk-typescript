@@ -1,5 +1,7 @@
 
-/** Get a list of bookingCustomer objects of a business. */
+/**
+ * Get a list of bookingCustomer objects of a business.
+ */
 export class CustomersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

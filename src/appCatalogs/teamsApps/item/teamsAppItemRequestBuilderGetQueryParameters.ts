@@ -1,5 +1,7 @@
 
-/** Get teamsApps from appCatalogs */
+/**
+ * Get teamsApps from appCatalogs
+ */
 export class TeamsAppItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

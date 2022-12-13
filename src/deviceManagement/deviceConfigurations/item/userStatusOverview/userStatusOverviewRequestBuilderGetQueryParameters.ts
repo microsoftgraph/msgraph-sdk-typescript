@@ -1,5 +1,7 @@
 
-/** Device Configuration users status overview */
+/**
+ * Device Configuration users status overview
+ */
 export class UserStatusOverviewRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

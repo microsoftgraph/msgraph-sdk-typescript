@@ -1,5 +1,7 @@
 
-/** Get scopedRoleMemberOf from users */
+/**
+ * Get scopedRoleMemberOf from users
+ */
 export class ScopedRoleMembershipItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

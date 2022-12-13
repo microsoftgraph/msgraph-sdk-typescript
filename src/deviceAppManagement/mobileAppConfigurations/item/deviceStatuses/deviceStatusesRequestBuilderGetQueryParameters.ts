@@ -1,5 +1,7 @@
 
-/** List of ManagedDeviceMobileAppConfigurationDeviceStatus. */
+/**
+ * List of ManagedDeviceMobileAppConfigurationDeviceStatus.
+ */
 export class DeviceStatusesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,7 @@
 
-/** Groups that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand. */
+/**
+ * Groups that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.
+ */
 export class MemberOfRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

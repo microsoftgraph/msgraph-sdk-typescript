@@ -2,7 +2,9 @@ import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWor
 import {Entity, WorkbookWorksheet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the appCatalogs singleton.
+ */
 export class WorkbookPivotTable extends Entity implements Parsable {
     /** Name of the PivotTable. */
     private _name?: string | undefined;

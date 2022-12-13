@@ -1,5 +1,7 @@
 
-/** Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles. */
+/**
+ * Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.
+ */
 export class UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

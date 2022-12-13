@@ -1,5 +1,7 @@
 
-/** The IOS software update installation statuses for this account. */
+/**
+ * The IOS software update installation statuses for this account.
+ */
 export class IosUpdateDeviceStatusItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** App role assignment for another app or service, granted to this service principal. Supports $expand. */
+/**
+ * App role assignment for another app or service, granted to this service principal. Supports $expand.
+ */
 export class AppRoleAssignmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** Invoke function supportedTimeZones */
+/**
+ * Invoke function supportedTimeZones
+ */
 export class SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

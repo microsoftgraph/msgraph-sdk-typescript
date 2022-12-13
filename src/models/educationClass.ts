@@ -12,7 +12,6 @@ import {EducationExternalSource} from './educationExternalSource';
 import {EducationAssignment, EducationAssignmentDefaults, EducationAssignmentSettings, EducationCategory, EducationCourse, EducationSchool, EducationTerm, EducationUser, Entity, Group, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class EducationClass extends Entity implements Parsable {
     /** All categories associated with this class. Nullable. */
     private _assignmentCategories?: EducationCategory[] | undefined;
@@ -125,7 +124,7 @@ export class EducationClass extends Entity implements Parsable {
         this._classCode = value;
     };
     /**
-     * Instantiates a new educationClass and sets the default values.
+     * Instantiates a new EducationClass and sets the default values.
      */
     public constructor() {
         super();

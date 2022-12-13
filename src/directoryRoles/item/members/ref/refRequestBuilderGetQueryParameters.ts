@@ -1,5 +1,7 @@
 
-/** Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable. Supports $expand. */
+/**
+ * Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable. Supports $expand.
+ */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

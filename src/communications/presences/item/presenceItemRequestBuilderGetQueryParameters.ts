@@ -1,5 +1,7 @@
 
-/** Get presences from communications */
+/**
+ * Get presences from communications
+ */
 export class PresenceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** The details for each version of the app. */
+/**
+ * The details for each version of the app.
+ */
 export class TeamsAppDefinitionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** Directory objects created by this service principal. Read-only. Nullable. */
+/**
+ * Directory objects created by this service principal. Read-only. Nullable.
+ */
 export class CreatedObjectsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,6 +1,8 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Allows IT admins to set a default search engine for MDM-Controlled devices. Users can override this and change their default search engine provided the AllowSearchEngineCustomization policy is not set. */
+/**
+ * Allows IT admins to set a default search engine for MDM-Controlled devices. Users can override this and change their default search engine provided the AllowSearchEngineCustomization policy is not set.
+ */
 export class EdgeSearchEngineBase implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;

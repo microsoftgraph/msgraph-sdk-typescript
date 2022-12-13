@@ -6,7 +6,9 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {MobileLobAppRequestBuilderGetRequestConfiguration} from './mobileLobAppRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to mobileLobApp. */
+/**
+ * Casts the previous resource to mobileLobApp.
+ */
 export class MobileLobAppRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -41,7 +43,7 @@ export class MobileLobAppRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

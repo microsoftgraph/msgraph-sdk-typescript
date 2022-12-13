@@ -1,6 +1,8 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains properties describing restart coordination following an app installation. */
+/**
+ * Contains properties describing restart coordination following an app installation.
+ */
 export class Win32LobAppRestartSettings implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;

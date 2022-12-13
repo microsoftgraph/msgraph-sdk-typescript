@@ -8,7 +8,9 @@ import {TokenLifetimePoliciesRequestBuilderGetRequestConfiguration} from './toke
 import {TokenLifetimePoliciesRequestBuilderPostRequestConfiguration} from './tokenLifetimePoliciesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.policyRoot entity. */
+/**
+ * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.policyRoot entity.
+ */
 export class TokenLifetimePoliciesRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -43,7 +45,7 @@ export class TokenLifetimePoliciesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -53,7 +55,7 @@ export class TokenLifetimePoliciesRequestBuilder {
     };
     /**
      * Create a new tokenLifetimePolicy object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +65,7 @@ export class TokenLifetimePoliciesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -76,6 +78,7 @@ export class TokenLifetimePoliciesRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TokenLifetimePolicyCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/tokenlifetimepolicy-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TokenLifetimePoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TokenLifetimePolicyCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -89,10 +92,11 @@ export class TokenLifetimePoliciesRequestBuilder {
     };
     /**
      * Create a new tokenLifetimePolicy object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TokenLifetimePolicy
+     * @see {@link https://docs.microsoft.com/graph/api/tokenlifetimepolicy-post-tokenlifetimepolicies?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TokenLifetimePolicy | undefined, requestConfiguration?: TokenLifetimePoliciesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TokenLifetimePolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,7 @@
 
-/** Get admin */
+/**
+ * Get admin
+ */
 export class AdminRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

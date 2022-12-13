@@ -1,5 +1,7 @@
 
-/** Get the contact folder collection in the default Contacts folder of the signed-in user. */
+/**
+ * Get the contact folder collection in the default Contacts folder of the signed-in user.
+ */
 export class ContactFoldersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

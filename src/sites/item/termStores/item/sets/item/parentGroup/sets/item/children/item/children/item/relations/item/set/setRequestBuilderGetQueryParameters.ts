@@ -1,5 +1,7 @@
 
-/** The [set] in which the relation is relevant. */
+/**
+ * The [set] in which the relation is relevant.
+ */
 export class SetRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

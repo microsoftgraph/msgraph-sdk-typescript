@@ -7,7 +7,9 @@ import {ServicePrincipalRequestBuilder} from './servicePrincipal/servicePrincipa
 import {UserRequestBuilder} from './user/userRequestBuilder';
 import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /groups/{group-id}/owners/{directoryObject-id} */
+/**
+ * Builds and executes requests for operations under /groups/{group-id}/owners/{directoryObject-id}
+ */
 export class DirectoryObjectItemRequestBuilder {
     /** Casts the previous resource to application. */
     public get application(): ApplicationRequestBuilder {

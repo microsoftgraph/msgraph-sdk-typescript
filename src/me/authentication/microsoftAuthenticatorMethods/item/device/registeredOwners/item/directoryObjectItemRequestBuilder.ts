@@ -5,7 +5,9 @@ import {ServicePrincipalRequestBuilder} from './servicePrincipal/servicePrincipa
 import {UserRequestBuilder} from './user/userRequestBuilder';
 import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /me/authentication/microsoftAuthenticatorMethods/{microsoftAuthenticatorAuthenticationMethod-id}/device/registeredOwners/{directoryObject-id} */
+/**
+ * Builds and executes requests for operations under /me/authentication/microsoftAuthenticatorMethods/{microsoftAuthenticatorAuthenticationMethod-id}/device/registeredOwners/{directoryObject-id}
+ */
 export class DirectoryObjectItemRequestBuilder {
     /** Casts the previous resource to appRoleAssignment. */
     public get appRoleAssignment(): AppRoleAssignmentRequestBuilder {

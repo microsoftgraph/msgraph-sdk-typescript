@@ -1,5 +1,7 @@
 
-/** Retrieve a list of **printerShares**. */
+/**
+ * Retrieve a list of **printerShares**.
+ */
 export class SharesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

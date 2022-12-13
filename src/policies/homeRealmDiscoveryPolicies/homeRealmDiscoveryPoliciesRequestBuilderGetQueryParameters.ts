@@ -1,5 +1,7 @@
 
-/** Get a list of homeRealmDiscoveryPolicy objects. */
+/**
+ * Get a list of homeRealmDiscoveryPolicy objects.
+ */
 export class HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

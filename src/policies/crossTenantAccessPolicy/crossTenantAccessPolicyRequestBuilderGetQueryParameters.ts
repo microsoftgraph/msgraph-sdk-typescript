@@ -1,5 +1,7 @@
 
-/** Read the properties and relationships of a crossTenantAccessPolicy object. */
+/**
+ * Read the properties and relationships of a crossTenantAccessPolicy object.
+ */
 export class CrossTenantAccessPolicyRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -12,7 +12,7 @@ export class SelfSignedCertificate implements AdditionalDataHolder, Parsable {
     /** The key property */
     private _key?: string | undefined;
     /** The keyId property */
-    private _keyId?: string | undefined;
+    private _keyId?: Guid | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /** The startDateTime property */
@@ -95,7 +95,7 @@ export class SelfSignedCertificate implements AdditionalDataHolder, Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "endDateTime": n => { this.endDateTime = n.getDateValue(); },
             "key": n => { this.key = n.getStringValue(); },
-            "keyId": n => { this.keyId = n.getStringValue(); },
+            "keyId": n => { this.keyId = n.getGuidValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
             "thumbprint": n => { this.thumbprint = n.getStringValue(); },
@@ -119,7 +119,7 @@ export class SelfSignedCertificate implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the keyId property value. The keyId property
-     * @returns a string
+     * @returns a Guid
      */
     public get keyId() {
         return this._keyId;
@@ -128,7 +128,7 @@ export class SelfSignedCertificate implements AdditionalDataHolder, Parsable {
      * Sets the keyId property value. The keyId property
      * @param value Value to set for the keyId property.
      */
-    public set keyId(value: string | undefined) {
+    public set keyId(value: Guid | undefined) {
         this._keyId = value;
     };
     /**
@@ -155,7 +155,7 @@ export class SelfSignedCertificate implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("endDateTime", this.endDateTime);
         writer.writeStringValue("key", this.key);
-        writer.writeStringValue("keyId", this.keyId);
+        writer.writeGuidValue("keyId", this.keyId);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeStringValue("thumbprint", this.thumbprint);

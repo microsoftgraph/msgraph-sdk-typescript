@@ -5,7 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {ChannelItemRequestBuilderGetRequestConfiguration} from './channelItemRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the incomingChannels property of the microsoft.graph.team entity. */
+/**
+ * Provides operations to manage the incomingChannels property of the microsoft.graph.team entity.
+ */
 export class ChannelItemRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -36,7 +38,7 @@ export class ChannelItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

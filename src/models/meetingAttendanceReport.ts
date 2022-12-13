@@ -2,7 +2,9 @@ import {createAttendanceRecordFromDiscriminatorValue} from './createAttendanceRe
 import {AttendanceRecord, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/**
+ * Provides operations to manage the collection of application entities.
+ */
 export class MeetingAttendanceReport extends Entity implements Parsable {
     /** List of attendance records of an attendance report. Read-only. */
     private _attendanceRecords?: AttendanceRecord[] | undefined;

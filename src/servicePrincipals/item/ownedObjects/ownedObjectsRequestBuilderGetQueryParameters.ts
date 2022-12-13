@@ -1,5 +1,7 @@
 
-/** Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1). */
+/**
+ * Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
+ */
 export class OwnedObjectsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

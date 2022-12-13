@@ -2,7 +2,9 @@ import {CategoryColor} from './categoryColor';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the collection of application entities.
+ */
 export class OutlookCategory extends Entity implements Parsable {
     /** A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below. */
     private _color?: CategoryColor | undefined;

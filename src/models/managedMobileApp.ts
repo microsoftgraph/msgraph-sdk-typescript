@@ -2,7 +2,9 @@ import {createMobileAppIdentifierFromDiscriminatorValue} from './createMobileApp
 import {Entity, MobileAppIdentifier} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** The identifier for the deployment an app. */
+/**
+ * The identifier for the deployment an app.
+ */
 export class ManagedMobileApp extends Entity implements Parsable {
     /** The identifier for an app with it's operating system type. */
     private _mobileAppIdentifier?: MobileAppIdentifier | undefined;

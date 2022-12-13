@@ -1,5 +1,7 @@
 
-/** All the terms under the set. */
+/**
+ * All the terms under the set.
+ */
 export class TermItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

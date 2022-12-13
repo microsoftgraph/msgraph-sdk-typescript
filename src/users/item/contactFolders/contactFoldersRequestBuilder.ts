@@ -9,7 +9,9 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the contactFolders property of the microsoft.graph.user entity. */
+/**
+ * Provides operations to manage the contactFolders property of the microsoft.graph.user entity.
+ */
 export class ContactFoldersRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -44,7 +46,7 @@ export class ContactFoldersRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -54,7 +56,7 @@ export class ContactFoldersRequestBuilder {
     };
     /**
      * Create a new contactFolder under the user's default contacts folder. You can also create a new contactfolder as a child of any specified contact folder.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -64,7 +66,7 @@ export class ContactFoldersRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -84,6 +86,7 @@ export class ContactFoldersRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContactFolderCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/user-list-contactfolders?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ContactFoldersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContactFolderCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -97,10 +100,11 @@ export class ContactFoldersRequestBuilder {
     };
     /**
      * Create a new contactFolder under the user's default contacts folder. You can also create a new contactfolder as a child of any specified contact folder.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContactFolder
+     * @see {@link https://docs.microsoft.com/graph/api/user-post-contactfolders?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ContactFolder | undefined, requestConfiguration?: ContactFoldersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContactFolder | undefined> {
         if(!body) throw new Error("body cannot be undefined");

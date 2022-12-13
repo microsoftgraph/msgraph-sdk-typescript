@@ -1,5 +1,7 @@
 
-/** Get secureScoreControlProfiles from security */
+/**
+ * Get secureScoreControlProfiles from security
+ */
 export class SecureScoreControlProfileItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

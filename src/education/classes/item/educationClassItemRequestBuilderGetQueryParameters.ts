@@ -1,5 +1,7 @@
 
-/** Get classes from education */
+/**
+ * Get classes from education
+ */
 export class EducationClassItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

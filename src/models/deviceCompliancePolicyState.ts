@@ -4,7 +4,9 @@ import {DeviceCompliancePolicySettingState, Entity} from './index';
 import {PolicyPlatformType} from './policyPlatformType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Device Compliance Policy State for a given device. */
+/**
+ * Device Compliance Policy State for a given device.
+ */
 export class DeviceCompliancePolicyState extends Entity implements Parsable {
     /** The name of the policy for this policyBase */
     private _displayName?: string | undefined;

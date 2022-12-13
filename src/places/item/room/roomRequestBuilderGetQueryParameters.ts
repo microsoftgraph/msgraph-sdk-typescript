@@ -1,5 +1,7 @@
 
-/** Get the item of type microsoft.graph.place as microsoft.graph.room */
+/**
+ * Get the item of type microsoft.graph.place as microsoft.graph.room
+ */
 export class RoomRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

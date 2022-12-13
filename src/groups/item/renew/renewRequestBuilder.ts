@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {RenewRequestBuilderPostRequestConfiguration} from './renewRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the renew method. */
+/**
+ * Provides operations to call the renew method.
+ */
 export class RenewRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -44,6 +46,7 @@ export class RenewRequestBuilder {
      * Renews a group's expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/group-renew?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: RenewRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createPostRequestInformation(

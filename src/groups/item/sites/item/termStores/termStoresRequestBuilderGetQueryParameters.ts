@@ -1,5 +1,7 @@
 
-/** The collection of termStores under this site. */
+/**
+ * The collection of termStores under this site.
+ */
 export class TermStoresRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

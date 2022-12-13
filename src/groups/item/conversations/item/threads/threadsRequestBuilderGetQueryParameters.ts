@@ -1,5 +1,7 @@
 
-/** Get all the threads in a group conversation. Note: You can also get all the threads of a group. */
+/**
+ * Get all the threads in a group conversation. Note: You can also get all the threads of a group.
+ */
 export class ThreadsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

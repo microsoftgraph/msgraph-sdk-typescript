@@ -5,7 +5,9 @@ import {GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfig
 import {GetPstnCallsWithFromDateTimeWithToDateTimeResponse} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getPstnCalls method. */
+/**
+ * Provides operations to call the getPstnCalls method.
+ */
 export class GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -40,7 +42,7 @@ export class GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

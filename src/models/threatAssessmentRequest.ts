@@ -8,7 +8,6 @@ import {ThreatCategory} from './threatCategory';
 import {ThreatExpectedAssessment} from './threatExpectedAssessment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class ThreatAssessmentRequest extends Entity implements Parsable {
     /** The category property */
     private _category?: ThreatCategory | undefined;
@@ -41,7 +40,7 @@ export class ThreatAssessmentRequest extends Entity implements Parsable {
         this._category = value;
     };
     /**
-     * Instantiates a new threatAssessmentRequest and sets the default values.
+     * Instantiates a new ThreatAssessmentRequest and sets the default values.
      */
     public constructor() {
         super();

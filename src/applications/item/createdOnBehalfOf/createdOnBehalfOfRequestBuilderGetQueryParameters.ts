@@ -1,5 +1,7 @@
 
-/** Supports $filter (/$count eq 0, /$count ne 0). Read-only. */
+/**
+ * Supports $filter (/$count eq 0, /$count ne 0). Read-only.
+ */
 export class CreatedOnBehalfOfRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

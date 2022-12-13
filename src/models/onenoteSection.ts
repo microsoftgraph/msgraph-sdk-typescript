@@ -5,7 +5,9 @@ import {createSectionLinksFromDiscriminatorValue} from './createSectionLinksFrom
 import {Notebook, OnenoteEntityHierarchyModel, OnenotePage, SectionGroup, SectionLinks} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the appCatalogs singleton.
+ */
 export class OnenoteSection extends OnenoteEntityHierarchyModel implements Parsable {
     /** Indicates whether this is the user's default section. Read-only. */
     private _isDefault?: boolean | undefined;

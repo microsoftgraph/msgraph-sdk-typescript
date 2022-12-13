@@ -1,5 +1,7 @@
 
-/** Read-only. Nullable. Returns the plannerPlans owned by the group. */
+/**
+ * Read-only. Nullable. Returns the plannerPlans owned by the group.
+ */
 export class PlannerPlanItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

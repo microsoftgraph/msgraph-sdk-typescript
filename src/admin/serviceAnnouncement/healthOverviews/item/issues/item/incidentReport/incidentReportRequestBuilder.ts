@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {IncidentReportRequestBuilderGetRequestConfiguration} from './incidentReportRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the incidentReport method. */
+/**
+ * Provides operations to call the incidentReport method.
+ */
 export class IncidentReportRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

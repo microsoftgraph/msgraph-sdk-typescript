@@ -2,7 +2,9 @@ import {BaseCollectionPaginationCountResponse, ItemActivityStat} from '../../../
 import {createItemActivityStatFromDiscriminatorValue} from '../../../../../../../../../models/createItemActivityStatFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getActivitiesByInterval method. */
+/**
+ * Provides operations to call the getActivitiesByInterval method.
+ */
 export class GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ItemActivityStat[] | undefined;

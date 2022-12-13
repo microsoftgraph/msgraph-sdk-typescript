@@ -1,5 +1,7 @@
 
-/** Invoke function getCompatibleHubContentTypes */
+/**
+ * Invoke function getCompatibleHubContentTypes
+ */
 export class GetCompatibleHubContentTypesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

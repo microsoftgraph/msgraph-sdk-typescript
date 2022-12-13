@@ -1,5 +1,7 @@
 
-/** The list of group assignments for this mobile app. */
+/**
+ * The list of group assignments for this mobile app.
+ */
 export class MobileAppAssignmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

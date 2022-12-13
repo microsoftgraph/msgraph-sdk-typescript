@@ -1,5 +1,7 @@
 
-/** Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable. Supports $expand. */
+/**
+ * Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable. Supports $expand.
+ */
 export class RegisteredUsersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

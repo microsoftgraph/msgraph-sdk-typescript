@@ -1,5 +1,7 @@
 
-/** Get a list of the set objects and their properties. */
+/**
+ * Get a list of the set objects and their properties.
+ */
 export class SetsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

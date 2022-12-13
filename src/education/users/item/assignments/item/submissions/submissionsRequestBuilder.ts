@@ -8,7 +8,9 @@ import {SubmissionsRequestBuilderGetRequestConfiguration} from './submissionsReq
 import {SubmissionsRequestBuilderPostRequestConfiguration} from './submissionsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity. */
+/**
+ * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
+ */
 export class SubmissionsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -43,7 +45,7 @@ export class SubmissionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -53,7 +55,7 @@ export class SubmissionsRequestBuilder {
     };
     /**
      * Create new navigation property to submissions for education
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +65,7 @@ export class SubmissionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -76,6 +78,7 @@ export class SubmissionsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationSubmissionCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-list-submissions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SubmissionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSubmissionCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -89,7 +92,7 @@ export class SubmissionsRequestBuilder {
     };
     /**
      * Create new navigation property to submissions for education
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationSubmission

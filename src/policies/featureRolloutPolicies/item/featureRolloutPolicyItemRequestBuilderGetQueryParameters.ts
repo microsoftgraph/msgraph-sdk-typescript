@@ -1,5 +1,7 @@
 
-/** The feature rollout policy associated with a directory object. */
+/**
+ * The feature rollout policy associated with a directory object.
+ */
 export class FeatureRolloutPolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

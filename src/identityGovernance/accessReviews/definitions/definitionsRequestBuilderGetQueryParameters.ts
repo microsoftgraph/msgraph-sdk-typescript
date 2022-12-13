@@ -1,5 +1,7 @@
 
-/** Get a list of the accessReviewScheduleDefinition objects and their properties. */
+/**
+ * Get a list of the accessReviewScheduleDefinition objects and their properties.
+ */
 export class DefinitionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

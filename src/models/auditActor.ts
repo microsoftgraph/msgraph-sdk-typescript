@@ -1,6 +1,8 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** A class containing the properties for Audit Actor. */
+/**
+ * A class containing the properties for Audit Actor.
+ */
 export class AuditActor implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;

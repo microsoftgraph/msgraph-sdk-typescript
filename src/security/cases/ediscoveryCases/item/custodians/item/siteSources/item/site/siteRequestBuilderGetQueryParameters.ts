@@ -1,5 +1,7 @@
 
-/** The SharePoint site associated with the siteSource. */
+/**
+ * The SharePoint site associated with the siteSource.
+ */
 export class SiteRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

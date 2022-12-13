@@ -1,5 +1,7 @@
 
-/** Delete ref of navigation property tokenIssuancePolicies for applications */
+/**
+ * Delete ref of navigation property tokenIssuancePolicies for applications
+ */
 export class RefRequestBuilderDeleteQueryParameters {
     /** Delete Uri */
     public id?: string | undefined;

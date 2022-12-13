@@ -3,7 +3,9 @@ import {DeviceManagementExchangeConnectorType} from './deviceManagementExchangeC
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Entity which represents a connection to an Exchange environment. */
+/**
+ * Entity which represents a connection to an Exchange environment.
+ */
 export class DeviceManagementExchangeConnector extends Entity implements Parsable {
     /** The name of the server hosting the Exchange Connector. */
     private _connectorServerName?: string | undefined;

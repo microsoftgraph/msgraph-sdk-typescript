@@ -1,5 +1,7 @@
 
-/** Android managed app policies. */
+/**
+ * Android managed app policies.
+ */
 export class AndroidManagedAppProtectionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

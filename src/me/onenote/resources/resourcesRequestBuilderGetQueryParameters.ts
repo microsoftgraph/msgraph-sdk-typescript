@@ -1,5 +1,7 @@
 
-/** The image and other file resources in OneNote pages. Getting a resources collection is not supported, but you can get the binary content of a specific resource. Read-only. Nullable. */
+/**
+ * The image and other file resources in OneNote pages. Getting a resources collection is not supported, but you can get the binary content of a specific resource. Read-only. Nullable.
+ */
 export class ResourcesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

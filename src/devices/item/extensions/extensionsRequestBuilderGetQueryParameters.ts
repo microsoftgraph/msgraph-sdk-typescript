@@ -1,5 +1,7 @@
 
-/** The collection of open extensions defined for the device. Read-only. Nullable. */
+/**
+ * The collection of open extensions defined for the device. Read-only. Nullable.
+ */
 export class ExtensionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

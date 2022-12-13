@@ -1,5 +1,7 @@
 
-/** Get accessReviews from identityGovernance */
+/**
+ * Get accessReviews from identityGovernance
+ */
 export class AccessReviewsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

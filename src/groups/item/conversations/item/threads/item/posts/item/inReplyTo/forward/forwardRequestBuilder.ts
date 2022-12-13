@@ -4,7 +4,9 @@ import {ForwardRequestBuilderPostRequestConfiguration} from './forwardRequestBui
 import {ForwardPostRequestBody} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the forward method. */
+/**
+ * Provides operations to call the forward method.
+ */
 export class ForwardRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -27,7 +29,7 @@ export class ForwardRequestBuilder {
     };
     /**
      * Forward a post to a recipient. You can specify both the parent conversation and thread in the request, or, you can specify just the parent thread without the parent conversation. 
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -46,9 +48,10 @@ export class ForwardRequestBuilder {
     };
     /**
      * Forward a post to a recipient. You can specify both the parent conversation and thread in the request, or, you can specify just the parent thread without the parent conversation. 
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/post-forward?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ForwardPostRequestBody | undefined, requestConfiguration?: ForwardRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

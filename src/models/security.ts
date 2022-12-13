@@ -2,18 +2,24 @@ import {createAlertFromDiscriminatorValue} from './createAlertFromDiscriminatorV
 import {createAttackSimulationRootFromDiscriminatorValue} from './createAttackSimulationRootFromDiscriminatorValue';
 import {createSecureScoreControlProfileFromDiscriminatorValue} from './createSecureScoreControlProfileFromDiscriminatorValue';
 import {createSecureScoreFromDiscriminatorValue} from './createSecureScoreFromDiscriminatorValue';
-import {Alert, AttackSimulationRoot, Entity, SecureScore, SecureScoreControlProfile} from './index';
-import {CasesRoot} from './security/';
+import {Alert as If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3, AttackSimulationRoot, Entity, SecureScore, SecureScoreControlProfile} from './index';
+import {Alert as I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8, CasesRoot, Incident} from './security/';
+import {createAlertFromDiscriminatorValue} from './security/createAlertFromDiscriminatorValue';
 import {createCasesRootFromDiscriminatorValue} from './security/createCasesRootFromDiscriminatorValue';
+import {createIncidentFromDiscriminatorValue} from './security/createIncidentFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Security extends Entity implements Parsable {
     /** The alerts property */
-    private _alerts?: Alert[] | undefined;
+    private _alerts?: If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3[] | undefined;
+    /** The alerts_v2 property */
+    private _alerts_v2?: I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8[] | undefined;
     /** The attackSimulation property */
     private _attackSimulation?: AttackSimulationRoot | undefined;
     /** The cases property */
     private _cases?: CasesRoot | undefined;
+    /** The incidents property */
+    private _incidents?: Incident[] | undefined;
     /** The secureScoreControlProfiles property */
     private _secureScoreControlProfiles?: SecureScoreControlProfile[] | undefined;
     /** The secureScores property */
@@ -29,8 +35,22 @@ export class Security extends Entity implements Parsable {
      * Sets the alerts property value. The alerts property
      * @param value Value to set for the alerts property.
      */
-    public set alerts(value: Alert[] | undefined) {
+    public set alerts(value: If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3[] | undefined) {
         this._alerts = value;
+    };
+    /**
+     * Gets the alerts_v2 property value. The alerts_v2 property
+     * @returns a alert
+     */
+    public get alerts_v2() {
+        return this._alerts_v2;
+    };
+    /**
+     * Sets the alerts_v2 property value. The alerts_v2 property
+     * @param value Value to set for the alerts_v2 property.
+     */
+    public set alerts_v2(value: I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8[] | undefined) {
+        this._alerts_v2 = value;
     };
     /**
      * Gets the attackSimulation property value. The attackSimulation property
@@ -73,11 +93,27 @@ export class Security extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "alerts": n => { this.alerts = n.getCollectionOfObjectValues<Alert>(createAlertFromDiscriminatorValue); },
+            "alerts_v2": n => { this.alerts_v2 = n.getCollectionOfObjectValues<Alert>(createAlertFromDiscriminatorValue); },
             "attackSimulation": n => { this.attackSimulation = n.getObjectValue<AttackSimulationRoot>(createAttackSimulationRootFromDiscriminatorValue); },
             "cases": n => { this.cases = n.getObjectValue<CasesRoot>(createCasesRootFromDiscriminatorValue); },
+            "incidents": n => { this.incidents = n.getCollectionOfObjectValues<Incident>(createIncidentFromDiscriminatorValue); },
             "secureScoreControlProfiles": n => { this.secureScoreControlProfiles = n.getCollectionOfObjectValues<SecureScoreControlProfile>(createSecureScoreControlProfileFromDiscriminatorValue); },
             "secureScores": n => { this.secureScores = n.getCollectionOfObjectValues<SecureScore>(createSecureScoreFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the incidents property value. The incidents property
+     * @returns a incident
+     */
+    public get incidents() {
+        return this._incidents;
+    };
+    /**
+     * Sets the incidents property value. The incidents property
+     * @param value Value to set for the incidents property.
+     */
+    public set incidents(value: Incident[] | undefined) {
+        this._incidents = value;
     };
     /**
      * Gets the secureScoreControlProfiles property value. The secureScoreControlProfiles property
@@ -115,8 +151,10 @@ export class Security extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<Alert>("alerts", this.alerts);
+        writer.writeCollectionOfObjectValues<Alert>("alerts_v2", this.alerts_v2);
         writer.writeObjectValue<AttackSimulationRoot>("attackSimulation", this.attackSimulation);
         writer.writeObjectValue<CasesRoot>("cases", this.cases);
+        writer.writeCollectionOfObjectValues<Incident>("incidents", this.incidents);
         writer.writeCollectionOfObjectValues<SecureScoreControlProfile>("secureScoreControlProfiles", this.secureScoreControlProfiles);
         writer.writeCollectionOfObjectValues<SecureScore>("secureScores", this.secureScores);
     };

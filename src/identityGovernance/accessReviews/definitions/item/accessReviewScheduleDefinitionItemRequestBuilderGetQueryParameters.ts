@@ -1,5 +1,7 @@
 
-/** Represents the template and scheduling for an access review. */
+/**
+ * Represents the template and scheduling for an access review.
+ */
 export class AccessReviewScheduleDefinitionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

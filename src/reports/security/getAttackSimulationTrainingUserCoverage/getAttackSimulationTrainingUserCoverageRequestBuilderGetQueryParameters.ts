@@ -1,5 +1,7 @@
 
-/** Invoke function getAttackSimulationTrainingUserCoverage */
+/**
+ * Invoke function getAttackSimulationTrainingUserCoverage
+ */
 export class GetAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

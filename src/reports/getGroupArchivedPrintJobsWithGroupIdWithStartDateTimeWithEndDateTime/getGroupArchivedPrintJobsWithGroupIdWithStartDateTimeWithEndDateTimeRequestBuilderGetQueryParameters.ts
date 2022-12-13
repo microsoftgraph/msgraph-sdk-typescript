@@ -1,5 +1,7 @@
 
-/** Invoke function getGroupArchivedPrintJobs */
+/**
+ * Invoke function getGroupArchivedPrintJobs
+ */
 export class GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

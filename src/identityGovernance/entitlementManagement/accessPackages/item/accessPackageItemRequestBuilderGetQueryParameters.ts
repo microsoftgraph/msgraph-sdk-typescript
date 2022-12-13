@@ -1,5 +1,7 @@
 
-/** Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources. */
+/**
+ * Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources.
+ */
 export class AccessPackageItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

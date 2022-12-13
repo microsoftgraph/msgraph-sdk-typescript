@@ -1,5 +1,7 @@
 
-/** Get callRecords from communications */
+/**
+ * Get callRecords from communications
+ */
 export class CallRecordsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

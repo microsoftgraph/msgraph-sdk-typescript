@@ -2,7 +2,9 @@ import {createDeviceInstallStateFromDiscriminatorValue} from './createDeviceInst
 import {DeviceInstallState, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains properties for the installation state summary for a user. */
+/**
+ * Contains properties for the installation state summary for a user.
+ */
 export class UserInstallStateSummary extends Entity implements Parsable {
     /** The install state of the eBook. */
     private _deviceStates?: DeviceInstallState[] | undefined;

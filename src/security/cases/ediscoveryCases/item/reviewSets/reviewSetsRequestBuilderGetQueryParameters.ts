@@ -1,5 +1,7 @@
 
-/** Get a list of ediscoveryReviewSet objects associated with an eDiscovery case. */
+/**
+ * Get a list of ediscoveryReviewSet objects associated with an eDiscovery case.
+ */
 export class ReviewSetsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

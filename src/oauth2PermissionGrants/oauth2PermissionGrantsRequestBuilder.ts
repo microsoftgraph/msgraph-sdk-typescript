@@ -9,7 +9,9 @@ import {Oauth2PermissionGrantsRequestBuilderGetRequestConfiguration} from './oau
 import {Oauth2PermissionGrantsRequestBuilderPostRequestConfiguration} from './oauth2PermissionGrantsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of oAuth2PermissionGrant entities. */
+/**
+ * Provides operations to manage the collection of oAuth2PermissionGrant entities.
+ */
 export class Oauth2PermissionGrantsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -44,7 +46,7 @@ export class Oauth2PermissionGrantsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -54,7 +56,7 @@ export class Oauth2PermissionGrantsRequestBuilder {
     };
     /**
      * Create a delegated permission grant represented by an oAuth2PermissionGrant object. A delegated permission grant authorizes a client service principal (representing a client application) to access a resource service principal (representing an API), on behalf of a signed-in user, for the level of access limited by the delegated permissions which were granted.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -64,7 +66,7 @@ export class Oauth2PermissionGrantsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -84,6 +86,7 @@ export class Oauth2PermissionGrantsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OAuth2PermissionGrantCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/oauth2permissiongrant-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: Oauth2PermissionGrantsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OAuth2PermissionGrantCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -97,10 +100,11 @@ export class Oauth2PermissionGrantsRequestBuilder {
     };
     /**
      * Create a delegated permission grant represented by an oAuth2PermissionGrant object. A delegated permission grant authorizes a client service principal (representing a client application) to access a resource service principal (representing an API), on behalf of a signed-in user, for the level of access limited by the delegated permissions which were granted.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OAuth2PermissionGrant
+     * @see {@link https://docs.microsoft.com/graph/api/oauth2permissiongrant-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: OAuth2PermissionGrant | undefined, requestConfiguration?: Oauth2PermissionGrantsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OAuth2PermissionGrant | undefined> {
         if(!body) throw new Error("body cannot be undefined");

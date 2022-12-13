@@ -1,6 +1,8 @@
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** This type represents the set of policies that dictate how bookings can be created in a Booking Calendar. */
+/**
+ * This type represents the set of policies that dictate how bookings can be created in a Booking Calendar.
+ */
 export class BookingSchedulingPolicy implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;

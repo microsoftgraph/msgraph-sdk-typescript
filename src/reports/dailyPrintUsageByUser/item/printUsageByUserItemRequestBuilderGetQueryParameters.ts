@@ -1,5 +1,7 @@
 
-/** Get dailyPrintUsageByUser from reports */
+/**
+ * Get dailyPrintUsageByUser from reports
+ */
 export class PrintUsageByUserItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

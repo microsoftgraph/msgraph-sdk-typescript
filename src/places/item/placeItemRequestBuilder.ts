@@ -8,7 +8,9 @@ import {PlaceItemRequestBuilderPatchRequestConfiguration} from './placeItemReque
 import {RoomRequestBuilder} from './room/roomRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of place entities. */
+/**
+ * Provides operations to manage the collection of place entities.
+ */
 export class PlaceItemRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -59,7 +61,7 @@ export class PlaceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -69,7 +71,7 @@ export class PlaceItemRequestBuilder {
     };
     /**
      * Update the properties of place object, which can be a room or roomList. You can identify the **room** or **roomList** by specifying the **id** or **emailAddress** property.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +81,7 @@ export class PlaceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -107,6 +109,7 @@ export class PlaceItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Place
+     * @see {@link https://docs.microsoft.com/graph/api/place-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PlaceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Place | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -120,10 +123,11 @@ export class PlaceItemRequestBuilder {
     };
     /**
      * Update the properties of place object, which can be a room or roomList. You can identify the **room** or **roomList** by specifying the **id** or **emailAddress** property.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Place
+     * @see {@link https://docs.microsoft.com/graph/api/place-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Place | undefined, requestConfiguration?: PlaceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Place | undefined> {
         if(!body) throw new Error("body cannot be undefined");

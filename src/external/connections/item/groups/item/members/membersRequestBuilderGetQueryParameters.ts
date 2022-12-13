@@ -1,5 +1,7 @@
 
-/** A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or an externalGroup as members. */
+/**
+ * A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or an externalGroup as members.
+ */
 export class MembersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

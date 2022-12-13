@@ -1,5 +1,7 @@
 
-/** Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes. */
+/**
+ * Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
+ */
 export class TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

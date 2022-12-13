@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the appCatalogs singleton. */
 export enum RiskDetail {
     None = "none",
     AdminGeneratedTemporaryPassword = "adminGeneratedTemporaryPassword",
@@ -12,5 +12,7 @@ export enum RiskDetail {
     Hidden = "hidden",
     AdminConfirmedUserCompromised = "adminConfirmedUserCompromised",
     UnknownFutureValue = "unknownFutureValue",
+    AdminConfirmedServicePrincipalCompromised = "adminConfirmedServicePrincipalCompromised",
+    AdminDismissedAllRiskForServicePrincipal = "adminDismissedAllRiskForServicePrincipal",
     M365DAdminDismissedDetection = "m365DAdminDismissedDetection",
 }

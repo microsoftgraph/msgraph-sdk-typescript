@@ -1,5 +1,7 @@
 
-/** Get contentSharingSessions from communications */
+/**
+ * Get contentSharingSessions from communications
+ */
 export class ContentSharingSessionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

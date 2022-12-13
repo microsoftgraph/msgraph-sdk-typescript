@@ -1,5 +1,7 @@
 
-/** Risk detection in Azure AD Identity Protection and the associated information about the detection. */
+/**
+ * Risk detection in Azure AD Identity Protection and the associated information about the detection.
+ */
 export class RiskDetectionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

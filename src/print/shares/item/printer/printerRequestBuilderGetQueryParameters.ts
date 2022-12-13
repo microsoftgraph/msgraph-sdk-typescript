@@ -1,5 +1,7 @@
 
-/** The printer that this printer share is related to. */
+/**
+ * The printer that this printer share is related to.
+ */
 export class PrinterRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

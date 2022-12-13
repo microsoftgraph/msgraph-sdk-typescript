@@ -1,5 +1,7 @@
 
-/** A collection of this user's license details. Read-only. */
+/**
+ * A collection of this user's license details. Read-only.
+ */
 export class LicenseDetailsItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

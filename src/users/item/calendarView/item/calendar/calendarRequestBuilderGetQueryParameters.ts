@@ -1,5 +1,7 @@
 
-/** The calendar that contains the event. Navigation property. Read-only. */
+/**
+ * The calendar that contains the event. Navigation property. Read-only.
+ */
 export class CalendarRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

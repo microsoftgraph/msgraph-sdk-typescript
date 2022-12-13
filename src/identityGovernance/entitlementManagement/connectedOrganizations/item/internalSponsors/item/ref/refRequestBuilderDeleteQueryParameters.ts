@@ -1,5 +1,7 @@
 
-/** Delete ref of navigation property internalSponsors for identityGovernance */
+/**
+ * Delete ref of navigation property internalSponsors for identityGovernance
+ */
 export class RefRequestBuilderDeleteQueryParameters {
     /** Delete Uri */
     public id?: string | undefined;

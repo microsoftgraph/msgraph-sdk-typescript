@@ -2,7 +2,9 @@ import {createDeviceComplianceActionItemFromDiscriminatorValue} from './createDe
 import {DeviceComplianceActionItem, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Scheduled Action for Rule */
+/**
+ * Scheduled Action for Rule
+ */
 export class DeviceComplianceScheduledActionForRule extends Entity implements Parsable {
     /** Name of the rule which this scheduled action applies to. Currently scheduled actions are created per policy instead of per rule, thus RuleName is always set to default value PasswordRequired. */
     private _ruleName?: string | undefined;

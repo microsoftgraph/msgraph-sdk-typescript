@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {GetSharePointActivityPagesWithPeriodRequestBuilderGetRequestConfiguration} from './getSharePointActivityPagesWithPeriodRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getSharePointActivityPages method. */
+/**
+ * Provides operations to call the getSharePointActivityPages method.
+ */
 export class GetSharePointActivityPagesWithPeriodRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

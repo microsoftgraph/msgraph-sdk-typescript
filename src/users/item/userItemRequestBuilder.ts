@@ -104,7 +104,9 @@ import {UserItemRequestBuilderPatchRequestConfiguration} from './userItemRequest
 import {WipeManagedAppRegistrationsByDeviceTagRequestBuilder} from './wipeManagedAppRegistrationsByDeviceTag/wipeManagedAppRegistrationsByDeviceTagRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of user entities. */
+/**
+ * Provides operations to manage the collection of user entities.
+ */
 export class UserItemRequestBuilder {
     /** Provides operations to manage the activities property of the microsoft.graph.user entity. */
     public get activities(): ActivitiesRequestBuilder {
@@ -509,7 +511,7 @@ export class UserItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -519,7 +521,7 @@ export class UserItemRequestBuilder {
     };
     /**
      * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -529,7 +531,7 @@ export class UserItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -541,6 +543,7 @@ export class UserItemRequestBuilder {
      * Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/user-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: UserItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
@@ -623,6 +626,7 @@ export class UserItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of User
+     * @see {@link https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<User | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -771,10 +775,11 @@ export class UserItemRequestBuilder {
     };
     /**
      * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of User
+     * @see {@link https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: User | undefined, requestConfiguration?: UserItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<User | undefined> {
         if(!body) throw new Error("body cannot be undefined");

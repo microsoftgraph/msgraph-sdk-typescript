@@ -1,5 +1,7 @@
 
-/** List of DeviceComplianceDeviceStatus. */
+/**
+ * List of DeviceComplianceDeviceStatus.
+ */
 export class DeviceComplianceDeviceStatusItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

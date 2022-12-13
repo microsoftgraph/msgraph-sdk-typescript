@@ -1,5 +1,7 @@
 
-/** The list of Compliance Management Partners configured by the tenant. */
+/**
+ * The list of Compliance Management Partners configured by the tenant.
+ */
 export class ComplianceManagementPartnerItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** The set of subscriptions on the item. Only supported on the root of a drive. */
+/**
+ * The set of subscriptions on the item. Only supported on the root of a drive.
+ */
 export class SubscriptionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

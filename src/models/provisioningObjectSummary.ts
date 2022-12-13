@@ -9,7 +9,9 @@ import {Entity, Initiator, ModifiedProperty, ProvisionedIdentity, ProvisioningSe
 import {ProvisioningAction} from './provisioningAction';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the appCatalogs singleton.
+ */
 export class ProvisioningObjectSummary extends Entity implements Parsable {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _activityDateTime?: Date | undefined;

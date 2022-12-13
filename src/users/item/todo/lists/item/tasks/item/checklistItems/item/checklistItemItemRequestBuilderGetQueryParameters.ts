@@ -1,5 +1,7 @@
 
-/** A collection of checklistItems linked to a task. */
+/**
+ * A collection of checklistItems linked to a task.
+ */
 export class ChecklistItemItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

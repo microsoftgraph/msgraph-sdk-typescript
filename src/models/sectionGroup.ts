@@ -4,7 +4,9 @@ import {createSectionGroupFromDiscriminatorValue} from './createSectionGroupFrom
 import {Notebook, OnenoteEntityHierarchyModel, OnenoteSection} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the appCatalogs singleton.
+ */
 export class SectionGroup extends OnenoteEntityHierarchyModel implements Parsable {
     /** The notebook that contains the section group. Read-only. */
     private _parentNotebook?: Notebook | undefined;

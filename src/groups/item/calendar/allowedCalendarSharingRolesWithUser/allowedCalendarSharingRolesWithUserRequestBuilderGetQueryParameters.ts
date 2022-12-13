@@ -1,5 +1,7 @@
 
-/** Invoke function allowedCalendarSharingRoles */
+/**
+ * Invoke function allowedCalendarSharingRoles
+ */
 export class AllowedCalendarSharingRolesWithUserRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

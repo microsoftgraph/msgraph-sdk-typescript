@@ -1,5 +1,7 @@
 
-/** Zero or more long running operations triggered on the app registration. */
+/**
+ * Zero or more long running operations triggered on the app registration.
+ */
 export class OperationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

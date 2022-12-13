@@ -1,5 +1,7 @@
 
-/** The collection of content types that are ancestors of this content type. */
+/**
+ * The collection of content types that are ancestors of this content type.
+ */
 export class BaseTypesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

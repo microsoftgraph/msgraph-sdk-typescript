@@ -1,5 +1,7 @@
 
-/** Children of current term. */
+/**
+ * Children of current term.
+ */
 export class TermItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

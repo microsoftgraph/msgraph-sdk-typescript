@@ -1,5 +1,7 @@
 
-/** Get a list of namedLocation objects. */
+/**
+ * Get a list of namedLocation objects.
+ */
 export class NamedLocationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

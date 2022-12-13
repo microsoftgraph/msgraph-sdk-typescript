@@ -8,7 +8,9 @@ import {CalendarPermissionsRequestBuilderPostRequestConfiguration} from './calen
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity. */
+/**
+ * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
+ */
 export class CalendarPermissionsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -43,7 +45,7 @@ export class CalendarPermissionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -53,7 +55,7 @@ export class CalendarPermissionsRequestBuilder {
     };
     /**
      * Create a calendarPermission resource to specify the identity and role of the user with whom the specified calendar is being shared or delegated.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +65,7 @@ export class CalendarPermissionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -89,10 +91,11 @@ export class CalendarPermissionsRequestBuilder {
     };
     /**
      * Create a calendarPermission resource to specify the identity and role of the user with whom the specified calendar is being shared or delegated.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CalendarPermission
+     * @see {@link https://docs.microsoft.com/graph/api/calendar-post-calendarpermissions?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CalendarPermission | undefined, requestConfiguration?: CalendarPermissionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarPermission | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,7 @@
 
-/** Get all the categories that have been defined for the user. */
+/**
+ * Get all the categories that have been defined for the user.
+ */
 export class MasterCategoriesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

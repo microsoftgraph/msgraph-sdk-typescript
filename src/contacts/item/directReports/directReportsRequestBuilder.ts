@@ -8,7 +8,9 @@ import {OrgContactRequestBuilder} from './orgContact/orgContactRequestBuilder';
 import {UserRequestBuilder} from './user/userRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the directReports property of the microsoft.graph.orgContact entity. */
+/**
+ * Provides operations to manage the directReports property of the microsoft.graph.orgContact entity.
+ */
 export class DirectReportsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -51,7 +53,7 @@ export class DirectReportsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -64,6 +66,7 @@ export class DirectReportsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryObjectCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/orgcontact-list-directreports?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DirectReportsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(

@@ -8,7 +8,9 @@ import {FederationConfigurationRequestBuilderGetRequestConfiguration} from './fe
 import {FederationConfigurationRequestBuilderPostRequestConfiguration} from './federationConfigurationRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity. */
+/**
+ * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
+ */
 export class FederationConfigurationRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -43,7 +45,7 @@ export class FederationConfigurationRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -53,7 +55,7 @@ export class FederationConfigurationRequestBuilder {
     };
     /**
      * Create a new internalDomainFederation object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +65,7 @@ export class FederationConfigurationRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -89,10 +91,11 @@ export class FederationConfigurationRequestBuilder {
     };
     /**
      * Create a new internalDomainFederation object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InternalDomainFederation
+     * @see {@link https://docs.microsoft.com/graph/api/domain-post-federationconfiguration?view=graph-rest-1.0|Find more info here}
      */
     public post(body: InternalDomainFederation | undefined, requestConfiguration?: FederationConfigurationRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InternalDomainFederation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

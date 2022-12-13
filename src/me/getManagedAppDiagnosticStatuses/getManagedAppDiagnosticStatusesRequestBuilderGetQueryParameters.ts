@@ -1,5 +1,7 @@
 
-/** Gets diagnostics validation status for a given user. */
+/**
+ * Gets diagnostics validation status for a given user.
+ */
 export class GetManagedAppDiagnosticStatusesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

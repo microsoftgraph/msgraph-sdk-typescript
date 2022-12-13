@@ -1,5 +1,7 @@
 
-/** The schedule for an eligible role assignment that is referenced through the targetScheduleId property. Supports $expand. */
+/**
+ * The schedule for an eligible role assignment that is referenced through the targetScheduleId property. Supports $expand.
+ */
 export class TargetScheduleRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

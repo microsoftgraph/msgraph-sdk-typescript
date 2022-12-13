@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the appCatalogs singleton. */
 export enum Tone {
     Tone0 = "tone0",
     Tone1 = "tone1",

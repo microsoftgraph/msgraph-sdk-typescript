@@ -1,5 +1,7 @@
 
-/** The list of troubleshooting events for this user. */
+/**
+ * The list of troubleshooting events for this user.
+ */
 export class DeviceManagementTroubleshootingEventsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

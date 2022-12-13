@@ -1,5 +1,7 @@
 
-/** The collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable. */
+/**
+ * The collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable.
+ */
 export class MultiValueLegacyExtendedPropertyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

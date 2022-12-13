@@ -1,5 +1,7 @@
 
-/** All driveItems contained in the sharing root. This collection cannot be enumerated. */
+/**
+ * All driveItems contained in the sharing root. This collection cannot be enumerated.
+ */
 export class DriveItemItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

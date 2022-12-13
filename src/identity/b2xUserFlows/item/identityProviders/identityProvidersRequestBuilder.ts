@@ -6,7 +6,9 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IdentityProvidersRequestBuilderGetRequestConfiguration} from './identityProvidersRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityProviders property of the microsoft.graph.b2xIdentityUserFlow entity. */
+/**
+ * Provides operations to manage the identityProviders property of the microsoft.graph.b2xIdentityUserFlow entity.
+ */
 export class IdentityProvidersRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -41,7 +43,7 @@ export class IdentityProvidersRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -54,6 +56,7 @@ export class IdentityProvidersRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityProviderCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/b2xidentityuserflow-list-identityproviders?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IdentityProvidersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityProviderCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(

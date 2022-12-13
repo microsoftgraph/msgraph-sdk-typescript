@@ -1,5 +1,7 @@
 
-/** The software OATH TOTP applications registered to a user for authentication. */
+/**
+ * The software OATH TOTP applications registered to a user for authentication.
+ */
 export class SoftwareOathAuthenticationMethodItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

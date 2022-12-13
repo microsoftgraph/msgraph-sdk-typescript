@@ -19,7 +19,9 @@ import {DirectoryObjectItemRequestBuilder as I5e2e99a1b0622616292c222076de6d6be0
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of orgContact entities. */
+/**
+ * Provides operations to manage the collection of orgContact entities.
+ */
 export class OrgContactItemRequestBuilder {
     /** Provides operations to call the checkMemberGroups method. */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
@@ -102,7 +104,7 @@ export class OrgContactItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -112,7 +114,7 @@ export class OrgContactItemRequestBuilder {
     };
     /**
      * Update entity in contacts
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -122,7 +124,7 @@ export class OrgContactItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -161,6 +163,7 @@ export class OrgContactItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OrgContact
+     * @see {@link https://docs.microsoft.com/graph/api/orgcontact-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OrgContactItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OrgContact | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -185,7 +188,7 @@ export class OrgContactItemRequestBuilder {
     };
     /**
      * Update entity in contacts
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OrgContact

@@ -1,6 +1,8 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the validateProperties method. */
+/**
+ * Provides operations to call the validateProperties method.
+ */
 export class ValidatePropertiesPostRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
@@ -9,7 +11,7 @@ export class ValidatePropertiesPostRequestBody implements AdditionalDataHolder, 
     /** The mailNickname property */
     private _mailNickname?: string | undefined;
     /** The onBehalfOfUserId property */
-    private _onBehalfOfUserId?: string | undefined;
+    private _onBehalfOfUserId?: Guid | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -52,7 +54,7 @@ export class ValidatePropertiesPostRequestBody implements AdditionalDataHolder, 
         return {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "mailNickname": n => { this.mailNickname = n.getStringValue(); },
-            "onBehalfOfUserId": n => { this.onBehalfOfUserId = n.getStringValue(); },
+            "onBehalfOfUserId": n => { this.onBehalfOfUserId = n.getGuidValue(); },
         };
     };
     /**
@@ -71,7 +73,7 @@ export class ValidatePropertiesPostRequestBody implements AdditionalDataHolder, 
     };
     /**
      * Gets the onBehalfOfUserId property value. The onBehalfOfUserId property
-     * @returns a string
+     * @returns a Guid
      */
     public get onBehalfOfUserId() {
         return this._onBehalfOfUserId;
@@ -80,7 +82,7 @@ export class ValidatePropertiesPostRequestBody implements AdditionalDataHolder, 
      * Sets the onBehalfOfUserId property value. The onBehalfOfUserId property
      * @param value Value to set for the onBehalfOfUserId property.
      */
-    public set onBehalfOfUserId(value: string | undefined) {
+    public set onBehalfOfUserId(value: Guid | undefined) {
         this._onBehalfOfUserId = value;
     };
     /**
@@ -91,7 +93,7 @@ export class ValidatePropertiesPostRequestBody implements AdditionalDataHolder, 
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("mailNickname", this.mailNickname);
-        writer.writeStringValue("onBehalfOfUserId", this.onBehalfOfUserId);
+        writer.writeGuidValue("onBehalfOfUserId", this.onBehalfOfUserId);
         writer.writeAdditionalData(this.additionalData);
     };
 }

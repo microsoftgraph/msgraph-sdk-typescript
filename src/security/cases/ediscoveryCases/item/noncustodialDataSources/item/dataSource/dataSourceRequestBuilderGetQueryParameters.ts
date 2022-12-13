@@ -1,5 +1,7 @@
 
-/** User source or SharePoint site data source as non-custodial data source. */
+/**
+ * User source or SharePoint site data source as non-custodial data source.
+ */
 export class DataSourceRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

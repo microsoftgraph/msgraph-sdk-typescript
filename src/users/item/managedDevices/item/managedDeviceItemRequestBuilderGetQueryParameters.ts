@@ -1,5 +1,7 @@
 
-/** The managed devices associated with the user. */
+/**
+ * The managed devices associated with the user.
+ */
 export class ManagedDeviceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

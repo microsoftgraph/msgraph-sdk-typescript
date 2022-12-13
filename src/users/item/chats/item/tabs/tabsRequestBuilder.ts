@@ -8,7 +8,9 @@ import {TabsRequestBuilderGetRequestConfiguration} from './tabsRequestBuilderGet
 import {TabsRequestBuilderPostRequestConfiguration} from './tabsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the tabs property of the microsoft.graph.chat entity. */
+/**
+ * Provides operations to manage the tabs property of the microsoft.graph.chat entity.
+ */
 export class TabsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -43,7 +45,7 @@ export class TabsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -53,7 +55,7 @@ export class TabsRequestBuilder {
     };
     /**
      * Add (pin) a tab to the specified chat. The corresponding app must already be installed in the chat.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +65,7 @@ export class TabsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -76,6 +78,7 @@ export class TabsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsTabCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/chat-list-tabs?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TabsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsTabCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -89,10 +92,11 @@ export class TabsRequestBuilder {
     };
     /**
      * Add (pin) a tab to the specified chat. The corresponding app must already be installed in the chat.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsTab
+     * @see {@link https://docs.microsoft.com/graph/api/chat-post-tabs?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TeamsTab | undefined, requestConfiguration?: TabsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsTab | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -5,7 +5,9 @@ import {Entity, ManagedAppOperation, ManagedAppPolicy, MobileAppIdentifier} from
 import {ManagedAppFlaggedReason} from './managedAppFlaggedReason';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** The ManagedAppEntity is the base entity type for all other entity types under app management workflow. */
+/**
+ * The ManagedAppEntity is the base entity type for all other entity types under app management workflow.
+ */
 export class ManagedAppRegistration extends Entity implements Parsable {
     /** The app package Identifier */
     private _appIdentifier?: MobileAppIdentifier | undefined;

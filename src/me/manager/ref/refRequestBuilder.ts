@@ -6,7 +6,9 @@ import {RefRequestBuilderGetRequestConfiguration} from './refRequestBuilderGetRe
 import {RefRequestBuilderPutRequestConfiguration} from './refRequestBuilderPutRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of user entities. */
+/**
+ * Provides operations to manage the collection of user entities.
+ */
 export class RefRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -53,7 +55,7 @@ export class RefRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -62,7 +64,7 @@ export class RefRequestBuilder {
     };
     /**
      * Update the ref of navigation property manager in me
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -99,6 +101,7 @@ export class RefRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of String
+     * @see {@link https://docs.microsoft.com/graph/api/user-list-manager?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RefRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<string | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -112,7 +115,7 @@ export class RefRequestBuilder {
     };
     /**
      * Update the ref of navigation property manager in me
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */

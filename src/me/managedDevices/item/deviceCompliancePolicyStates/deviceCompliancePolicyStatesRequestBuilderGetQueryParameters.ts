@@ -1,5 +1,7 @@
 
-/** Device compliance policy states for this device. */
+/**
+ * Device compliance policy states for this device.
+ */
 export class DeviceCompliancePolicyStatesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

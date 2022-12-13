@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilderGetRequestConfiguration} from './getSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getSkypeForBusinessDeviceUsageUserCounts method. */
+/**
+ * Provides operations to call the getSkypeForBusinessDeviceUsageUserCounts method.
+ */
 export class GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

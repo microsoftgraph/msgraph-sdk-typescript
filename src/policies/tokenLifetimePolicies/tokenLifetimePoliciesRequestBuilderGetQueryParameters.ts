@@ -1,5 +1,7 @@
 
-/** Get a list of tokenLifetimePolicy objects. */
+/**
+ * Get a list of tokenLifetimePolicy objects.
+ */
 export class TokenLifetimePoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

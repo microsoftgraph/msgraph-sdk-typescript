@@ -1,5 +1,7 @@
 
-/** Read-only property with details of the app-specific scope when the assignment is scoped to an app. Nullable. Supports $expand. */
+/**
+ * Read-only property with details of the app-specific scope when the assignment is scoped to an app. Nullable. Supports $expand.
+ */
 export class AppScopeRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** The Windows autopilot device identities contained collection. */
+/**
+ * The Windows autopilot device identities contained collection.
+ */
 export class WindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

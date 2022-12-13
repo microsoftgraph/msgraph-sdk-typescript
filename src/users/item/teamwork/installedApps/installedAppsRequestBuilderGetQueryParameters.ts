@@ -1,5 +1,7 @@
 
-/** Retrieve the list of apps installed in the personal scope of the specified user. */
+/**
+ * Retrieve the list of apps installed in the personal scope of the specified user.
+ */
 export class InstalledAppsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

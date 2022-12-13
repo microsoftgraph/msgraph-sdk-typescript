@@ -1,5 +1,7 @@
 
-/** The collection of open extensions defined for the user. Read-only. Supports $expand. Nullable. */
+/**
+ * The collection of open extensions defined for the user. Read-only. Supports $expand. Nullable.
+ */
 export class ExtensionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

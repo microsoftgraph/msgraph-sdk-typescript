@@ -1,5 +1,7 @@
 
-/** Approval decisions associated with a request. */
+/**
+ * Approval decisions associated with a request.
+ */
 export class ApprovalRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

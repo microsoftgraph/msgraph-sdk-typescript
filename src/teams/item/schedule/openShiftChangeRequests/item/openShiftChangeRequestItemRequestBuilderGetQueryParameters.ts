@@ -1,5 +1,7 @@
 
-/** Get openShiftChangeRequests from teams */
+/**
+ * Get openShiftChangeRequests from teams
+ */
 export class OpenShiftChangeRequestItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

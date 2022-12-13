@@ -1,5 +1,7 @@
 
-/** Get entities from directoryObjects */
+/**
+ * Get entities from directoryObjects
+ */
 export class DirectoryObjectsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

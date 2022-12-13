@@ -1,5 +1,7 @@
 
-/** Get entity from workbooks by key */
+/**
+ * Get entity from workbooks by key
+ */
 export class DriveItemItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

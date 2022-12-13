@@ -1,5 +1,7 @@
 
-/** Retrieve serviceHealthIssue resources from the **issues** navigation property. This operation retrieves information about all service health issues that exist for the tenant. */
+/**
+ * Retrieve serviceHealthIssue resources from the **issues** navigation property. This operation retrieves information about all service health issues that exist for the tenant.
+ */
 export class IssuesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

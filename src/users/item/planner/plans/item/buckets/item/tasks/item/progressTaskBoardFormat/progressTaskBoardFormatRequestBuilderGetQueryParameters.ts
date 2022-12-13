@@ -1,5 +1,7 @@
 
-/** Retrieve the properties and relationships of **plannerProgressTaskBoardTaskFormat** object. */
+/**
+ * Retrieve the properties and relationships of **plannerProgressTaskBoardTaskFormat** object.
+ */
 export class ProgressTaskBoardFormatRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

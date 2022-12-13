@@ -1,5 +1,7 @@
 
-/** Retrieve a list of section groups from the specified notebook. */
+/**
+ * Retrieve a list of section groups from the specified notebook.
+ */
 export class SectionGroupsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

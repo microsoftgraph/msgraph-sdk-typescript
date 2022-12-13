@@ -1,5 +1,7 @@
 
-/** Get memberOf from contacts */
+/**
+ * Get memberOf from contacts
+ */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

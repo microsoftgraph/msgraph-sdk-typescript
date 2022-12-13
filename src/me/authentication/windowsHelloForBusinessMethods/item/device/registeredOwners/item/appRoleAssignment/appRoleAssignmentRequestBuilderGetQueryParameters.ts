@@ -1,5 +1,7 @@
 
-/** Get the item of type microsoft.graph.directoryObject as microsoft.graph.appRoleAssignment */
+/**
+ * Get the item of type microsoft.graph.directoryObject as microsoft.graph.appRoleAssignment
+ */
 export class AppRoleAssignmentRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

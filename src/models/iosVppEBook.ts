@@ -17,7 +17,7 @@ export class IosVppEBook extends ManagedEBook implements Parsable {
     /** The Vpp token's organization name. */
     private _vppOrganizationName?: string | undefined;
     /** The Vpp token ID. */
-    private _vppTokenId?: string | undefined;
+    private _vppTokenId?: Guid | undefined;
     /**
      * Gets the appleId property value. The Apple ID associated with Vpp token.
      * @returns a string
@@ -66,7 +66,7 @@ export class IosVppEBook extends ManagedEBook implements Parsable {
             "totalLicenseCount": n => { this.totalLicenseCount = n.getNumberValue(); },
             "usedLicenseCount": n => { this.usedLicenseCount = n.getNumberValue(); },
             "vppOrganizationName": n => { this.vppOrganizationName = n.getStringValue(); },
-            "vppTokenId": n => { this.vppTokenId = n.getStringValue(); },
+            "vppTokenId": n => { this.vppTokenId = n.getGuidValue(); },
         };
     };
     /**
@@ -111,7 +111,7 @@ export class IosVppEBook extends ManagedEBook implements Parsable {
         writer.writeNumberValue("totalLicenseCount", this.totalLicenseCount);
         writer.writeNumberValue("usedLicenseCount", this.usedLicenseCount);
         writer.writeStringValue("vppOrganizationName", this.vppOrganizationName);
-        writer.writeStringValue("vppTokenId", this.vppTokenId);
+        writer.writeGuidValue("vppTokenId", this.vppTokenId);
     };
     /**
      * Gets the totalLicenseCount property value. Total license count.
@@ -157,7 +157,7 @@ export class IosVppEBook extends ManagedEBook implements Parsable {
     };
     /**
      * Gets the vppTokenId property value. The Vpp token ID.
-     * @returns a string
+     * @returns a Guid
      */
     public get vppTokenId() {
         return this._vppTokenId;
@@ -166,7 +166,7 @@ export class IosVppEBook extends ManagedEBook implements Parsable {
      * Sets the vppTokenId property value. The Vpp token ID.
      * @param value Value to set for the vppTokenId property.
      */
-    public set vppTokenId(value: string | undefined) {
+    public set vppTokenId(value: Guid | undefined) {
         this._vppTokenId = value;
     };
 }

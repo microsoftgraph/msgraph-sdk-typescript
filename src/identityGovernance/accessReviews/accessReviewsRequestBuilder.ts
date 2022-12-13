@@ -11,7 +11,9 @@ import {HistoryDefinitionsRequestBuilder} from './historyDefinitions/historyDefi
 import {AccessReviewHistoryDefinitionItemRequestBuilder} from './historyDefinitions/item/accessReviewHistoryDefinitionItemRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity. */
+/**
+ * Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity.
+ */
 export class AccessReviewsRequestBuilder {
     /** Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity. */
     public get definitions(): DefinitionsRequestBuilder {
@@ -66,7 +68,7 @@ export class AccessReviewsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -76,7 +78,7 @@ export class AccessReviewsRequestBuilder {
     };
     /**
      * Update the navigation property accessReviews in identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -86,7 +88,7 @@ export class AccessReviewsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -149,7 +151,7 @@ export class AccessReviewsRequestBuilder {
     };
     /**
      * Update the navigation property accessReviews in identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewSet

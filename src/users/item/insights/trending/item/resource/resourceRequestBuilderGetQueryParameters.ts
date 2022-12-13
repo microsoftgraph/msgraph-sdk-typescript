@@ -1,5 +1,7 @@
 
-/** Used for navigating to the trending document. */
+/**
+ * Used for navigating to the trending document.
+ */
 export class ResourceRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

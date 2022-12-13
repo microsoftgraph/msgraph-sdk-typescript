@@ -1,5 +1,7 @@
 
-/** Retrieve a list of attachment objects attached to a post. */
+/**
+ * Retrieve a list of attachment objects attached to a post.
+ */
 export class AttachmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -2,7 +2,9 @@ import {Entity, IdentitySet} from '../';
 import {createIdentitySetFromDiscriminatorValue} from '../createIdentitySetFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/**
+ * Provides operations to manage the collection of agreement entities.
+ */
 export class Search extends Entity implements Parsable {
     /** The contentQuery property */
     private _contentQuery?: string | undefined;

@@ -3,7 +3,9 @@ import {DeviceComplianceSettingState, Entity} from './index';
 import {PolicyPlatformType} from './policyPlatformType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Device Compilance Policy Setting State summary across the account. */
+/**
+ * Device Compilance Policy Setting State summary across the account.
+ */
 export class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsable {
     /** Number of compliant devices */
     private _compliantDeviceCount?: number | undefined;

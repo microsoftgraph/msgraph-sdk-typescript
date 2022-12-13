@@ -1,5 +1,7 @@
 
-/** Get compliance */
+/**
+ * Get compliance
+ */
 export class ComplianceRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

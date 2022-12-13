@@ -1,5 +1,7 @@
 
-/** The contacts in the folder. Navigation property. Read-only. Nullable. */
+/**
+ * The contacts in the folder. Navigation property. Read-only. Nullable.
+ */
 export class ContactItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

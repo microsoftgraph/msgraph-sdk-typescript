@@ -5,9 +5,9 @@ export class OnPremisesConditionalAccessSettings extends Entity implements Parsa
     /** Indicates if on premises conditional access is enabled for this organization */
     private _enabled?: boolean | undefined;
     /** User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy. */
-    private _excludedGroups?: string[] | undefined;
+    private _excludedGroups?: Guid[] | undefined;
     /** User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access. */
-    private _includedGroups?: string[] | undefined;
+    private _includedGroups?: Guid[] | undefined;
     /** Override the default access rule when allowing a device to ensure access is granted. */
     private _overrideDefaultRule?: boolean | undefined;
     /**
@@ -32,7 +32,7 @@ export class OnPremisesConditionalAccessSettings extends Entity implements Parsa
     };
     /**
      * Gets the excludedGroups property value. User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy.
-     * @returns a string
+     * @returns a Guid
      */
     public get excludedGroups() {
         return this._excludedGroups;
@@ -41,7 +41,7 @@ export class OnPremisesConditionalAccessSettings extends Entity implements Parsa
      * Sets the excludedGroups property value. User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy.
      * @param value Value to set for the excludedGroups property.
      */
-    public set excludedGroups(value: string[] | undefined) {
+    public set excludedGroups(value: Guid[] | undefined) {
         this._excludedGroups = value;
     };
     /**
@@ -51,14 +51,14 @@ export class OnPremisesConditionalAccessSettings extends Entity implements Parsa
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "enabled": n => { this.enabled = n.getBooleanValue(); },
-            "excludedGroups": n => { this.excludedGroups = n.getCollectionOfPrimitiveValues<string>(); },
-            "includedGroups": n => { this.includedGroups = n.getCollectionOfPrimitiveValues<string>(); },
+            "excludedGroups": n => { this.excludedGroups = n.getCollectionOfPrimitiveValues<guid>(); },
+            "includedGroups": n => { this.includedGroups = n.getCollectionOfPrimitiveValues<guid>(); },
             "overrideDefaultRule": n => { this.overrideDefaultRule = n.getBooleanValue(); },
         };
     };
     /**
      * Gets the includedGroups property value. User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
-     * @returns a string
+     * @returns a Guid
      */
     public get includedGroups() {
         return this._includedGroups;
@@ -67,7 +67,7 @@ export class OnPremisesConditionalAccessSettings extends Entity implements Parsa
      * Sets the includedGroups property value. User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
      * @param value Value to set for the includedGroups property.
      */
-    public set includedGroups(value: string[] | undefined) {
+    public set includedGroups(value: Guid[] | undefined) {
         this._includedGroups = value;
     };
     /**
@@ -92,8 +92,8 @@ export class OnPremisesConditionalAccessSettings extends Entity implements Parsa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeBooleanValue("enabled", this.enabled);
-        writer.writeCollectionOfPrimitiveValues<string>("excludedGroups", this.excludedGroups);
-        writer.writeCollectionOfPrimitiveValues<string>("includedGroups", this.includedGroups);
+        writer.writeCollectionOfPrimitiveValues<guid>("excludedGroups", this.excludedGroups);
+        writer.writeCollectionOfPrimitiveValues<guid>("includedGroups", this.includedGroups);
         writer.writeBooleanValue("overrideDefaultRule", this.overrideDefaultRule);
     };
 }

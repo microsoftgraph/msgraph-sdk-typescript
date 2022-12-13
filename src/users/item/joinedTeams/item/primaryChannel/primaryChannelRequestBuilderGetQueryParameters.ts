@@ -1,5 +1,7 @@
 
-/** Get the default channel, **General**, of a team. */
+/**
+ * Get the default channel, **General**, of a team.
+ */
 export class PrimaryChannelRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

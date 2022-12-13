@@ -1,5 +1,7 @@
 
-/** Invoke function filterByCurrentUser */
+/**
+ * Invoke function filterByCurrentUser
+ */
 export class FilterByCurrentUserWithOnRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

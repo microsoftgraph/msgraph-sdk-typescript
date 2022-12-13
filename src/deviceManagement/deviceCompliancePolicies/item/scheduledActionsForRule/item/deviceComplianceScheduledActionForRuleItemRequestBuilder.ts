@@ -9,7 +9,9 @@ import {DeviceComplianceActionItemItemRequestBuilder} from './scheduledActionCon
 import {ScheduledActionConfigurationsRequestBuilder} from './scheduledActionConfigurations/scheduledActionConfigurationsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity. */
+/**
+ * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.
+ */
 export class DeviceComplianceScheduledActionForRuleItemRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -60,7 +62,7 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -70,7 +72,7 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder {
     };
     /**
      * Update the navigation property scheduledActionsForRule in deviceManagement
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -80,7 +82,7 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -121,7 +123,7 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder {
     };
     /**
      * Update the navigation property scheduledActionsForRule in deviceManagement
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceComplianceScheduledActionForRule

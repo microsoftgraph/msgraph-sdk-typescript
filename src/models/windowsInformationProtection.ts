@@ -57,7 +57,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
     /** This policy controls whether to revoke the WIP keys when a device unenrolls from the management service. If set to 1 (Don't revoke keys), the keys will not be revoked and the user will continue to have access to protected files after unenrollment. If the keys are not revoked, there will be no revoked file cleanup subsequently. */
     private _revokeOnUnenrollDisabled?: boolean | undefined;
     /** TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access */
-    private _rightsManagementServicesTemplateId?: string | undefined;
+    private _rightsManagementServicesTemplateId?: Guid | undefined;
     /** Specifies a list of file extensions, so that files with these extensions are encrypted when copying from an SMB share within the corporate boundary */
     private _smbAutoEncryptedFileExtensions?: WindowsInformationProtectionResourceCollection[] | undefined;
     /**
@@ -306,7 +306,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
             "protectedApps": n => { this.protectedApps = n.getCollectionOfObjectValues<WindowsInformationProtectionApp>(createWindowsInformationProtectionAppFromDiscriminatorValue); },
             "protectionUnderLockConfigRequired": n => { this.protectionUnderLockConfigRequired = n.getBooleanValue(); },
             "revokeOnUnenrollDisabled": n => { this.revokeOnUnenrollDisabled = n.getBooleanValue(); },
-            "rightsManagementServicesTemplateId": n => { this.rightsManagementServicesTemplateId = n.getStringValue(); },
+            "rightsManagementServicesTemplateId": n => { this.rightsManagementServicesTemplateId = n.getGuidValue(); },
             "smbAutoEncryptedFileExtensions": n => { this.smbAutoEncryptedFileExtensions = n.getCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>(createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue); },
         };
     };
@@ -424,7 +424,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
     };
     /**
      * Gets the rightsManagementServicesTemplateId property value. TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access
-     * @returns a string
+     * @returns a Guid
      */
     public get rightsManagementServicesTemplateId() {
         return this._rightsManagementServicesTemplateId;
@@ -433,7 +433,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
      * Sets the rightsManagementServicesTemplateId property value. TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access
      * @param value Value to set for the rightsManagementServicesTemplateId property.
      */
-    public set rightsManagementServicesTemplateId(value: string | undefined) {
+    public set rightsManagementServicesTemplateId(value: Guid | undefined) {
         this._rightsManagementServicesTemplateId = value;
     };
     /**
@@ -466,7 +466,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionApp>("protectedApps", this.protectedApps);
         writer.writeBooleanValue("protectionUnderLockConfigRequired", this.protectionUnderLockConfigRequired);
         writer.writeBooleanValue("revokeOnUnenrollDisabled", this.revokeOnUnenrollDisabled);
-        writer.writeStringValue("rightsManagementServicesTemplateId", this.rightsManagementServicesTemplateId);
+        writer.writeGuidValue("rightsManagementServicesTemplateId", this.rightsManagementServicesTemplateId);
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>("smbAutoEncryptedFileExtensions", this.smbAutoEncryptedFileExtensions);
     };
     /**

@@ -8,7 +8,9 @@ import {ConnectionsRequestBuilderPostRequestConfiguration} from './connectionsRe
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity. */
+/**
+ * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
+ */
 export class ConnectionsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -43,7 +45,7 @@ export class ConnectionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -53,7 +55,7 @@ export class ConnectionsRequestBuilder {
     };
     /**
      * Create a new externalConnection object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +65,7 @@ export class ConnectionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -76,6 +78,7 @@ export class ConnectionsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalConnectionCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalconnection-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConnectionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalConnectionCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -89,10 +92,11 @@ export class ConnectionsRequestBuilder {
     };
     /**
      * Create a new externalConnection object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalConnection
+     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-external-post-connections?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ExternalConnection | undefined, requestConfiguration?: ConnectionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalConnection | undefined> {
         if(!body) throw new Error("body cannot be undefined");

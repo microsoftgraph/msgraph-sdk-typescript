@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {CompleteMigrationRequestBuilderPostRequestConfiguration} from './completeMigrationRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the completeMigration method. */
+/**
+ * Provides operations to call the completeMigration method.
+ */
 export class CompleteMigrationRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -44,6 +46,7 @@ export class CompleteMigrationRequestBuilder {
      * Complete the message migration process by removing `migration mode` from a channel in a team. `Migration mode` is a special state that prevents certain operations, like sending messages and adding members, during the data migration process. After a **completeMigration** request is made, you cannot import additional messages into the team. You can add members to the team after the request returns a successful response.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/channel-completemigration?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: CompleteMigrationRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createPostRequestInformation(

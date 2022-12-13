@@ -1,5 +1,7 @@
 
-/** The collection of columns that are required by this content type. */
+/**
+ * The collection of columns that are required by this content type.
+ */
 export class ColumnLinksRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

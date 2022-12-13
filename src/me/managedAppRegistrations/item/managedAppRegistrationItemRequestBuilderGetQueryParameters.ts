@@ -1,5 +1,7 @@
 
-/** Zero or more managed app registrations that belong to the user. */
+/**
+ * Zero or more managed app registrations that belong to the user.
+ */
 export class ManagedAppRegistrationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

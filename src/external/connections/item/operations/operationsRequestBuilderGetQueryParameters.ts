@@ -1,5 +1,7 @@
 
-/** Get operations from external */
+/**
+ * Get operations from external
+ */
 export class OperationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

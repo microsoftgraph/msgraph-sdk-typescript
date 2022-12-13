@@ -1,5 +1,7 @@
 
-/** The sections in the section group. Read-only. Nullable. */
+/**
+ * The sections in the section group. Read-only. Nullable.
+ */
 export class OnenoteSectionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

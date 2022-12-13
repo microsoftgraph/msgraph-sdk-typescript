@@ -1,5 +1,7 @@
 
-/** Represents the Windows Hello for Business authentication method registered to a user for authentication. */
+/**
+ * Represents the Windows Hello for Business authentication method registered to a user for authentication.
+ */
 export class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

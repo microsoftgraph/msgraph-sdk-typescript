@@ -1,5 +1,7 @@
 
-/** Retrieve a list of user objects. */
+/**
+ * Retrieve a list of user objects.
+ */
 export class UsersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

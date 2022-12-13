@@ -10,7 +10,9 @@ import {GetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder} from 
 import {GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './getPstnCallsWithFromDateTimeWithToDateTime/getPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity. */
+/**
+ * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
+ */
 export class CallRecordsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -45,7 +47,7 @@ export class CallRecordsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -55,7 +57,7 @@ export class CallRecordsRequestBuilder {
     };
     /**
      * Create new navigation property to callRecords for communications
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -65,7 +67,7 @@ export class CallRecordsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -113,7 +115,7 @@ export class CallRecordsRequestBuilder {
     };
     /**
      * Create new navigation property to callRecords for communications
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CallRecord

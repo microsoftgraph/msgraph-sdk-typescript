@@ -1,5 +1,7 @@
 
-/** The groups that a group is a member of, either directly and through nested membership. Nullable. */
+/**
+ * The groups that a group is a member of, either directly and through nested membership. Nullable.
+ */
 export class TransitiveMemberOfRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

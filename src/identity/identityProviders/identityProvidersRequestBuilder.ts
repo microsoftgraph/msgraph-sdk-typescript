@@ -9,7 +9,9 @@ import {IdentityProvidersRequestBuilderGetRequestConfiguration} from './identity
 import {IdentityProvidersRequestBuilderPostRequestConfiguration} from './identityProvidersRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity. */
+/**
+ * Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity.
+ */
 export class IdentityProvidersRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -51,7 +53,7 @@ export class IdentityProvidersRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -61,7 +63,7 @@ export class IdentityProvidersRequestBuilder {
     };
     /**
      * Create an identity provider resource that is of the type specified in the request body. Among the types of providers derived from identityProviderBase, you can currently create a socialIdentityProvider resource in Azure AD. In Azure AD B2C, this operation can currently create a socialIdentityProvider, or an appleManagedIdentityProvider resource.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -71,7 +73,7 @@ export class IdentityProvidersRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -84,6 +86,7 @@ export class IdentityProvidersRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityProviderBaseCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/identitycontainer-list-identityproviders?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IdentityProvidersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityProviderBaseCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -97,10 +100,11 @@ export class IdentityProvidersRequestBuilder {
     };
     /**
      * Create an identity provider resource that is of the type specified in the request body. Among the types of providers derived from identityProviderBase, you can currently create a socialIdentityProvider resource in Azure AD. In Azure AD B2C, this operation can currently create a socialIdentityProvider, or an appleManagedIdentityProvider resource.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityProviderBase
+     * @see {@link https://docs.microsoft.com/graph/api/identitycontainer-post-identityproviders?view=graph-rest-1.0|Find more info here}
      */
     public post(body: IdentityProviderBase | undefined, requestConfiguration?: IdentityProvidersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityProviderBase | undefined> {
         if(!body) throw new Error("body cannot be undefined");

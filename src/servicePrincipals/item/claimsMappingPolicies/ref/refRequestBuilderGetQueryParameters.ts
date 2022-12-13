@@ -1,5 +1,7 @@
 
-/** List the claimsMappingPolicy objects that are assigned to a servicePrincipal. */
+/**
+ * List the claimsMappingPolicy objects that are assigned to a servicePrincipal.
+ */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

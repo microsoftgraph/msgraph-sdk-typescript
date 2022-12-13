@@ -1,5 +1,7 @@
 
-/** Collection of common folders available in OneDrive. Read-only. Nullable. */
+/**
+ * Collection of common folders available in OneDrive. Read-only. Nullable.
+ */
 export class DriveItemItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

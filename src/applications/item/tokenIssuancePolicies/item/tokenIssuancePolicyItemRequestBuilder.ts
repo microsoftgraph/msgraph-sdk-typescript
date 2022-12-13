@@ -1,7 +1,9 @@
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /applications/{application-id}/tokenIssuancePolicies/{tokenIssuancePolicy-id} */
+/**
+ * Builds and executes requests for operations under /applications/{application-id}/tokenIssuancePolicies/{tokenIssuancePolicy-id}
+ */
 export class TokenIssuancePolicyItemRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

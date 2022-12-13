@@ -1,5 +1,7 @@
 
-/** A collection of checklistItems linked to a task. */
+/**
+ * A collection of checklistItems linked to a task.
+ */
 export class ChecklistItemsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

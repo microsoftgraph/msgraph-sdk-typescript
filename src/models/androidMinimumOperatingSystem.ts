@@ -1,6 +1,8 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains properties for the minimum operating system required for an Android mobile app. */
+/**
+ * Contains properties for the minimum operating system required for an Android mobile app.
+ */
 export class AndroidMinimumOperatingSystem implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;

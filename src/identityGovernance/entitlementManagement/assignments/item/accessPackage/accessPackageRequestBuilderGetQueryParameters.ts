@@ -1,5 +1,7 @@
 
-/** Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters. */
+/**
+ * Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
+ */
 export class AccessPackageRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */
+/**
+ * Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
+ */
 export class AssignmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

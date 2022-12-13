@@ -15,7 +15,9 @@ import {SharedDriveItemItemRequestBuilderPatchRequestConfiguration} from './shar
 import {SiteRequestBuilder} from './site/siteRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of sharedDriveItem entities. */
+/**
+ * Provides operations to manage the collection of sharedDriveItem entities.
+ */
 export class SharedDriveItemItemRequestBuilder {
     /** Provides operations to manage the driveItem property of the microsoft.graph.sharedDriveItem entity. */
     public get driveItem(): DriveItemRequestBuilder {
@@ -90,7 +92,7 @@ export class SharedDriveItemItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -100,7 +102,7 @@ export class SharedDriveItemItemRequestBuilder {
     };
     /**
      * Update entity in shares
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -110,7 +112,7 @@ export class SharedDriveItemItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -138,6 +140,7 @@ export class SharedDriveItemItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SharedDriveItem
+     * @see {@link https://docs.microsoft.com/graph/api/shares-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SharedDriveItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SharedDriveItem | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -162,7 +165,7 @@ export class SharedDriveItemItemRequestBuilder {
     };
     /**
      * Update entity in shares
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SharedDriveItem

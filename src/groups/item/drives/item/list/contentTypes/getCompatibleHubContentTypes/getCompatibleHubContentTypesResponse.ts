@@ -2,7 +2,9 @@ import {BaseCollectionPaginationCountResponse, ContentType} from '../../../../..
 import {createContentTypeFromDiscriminatorValue} from '../../../../../../../models/createContentTypeFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getCompatibleHubContentTypes method. */
+/**
+ * Provides operations to call the getCompatibleHubContentTypes method.
+ */
 export class GetCompatibleHubContentTypesResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ContentType[] | undefined;

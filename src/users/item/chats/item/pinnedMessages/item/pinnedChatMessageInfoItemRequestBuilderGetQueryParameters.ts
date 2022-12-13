@@ -1,5 +1,7 @@
 
-/** A collection of all the pinned messages in the chat. Nullable. */
+/**
+ * A collection of all the pinned messages in the chat. Nullable.
+ */
 export class PinnedChatMessageInfoItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

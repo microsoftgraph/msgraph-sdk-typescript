@@ -1,5 +1,7 @@
 
-/** Get directory from roleManagement */
+/**
+ * Get directory from roleManagement
+ */
 export class DirectoryRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

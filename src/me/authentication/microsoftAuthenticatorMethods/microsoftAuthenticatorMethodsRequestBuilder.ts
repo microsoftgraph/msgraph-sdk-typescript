@@ -1,14 +1,14 @@
-import {MicrosoftAuthenticatorAuthenticationMethod, MicrosoftAuthenticatorAuthenticationMethodCollectionResponse} from '../../../models/';
+import {MicrosoftAuthenticatorAuthenticationMethodCollectionResponse} from '../../../models/';
 import {createMicrosoftAuthenticatorAuthenticationMethodCollectionResponseFromDiscriminatorValue} from '../../../models/createMicrosoftAuthenticatorAuthenticationMethodCollectionResponseFromDiscriminatorValue';
-import {createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue} from '../../../models/createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {MicrosoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration} from './microsoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration';
-import {MicrosoftAuthenticatorMethodsRequestBuilderPostRequestConfiguration} from './microsoftAuthenticatorMethodsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity. */
+/**
+ * Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
+ */
 export class MicrosoftAuthenticatorMethodsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -43,7 +43,7 @@ export class MicrosoftAuthenticatorMethodsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -52,30 +52,11 @@ export class MicrosoftAuthenticatorMethodsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to microsoftAuthenticatorMethods for me
-     * @param body 
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createPostRequestInformation(body: MicrosoftAuthenticatorAuthenticationMethod | undefined, requestConfiguration?: MicrosoftAuthenticatorMethodsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        return requestInfo;
-    };
-    /**
      * Get a list of the microsoftAuthenticatorAuthenticationMethod objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MicrosoftAuthenticatorAuthenticationMethodCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/microsoftauthenticatorauthenticationmethod-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MicrosoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MicrosoftAuthenticatorAuthenticationMethodCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -86,23 +67,5 @@ export class MicrosoftAuthenticatorMethodsRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<MicrosoftAuthenticatorAuthenticationMethodCollectionResponse>(requestInfo, createMicrosoftAuthenticatorAuthenticationMethodCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Create new navigation property to microsoftAuthenticatorMethods for me
-     * @param body 
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of MicrosoftAuthenticatorAuthenticationMethod
-     */
-    public post(body: MicrosoftAuthenticatorAuthenticationMethod | undefined, requestConfiguration?: MicrosoftAuthenticatorMethodsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MicrosoftAuthenticatorAuthenticationMethod | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPostRequestInformation(
-            body, requestConfiguration
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendAsync<MicrosoftAuthenticatorAuthenticationMethod>(requestInfo, createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

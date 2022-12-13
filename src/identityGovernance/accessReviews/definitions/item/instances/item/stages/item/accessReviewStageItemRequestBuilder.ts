@@ -10,7 +10,9 @@ import {AccessReviewInstanceDecisionItemItemRequestBuilder} from './decisions/it
 import {StopRequestBuilder} from './stop/stopRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity. */
+/**
+ * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
+ */
 export class AccessReviewStageItemRequestBuilder {
     /** Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity. */
     public get decisions(): DecisionsRequestBuilder {
@@ -65,7 +67,7 @@ export class AccessReviewStageItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -75,7 +77,7 @@ export class AccessReviewStageItemRequestBuilder {
     };
     /**
      * Update the navigation property stages in identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -85,7 +87,7 @@ export class AccessReviewStageItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -137,7 +139,7 @@ export class AccessReviewStageItemRequestBuilder {
     };
     /**
      * Update the navigation property stages in identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewStage

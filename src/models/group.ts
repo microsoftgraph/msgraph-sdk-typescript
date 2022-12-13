@@ -28,7 +28,7 @@ export class Group extends DirectoryObject implements Parsable {
     private _allowExternalSenders?: boolean | undefined;
     /** Represents the app roles a group has been granted for an application. Supports $expand. */
     private _appRoleAssignments?: AppRoleAssignment[] | undefined;
-    /** The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select. Read-only. */
+    /** The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select. */
     private _assignedLabels?: AssignedLabel[] | undefined;
     /** The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq).Read-only. */
     private _assignedLicenses?: AssignedLicense[] | undefined;
@@ -195,14 +195,14 @@ export class Group extends DirectoryObject implements Parsable {
         this._appRoleAssignments = value;
     };
     /**
-     * Gets the assignedLabels property value. The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select. Read-only.
+     * Gets the assignedLabels property value. The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select.
      * @returns a assignedLabel
      */
     public get assignedLabels() {
         return this._assignedLabels;
     };
     /**
-     * Sets the assignedLabels property value. The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select. Read-only.
+     * Sets the assignedLabels property value. The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select.
      * @param value Value to set for the assignedLabels property.
      */
     public set assignedLabels(value: AssignedLabel[] | undefined) {
@@ -279,7 +279,7 @@ export class Group extends DirectoryObject implements Parsable {
         this._classification = value;
     };
     /**
-     * Instantiates a new group and sets the default values.
+     * Instantiates a new Group and sets the default values.
      */
     public constructor() {
         super();

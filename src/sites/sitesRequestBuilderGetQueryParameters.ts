@@ -1,5 +1,7 @@
 
-/** Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is **createdDateTime**. The search filter is a free text search that uses multiple properties when retrieving the search results. */
+/**
+ * Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is **createdDateTime**. The search filter is a free text search that uses multiple properties when retrieving the search results.
+ */
 export class SitesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

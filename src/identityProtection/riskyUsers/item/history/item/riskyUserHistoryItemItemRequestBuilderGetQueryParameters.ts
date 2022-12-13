@@ -1,5 +1,7 @@
 
-/** The activity related to user risk level change */
+/**
+ * The activity related to user risk level change
+ */
 export class RiskyUserHistoryItemItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

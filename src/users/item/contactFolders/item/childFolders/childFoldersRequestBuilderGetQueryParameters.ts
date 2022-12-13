@@ -1,5 +1,7 @@
 
-/** Get a collection of child folders under the specified contact folder. */
+/**
+ * Get a collection of child folders under the specified contact folder.
+ */
 export class ChildFoldersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

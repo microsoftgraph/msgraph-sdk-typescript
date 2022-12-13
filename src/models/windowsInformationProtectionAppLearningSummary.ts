@@ -2,7 +2,9 @@ import {ApplicationType} from './applicationType';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Windows Information Protection AppLearning Summary entity. */
+/**
+ * Windows Information Protection AppLearning Summary entity.
+ */
 export class WindowsInformationProtectionAppLearningSummary extends Entity implements Parsable {
     /** Application Name */
     private _applicationName?: string | undefined;

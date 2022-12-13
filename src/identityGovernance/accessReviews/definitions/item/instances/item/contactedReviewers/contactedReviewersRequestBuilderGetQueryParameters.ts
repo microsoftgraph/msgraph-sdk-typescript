@@ -1,5 +1,7 @@
 
-/** Get the reviewers for an access review instance, irrespective of whether or not they have received a notification. The reviewers are represented by an accessReviewReviewer object. A list of zero or more objects are returned, including all of their nested properties. */
+/**
+ * Get the reviewers for an access review instance, irrespective of whether or not they have received a notification. The reviewers are represented by an accessReviewReviewer object. A list of zero or more objects are returned, including all of their nested properties.
+ */
 export class ContactedReviewersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

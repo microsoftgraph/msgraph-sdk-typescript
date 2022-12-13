@@ -1,5 +1,7 @@
 
-/** The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId. */
+/**
+ * The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
+ */
 export class TargetRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

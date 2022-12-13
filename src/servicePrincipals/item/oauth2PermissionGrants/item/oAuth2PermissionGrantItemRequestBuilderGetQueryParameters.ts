@@ -1,5 +1,7 @@
 
-/** Delegated permission grants authorizing this service principal to access an API on behalf of a signed-in user. Read-only. Nullable. */
+/**
+ * Delegated permission grants authorizing this service principal to access an API on behalf of a signed-in user. Read-only. Nullable.
+ */
 export class OAuth2PermissionGrantItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

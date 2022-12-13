@@ -1,5 +1,7 @@
 
-/** Not yet documented */
+/**
+ * Not yet documented
+ */
 export class DeviceComplianceSettingStateItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

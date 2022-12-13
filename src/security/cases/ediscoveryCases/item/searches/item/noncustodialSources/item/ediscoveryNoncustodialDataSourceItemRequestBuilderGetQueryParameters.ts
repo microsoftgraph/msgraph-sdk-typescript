@@ -1,5 +1,7 @@
 
-/** noncustodialDataSource sources that are included in the eDiscovery search */
+/**
+ * noncustodialDataSource sources that are included in the eDiscovery search
+ */
 export class EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

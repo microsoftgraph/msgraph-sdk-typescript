@@ -1,5 +1,7 @@
 
-/** Managed app policies. */
+/**
+ * Managed app policies.
+ */
 export class ManagedAppPolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

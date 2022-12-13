@@ -1,5 +1,7 @@
 
-/** Represents an attack simulation training campaign in a tenant. */
+/**
+ * Represents an attack simulation training campaign in a tenant.
+ */
 export class SimulationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

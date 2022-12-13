@@ -1,5 +1,7 @@
 
-/** Retrieve a list of identityUserFlowAttribute objects. */
+/**
+ * Retrieve a list of identityUserFlowAttribute objects.
+ */
 export class UserFlowAttributesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

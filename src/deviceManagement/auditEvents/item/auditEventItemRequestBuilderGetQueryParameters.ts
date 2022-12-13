@@ -1,5 +1,7 @@
 
-/** The Audit Events */
+/**
+ * The Audit Events
+ */
 export class AuditEventItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

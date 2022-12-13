@@ -1,5 +1,7 @@
 
-/** Retrieve the stages in a multi-stage access review instance. */
+/**
+ * Retrieve the stages in a multi-stage access review instance.
+ */
 export class StagesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

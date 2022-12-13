@@ -1,5 +1,7 @@
 
-/** The calendar view for the calendar. Read-only. */
+/**
+ * The calendar view for the calendar. Read-only.
+ */
 export class CalendarViewRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

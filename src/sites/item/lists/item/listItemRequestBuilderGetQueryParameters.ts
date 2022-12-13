@@ -1,5 +1,7 @@
 
-/** The collection of lists under this site. */
+/**
+ * The collection of lists under this site.
+ */
 export class ListItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

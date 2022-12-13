@@ -1,5 +1,7 @@
 
-/** List the tokenIssuancePolicy objects that are assigned to an application. */
+/**
+ * List the tokenIssuancePolicy objects that are assigned to an application.
+ */
 export class TokenIssuancePoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

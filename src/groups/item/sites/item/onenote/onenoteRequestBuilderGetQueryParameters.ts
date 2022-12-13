@@ -1,5 +1,7 @@
 
-/** Calls the OneNote service for notebook related operations. */
+/**
+ * Calls the OneNote service for notebook related operations.
+ */
 export class OnenoteRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

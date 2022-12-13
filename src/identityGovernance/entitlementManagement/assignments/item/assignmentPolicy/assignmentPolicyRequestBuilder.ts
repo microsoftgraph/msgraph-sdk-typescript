@@ -5,7 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {AssignmentPolicyRequestBuilderGetRequestConfiguration} from './assignmentPolicyRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the assignmentPolicy property of the microsoft.graph.accessPackageAssignment entity. */
+/**
+ * Provides operations to manage the assignmentPolicy property of the microsoft.graph.accessPackageAssignment entity.
+ */
 export class AssignmentPolicyRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -36,7 +38,7 @@ export class AssignmentPolicyRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

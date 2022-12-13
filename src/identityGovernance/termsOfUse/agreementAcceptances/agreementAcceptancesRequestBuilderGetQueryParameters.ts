@@ -1,5 +1,7 @@
 
-/** Represents the current status of a user's response to a company's customizable terms of use agreement. */
+/**
+ * Represents the current status of a user's response to a company's customizable terms of use agreement.
+ */
 export class AgreementAcceptancesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

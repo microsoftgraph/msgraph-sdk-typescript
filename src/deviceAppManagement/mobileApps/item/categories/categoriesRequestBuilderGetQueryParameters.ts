@@ -1,5 +1,7 @@
 
-/** The list of categories for this app. */
+/**
+ * The list of categories for this app.
+ */
 export class CategoriesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

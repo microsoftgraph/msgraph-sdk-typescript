@@ -1,5 +1,7 @@
 
-/** Get transitiveMemberOf from servicePrincipals */
+/**
+ * Get transitiveMemberOf from servicePrincipals
+ */
 export class TransitiveMemberOfRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

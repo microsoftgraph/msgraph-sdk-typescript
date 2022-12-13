@@ -1,5 +1,7 @@
 
-/** Read-only. Nullable. Returns a collection of the specified Conditional Access templates. */
+/**
+ * Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
+ */
 export class ConditionalAccessTemplateItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

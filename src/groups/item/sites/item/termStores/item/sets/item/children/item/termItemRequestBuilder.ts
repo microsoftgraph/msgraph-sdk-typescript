@@ -12,7 +12,9 @@ import {TermItemRequestBuilderGetRequestConfiguration} from './termItemRequestBu
 import {TermItemRequestBuilderPatchRequestConfiguration} from './termItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the children property of the microsoft.graph.termStore.set entity. */
+/**
+ * Provides operations to manage the children property of the microsoft.graph.termStore.set entity.
+ */
 export class TermItemRequestBuilder {
     /** Provides operations to manage the children property of the microsoft.graph.termStore.term entity. */
     public get children(): ChildrenRequestBuilder {
@@ -82,7 +84,7 @@ export class TermItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -92,7 +94,7 @@ export class TermItemRequestBuilder {
     };
     /**
      * Update the navigation property children in groups
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +104,7 @@ export class TermItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -143,7 +145,7 @@ export class TermItemRequestBuilder {
     };
     /**
      * Update the navigation property children in groups
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Term

@@ -1,5 +1,7 @@
 
-/** Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy. */
+/**
+ * Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
+ */
 export class AuthenticationMethodConfigurationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

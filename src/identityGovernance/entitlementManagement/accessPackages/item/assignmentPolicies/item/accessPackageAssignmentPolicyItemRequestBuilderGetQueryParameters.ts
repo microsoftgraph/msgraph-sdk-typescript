@@ -1,5 +1,7 @@
 
-/** Get assignmentPolicies from identityGovernance */
+/**
+ * Get assignmentPolicies from identityGovernance
+ */
 export class AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

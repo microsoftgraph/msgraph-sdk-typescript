@@ -1,5 +1,7 @@
 
-/** Delete ref of navigation property members for directory */
+/**
+ * Delete ref of navigation property members for directory
+ */
 export class RefRequestBuilderDeleteQueryParameters {
     /** Delete Uri */
     public id?: string | undefined;

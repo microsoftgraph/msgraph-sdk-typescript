@@ -3,7 +3,9 @@ import {Entity, LocalizedNotificationMessage} from './index';
 import {NotificationTemplateBrandingOptions} from './notificationTemplateBrandingOptions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Notification messages are messages that are sent to end users who are determined to be not-compliant with the compliance policies defined by the administrator. Administrators choose notifications and configure them in the Intune Admin Console using the compliance policy creation page under the “Actions for non-compliance” section. Use the notificationMessageTemplate object to create your own custom notifications for administrators to choose while configuring actions for non-compliance. */
+/**
+ * Notification messages are messages that are sent to end users who are determined to be not-compliant with the compliance policies defined by the administrator. Administrators choose notifications and configure them in the Intune Admin Console using the compliance policy creation page under the “Actions for non-compliance” section. Use the notificationMessageTemplate object to create your own custom notifications for administrators to choose while configuring actions for non-compliance.
+ */
 export class NotificationMessageTemplate extends Entity implements Parsable {
     /** Branding Options for the Message Template. Branding is defined in the Intune Admin Console. */
     private _brandingOptions?: NotificationTemplateBrandingOptions | undefined;

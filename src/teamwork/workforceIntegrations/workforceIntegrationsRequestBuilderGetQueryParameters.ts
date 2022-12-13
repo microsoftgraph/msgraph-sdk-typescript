@@ -1,5 +1,7 @@
 
-/** Retrieve a list of workforceIntegration objects. */
+/**
+ * Retrieve a list of workforceIntegration objects.
+ */
 export class WorkforceIntegrationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

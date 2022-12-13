@@ -8,7 +8,9 @@ import {UserConsentRequestItemRequestBuilderGetRequestConfiguration} from './use
 import {UserConsentRequestItemRequestBuilderPatchRequestConfiguration} from './userConsentRequestItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity. */
+/**
+ * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
+ */
 export class UserConsentRequestItemRequestBuilder {
     /** Provides operations to manage the approval property of the microsoft.graph.userConsentRequest entity. */
     public get approval(): ApprovalRequestBuilder {
@@ -59,7 +61,7 @@ export class UserConsentRequestItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -69,7 +71,7 @@ export class UserConsentRequestItemRequestBuilder {
     };
     /**
      * Update the navigation property userConsentRequests in identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +81,7 @@ export class UserConsentRequestItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -120,7 +122,7 @@ export class UserConsentRequestItemRequestBuilder {
     };
     /**
      * Update the navigation property userConsentRequests in identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserConsentRequest

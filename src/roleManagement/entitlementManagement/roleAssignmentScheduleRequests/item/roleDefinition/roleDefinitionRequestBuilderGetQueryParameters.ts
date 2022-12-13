@@ -1,5 +1,7 @@
 
-/** Detailed information for the unifiedRoleDefinition object that is referenced through the roleDefinitionId property. Supports $expand. */
+/**
+ * Detailed information for the unifiedRoleDefinition object that is referenced through the roleDefinitionId property. Supports $expand.
+ */
 export class RoleDefinitionRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

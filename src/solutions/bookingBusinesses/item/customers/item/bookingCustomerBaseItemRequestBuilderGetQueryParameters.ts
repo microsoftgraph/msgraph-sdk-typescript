@@ -1,5 +1,7 @@
 
-/** All the customers of this business. Read-only. Nullable. */
+/**
+ * All the customers of this business. Read-only. Nullable.
+ */
 export class BookingCustomerBaseItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,7 +1,9 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Windows Information Protection AppLocker File */
+/**
+ * Windows Information Protection AppLocker File
+ */
 export class WindowsInformationProtectionAppLockerFile extends Entity implements Parsable {
     /** The friendly name */
     private _displayName?: string | undefined;

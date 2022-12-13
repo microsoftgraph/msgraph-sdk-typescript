@@ -1,5 +1,7 @@
 
-/** Get endpoints from servicePrincipals */
+/**
+ * Get endpoints from servicePrincipals
+ */
 export class EndpointsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

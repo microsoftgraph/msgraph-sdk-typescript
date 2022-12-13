@@ -1,5 +1,7 @@
 
-/** Read the properties and relationships of an authenticationFlowsPolicy object. */
+/**
+ * Read the properties and relationships of an authenticationFlowsPolicy object.
+ */
 export class AuthenticationFlowsPolicyRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {GetM365AppPlatformUserCountsWithPeriodRequestBuilderGetRequestConfiguration} from './getM365AppPlatformUserCountsWithPeriodRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getM365AppPlatformUserCounts method. */
+/**
+ * Provides operations to call the getM365AppPlatformUserCounts method.
+ */
 export class GetM365AppPlatformUserCountsWithPeriodRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

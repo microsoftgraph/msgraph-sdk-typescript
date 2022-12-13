@@ -6,7 +6,9 @@ import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {DriveItemItemRequestBuilderGetRequestConfiguration} from './driveItemItemRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the children property of the microsoft.graph.driveItem entity. */
+/**
+ * Provides operations to manage the children property of the microsoft.graph.driveItem entity.
+ */
 export class DriveItemItemRequestBuilder {
     /** Provides operations to manage the media for the user entity. */
     public get content(): ContentRequestBuilder {
@@ -41,7 +43,7 @@ export class DriveItemItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

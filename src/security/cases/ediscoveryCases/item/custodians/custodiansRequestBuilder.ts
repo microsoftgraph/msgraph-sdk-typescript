@@ -10,7 +10,9 @@ import {CustodiansRequestBuilderPostRequestConfiguration} from './custodiansRequ
 import {RemoveHoldRequestBuilder} from './removeHold/removeHoldRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity. */
+/**
+ * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
+ */
 export class CustodiansRequestBuilder {
     /** Provides operations to call the applyHold method. */
     public get applyHold(): ApplyHoldRequestBuilder {
@@ -53,7 +55,7 @@ export class CustodiansRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -63,7 +65,7 @@ export class CustodiansRequestBuilder {
     };
     /**
      * Create a new ediscoveryCustodian object.After the custodian object is created, you will need to create the custodian's userSource to reference their mailbox and OneDrive for Business site.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -73,7 +75,7 @@ export class CustodiansRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -86,6 +88,7 @@ export class CustodiansRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCustodianCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-list-custodians?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CustodiansRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryCustodianCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -99,10 +102,11 @@ export class CustodiansRequestBuilder {
     };
     /**
      * Create a new ediscoveryCustodian object.After the custodian object is created, you will need to create the custodian's userSource to reference their mailbox and OneDrive for Business site.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCustodian
+     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-post-custodians?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EdiscoveryCustodian | undefined, requestConfiguration?: CustodiansRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryCustodian | undefined> {
         if(!body) throw new Error("body cannot be undefined");

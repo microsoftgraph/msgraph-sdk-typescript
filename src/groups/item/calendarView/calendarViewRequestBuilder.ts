@@ -7,7 +7,9 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the calendarView property of the microsoft.graph.group entity. */
+/**
+ * Provides operations to manage the calendarView property of the microsoft.graph.group entity.
+ */
 export class CalendarViewRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -42,7 +44,7 @@ export class CalendarViewRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -62,6 +64,7 @@ export class CalendarViewRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EventCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/group-list-calendarview?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CalendarViewRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EventCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(

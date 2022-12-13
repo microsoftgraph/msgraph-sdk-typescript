@@ -6,7 +6,9 @@ import {CategoriesRequestBuilderGetRequestConfiguration} from './categoriesReque
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the categories property of the microsoft.graph.mobileApp entity. */
+/**
+ * Provides operations to manage the categories property of the microsoft.graph.mobileApp entity.
+ */
 export class CategoriesRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -41,7 +43,7 @@ export class CategoriesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

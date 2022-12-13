@@ -1,5 +1,7 @@
 
-/** Get the list of applications in this organization. */
+/**
+ * Get the list of applications in this organization.
+ */
 export class ApplicationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

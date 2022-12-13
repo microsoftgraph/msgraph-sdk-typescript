@@ -1,5 +1,7 @@
 
-/** Device compliance users status overview */
+/**
+ * Device compliance users status overview
+ */
 export class UserStatusOverviewRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

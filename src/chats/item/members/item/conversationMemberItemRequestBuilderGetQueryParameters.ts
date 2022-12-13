@@ -1,5 +1,7 @@
 
-/** A collection of all the members in the chat. Nullable. */
+/**
+ * A collection of all the members in the chat. Nullable.
+ */
 export class ConversationMemberItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

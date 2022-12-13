@@ -1,5 +1,7 @@
 
-/** Get entities from teamsTemplates */
+/**
+ * Get entities from teamsTemplates
+ */
 export class TeamsTemplatesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

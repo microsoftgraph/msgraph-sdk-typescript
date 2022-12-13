@@ -1,5 +1,7 @@
 
-/** The collection of pages in the section.  Read-only. Nullable. */
+/**
+ * The collection of pages in the section.  Read-only. Nullable.
+ */
 export class OnenotePageItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

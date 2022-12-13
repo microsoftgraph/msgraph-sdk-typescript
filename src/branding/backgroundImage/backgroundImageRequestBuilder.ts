@@ -4,7 +4,9 @@ import {BackgroundImageRequestBuilderGetRequestConfiguration} from './background
 import {BackgroundImageRequestBuilderPutRequestConfiguration} from './backgroundImageRequestBuilderPutRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the media for the organizationalBranding entity. */
+/**
+ * Provides operations to manage the media for the organizationalBranding entity.
+ */
 export class BackgroundImageRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

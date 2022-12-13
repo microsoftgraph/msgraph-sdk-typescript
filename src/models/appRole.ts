@@ -10,7 +10,7 @@ export class AppRole implements AdditionalDataHolder, Parsable {
     /** Display name for the permission that appears in the app role assignment and consent experiences. */
     private _displayName?: string | undefined;
     /** Unique role identifier inside the appRoles collection. When creating a new app role, a new GUID identifier must be provided. */
-    private _id?: string | undefined;
+    private _id?: Guid | undefined;
     /** When creating or updating an app role, this must be set to true (which is the default). To delete a role, this must first be set to false.  At that point, in a subsequent call, this role may be removed. */
     private _isEnabled?: boolean | undefined;
     /** The OdataType property */
@@ -90,7 +90,7 @@ export class AppRole implements AdditionalDataHolder, Parsable {
             "allowedMemberTypes": n => { this.allowedMemberTypes = n.getCollectionOfPrimitiveValues<string>(); },
             "description": n => { this.description = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
-            "id": n => { this.id = n.getStringValue(); },
+            "id": n => { this.id = n.getGuidValue(); },
             "isEnabled": n => { this.isEnabled = n.getBooleanValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "origin": n => { this.origin = n.getStringValue(); },
@@ -99,7 +99,7 @@ export class AppRole implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the id property value. Unique role identifier inside the appRoles collection. When creating a new app role, a new GUID identifier must be provided.
-     * @returns a string
+     * @returns a Guid
      */
     public get id() {
         return this._id;
@@ -108,7 +108,7 @@ export class AppRole implements AdditionalDataHolder, Parsable {
      * Sets the id property value. Unique role identifier inside the appRoles collection. When creating a new app role, a new GUID identifier must be provided.
      * @param value Value to set for the id property.
      */
-    public set id(value: string | undefined) {
+    public set id(value: Guid | undefined) {
         this._id = value;
     };
     /**
@@ -162,7 +162,7 @@ export class AppRole implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("allowedMemberTypes", this.allowedMemberTypes);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeStringValue("id", this.id);
+        writer.writeGuidValue("id", this.id);
         writer.writeBooleanValue("isEnabled", this.isEnabled);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("origin", this.origin);

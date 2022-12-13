@@ -4,7 +4,9 @@ import {ChangeScreenSharingRoleRequestBuilderPostRequestConfiguration} from './c
 import {ChangeScreenSharingRolePostRequestBody} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the changeScreenSharingRole method. */
+/**
+ * Provides operations to call the changeScreenSharingRole method.
+ */
 export class ChangeScreenSharingRoleRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -27,7 +29,7 @@ export class ChangeScreenSharingRoleRequestBuilder {
     };
     /**
      * Allow applications to share screen content with the participants of a group call.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -46,9 +48,10 @@ export class ChangeScreenSharingRoleRequestBuilder {
     };
     /**
      * Allow applications to share screen content with the participants of a group call.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/call-changescreensharingrole?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ChangeScreenSharingRolePostRequestBody | undefined, requestConfiguration?: ChangeScreenSharingRoleRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

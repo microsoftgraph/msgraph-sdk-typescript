@@ -1,5 +1,7 @@
 
-/** The device configurations. */
+/**
+ * The device configurations.
+ */
 export class DeviceConfigurationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

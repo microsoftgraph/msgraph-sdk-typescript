@@ -1,5 +1,7 @@
 
-/** The collection of drives (document libraries) under this site. */
+/**
+ * The collection of drives (document libraries) under this site.
+ */
 export class DriveItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

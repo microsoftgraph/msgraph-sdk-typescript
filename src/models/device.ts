@@ -13,7 +13,7 @@ export class Device extends DirectoryObject implements Parsable {
     private _approximateLastSignInDateTime?: Date | undefined;
     /** The timestamp when the device is no longer deemed compliant. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _complianceExpirationDateTime?: Date | undefined;
-    /** Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith). */
+    /** Unique identifier set by Azure Device Registration Service at the time of registration. This is an alternate key that can be used to reference the device object. Supports $filter (eq, ne, not, startsWith). */
     private _deviceId?: string | undefined;
     /** For internal use only. Set to null. */
     private _deviceMetadata?: string | undefined;
@@ -117,14 +117,14 @@ export class Device extends DirectoryObject implements Parsable {
         this.odataType = "#microsoft.graph.device";
     };
     /**
-     * Gets the deviceId property value. Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith).
+     * Gets the deviceId property value. Unique identifier set by Azure Device Registration Service at the time of registration. This is an alternate key that can be used to reference the device object. Supports $filter (eq, ne, not, startsWith).
      * @returns a string
      */
     public get deviceId() {
         return this._deviceId;
     };
     /**
-     * Sets the deviceId property value. Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith).
+     * Sets the deviceId property value. Unique identifier set by Azure Device Registration Service at the time of registration. This is an alternate key that can be used to reference the device object. Supports $filter (eq, ne, not, startsWith).
      * @param value Value to set for the deviceId property.
      */
     public set deviceId(value: string | undefined) {

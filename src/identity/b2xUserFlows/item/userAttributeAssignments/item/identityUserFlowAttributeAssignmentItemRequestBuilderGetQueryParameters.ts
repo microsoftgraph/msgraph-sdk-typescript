@@ -1,5 +1,7 @@
 
-/** The user attribute assignments included in the user flow. */
+/**
+ * The user attribute assignments included in the user flow.
+ */
 export class IdentityUserFlowAttributeAssignmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

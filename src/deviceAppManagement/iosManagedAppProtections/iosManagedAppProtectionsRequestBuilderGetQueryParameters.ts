@@ -1,5 +1,7 @@
 
-/** iOS managed app policies. */
+/**
+ * iOS managed app policies.
+ */
 export class IosManagedAppProtectionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,7 @@
 
-/** Retrieve the list of sessions associated with a callRecord object. */
+/**
+ * Retrieve the list of sessions associated with a callRecord object.
+ */
 export class SessionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

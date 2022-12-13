@@ -1,5 +1,7 @@
 
-/** A collection of serviceAnnouncementAttachments. */
+/**
+ * A collection of serviceAnnouncementAttachments.
+ */
 export class ServiceAnnouncementAttachmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,14 +1,14 @@
-import {Fido2AuthenticationMethod, Fido2AuthenticationMethodCollectionResponse} from '../../../../models/';
+import {Fido2AuthenticationMethodCollectionResponse} from '../../../../models/';
 import {createFido2AuthenticationMethodCollectionResponseFromDiscriminatorValue} from '../../../../models/createFido2AuthenticationMethodCollectionResponseFromDiscriminatorValue';
-import {createFido2AuthenticationMethodFromDiscriminatorValue} from '../../../../models/createFido2AuthenticationMethodFromDiscriminatorValue';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {Fido2MethodsRequestBuilderGetRequestConfiguration} from './fido2MethodsRequestBuilderGetRequestConfiguration';
-import {Fido2MethodsRequestBuilderPostRequestConfiguration} from './fido2MethodsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity. */
+/**
+ * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
+ */
 export class Fido2MethodsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -43,32 +43,12 @@ export class Fido2MethodsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        return requestInfo;
-    };
-    /**
-     * Create new navigation property to fido2Methods for users
-     * @param body 
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createPostRequestInformation(body: Fido2AuthenticationMethod | undefined, requestConfiguration?: Fido2MethodsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         return requestInfo;
     };
     /**
@@ -86,23 +66,5 @@ export class Fido2MethodsRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Fido2AuthenticationMethodCollectionResponse>(requestInfo, createFido2AuthenticationMethodCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Create new navigation property to fido2Methods for users
-     * @param body 
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of Fido2AuthenticationMethod
-     */
-    public post(body: Fido2AuthenticationMethod | undefined, requestConfiguration?: Fido2MethodsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Fido2AuthenticationMethod | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPostRequestInformation(
-            body, requestConfiguration
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendAsync<Fido2AuthenticationMethod>(requestInfo, createFido2AuthenticationMethodFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

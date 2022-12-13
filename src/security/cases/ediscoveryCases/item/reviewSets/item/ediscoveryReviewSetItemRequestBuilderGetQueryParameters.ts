@@ -1,5 +1,7 @@
 
-/** Returns a list of eDiscoveryReviewSet objects in the case. */
+/**
+ * Returns a list of eDiscoveryReviewSet objects in the case.
+ */
 export class EdiscoveryReviewSetItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,7 +1,9 @@
 import {Entity} from './index';
 import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/**
+ * Provides operations to manage the appCatalogs singleton.
+ */
 export class PrintUsage extends Entity implements Parsable {
     /** The completedBlackAndWhiteJobCount property */
     private _completedBlackAndWhiteJobCount?: number | undefined;

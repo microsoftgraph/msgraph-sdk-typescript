@@ -3,7 +3,9 @@ import {AdditionalDataOptions} from '../../../../../../../models/security/additi
 import {createEdiscoverySearchFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoverySearchFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the addToReviewSet method. */
+/**
+ * Provides operations to call the addToReviewSet method.
+ */
 export class AddToReviewSetPostRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;

@@ -1,5 +1,7 @@
 
-/** Targeted managed app configurations. */
+/**
+ * Targeted managed app configurations.
+ */
 export class TargetedManagedAppConfigurationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

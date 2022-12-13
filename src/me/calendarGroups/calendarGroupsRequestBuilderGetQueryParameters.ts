@@ -1,5 +1,7 @@
 
-/** Get the user's calendar groups. */
+/**
+ * Get the user's calendar groups.
+ */
 export class CalendarGroupsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

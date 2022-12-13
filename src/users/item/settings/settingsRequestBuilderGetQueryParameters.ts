@@ -1,5 +1,7 @@
 
-/** Get settings from users */
+/**
+ * Get settings from users
+ */
 export class SettingsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

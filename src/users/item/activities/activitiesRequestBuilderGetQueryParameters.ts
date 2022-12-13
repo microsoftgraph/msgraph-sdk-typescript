@@ -1,5 +1,7 @@
 
-/** The user's activities across devices. Read-only. Nullable. */
+/**
+ * The user's activities across devices. Read-only. Nullable.
+ */
 export class ActivitiesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

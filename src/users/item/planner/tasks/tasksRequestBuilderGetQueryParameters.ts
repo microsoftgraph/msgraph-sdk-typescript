@@ -1,5 +1,7 @@
 
-/** Retrieve a list of **plannertask** objects assigned to a User. */
+/**
+ * Retrieve a list of **plannertask** objects assigned to a User.
+ */
 export class TasksRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

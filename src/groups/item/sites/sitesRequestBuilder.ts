@@ -8,7 +8,9 @@ import {RemoveRequestBuilder} from './remove/removeRequestBuilder';
 import {SitesRequestBuilderGetRequestConfiguration} from './sitesRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the sites property of the microsoft.graph.group entity. */
+/**
+ * Provides operations to manage the sites property of the microsoft.graph.group entity.
+ */
 export class SitesRequestBuilder {
     /** Provides operations to call the add method. */
     public get add(): AddRequestBuilder {
@@ -51,7 +53,7 @@ export class SitesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

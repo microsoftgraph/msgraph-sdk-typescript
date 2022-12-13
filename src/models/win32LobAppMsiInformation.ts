@@ -1,7 +1,9 @@
 import {Win32LobAppMsiPackageType} from './win32LobAppMsiPackageType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains MSI app properties for a Win32 App. */
+/**
+ * Contains MSI app properties for a Win32 App.
+ */
 export class Win32LobAppMsiInformation implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;

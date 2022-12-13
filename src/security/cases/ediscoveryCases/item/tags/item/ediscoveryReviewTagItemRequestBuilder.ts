@@ -10,7 +10,9 @@ import {EdiscoveryReviewTagItemRequestBuilderPatchRequestConfiguration} from './
 import {ParentRequestBuilder} from './parent/parentRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity. */
+/**
+ * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
+ */
 export class EdiscoveryReviewTagItemRequestBuilder {
     /** Provides operations to manage the childTags property of the microsoft.graph.security.ediscoveryReviewTag entity. */
     public get childTags(): ChildTagsRequestBuilder {
@@ -76,7 +78,7 @@ export class EdiscoveryReviewTagItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -86,7 +88,7 @@ export class EdiscoveryReviewTagItemRequestBuilder {
     };
     /**
      * Update the navigation property tags in security
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -96,7 +98,7 @@ export class EdiscoveryReviewTagItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -137,7 +139,7 @@ export class EdiscoveryReviewTagItemRequestBuilder {
     };
     /**
      * Update the navigation property tags in security
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryReviewTag

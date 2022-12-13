@@ -1,5 +1,7 @@
 
-/** Retrieve a list of assignment objects.  A teacher or an application executing with application permissions can see all assignment objects for the class. Students can only see assignments that are assigned to them. */
+/**
+ * Retrieve a list of assignment objects.  A teacher or an application executing with application permissions can see all assignment objects for the class. Students can only see assignments that are assigned to them.
+ */
 export class AssignmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

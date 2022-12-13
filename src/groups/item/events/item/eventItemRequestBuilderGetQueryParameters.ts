@@ -1,5 +1,7 @@
 
-/** The group's calendar events. */
+/**
+ * The group's calendar events.
+ */
 export class EventItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

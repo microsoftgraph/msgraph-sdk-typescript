@@ -1,5 +1,7 @@
 
-/** Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site. */
+/**
+ * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
+ */
 export class UserSourceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

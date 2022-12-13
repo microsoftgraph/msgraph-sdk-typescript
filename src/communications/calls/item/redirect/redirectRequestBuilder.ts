@@ -4,7 +4,9 @@ import {RedirectPostRequestBody} from './index';
 import {RedirectRequestBuilderPostRequestConfiguration} from './redirectRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the redirect method. */
+/**
+ * Provides operations to call the redirect method.
+ */
 export class RedirectRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -27,7 +29,7 @@ export class RedirectRequestBuilder {
     };
     /**
      * Redirect an incoming call that hasn't been answered or rejected yet. The terms 'redirecting' and 'forwarding' a call are used interchangeably. The bot is expected to redirect the call before the call times out. The current timeout value is 15 seconds.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -46,9 +48,10 @@ export class RedirectRequestBuilder {
     };
     /**
      * Redirect an incoming call that hasn't been answered or rejected yet. The terms 'redirecting' and 'forwarding' a call are used interchangeably. The bot is expected to redirect the call before the call times out. The current timeout value is 15 seconds.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/call-redirect?view=graph-rest-1.0|Find more info here}
      */
     public post(body: RedirectPostRequestBody | undefined, requestConfiguration?: RedirectRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

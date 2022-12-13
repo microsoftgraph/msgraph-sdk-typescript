@@ -2,7 +2,9 @@ import {createEnrollmentConfigurationAssignmentFromDiscriminatorValue} from './c
 import {EnrollmentConfigurationAssignment, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** The Base Class of Device Enrollment Configuration */
+/**
+ * The Base Class of Device Enrollment Configuration
+ */
 export class DeviceEnrollmentConfiguration extends Entity implements Parsable {
     /** The list of group assignments for the device configuration profile */
     private _assignments?: EnrollmentConfigurationAssignment[] | undefined;

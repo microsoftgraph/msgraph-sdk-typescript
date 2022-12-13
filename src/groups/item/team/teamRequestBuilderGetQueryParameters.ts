@@ -1,5 +1,7 @@
 
-/** The team associated with this group. */
+/**
+ * The team associated with this group.
+ */
 export class TeamRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

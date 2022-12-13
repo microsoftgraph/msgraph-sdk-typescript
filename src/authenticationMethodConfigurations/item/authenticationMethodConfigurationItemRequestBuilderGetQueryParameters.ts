@@ -1,5 +1,7 @@
 
-/** Get entity from authenticationMethodConfigurations by key */
+/**
+ * Get entity from authenticationMethodConfigurations by key
+ */
 export class AuthenticationMethodConfigurationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

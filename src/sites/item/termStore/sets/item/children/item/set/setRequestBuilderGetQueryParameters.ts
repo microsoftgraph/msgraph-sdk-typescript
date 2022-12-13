@@ -1,5 +1,7 @@
 
-/** The [set] in which the term is created. */
+/**
+ * The [set] in which the term is created.
+ */
 export class SetRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

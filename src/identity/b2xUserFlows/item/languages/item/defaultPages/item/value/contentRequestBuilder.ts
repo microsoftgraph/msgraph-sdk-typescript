@@ -4,7 +4,9 @@ import {ContentRequestBuilderGetRequestConfiguration} from './contentRequestBuil
 import {ContentRequestBuilderPutRequestConfiguration} from './contentRequestBuilderPutRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the media for the identityContainer entity. */
+/**
+ * Provides operations to manage the media for the identityContainer entity.
+ */
 export class ContentRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

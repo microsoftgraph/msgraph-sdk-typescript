@@ -1,5 +1,7 @@
 
-/** Get group from teams */
+/**
+ * Get group from teams
+ */
 export class GroupRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

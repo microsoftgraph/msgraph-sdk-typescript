@@ -1,5 +1,7 @@
 
-/** Retrieve a list of a connectedOrganization's external sponsors.  The external sponsors are a set of users who can approve requests on behalf of other users from that connected organization. */
+/**
+ * Retrieve a list of a connectedOrganization's external sponsors.  The external sponsors are a set of users who can approve requests on behalf of other users from that connected organization.
+ */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

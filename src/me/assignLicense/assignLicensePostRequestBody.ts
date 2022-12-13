@@ -2,14 +2,16 @@ import {AssignedLicense} from '../../models/';
 import {createAssignedLicenseFromDiscriminatorValue} from '../../models/createAssignedLicenseFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the assignLicense method. */
+/**
+ * Provides operations to call the assignLicense method.
+ */
 export class AssignLicensePostRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The addLicenses property */
     private _addLicenses?: AssignedLicense[] | undefined;
     /** The removeLicenses property */
-    private _removeLicenses?: string[] | undefined;
+    private _removeLicenses?: Guid[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -51,12 +53,12 @@ export class AssignLicensePostRequestBody implements AdditionalDataHolder, Parsa
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "addLicenses": n => { this.addLicenses = n.getCollectionOfObjectValues<AssignedLicense>(createAssignedLicenseFromDiscriminatorValue); },
-            "removeLicenses": n => { this.removeLicenses = n.getCollectionOfPrimitiveValues<string>(); },
+            "removeLicenses": n => { this.removeLicenses = n.getCollectionOfPrimitiveValues<guid>(); },
         };
     };
     /**
      * Gets the removeLicenses property value. The removeLicenses property
-     * @returns a string
+     * @returns a Guid
      */
     public get removeLicenses() {
         return this._removeLicenses;
@@ -65,7 +67,7 @@ export class AssignLicensePostRequestBody implements AdditionalDataHolder, Parsa
      * Sets the removeLicenses property value. The removeLicenses property
      * @param value Value to set for the removeLicenses property.
      */
-    public set removeLicenses(value: string[] | undefined) {
+    public set removeLicenses(value: Guid[] | undefined) {
         this._removeLicenses = value;
     };
     /**
@@ -75,7 +77,7 @@ export class AssignLicensePostRequestBody implements AdditionalDataHolder, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfObjectValues<AssignedLicense>("addLicenses", this.addLicenses);
-        writer.writeCollectionOfPrimitiveValues<string>("removeLicenses", this.removeLicenses);
+        writer.writeCollectionOfPrimitiveValues<guid>("removeLicenses", this.removeLicenses);
         writer.writeAdditionalData(this.additionalData);
     };
 }

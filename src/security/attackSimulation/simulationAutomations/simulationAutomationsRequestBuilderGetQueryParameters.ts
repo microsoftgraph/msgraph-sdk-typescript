@@ -1,5 +1,7 @@
 
-/** Get a list of attack simulation automations for a tenant. */
+/**
+ * Get a list of attack simulation automations for a tenant.
+ */
 export class SimulationAutomationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

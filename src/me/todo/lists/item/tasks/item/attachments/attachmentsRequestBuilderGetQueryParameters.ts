@@ -1,5 +1,7 @@
 
-/** Get attachments from me */
+/**
+ * Get attachments from me
+ */
 export class AttachmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

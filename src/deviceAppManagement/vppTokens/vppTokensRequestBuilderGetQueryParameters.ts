@@ -1,5 +1,7 @@
 
-/** List of Vpp tokens for this organization. */
+/**
+ * List of Vpp tokens for this organization.
+ */
 export class VppTokensRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

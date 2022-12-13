@@ -1,5 +1,7 @@
 
-/** The collection of single-value extended properties defined for the event. Read-only. Nullable. */
+/**
+ * The collection of single-value extended properties defined for the event. Read-only. Nullable.
+ */
 export class SingleValueExtendedPropertiesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {SendReminderRequestBuilderPostRequestConfiguration} from './sendReminderRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the sendReminder method. */
+/**
+ * Provides operations to call the sendReminder method.
+ */
 export class SendReminderRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -44,6 +46,7 @@ export class SendReminderRequestBuilder {
      * Send a reminder to the reviewers of an active accessReviewInstance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/accessreviewinstance-sendreminder?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: SendReminderRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createPostRequestInformation(

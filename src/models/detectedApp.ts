@@ -3,7 +3,9 @@ import {DetectedAppPlatformType} from './detectedAppPlatformType';
 import {Entity, ManagedDevice} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** A managed or unmanaged app that is installed on a managed device. Unmanaged apps will only appear for devices marked as corporate owned. */
+/**
+ * A managed or unmanaged app that is installed on a managed device. Unmanaged apps will only appear for devices marked as corporate owned.
+ */
 export class DetectedApp extends Entity implements Parsable {
     /** The number of devices that have installed this application */
     private _deviceCount?: number | undefined;

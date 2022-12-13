@@ -1,5 +1,7 @@
 
-/** Retrieve a list of plannerTask objects associated to a plannerBucket object. */
+/**
+ * Retrieve a list of plannerTask objects associated to a plannerBucket object.
+ */
 export class TasksRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

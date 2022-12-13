@@ -1,5 +1,7 @@
 
-/** Get the permission resources from the permissions navigation property on a site. */
+/**
+ * Get the permission resources from the permissions navigation property on a site.
+ */
 export class PermissionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

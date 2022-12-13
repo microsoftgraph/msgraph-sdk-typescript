@@ -1,5 +1,7 @@
 
-/** Delete ref of navigation property homeRealmDiscoveryPolicies for servicePrincipals */
+/**
+ * Delete ref of navigation property homeRealmDiscoveryPolicies for servicePrincipals
+ */
 export class RefRequestBuilderDeleteQueryParameters {
     /** Delete Uri */
     public id?: string | undefined;

@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ExternalLink implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The url of the link. */
+    /** The URL of the link. */
     private _href?: string | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
@@ -38,14 +38,14 @@ export class ExternalLink implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the href property value. The url of the link.
+     * Gets the href property value. The URL of the link.
      * @returns a string
      */
     public get href() {
         return this._href;
     };
     /**
-     * Sets the href property value. The url of the link.
+     * Sets the href property value. The URL of the link.
      * @param value Value to set for the href property.
      */
     public set href(value: string | undefined) {

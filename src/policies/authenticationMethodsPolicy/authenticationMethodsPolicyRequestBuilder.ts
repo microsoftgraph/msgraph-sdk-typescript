@@ -9,7 +9,9 @@ import {AuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration} from '
 import {AuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration} from './authenticationMethodsPolicyRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy property of the microsoft.graph.policyRoot entity. */
+/**
+ * Provides operations to manage the authenticationMethodsPolicy property of the microsoft.graph.policyRoot entity.
+ */
 export class AuthenticationMethodsPolicyRequestBuilder {
     /** Provides operations to manage the authenticationMethodConfigurations property of the microsoft.graph.authenticationMethodsPolicy entity. */
     public get authenticationMethodConfigurations(): AuthenticationMethodConfigurationsRequestBuilder {
@@ -71,7 +73,7 @@ export class AuthenticationMethodsPolicyRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -81,7 +83,7 @@ export class AuthenticationMethodsPolicyRequestBuilder {
     };
     /**
      * Update the properties of an authenticationMethodsPolicy object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -91,7 +93,7 @@ export class AuthenticationMethodsPolicyRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -119,6 +121,7 @@ export class AuthenticationMethodsPolicyRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationMethodsPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/authenticationmethodspolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethodsPolicy | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -132,10 +135,11 @@ export class AuthenticationMethodsPolicyRequestBuilder {
     };
     /**
      * Update the properties of an authenticationMethodsPolicy object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationMethodsPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/authenticationmethodspolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AuthenticationMethodsPolicy | undefined, requestConfiguration?: AuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethodsPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

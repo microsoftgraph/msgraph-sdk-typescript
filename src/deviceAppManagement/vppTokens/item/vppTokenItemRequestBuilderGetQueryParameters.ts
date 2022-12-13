@@ -1,5 +1,7 @@
 
-/** List of Vpp tokens for this organization. */
+/**
+ * List of Vpp tokens for this organization.
+ */
 export class VppTokenItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

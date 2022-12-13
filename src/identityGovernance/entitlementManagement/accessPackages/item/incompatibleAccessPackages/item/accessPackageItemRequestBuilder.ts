@@ -1,7 +1,9 @@
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /identityGovernance/entitlementManagement/accessPackages/{accessPackage-id}/incompatibleAccessPackages/{accessPackage-id1} */
+/**
+ * Builds and executes requests for operations under /identityGovernance/entitlementManagement/accessPackages/{accessPackage-id}/incompatibleAccessPackages/{accessPackage-id1}
+ */
 export class AccessPackageItemRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

@@ -5,7 +5,9 @@ import {GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration} f
 import {GetAvailableExtensionPropertiesPostRequestBody, GetAvailableExtensionPropertiesResponse} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getAvailableExtensionProperties method. */
+/**
+ * Provides operations to call the getAvailableExtensionProperties method.
+ */
 export class GetAvailableExtensionPropertiesRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -28,7 +30,7 @@ export class GetAvailableExtensionPropertiesRequestBuilder {
     };
     /**
      * Return all directory extension definitions that have been registered in a directory, including through multi-tenant apps. The following entities support extension properties:+ user+ group+ administrativeUnit+ application+ device+ organization
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -38,7 +40,7 @@ export class GetAvailableExtensionPropertiesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -48,10 +50,11 @@ export class GetAvailableExtensionPropertiesRequestBuilder {
     };
     /**
      * Return all directory extension definitions that have been registered in a directory, including through multi-tenant apps. The following entities support extension properties:+ user+ group+ administrativeUnit+ application+ device+ organization
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetAvailableExtensionPropertiesResponse
+     * @see {@link https://docs.microsoft.com/graph/api/directoryobject-getavailableextensionproperties?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetAvailableExtensionPropertiesPostRequestBody | undefined, requestConfiguration?: GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetAvailableExtensionPropertiesResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

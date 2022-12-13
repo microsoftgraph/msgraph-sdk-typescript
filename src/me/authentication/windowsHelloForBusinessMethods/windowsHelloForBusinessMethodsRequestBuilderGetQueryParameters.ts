@@ -1,5 +1,7 @@
 
-/** Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties. */
+/**
+ * Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties.
+ */
 export class WindowsHelloForBusinessMethodsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

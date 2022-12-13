@@ -9,7 +9,9 @@ import {FeatureRolloutPolicyItemRequestBuilderGetRequestConfiguration} from './f
 import {FeatureRolloutPolicyItemRequestBuilderPatchRequestConfiguration} from './featureRolloutPolicyItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity. */
+/**
+ * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
+ */
 export class FeatureRolloutPolicyItemRequestBuilder {
     /** Provides operations to manage the appliesTo property of the microsoft.graph.featureRolloutPolicy entity. */
     public get appliesTo(): AppliesToRequestBuilder {
@@ -71,7 +73,7 @@ export class FeatureRolloutPolicyItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -81,7 +83,7 @@ export class FeatureRolloutPolicyItemRequestBuilder {
     };
     /**
      * Update the navigation property featureRolloutPolicies in policies
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -91,7 +93,7 @@ export class FeatureRolloutPolicyItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -132,7 +134,7 @@ export class FeatureRolloutPolicyItemRequestBuilder {
     };
     /**
      * Update the navigation property featureRolloutPolicies in policies
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of FeatureRolloutPolicy

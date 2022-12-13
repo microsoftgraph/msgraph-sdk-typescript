@@ -2,7 +2,9 @@ import {createUnifiedRoleManagementPolicyRuleTargetFromDiscriminatorValue} from 
 import {Entity, UnifiedRoleManagementPolicyRuleTarget} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the collection of agreement entities.
+ */
 export class UnifiedRoleManagementPolicyRule extends Entity implements Parsable {
     /** Defines details of scope that's targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne). */
     private _target?: UnifiedRoleManagementPolicyRuleTarget | undefined;

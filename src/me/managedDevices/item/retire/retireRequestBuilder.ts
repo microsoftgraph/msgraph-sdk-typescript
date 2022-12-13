@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {RetireRequestBuilderPostRequestConfiguration} from './retireRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the retire method. */
+/**
+ * Provides operations to call the retire method.
+ */
 export class RetireRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

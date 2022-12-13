@@ -1,5 +1,7 @@
 
-/** Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to. */
+/**
+ * Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to.
+ */
 export class ChatsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

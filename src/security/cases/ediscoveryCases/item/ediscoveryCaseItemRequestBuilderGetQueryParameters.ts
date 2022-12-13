@@ -1,5 +1,7 @@
 
-/** Get ediscoveryCases from security */
+/**
+ * Get ediscoveryCases from security
+ */
 export class EdiscoveryCaseItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

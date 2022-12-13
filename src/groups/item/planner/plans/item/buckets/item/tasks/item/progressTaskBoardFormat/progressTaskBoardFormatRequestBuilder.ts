@@ -7,7 +7,9 @@ import {ProgressTaskBoardFormatRequestBuilderGetRequestConfiguration} from './pr
 import {ProgressTaskBoardFormatRequestBuilderPatchRequestConfiguration} from './progressTaskBoardFormatRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the progressTaskBoardFormat property of the microsoft.graph.plannerTask entity. */
+/**
+ * Provides operations to manage the progressTaskBoardFormat property of the microsoft.graph.plannerTask entity.
+ */
 export class ProgressTaskBoardFormatRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -54,7 +56,7 @@ export class ProgressTaskBoardFormatRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -64,7 +66,7 @@ export class ProgressTaskBoardFormatRequestBuilder {
     };
     /**
      * Update the properties of **plannerProgressTaskBoardTaskFormat** object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -74,7 +76,7 @@ export class ProgressTaskBoardFormatRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -102,6 +104,7 @@ export class ProgressTaskBoardFormatRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerProgressTaskBoardTaskFormat
+     * @see {@link https://docs.microsoft.com/graph/api/plannerprogresstaskboardtaskformat-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ProgressTaskBoardFormatRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerProgressTaskBoardTaskFormat | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -115,10 +118,11 @@ export class ProgressTaskBoardFormatRequestBuilder {
     };
     /**
      * Update the properties of **plannerProgressTaskBoardTaskFormat** object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerProgressTaskBoardTaskFormat
+     * @see {@link https://docs.microsoft.com/graph/api/plannerprogresstaskboardtaskformat-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PlannerProgressTaskBoardTaskFormat | undefined, requestConfiguration?: ProgressTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerProgressTaskBoardTaskFormat | undefined> {
         if(!body) throw new Error("body cannot be undefined");

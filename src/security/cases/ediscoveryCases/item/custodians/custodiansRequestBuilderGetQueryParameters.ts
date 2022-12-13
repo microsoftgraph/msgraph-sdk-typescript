@@ -1,5 +1,7 @@
 
-/** Get a list of the custodian objects and their properties. */
+/**
+ * Get a list of the custodian objects and their properties.
+ */
 export class CustodiansRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

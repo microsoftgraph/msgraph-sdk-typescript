@@ -1,5 +1,7 @@
 
-/** Retrieve a list of educationCategory objects. */
+/**
+ * Retrieve a list of educationCategory objects.
+ */
 export class AssignmentCategoriesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

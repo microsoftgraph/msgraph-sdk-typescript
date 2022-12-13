@@ -11,7 +11,9 @@ import {TermStoreRequestBuilderGetRequestConfiguration} from './termStoreRequest
 import {TermStoreRequestBuilderPatchRequestConfiguration} from './termStoreRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the termStore property of the microsoft.graph.site entity. */
+/**
+ * Provides operations to manage the termStore property of the microsoft.graph.site entity.
+ */
 export class TermStoreRequestBuilder {
     /** Provides operations to manage the groups property of the microsoft.graph.termStore.store entity. */
     public get groups(): GroupsRequestBuilder {
@@ -66,7 +68,7 @@ export class TermStoreRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -76,7 +78,7 @@ export class TermStoreRequestBuilder {
     };
     /**
      * Update the properties of a store object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -86,7 +88,7 @@ export class TermStoreRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -114,6 +116,7 @@ export class TermStoreRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Store
+     * @see {@link https://docs.microsoft.com/graph/api/termstore-store-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TermStoreRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Store | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -138,10 +141,11 @@ export class TermStoreRequestBuilder {
     };
     /**
      * Update the properties of a store object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Store
+     * @see {@link https://docs.microsoft.com/graph/api/termstore-store-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Store | undefined, requestConfiguration?: TermStoreRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Store | undefined> {
         if(!body) throw new Error("body cannot be undefined");

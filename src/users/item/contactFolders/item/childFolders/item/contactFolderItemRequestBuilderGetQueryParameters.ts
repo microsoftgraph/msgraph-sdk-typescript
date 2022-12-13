@@ -1,5 +1,7 @@
 
-/** The collection of child folders in the folder. Navigation property. Read-only. Nullable. */
+/**
+ * The collection of child folders in the folder. Navigation property. Read-only. Nullable.
+ */
 export class ContactFolderItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

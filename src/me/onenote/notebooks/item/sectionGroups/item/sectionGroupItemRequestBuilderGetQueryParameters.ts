@@ -1,5 +1,7 @@
 
-/** The section groups in the notebook. Read-only. Nullable. */
+/**
+ * The section groups in the notebook. Read-only. Nullable.
+ */
 export class SectionGroupItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

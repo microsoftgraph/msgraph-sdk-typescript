@@ -2,7 +2,9 @@ import {BaseDeltaFunctionResponse, Group} from '../../models/';
 import {createGroupFromDiscriminatorValue} from '../../models/createGroupFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the delta method. */
+/**
+ * Provides operations to call the delta method.
+ */
 export class DeltaResponse extends BaseDeltaFunctionResponse implements Parsable {
     /** The value property */
     private _value?: Group[] | undefined;

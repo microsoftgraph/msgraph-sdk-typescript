@@ -5,7 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {ChatRequestBuilderGetRequestConfiguration} from './chatRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the chat property of the microsoft.graph.userScopeTeamsAppInstallation entity. */
+/**
+ * Provides operations to manage the chat property of the microsoft.graph.userScopeTeamsAppInstallation entity.
+ */
 export class ChatRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -36,7 +38,7 @@ export class ChatRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -49,6 +51,7 @@ export class ChatRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Chat
+     * @see {@link https://docs.microsoft.com/graph/api/userscopeteamsappinstallation-get-chat?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChatRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Chat | undefined> {
         const requestInfo = this.createGetRequestInformation(

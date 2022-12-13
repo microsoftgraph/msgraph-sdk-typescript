@@ -1,5 +1,7 @@
 
-/** The list of troubleshooting events for the tenant. */
+/**
+ * The list of troubleshooting events for the tenant.
+ */
 export class DeviceManagementTroubleshootingEventItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

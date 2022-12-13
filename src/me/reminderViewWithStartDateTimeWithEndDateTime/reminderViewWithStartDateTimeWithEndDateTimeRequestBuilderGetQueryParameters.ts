@@ -1,5 +1,7 @@
 
-/** Invoke function reminderView */
+/**
+ * Invoke function reminderView
+ */
 export class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

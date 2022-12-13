@@ -9,7 +9,9 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity. */
+/**
+ * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
+ */
 export class AccessPackagesRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -44,7 +46,7 @@ export class AccessPackagesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -54,7 +56,7 @@ export class AccessPackagesRequestBuilder {
     };
     /**
      * Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -64,7 +66,7 @@ export class AccessPackagesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -86,6 +88,7 @@ export class AccessPackagesRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagement-list-accesspackages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessPackagesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -99,10 +102,11 @@ export class AccessPackagesRequestBuilder {
     };
     /**
      * Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackage
+     * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagement-post-accesspackages?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AccessPackage | undefined, requestConfiguration?: AccessPackagesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackage | undefined> {
         if(!body) throw new Error("body cannot be undefined");

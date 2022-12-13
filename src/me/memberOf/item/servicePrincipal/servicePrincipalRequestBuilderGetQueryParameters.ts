@@ -1,5 +1,7 @@
 
-/** Get the item of type microsoft.graph.directoryObject as microsoft.graph.servicePrincipal */
+/**
+ * Get the item of type microsoft.graph.directoryObject as microsoft.graph.servicePrincipal
+ */
 export class ServicePrincipalRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

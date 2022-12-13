@@ -1,5 +1,7 @@
 
-/** Retrieves a list of groupLifecyclePolicy objects to which a group belongs. */
+/**
+ * Retrieves a list of groupLifecyclePolicy objects to which a group belongs.
+ */
 export class GroupLifecyclePoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

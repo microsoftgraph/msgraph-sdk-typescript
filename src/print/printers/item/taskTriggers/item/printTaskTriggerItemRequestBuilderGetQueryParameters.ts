@@ -1,5 +1,7 @@
 
-/** A list of task triggers that are associated with the printer. */
+/**
+ * A list of task triggers that are associated with the printer.
+ */
 export class PrintTaskTriggerItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

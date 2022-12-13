@@ -1,5 +1,7 @@
 
-/** Collection of imported Windows autopilot devices. */
+/**
+ * Collection of imported Windows autopilot devices.
+ */
 export class ImportedWindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

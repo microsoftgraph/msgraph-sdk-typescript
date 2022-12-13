@@ -1,7 +1,9 @@
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /print/shares/{printerShare-id}/allowedGroups/{group-id} */
+/**
+ * Builds and executes requests for operations under /print/shares/{printerShare-id}/allowedGroups/{group-id}
+ */
 export class GroupItemRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

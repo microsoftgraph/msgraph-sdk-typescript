@@ -23,7 +23,9 @@ import {SnoozeReminderRequestBuilder} from './snoozeReminder/snoozeReminderReque
 import {TentativelyAcceptRequestBuilder} from './tentativelyAccept/tentativelyAcceptRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the calendarView property of the microsoft.graph.group entity. */
+/**
+ * Provides operations to manage the calendarView property of the microsoft.graph.group entity.
+ */
 export class EventItemRequestBuilder {
     /** Provides operations to call the accept method. */
     public get accept(): AcceptRequestBuilder {
@@ -117,7 +119,7 @@ export class EventItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

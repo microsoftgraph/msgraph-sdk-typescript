@@ -1,5 +1,7 @@
 
-/** The permissions associated with the site. Nullable. */
+/**
+ * The permissions associated with the site. Nullable.
+ */
 export class PermissionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

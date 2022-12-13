@@ -9,7 +9,9 @@ import {MembersRequestBuilderGetRequestConfiguration} from './membersRequestBuil
 import {MembersRequestBuilderPostRequestConfiguration} from './membersRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the members property of the microsoft.graph.team entity. */
+/**
+ * Provides operations to manage the members property of the microsoft.graph.team entity.
+ */
 export class MembersRequestBuilder {
     /** Provides operations to call the add method. */
     public get add(): AddRequestBuilder {
@@ -48,7 +50,7 @@ export class MembersRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -58,7 +60,7 @@ export class MembersRequestBuilder {
     };
     /**
      * Add a new conversationMember to a team.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -68,7 +70,7 @@ export class MembersRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -81,6 +83,7 @@ export class MembersRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConversationMemberCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/team-list-members?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MembersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConversationMemberCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -94,10 +97,11 @@ export class MembersRequestBuilder {
     };
     /**
      * Add a new conversationMember to a team.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConversationMember
+     * @see {@link https://docs.microsoft.com/graph/api/team-post-members?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ConversationMember | undefined, requestConfiguration?: MembersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConversationMember | undefined> {
         if(!body) throw new Error("body cannot be undefined");

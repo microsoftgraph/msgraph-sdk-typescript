@@ -1,5 +1,7 @@
 
-/** Get a list of attack simulation campaigns for a tenant. */
+/**
+ * Get a list of attack simulation campaigns for a tenant.
+ */
 export class SimulationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

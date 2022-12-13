@@ -1,5 +1,7 @@
 
-/** Get operations from connections */
+/**
+ * Get operations from connections
+ */
 export class ConnectionOperationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

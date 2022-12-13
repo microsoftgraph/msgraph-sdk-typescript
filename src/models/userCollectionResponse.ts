@@ -2,6 +2,9 @@ import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorVal
 import {BaseCollectionPaginationCountResponse, User} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Casts the previous resource to user.
+ */
 export class UserCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: User[] | undefined;

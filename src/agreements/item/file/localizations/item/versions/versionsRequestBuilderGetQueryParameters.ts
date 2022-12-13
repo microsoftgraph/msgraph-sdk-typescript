@@ -1,5 +1,7 @@
 
-/** Read-only. Customized versions of the terms of use agreement in the Azure AD tenant. */
+/**
+ * Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
+ */
 export class VersionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -8,7 +8,9 @@ import {HistoryRequestBuilderGetRequestConfiguration} from './historyRequestBuil
 import {HistoryRequestBuilderPostRequestConfiguration} from './historyRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the history property of the microsoft.graph.riskyUser entity. */
+/**
+ * Provides operations to manage the history property of the microsoft.graph.riskyUser entity.
+ */
 export class HistoryRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -43,7 +45,7 @@ export class HistoryRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -53,7 +55,7 @@ export class HistoryRequestBuilder {
     };
     /**
      * Create new navigation property to history for identityProtection
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +65,7 @@ export class HistoryRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -76,6 +78,7 @@ export class HistoryRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RiskyUserHistoryItemCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/riskyuser-list-history?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HistoryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskyUserHistoryItemCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -89,7 +92,7 @@ export class HistoryRequestBuilder {
     };
     /**
      * Create new navigation property to history for identityProtection
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RiskyUserHistoryItem

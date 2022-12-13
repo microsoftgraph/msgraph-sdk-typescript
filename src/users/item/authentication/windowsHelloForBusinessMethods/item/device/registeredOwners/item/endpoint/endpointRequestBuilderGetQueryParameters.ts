@@ -1,5 +1,7 @@
 
-/** Get the item of type microsoft.graph.directoryObject as microsoft.graph.endpoint */
+/**
+ * Get the item of type microsoft.graph.directoryObject as microsoft.graph.endpoint
+ */
 export class EndpointRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

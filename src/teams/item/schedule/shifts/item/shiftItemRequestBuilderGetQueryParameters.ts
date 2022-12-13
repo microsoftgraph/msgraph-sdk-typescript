@@ -1,5 +1,7 @@
 
-/** The shifts in the schedule. */
+/**
+ * The shifts in the schedule.
+ */
 export class ShiftItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

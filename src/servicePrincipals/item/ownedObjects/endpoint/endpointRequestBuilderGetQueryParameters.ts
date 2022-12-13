@@ -1,5 +1,7 @@
 
-/** Get the items of type microsoft.graph.endpoint in the microsoft.graph.directoryObject collection */
+/**
+ * Get the items of type microsoft.graph.endpoint in the microsoft.graph.directoryObject collection
+ */
 export class EndpointRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

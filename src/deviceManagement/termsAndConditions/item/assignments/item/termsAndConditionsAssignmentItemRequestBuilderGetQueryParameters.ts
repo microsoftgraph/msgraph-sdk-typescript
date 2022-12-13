@@ -1,5 +1,7 @@
 
-/** The list of assignments for this T&C policy. */
+/**
+ * The list of assignments for this T&C policy.
+ */
 export class TermsAndConditionsAssignmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

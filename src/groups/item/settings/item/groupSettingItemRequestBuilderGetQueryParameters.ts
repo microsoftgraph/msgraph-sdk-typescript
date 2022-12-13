@@ -1,5 +1,7 @@
 
-/** Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable. */
+/**
+ * Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
+ */
 export class GroupSettingItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

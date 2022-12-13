@@ -1,5 +1,7 @@
 
-/** Get a list of the members of a standard tag in a team and their properties. */
+/**
+ * Get a list of the members of a standard tag in a team and their properties.
+ */
 export class MembersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

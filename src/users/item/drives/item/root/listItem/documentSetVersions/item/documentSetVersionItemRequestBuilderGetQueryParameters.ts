@@ -1,5 +1,7 @@
 
-/** Version information for a document set version created by a user. */
+/**
+ * Version information for a document set version created by a user.
+ */
 export class DocumentSetVersionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

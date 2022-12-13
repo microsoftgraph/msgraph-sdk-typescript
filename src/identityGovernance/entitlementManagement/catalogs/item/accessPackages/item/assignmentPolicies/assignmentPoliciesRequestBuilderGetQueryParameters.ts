@@ -1,5 +1,7 @@
 
-/** Get assignmentPolicies from identityGovernance */
+/**
+ * Get assignmentPolicies from identityGovernance
+ */
 export class AssignmentPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

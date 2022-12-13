@@ -1,5 +1,7 @@
 
-/** The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded. */
+/**
+ * The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
+ */
 export class RoleDefinitionRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

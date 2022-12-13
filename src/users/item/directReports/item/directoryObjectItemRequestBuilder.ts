@@ -7,7 +7,9 @@ import {OrgContactRequestBuilder} from './orgContact/orgContactRequestBuilder';
 import {UserRequestBuilder} from './user/userRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the directReports property of the microsoft.graph.user entity. */
+/**
+ * Provides operations to manage the directReports property of the microsoft.graph.user entity.
+ */
 export class DirectoryObjectItemRequestBuilder {
     /** Casts the previous resource to orgContact. */
     public get orgContact(): OrgContactRequestBuilder {
@@ -46,7 +48,7 @@ export class DirectoryObjectItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

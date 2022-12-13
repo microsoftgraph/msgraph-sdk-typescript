@@ -6,7 +6,7 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
     /** The assignedByGroup property */
     private _assignedByGroup?: string | undefined;
     /** The disabledPlans property */
-    private _disabledPlans?: string[] | undefined;
+    private _disabledPlans?: Guid[] | undefined;
     /** The error property */
     private _error_escaped?: string | undefined;
     /** The lastUpdatedDateTime property */
@@ -14,7 +14,7 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
     /** The OdataType property */
     private _odataType?: string | undefined;
     /** The skuId property */
-    private _skuId?: string | undefined;
+    private _skuId?: Guid | undefined;
     /** The state property */
     private _state?: string | undefined;
     /**
@@ -53,7 +53,7 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the disabledPlans property value. The disabledPlans property
-     * @returns a string
+     * @returns a Guid
      */
     public get disabledPlans() {
         return this._disabledPlans;
@@ -62,7 +62,7 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
      * Sets the disabledPlans property value. The disabledPlans property
      * @param value Value to set for the disabledPlans property.
      */
-    public set disabledPlans(value: string[] | undefined) {
+    public set disabledPlans(value: Guid[] | undefined) {
         this._disabledPlans = value;
     };
     /**
@@ -86,11 +86,11 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "assignedByGroup": n => { this.assignedByGroup = n.getStringValue(); },
-            "disabledPlans": n => { this.disabledPlans = n.getCollectionOfPrimitiveValues<string>(); },
+            "disabledPlans": n => { this.disabledPlans = n.getCollectionOfPrimitiveValues<guid>(); },
             "error": n => { this.error_escaped = n.getStringValue(); },
             "lastUpdatedDateTime": n => { this.lastUpdatedDateTime = n.getDateValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
-            "skuId": n => { this.skuId = n.getStringValue(); },
+            "skuId": n => { this.skuId = n.getGuidValue(); },
             "state": n => { this.state = n.getStringValue(); },
         };
     };
@@ -129,17 +129,17 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("assignedByGroup", this.assignedByGroup);
-        writer.writeCollectionOfPrimitiveValues<string>("disabledPlans", this.disabledPlans);
+        writer.writeCollectionOfPrimitiveValues<guid>("disabledPlans", this.disabledPlans);
         writer.writeStringValue("error", this.error_escaped);
         writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         writer.writeStringValue("@odata.type", this.odataType);
-        writer.writeStringValue("skuId", this.skuId);
+        writer.writeGuidValue("skuId", this.skuId);
         writer.writeStringValue("state", this.state);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the skuId property value. The skuId property
-     * @returns a string
+     * @returns a Guid
      */
     public get skuId() {
         return this._skuId;
@@ -148,7 +148,7 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
      * Sets the skuId property value. The skuId property
      * @param value Value to set for the skuId property.
      */
-    public set skuId(value: string | undefined) {
+    public set skuId(value: Guid | undefined) {
         this._skuId = value;
     };
     /**

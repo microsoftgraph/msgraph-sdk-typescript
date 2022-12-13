@@ -1,5 +1,7 @@
 
-/** Operation entity that represents the latest indexing for the non-custodial data source. */
+/**
+ * Operation entity that represents the latest indexing for the non-custodial data source.
+ */
 export class LastIndexOperationRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

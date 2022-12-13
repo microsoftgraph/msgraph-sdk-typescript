@@ -1,5 +1,7 @@
 
-/** Get policies */
+/**
+ * Get policies
+ */
 export class PoliciesRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

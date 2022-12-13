@@ -12,7 +12,9 @@ import {OnenoteSectionItemRequestBuilder} from './sections/item/onenoteSectionIt
 import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the notebooks property of the microsoft.graph.onenote entity. */
+/**
+ * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
+ */
 export class NotebookItemRequestBuilder {
     /** Provides operations to call the copyNotebook method. */
     public get copyNotebook(): CopyNotebookRequestBuilder {
@@ -71,7 +73,7 @@ export class NotebookItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -81,7 +83,7 @@ export class NotebookItemRequestBuilder {
     };
     /**
      * Update the navigation property notebooks in users
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -91,7 +93,7 @@ export class NotebookItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -132,7 +134,7 @@ export class NotebookItemRequestBuilder {
     };
     /**
      * Update the navigation property notebooks in users
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Notebook

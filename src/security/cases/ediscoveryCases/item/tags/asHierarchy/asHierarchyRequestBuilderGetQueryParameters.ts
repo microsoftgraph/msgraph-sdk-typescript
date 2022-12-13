@@ -1,5 +1,7 @@
 
-/** Invoke function asHierarchy */
+/**
+ * Invoke function asHierarchy
+ */
 export class AsHierarchyRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

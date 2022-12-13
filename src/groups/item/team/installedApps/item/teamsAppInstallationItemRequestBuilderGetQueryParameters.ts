@@ -1,5 +1,7 @@
 
-/** The apps installed in this team. */
+/**
+ * The apps installed in this team.
+ */
 export class TeamsAppInstallationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

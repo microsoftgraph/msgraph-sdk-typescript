@@ -1,5 +1,7 @@
 
-/** The collection of termStores under this site. */
+/**
+ * The collection of termStores under this site.
+ */
 export class StoreItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

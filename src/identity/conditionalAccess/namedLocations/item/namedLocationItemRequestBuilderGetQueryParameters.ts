@@ -1,5 +1,7 @@
 
-/** Read-only. Nullable. Returns a collection of the specified named locations. */
+/**
+ * Read-only. Nullable. Returns a collection of the specified named locations.
+ */
 export class NamedLocationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

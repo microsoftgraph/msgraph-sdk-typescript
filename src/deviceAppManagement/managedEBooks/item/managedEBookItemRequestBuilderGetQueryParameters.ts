@@ -1,5 +1,7 @@
 
-/** The Managed eBook. */
+/**
+ * The Managed eBook.
+ */
 export class ManagedEBookItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

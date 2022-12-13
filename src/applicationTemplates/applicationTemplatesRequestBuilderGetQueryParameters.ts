@@ -1,5 +1,7 @@
 
-/** Retrieve a list of applicationTemplate objects from the Azure AD application gallery. */
+/**
+ * Retrieve a list of applicationTemplate objects from the Azure AD application gallery.
+ */
 export class ApplicationTemplatesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

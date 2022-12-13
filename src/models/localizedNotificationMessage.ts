@@ -1,7 +1,9 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** The text content of a Notification Message Template for the specified locale. */
+/**
+ * The text content of a Notification Message Template for the specified locale.
+ */
 export class LocalizedNotificationMessage extends Entity implements Parsable {
     /** Flag to indicate whether or not this is the default locale for language fallback. This flag can only be set. To unset, set this property to true on another Localized Notification Message. */
     private _isDefault?: boolean | undefined;

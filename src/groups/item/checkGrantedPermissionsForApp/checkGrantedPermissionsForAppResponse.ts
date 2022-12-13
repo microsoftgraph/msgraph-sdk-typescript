@@ -2,7 +2,9 @@ import {BaseCollectionPaginationCountResponse, ResourceSpecificPermissionGrant} 
 import {createResourceSpecificPermissionGrantFromDiscriminatorValue} from '../../../models/createResourceSpecificPermissionGrantFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the checkGrantedPermissionsForApp method. */
+/**
+ * Provides operations to call the checkGrantedPermissionsForApp method.
+ */
 export class CheckGrantedPermissionsForAppResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ResourceSpecificPermissionGrant[] | undefined;

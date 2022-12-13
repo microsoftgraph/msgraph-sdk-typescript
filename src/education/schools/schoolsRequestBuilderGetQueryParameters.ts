@@ -1,5 +1,7 @@
 
-/** Get a list of the educationSchool objects and their properties. */
+/**
+ * Get a list of the educationSchool objects and their properties.
+ */
 export class SchoolsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

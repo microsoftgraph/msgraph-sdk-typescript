@@ -1,5 +1,7 @@
 
-/** The Managed Device Mobile Application Configurations. */
+/**
+ * The Managed Device Mobile Application Configurations.
+ */
 export class ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

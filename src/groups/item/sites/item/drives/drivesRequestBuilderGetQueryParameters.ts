@@ -1,5 +1,7 @@
 
-/** Retrieve the list of Drive resources available for a target User, Group, or Site. */
+/**
+ * Retrieve the list of Drive resources available for a target User, Group, or Site.
+ */
 export class DrivesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

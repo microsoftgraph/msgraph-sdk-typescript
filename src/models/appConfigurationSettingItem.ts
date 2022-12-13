@@ -1,7 +1,9 @@
 import {MdmAppConfigKeyType} from './mdmAppConfigKeyType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains properties for App configuration setting item. */
+/**
+ * Contains properties for App configuration setting item.
+ */
 export class AppConfigurationSettingItem implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;

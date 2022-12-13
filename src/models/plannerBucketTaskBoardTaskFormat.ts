@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PlannerBucketTaskBoardTaskFormat extends Entity implements Parsable {
-    /** Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here. */
+    /** Hint used to order tasks in the bucket view of the task board. For details about the supported format, see Using order hints in Planner. */
     private _orderHint?: string | undefined;
     /**
      * Instantiates a new plannerBucketTaskBoardTaskFormat and sets the default values.
@@ -20,14 +20,14 @@ export class PlannerBucketTaskBoardTaskFormat extends Entity implements Parsable
         };
     };
     /**
-     * Gets the orderHint property value. Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.
+     * Gets the orderHint property value. Hint used to order tasks in the bucket view of the task board. For details about the supported format, see Using order hints in Planner.
      * @returns a string
      */
     public get orderHint() {
         return this._orderHint;
     };
     /**
-     * Sets the orderHint property value. Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.
+     * Sets the orderHint property value. Hint used to order tasks in the bucket view of the task board. For details about the supported format, see Using order hints in Planner.
      * @param value Value to set for the orderHint property.
      */
     public set orderHint(value: string | undefined) {

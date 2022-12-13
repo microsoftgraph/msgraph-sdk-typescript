@@ -2,7 +2,9 @@ import {Entity} from './index';
 import {InstallState} from './installState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains properties for the installation state for a device. */
+/**
+ * Contains properties for the installation state for a device.
+ */
 export class DeviceInstallState extends Entity implements Parsable {
     /** Device Id. */
     private _deviceId?: string | undefined;

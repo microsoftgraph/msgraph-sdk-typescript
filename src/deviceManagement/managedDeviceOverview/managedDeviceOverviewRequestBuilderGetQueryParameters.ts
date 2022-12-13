@@ -1,5 +1,7 @@
 
-/** Device overview */
+/**
+ * Device overview
+ */
 export class ManagedDeviceOverviewRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

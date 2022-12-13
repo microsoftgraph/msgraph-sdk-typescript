@@ -1,5 +1,7 @@
 
-/** The notebook that contains the section.  Read-only. */
+/**
+ * The notebook that contains the section.  Read-only.
+ */
 export class ParentNotebookRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

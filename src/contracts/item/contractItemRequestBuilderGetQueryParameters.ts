@@ -1,5 +1,7 @@
 
-/** Retrieve the properties and relationships of contract object. */
+/**
+ * Retrieve the properties and relationships of contract object.
+ */
 export class ContractItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

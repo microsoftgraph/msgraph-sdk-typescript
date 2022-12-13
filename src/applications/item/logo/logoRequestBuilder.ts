@@ -4,7 +4,9 @@ import {LogoRequestBuilderGetRequestConfiguration} from './logoRequestBuilderGet
 import {LogoRequestBuilderPutRequestConfiguration} from './logoRequestBuilderPutRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the media for the application entity. */
+/**
+ * Provides operations to manage the media for the application entity.
+ */
 export class LogoRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

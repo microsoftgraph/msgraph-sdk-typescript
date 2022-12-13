@@ -1,5 +1,7 @@
 
-/** Get a list of the conditionalAccessTemplate objects and their properties. */
+/**
+ * Get a list of the conditionalAccessTemplate objects and their properties.
+ */
 export class TemplatesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

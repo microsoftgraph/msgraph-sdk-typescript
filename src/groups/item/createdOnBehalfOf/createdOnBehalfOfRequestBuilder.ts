@@ -5,7 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CreatedOnBehalfOfRequestBuilderGetRequestConfiguration} from './createdOnBehalfOfRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the createdOnBehalfOf property of the microsoft.graph.group entity. */
+/**
+ * Provides operations to manage the createdOnBehalfOf property of the microsoft.graph.group entity.
+ */
 export class CreatedOnBehalfOfRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -36,7 +38,7 @@ export class CreatedOnBehalfOfRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

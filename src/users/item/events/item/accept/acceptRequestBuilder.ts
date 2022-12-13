@@ -4,7 +4,9 @@ import {AcceptRequestBuilderPostRequestConfiguration} from './acceptRequestBuild
 import {AcceptPostRequestBody} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the accept method. */
+/**
+ * Provides operations to call the accept method.
+ */
 export class AcceptRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -27,7 +29,7 @@ export class AcceptRequestBuilder {
     };
     /**
      * Accept the specified event in a user calendar.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -46,9 +48,10 @@ export class AcceptRequestBuilder {
     };
     /**
      * Accept the specified event in a user calendar.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/event-accept?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AcceptPostRequestBody | undefined, requestConfiguration?: AcceptRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,7 @@
 
-/** The policy that controls the idle time out for web sessions for applications. */
+/**
+ * The policy that controls the idle time out for web sessions for applications.
+ */
 export class ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

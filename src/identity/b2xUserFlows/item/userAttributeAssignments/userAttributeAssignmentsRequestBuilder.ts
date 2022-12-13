@@ -10,7 +10,9 @@ import {UserAttributeAssignmentsRequestBuilderGetRequestConfiguration} from './u
 import {UserAttributeAssignmentsRequestBuilderPostRequestConfiguration} from './userAttributeAssignmentsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity. */
+/**
+ * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.
+ */
 export class UserAttributeAssignmentsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -49,7 +51,7 @@ export class UserAttributeAssignmentsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -59,7 +61,7 @@ export class UserAttributeAssignmentsRequestBuilder {
     };
     /**
      * Create a new identityUserFlowAttributeAssignment object in a b2xIdentityUserFlow.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -69,7 +71,7 @@ export class UserAttributeAssignmentsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -82,6 +84,7 @@ export class UserAttributeAssignmentsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityUserFlowAttributeAssignmentCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/b2xidentityuserflow-list-userattributeassignments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserAttributeAssignmentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityUserFlowAttributeAssignmentCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -102,10 +105,11 @@ export class UserAttributeAssignmentsRequestBuilder {
     };
     /**
      * Create a new identityUserFlowAttributeAssignment object in a b2xIdentityUserFlow.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityUserFlowAttributeAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/b2xidentityuserflow-post-userattributeassignments?view=graph-rest-1.0|Find more info here}
      */
     public post(body: IdentityUserFlowAttributeAssignment | undefined, requestConfiguration?: UserAttributeAssignmentsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityUserFlowAttributeAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");

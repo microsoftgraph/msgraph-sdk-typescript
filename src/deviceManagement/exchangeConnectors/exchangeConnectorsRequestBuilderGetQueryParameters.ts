@@ -1,5 +1,7 @@
 
-/** The list of Exchange Connectors configured by the tenant. */
+/**
+ * The list of Exchange Connectors configured by the tenant.
+ */
 export class ExchangeConnectorsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

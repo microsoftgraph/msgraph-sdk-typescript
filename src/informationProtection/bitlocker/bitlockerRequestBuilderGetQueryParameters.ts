@@ -1,5 +1,7 @@
 
-/** Get bitlocker from informationProtection */
+/**
+ * Get bitlocker from informationProtection
+ */
 export class BitlockerRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

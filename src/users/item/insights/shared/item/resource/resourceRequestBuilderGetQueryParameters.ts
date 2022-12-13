@@ -1,5 +1,7 @@
 
-/** Used for navigating to the item that was shared. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem. */
+/**
+ * Used for navigating to the item that was shared. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.
+ */
 export class ResourceRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

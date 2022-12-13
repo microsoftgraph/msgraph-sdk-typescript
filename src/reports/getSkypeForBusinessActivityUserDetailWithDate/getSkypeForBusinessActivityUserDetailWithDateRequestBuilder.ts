@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {GetSkypeForBusinessActivityUserDetailWithDateRequestBuilderGetRequestConfiguration} from './getSkypeForBusinessActivityUserDetailWithDateRequestBuilderGetRequestConfiguration';
 import {DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getSkypeForBusinessActivityUserDetail method. */
+/**
+ * Provides operations to call the getSkypeForBusinessActivityUserDetail method.
+ */
 export class GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

@@ -1,5 +1,7 @@
 
-/** Get entities from localizations */
+/**
+ * Get entities from localizations
+ */
 export class LocalizationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

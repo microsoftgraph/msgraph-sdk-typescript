@@ -1,5 +1,7 @@
 
-/** Retrieve a list of notebook objects. */
+/**
+ * Retrieve a list of notebook objects.
+ */
 export class NotebooksRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

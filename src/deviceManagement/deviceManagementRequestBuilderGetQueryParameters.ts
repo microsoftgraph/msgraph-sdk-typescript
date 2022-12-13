@@ -1,5 +1,7 @@
 
-/** Get deviceManagement */
+/**
+ * Get deviceManagement
+ */
 export class DeviceManagementRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

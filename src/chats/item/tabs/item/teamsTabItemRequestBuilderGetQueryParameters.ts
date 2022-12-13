@@ -1,5 +1,7 @@
 
-/** A collection of all the tabs in the chat. Nullable. */
+/**
+ * A collection of all the tabs in the chat. Nullable.
+ */
 export class TeamsTabItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

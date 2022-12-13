@@ -6,7 +6,9 @@ import {createSharingLinkFromDiscriminatorValue} from './createSharingLinkFromDi
 import {Entity, IdentitySet, ItemReference, SharePointIdentitySet, SharingInvitation, SharingLink} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the appCatalogs singleton.
+ */
 export class Permission extends Entity implements Parsable {
     /** A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional. */
     private _expirationDateTime?: Date | undefined;

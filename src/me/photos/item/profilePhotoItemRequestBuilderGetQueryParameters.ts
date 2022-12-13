@@ -1,5 +1,7 @@
 
-/** Get photos from me */
+/**
+ * Get photos from me
+ */
 export class ProfilePhotoItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

@@ -12,7 +12,7 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
     /** The certificate's raw data in byte array converted to Base64 string. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null. */
     private _key?: string | undefined;
     /** The unique identifier (GUID) for the key. */
-    private _keyId?: string | undefined;
+    private _keyId?: Guid | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /** The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
@@ -93,7 +93,7 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "endDateTime": n => { this.endDateTime = n.getDateValue(); },
             "key": n => { this.key = n.getStringValue(); },
-            "keyId": n => { this.keyId = n.getStringValue(); },
+            "keyId": n => { this.keyId = n.getGuidValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
             "type": n => { this.type = n.getStringValue(); },
@@ -116,7 +116,7 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the keyId property value. The unique identifier (GUID) for the key.
-     * @returns a string
+     * @returns a Guid
      */
     public get keyId() {
         return this._keyId;
@@ -125,7 +125,7 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
      * Sets the keyId property value. The unique identifier (GUID) for the key.
      * @param value Value to set for the keyId property.
      */
-    public set keyId(value: string | undefined) {
+    public set keyId(value: Guid | undefined) {
         this._keyId = value;
     };
     /**
@@ -152,7 +152,7 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("endDateTime", this.endDateTime);
         writer.writeStringValue("key", this.key);
-        writer.writeStringValue("keyId", this.keyId);
+        writer.writeGuidValue("keyId", this.keyId);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeStringValue("type", this.type);

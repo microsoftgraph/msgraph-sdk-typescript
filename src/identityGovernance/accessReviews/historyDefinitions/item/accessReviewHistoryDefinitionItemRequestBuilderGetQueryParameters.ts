@@ -1,5 +1,7 @@
 
-/** Represents a collection of access review history data and the scopes used to collect that data. */
+/**
+ * Represents a collection of access review history data and the scopes used to collect that data.
+ */
 export class AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

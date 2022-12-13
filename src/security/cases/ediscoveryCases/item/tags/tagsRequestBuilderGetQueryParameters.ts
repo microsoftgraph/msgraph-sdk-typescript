@@ -1,5 +1,7 @@
 
-/** Get a list of eDiscoveryReviewTag objects and their properties. */
+/**
+ * Get a list of eDiscoveryReviewTag objects and their properties.
+ */
 export class TagsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

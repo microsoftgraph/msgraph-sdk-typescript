@@ -1,5 +1,7 @@
 
-/** The list of assignments for this T&C policy. */
+/**
+ * The list of assignments for this T&C policy.
+ */
 export class AssignmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

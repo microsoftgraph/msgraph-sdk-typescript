@@ -1,5 +1,7 @@
 
-/** The access packages that are incompatible with this package. Read-only. */
+/**
+ * The access packages that are incompatible with this package. Read-only.
+ */
 export class AccessPackageItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

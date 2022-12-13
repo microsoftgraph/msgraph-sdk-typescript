@@ -1,5 +1,7 @@
 
-/** Represents the To Do services available to a user. */
+/**
+ * Represents the To Do services available to a user.
+ */
 export class TodoRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

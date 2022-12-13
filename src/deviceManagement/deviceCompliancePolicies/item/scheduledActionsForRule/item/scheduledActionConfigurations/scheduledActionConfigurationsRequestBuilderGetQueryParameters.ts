@@ -1,5 +1,7 @@
 
-/** The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action. */
+/**
+ * The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.
+ */
 export class ScheduledActionConfigurationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

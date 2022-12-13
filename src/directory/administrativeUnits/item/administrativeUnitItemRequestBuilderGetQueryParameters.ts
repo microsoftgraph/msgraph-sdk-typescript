@@ -1,5 +1,7 @@
 
-/** Conceptual container for user and group directory objects. */
+/**
+ * Conceptual container for user and group directory objects.
+ */
 export class AdministrativeUnitItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

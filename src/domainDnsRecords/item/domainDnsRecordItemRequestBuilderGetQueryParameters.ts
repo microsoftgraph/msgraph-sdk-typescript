@@ -1,5 +1,7 @@
 
-/** Get entity from domainDnsRecords by key */
+/**
+ * Get entity from domainDnsRecords by key
+ */
 export class DomainDnsRecordItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

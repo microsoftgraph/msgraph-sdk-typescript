@@ -1,5 +1,7 @@
 
-/** The telecom expense management partners. */
+/**
+ * The telecom expense management partners.
+ */
 export class TelecomExpenseManagementPartnerItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

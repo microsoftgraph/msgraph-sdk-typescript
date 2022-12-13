@@ -1,5 +1,7 @@
 
-/** All sets under the group in a term [store]. */
+/**
+ * All sets under the group in a term [store].
+ */
 export class SetItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** Get termsOfUse from identityGovernance */
+/**
+ * Get termsOfUse from identityGovernance
+ */
 export class TermsOfUseRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

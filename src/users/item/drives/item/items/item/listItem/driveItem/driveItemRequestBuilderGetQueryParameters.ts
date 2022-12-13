@@ -1,5 +1,7 @@
 
-/** For document libraries, the driveItem relationship exposes the listItem as a [driveItem][] */
+/**
+ * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
+ */
 export class DriveItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

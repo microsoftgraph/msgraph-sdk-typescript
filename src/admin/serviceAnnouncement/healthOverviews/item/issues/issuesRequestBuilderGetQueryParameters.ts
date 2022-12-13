@@ -1,5 +1,7 @@
 
-/** A collection of issues that happened on the service, with detailed information for each issue. */
+/**
+ * A collection of issues that happened on the service, with detailed information for each issue.
+ */
 export class IssuesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

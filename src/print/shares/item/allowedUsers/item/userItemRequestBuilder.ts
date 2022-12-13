@@ -1,7 +1,9 @@
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /print/shares/{printerShare-id}/allowedUsers/{user-id} */
+/**
+ * Builds and executes requests for operations under /print/shares/{printerShare-id}/allowedUsers/{user-id}
+ */
 export class UserItemRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

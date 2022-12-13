@@ -1,5 +1,7 @@
 
-/** The mobile app categories. */
+/**
+ * The mobile app categories.
+ */
 export class MobileAppCategoriesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

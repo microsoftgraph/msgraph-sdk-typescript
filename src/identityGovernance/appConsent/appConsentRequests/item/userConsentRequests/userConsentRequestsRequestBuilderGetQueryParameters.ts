@@ -1,5 +1,7 @@
 
-/** Retrieve a collection of userConsentRequest objects and their properties. */
+/**
+ * Retrieve a collection of userConsentRequest objects and their properties.
+ */
 export class UserConsentRequestsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

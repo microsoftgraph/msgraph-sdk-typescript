@@ -1,5 +1,7 @@
 
-/** The list of associatedTeamInfo objects that a user is associated with. */
+/**
+ * The list of associatedTeamInfo objects that a user is associated with.
+ */
 export class AssociatedTeamInfoItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

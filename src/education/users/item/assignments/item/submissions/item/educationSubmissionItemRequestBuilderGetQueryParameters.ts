@@ -1,5 +1,7 @@
 
-/** Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable. */
+/**
+ * Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
+ */
 export class EducationSubmissionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

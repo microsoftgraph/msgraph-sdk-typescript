@@ -1,5 +1,7 @@
 
-/** Read-only. Nullable. Returns a collection of the specified tasks */
+/**
+ * Read-only. Nullable. Returns a collection of the specified tasks
+ */
 export class PlannerTaskItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

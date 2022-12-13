@@ -8,7 +8,7 @@ export class ResourceSpecificPermission implements AdditionalDataHolder, Parsabl
     /** The display name for the resource-specific permission. */
     private _displayName?: string | undefined;
     /** The unique identifier for the resource-specific application permission. */
-    private _id?: string | undefined;
+    private _id?: Guid | undefined;
     /** Indicates whether the permission is enabled. */
     private _isEnabled?: boolean | undefined;
     /** The OdataType property */
@@ -71,7 +71,7 @@ export class ResourceSpecificPermission implements AdditionalDataHolder, Parsabl
         return {
             "description": n => { this.description = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
-            "id": n => { this.id = n.getStringValue(); },
+            "id": n => { this.id = n.getGuidValue(); },
             "isEnabled": n => { this.isEnabled = n.getBooleanValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "value": n => { this.value = n.getStringValue(); },
@@ -79,7 +79,7 @@ export class ResourceSpecificPermission implements AdditionalDataHolder, Parsabl
     };
     /**
      * Gets the id property value. The unique identifier for the resource-specific application permission.
-     * @returns a string
+     * @returns a Guid
      */
     public get id() {
         return this._id;
@@ -88,7 +88,7 @@ export class ResourceSpecificPermission implements AdditionalDataHolder, Parsabl
      * Sets the id property value. The unique identifier for the resource-specific application permission.
      * @param value Value to set for the id property.
      */
-    public set id(value: string | undefined) {
+    public set id(value: Guid | undefined) {
         this._id = value;
     };
     /**
@@ -127,7 +127,7 @@ export class ResourceSpecificPermission implements AdditionalDataHolder, Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeStringValue("id", this.id);
+        writer.writeGuidValue("id", this.id);
         writer.writeBooleanValue("isEnabled", this.isEnabled);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("value", this.value);

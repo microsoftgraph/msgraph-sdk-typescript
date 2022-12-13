@@ -1,5 +1,7 @@
 
-/** Invoke function recent */
+/**
+ * Invoke function recent
+ */
 export class RecentRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

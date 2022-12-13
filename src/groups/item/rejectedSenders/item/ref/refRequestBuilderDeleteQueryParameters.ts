@@ -1,5 +1,7 @@
 
-/** Delete ref of navigation property rejectedSenders for groups */
+/**
+ * Delete ref of navigation property rejectedSenders for groups
+ */
 export class RefRequestBuilderDeleteQueryParameters {
     /** Delete Uri */
     public id?: string | undefined;

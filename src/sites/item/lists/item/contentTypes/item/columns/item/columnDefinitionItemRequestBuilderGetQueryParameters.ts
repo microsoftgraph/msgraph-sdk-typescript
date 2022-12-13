@@ -1,5 +1,7 @@
 
-/** The collection of column definitions for this contentType. */
+/**
+ * The collection of column definitions for this contentType.
+ */
 export class ColumnDefinitionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

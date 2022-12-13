@@ -1,5 +1,7 @@
 
-/** Get ref of userFlowIdentityProviders from identity */
+/**
+ * Get ref of userFlowIdentityProviders from identity
+ */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

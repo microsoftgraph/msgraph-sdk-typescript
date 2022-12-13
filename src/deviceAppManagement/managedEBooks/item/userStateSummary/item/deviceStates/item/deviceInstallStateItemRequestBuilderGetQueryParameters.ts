@@ -1,5 +1,7 @@
 
-/** The install state of the eBook. */
+/**
+ * The install state of the eBook.
+ */
 export class DeviceInstallStateItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -17,7 +17,7 @@ export class AuthorizationPolicy extends PolicyBase implements Parsable {
     /** The defaultUserRolePermissions property */
     private _defaultUserRolePermissions?: DefaultUserRolePermissions | undefined;
     /** Represents role templateId for the role that should be granted to guest user. Currently following roles are supported:  User (a0b1b346-4d3e-4e8b-98f8-753987be4970), Guest User (10dae51f-b6af-4016-8d66-8c2a99b929b3), and Restricted Guest User (2af84b1e-32c8-42b7-82bc-daa82404023b). */
-    private _guestUserRoleId?: string | undefined;
+    private _guestUserRoleId?: Guid | undefined;
     /**
      * Gets the allowedToSignUpEmailBasedSubscriptions property value. Indicates whether users can sign up for email based subscriptions.
      * @returns a boolean
@@ -121,12 +121,12 @@ export class AuthorizationPolicy extends PolicyBase implements Parsable {
             "allowInvitesFrom": n => { this.allowInvitesFrom = n.getEnumValue<AllowInvitesFrom>(AllowInvitesFrom); },
             "blockMsolPowerShell": n => { this.blockMsolPowerShell = n.getBooleanValue(); },
             "defaultUserRolePermissions": n => { this.defaultUserRolePermissions = n.getObjectValue<DefaultUserRolePermissions>(createDefaultUserRolePermissionsFromDiscriminatorValue); },
-            "guestUserRoleId": n => { this.guestUserRoleId = n.getStringValue(); },
+            "guestUserRoleId": n => { this.guestUserRoleId = n.getGuidValue(); },
         };
     };
     /**
      * Gets the guestUserRoleId property value. Represents role templateId for the role that should be granted to guest user. Currently following roles are supported:  User (a0b1b346-4d3e-4e8b-98f8-753987be4970), Guest User (10dae51f-b6af-4016-8d66-8c2a99b929b3), and Restricted Guest User (2af84b1e-32c8-42b7-82bc-daa82404023b).
-     * @returns a string
+     * @returns a Guid
      */
     public get guestUserRoleId() {
         return this._guestUserRoleId;
@@ -135,7 +135,7 @@ export class AuthorizationPolicy extends PolicyBase implements Parsable {
      * Sets the guestUserRoleId property value. Represents role templateId for the role that should be granted to guest user. Currently following roles are supported:  User (a0b1b346-4d3e-4e8b-98f8-753987be4970), Guest User (10dae51f-b6af-4016-8d66-8c2a99b929b3), and Restricted Guest User (2af84b1e-32c8-42b7-82bc-daa82404023b).
      * @param value Value to set for the guestUserRoleId property.
      */
-    public set guestUserRoleId(value: string | undefined) {
+    public set guestUserRoleId(value: Guid | undefined) {
         this._guestUserRoleId = value;
     };
     /**
@@ -151,6 +151,6 @@ export class AuthorizationPolicy extends PolicyBase implements Parsable {
         writer.writeEnumValue<AllowInvitesFrom>("allowInvitesFrom", this.allowInvitesFrom);
         writer.writeBooleanValue("blockMsolPowerShell", this.blockMsolPowerShell);
         writer.writeObjectValue<DefaultUserRolePermissions>("defaultUserRolePermissions", this.defaultUserRolePermissions);
-        writer.writeStringValue("guestUserRoleId", this.guestUserRoleId);
+        writer.writeGuidValue("guestUserRoleId", this.guestUserRoleId);
     };
 }

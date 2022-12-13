@@ -1,11 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the removePassword method. */
+/**
+ * Provides operations to call the removePassword method.
+ */
 export class RemovePasswordPostRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The keyId property */
-    private _keyId?: string | undefined;
+    private _keyId?: Guid | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -32,12 +34,12 @@ export class RemovePasswordPostRequestBody implements AdditionalDataHolder, Pars
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "keyId": n => { this.keyId = n.getStringValue(); },
+            "keyId": n => { this.keyId = n.getGuidValue(); },
         };
     };
     /**
      * Gets the keyId property value. The keyId property
-     * @returns a string
+     * @returns a Guid
      */
     public get keyId() {
         return this._keyId;
@@ -46,7 +48,7 @@ export class RemovePasswordPostRequestBody implements AdditionalDataHolder, Pars
      * Sets the keyId property value. The keyId property
      * @param value Value to set for the keyId property.
      */
-    public set keyId(value: string | undefined) {
+    public set keyId(value: Guid | undefined) {
         this._keyId = value;
     };
     /**
@@ -55,7 +57,7 @@ export class RemovePasswordPostRequestBody implements AdditionalDataHolder, Pars
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeStringValue("keyId", this.keyId);
+        writer.writeGuidValue("keyId", this.keyId);
         writer.writeAdditionalData(this.additionalData);
     };
 }

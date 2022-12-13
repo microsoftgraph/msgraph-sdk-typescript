@@ -1,5 +1,7 @@
 
-/** Returns a list of ediscoveryReviewTag objects associated to this case. */
+/**
+ * Returns a list of ediscoveryReviewTag objects associated to this case.
+ */
 export class EdiscoveryReviewTagItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

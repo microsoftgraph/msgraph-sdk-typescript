@@ -1,5 +1,7 @@
 
-/** Retrieve properties and relationships for a [site][] resource.A **site** resource represents a team site in SharePoint. */
+/**
+ * Retrieve properties and relationships for a [site][] resource.A **site** resource represents a team site in SharePoint.
+ */
 export class SiteItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

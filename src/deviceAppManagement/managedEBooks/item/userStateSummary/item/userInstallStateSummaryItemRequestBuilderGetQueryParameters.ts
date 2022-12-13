@@ -1,5 +1,7 @@
 
-/** The list of installation states for this eBook. */
+/**
+ * The list of installation states for this eBook.
+ */
 export class UserInstallStateSummaryItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

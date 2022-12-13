@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {ResetDecisionsRequestBuilderPostRequestConfiguration} from './resetDecisionsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the resetDecisions method. */
+/**
+ * Provides operations to call the resetDecisions method.
+ */
 export class ResetDecisionsRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -44,6 +46,7 @@ export class ResetDecisionsRequestBuilder {
      * Resets all accessReviewInstanceDecisionItem objects on an accessReviewInstance to `notReviewed`.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/accessreviewinstance-resetdecisions?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: ResetDecisionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createPostRequestInformation(

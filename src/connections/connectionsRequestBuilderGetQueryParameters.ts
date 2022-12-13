@@ -1,5 +1,7 @@
 
-/** Get entities from connections */
+/**
+ * Get entities from connections
+ */
 export class ConnectionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

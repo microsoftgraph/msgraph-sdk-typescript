@@ -1,5 +1,7 @@
 
-/** Get the items of type microsoft.graph.mobileLobApp in the microsoft.graph.mobileApp collection */
+/**
+ * Get the items of type microsoft.graph.mobileLobApp in the microsoft.graph.mobileApp collection
+ */
 export class MobileLobAppRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

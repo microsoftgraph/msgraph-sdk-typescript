@@ -1,5 +1,7 @@
 
-/** The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable. */
+/**
+ * The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.
+ */
 export class NotebookItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

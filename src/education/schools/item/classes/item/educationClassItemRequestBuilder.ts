@@ -1,7 +1,9 @@
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /education/schools/{educationSchool-id}/classes/{educationClass-id} */
+/**
+ * Builds and executes requests for operations under /education/schools/{educationSchool-id}/classes/{educationClass-id}
+ */
 export class EducationClassItemRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

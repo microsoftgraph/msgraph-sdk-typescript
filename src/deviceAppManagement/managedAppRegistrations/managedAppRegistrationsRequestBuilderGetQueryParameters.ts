@@ -1,5 +1,7 @@
 
-/** The managed app registrations. */
+/**
+ * The managed app registrations.
+ */
 export class ManagedAppRegistrationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

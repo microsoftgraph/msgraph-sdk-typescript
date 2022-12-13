@@ -1,5 +1,7 @@
 
-/** Get attackSimulation from security */
+/**
+ * Get attackSimulation from security
+ */
 export class AttackSimulationRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

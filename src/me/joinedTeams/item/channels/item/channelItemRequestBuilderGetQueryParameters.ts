@@ -1,5 +1,7 @@
 
-/** The collection of channels and messages associated with the team. */
+/**
+ * The collection of channels and messages associated with the team.
+ */
 export class ChannelItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

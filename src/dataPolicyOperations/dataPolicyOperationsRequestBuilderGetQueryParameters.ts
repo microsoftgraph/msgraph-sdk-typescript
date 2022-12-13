@@ -1,5 +1,7 @@
 
-/** Retrieve the properties of a **dataPolicyOperation** object. */
+/**
+ * Retrieve the properties of a **dataPolicyOperation** object.
+ */
 export class DataPolicyOperationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

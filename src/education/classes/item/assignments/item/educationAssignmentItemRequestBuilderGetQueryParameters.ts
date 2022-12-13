@@ -1,5 +1,7 @@
 
-/** All assignments associated with this class. Nullable. */
+/**
+ * All assignments associated with this class. Nullable.
+ */
 export class EducationAssignmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

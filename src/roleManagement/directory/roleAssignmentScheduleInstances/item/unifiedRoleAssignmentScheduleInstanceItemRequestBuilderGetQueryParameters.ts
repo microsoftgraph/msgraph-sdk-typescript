@@ -1,5 +1,7 @@
 
-/** Instances for active role assignments. */
+/**
+ * Instances for active role assignments.
+ */
 export class UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

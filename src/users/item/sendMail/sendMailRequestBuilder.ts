@@ -4,7 +4,9 @@ import {SendMailPostRequestBody} from './index';
 import {SendMailRequestBuilderPostRequestConfiguration} from './sendMailRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the sendMail method. */
+/**
+ * Provides operations to call the sendMail method.
+ */
 export class SendMailRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -27,7 +29,7 @@ export class SendMailRequestBuilder {
     };
     /**
      * Send the message specified in the request body using either JSON or MIME format. When using JSON format you can include a file attachment in the same **sendMail** action call. When using MIME format:- Provide the applicable Internet message headers and the MIME content, all encoded in **base64** format in the request body.- Add any attachments and S/MIME properties to the MIME content. This method saves the message in the **Sent Items** folder. Alternatively, create a draft message to send later. To learn more about the steps involved in the backend before a mail is delivered to recipients, see here.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -46,9 +48,10 @@ export class SendMailRequestBuilder {
     };
     /**
      * Send the message specified in the request body using either JSON or MIME format. When using JSON format you can include a file attachment in the same **sendMail** action call. When using MIME format:- Provide the applicable Internet message headers and the MIME content, all encoded in **base64** format in the request body.- Add any attachments and S/MIME properties to the MIME content. This method saves the message in the **Sent Items** folder. Alternatively, create a draft message to send later. To learn more about the steps involved in the backend before a mail is delivered to recipients, see here.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/user-sendmail?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SendMailPostRequestBody | undefined, requestConfiguration?: SendMailRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

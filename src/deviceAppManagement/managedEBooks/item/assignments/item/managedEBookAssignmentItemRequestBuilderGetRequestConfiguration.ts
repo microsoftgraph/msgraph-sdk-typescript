@@ -1,10 +1,12 @@
 import {ManagedEBookAssignmentItemRequestBuilderGetQueryParameters} from './managedEBookAssignmentItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-/** Configuration for the request such as headers, query parameters, and middleware options. */
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options.
+ */
 export class ManagedEBookAssignmentItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    public headers?: Record<string, string> | undefined;
+    public headers?: Record<string, string[]> | undefined;
     /** Request options */
     public options?: RequestOption[] | undefined;
     /** Request query parameters */

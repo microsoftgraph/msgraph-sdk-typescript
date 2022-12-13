@@ -1,5 +1,7 @@
 
-/** Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable. */
+/**
+ * Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable.
+ */
 export class EducationAssignmentResourceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

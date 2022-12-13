@@ -1,5 +1,7 @@
 
-/** The Windows autopilot device identities contained collection. */
+/**
+ * The Windows autopilot device identities contained collection.
+ */
 export class WindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

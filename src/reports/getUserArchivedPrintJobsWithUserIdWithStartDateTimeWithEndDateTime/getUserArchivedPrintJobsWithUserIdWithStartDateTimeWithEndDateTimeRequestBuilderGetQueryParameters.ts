@@ -1,5 +1,7 @@
 
-/** Invoke function getUserArchivedPrintJobs */
+/**
+ * Invoke function getUserArchivedPrintJobs
+ */
 export class GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

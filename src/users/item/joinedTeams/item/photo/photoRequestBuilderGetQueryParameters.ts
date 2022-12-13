@@ -1,5 +1,7 @@
 
-/** The profile photo for the team. */
+/**
+ * The profile photo for the team.
+ */
 export class PhotoRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

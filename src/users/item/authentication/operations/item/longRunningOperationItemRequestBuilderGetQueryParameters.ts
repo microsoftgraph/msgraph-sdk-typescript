@@ -1,5 +1,7 @@
 
-/** Represents the status of a long-running operation. */
+/**
+ * Represents the status of a long-running operation.
+ */
 export class LongRunningOperationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

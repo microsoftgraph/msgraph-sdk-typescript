@@ -1,5 +1,7 @@
 
-/** Get groups from connections */
+/**
+ * Get groups from connections
+ */
 export class GroupsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

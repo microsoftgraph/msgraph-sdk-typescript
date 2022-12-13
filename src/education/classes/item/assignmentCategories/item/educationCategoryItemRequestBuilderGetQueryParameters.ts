@@ -1,5 +1,7 @@
 
-/** All categories associated with this class. Nullable. */
+/**
+ * All categories associated with this class. Nullable.
+ */
 export class EducationCategoryItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

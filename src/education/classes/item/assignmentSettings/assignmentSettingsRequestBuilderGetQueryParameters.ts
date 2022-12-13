@@ -1,5 +1,7 @@
 
-/** Specifies class-level assignments settings. */
+/**
+ * Specifies class-level assignments settings.
+ */
 export class AssignmentSettingsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

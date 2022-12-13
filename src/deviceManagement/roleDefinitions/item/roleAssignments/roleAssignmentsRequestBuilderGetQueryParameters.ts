@@ -1,5 +1,7 @@
 
-/** List of Role assignments for this role definition. */
+/**
+ * List of Role assignments for this role definition.
+ */
 export class RoleAssignmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

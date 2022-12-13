@@ -2,7 +2,9 @@ import {BaseCollectionPaginationCountResponse, UserActivity} from '../../../mode
 import {createUserActivityFromDiscriminatorValue} from '../../../models/createUserActivityFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the recent method. */
+/**
+ * Provides operations to call the recent method.
+ */
 export class RecentResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: UserActivity[] | undefined;

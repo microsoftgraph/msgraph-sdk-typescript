@@ -1,5 +1,7 @@
 
-/** Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy. */
+/**
+ * Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
+ */
 export class AuthenticationMethodConfigurationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

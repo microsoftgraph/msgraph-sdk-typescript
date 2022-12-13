@@ -2,7 +2,9 @@ import {createMobileAppContentFileFromDiscriminatorValue} from './createMobileAp
 import {Entity, MobileAppContentFile} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains content properties for a specific app version. Each mobileAppContent can have multiple mobileAppContentFile. */
+/**
+ * Contains content properties for a specific app version. Each mobileAppContent can have multiple mobileAppContentFile.
+ */
 export class MobileAppContent extends Entity implements Parsable {
     /** The list of files for this app content version. */
     private _files?: MobileAppContentFile[] | undefined;

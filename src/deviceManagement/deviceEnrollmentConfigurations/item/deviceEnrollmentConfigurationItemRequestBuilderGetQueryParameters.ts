@@ -1,5 +1,7 @@
 
-/** The list of device enrollment configurations */
+/**
+ * The list of device enrollment configurations
+ */
 export class DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -2,6 +2,9 @@ import {createTeamsAppFromDiscriminatorValue} from './createTeamsAppFromDiscrimi
 import {BaseCollectionPaginationCountResponse, TeamsApp} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the teamsApps property of the microsoft.graph.appCatalogs entity.
+ */
 export class TeamsAppCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: TeamsApp[] | undefined;

@@ -5,7 +5,9 @@ import {ServicePrincipalRequestBuilder} from './servicePrincipal/servicePrincipa
 import {UserRequestBuilder} from './user/userRequestBuilder';
 import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /users/{user-id}/authentication/windowsHelloForBusinessMethods/{windowsHelloForBusinessAuthenticationMethod-id}/device/registeredOwners/{directoryObject-id} */
+/**
+ * Builds and executes requests for operations under /users/{user-id}/authentication/windowsHelloForBusinessMethods/{windowsHelloForBusinessAuthenticationMethod-id}/device/registeredOwners/{directoryObject-id}
+ */
 export class DirectoryObjectItemRequestBuilder {
     /** Casts the previous resource to appRoleAssignment. */
     public get appRoleAssignment(): AppRoleAssignmentRequestBuilder {

@@ -31,7 +31,9 @@ import {WindowsDefenderUpdateSignaturesRequestBuilder} from './windowsDefenderUp
 import {WipeRequestBuilder} from './wipe/wipeRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the managedDevices property of the microsoft.graph.user entity. */
+/**
+ * Provides operations to manage the managedDevices property of the microsoft.graph.user entity.
+ */
 export class ManagedDeviceItemRequestBuilder {
     /** Provides operations to call the bypassActivationLock method. */
     public get bypassActivationLock(): BypassActivationLockRequestBuilder {
@@ -166,7 +168,7 @@ export class ManagedDeviceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -176,7 +178,7 @@ export class ManagedDeviceItemRequestBuilder {
     };
     /**
      * Update the navigation property managedDevices in me
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -186,7 +188,7 @@ export class ManagedDeviceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -249,7 +251,7 @@ export class ManagedDeviceItemRequestBuilder {
     };
     /**
      * Update the navigation property managedDevices in me
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDevice

@@ -2,14 +2,16 @@ import {createCalendarFromDiscriminatorValue} from './createCalendarFromDiscrimi
 import {Calendar, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the collection of application entities.
+ */
 export class CalendarGroup extends Entity implements Parsable {
     /** The calendars in the calendar group. Navigation property. Read-only. Nullable. */
     private _calendars?: Calendar[] | undefined;
     /** Identifies the version of the calendar group. Every time the calendar group is changed, ChangeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only. */
     private _changeKey?: string | undefined;
     /** The class identifier. Read-only. */
-    private _classId?: string | undefined;
+    private _classId?: Guid | undefined;
     /** The group name. */
     private _name?: string | undefined;
     /**
@@ -42,7 +44,7 @@ export class CalendarGroup extends Entity implements Parsable {
     };
     /**
      * Gets the classId property value. The class identifier. Read-only.
-     * @returns a string
+     * @returns a Guid
      */
     public get classId() {
         return this._classId;
@@ -51,7 +53,7 @@ export class CalendarGroup extends Entity implements Parsable {
      * Sets the classId property value. The class identifier. Read-only.
      * @param value Value to set for the classId property.
      */
-    public set classId(value: string | undefined) {
+    public set classId(value: Guid | undefined) {
         this._classId = value;
     };
     /**
@@ -68,7 +70,7 @@ export class CalendarGroup extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "calendars": n => { this.calendars = n.getCollectionOfObjectValues<Calendar>(createCalendarFromDiscriminatorValue); },
             "changeKey": n => { this.changeKey = n.getStringValue(); },
-            "classId": n => { this.classId = n.getStringValue(); },
+            "classId": n => { this.classId = n.getGuidValue(); },
             "name": n => { this.name = n.getStringValue(); },
         };
     };
@@ -95,7 +97,7 @@ export class CalendarGroup extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<Calendar>("calendars", this.calendars);
         writer.writeStringValue("changeKey", this.changeKey);
-        writer.writeStringValue("classId", this.classId);
+        writer.writeGuidValue("classId", this.classId);
         writer.writeStringValue("name", this.name);
     };
 }

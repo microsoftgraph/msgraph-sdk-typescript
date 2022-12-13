@@ -1,5 +1,7 @@
 
-/** Retrieve a list of domain objects. */
+/**
+ * Retrieve a list of domain objects.
+ */
 export class DomainsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

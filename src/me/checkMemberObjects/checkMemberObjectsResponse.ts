@@ -1,7 +1,9 @@
 import {BaseCollectionPaginationCountResponse} from '../../models/';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the checkMemberObjects method. */
+/**
+ * Provides operations to call the checkMemberObjects method.
+ */
 export class CheckMemberObjectsResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** The Audit Events */
+/**
+ * The Audit Events
+ */
 export class AuditEventsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

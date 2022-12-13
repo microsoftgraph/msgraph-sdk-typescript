@@ -1,5 +1,7 @@
 
-/** Get directReports from contacts */
+/**
+ * Get directReports from contacts
+ */
 export class DirectReportsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

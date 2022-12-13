@@ -1,5 +1,7 @@
 
-/** Schools to which the user belongs. Nullable. */
+/**
+ * Schools to which the user belongs. Nullable.
+ */
 export class EducationSchoolItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

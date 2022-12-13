@@ -1,5 +1,7 @@
 
-/** The directory object that is the scope of the role eligibility. Read-only. Supports $expand. */
+/**
+ * The directory object that is the scope of the role eligibility. Read-only. Supports $expand.
+ */
 export class DirectoryScopeRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

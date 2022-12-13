@@ -1,5 +1,7 @@
 
-/** Retrieve a list teachers for a class. Delegated tokens must be members of the class to get the teacher list. */
+/**
+ * Retrieve a list teachers for a class. Delegated tokens must be members of the class to get the teacher list.
+ */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

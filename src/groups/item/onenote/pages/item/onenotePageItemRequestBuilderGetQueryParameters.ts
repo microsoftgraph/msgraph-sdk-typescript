@@ -1,5 +1,7 @@
 
-/** The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable. */
+/**
+ * The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+ */
 export class OnenotePageItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

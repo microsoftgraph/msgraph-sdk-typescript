@@ -1,5 +1,7 @@
 
-/** Device Configuration Setting State Device Summary */
+/**
+ * Device Configuration Setting State Device Summary
+ */
 export class DeviceSettingStateSummariesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

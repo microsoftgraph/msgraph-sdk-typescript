@@ -1,5 +1,7 @@
 
-/** A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it. */
+/**
+ * A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it.
+ */
 export class ResultsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

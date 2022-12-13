@@ -4,7 +4,9 @@ import {DismissRequestBuilderPostRequestConfiguration} from './dismissRequestBui
 import {DismissPostRequestBody} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the dismiss method. */
+/**
+ * Provides operations to call the dismiss method.
+ */
 export class DismissRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -27,7 +29,7 @@ export class DismissRequestBuilder {
     };
     /**
      * Dismiss the risk of one or more riskyUser objects. This action sets the targeted user's risk level to none.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -46,9 +48,10 @@ export class DismissRequestBuilder {
     };
     /**
      * Dismiss the risk of one or more riskyUser objects. This action sets the targeted user's risk level to none.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/riskyuser-dismiss?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DismissPostRequestBody | undefined, requestConfiguration?: DismissRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

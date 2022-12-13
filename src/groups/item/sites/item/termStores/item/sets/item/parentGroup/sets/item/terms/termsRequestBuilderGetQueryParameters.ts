@@ -1,5 +1,7 @@
 
-/** All the terms under the set. */
+/**
+ * All the terms under the set.
+ */
 export class TermsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

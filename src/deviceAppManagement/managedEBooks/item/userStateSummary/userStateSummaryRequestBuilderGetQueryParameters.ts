@@ -1,5 +1,7 @@
 
-/** The list of installation states for this eBook. */
+/**
+ * The list of installation states for this eBook.
+ */
 export class UserStateSummaryRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

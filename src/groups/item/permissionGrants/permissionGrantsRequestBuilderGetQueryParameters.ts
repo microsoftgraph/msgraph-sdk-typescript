@@ -1,5 +1,7 @@
 
-/** List all resource-specific permission grants on the group. This list specifies the Azure AD apps that have access to the **group**, along with the corresponding kind of resource-specific access that each app has. */
+/**
+ * List all resource-specific permission grants on the group. This list specifies the Azure AD apps that have access to the **group**, along with the corresponding kind of resource-specific access that each app has.
+ */
 export class PermissionGrantsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

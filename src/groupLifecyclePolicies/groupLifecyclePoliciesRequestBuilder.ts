@@ -8,7 +8,9 @@ import {GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration} from './gro
 import {GroupLifecyclePoliciesRequestBuilderPostRequestConfiguration} from './groupLifecyclePoliciesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of groupLifecyclePolicy entities. */
+/**
+ * Provides operations to manage the collection of groupLifecyclePolicy entities.
+ */
 export class GroupLifecyclePoliciesRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -43,7 +45,7 @@ export class GroupLifecyclePoliciesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -53,7 +55,7 @@ export class GroupLifecyclePoliciesRequestBuilder {
     };
     /**
      * Creates a new groupLifecyclePolicy.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +65,7 @@ export class GroupLifecyclePoliciesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -76,6 +78,7 @@ export class GroupLifecyclePoliciesRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupLifecyclePolicyCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/grouplifecyclepolicy-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupLifecyclePolicyCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -89,10 +92,11 @@ export class GroupLifecyclePoliciesRequestBuilder {
     };
     /**
      * Creates a new groupLifecyclePolicy.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupLifecyclePolicy
+     * @see {@link https://docs.microsoft.com/graph/api/grouplifecyclepolicy-post-grouplifecyclepolicies?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GroupLifecyclePolicy | undefined, requestConfiguration?: GroupLifecyclePoliciesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupLifecyclePolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

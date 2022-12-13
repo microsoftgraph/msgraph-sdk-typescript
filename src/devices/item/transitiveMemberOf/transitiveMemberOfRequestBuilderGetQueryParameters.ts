@@ -1,5 +1,7 @@
 
-/** Groups and administrative units that the device is a member of. This operation is transitive. Supports $expand. */
+/**
+ * Groups and administrative units that the device is a member of. This operation is transitive. Supports $expand.
+ */
 export class TransitiveMemberOfRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

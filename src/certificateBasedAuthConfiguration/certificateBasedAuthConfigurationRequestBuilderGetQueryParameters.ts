@@ -1,5 +1,7 @@
 
-/** Get entities from certificateBasedAuthConfiguration */
+/**
+ * Get entities from certificateBasedAuthConfiguration
+ */
 export class CertificateBasedAuthConfigurationRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

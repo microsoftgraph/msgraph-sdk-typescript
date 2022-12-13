@@ -1,5 +1,7 @@
 
-/** Returns the parent tag of the specified tag. */
+/**
+ * Returns the parent tag of the specified tag.
+ */
 export class ParentRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

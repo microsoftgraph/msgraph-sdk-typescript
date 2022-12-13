@@ -1,5 +1,7 @@
 
-/** Retrieve a list of licenseDetails objects for enterprise users. This API returns details for licenses that are directly assigned and those transitively assigned through memberships in licensed groups. */
+/**
+ * Retrieve a list of licenseDetails objects for enterprise users. This API returns details for licenses that are directly assigned and those transitively assigned through memberships in licensed groups.
+ */
 export class LicenseDetailsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

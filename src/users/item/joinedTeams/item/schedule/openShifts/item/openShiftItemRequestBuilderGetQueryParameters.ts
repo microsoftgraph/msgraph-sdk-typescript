@@ -1,5 +1,7 @@
 
-/** Get openShifts from users */
+/**
+ * Get openShifts from users
+ */
 export class OpenShiftItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

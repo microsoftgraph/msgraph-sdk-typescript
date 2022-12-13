@@ -1,5 +1,7 @@
 
-/** Default managed app policies. */
+/**
+ * Default managed app policies.
+ */
 export class DefaultManagedAppProtectionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

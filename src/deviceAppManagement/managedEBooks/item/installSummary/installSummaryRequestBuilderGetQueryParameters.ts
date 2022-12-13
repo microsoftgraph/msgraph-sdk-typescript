@@ -1,5 +1,7 @@
 
-/** Mobile App Install Summary. */
+/**
+ * Mobile App Install Summary.
+ */
 export class InstallSummaryRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

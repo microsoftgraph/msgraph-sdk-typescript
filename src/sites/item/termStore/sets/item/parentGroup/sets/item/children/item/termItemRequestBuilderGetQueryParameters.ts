@@ -1,5 +1,7 @@
 
-/** Children terms of set in term [store]. */
+/**
+ * Children terms of set in term [store].
+ */
 export class TermItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

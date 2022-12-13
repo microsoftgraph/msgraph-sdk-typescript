@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CountRequestBuilderGetRequestConfiguration} from './countRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to count the resources in the collection. */
+/**
+ * Provides operations to count the resources in the collection.
+ */
 export class CountRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -34,7 +36,7 @@ export class CountRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "text/plain";
+        requestInfo.headers["Accept"] = ["text/plain"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);

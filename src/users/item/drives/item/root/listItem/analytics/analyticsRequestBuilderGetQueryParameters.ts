@@ -1,5 +1,7 @@
 
-/** Analytics about the view activities that took place on this item. */
+/**
+ * Analytics about the view activities that took place on this item.
+ */
 export class AnalyticsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

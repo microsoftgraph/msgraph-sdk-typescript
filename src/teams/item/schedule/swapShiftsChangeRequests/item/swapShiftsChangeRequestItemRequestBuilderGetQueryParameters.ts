@@ -1,5 +1,7 @@
 
-/** Get swapShiftsChangeRequests from teams */
+/**
+ * Get swapShiftsChangeRequests from teams
+ */
 export class SwapShiftsChangeRequestItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

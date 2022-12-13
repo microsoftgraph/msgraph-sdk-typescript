@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {DisconnectRequestBuilderPostRequestConfiguration} from './disconnectRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the disconnect method. */
+/**
+ * Provides operations to call the disconnect method.
+ */
 export class DisconnectRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

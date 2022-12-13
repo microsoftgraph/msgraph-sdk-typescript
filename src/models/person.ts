@@ -6,7 +6,9 @@ import {createWebsiteFromDiscriminatorValue} from './createWebsiteFromDiscrimina
 import {Entity, Location, PersonType, Phone, ScoredEmailAddress, Website} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the collection of application entities.
+ */
 export class Person extends Entity implements Parsable {
     /** The person's birthday. */
     private _birthday?: string | undefined;

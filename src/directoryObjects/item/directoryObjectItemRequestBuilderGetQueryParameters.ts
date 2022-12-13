@@ -1,5 +1,7 @@
 
-/** Retrieve the properties and relationships of a directoryObject object. */
+/**
+ * Retrieve the properties and relationships of a directoryObject object.
+ */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

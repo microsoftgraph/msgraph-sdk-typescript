@@ -1,5 +1,7 @@
 
-/** Users and groups that are members of this administrative unit. Supports $expand. */
+/**
+ * Users and groups that are members of this administrative unit. Supports $expand.
+ */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

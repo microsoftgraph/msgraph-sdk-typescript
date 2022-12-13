@@ -2,7 +2,9 @@ import {BaseCollectionPaginationCountResponse, LocaleInfo} from '../../../models
 import {createLocaleInfoFromDiscriminatorValue} from '../../../models/createLocaleInfoFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the supportedLanguages method. */
+/**
+ * Provides operations to call the supportedLanguages method.
+ */
 export class SupportedLanguagesResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: LocaleInfo[] | undefined;

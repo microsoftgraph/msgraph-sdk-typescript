@@ -1,5 +1,7 @@
 
-/** Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive. */
+/**
+ * Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.
+ */
 export class DriveItemItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

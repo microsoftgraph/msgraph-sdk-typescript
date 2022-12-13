@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {RemoveHoldRequestBuilderPostRequestConfiguration} from './removeHoldRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the removeHold method. */
+/**
+ * Provides operations to call the removeHold method.
+ */
 export class RemoveHoldRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -44,6 +46,7 @@ export class RemoveHoldRequestBuilder {
      * Start the process of removing hold from eDiscovery custodians. After the operation is created, you can get the status by retrieving the `Location` parameter from the response headers. The location provides a URL that will return an eDiscoveryHoldOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycustodian-removehold?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: RemoveHoldRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createPostRequestInformation(

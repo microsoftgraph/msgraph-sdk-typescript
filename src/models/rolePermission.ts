@@ -2,7 +2,9 @@ import {createResourceActionFromDiscriminatorValue} from './createResourceAction
 import {ResourceAction} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains the set of ResourceActions determining the allowed and not allowed permissions for each role. */
+/**
+ * Contains the set of ResourceActions determining the allowed and not allowed permissions for each role.
+ */
 export class RolePermission implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;

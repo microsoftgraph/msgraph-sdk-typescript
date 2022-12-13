@@ -5,7 +5,9 @@ import {GetMemberGroupsRequestBuilderPostRequestConfiguration} from './getMember
 import {GetMemberGroupsPostRequestBody, GetMemberGroupsResponse} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getMemberGroups method. */
+/**
+ * Provides operations to call the getMemberGroups method.
+ */
 export class GetMemberGroupsRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -28,7 +30,7 @@ export class GetMemberGroupsRequestBuilder {
     };
     /**
      * Return all the group IDs for the groups that the specified user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -38,7 +40,7 @@ export class GetMemberGroupsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -48,10 +50,11 @@ export class GetMemberGroupsRequestBuilder {
     };
     /**
      * Return all the group IDs for the groups that the specified user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetMemberGroupsResponse
+     * @see {@link https://docs.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetMemberGroupsPostRequestBody | undefined, requestConfiguration?: GetMemberGroupsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetMemberGroupsResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,7 @@
 
-/** The group's profile photo */
+/**
+ * The group's profile photo
+ */
 export class PhotoRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

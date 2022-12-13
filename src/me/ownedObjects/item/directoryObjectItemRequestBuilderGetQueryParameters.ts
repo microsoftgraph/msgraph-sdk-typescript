@@ -1,5 +1,7 @@
 
-/** Directory objects that are owned by the user. Read-only. Nullable. Supports $expand. */
+/**
+ * Directory objects that are owned by the user. Read-only. Nullable. Supports $expand.
+ */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

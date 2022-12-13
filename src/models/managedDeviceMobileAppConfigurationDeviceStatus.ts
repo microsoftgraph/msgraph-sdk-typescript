@@ -2,7 +2,9 @@ import {ComplianceStatus} from './complianceStatus';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains properties, inherited properties and actions for an MDM mobile app configuration status for a device. */
+/**
+ * Contains properties, inherited properties and actions for an MDM mobile app configuration status for a device.
+ */
 export class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity implements Parsable {
     /** The DateTime when device compliance grace period expires */
     private _complianceGracePeriodExpirationDateTime?: Date | undefined;

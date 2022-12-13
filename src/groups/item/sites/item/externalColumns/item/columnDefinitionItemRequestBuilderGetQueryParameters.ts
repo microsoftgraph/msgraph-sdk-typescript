@@ -1,5 +1,7 @@
 
-/** Get externalColumns from groups */
+/**
+ * Get externalColumns from groups
+ */
 export class ColumnDefinitionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

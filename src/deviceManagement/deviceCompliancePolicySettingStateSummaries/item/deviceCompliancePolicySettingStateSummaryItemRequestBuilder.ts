@@ -9,7 +9,9 @@ import {DeviceComplianceSettingStatesRequestBuilder} from './deviceComplianceSet
 import {DeviceComplianceSettingStateItemRequestBuilder} from './deviceComplianceSettingStates/item/deviceComplianceSettingStateItemRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity. */
+/**
+ * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity.
+ */
 export class DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
     /** Provides operations to manage the deviceComplianceSettingStates property of the microsoft.graph.deviceCompliancePolicySettingStateSummary entity. */
     public get deviceComplianceSettingStates(): DeviceComplianceSettingStatesRequestBuilder {
@@ -60,7 +62,7 @@ export class DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -70,7 +72,7 @@ export class DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceCompliancePolicySettingStateSummaries in deviceManagement
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -80,7 +82,7 @@ export class DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -132,7 +134,7 @@ export class DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceCompliancePolicySettingStateSummaries in deviceManagement
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceCompliancePolicySettingStateSummary

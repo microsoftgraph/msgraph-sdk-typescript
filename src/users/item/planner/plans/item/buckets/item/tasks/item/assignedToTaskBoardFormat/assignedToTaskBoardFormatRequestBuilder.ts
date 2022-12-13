@@ -7,7 +7,9 @@ import {AssignedToTaskBoardFormatRequestBuilderGetRequestConfiguration} from './
 import {AssignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration} from './assignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity. */
+/**
+ * Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity.
+ */
 export class AssignedToTaskBoardFormatRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -54,7 +56,7 @@ export class AssignedToTaskBoardFormatRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -64,7 +66,7 @@ export class AssignedToTaskBoardFormatRequestBuilder {
     };
     /**
      * Update the properties of **plannerAssignedToTaskBoardTaskFormat** object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -74,7 +76,7 @@ export class AssignedToTaskBoardFormatRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -102,6 +104,7 @@ export class AssignedToTaskBoardFormatRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerAssignedToTaskBoardTaskFormat
+     * @see {@link https://docs.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AssignedToTaskBoardFormatRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerAssignedToTaskBoardTaskFormat | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -115,10 +118,11 @@ export class AssignedToTaskBoardFormatRequestBuilder {
     };
     /**
      * Update the properties of **plannerAssignedToTaskBoardTaskFormat** object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerAssignedToTaskBoardTaskFormat
+     * @see {@link https://docs.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PlannerAssignedToTaskBoardTaskFormat | undefined, requestConfiguration?: AssignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerAssignedToTaskBoardTaskFormat | undefined> {
         if(!body) throw new Error("body cannot be undefined");

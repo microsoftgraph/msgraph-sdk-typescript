@@ -9,7 +9,9 @@ import {Entity, IdentitySet, PlannerAppliedCategories, PlannerAssignedToTaskBoar
 import {PlannerPreviewType} from './plannerPreviewType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the appCatalogs singleton.
+ */
 export class PlannerTask extends Entity implements Parsable {
     /** Number of checklist items with value set to false, representing incomplete items. */
     private _activeChecklistItemCount?: number | undefined;

@@ -1,5 +1,7 @@
 
-/** Adds an additional source to the eDiscovery search. */
+/**
+ * Adds an additional source to the eDiscovery search.
+ */
 export class DataSourceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

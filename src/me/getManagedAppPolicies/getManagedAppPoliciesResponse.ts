@@ -2,7 +2,9 @@ import {BaseCollectionPaginationCountResponse, ManagedAppPolicy} from '../../mod
 import {createManagedAppPolicyFromDiscriminatorValue} from '../../models/createManagedAppPolicyFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getManagedAppPolicies method. */
+/**
+ * Provides operations to call the getManagedAppPolicies method.
+ */
 export class GetManagedAppPoliciesResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ManagedAppPolicy[] | undefined;

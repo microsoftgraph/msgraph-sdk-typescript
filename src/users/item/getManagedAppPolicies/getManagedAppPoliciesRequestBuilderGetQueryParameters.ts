@@ -1,5 +1,7 @@
 
-/** Gets app restrictions for a given user. */
+/**
+ * Gets app restrictions for a given user.
+ */
 export class GetManagedAppPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

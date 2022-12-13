@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {RemoveEmailRequestBuilderPostRequestConfiguration} from './removeEmailRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the removeEmail method. */
+/**
+ * Provides operations to call the removeEmail method.
+ */
 export class RemoveEmailRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -44,6 +46,7 @@ export class RemoveEmailRequestBuilder {
      * Remove the email address of a channel. You can remove an email address only if it was provisioned using the provisionEmail method or through the Microsoft Teams client.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/channel-removeemail?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: RemoveEmailRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createPostRequestInformation(

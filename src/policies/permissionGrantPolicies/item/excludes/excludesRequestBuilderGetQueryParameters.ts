@@ -1,5 +1,7 @@
 
-/** Retrieve the condition sets which are *excluded* in a permissionGrantPolicy. */
+/**
+ * Retrieve the condition sets which are *excluded* in a permissionGrantPolicy.
+ */
 export class ExcludesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

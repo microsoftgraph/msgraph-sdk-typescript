@@ -1,5 +1,7 @@
 
-/** Returns a list of eDiscoverySearch objects associated with this case. */
+/**
+ * Returns a list of eDiscoverySearch objects associated with this case.
+ */
 export class EdiscoverySearchItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

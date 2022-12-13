@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {GetSharePointActivityUserDetailWithDateRequestBuilderGetRequestConfiguration} from './getSharePointActivityUserDetailWithDateRequestBuilderGetRequestConfiguration';
 import {DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getSharePointActivityUserDetail method. */
+/**
+ * Provides operations to call the getSharePointActivityUserDetail method.
+ */
 export class GetSharePointActivityUserDetailWithDateRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

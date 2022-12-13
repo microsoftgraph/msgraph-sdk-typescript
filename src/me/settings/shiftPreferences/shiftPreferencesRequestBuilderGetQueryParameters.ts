@@ -1,5 +1,7 @@
 
-/** Retrieve the properties and relationships of a shiftPreferences object by ID. */
+/**
+ * Retrieve the properties and relationships of a shiftPreferences object by ID.
+ */
 export class ShiftPreferencesRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

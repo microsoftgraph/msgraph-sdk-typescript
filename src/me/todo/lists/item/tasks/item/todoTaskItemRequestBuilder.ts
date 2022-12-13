@@ -17,7 +17,9 @@ import {TodoTaskItemRequestBuilderGetRequestConfiguration} from './todoTaskItemR
 import {TodoTaskItemRequestBuilderPatchRequestConfiguration} from './todoTaskItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity. */
+/**
+ * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
+ */
 export class TodoTaskItemRequestBuilder {
     /** Provides operations to manage the attachments property of the microsoft.graph.todoTask entity. */
     public get attachments(): AttachmentsRequestBuilder {
@@ -117,7 +119,7 @@ export class TodoTaskItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -127,7 +129,7 @@ export class TodoTaskItemRequestBuilder {
     };
     /**
      * Update the navigation property tasks in me
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -137,7 +139,7 @@ export class TodoTaskItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -200,7 +202,7 @@ export class TodoTaskItemRequestBuilder {
     };
     /**
      * Update the navigation property tasks in me
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TodoTask

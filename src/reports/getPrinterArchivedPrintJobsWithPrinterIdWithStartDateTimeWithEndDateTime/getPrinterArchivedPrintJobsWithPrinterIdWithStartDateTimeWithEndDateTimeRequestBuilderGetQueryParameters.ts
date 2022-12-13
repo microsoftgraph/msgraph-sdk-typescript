@@ -1,5 +1,7 @@
 
-/** Invoke function getPrinterArchivedPrintJobs */
+/**
+ * Invoke function getPrinterArchivedPrintJobs
+ */
 export class GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

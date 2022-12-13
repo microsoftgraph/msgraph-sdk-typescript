@@ -27,9 +27,9 @@ export class ChangeNotification implements AdditionalDataHolder, Parsable {
     /** The expiration time for the subscription. Required. */
     private _subscriptionExpirationDateTime?: Date | undefined;
     /** The unique identifier of the subscription that generated the notification.Required. */
-    private _subscriptionId?: string | undefined;
+    private _subscriptionId?: Guid | undefined;
     /** The unique identifier of the tenant from which the change notification originated. Required. */
-    private _tenantId?: string | undefined;
+    private _tenantId?: Guid | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -107,8 +107,8 @@ export class ChangeNotification implements AdditionalDataHolder, Parsable {
             "resource": n => { this.resource = n.getStringValue(); },
             "resourceData": n => { this.resourceData = n.getObjectValue<ResourceData>(createResourceDataFromDiscriminatorValue); },
             "subscriptionExpirationDateTime": n => { this.subscriptionExpirationDateTime = n.getDateValue(); },
-            "subscriptionId": n => { this.subscriptionId = n.getStringValue(); },
-            "tenantId": n => { this.tenantId = n.getStringValue(); },
+            "subscriptionId": n => { this.subscriptionId = n.getGuidValue(); },
+            "tenantId": n => { this.tenantId = n.getGuidValue(); },
         };
     };
     /**
@@ -196,8 +196,8 @@ export class ChangeNotification implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("resource", this.resource);
         writer.writeObjectValue<ResourceData>("resourceData", this.resourceData);
         writer.writeDateValue("subscriptionExpirationDateTime", this.subscriptionExpirationDateTime);
-        writer.writeStringValue("subscriptionId", this.subscriptionId);
-        writer.writeStringValue("tenantId", this.tenantId);
+        writer.writeGuidValue("subscriptionId", this.subscriptionId);
+        writer.writeGuidValue("tenantId", this.tenantId);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -216,7 +216,7 @@ export class ChangeNotification implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the subscriptionId property value. The unique identifier of the subscription that generated the notification.Required.
-     * @returns a string
+     * @returns a Guid
      */
     public get subscriptionId() {
         return this._subscriptionId;
@@ -225,12 +225,12 @@ export class ChangeNotification implements AdditionalDataHolder, Parsable {
      * Sets the subscriptionId property value. The unique identifier of the subscription that generated the notification.Required.
      * @param value Value to set for the subscriptionId property.
      */
-    public set subscriptionId(value: string | undefined) {
+    public set subscriptionId(value: Guid | undefined) {
         this._subscriptionId = value;
     };
     /**
      * Gets the tenantId property value. The unique identifier of the tenant from which the change notification originated. Required.
-     * @returns a string
+     * @returns a Guid
      */
     public get tenantId() {
         return this._tenantId;
@@ -239,7 +239,7 @@ export class ChangeNotification implements AdditionalDataHolder, Parsable {
      * Sets the tenantId property value. The unique identifier of the tenant from which the change notification originated. Required.
      * @param value Value to set for the tenantId property.
      */
-    public set tenantId(value: string | undefined) {
+    public set tenantId(value: Guid | undefined) {
         this._tenantId = value;
     };
 }

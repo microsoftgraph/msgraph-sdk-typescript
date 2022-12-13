@@ -1,5 +1,7 @@
 
-/** Users assigned to the tag. */
+/**
+ * Users assigned to the tag.
+ */
 export class TeamworkTagMemberItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

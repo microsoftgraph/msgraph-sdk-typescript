@@ -1,5 +1,7 @@
 
-/** Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem]. */
+/**
+ * Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem].
+ */
 export class DriveRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

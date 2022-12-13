@@ -1,5 +1,7 @@
 
-/** Get a list of the ediscoveryIndexOperations associated with an ediscoveryCustodian. */
+/**
+ * Get a list of the ediscoveryIndexOperations associated with an ediscoveryCustodian.
+ */
 export class LastIndexOperationRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

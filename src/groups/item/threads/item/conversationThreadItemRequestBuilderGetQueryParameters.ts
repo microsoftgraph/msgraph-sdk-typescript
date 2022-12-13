@@ -1,5 +1,7 @@
 
-/** The group's conversation threads. Nullable. */
+/**
+ * The group's conversation threads. Nullable.
+ */
 export class ConversationThreadItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

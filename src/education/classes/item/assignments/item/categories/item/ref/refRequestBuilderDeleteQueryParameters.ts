@@ -1,5 +1,7 @@
 
-/** Delete ref of navigation property categories for education */
+/**
+ * Delete ref of navigation property categories for education
+ */
 export class RefRequestBuilderDeleteQueryParameters {
     /** Delete Uri */
     public id?: string | undefined;

@@ -1,5 +1,7 @@
 
-/** The software update status summary. */
+/**
+ * The software update status summary.
+ */
 export class SoftwareUpdateStatusSummaryRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

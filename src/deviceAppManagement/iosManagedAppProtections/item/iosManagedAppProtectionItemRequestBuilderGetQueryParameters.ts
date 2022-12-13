@@ -1,5 +1,7 @@
 
-/** iOS managed app policies. */
+/**
+ * iOS managed app policies.
+ */
 export class IosManagedAppProtectionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** The tokenIssuancePolicies assigned to this service principal. */
+/**
+ * The tokenIssuancePolicies assigned to this service principal.
+ */
 export class TokenIssuancePolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

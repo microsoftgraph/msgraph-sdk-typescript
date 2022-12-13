@@ -9,7 +9,9 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the channels property of the microsoft.graph.team entity. */
+/**
+ * Provides operations to manage the channels property of the microsoft.graph.team entity.
+ */
 export class ChannelsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -44,7 +46,7 @@ export class ChannelsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -54,7 +56,7 @@ export class ChannelsRequestBuilder {
     };
     /**
      * Create a new channel in a team, as specified in the request body.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -64,7 +66,7 @@ export class ChannelsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -77,6 +79,7 @@ export class ChannelsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChannelCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/channel-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChannelsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChannelCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -97,10 +100,11 @@ export class ChannelsRequestBuilder {
     };
     /**
      * Create a new channel in a team, as specified in the request body.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Channel
+     * @see {@link https://docs.microsoft.com/graph/api/channel-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Channel | undefined, requestConfiguration?: ChannelsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Channel | undefined> {
         if(!body) throw new Error("body cannot be undefined");

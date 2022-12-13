@@ -1,5 +1,7 @@
 
-/** The set of permissions for the item. Read-only. Nullable. */
+/**
+ * The set of permissions for the item. Read-only. Nullable.
+ */
 export class PermissionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

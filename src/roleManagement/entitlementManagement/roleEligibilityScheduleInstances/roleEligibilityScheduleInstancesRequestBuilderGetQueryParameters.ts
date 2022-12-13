@@ -1,5 +1,7 @@
 
-/** Get the instances of role eligibilities. */
+/**
+ * Get the instances of role eligibilities.
+ */
 export class RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

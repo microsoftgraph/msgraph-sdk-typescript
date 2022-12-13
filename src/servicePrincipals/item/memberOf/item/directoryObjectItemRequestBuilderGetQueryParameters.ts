@@ -1,5 +1,7 @@
 
-/** Roles that this service principal is a member of. HTTP Methods: GET Read-only. Nullable. Supports $expand. */
+/**
+ * Roles that this service principal is a member of. HTTP Methods: GET Read-only. Nullable. Supports $expand.
+ */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

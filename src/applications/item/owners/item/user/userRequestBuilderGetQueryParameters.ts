@@ -1,5 +1,7 @@
 
-/** Get the item of type microsoft.graph.directoryObject as microsoft.graph.user */
+/**
+ * Get the item of type microsoft.graph.directoryObject as microsoft.graph.user
+ */
 export class UserRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

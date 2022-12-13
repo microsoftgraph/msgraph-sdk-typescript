@@ -1,5 +1,7 @@
 
-/** The managed app registrations. */
+/**
+ * The managed app registrations.
+ */
 export class ManagedAppRegistrationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -13,7 +13,9 @@ import {ServicePrincipalRequestBuilder} from './servicePrincipal/servicePrincipa
 import {UserRequestBuilder} from './user/userRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the owners property of the microsoft.graph.group entity. */
+/**
+ * Provides operations to manage the owners property of the microsoft.graph.group entity.
+ */
 export class OwnersRequestBuilder {
     /** Casts the previous resource to application. */
     public get application(): ApplicationRequestBuilder {
@@ -76,7 +78,7 @@ export class OwnersRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -89,6 +91,7 @@ export class OwnersRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryObjectCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/group-list-owners?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OwnersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(

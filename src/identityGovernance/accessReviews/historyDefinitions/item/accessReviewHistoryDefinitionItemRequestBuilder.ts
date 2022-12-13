@@ -9,7 +9,9 @@ import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
 import {AccessReviewHistoryInstanceItemRequestBuilder} from './instances/item/accessReviewHistoryInstanceItemRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity. */
+/**
+ * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
+ */
 export class AccessReviewHistoryDefinitionItemRequestBuilder {
     /** Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity. */
     public get instances(): InstancesRequestBuilder {
@@ -60,7 +62,7 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -70,7 +72,7 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder {
     };
     /**
      * Update the navigation property historyDefinitions in identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -80,7 +82,7 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -132,7 +134,7 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder {
     };
     /**
      * Update the navigation property historyDefinitions in identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewHistoryDefinition

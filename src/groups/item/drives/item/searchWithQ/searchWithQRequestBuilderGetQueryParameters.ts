@@ -1,5 +1,7 @@
 
-/** Invoke function search */
+/**
+ * Invoke function search
+ */
 export class SearchWithQRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

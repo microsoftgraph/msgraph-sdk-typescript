@@ -1,5 +1,7 @@
 
-/** Replies for a specified message. Supports $expand for channel messages. */
+/**
+ * Replies for a specified message. Supports $expand for channel messages.
+ */
 export class ChatMessageItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

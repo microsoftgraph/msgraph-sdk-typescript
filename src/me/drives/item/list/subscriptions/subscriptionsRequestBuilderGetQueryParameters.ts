@@ -1,5 +1,7 @@
 
-/** The set of subscriptions on the list. */
+/**
+ * The set of subscriptions on the list.
+ */
 export class SubscriptionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

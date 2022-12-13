@@ -1,5 +1,7 @@
 
-/** For drives in SharePoint, the underlying document library list. Read-only. Nullable. */
+/**
+ * For drives in SharePoint, the underlying document library list. Read-only. Nullable.
+ */
 export class ListRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

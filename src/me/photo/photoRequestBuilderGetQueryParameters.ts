@@ -1,5 +1,7 @@
 
-/** The user's profile photo. Read-only. */
+/**
+ * The user's profile photo. Read-only.
+ */
 export class PhotoRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

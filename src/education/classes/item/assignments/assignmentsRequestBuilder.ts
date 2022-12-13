@@ -9,7 +9,9 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the assignments property of the microsoft.graph.educationClass entity. */
+/**
+ * Provides operations to manage the assignments property of the microsoft.graph.educationClass entity.
+ */
 export class AssignmentsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -44,7 +46,7 @@ export class AssignmentsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -54,7 +56,7 @@ export class AssignmentsRequestBuilder {
     };
     /**
      * Create a new assignment.  Only teachers in a class can create an assignment. Assignments start in the Draft state, which means that students will not see the assignment until publication.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -64,7 +66,7 @@ export class AssignmentsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -84,6 +86,7 @@ export class AssignmentsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationAssignmentCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/educationclass-list-assignments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AssignmentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationAssignmentCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -97,10 +100,11 @@ export class AssignmentsRequestBuilder {
     };
     /**
      * Create a new assignment.  Only teachers in a class can create an assignment. Assignments start in the Draft state, which means that students will not see the assignment until publication.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/educationclass-post-assignment?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EducationAssignment | undefined, requestConfiguration?: AssignmentsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");

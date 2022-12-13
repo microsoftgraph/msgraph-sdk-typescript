@@ -1,5 +1,7 @@
 
-/** Get directReports from contacts */
+/**
+ * Get directReports from contacts
+ */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

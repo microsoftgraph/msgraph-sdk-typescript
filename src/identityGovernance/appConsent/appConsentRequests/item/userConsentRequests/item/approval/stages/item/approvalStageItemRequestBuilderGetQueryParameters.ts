@@ -1,5 +1,7 @@
 
-/** A collection of stages in the approval decision. */
+/**
+ * A collection of stages in the approval decision.
+ */
 export class ApprovalStageItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

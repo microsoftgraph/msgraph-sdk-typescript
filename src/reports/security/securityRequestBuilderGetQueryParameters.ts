@@ -1,5 +1,7 @@
 
-/** Get security from reports */
+/**
+ * Get security from reports
+ */
 export class SecurityRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

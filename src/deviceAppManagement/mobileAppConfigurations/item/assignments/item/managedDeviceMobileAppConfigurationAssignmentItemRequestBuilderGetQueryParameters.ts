@@ -1,5 +1,7 @@
 
-/** The list of group assignemenets for app configration. */
+/**
+ * The list of group assignemenets for app configration.
+ */
 export class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** Device Configuration Setting State Device Summary */
+/**
+ * Device Configuration Setting State Device Summary
+ */
 export class SettingStateDeviceSummaryItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

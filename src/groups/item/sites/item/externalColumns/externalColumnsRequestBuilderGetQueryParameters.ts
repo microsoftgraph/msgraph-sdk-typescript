@@ -1,5 +1,7 @@
 
-/** Get externalColumns from groups */
+/**
+ * Get externalColumns from groups
+ */
 export class ExternalColumnsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

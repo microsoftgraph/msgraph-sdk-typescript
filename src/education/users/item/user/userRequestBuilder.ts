@@ -5,7 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {UserRequestBuilderGetRequestConfiguration} from './userRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the user property of the microsoft.graph.educationUser entity. */
+/**
+ * Provides operations to manage the user property of the microsoft.graph.educationUser entity.
+ */
 export class UserRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -36,7 +38,7 @@ export class UserRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -49,6 +51,7 @@ export class UserRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of User
+     * @see {@link https://docs.microsoft.com/graph/api/educationuser-get-user?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<User | undefined> {
         const requestInfo = this.createGetRequestInformation(

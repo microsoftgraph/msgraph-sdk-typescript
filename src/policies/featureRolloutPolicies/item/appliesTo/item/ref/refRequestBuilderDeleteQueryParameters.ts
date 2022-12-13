@@ -1,5 +1,7 @@
 
-/** Delete ref of navigation property appliesTo for policies */
+/**
+ * Delete ref of navigation property appliesTo for policies
+ */
 export class RefRequestBuilderDeleteQueryParameters {
     /** Delete Uri */
     public id?: string | undefined;

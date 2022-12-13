@@ -1,5 +1,7 @@
 
-/** Retrieve a list of **plannerPlan** objects owned by a group object. */
+/**
+ * Retrieve a list of **plannerPlan** objects owned by a group object.
+ */
 export class PlansRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

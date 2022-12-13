@@ -1,5 +1,7 @@
 
-/** The install state of the eBook. */
+/**
+ * The install state of the eBook.
+ */
 export class DeviceStatesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

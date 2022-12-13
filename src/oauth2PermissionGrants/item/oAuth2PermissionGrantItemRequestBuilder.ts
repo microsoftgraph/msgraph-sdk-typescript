@@ -7,7 +7,9 @@ import {OAuth2PermissionGrantItemRequestBuilderGetRequestConfiguration} from './
 import {OAuth2PermissionGrantItemRequestBuilderPatchRequestConfiguration} from './oAuth2PermissionGrantItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of oAuth2PermissionGrant entities. */
+/**
+ * Provides operations to manage the collection of oAuth2PermissionGrant entities.
+ */
 export class OAuth2PermissionGrantItemRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -54,7 +56,7 @@ export class OAuth2PermissionGrantItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -64,7 +66,7 @@ export class OAuth2PermissionGrantItemRequestBuilder {
     };
     /**
      * Update the properties of oAuth2PermissionGrant object, representing a delegated permission grant. An **oAuth2PermissionGrant** can be updated to change which delegated permissions are granted, by adding or removing items from the list in **scopes**.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -74,7 +76,7 @@ export class OAuth2PermissionGrantItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -86,6 +88,7 @@ export class OAuth2PermissionGrantItemRequestBuilder {
      * Delete a delegated permission grant, represented by an oAuth2PermissionGrant object. When a delegated permission grant is deleted, the access it granted is revoked. Existing access tokens will continue to be valid for their lifetime, but new access tokens will not be granted for the delegated permissions identified in the deleted **oAuth2PermissionGrant**.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/oauth2permissiongrant-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: OAuth2PermissionGrantItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
@@ -102,6 +105,7 @@ export class OAuth2PermissionGrantItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OAuth2PermissionGrant
+     * @see {@link https://docs.microsoft.com/graph/api/oauth2permissiongrant-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OAuth2PermissionGrantItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OAuth2PermissionGrant | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -115,10 +119,11 @@ export class OAuth2PermissionGrantItemRequestBuilder {
     };
     /**
      * Update the properties of oAuth2PermissionGrant object, representing a delegated permission grant. An **oAuth2PermissionGrant** can be updated to change which delegated permissions are granted, by adding or removing items from the list in **scopes**.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OAuth2PermissionGrant
+     * @see {@link https://docs.microsoft.com/graph/api/oauth2permissiongrant-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: OAuth2PermissionGrant | undefined, requestConfiguration?: OAuth2PermissionGrantItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OAuth2PermissionGrant | undefined> {
         if(!body) throw new Error("body cannot be undefined");

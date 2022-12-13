@@ -1,5 +1,7 @@
 
-/** Read the properties and relationships of an adminConsentRequestPolicy object. */
+/**
+ * Read the properties and relationships of an adminConsentRequestPolicy object.
+ */
 export class AdminConsentRequestPolicyRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

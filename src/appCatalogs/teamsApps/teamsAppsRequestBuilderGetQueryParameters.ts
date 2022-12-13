@@ -1,5 +1,7 @@
 
-/** List apps from the Microsoft Teams app catalog.This includes apps from the Microsoft Teams store, as well as apps from your organization's app catalog (the tenant app catalog). To get apps from your organization's app catalog only, specify `organization` as the **distributionMethod** in the request. */
+/**
+ * List apps from the Microsoft Teams app catalog.This includes apps from the Microsoft Teams store, as well as apps from your organization's app catalog (the tenant app catalog). To get apps from your organization's app catalog only, specify `organization` as the **distributionMethod** in the request.
+ */
 export class TeamsAppsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,7 @@
 
-/** Collection of all groups available in the term store. */
+/**
+ * Collection of all groups available in the term store.
+ */
 export class GroupItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

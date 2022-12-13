@@ -1,5 +1,7 @@
 
-/** Get appConsent from identityGovernance */
+/**
+ * Get appConsent from identityGovernance
+ */
 export class AppConsentRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** The windows information protection network learning summaries. */
+/**
+ * The windows information protection network learning summaries.
+ */
 export class WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

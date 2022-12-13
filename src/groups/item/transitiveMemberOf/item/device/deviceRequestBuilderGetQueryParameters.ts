@@ -1,5 +1,7 @@
 
-/** Get the item of type microsoft.graph.directoryObject as microsoft.graph.device */
+/**
+ * Get the item of type microsoft.graph.directoryObject as microsoft.graph.device
+ */
 export class DeviceRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

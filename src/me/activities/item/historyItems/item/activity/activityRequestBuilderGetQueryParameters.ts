@@ -1,5 +1,7 @@
 
-/** Optional. NavigationProperty/Containment; navigation property to the associated activity. */
+/**
+ * Optional. NavigationProperty/Containment; navigation property to the associated activity.
+ */
 export class ActivityRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

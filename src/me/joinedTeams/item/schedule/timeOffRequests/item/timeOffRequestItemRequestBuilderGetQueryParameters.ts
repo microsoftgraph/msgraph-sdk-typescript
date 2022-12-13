@@ -1,5 +1,7 @@
 
-/** Get timeOffRequests from me */
+/**
+ * Get timeOffRequests from me
+ */
 export class TimeOffRequestItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

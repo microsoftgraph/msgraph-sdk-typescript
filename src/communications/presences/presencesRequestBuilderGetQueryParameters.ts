@@ -1,5 +1,7 @@
 
-/** Get presences from communications */
+/**
+ * Get presences from communications
+ */
 export class PresencesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

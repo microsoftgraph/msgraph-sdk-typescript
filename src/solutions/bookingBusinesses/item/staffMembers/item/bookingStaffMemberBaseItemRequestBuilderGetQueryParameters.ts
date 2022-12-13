@@ -1,5 +1,7 @@
 
-/** All the staff members that provide services in this business. Read-only. Nullable. */
+/**
+ * All the staff members that provide services in this business. Read-only. Nullable.
+ */
 export class BookingStaffMemberBaseItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

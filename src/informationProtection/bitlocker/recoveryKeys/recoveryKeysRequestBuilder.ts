@@ -6,7 +6,9 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RecoveryKeysRequestBuilderGetRequestConfiguration} from './recoveryKeysRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity. */
+/**
+ * Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity.
+ */
 export class RecoveryKeysRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -41,7 +43,7 @@ export class RecoveryKeysRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -54,6 +56,7 @@ export class RecoveryKeysRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BitlockerRecoveryKeyCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/bitlocker-list-recoverykeys?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RecoveryKeysRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BitlockerRecoveryKeyCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(

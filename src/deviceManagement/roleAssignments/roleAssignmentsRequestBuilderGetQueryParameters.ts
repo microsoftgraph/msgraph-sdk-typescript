@@ -1,5 +1,7 @@
 
-/** The Role Assignments. */
+/**
+ * The Role Assignments.
+ */
 export class RoleAssignmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

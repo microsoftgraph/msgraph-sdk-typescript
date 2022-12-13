@@ -1,5 +1,7 @@
 
-/** Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed. */
+/**
+ * Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
+ */
 export class AccessReviewInstanceDecisionItemItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

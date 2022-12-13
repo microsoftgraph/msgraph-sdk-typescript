@@ -1,5 +1,7 @@
 
-/** People that are relevant to the user. Read-only. Nullable. */
+/**
+ * People that are relevant to the user. Read-only. Nullable.
+ */
 export class PersonItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

@@ -4,7 +4,9 @@ import {DeviceConfigurationSettingState, Entity} from './index';
 import {PolicyPlatformType} from './policyPlatformType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Device Configuration State for a given device. */
+/**
+ * Device Configuration State for a given device.
+ */
 export class DeviceConfigurationState extends Entity implements Parsable {
     /** The name of the policy for this policyBase */
     private _displayName?: string | undefined;

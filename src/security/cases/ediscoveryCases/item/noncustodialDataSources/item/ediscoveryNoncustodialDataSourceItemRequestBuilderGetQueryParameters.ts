@@ -1,5 +1,7 @@
 
-/** Returns a list of case ediscoveryNoncustodialDataSource objects for this case. */
+/**
+ * Returns a list of case ediscoveryNoncustodialDataSource objects for this case.
+ */
 export class EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -110,7 +110,9 @@ import {enableBackingStoreForSerializationWriterFactory, getPathParameters, Pars
 import {JsonParseNodeFactory, JsonSerializationWriterFactory} from '@microsoft/kiota-serialization-json';
 import {TextParseNodeFactory, TextSerializationWriterFactory} from '@microsoft/kiota-serialization-text';
 
-/** The main entry point of the SDK, exposes the configuration and the fluent API. */
+/**
+ * The main entry point of the SDK, exposes the configuration and the fluent API.
+ */
 export class GraphBaseServiceClient {
     /** Provides operations to manage the admin singleton. */
     public get admin(): AdminRequestBuilder {

@@ -1,5 +1,7 @@
 
-/** Get a list of the versions of a document set item in a list. */
+/**
+ * Get a list of the versions of a document set item in a list.
+ */
 export class DocumentSetVersionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

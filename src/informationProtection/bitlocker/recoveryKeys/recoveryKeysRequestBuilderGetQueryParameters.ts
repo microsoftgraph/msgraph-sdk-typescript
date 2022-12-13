@@ -1,5 +1,7 @@
 
-/** Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the **key** property. For information about how to read the **key** property, see Get bitlockerRecoveryKey. */
+/**
+ * Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the **key** property. For information about how to read the **key** property, see Get bitlockerRecoveryKey.
+ */
 export class RecoveryKeysRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

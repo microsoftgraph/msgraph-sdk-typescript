@@ -1,5 +1,7 @@
 
-/** Represents the current status of a user's response to a company's customizable terms of use agreement. */
+/**
+ * Represents the current status of a user's response to a company's customizable terms of use agreement.
+ */
 export class AgreementAcceptanceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

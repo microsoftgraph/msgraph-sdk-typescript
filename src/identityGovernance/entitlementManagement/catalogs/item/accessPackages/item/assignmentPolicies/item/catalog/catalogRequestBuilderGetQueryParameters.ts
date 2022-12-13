@@ -1,5 +1,7 @@
 
-/** Catalog of the access package containing this policy. Read-only. */
+/**
+ * Catalog of the access package containing this policy. Read-only.
+ */
 export class CatalogRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

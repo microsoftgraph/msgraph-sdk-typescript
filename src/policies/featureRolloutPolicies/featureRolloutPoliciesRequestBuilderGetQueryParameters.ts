@@ -1,5 +1,7 @@
 
-/** Retrieve a list of featureRolloutPolicy objects. */
+/**
+ * Retrieve a list of featureRolloutPolicy objects.
+ */
 export class FeatureRolloutPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

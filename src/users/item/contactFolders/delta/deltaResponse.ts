@@ -2,7 +2,9 @@ import {BaseDeltaFunctionResponse, ContactFolder} from '../../../../models/';
 import {createContactFolderFromDiscriminatorValue} from '../../../../models/createContactFolderFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the delta method. */
+/**
+ * Provides operations to call the delta method.
+ */
 export class DeltaResponse extends BaseDeltaFunctionResponse implements Parsable {
     /** The value property */
     private _value?: ContactFolder[] | undefined;

@@ -1,5 +1,7 @@
 
-/** Invoke function availableProviderTypes */
+/**
+ * Invoke function availableProviderTypes
+ */
 export class AvailableProviderTypesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

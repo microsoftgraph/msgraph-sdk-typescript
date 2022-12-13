@@ -1,5 +1,7 @@
 
-/** The Managed Device Mobile Application Configurations. */
+/**
+ * The Managed Device Mobile Application Configurations.
+ */
 export class MobileAppConfigurationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

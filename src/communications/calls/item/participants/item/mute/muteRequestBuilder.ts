@@ -6,7 +6,9 @@ import {MutePostRequestBody} from './index';
 import {MuteRequestBuilderPostRequestConfiguration} from './muteRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the mute method. */
+/**
+ * Provides operations to call the mute method.
+ */
 export class MuteRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -29,7 +31,7 @@ export class MuteRequestBuilder {
     };
     /**
      * Mute a specific participant in the call. This is a server mute, meaning that the server will drop all audio packets for this participant, even if the participant continues to stream audio. For more information about how to handle mute operations, see muteParticipantOperation.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -39,7 +41,7 @@ export class MuteRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -49,10 +51,11 @@ export class MuteRequestBuilder {
     };
     /**
      * Mute a specific participant in the call. This is a server mute, meaning that the server will drop all audio packets for this participant, even if the participant continues to stream audio. For more information about how to handle mute operations, see muteParticipantOperation.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MuteParticipantOperation
+     * @see {@link https://docs.microsoft.com/graph/api/participant-mute?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MutePostRequestBody | undefined, requestConfiguration?: MuteRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MuteParticipantOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

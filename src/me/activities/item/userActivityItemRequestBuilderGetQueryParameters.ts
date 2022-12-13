@@ -1,5 +1,7 @@
 
-/** The user's activities across devices. Read-only. Nullable. */
+/**
+ * The user's activities across devices. Read-only. Nullable.
+ */
 export class UserActivityItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

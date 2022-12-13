@@ -1,5 +1,7 @@
 
-/** The list of troubleshooting events for the tenant. */
+/**
+ * The list of troubleshooting events for the tenant.
+ */
 export class TroubleshootingEventsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

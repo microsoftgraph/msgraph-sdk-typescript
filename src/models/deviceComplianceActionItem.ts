@@ -2,7 +2,9 @@ import {DeviceComplianceActionType} from './deviceComplianceActionType';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Scheduled Action Configuration */
+/**
+ * Scheduled Action Configuration
+ */
 export class DeviceComplianceActionItem extends Entity implements Parsable {
     /** Scheduled Action Type Enum */
     private _actionType?: DeviceComplianceActionType | undefined;

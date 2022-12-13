@@ -1,5 +1,7 @@
 
-/** The list of Device Management Partners configured by the tenant. */
+/**
+ * The list of Device Management Partners configured by the tenant.
+ */
 export class DeviceManagementPartnersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

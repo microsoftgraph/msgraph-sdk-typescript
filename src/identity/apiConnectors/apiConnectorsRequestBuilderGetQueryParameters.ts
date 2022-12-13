@@ -1,5 +1,7 @@
 
-/** Read the properties of an identityApiConnector object. */
+/**
+ * Read the properties of an identityApiConnector object.
+ */
 export class ApiConnectorsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

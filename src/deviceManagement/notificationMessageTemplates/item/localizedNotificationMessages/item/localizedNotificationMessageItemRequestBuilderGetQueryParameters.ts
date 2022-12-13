@@ -1,5 +1,7 @@
 
-/** The list of localized messages for this Notification Message Template. */
+/**
+ * The list of localized messages for this Notification Message Template.
+ */
 export class LocalizedNotificationMessageItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

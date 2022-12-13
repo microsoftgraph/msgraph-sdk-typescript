@@ -1,5 +1,7 @@
 
-/** The list of Compliance Management Partners configured by the tenant. */
+/**
+ * The list of Compliance Management Partners configured by the tenant.
+ */
 export class ComplianceManagementPartnersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

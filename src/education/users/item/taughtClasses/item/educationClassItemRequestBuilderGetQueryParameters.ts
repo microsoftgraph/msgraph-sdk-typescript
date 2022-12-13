@@ -1,5 +1,7 @@
 
-/** Classes for which the user is a teacher. */
+/**
+ * Classes for which the user is a teacher.
+ */
 export class EducationClassItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

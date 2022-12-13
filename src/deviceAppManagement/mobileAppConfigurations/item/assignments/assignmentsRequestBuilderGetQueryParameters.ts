@@ -1,5 +1,7 @@
 
-/** The list of group assignemenets for app configration. */
+/**
+ * The list of group assignemenets for app configration.
+ */
 export class AssignmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

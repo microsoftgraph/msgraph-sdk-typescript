@@ -1,5 +1,7 @@
 
-/** Retrieve a list of contentSharingSession objects in a call. */
+/**
+ * Retrieve a list of contentSharingSession objects in a call.
+ */
 export class ContentSharingSessionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

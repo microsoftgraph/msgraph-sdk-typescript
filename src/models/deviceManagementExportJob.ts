@@ -4,7 +4,9 @@ import {DeviceManagementReportStatus} from './deviceManagementReportStatus';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Entity representing a job to export a report */
+/**
+ * Entity representing a job to export a report
+ */
 export class DeviceManagementExportJob extends Entity implements Parsable {
     /** Time that the exported report expires */
     private _expirationDateTime?: Date | undefined;

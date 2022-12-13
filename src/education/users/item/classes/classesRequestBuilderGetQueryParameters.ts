@@ -1,5 +1,7 @@
 
-/** Get the educationClass resources an educationUser is a member of. */
+/**
+ * Get the educationClass resources an educationUser is a member of.
+ */
 export class ClassesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

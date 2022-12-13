@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {UnsetVerifiedPublisherRequestBuilderPostRequestConfiguration} from './unsetVerifiedPublisherRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the unsetVerifiedPublisher method. */
+/**
+ * Provides operations to call the unsetVerifiedPublisher method.
+ */
 export class UnsetVerifiedPublisherRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -44,6 +46,7 @@ export class UnsetVerifiedPublisherRequestBuilder {
      * Unset the verifiedPublisher previously set on an application, removing all verified publisher properties. For more information, see Publisher verification.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/application-unsetverifiedpublisher?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: UnsetVerifiedPublisherRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createPostRequestInformation(

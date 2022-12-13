@@ -1,5 +1,7 @@
 
-/** Get the collection of [lists][] for a [site][]. Lists with the [system][] facet are hidden by default.To list them, include `system` in your `$select` statement. */
+/**
+ * Get the collection of [lists][] for a [site][]. Lists with the [system][] facet are hidden by default.To list them, include `system` in your `$select` statement.
+ */
 export class ListsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

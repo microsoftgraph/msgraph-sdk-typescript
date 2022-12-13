@@ -1,5 +1,7 @@
 
-/** A collection of simulation automation runs. */
+/**
+ * A collection of simulation automation runs.
+ */
 export class SimulationAutomationRunItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;
