@@ -7,7 +7,7 @@ import {Entity, IdentitySet, ItemReference, SharePointIdentitySet, SharingInvita
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of applicationTemplate entities.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class Permission extends Entity implements Parsable {
     /** A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional. */

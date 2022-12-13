@@ -3,7 +3,7 @@ import {PermissionClassificationType} from './permissionClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Casts the previous resource to servicePrincipal.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class DelegatedPermissionClassification extends Entity implements Parsable {
     /** The classification value being given. Possible value: low. Does not support $filter. */

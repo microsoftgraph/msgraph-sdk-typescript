@@ -2,6 +2,9 @@ import {createActivityHistoryItemFromDiscriminatorValue} from './createActivityH
 import {ActivityHistoryItem, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
+ */
 export class ActivityHistoryItemCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ActivityHistoryItem[] | undefined;

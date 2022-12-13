@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the deviceAppManagement singleton. */
 export enum InstallIntent {
     /** Available install intent. */
     Available = "available",

@@ -2,6 +2,9 @@ import {createRiskyServicePrincipalHistoryItemFromDiscriminatorValue} from './cr
 import {BaseCollectionPaginationCountResponse, RiskyServicePrincipalHistoryItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
+ */
 export class RiskyServicePrincipalHistoryItemCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: RiskyServicePrincipalHistoryItem[] | undefined;

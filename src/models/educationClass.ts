@@ -13,7 +13,7 @@ import {EducationAssignment, EducationAssignmentDefaults, EducationAssignmentSet
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the educationRoot singleton.
+ * Provides operations to manage the collection of agreementAcceptance entities.
  */
 export class EducationClass extends Entity implements Parsable {
     /** All categories associated with this class. Nullable. */

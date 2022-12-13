@@ -2,6 +2,9 @@ import {createServicePrincipalRiskDetectionFromDiscriminatorValue} from './creat
 import {BaseCollectionPaginationCountResponse, ServicePrincipalRiskDetection} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
+ */
 export class ServicePrincipalRiskDetectionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ServicePrincipalRiskDetection[] | undefined;

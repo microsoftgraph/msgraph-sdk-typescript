@@ -2,9 +2,6 @@ import {createCalendarPermissionFromDiscriminatorValue} from './createCalendarPe
 import {BaseCollectionPaginationCountResponse, CalendarPermission} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
- */
 export class CalendarPermissionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: CalendarPermission[] | undefined;

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum SourceType {
     Mailbox = "mailbox",
     Site = "site",

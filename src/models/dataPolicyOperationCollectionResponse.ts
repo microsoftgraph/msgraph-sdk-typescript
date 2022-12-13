@@ -2,9 +2,6 @@ import {createDataPolicyOperationFromDiscriminatorValue} from './createDataPolic
 import {BaseCollectionPaginationCountResponse, DataPolicyOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of dataPolicyOperation entities.
- */
 export class DataPolicyOperationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DataPolicyOperation[] | undefined;

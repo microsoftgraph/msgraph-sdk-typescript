@@ -2,6 +2,9 @@ import {createApplicationTemplateFromDiscriminatorValue} from './createApplicati
 import {ApplicationTemplate, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of applicationTemplate entities.
+ */
 export class ApplicationTemplateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ApplicationTemplate[] | undefined;

@@ -7,7 +7,7 @@ import {EducationOutcome, EducationSubmissionRecipient, EducationSubmissionResou
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the educationRoot singleton.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class EducationSubmission extends Entity implements Parsable {
     /** The outcomes property */

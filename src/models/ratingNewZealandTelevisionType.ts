@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the deviceManagement singleton. */
 export enum RatingNewZealandTelevisionType {
     /** Default value, allow all TV shows content */
     AllAllowed = "allAllowed",

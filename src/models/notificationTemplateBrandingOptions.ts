@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the deviceManagement singleton. */
 export enum NotificationTemplateBrandingOptions {
     /** No Branding. */
     None = "none",

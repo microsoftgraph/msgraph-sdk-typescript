@@ -2,6 +2,9 @@ import {createFederatedIdentityCredentialFromDiscriminatorValue} from './createF
 import {BaseCollectionPaginationCountResponse, FederatedIdentityCredential} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.
+ */
 export class FederatedIdentityCredentialCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: FederatedIdentityCredential[] | undefined;

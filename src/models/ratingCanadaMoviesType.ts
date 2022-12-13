@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the deviceManagement singleton. */
 export enum RatingCanadaMoviesType {
     /** Default value, allow all movies content */
     AllAllowed = "allAllowed",

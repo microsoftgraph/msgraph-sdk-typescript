@@ -11,7 +11,7 @@ import {AccessPackage, AccessPackageAssignmentApprovalSettings, AccessPackageAss
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of application entities.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
     /** Access package containing this policy. Read-only. */

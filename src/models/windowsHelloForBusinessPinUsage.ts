@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the deviceManagement singleton. */
 export enum WindowsHelloForBusinessPinUsage {
     /** Allowed the usage of certain pin rule */
     Allowed = "allowed",

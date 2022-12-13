@@ -3,7 +3,7 @@ import {RiskServicePrincipalActivity, RiskyServicePrincipal} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of application entities.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements Parsable {
     /** The activity related to service principal risk level change. */

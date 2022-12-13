@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum BookingPriceType {
     /** The price of the service is not defined. */
     Undefined = "undefined",

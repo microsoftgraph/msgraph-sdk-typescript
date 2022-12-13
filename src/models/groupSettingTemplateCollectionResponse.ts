@@ -2,9 +2,6 @@ import {createGroupSettingTemplateFromDiscriminatorValue} from './createGroupSet
 import {BaseCollectionPaginationCountResponse, GroupSettingTemplate} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of groupSettingTemplate entities.
- */
 export class GroupSettingTemplateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: GroupSettingTemplate[] | undefined;

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum RegistryHive {
     Unknown = "unknown",
     CurrentConfig = "currentConfig",

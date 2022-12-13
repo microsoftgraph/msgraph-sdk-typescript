@@ -2,9 +2,6 @@ import {createVppTokenFromDiscriminatorValue} from './createVppTokenFromDiscrimi
 import {BaseCollectionPaginationCountResponse, VppToken} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity.
- */
 export class VppTokenCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: VppToken[] | undefined;

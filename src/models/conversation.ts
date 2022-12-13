@@ -3,7 +3,7 @@ import {ConversationThread, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Casts the previous resource to group.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class Conversation extends Entity implements Parsable {
     /** Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search. */

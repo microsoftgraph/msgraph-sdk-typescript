@@ -1,4 +1,4 @@
-/** Casts the previous resource to group. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum OnenoteUserRole {
     None = "None",
     Owner = "Owner",

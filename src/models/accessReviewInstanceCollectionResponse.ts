@@ -2,6 +2,9 @@ import {createAccessReviewInstanceFromDiscriminatorValue} from './createAccessRe
 import {AccessReviewInstance, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.
+ */
 export class AccessReviewInstanceCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: AccessReviewInstance[] | undefined;

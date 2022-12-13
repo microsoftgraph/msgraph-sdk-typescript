@@ -3,7 +3,7 @@ import {BaseCollectionPaginationCountResponse, DirectoryObject} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the memberOf property of the microsoft.graph.device entity.
+ * Provides operations to manage the directReports property of the microsoft.graph.orgContact entity.
  */
 export class DirectoryObjectCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */

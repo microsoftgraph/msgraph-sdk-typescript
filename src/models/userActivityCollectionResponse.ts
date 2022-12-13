@@ -2,6 +2,9 @@ import {createUserActivityFromDiscriminatorValue} from './createUserActivityFrom
 import {BaseCollectionPaginationCountResponse, UserActivity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the activities property of the microsoft.graph.user entity.
+ */
 export class UserActivityCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: UserActivity[] | undefined;

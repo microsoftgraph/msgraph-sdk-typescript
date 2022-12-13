@@ -92,8 +92,8 @@ export class Security extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "alerts": n => { this.alerts = n.getCollectionOfObjectValues<If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3>(createAlertFromDiscriminatorValue); },
-            "alerts_v2": n => { this.alerts_v2 = n.getCollectionOfObjectValues<I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8>(createAlertFromDiscriminatorValue); },
+            "alerts": n => { this.alerts = n.getCollectionOfObjectValues<If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3>(If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3); },
+            "alerts_v2": n => { this.alerts_v2 = n.getCollectionOfObjectValues<I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8>(I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8); },
             "attackSimulation": n => { this.attackSimulation = n.getObjectValue<AttackSimulationRoot>(createAttackSimulationRootFromDiscriminatorValue); },
             "cases": n => { this.cases = n.getObjectValue<CasesRoot>(createCasesRootFromDiscriminatorValue); },
             "incidents": n => { this.incidents = n.getCollectionOfObjectValues<Incident>(createIncidentFromDiscriminatorValue); },

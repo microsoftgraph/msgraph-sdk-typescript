@@ -3,7 +3,7 @@ import {Entity, Team} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Casts the previous resource to group.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class TeamInfo extends Entity implements Parsable {
     /** The name of the team. */

@@ -2,9 +2,6 @@ import {createManagedDeviceMobileAppConfigurationFromDiscriminatorValue} from '.
 import {BaseCollectionPaginationCountResponse, ManagedDeviceMobileAppConfiguration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
- */
 export class ManagedDeviceMobileAppConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ManagedDeviceMobileAppConfiguration[] | undefined;

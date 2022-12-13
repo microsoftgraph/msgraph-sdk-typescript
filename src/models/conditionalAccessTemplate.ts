@@ -4,7 +4,7 @@ import {TemplateScenarios} from './templateScenarios';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the identityContainer singleton.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class ConditionalAccessTemplate extends Entity implements Parsable {
     /** The user-friendly name of the template. */

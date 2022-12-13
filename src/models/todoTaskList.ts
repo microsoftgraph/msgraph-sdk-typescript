@@ -5,7 +5,7 @@ import {WellknownListName} from './wellknownListName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of application entities.
+ * Provides operations to manage the collection of agreementAcceptance entities.
  */
 export class TodoTaskList extends Entity implements Parsable {
     /** The name of the task list. */

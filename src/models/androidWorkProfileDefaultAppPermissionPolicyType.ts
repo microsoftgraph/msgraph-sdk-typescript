@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the deviceManagement singleton. */
 export enum AndroidWorkProfileDefaultAppPermissionPolicyType {
     /** Device default value, no intent. */
     DeviceDefault = "deviceDefault",

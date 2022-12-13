@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the deviceManagement singleton. */
 export enum Windows10EditionType {
     /** Windows 10 Enterprise */
     Windows10Enterprise = "windows10Enterprise",

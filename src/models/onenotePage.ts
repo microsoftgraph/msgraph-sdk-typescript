@@ -5,7 +5,7 @@ import {Notebook, OnenoteEntitySchemaObjectModel, OnenoteSection, PageLinks} fro
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Casts the previous resource to group.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsable {
     /** The page's HTML content. */

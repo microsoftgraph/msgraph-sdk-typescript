@@ -2,6 +2,9 @@ import {createDeviceConfigurationDeviceStatusFromDiscriminatorValue} from './cre
 import {BaseCollectionPaginationCountResponse, DeviceConfigurationDeviceStatus} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the deviceStatuses property of the microsoft.graph.deviceConfiguration entity.
+ */
 export class DeviceConfigurationDeviceStatusCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DeviceConfigurationDeviceStatus[] | undefined;

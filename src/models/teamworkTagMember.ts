@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Casts the previous resource to group.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class TeamworkTagMember extends Entity implements Parsable {
     /** The member's display name. */

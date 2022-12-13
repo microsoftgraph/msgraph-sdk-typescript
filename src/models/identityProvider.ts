@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of application entities.
+ * Provides operations to manage the collection of agreementAcceptance entities.
  */
 export class IdentityProvider extends Entity implements Parsable {
     /** The client ID for the application. This is the client ID obtained when registering the application with the identity provider. Required. Not nullable. */

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the deviceManagement singleton. */
 export enum BitLockerEncryptionMethod {
     /** AES-CBC 128-bit. */
     AesCbc128 = "aesCbc128",

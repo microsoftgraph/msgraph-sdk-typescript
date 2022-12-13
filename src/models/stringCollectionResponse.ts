@@ -2,7 +2,7 @@ import {BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of directory entities.
+ * Provides operations to manage the collection of device entities.
  */
 export class StringCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */

@@ -3,7 +3,7 @@ import {Entity, SettingValue} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Casts the previous resource to group.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class GroupSetting extends Entity implements Parsable {
     /** Display name of this group of settings, which comes from the associated template. */

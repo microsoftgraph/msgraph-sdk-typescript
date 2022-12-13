@@ -2,6 +2,9 @@ import {createComplianceManagementPartnerFromDiscriminatorValue} from './createC
 import {BaseCollectionPaginationCountResponse, ComplianceManagementPartner} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
+ */
 export class ComplianceManagementPartnerCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ComplianceManagementPartner[] | undefined;

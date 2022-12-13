@@ -3,7 +3,7 @@ import {Entity, WorkbookWorksheet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of applicationTemplate entities.
+ * Provides operations to manage the collection of application entities.
  */
 export class WorkbookPivotTable extends Entity implements Parsable {
     /** Name of the PivotTable. */

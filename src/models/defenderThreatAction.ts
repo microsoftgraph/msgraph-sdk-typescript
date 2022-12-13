@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of applicationTemplate entities. */
+/** Provides operations to manage the deviceManagement singleton. */
 export enum DefenderThreatAction {
     /** Apply action based on the update definition. */
     DeviceDefault = "deviceDefault",

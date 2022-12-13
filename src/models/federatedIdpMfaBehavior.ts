@@ -1,4 +1,4 @@
-/** Provides operations to manage the directory singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum FederatedIdpMfaBehavior {
     AcceptIfMfaDoneByFederatedIdp = "acceptIfMfaDoneByFederatedIdp",
     EnforceMfaByFederatedIdp = "enforceMfaByFederatedIdp",

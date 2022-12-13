@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the directory singleton.
+ * Provides operations to manage the collection of agreementAcceptance entities.
  */
 export class ExternalDomainName extends Entity implements Parsable {
     /**

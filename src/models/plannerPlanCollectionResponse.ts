@@ -2,6 +2,9 @@ import {createPlannerPlanFromDiscriminatorValue} from './createPlannerPlanFromDi
 import {BaseCollectionPaginationCountResponse, PlannerPlan} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the plans property of the microsoft.graph.planner entity.
+ */
 export class PlannerPlanCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: PlannerPlan[] | undefined;

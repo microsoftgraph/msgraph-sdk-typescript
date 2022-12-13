@@ -2,6 +2,9 @@ import {createInternalDomainFederationFromDiscriminatorValue} from './createInte
 import {BaseCollectionPaginationCountResponse, InternalDomainFederation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
+ */
 export class InternalDomainFederationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: InternalDomainFederation[] | undefined;

@@ -2,9 +2,6 @@ import {createIdentityUserFlowAttributeFromDiscriminatorValue} from './createIde
 import {BaseCollectionPaginationCountResponse, IdentityUserFlowAttribute} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
- */
 export class IdentityUserFlowAttributeCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: IdentityUserFlowAttribute[] | undefined;

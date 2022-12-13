@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum UnifiedRoleManagementPolicyRuleTargetOperations {
     All = "all",
     Activate = "activate",

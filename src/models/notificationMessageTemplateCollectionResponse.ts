@@ -2,6 +2,9 @@ import {createNotificationMessageTemplateFromDiscriminatorValue} from './createN
 import {BaseCollectionPaginationCountResponse, NotificationMessageTemplate} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the notificationMessageTemplates property of the microsoft.graph.deviceManagement entity.
+ */
 export class NotificationMessageTemplateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: NotificationMessageTemplate[] | undefined;

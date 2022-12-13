@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the deviceManagement singleton. */
 export enum RemoteAssistanceOnboardingStatus {
     /** The status reported when there is no active TeamViewer connector configured or active */
     NotOnboarded = "notOnboarded",
