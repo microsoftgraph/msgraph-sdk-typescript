@@ -3,7 +3,7 @@ import {Application, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of application entities.
+ * Casts the previous resource to application.
  */
 export class ApplicationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */

@@ -4,11 +4,11 @@ export class AssignedLicense implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** A collection of the unique identifiers for plans that have been disabled. */
-    private _disabledPlans?: Guid[] | undefined;
+    private _disabledPlans?: string[] | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /** The unique identifier for the SKU. */
-    private _skuId?: Guid | undefined;
+    private _skuId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -40,7 +40,7 @@ export class AssignedLicense implements AdditionalDataHolder, Parsable {
      * Sets the disabledPlans property value. A collection of the unique identifiers for plans that have been disabled.
      * @param value Value to set for the disabledPlans property.
      */
-    public set disabledPlans(value: Guid[] | undefined) {
+    public set disabledPlans(value: string[] | undefined) {
         this._disabledPlans = value;
     };
     /**
@@ -49,9 +49,9 @@ export class AssignedLicense implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "disabledPlans": n => { this.disabledPlans = n.getCollectionOfPrimitiveValues<guid>(); },
+            "disabledPlans": n => { this.disabledPlans = n.getCollectionOfPrimitiveValues<string>(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
-            "skuId": n => { this.skuId = n.getGuidValue(); },
+            "skuId": n => { this.skuId = n.getStringValue(); },
         };
     };
     /**
@@ -74,9 +74,9 @@ export class AssignedLicense implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfPrimitiveValues<guid>("disabledPlans", this.disabledPlans);
+        writer.writeCollectionOfPrimitiveValues<string>("disabledPlans", this.disabledPlans);
         writer.writeStringValue("@odata.type", this.odataType);
-        writer.writeGuidValue("skuId", this.skuId);
+        writer.writeStringValue("skuId", this.skuId);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -90,7 +90,7 @@ export class AssignedLicense implements AdditionalDataHolder, Parsable {
      * Sets the skuId property value. The unique identifier for the SKU.
      * @param value Value to set for the skuId property.
      */
-    public set skuId(value: Guid | undefined) {
+    public set skuId(value: string | undefined) {
         this._skuId = value;
     };
 }

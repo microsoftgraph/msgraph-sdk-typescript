@@ -1,12 +1,9 @@
 import {Search} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreement entities.
- */
 export class EdiscoveryReviewSetQuery extends Search implements Parsable {
     /**
-     * Instantiates a new ediscoveryReviewSetQuery and sets the default values.
+     * Instantiates a new EdiscoveryReviewSetQuery and sets the default values.
      */
     public constructor() {
         super();

@@ -4,7 +4,7 @@ import {Entity, Json, WorkbookWorksheet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the appCatalogs singleton.
+ * Provides operations to manage the collection of agreementAcceptance entities.
  */
 export class WorkbookNamedItem extends Entity implements Parsable {
     /** Represents the comment associated with this name. */

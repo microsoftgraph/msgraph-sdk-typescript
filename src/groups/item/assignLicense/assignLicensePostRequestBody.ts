@@ -11,7 +11,7 @@ export class AssignLicensePostRequestBody implements AdditionalDataHolder, Parsa
     /** The addLicenses property */
     private _addLicenses?: AssignedLicense[] | undefined;
     /** The removeLicenses property */
-    private _removeLicenses?: Guid[] | undefined;
+    private _removeLicenses?: string[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -53,7 +53,7 @@ export class AssignLicensePostRequestBody implements AdditionalDataHolder, Parsa
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "addLicenses": n => { this.addLicenses = n.getCollectionOfObjectValues<AssignedLicense>(createAssignedLicenseFromDiscriminatorValue); },
-            "removeLicenses": n => { this.removeLicenses = n.getCollectionOfPrimitiveValues<guid>(); },
+            "removeLicenses": n => { this.removeLicenses = n.getCollectionOfPrimitiveValues<string>(); },
         };
     };
     /**
@@ -67,7 +67,7 @@ export class AssignLicensePostRequestBody implements AdditionalDataHolder, Parsa
      * Sets the removeLicenses property value. The removeLicenses property
      * @param value Value to set for the removeLicenses property.
      */
-    public set removeLicenses(value: Guid[] | undefined) {
+    public set removeLicenses(value: string[] | undefined) {
         this._removeLicenses = value;
     };
     /**
@@ -77,7 +77,7 @@ export class AssignLicensePostRequestBody implements AdditionalDataHolder, Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfObjectValues<AssignedLicense>("addLicenses", this.addLicenses);
-        writer.writeCollectionOfPrimitiveValues<guid>("removeLicenses", this.removeLicenses);
+        writer.writeCollectionOfPrimitiveValues<string>("removeLicenses", this.removeLicenses);
         writer.writeAdditionalData(this.additionalData);
     };
 }

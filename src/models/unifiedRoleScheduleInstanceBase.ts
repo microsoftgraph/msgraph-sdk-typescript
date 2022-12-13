@@ -4,9 +4,6 @@ import {createUnifiedRoleDefinitionFromDiscriminatorValue} from './createUnified
 import {AppScope, DirectoryObject, Entity, UnifiedRoleDefinition} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the appCatalogs singleton.
- */
 export class UnifiedRoleScheduleInstanceBase extends Entity implements Parsable {
     /** Read-only property with details of the app-specific scope when the assignment or role eligibility is scoped to an app. Nullable. */
     private _appScope?: AppScope | undefined;
@@ -53,7 +50,7 @@ export class UnifiedRoleScheduleInstanceBase extends Entity implements Parsable 
         this._appScopeId = value;
     };
     /**
-     * Instantiates a new unifiedRoleScheduleInstanceBase and sets the default values.
+     * Instantiates a new UnifiedRoleScheduleInstanceBase and sets the default values.
      */
     public constructor() {
         super();

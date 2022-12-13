@@ -2,7 +2,7 @@ import {createAlertFromDiscriminatorValue} from './createAlertFromDiscriminatorV
 import {createAttackSimulationRootFromDiscriminatorValue} from './createAttackSimulationRootFromDiscriminatorValue';
 import {createSecureScoreControlProfileFromDiscriminatorValue} from './createSecureScoreControlProfileFromDiscriminatorValue';
 import {createSecureScoreFromDiscriminatorValue} from './createSecureScoreFromDiscriminatorValue';
-import {Alert as If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3, AttackSimulationRoot, Entity, SecureScore, SecureScoreControlProfile} from './index';
+import {Alert as Ifc3dd46d8c20580598e3887e951736840b38f25b65d12c7df595f8b23d2eeae5, AttackSimulationRoot, Entity, SecureScore, SecureScoreControlProfile} from './index';
 import {Alert as I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8, CasesRoot, Incident} from './security/';
 import {createAlertFromDiscriminatorValue} from './security/createAlertFromDiscriminatorValue';
 import {createCasesRootFromDiscriminatorValue} from './security/createCasesRootFromDiscriminatorValue';
@@ -11,7 +11,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class Security extends Entity implements Parsable {
     /** The alerts property */
-    private _alerts?: If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3[] | undefined;
+    private _alerts?: Ifc3dd46d8c20580598e3887e951736840b38f25b65d12c7df595f8b23d2eeae5[] | undefined;
     /** The alerts_v2 property */
     private _alerts_v2?: I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8[] | undefined;
     /** The attackSimulation property */
@@ -35,7 +35,7 @@ export class Security extends Entity implements Parsable {
      * Sets the alerts property value. The alerts property
      * @param value Value to set for the alerts property.
      */
-    public set alerts(value: If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3[] | undefined) {
+    public set alerts(value: Ifc3dd46d8c20580598e3887e951736840b38f25b65d12c7df595f8b23d2eeae5[] | undefined) {
         this._alerts = value;
     };
     /**

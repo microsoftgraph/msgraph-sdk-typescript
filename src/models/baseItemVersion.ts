@@ -4,7 +4,7 @@ import {Entity, IdentitySet, PublicationFacet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the appCatalogs singleton.
+ * Provides operations to manage the collection of agreementAcceptance entities.
  */
 export class BaseItemVersion extends Entity implements Parsable {
     /** Identity of the user which last modified the version. Read-only. */

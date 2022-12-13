@@ -12,7 +12,7 @@ export class AssignedPlan implements AdditionalDataHolder, Parsable {
     /** The name of the service; for example, exchange. */
     private _service?: string | undefined;
     /** A GUID that identifies the service plan. For a complete list of GUIDs and their equivalent friendly service names, see Product names and service plan identifiers for licensing. */
-    private _servicePlanId?: Guid | undefined;
+    private _servicePlanId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -71,7 +71,7 @@ export class AssignedPlan implements AdditionalDataHolder, Parsable {
             "capabilityStatus": n => { this.capabilityStatus = n.getStringValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "service": n => { this.service = n.getStringValue(); },
-            "servicePlanId": n => { this.servicePlanId = n.getGuidValue(); },
+            "servicePlanId": n => { this.servicePlanId = n.getStringValue(); },
         };
     };
     /**
@@ -98,7 +98,7 @@ export class AssignedPlan implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("capabilityStatus", this.capabilityStatus);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("service", this.service);
-        writer.writeGuidValue("servicePlanId", this.servicePlanId);
+        writer.writeStringValue("servicePlanId", this.servicePlanId);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -126,7 +126,7 @@ export class AssignedPlan implements AdditionalDataHolder, Parsable {
      * Sets the servicePlanId property value. A GUID that identifies the service plan. For a complete list of GUIDs and their equivalent friendly service names, see Product names and service plan identifiers for licensing.
      * @param value Value to set for the servicePlanId property.
      */
-    public set servicePlanId(value: Guid | undefined) {
+    public set servicePlanId(value: string | undefined) {
         this._servicePlanId = value;
     };
 }

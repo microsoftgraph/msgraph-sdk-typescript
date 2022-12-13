@@ -3,6 +3,9 @@ import {createAuditResourceFromDiscriminatorValue} from './createAuditResourceFr
 import {AuditActor, AuditResource, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * A class containing the properties for Audit Event.
+ */
 export class AuditEvent extends Entity implements Parsable {
     /** Friendly name of the activity. */
     private _activity?: string | undefined;
@@ -21,7 +24,7 @@ export class AuditEvent extends Entity implements Parsable {
     /** Component name. */
     private _componentName?: string | undefined;
     /** The client request Id that is used to correlate activity within the system. */
-    private _correlationId?: Guid | undefined;
+    private _correlationId?: string | undefined;
     /** Event display name. */
     private _displayName?: string | undefined;
     /** Resources being modified. */
@@ -139,7 +142,7 @@ export class AuditEvent extends Entity implements Parsable {
         this._componentName = value;
     };
     /**
-     * Instantiates a new AuditEvent and sets the default values.
+     * Instantiates a new auditEvent and sets the default values.
      */
     public constructor() {
         super();
@@ -155,7 +158,7 @@ export class AuditEvent extends Entity implements Parsable {
      * Sets the correlationId property value. The client request Id that is used to correlate activity within the system.
      * @param value Value to set for the correlationId property.
      */
-    public set correlationId(value: Guid | undefined) {
+    public set correlationId(value: string | undefined) {
         this._correlationId = value;
     };
     /**
@@ -186,7 +189,7 @@ export class AuditEvent extends Entity implements Parsable {
             "actor": n => { this.actor = n.getObjectValue<AuditActor>(createAuditActorFromDiscriminatorValue); },
             "category": n => { this.category = n.getStringValue(); },
             "componentName": n => { this.componentName = n.getStringValue(); },
-            "correlationId": n => { this.correlationId = n.getGuidValue(); },
+            "correlationId": n => { this.correlationId = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "resources": n => { this.resources = n.getCollectionOfObjectValues<AuditResource>(createAuditResourceFromDiscriminatorValue); },
         };
@@ -220,7 +223,7 @@ export class AuditEvent extends Entity implements Parsable {
         writer.writeObjectValue<AuditActor>("actor", this.actor);
         writer.writeStringValue("category", this.category);
         writer.writeStringValue("componentName", this.componentName);
-        writer.writeGuidValue("correlationId", this.correlationId);
+        writer.writeStringValue("correlationId", this.correlationId);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeCollectionOfObjectValues<AuditResource>("resources", this.resources);
     };

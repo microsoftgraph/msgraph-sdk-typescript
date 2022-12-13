@@ -5,7 +5,7 @@ export class Contract extends DirectoryObject implements Parsable {
     /** Type of contract. Possible values are:  SyndicationPartner, BreadthPartner, ResellerPartner. See more in the table below. */
     private _contractType?: string | undefined;
     /** The unique identifier for the customer tenant referenced by this partnership. Corresponds to the id property of the customer tenant's organization resource. */
-    private _customerId?: Guid | undefined;
+    private _customerId?: string | undefined;
     /** A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's default domain name changes. */
     private _defaultDomainName?: string | undefined;
     /** A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's display name changes. */
@@ -42,7 +42,7 @@ export class Contract extends DirectoryObject implements Parsable {
      * Sets the customerId property value. The unique identifier for the customer tenant referenced by this partnership. Corresponds to the id property of the customer tenant's organization resource.
      * @param value Value to set for the customerId property.
      */
-    public set customerId(value: Guid | undefined) {
+    public set customerId(value: string | undefined) {
         this._customerId = value;
     };
     /**
@@ -80,7 +80,7 @@ export class Contract extends DirectoryObject implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "contractType": n => { this.contractType = n.getStringValue(); },
-            "customerId": n => { this.customerId = n.getGuidValue(); },
+            "customerId": n => { this.customerId = n.getStringValue(); },
             "defaultDomainName": n => { this.defaultDomainName = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
         };
@@ -93,7 +93,7 @@ export class Contract extends DirectoryObject implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("contractType", this.contractType);
-        writer.writeGuidValue("customerId", this.customerId);
+        writer.writeStringValue("customerId", this.customerId);
         writer.writeStringValue("defaultDomainName", this.defaultDomainName);
         writer.writeStringValue("displayName", this.displayName);
     };

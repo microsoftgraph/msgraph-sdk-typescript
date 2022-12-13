@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the appCatalogs singleton.
+ * Provides operations to manage the collection of application entities.
  */
 export class AccessReviewReviewer extends Entity implements Parsable {
     /** The date when the reviewer was added for the access review. */

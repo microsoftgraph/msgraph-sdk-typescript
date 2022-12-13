@@ -3,9 +3,6 @@ import {createServicePlanInfoFromDiscriminatorValue} from './createServicePlanIn
 import {Entity, LicenseUnitsDetail, ServicePlanInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreement entities.
- */
 export class SubscribedSku extends Entity implements Parsable {
     /** For example, 'User' or 'Company'. */
     private _appliesTo?: string | undefined;
@@ -18,7 +15,7 @@ export class SubscribedSku extends Entity implements Parsable {
     /** Information about the service plans that are available with the SKU. Not nullable */
     private _servicePlans?: ServicePlanInfo[] | undefined;
     /** The unique identifier (GUID) for the service SKU. */
-    private _skuId?: Guid | undefined;
+    private _skuId?: string | undefined;
     /** The SKU part number; for example: 'AAD_PREMIUM' or 'RMSBASIC'. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus. */
     private _skuPartNumber?: string | undefined;
     /**
@@ -50,7 +47,7 @@ export class SubscribedSku extends Entity implements Parsable {
         this._capabilityStatus = value;
     };
     /**
-     * Instantiates a new subscribedSku and sets the default values.
+     * Instantiates a new SubscribedSku and sets the default values.
      */
     public constructor() {
         super();
@@ -80,7 +77,7 @@ export class SubscribedSku extends Entity implements Parsable {
             "consumedUnits": n => { this.consumedUnits = n.getNumberValue(); },
             "prepaidUnits": n => { this.prepaidUnits = n.getObjectValue<LicenseUnitsDetail>(createLicenseUnitsDetailFromDiscriminatorValue); },
             "servicePlans": n => { this.servicePlans = n.getCollectionOfObjectValues<ServicePlanInfo>(createServicePlanInfoFromDiscriminatorValue); },
-            "skuId": n => { this.skuId = n.getGuidValue(); },
+            "skuId": n => { this.skuId = n.getStringValue(); },
             "skuPartNumber": n => { this.skuPartNumber = n.getStringValue(); },
         };
     };
@@ -110,7 +107,7 @@ export class SubscribedSku extends Entity implements Parsable {
         writer.writeNumberValue("consumedUnits", this.consumedUnits);
         writer.writeObjectValue<LicenseUnitsDetail>("prepaidUnits", this.prepaidUnits);
         writer.writeCollectionOfObjectValues<ServicePlanInfo>("servicePlans", this.servicePlans);
-        writer.writeGuidValue("skuId", this.skuId);
+        writer.writeStringValue("skuId", this.skuId);
         writer.writeStringValue("skuPartNumber", this.skuPartNumber);
     };
     /**
@@ -138,7 +135,7 @@ export class SubscribedSku extends Entity implements Parsable {
      * Sets the skuId property value. The unique identifier (GUID) for the service SKU.
      * @param value Value to set for the skuId property.
      */
-    public set skuId(value: Guid | undefined) {
+    public set skuId(value: string | undefined) {
         this._skuId = value;
     };
     /**

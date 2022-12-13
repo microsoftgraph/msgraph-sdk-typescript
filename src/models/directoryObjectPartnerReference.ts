@@ -7,7 +7,7 @@ export class DirectoryObjectPartnerReference extends DirectoryObject implements 
     /** Name of directory object being returned, like group or application. Read-only. */
     private _displayName?: string | undefined;
     /** The tenant identifier for the partner tenant. Read-only. */
-    private _externalPartnerTenantId?: Guid | undefined;
+    private _externalPartnerTenantId?: string | undefined;
     /** The type of the referenced object in the partner tenant. Read-only. */
     private _objectType?: string | undefined;
     /**
@@ -56,7 +56,7 @@ export class DirectoryObjectPartnerReference extends DirectoryObject implements 
      * Sets the externalPartnerTenantId property value. The tenant identifier for the partner tenant. Read-only.
      * @param value Value to set for the externalPartnerTenantId property.
      */
-    public set externalPartnerTenantId(value: Guid | undefined) {
+    public set externalPartnerTenantId(value: string | undefined) {
         this._externalPartnerTenantId = value;
     };
     /**
@@ -67,7 +67,7 @@ export class DirectoryObjectPartnerReference extends DirectoryObject implements 
         return {...super.getFieldDeserializers(),
             "description": n => { this.description = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
-            "externalPartnerTenantId": n => { this.externalPartnerTenantId = n.getGuidValue(); },
+            "externalPartnerTenantId": n => { this.externalPartnerTenantId = n.getStringValue(); },
             "objectType": n => { this.objectType = n.getStringValue(); },
         };
     };
@@ -94,7 +94,7 @@ export class DirectoryObjectPartnerReference extends DirectoryObject implements 
         super.serialize(writer);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeGuidValue("externalPartnerTenantId", this.externalPartnerTenantId);
+        writer.writeStringValue("externalPartnerTenantId", this.externalPartnerTenantId);
         writer.writeStringValue("objectType", this.objectType);
     };
 }

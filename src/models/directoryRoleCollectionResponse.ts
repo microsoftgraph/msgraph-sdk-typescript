@@ -2,6 +2,9 @@ import {createDirectoryRoleFromDiscriminatorValue} from './createDirectoryRoleFr
 import {BaseCollectionPaginationCountResponse, DirectoryRole} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of directoryRole entities.
+ */
 export class DirectoryRoleCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DirectoryRole[] | undefined;

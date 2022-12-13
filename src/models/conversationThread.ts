@@ -4,7 +4,7 @@ import {Entity, Post, Recipient} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the appCatalogs singleton.
+ * Provides operations to manage the collection of authenticationMethodConfiguration entities.
  */
 export class ConversationThread extends Entity implements Parsable {
     /** The Cc: recipients for the thread. Returned only on $select. */

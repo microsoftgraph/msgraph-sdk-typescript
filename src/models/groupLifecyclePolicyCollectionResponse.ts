@@ -2,6 +2,9 @@ import {createGroupLifecyclePolicyFromDiscriminatorValue} from './createGroupLif
 import {BaseCollectionPaginationCountResponse, GroupLifecyclePolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of groupLifecyclePolicy entities.
+ */
 export class GroupLifecyclePolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: GroupLifecyclePolicy[] | undefined;

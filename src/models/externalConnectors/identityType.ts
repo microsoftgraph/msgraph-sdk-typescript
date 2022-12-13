@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of externalConnection entities. */
 export enum IdentityType {
     User = "user",
     Group = "group",

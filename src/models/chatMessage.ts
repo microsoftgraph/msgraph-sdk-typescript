@@ -14,7 +14,7 @@ import {ChannelIdentity, ChatMessageAttachment, ChatMessageFromIdentitySet, Chat
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the appCatalogs singleton.
+ * Provides operations to manage the collection of chat entities.
  */
 export class ChatMessage extends Entity implements Parsable {
     /** References to attached objects like files, tabs, meetings etc. */

@@ -36,6 +36,9 @@ import {DeviceManagementSubscriptionState} from './deviceManagementSubscriptionS
 import {ApplePushNotificationCertificate, AuditEvent, ComplianceManagementPartner, DetectedApp, DeviceAndAppManagementRoleAssignment, DeviceCategory, DeviceCompliancePolicy, DeviceCompliancePolicyDeviceStateSummary, DeviceCompliancePolicySettingStateSummary, DeviceConfiguration, DeviceConfigurationDeviceStateSummary, DeviceEnrollmentConfiguration, DeviceManagementExchangeConnector, DeviceManagementPartner, DeviceManagementReports, DeviceManagementSettings, DeviceManagementTroubleshootingEvent, Entity, ImportedWindowsAutopilotDeviceIdentity, IntuneBrand, IosUpdateDeviceStatus, ManagedDevice, ManagedDeviceOverview, MobileThreatDefenseConnector, NotificationMessageTemplate, OnPremisesConditionalAccessSettings, RemoteAssistancePartner, ResourceOperation, RoleDefinition, SoftwareUpdateStatusSummary, TelecomExpenseManagementPartner, TermsAndConditions, WindowsAutopilotDeviceIdentity, WindowsInformationProtectionAppLearningSummary, WindowsInformationProtectionNetworkLearningSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Singleton entity that acts as a container for all device management functionality.
+ */
 export class DeviceManagement extends Entity implements Parsable {
     /** Apple push notification certificate. */
     private _applePushNotificationCertificate?: ApplePushNotificationCertificate | undefined;
@@ -68,7 +71,7 @@ export class DeviceManagement extends Entity implements Parsable {
     /** Collection of imported Windows autopilot devices. */
     private _importedWindowsAutopilotDeviceIdentities?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
     /** Intune Account Id for given tenant */
-    private _intuneAccountId?: Guid | undefined;
+    private _intuneAccountId?: string | undefined;
     /** intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal. */
     private _intuneBrand?: IntuneBrand | undefined;
     /** The IOS software update installation statuses for this account. */
@@ -166,7 +169,7 @@ export class DeviceManagement extends Entity implements Parsable {
         this._conditionalAccessSettings = value;
     };
     /**
-     * Instantiates a new DeviceManagement and sets the default values.
+     * Instantiates a new deviceManagement and sets the default values.
      */
     public constructor() {
         super();
@@ -332,7 +335,7 @@ export class DeviceManagement extends Entity implements Parsable {
             "deviceManagementPartners": n => { this.deviceManagementPartners = n.getCollectionOfObjectValues<DeviceManagementPartner>(createDeviceManagementPartnerFromDiscriminatorValue); },
             "exchangeConnectors": n => { this.exchangeConnectors = n.getCollectionOfObjectValues<DeviceManagementExchangeConnector>(createDeviceManagementExchangeConnectorFromDiscriminatorValue); },
             "importedWindowsAutopilotDeviceIdentities": n => { this.importedWindowsAutopilotDeviceIdentities = n.getCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>(createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue); },
-            "intuneAccountId": n => { this.intuneAccountId = n.getGuidValue(); },
+            "intuneAccountId": n => { this.intuneAccountId = n.getStringValue(); },
             "intuneBrand": n => { this.intuneBrand = n.getObjectValue<IntuneBrand>(createIntuneBrandFromDiscriminatorValue); },
             "iosUpdateStatuses": n => { this.iosUpdateStatuses = n.getCollectionOfObjectValues<IosUpdateDeviceStatus>(createIosUpdateDeviceStatusFromDiscriminatorValue); },
             "managedDeviceOverview": n => { this.managedDeviceOverview = n.getObjectValue<ManagedDeviceOverview>(createManagedDeviceOverviewFromDiscriminatorValue); },
@@ -380,7 +383,7 @@ export class DeviceManagement extends Entity implements Parsable {
      * Sets the intuneAccountId property value. Intune Account Id for given tenant
      * @param value Value to set for the intuneAccountId property.
      */
-    public set intuneAccountId(value: Guid | undefined) {
+    public set intuneAccountId(value: string | undefined) {
         this._intuneAccountId = value;
     };
     /**
@@ -559,7 +562,7 @@ export class DeviceManagement extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<DeviceManagementPartner>("deviceManagementPartners", this.deviceManagementPartners);
         writer.writeCollectionOfObjectValues<DeviceManagementExchangeConnector>("exchangeConnectors", this.exchangeConnectors);
         writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("importedWindowsAutopilotDeviceIdentities", this.importedWindowsAutopilotDeviceIdentities);
-        writer.writeGuidValue("intuneAccountId", this.intuneAccountId);
+        writer.writeStringValue("intuneAccountId", this.intuneAccountId);
         writer.writeObjectValue<IntuneBrand>("intuneBrand", this.intuneBrand);
         writer.writeCollectionOfObjectValues<IosUpdateDeviceStatus>("iosUpdateStatuses", this.iosUpdateStatuses);
         writer.writeObjectValue<ManagedDeviceOverview>("managedDeviceOverview", this.managedDeviceOverview);

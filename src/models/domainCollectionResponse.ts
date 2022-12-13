@@ -2,6 +2,9 @@ import {createDomainFromDiscriminatorValue} from './createDomainFromDiscriminato
 import {BaseCollectionPaginationCountResponse, Domain} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of domain entities.
+ */
 export class DomainCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Domain[] | undefined;

@@ -6,6 +6,9 @@ import {EducationSubmissionStatus} from './educationSubmissionStatus';
 import {EducationOutcome, EducationSubmissionRecipient, EducationSubmissionResource, Entity, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of applicationTemplate entities.
+ */
 export class EducationSubmission extends Entity implements Parsable {
     /** The outcomes property */
     private _outcomes?: EducationOutcome[] | undefined;
@@ -36,7 +39,7 @@ export class EducationSubmission extends Entity implements Parsable {
     /** Moment in time when the submission was moved from submitted into the working state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _unsubmittedDateTime?: Date | undefined;
     /**
-     * Instantiates a new EducationSubmission and sets the default values.
+     * Instantiates a new educationSubmission and sets the default values.
      */
     public constructor() {
         super();

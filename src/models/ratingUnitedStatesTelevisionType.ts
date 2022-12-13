@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of application entities. */
 export enum RatingUnitedStatesTelevisionType {
     /** Default value, allow all TV shows content */
     AllAllowed = "allAllowed",

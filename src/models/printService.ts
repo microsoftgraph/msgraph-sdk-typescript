@@ -3,7 +3,7 @@ import {Entity, PrintServiceEndpoint} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the collection of applicationTemplate entities.
  */
 export class PrintService extends Entity implements Parsable {
     /** Endpoints that can be used to access the service. Read-only. Nullable. */

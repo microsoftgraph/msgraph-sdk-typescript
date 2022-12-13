@@ -5,6 +5,9 @@ import {CaseAction} from './caseAction';
 import {CaseOperationStatus} from './caseOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of agreementAcceptance entities.
+ */
 export class CaseOperation extends Entity implements Parsable {
     /** The type of action the operation represents. Possible values are: addToReviewSet,applyTags,contentExport,convertToPdf,estimateStatistics, purgeData */
     private _action?: CaseAction | undefined;

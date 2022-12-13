@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of application entities. */
 export enum EdgeSearchEngineType {
     /** Uses factory settings of Edge to assign the default search engine as per the user market */
     Default_escaped = "default",

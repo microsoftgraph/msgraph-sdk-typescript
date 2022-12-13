@@ -1,4 +1,4 @@
-/** Provides operations to manage the appCatalogs singleton. */
+/** Provides operations to manage the deviceManagement singleton. */
 export enum DeviceManagementSubscriptionState {
     /** Pending */
     Pending = "pending",

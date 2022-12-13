@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of applicationTemplate entities. */
 export enum ManagedAppClipboardSharingLevel {
     /** Sharing is allowed between all apps, managed or not */
     AllApps = "allApps",

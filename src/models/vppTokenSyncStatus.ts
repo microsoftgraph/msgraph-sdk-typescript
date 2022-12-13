@@ -1,4 +1,4 @@
-/** Provides operations to manage the appCatalogs singleton. */
+/** Provides operations to manage the deviceAppManagement singleton. */
 export enum VppTokenSyncStatus {
     /** Default status. */
     None = "none",

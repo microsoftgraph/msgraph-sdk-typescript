@@ -1,4 +1,4 @@
-/** Provides operations to manage the appCatalogs singleton. */
+/** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
 export enum CloudAppSecuritySessionControlType {
     McasConfigured = "mcasConfigured",
     MonitorOnly = "monitorOnly",

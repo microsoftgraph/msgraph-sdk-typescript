@@ -1,9 +1,6 @@
 import {DirectoryObject} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the appCatalogs singleton.
- */
 export class Endpoint extends DirectoryObject implements Parsable {
     /** The capability property */
     private _capability?: string | undefined;
@@ -30,7 +27,7 @@ export class Endpoint extends DirectoryObject implements Parsable {
         this._capability = value;
     };
     /**
-     * Instantiates a new endpoint and sets the default values.
+     * Instantiates a new Endpoint and sets the default values.
      */
     public constructor() {
         super();

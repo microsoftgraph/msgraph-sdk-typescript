@@ -8,7 +8,7 @@ export class EntitlementManagementSettings extends Entity implements Parsable {
     /** Automatic action that the service should take when an external user's last access package assignment is removed. The possible values are: none, blockSignIn, blockSignInAndDelete, unknownFutureValue. */
     private _externalUserLifecycleAction?: AccessPackageExternalUserLifecycleAction | undefined;
     /**
-     * Instantiates a new entitlementManagementSettings and sets the default values.
+     * Instantiates a new EntitlementManagementSettings and sets the default values.
      */
     public constructor() {
         super();

@@ -9,7 +9,7 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Used for bundling consent if you have a solution that contains two parts: a client app and a custom web API app. If you set the appID of the client app to this value, the user only consents once to the client app. Azure AD knows that consenting to the client means implicitly consenting to the web API and automatically provisions service principals for both APIs at the same time. Both the client and the web API app must be registered in the same tenant. */
-    private _knownClientApplications?: Guid[] | undefined;
+    private _knownClientApplications?: string[] | undefined;
     /** The definition of the delegated permissions exposed by the web API represented by this application registration. These delegated permissions may be requested by a client application, and may be granted by users or administrators during consent. Delegated permissions are sometimes referred to as OAuth 2.0 scopes. */
     private _oauth2PermissionScopes?: PermissionScope[] | undefined;
     /** The OdataType property */
@@ -59,7 +59,7 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "acceptMappedClaims": n => { this.acceptMappedClaims = n.getBooleanValue(); },
-            "knownClientApplications": n => { this.knownClientApplications = n.getCollectionOfPrimitiveValues<guid>(); },
+            "knownClientApplications": n => { this.knownClientApplications = n.getCollectionOfPrimitiveValues<string>(); },
             "oauth2PermissionScopes": n => { this.oauth2PermissionScopes = n.getCollectionOfObjectValues<PermissionScope>(createPermissionScopeFromDiscriminatorValue); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "preAuthorizedApplications": n => { this.preAuthorizedApplications = n.getCollectionOfObjectValues<PreAuthorizedApplication>(createPreAuthorizedApplicationFromDiscriminatorValue); },
@@ -77,7 +77,7 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
      * Sets the knownClientApplications property value. Used for bundling consent if you have a solution that contains two parts: a client app and a custom web API app. If you set the appID of the client app to this value, the user only consents once to the client app. Azure AD knows that consenting to the client means implicitly consenting to the web API and automatically provisions service principals for both APIs at the same time. Both the client and the web API app must be registered in the same tenant.
      * @param value Value to set for the knownClientApplications property.
      */
-    public set knownClientApplications(value: Guid[] | undefined) {
+    public set knownClientApplications(value: string[] | undefined) {
         this._knownClientApplications = value;
     };
     /**
@@ -143,7 +143,7 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("acceptMappedClaims", this.acceptMappedClaims);
-        writer.writeCollectionOfPrimitiveValues<guid>("knownClientApplications", this.knownClientApplications);
+        writer.writeCollectionOfPrimitiveValues<string>("knownClientApplications", this.knownClientApplications);
         writer.writeCollectionOfObjectValues<PermissionScope>("oauth2PermissionScopes", this.oauth2PermissionScopes);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<PreAuthorizedApplication>("preAuthorizedApplications", this.preAuthorizedApplications);

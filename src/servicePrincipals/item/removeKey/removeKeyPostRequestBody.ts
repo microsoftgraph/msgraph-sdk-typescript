@@ -7,7 +7,7 @@ export class RemoveKeyPostRequestBody implements AdditionalDataHolder, Parsable 
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The keyId property */
-    private _keyId?: Guid | undefined;
+    private _keyId?: string | undefined;
     /** The proof property */
     private _proof?: string | undefined;
     /**
@@ -36,7 +36,7 @@ export class RemoveKeyPostRequestBody implements AdditionalDataHolder, Parsable 
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "keyId": n => { this.keyId = n.getGuidValue(); },
+            "keyId": n => { this.keyId = n.getStringValue(); },
             "proof": n => { this.proof = n.getStringValue(); },
         };
     };
@@ -51,7 +51,7 @@ export class RemoveKeyPostRequestBody implements AdditionalDataHolder, Parsable 
      * Sets the keyId property value. The keyId property
      * @param value Value to set for the keyId property.
      */
-    public set keyId(value: Guid | undefined) {
+    public set keyId(value: string | undefined) {
         this._keyId = value;
     };
     /**
@@ -74,7 +74,7 @@ export class RemoveKeyPostRequestBody implements AdditionalDataHolder, Parsable 
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeGuidValue("keyId", this.keyId);
+        writer.writeStringValue("keyId", this.keyId);
         writer.writeStringValue("proof", this.proof);
         writer.writeAdditionalData(this.additionalData);
     };

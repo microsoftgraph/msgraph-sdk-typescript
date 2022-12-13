@@ -1,4 +1,4 @@
-/** Provides operations to manage the appCatalogs singleton. */
+/** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
 export enum IdentityUserFlowAttributeInputType {
     TextBox = "textBox",
     DateTimeDropdown = "dateTimeDropdown",

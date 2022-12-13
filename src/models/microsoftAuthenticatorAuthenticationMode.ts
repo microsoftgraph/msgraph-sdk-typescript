@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export enum MicrosoftAuthenticatorAuthenticationMode {
     DeviceBasedPush = "deviceBasedPush",
     Push = "push",

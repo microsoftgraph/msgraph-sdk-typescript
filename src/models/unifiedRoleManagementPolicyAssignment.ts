@@ -2,9 +2,6 @@ import {createUnifiedRoleManagementPolicyFromDiscriminatorValue} from './createU
 import {Entity, UnifiedRoleManagementPolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the appCatalogs singleton.
- */
 export class UnifiedRoleManagementPolicyAssignment extends Entity implements Parsable {
     /** The policy that's associated with a policy assignment. Supports $expand and a nested $expand of the rules and effectiveRules relationships for the policy. */
     private _policy?: UnifiedRoleManagementPolicy | undefined;
@@ -17,7 +14,7 @@ export class UnifiedRoleManagementPolicyAssignment extends Entity implements Par
     /** The type of the scope where the policy is assigned. One of Directory, DirectoryRole. Required. */
     private _scopeType?: string | undefined;
     /**
-     * Instantiates a new unifiedRoleManagementPolicyAssignment and sets the default values.
+     * Instantiates a new UnifiedRoleManagementPolicyAssignment and sets the default values.
      */
     public constructor() {
         super();

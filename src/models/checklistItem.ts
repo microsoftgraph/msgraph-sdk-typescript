@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the appCatalogs singleton.
+ * Provides operations to manage the collection of applicationTemplate entities.
  */
 export class ChecklistItem extends Entity implements Parsable {
     /** The date and time when the checklistItem was finished. */

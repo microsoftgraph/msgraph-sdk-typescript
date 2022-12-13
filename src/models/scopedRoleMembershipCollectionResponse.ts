@@ -2,6 +2,9 @@ import {createScopedRoleMembershipFromDiscriminatorValue} from './createScopedRo
 import {BaseCollectionPaginationCountResponse, ScopedRoleMembership} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the scopedMembers property of the microsoft.graph.directoryRole entity.
+ */
 export class ScopedRoleMembershipCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ScopedRoleMembership[] | undefined;

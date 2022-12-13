@@ -5,7 +5,7 @@ import {Notebook, OnenoteEntitySchemaObjectModel, OnenoteSection, PageLinks} fro
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the appCatalogs singleton.
+ * Provides operations to manage the collection of authenticationMethodConfiguration entities.
  */
 export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsable {
     /** The page's HTML content. */

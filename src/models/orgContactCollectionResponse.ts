@@ -2,6 +2,9 @@ import {createOrgContactFromDiscriminatorValue} from './createOrgContactFromDisc
 import {BaseCollectionPaginationCountResponse, OrgContact} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of orgContact entities.
+ */
 export class OrgContactCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: OrgContact[] | undefined;

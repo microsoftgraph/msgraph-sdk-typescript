@@ -2,9 +2,6 @@ import {AnswerInputType} from './answerInputType';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Represents a custom question of the business.
- */
 export class BookingCustomQuestion extends Entity implements Parsable {
     /** The expected answer type. The possible values are: text, radioButton, unknownFutureValue. */
     private _answerInputType?: AnswerInputType | undefined;
@@ -41,7 +38,7 @@ export class BookingCustomQuestion extends Entity implements Parsable {
         this._answerOptions = value;
     };
     /**
-     * Instantiates a new bookingCustomQuestion and sets the default values.
+     * Instantiates a new BookingCustomQuestion and sets the default values.
      */
     public constructor() {
         super();

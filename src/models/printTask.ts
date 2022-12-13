@@ -5,7 +5,7 @@ import {Entity, PrintTaskDefinition, PrintTaskStatus, PrintTaskTrigger} from './
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the collection of agreementAcceptance entities.
  */
 export class PrintTask extends Entity implements Parsable {
     /** The definition property */

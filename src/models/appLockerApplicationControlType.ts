@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of application entities. */
 export enum AppLockerApplicationControlType {
     /** Device default value, no Application Control type selected. */
     NotConfigured = "notConfigured",

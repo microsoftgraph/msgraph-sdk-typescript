@@ -3,7 +3,7 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the authenticationMethodsPolicy singleton.
  */
 export class AuthenticationMethodConfiguration extends Entity implements Parsable {
     /** The state of the policy. Possible values are: enabled, disabled. */

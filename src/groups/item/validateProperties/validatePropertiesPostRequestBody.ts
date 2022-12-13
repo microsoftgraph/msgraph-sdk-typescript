@@ -11,7 +11,7 @@ export class ValidatePropertiesPostRequestBody implements AdditionalDataHolder, 
     /** The mailNickname property */
     private _mailNickname?: string | undefined;
     /** The onBehalfOfUserId property */
-    private _onBehalfOfUserId?: Guid | undefined;
+    private _onBehalfOfUserId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -54,7 +54,7 @@ export class ValidatePropertiesPostRequestBody implements AdditionalDataHolder, 
         return {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "mailNickname": n => { this.mailNickname = n.getStringValue(); },
-            "onBehalfOfUserId": n => { this.onBehalfOfUserId = n.getGuidValue(); },
+            "onBehalfOfUserId": n => { this.onBehalfOfUserId = n.getStringValue(); },
         };
     };
     /**
@@ -82,7 +82,7 @@ export class ValidatePropertiesPostRequestBody implements AdditionalDataHolder, 
      * Sets the onBehalfOfUserId property value. The onBehalfOfUserId property
      * @param value Value to set for the onBehalfOfUserId property.
      */
-    public set onBehalfOfUserId(value: Guid | undefined) {
+    public set onBehalfOfUserId(value: string | undefined) {
         this._onBehalfOfUserId = value;
     };
     /**
@@ -93,7 +93,7 @@ export class ValidatePropertiesPostRequestBody implements AdditionalDataHolder, 
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("mailNickname", this.mailNickname);
-        writer.writeGuidValue("onBehalfOfUserId", this.onBehalfOfUserId);
+        writer.writeStringValue("onBehalfOfUserId", this.onBehalfOfUserId);
         writer.writeAdditionalData(this.additionalData);
     };
 }

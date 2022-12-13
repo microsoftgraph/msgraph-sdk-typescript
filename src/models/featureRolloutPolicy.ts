@@ -3,9 +3,6 @@ import {DirectoryObject, Entity} from './index';
 import {StagedFeatureName} from './stagedFeatureName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the appCatalogs singleton.
- */
 export class FeatureRolloutPolicy extends Entity implements Parsable {
     /** Nullable. Specifies a list of directoryObjects that feature is enabled for. */
     private _appliesTo?: DirectoryObject[] | undefined;
@@ -34,7 +31,7 @@ export class FeatureRolloutPolicy extends Entity implements Parsable {
         this._appliesTo = value;
     };
     /**
-     * Instantiates a new featureRolloutPolicy and sets the default values.
+     * Instantiates a new FeatureRolloutPolicy and sets the default values.
      */
     public constructor() {
         super();

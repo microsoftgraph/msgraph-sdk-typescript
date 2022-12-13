@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum Win32LobAppMsiPackageType {
     /** Indicates a per-machine app package. */
     PerMachine = "perMachine",

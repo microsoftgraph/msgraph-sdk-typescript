@@ -36,7 +36,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     /** Unique identifier of the applicationTemplate that the servicePrincipal was created from. Read-only. Supports $filter (eq, ne, NOT, startsWith). */
     private _applicationTemplateId?: string | undefined;
     /** Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le). */
-    private _appOwnerOrganizationId?: Guid | undefined;
+    private _appOwnerOrganizationId?: string | undefined;
     /** App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand. */
     private _appRoleAssignedTo?: AppRoleAssignment[] | undefined;
     /** Specifies whether users or other service principals need to be granted an app role assignment for this service principal before users can sign in or apps can get tokens. The default value is false. Not nullable. Supports $filter (eq, ne, NOT). */
@@ -108,7 +108,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     /** Custom strings that can be used to categorize and identify the service principal. Not nullable. Supports $filter (eq, not, ge, le, startsWith). */
     private _tags?: string[] | undefined;
     /** Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD issues tokens for this application encrypted using the key specified by this property. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user. */
-    private _tokenEncryptionKeyId?: Guid | undefined;
+    private _tokenEncryptionKeyId?: string | undefined;
     /** The tokenIssuancePolicies assigned to this service principal. */
     private _tokenIssuancePolicies?: TokenIssuancePolicy[] | undefined;
     /** The tokenLifetimePolicies assigned to this service principal. */
@@ -226,7 +226,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
      * Sets the appOwnerOrganizationId property value. Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le).
      * @param value Value to set for the appOwnerOrganizationId property.
      */
-    public set appOwnerOrganizationId(value: Guid | undefined) {
+    public set appOwnerOrganizationId(value: string | undefined) {
         this._appOwnerOrganizationId = value;
     };
     /**
@@ -417,7 +417,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
             "appDisplayName": n => { this.appDisplayName = n.getStringValue(); },
             "appId": n => { this.appId = n.getStringValue(); },
             "applicationTemplateId": n => { this.applicationTemplateId = n.getStringValue(); },
-            "appOwnerOrganizationId": n => { this.appOwnerOrganizationId = n.getGuidValue(); },
+            "appOwnerOrganizationId": n => { this.appOwnerOrganizationId = n.getStringValue(); },
             "appRoleAssignedTo": n => { this.appRoleAssignedTo = n.getCollectionOfObjectValues<AppRoleAssignment>(createAppRoleAssignmentFromDiscriminatorValue); },
             "appRoleAssignmentRequired": n => { this.appRoleAssignmentRequired = n.getBooleanValue(); },
             "appRoleAssignments": n => { this.appRoleAssignments = n.getCollectionOfObjectValues<AppRoleAssignment>(createAppRoleAssignmentFromDiscriminatorValue); },
@@ -453,7 +453,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
             "servicePrincipalType": n => { this.servicePrincipalType = n.getStringValue(); },
             "signInAudience": n => { this.signInAudience = n.getStringValue(); },
             "tags": n => { this.tags = n.getCollectionOfPrimitiveValues<string>(); },
-            "tokenEncryptionKeyId": n => { this.tokenEncryptionKeyId = n.getGuidValue(); },
+            "tokenEncryptionKeyId": n => { this.tokenEncryptionKeyId = n.getStringValue(); },
             "tokenIssuancePolicies": n => { this.tokenIssuancePolicies = n.getCollectionOfObjectValues<TokenIssuancePolicy>(createTokenIssuancePolicyFromDiscriminatorValue); },
             "tokenLifetimePolicies": n => { this.tokenLifetimePolicies = n.getCollectionOfObjectValues<TokenLifetimePolicy>(createTokenLifetimePolicyFromDiscriminatorValue); },
             "transitiveMemberOf": n => { this.transitiveMemberOf = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
@@ -740,7 +740,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         writer.writeStringValue("appDisplayName", this.appDisplayName);
         writer.writeStringValue("appId", this.appId);
         writer.writeStringValue("applicationTemplateId", this.applicationTemplateId);
-        writer.writeGuidValue("appOwnerOrganizationId", this.appOwnerOrganizationId);
+        writer.writeStringValue("appOwnerOrganizationId", this.appOwnerOrganizationId);
         writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignedTo", this.appRoleAssignedTo);
         writer.writeBooleanValue("appRoleAssignmentRequired", this.appRoleAssignmentRequired);
         writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignments", this.appRoleAssignments);
@@ -776,7 +776,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         writer.writeStringValue("servicePrincipalType", this.servicePrincipalType);
         writer.writeStringValue("signInAudience", this.signInAudience);
         writer.writeCollectionOfPrimitiveValues<string>("tags", this.tags);
-        writer.writeGuidValue("tokenEncryptionKeyId", this.tokenEncryptionKeyId);
+        writer.writeStringValue("tokenEncryptionKeyId", this.tokenEncryptionKeyId);
         writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", this.tokenIssuancePolicies);
         writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", this.tokenLifetimePolicies);
         writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", this.transitiveMemberOf);
@@ -849,7 +849,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
      * Sets the tokenEncryptionKeyId property value. Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD issues tokens for this application encrypted using the key specified by this property. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.
      * @param value Value to set for the tokenEncryptionKeyId property.
      */
-    public set tokenEncryptionKeyId(value: Guid | undefined) {
+    public set tokenEncryptionKeyId(value: string | undefined) {
         this._tokenEncryptionKeyId = value;
     };
     /**

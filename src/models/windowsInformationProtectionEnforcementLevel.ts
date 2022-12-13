@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of applicationTemplate entities. */
 export enum WindowsInformationProtectionEnforcementLevel {
     /** No protection enforcement */
     NoProtection = "noProtection",

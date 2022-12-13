@@ -17,7 +17,7 @@ export class IosVppEBook extends ManagedEBook implements Parsable {
     /** The Vpp token's organization name. */
     private _vppOrganizationName?: string | undefined;
     /** The Vpp token ID. */
-    private _vppTokenId?: Guid | undefined;
+    private _vppTokenId?: string | undefined;
     /**
      * Gets the appleId property value. The Apple ID associated with Vpp token.
      * @returns a string
@@ -66,7 +66,7 @@ export class IosVppEBook extends ManagedEBook implements Parsable {
             "totalLicenseCount": n => { this.totalLicenseCount = n.getNumberValue(); },
             "usedLicenseCount": n => { this.usedLicenseCount = n.getNumberValue(); },
             "vppOrganizationName": n => { this.vppOrganizationName = n.getStringValue(); },
-            "vppTokenId": n => { this.vppTokenId = n.getGuidValue(); },
+            "vppTokenId": n => { this.vppTokenId = n.getStringValue(); },
         };
     };
     /**
@@ -111,7 +111,7 @@ export class IosVppEBook extends ManagedEBook implements Parsable {
         writer.writeNumberValue("totalLicenseCount", this.totalLicenseCount);
         writer.writeNumberValue("usedLicenseCount", this.usedLicenseCount);
         writer.writeStringValue("vppOrganizationName", this.vppOrganizationName);
-        writer.writeGuidValue("vppTokenId", this.vppTokenId);
+        writer.writeStringValue("vppTokenId", this.vppTokenId);
     };
     /**
      * Gets the totalLicenseCount property value. Total license count.
@@ -166,7 +166,7 @@ export class IosVppEBook extends ManagedEBook implements Parsable {
      * Sets the vppTokenId property value. The Vpp token ID.
      * @param value Value to set for the vppTokenId property.
      */
-    public set vppTokenId(value: Guid | undefined) {
+    public set vppTokenId(value: string | undefined) {
         this._vppTokenId = value;
     };
 }

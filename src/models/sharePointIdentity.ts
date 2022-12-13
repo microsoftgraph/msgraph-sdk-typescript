@@ -5,7 +5,7 @@ export class SharePointIdentity extends Identity implements Parsable {
     /** The sign in name of the SharePoint identity. */
     private _loginName?: string | undefined;
     /**
-     * Instantiates a new SharePointIdentity and sets the default values.
+     * Instantiates a new sharePointIdentity and sets the default values.
      */
     public constructor() {
         super();

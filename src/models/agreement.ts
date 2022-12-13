@@ -6,7 +6,7 @@ import {AgreementAcceptance, AgreementFile, AgreementFileLocalization, Entity, T
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the appCatalogs singleton.
+ * Provides operations to manage the collection of authenticationMethodConfiguration entities.
  */
 export class Agreement extends Entity implements Parsable {
     /** Read-only. Information about acceptances of this agreement. */

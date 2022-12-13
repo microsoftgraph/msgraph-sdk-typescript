@@ -8,7 +8,7 @@ export class PermissionScope implements AdditionalDataHolder, Parsable {
     /** The permission's title, intended to be read by an administrator granting the permission on behalf of all users. */
     private _adminConsentDisplayName?: string | undefined;
     /** Unique delegated permission identifier inside the collection of delegated permissions defined for a resource application. */
-    private _id?: Guid | undefined;
+    private _id?: string | undefined;
     /** When creating or updating a permission, this property must be set to true (which is the default). To delete a permission, this property must first be set to false.  At that point, in a subsequent call, the permission may be removed. */
     private _isEnabled?: boolean | undefined;
     /** The OdataType property */
@@ -79,7 +79,7 @@ export class PermissionScope implements AdditionalDataHolder, Parsable {
         return {
             "adminConsentDescription": n => { this.adminConsentDescription = n.getStringValue(); },
             "adminConsentDisplayName": n => { this.adminConsentDisplayName = n.getStringValue(); },
-            "id": n => { this.id = n.getGuidValue(); },
+            "id": n => { this.id = n.getStringValue(); },
             "isEnabled": n => { this.isEnabled = n.getBooleanValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "origin": n => { this.origin = n.getStringValue(); },
@@ -100,7 +100,7 @@ export class PermissionScope implements AdditionalDataHolder, Parsable {
      * Sets the id property value. Unique delegated permission identifier inside the collection of delegated permissions defined for a resource application.
      * @param value Value to set for the id property.
      */
-    public set id(value: Guid | undefined) {
+    public set id(value: string | undefined) {
         this._id = value;
     };
     /**
@@ -153,7 +153,7 @@ export class PermissionScope implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("adminConsentDescription", this.adminConsentDescription);
         writer.writeStringValue("adminConsentDisplayName", this.adminConsentDisplayName);
-        writer.writeGuidValue("id", this.id);
+        writer.writeStringValue("id", this.id);
         writer.writeBooleanValue("isEnabled", this.isEnabled);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("origin", this.origin);

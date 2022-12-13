@@ -3,13 +3,13 @@ import {Entity, ServicePlanInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of application entities.
+ * Provides operations to manage the collection of applicationTemplate entities.
  */
 export class LicenseDetails extends Entity implements Parsable {
     /** Information about the service plans assigned with the license. Read-only, Not nullable */
     private _servicePlans?: ServicePlanInfo[] | undefined;
     /** Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only */
-    private _skuId?: Guid | undefined;
+    private _skuId?: string | undefined;
     /** Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; for example: 'AAD_Premium'. Read-only */
     private _skuPartNumber?: string | undefined;
     /**
@@ -25,7 +25,7 @@ export class LicenseDetails extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "servicePlans": n => { this.servicePlans = n.getCollectionOfObjectValues<ServicePlanInfo>(createServicePlanInfoFromDiscriminatorValue); },
-            "skuId": n => { this.skuId = n.getGuidValue(); },
+            "skuId": n => { this.skuId = n.getStringValue(); },
             "skuPartNumber": n => { this.skuPartNumber = n.getStringValue(); },
         };
     };
@@ -37,7 +37,7 @@ export class LicenseDetails extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<ServicePlanInfo>("servicePlans", this.servicePlans);
-        writer.writeGuidValue("skuId", this.skuId);
+        writer.writeStringValue("skuId", this.skuId);
         writer.writeStringValue("skuPartNumber", this.skuPartNumber);
     };
     /**
@@ -65,7 +65,7 @@ export class LicenseDetails extends Entity implements Parsable {
      * Sets the skuId property value. Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only
      * @param value Value to set for the skuId property.
      */
-    public set skuId(value: Guid | undefined) {
+    public set skuId(value: string | undefined) {
         this._skuId = value;
     };
     /**

@@ -1,4 +1,4 @@
-/** Provides operations to manage the appCatalogs singleton. */
+/** Provides operations to manage the collection of applicationTemplate entities. */
 export enum RecurrencePatternType {
     Daily = "daily",
     Weekly = "weekly",

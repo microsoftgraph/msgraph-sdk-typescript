@@ -2,6 +2,9 @@ import {createDeviceComplianceActionItemFromDiscriminatorValue} from './createDe
 import {BaseCollectionPaginationCountResponse, DeviceComplianceActionItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the scheduledActionConfigurations property of the microsoft.graph.deviceComplianceScheduledActionForRule entity.
+ */
 export class DeviceComplianceActionItemCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DeviceComplianceActionItem[] | undefined;

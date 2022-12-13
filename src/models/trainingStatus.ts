@@ -1,4 +1,4 @@
-/** Provides operations to manage the appCatalogs singleton. */
+/** Provides operations to manage the collection of application entities. */
 export enum TrainingStatus {
     Unknown = "unknown",
     Assigned = "assigned",

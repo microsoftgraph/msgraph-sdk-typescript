@@ -53,7 +53,7 @@ export class WorkbookRangeFormat extends Entity implements Parsable {
         this._columnWidth = value;
     };
     /**
-     * Instantiates a new workbookRangeFormat and sets the default values.
+     * Instantiates a new WorkbookRangeFormat and sets the default values.
      */
     public constructor() {
         super();

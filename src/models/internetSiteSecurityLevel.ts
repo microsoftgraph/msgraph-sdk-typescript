@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of application entities. */
 export enum InternetSiteSecurityLevel {
     /** User Defined, default value, no intent. */
     UserDefined = "userDefined",

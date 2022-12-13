@@ -95,7 +95,7 @@ export class Application extends DirectoryObject implements Parsable {
     /** Custom strings that can be used to categorize and identify the application. Not nullable. Supports $filter (eq, not, ge, le, startsWith). */
     private _tags?: string[] | undefined;
     /** Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key this property points to. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user. */
-    private _tokenEncryptionKeyId?: Guid | undefined;
+    private _tokenEncryptionKeyId?: string | undefined;
     /** The tokenIssuancePolicies property */
     private _tokenIssuancePolicies?: TokenIssuancePolicy[] | undefined;
     /** The tokenLifetimePolicies property */
@@ -349,7 +349,7 @@ export class Application extends DirectoryObject implements Parsable {
             "signInAudience": n => { this.signInAudience = n.getStringValue(); },
             "spa": n => { this.spa = n.getObjectValue<SpaApplication>(createSpaApplicationFromDiscriminatorValue); },
             "tags": n => { this.tags = n.getCollectionOfPrimitiveValues<string>(); },
-            "tokenEncryptionKeyId": n => { this.tokenEncryptionKeyId = n.getGuidValue(); },
+            "tokenEncryptionKeyId": n => { this.tokenEncryptionKeyId = n.getStringValue(); },
             "tokenIssuancePolicies": n => { this.tokenIssuancePolicies = n.getCollectionOfObjectValues<TokenIssuancePolicy>(createTokenIssuancePolicyFromDiscriminatorValue); },
             "tokenLifetimePolicies": n => { this.tokenLifetimePolicies = n.getCollectionOfObjectValues<TokenLifetimePolicy>(createTokenLifetimePolicyFromDiscriminatorValue); },
             "verifiedPublisher": n => { this.verifiedPublisher = n.getObjectValue<VerifiedPublisher>(createVerifiedPublisherFromDiscriminatorValue); },
@@ -651,7 +651,7 @@ export class Application extends DirectoryObject implements Parsable {
         writer.writeStringValue("signInAudience", this.signInAudience);
         writer.writeObjectValue<SpaApplication>("spa", this.spa);
         writer.writeCollectionOfPrimitiveValues<string>("tags", this.tags);
-        writer.writeGuidValue("tokenEncryptionKeyId", this.tokenEncryptionKeyId);
+        writer.writeStringValue("tokenEncryptionKeyId", this.tokenEncryptionKeyId);
         writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", this.tokenIssuancePolicies);
         writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", this.tokenLifetimePolicies);
         writer.writeObjectValue<VerifiedPublisher>("verifiedPublisher", this.verifiedPublisher);
@@ -724,7 +724,7 @@ export class Application extends DirectoryObject implements Parsable {
      * Sets the tokenEncryptionKeyId property value. Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key this property points to. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.
      * @param value Value to set for the tokenEncryptionKeyId property.
      */
-    public set tokenEncryptionKeyId(value: Guid | undefined) {
+    public set tokenEncryptionKeyId(value: string | undefined) {
         this._tokenEncryptionKeyId = value;
     };
     /**

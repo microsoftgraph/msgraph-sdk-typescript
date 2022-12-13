@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of application entities. */
 export enum FirewallPacketQueueingMethodType {
     /** No value configured by Intune, do not override the user-configured device default value */
     DeviceDefault = "deviceDefault",

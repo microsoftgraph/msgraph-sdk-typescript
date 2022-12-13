@@ -3,6 +3,9 @@ import {createConnectionOperationFromDiscriminatorValue} from './createConnectio
 import {ConnectionOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the operations property of the microsoft.graph.externalConnectors.externalConnection entity.
+ */
 export class ConnectionOperationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ConnectionOperation[] | undefined;

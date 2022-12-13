@@ -1,4 +1,4 @@
-/** Provides operations to manage the appCatalogs singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum PrintFinishing {
     None = "none",
     Staple = "staple",

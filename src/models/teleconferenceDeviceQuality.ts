@@ -6,7 +6,7 @@ export class TeleconferenceDeviceQuality implements AdditionalDataHolder, Parsab
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** A unique identifier for all  the participant calls in a conference or a unique identifier for two participant calls in P2P call. This needs to be copied over from Microsoft.Graph.Call.CallChainId. */
-    private _callChainId?: Guid | undefined;
+    private _callChainId?: string | undefined;
     /** A geo-region where the service is deployed, such as ProdNoam. */
     private _cloudServiceDeploymentEnvironment?: string | undefined;
     /** A unique deployment identifier assigned by Azure. */
@@ -20,13 +20,13 @@ export class TeleconferenceDeviceQuality implements AdditionalDataHolder, Parsab
     /** The user media agent name, such as Cisco SX80. */
     private _deviceName?: string | undefined;
     /** A unique identifier for a specific media leg of a participant in a conference.  One participant can have multiple media leg identifiers if retargeting happens. CVI partner assigns this value. */
-    private _mediaLegId?: Guid | undefined;
+    private _mediaLegId?: string | undefined;
     /** The list of media qualities in a media session (call), such as audio quality, video quality, and/or screen sharing quality. */
     private _mediaQualityList?: TeleconferenceDeviceMediaQuality[] | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /** A unique identifier for a specific participant in a conference. The CVI partner needs to copy over Call.MyParticipantId to this property. */
-    private _participantId?: Guid | undefined;
+    private _participantId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -52,7 +52,7 @@ export class TeleconferenceDeviceQuality implements AdditionalDataHolder, Parsab
      * Sets the callChainId property value. A unique identifier for all  the participant calls in a conference or a unique identifier for two participant calls in P2P call. This needs to be copied over from Microsoft.Graph.Call.CallChainId.
      * @param value Value to set for the callChainId property.
      */
-    public set callChainId(value: Guid | undefined) {
+    public set callChainId(value: string | undefined) {
         this._callChainId = value;
     };
     /**
@@ -151,17 +151,17 @@ export class TeleconferenceDeviceQuality implements AdditionalDataHolder, Parsab
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "callChainId": n => { this.callChainId = n.getGuidValue(); },
+            "callChainId": n => { this.callChainId = n.getStringValue(); },
             "cloudServiceDeploymentEnvironment": n => { this.cloudServiceDeploymentEnvironment = n.getStringValue(); },
             "cloudServiceDeploymentId": n => { this.cloudServiceDeploymentId = n.getStringValue(); },
             "cloudServiceInstanceName": n => { this.cloudServiceInstanceName = n.getStringValue(); },
             "cloudServiceName": n => { this.cloudServiceName = n.getStringValue(); },
             "deviceDescription": n => { this.deviceDescription = n.getStringValue(); },
             "deviceName": n => { this.deviceName = n.getStringValue(); },
-            "mediaLegId": n => { this.mediaLegId = n.getGuidValue(); },
+            "mediaLegId": n => { this.mediaLegId = n.getStringValue(); },
             "mediaQualityList": n => { this.mediaQualityList = n.getCollectionOfObjectValues<TeleconferenceDeviceMediaQuality>(createTeleconferenceDeviceMediaQualityFromDiscriminatorValue); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
-            "participantId": n => { this.participantId = n.getGuidValue(); },
+            "participantId": n => { this.participantId = n.getStringValue(); },
         };
     };
     /**
@@ -175,7 +175,7 @@ export class TeleconferenceDeviceQuality implements AdditionalDataHolder, Parsab
      * Sets the mediaLegId property value. A unique identifier for a specific media leg of a participant in a conference.  One participant can have multiple media leg identifiers if retargeting happens. CVI partner assigns this value.
      * @param value Value to set for the mediaLegId property.
      */
-    public set mediaLegId(value: Guid | undefined) {
+    public set mediaLegId(value: string | undefined) {
         this._mediaLegId = value;
     };
     /**
@@ -217,7 +217,7 @@ export class TeleconferenceDeviceQuality implements AdditionalDataHolder, Parsab
      * Sets the participantId property value. A unique identifier for a specific participant in a conference. The CVI partner needs to copy over Call.MyParticipantId to this property.
      * @param value Value to set for the participantId property.
      */
-    public set participantId(value: Guid | undefined) {
+    public set participantId(value: string | undefined) {
         this._participantId = value;
     };
     /**
@@ -226,17 +226,17 @@ export class TeleconferenceDeviceQuality implements AdditionalDataHolder, Parsab
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeGuidValue("callChainId", this.callChainId);
+        writer.writeStringValue("callChainId", this.callChainId);
         writer.writeStringValue("cloudServiceDeploymentEnvironment", this.cloudServiceDeploymentEnvironment);
         writer.writeStringValue("cloudServiceDeploymentId", this.cloudServiceDeploymentId);
         writer.writeStringValue("cloudServiceInstanceName", this.cloudServiceInstanceName);
         writer.writeStringValue("cloudServiceName", this.cloudServiceName);
         writer.writeStringValue("deviceDescription", this.deviceDescription);
         writer.writeStringValue("deviceName", this.deviceName);
-        writer.writeGuidValue("mediaLegId", this.mediaLegId);
+        writer.writeStringValue("mediaLegId", this.mediaLegId);
         writer.writeCollectionOfObjectValues<TeleconferenceDeviceMediaQuality>("mediaQualityList", this.mediaQualityList);
         writer.writeStringValue("@odata.type", this.odataType);
-        writer.writeGuidValue("participantId", this.participantId);
+        writer.writeStringValue("participantId", this.participantId);
         writer.writeAdditionalData(this.additionalData);
     };
 }

@@ -10,7 +10,7 @@ export class ServicePlanInfo implements AdditionalDataHolder, Parsable {
     /** The provisioning status of the service plan. The possible values are:Success - Service is fully provisioned.Disabled - Service has been disabled.ErrorStatus - The service plan has not been provisioned and is in an error state.PendingInput - Service is not yet provisioned; awaiting service confirmation.PendingActivation - Service is provisioned but requires explicit activation by administrator (for example, Intune_O365 service plan)PendingProvisioning - Microsoft has added a new service to the product SKU and it has not been activated in the tenant, yet. */
     private _provisioningStatus?: string | undefined;
     /** The unique identifier of the service plan. */
-    private _servicePlanId?: Guid | undefined;
+    private _servicePlanId?: string | undefined;
     /** The name of the service plan. */
     private _servicePlanName?: string | undefined;
     /**
@@ -56,7 +56,7 @@ export class ServicePlanInfo implements AdditionalDataHolder, Parsable {
             "appliesTo": n => { this.appliesTo = n.getStringValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "provisioningStatus": n => { this.provisioningStatus = n.getStringValue(); },
-            "servicePlanId": n => { this.servicePlanId = n.getGuidValue(); },
+            "servicePlanId": n => { this.servicePlanId = n.getStringValue(); },
             "servicePlanName": n => { this.servicePlanName = n.getStringValue(); },
         };
     };
@@ -97,7 +97,7 @@ export class ServicePlanInfo implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("appliesTo", this.appliesTo);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("provisioningStatus", this.provisioningStatus);
-        writer.writeGuidValue("servicePlanId", this.servicePlanId);
+        writer.writeStringValue("servicePlanId", this.servicePlanId);
         writer.writeStringValue("servicePlanName", this.servicePlanName);
         writer.writeAdditionalData(this.additionalData);
     };
@@ -112,7 +112,7 @@ export class ServicePlanInfo implements AdditionalDataHolder, Parsable {
      * Sets the servicePlanId property value. The unique identifier of the service plan.
      * @param value Value to set for the servicePlanId property.
      */
-    public set servicePlanId(value: Guid | undefined) {
+    public set servicePlanId(value: string | undefined) {
         this._servicePlanId = value;
     };
     /**

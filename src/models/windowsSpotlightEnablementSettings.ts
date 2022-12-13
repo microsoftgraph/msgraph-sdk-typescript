@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of application entities. */
 export enum WindowsSpotlightEnablementSettings {
     /** Spotlight on lock screen is not configured */
     NotConfigured = "notConfigured",

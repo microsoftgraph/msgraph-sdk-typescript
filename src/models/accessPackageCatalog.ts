@@ -4,9 +4,6 @@ import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFr
 import {AccessPackage, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreement entities.
- */
 export class AccessPackageCatalog extends Entity implements Parsable {
     /** The access packages in this catalog. Read-only. Nullable. */
     private _accessPackages?: AccessPackage[] | undefined;

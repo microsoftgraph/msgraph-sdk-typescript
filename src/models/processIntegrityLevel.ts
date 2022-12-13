@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
 export enum ProcessIntegrityLevel {
     Unknown = "unknown",
     Untrusted = "untrusted",

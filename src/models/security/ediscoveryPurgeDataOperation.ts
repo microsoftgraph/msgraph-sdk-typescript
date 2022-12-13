@@ -1,9 +1,12 @@
 import {CaseOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of application entities.
+ */
 export class EdiscoveryPurgeDataOperation extends CaseOperation implements Parsable {
     /**
-     * Instantiates a new EdiscoveryPurgeDataOperation and sets the default values.
+     * Instantiates a new ediscoveryPurgeDataOperation and sets the default values.
      */
     public constructor() {
         super();

@@ -2,6 +2,9 @@ import {createOnlineMeetingFromDiscriminatorValue} from './createOnlineMeetingFr
 import {BaseCollectionPaginationCountResponse, OnlineMeeting} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
+ */
 export class OnlineMeetingCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: OnlineMeeting[] | undefined;

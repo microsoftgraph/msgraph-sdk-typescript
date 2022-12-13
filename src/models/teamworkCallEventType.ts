@@ -1,4 +1,4 @@
-/** Provides operations to manage the appCatalogs singleton. */
+/** Provides operations to manage the collection of chat entities. */
 export enum TeamworkCallEventType {
     Call = "call",
     Meeting = "meeting",

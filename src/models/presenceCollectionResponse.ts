@@ -2,6 +2,9 @@ import {createPresenceFromDiscriminatorValue} from './createPresenceFromDiscrimi
 import {BaseCollectionPaginationCountResponse, Presence} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity.
+ */
 export class PresenceCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Presence[] | undefined;

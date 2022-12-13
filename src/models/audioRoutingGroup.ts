@@ -3,7 +3,7 @@ import {RoutingMode} from './routingMode';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the cloudCommunications singleton.
  */
 export class AudioRoutingGroup extends Entity implements Parsable {
     /** The receivers property */

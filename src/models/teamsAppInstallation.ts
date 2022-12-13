@@ -4,7 +4,7 @@ import {Entity, TeamsApp, TeamsAppDefinition} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the appCatalogs singleton.
+ * Provides operations to manage the collection of chat entities.
  */
 export class TeamsAppInstallation extends Entity implements Parsable {
     /** The app that is installed. */
