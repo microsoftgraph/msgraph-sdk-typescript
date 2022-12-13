@@ -1,5 +1,7 @@
 
-/** Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0). */
+/**
+ * Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
+ */
 export class ExtensionPropertyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

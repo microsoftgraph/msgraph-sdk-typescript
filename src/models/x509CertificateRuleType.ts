@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
 export enum X509CertificateRuleType {
     IssuerSubject = "issuerSubject",
     PolicyOID = "policyOID",

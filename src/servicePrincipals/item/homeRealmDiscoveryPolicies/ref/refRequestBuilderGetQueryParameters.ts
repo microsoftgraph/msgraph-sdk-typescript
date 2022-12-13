@@ -1,5 +1,7 @@
 
-/** List the homeRealmDiscoveryPolicy objects that are assigned to a servicePrincipal. */
+/**
+ * List the homeRealmDiscoveryPolicy objects that are assigned to a servicePrincipal.
+ */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

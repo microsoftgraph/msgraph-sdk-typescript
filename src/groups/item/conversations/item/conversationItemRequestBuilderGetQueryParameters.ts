@@ -1,5 +1,7 @@
 
-/** The group's conversations. */
+/**
+ * The group's conversations.
+ */
 export class ConversationItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

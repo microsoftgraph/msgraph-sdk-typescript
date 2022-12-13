@@ -117,7 +117,7 @@ export class AssignedPlan implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the servicePlanId property value. A GUID that identifies the service plan. For a complete list of GUIDs and their equivalent friendly service names, see Product names and service plan identifiers for licensing.
-     * @returns a string
+     * @returns a Guid
      */
     public get servicePlanId() {
         return this._servicePlanId;

@@ -1,5 +1,7 @@
 
-/** Retrieves a list of domainDnsRecord objects needed to enable services for the domain. Use the returned list to add records to the zone file of the domain. This can be done through the domain registrar or DNS server configuration. */
+/**
+ * Retrieves a list of domainDnsRecord objects needed to enable services for the domain. Use the returned list to add records to the zone file of the domain. This can be done through the domain registrar or DNS server configuration.
+ */
 export class ServiceConfigurationRecordsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

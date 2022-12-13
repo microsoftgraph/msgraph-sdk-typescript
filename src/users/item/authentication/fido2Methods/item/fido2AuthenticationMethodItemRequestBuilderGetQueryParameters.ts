@@ -1,5 +1,7 @@
 
-/** Represents the FIDO2 security keys registered to a user for authentication. */
+/**
+ * Represents the FIDO2 security keys registered to a user for authentication.
+ */
 export class Fido2AuthenticationMethodItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

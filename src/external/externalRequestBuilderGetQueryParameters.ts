@@ -1,5 +1,7 @@
 
-/** Get external */
+/**
+ * Get external
+ */
 export class ExternalRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

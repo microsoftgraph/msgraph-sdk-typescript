@@ -1,5 +1,7 @@
 
-/** Represents the app roles a user has been granted for an application. Supports $expand. */
+/**
+ * Represents the app roles a user has been granted for an application. Supports $expand.
+ */
 export class AppRoleAssignmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

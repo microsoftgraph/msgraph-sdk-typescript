@@ -1,5 +1,7 @@
 
-/** The collection of content types present in this list. */
+/**
+ * The collection of content types present in this list.
+ */
 export class ContentTypeItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

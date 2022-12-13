@@ -1,5 +1,7 @@
 
-/** The group's calendar. Read-only. */
+/**
+ * The group's calendar. Read-only.
+ */
 export class CalendarRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

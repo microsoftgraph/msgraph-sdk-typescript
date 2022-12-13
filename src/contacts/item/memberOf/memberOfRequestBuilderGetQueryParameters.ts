@@ -1,5 +1,7 @@
 
-/** Get memberOf from contacts */
+/**
+ * Get memberOf from contacts
+ */
 export class MemberOfRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

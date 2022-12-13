@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {GetEmailAppUsageAppsUserCountsWithPeriodRequestBuilderGetRequestConfiguration} from './getEmailAppUsageAppsUserCountsWithPeriodRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getEmailAppUsageAppsUserCounts method. */
+/**
+ * Provides operations to call the getEmailAppUsageAppsUserCounts method.
+ */
 export class GetEmailAppUsageAppsUserCountsWithPeriodRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

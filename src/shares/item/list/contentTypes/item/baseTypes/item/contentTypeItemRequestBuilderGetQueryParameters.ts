@@ -1,5 +1,7 @@
 
-/** The collection of content types that are ancestors of this content type. */
+/**
+ * The collection of content types that are ancestors of this content type.
+ */
 export class ContentTypeItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

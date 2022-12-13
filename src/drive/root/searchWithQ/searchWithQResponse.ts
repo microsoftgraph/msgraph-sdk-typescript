@@ -2,7 +2,9 @@ import {BaseCollectionPaginationCountResponse, DriveItem} from '../../../models/
 import {createDriveItemFromDiscriminatorValue} from '../../../models/createDriveItemFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the search method. */
+/**
+ * Provides operations to call the search method.
+ */
 export class SearchWithQResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DriveItem[] | undefined;

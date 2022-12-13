@@ -1,5 +1,7 @@
 
-/** The collection of open extensions defined for this administrative unit. Nullable. */
+/**
+ * The collection of open extensions defined for this administrative unit. Nullable.
+ */
 export class ExtensionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

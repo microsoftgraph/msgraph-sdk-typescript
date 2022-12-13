@@ -1,5 +1,7 @@
 
-/** The user's contacts. Read-only. Nullable. */
+/**
+ * The user's contacts. Read-only. Nullable.
+ */
 export class ContactItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

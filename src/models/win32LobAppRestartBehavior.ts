@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the deviceAppManagement singleton. */
 export enum Win32LobAppRestartBehavior {
     /** Intune will restart the device after running the app installation if the operation returns a reboot code. */
     BasedOnReturnCode = "basedOnReturnCode",

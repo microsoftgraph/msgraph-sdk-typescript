@@ -1,5 +1,7 @@
 
-/** Get the last  ediscoveryEstimateOperation objects and their properties. */
+/**
+ * Get the last  ediscoveryEstimateOperation objects and their properties.
+ */
 export class LastEstimateStatisticsOperationRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand. */
+/**
+ * The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.
+ */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

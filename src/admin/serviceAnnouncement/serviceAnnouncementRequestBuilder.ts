@@ -13,7 +13,9 @@ import {ServiceAnnouncementRequestBuilderGetRequestConfiguration} from './servic
 import {ServiceAnnouncementRequestBuilderPatchRequestConfiguration} from './serviceAnnouncementRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity. */
+/**
+ * Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity.
+ */
 export class ServiceAnnouncementRequestBuilder {
     /** Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity. */
     public get healthOverviews(): HealthOverviewsRequestBuilder {
@@ -72,7 +74,7 @@ export class ServiceAnnouncementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -82,7 +84,7 @@ export class ServiceAnnouncementRequestBuilder {
     };
     /**
      * Update the navigation property serviceAnnouncement in admin
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -92,7 +94,7 @@ export class ServiceAnnouncementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -166,7 +168,7 @@ export class ServiceAnnouncementRequestBuilder {
     };
     /**
      * Update the navigation property serviceAnnouncement in admin
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServiceAnnouncement

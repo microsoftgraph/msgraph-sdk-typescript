@@ -1,5 +1,7 @@
 
-/** The list of acceptance statuses for this T&C policy. */
+/**
+ * The list of acceptance statuses for this T&C policy.
+ */
 export class TermsAndConditionsAcceptanceStatusItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

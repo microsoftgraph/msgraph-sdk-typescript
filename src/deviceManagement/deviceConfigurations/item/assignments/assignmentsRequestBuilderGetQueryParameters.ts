@@ -1,5 +1,7 @@
 
-/** The list of assignments for the device configuration profile. */
+/**
+ * The list of assignments for the device configuration profile.
+ */
 export class AssignmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

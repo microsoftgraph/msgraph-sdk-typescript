@@ -1,5 +1,7 @@
 
-/** Get a list of subjectRightsRequest objects and their properties. */
+/**
+ * Get a list of subjectRightsRequest objects and their properties.
+ */
 export class SubjectRightsRequestsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

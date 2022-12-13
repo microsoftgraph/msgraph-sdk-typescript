@@ -1,5 +1,7 @@
 
-/** Get a list of the educationClass objects and their properties. */
+/**
+ * Get a list of the educationClass objects and their properties.
+ */
 export class ClassesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

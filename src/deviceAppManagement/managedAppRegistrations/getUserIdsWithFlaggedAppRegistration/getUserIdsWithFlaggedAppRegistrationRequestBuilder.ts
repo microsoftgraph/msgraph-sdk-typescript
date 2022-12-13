@@ -5,7 +5,9 @@ import {GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetRequestConfiguratio
 import {GetUserIdsWithFlaggedAppRegistrationResponse} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getUserIdsWithFlaggedAppRegistration method. */
+/**
+ * Provides operations to call the getUserIdsWithFlaggedAppRegistration method.
+ */
 export class GetUserIdsWithFlaggedAppRegistrationRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -36,7 +38,7 @@ export class GetUserIdsWithFlaggedAppRegistrationRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

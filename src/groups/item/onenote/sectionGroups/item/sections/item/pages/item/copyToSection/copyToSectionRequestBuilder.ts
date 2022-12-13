@@ -6,7 +6,9 @@ import {CopyToSectionRequestBuilderPostRequestConfiguration} from './copyToSecti
 import {CopyToSectionPostRequestBody} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the copyToSection method. */
+/**
+ * Provides operations to call the copyToSection method.
+ */
 export class CopyToSectionRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -29,7 +31,7 @@ export class CopyToSectionRequestBuilder {
     };
     /**
      * Copy a page to a specific section. For copy operations, you follow an asynchronous calling pattern:  First call the Copy action, and then poll the operation endpoint for the result.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -39,7 +41,7 @@ export class CopyToSectionRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -49,10 +51,11 @@ export class CopyToSectionRequestBuilder {
     };
     /**
      * Copy a page to a specific section. For copy operations, you follow an asynchronous calling pattern:  First call the Copy action, and then poll the operation endpoint for the result.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnenoteOperation
+     * @see {@link https://docs.microsoft.com/graph/api/page-copytosection?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CopyToSectionPostRequestBody | undefined, requestConfiguration?: CopyToSectionRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

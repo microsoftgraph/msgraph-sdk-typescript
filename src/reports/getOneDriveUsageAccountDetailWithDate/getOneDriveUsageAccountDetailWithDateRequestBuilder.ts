@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {GetOneDriveUsageAccountDetailWithDateRequestBuilderGetRequestConfiguration} from './getOneDriveUsageAccountDetailWithDateRequestBuilderGetRequestConfiguration';
 import {DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getOneDriveUsageAccountDetail method. */
+/**
+ * Provides operations to call the getOneDriveUsageAccountDetail method.
+ */
 export class GetOneDriveUsageAccountDetailWithDateRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

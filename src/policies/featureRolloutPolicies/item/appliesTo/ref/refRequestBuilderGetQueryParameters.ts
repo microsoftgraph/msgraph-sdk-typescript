@@ -1,5 +1,7 @@
 
-/** Nullable. Specifies a list of directoryObjects that feature is enabled for. */
+/**
+ * Nullable. Specifies a list of directoryObjects that feature is enabled for.
+ */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

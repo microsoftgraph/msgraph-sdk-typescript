@@ -1,5 +1,7 @@
 
-/** Invoke function sharedWithMe */
+/**
+ * Invoke function sharedWithMe
+ */
 export class SharedWithMeRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

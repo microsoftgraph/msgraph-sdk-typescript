@@ -47,7 +47,7 @@ export class AddIn implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the id property value. The id property
-     * @returns a string
+     * @returns a Guid
      */
     public get id() {
         return this._id;

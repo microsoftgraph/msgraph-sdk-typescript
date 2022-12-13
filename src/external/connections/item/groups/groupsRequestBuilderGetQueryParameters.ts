@@ -1,5 +1,7 @@
 
-/** Get groups from external */
+/**
+ * Get groups from external
+ */
 export class GroupsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

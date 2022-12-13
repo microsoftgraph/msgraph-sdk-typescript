@@ -1,5 +1,7 @@
 
-/** The tags associated with the team. */
+/**
+ * The tags associated with the team.
+ */
 export class TeamworkTagItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

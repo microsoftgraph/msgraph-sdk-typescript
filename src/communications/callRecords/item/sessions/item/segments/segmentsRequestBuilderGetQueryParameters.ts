@@ -1,5 +1,7 @@
 
-/** The list of segments involved in the session. Read-only. Nullable. */
+/**
+ * The list of segments involved in the session. Read-only. Nullable.
+ */
 export class SegmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

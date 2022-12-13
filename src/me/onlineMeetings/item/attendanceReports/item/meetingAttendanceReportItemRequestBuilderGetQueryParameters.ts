@@ -1,5 +1,7 @@
 
-/** The attendance reports of an online meeting. Read-only. */
+/**
+ * The attendance reports of an online meeting. Read-only.
+ */
 export class MeetingAttendanceReportItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

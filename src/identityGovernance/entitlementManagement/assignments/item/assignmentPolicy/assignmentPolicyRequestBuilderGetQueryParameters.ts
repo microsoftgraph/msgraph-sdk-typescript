@@ -1,5 +1,7 @@
 
-/** Read-only. Supports $filter (eq) on the id property and $expand query parameters. */
+/**
+ * Read-only. Supports $filter (eq) on the id property and $expand query parameters.
+ */
 export class AssignmentPolicyRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

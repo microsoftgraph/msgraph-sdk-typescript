@@ -2,6 +2,9 @@ import {createCommsOperationFromDiscriminatorValue} from './createCommsOperation
 import {BaseCollectionPaginationCountResponse, CommsOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the operations property of the microsoft.graph.call entity.
+ */
 export class CommsOperationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: CommsOperation[] | undefined;

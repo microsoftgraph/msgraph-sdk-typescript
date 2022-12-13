@@ -1,5 +1,7 @@
 
-/** Get insights from me */
+/**
+ * Get insights from me
+ */
 export class InsightsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

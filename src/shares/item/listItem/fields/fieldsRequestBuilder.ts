@@ -7,7 +7,9 @@ import {FieldsRequestBuilderGetRequestConfiguration} from './fieldsRequestBuilde
 import {FieldsRequestBuilderPatchRequestConfiguration} from './fieldsRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the fields property of the microsoft.graph.listItem entity. */
+/**
+ * Provides operations to manage the fields property of the microsoft.graph.listItem entity.
+ */
 export class FieldsRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -54,7 +56,7 @@ export class FieldsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -64,7 +66,7 @@ export class FieldsRequestBuilder {
     };
     /**
      * Update the properties on a **[listItem][]**.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -74,7 +76,7 @@ export class FieldsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -115,10 +117,11 @@ export class FieldsRequestBuilder {
     };
     /**
      * Update the properties on a **[listItem][]**.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of FieldValueSet
+     * @see {@link https://docs.microsoft.com/graph/api/listitem-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: FieldValueSet | undefined, requestConfiguration?: FieldsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FieldValueSet | undefined> {
         if(!body) throw new Error("body cannot be undefined");

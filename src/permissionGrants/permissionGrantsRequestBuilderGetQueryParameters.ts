@@ -1,5 +1,7 @@
 
-/** Get entities from permissionGrants */
+/**
+ * Get entities from permissionGrants
+ */
 export class PermissionGrantsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

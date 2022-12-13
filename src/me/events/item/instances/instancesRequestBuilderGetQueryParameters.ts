@@ -1,5 +1,7 @@
 
-/** Get the instances (occurrences) of an event for a specified time range.  If the event is a `seriesMaster` type, this returns the occurrences and exceptions of the event in the specified time range. */
+/**
+ * Get the instances (occurrences) of an event for a specified time range.  If the event is a `seriesMaster` type, this returns the occurrences and exceptions of the event in the specified time range.
+ */
 export class InstancesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

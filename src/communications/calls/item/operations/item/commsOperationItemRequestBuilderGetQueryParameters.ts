@@ -1,5 +1,7 @@
 
-/** Get operations from communications */
+/**
+ * Get operations from communications
+ */
 export class CommsOperationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

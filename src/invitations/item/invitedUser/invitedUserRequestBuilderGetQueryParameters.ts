@@ -1,5 +1,7 @@
 
-/** The user created as part of the invitation creation. Read-Only */
+/**
+ * The user created as part of the invitation creation. Read-Only
+ */
 export class InvitedUserRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

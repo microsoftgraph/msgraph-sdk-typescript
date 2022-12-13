@@ -1,5 +1,7 @@
 
-/** List the items that have been followed by the signed in user.This collection includes items that are in the user's drive as well as items they have access to from other drives. */
+/**
+ * List the items that have been followed by the signed in user.This collection includes items that are in the user's drive as well as items they have access to from other drives.
+ */
 export class FollowingRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,7 @@
 
-/** Retrieve all localization branding objects, including the default branding. */
+/**
+ * Retrieve all localization branding objects, including the default branding.
+ */
 export class LocalizationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

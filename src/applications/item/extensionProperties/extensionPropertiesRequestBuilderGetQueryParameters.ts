@@ -1,5 +1,7 @@
 
-/** Retrieve the list of directory extension definitions, represented by extensionProperty objects on an application. */
+/**
+ * Retrieve the list of directory extension definitions, represented by extensionProperty objects on an application.
+ */
 export class ExtensionPropertiesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

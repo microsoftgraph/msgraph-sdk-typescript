@@ -1,5 +1,7 @@
 
-/** Information about the Microsoft Teams team that was created for the request. */
+/**
+ * Information about the Microsoft Teams team that was created for the request.
+ */
 export class TeamRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

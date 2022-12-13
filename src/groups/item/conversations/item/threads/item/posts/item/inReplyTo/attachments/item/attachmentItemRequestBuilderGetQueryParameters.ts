@@ -1,5 +1,7 @@
 
-/** Read-only. Nullable. Supports $expand. */
+/**
+ * Read-only. Nullable. Supports $expand.
+ */
 export class AttachmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

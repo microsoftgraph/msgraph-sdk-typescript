@@ -1,5 +1,7 @@
 
-/** Get a list of claimsMappingPolicy objects. */
+/**
+ * Get a list of claimsMappingPolicy objects.
+ */
 export class ClaimsMappingPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

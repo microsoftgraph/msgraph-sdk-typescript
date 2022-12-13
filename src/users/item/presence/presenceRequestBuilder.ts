@@ -11,7 +11,9 @@ import {SetPresenceRequestBuilder} from './setPresence/setPresenceRequestBuilder
 import {SetUserPreferredPresenceRequestBuilder} from './setUserPreferredPresence/setUserPreferredPresenceRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the presence property of the microsoft.graph.user entity. */
+/**
+ * Provides operations to manage the presence property of the microsoft.graph.user entity.
+ */
 export class PresenceRequestBuilder {
     /** Provides operations to call the clearPresence method. */
     public get clearPresence(): ClearPresenceRequestBuilder {
@@ -74,7 +76,7 @@ export class PresenceRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -84,7 +86,7 @@ export class PresenceRequestBuilder {
     };
     /**
      * Update the navigation property presence in users
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class PresenceRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -122,6 +124,7 @@ export class PresenceRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Presence
+     * @see {@link https://docs.microsoft.com/graph/api/presence-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PresenceRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Presence | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -135,7 +138,7 @@ export class PresenceRequestBuilder {
     };
     /**
      * Update the navigation property presence in users
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Presence

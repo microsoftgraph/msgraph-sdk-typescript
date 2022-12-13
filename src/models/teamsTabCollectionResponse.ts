@@ -2,6 +2,9 @@ import {createTeamsTabFromDiscriminatorValue} from './createTeamsTabFromDiscrimi
 import {BaseCollectionPaginationCountResponse, TeamsTab} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the tabs property of the microsoft.graph.chat entity.
+ */
 export class TeamsTabCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: TeamsTab[] | undefined;

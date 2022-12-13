@@ -1,5 +1,7 @@
 
-/** Get resources from education */
+/**
+ * Get resources from education
+ */
 export class EducationSubmissionResourceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** Navigation property to deployment summary of the configuration. */
+/**
+ * Navigation property to deployment summary of the configuration.
+ */
 export class DeploymentSummaryRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

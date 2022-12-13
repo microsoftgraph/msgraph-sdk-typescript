@@ -1,5 +1,7 @@
 
-/** All the custom questions of this business. Read-only. Nullable. */
+/**
+ * All the custom questions of this business. Read-only. Nullable.
+ */
 export class BookingCustomQuestionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

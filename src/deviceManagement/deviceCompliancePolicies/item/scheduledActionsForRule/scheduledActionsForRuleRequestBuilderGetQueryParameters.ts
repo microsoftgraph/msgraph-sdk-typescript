@@ -1,5 +1,7 @@
 
-/** The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies. */
+/**
+ * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+ */
 export class ScheduledActionsForRuleRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

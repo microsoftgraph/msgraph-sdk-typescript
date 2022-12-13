@@ -1,5 +1,7 @@
 
-/** The Notification Message Templates. */
+/**
+ * The Notification Message Templates.
+ */
 export class NotificationMessageTemplatesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

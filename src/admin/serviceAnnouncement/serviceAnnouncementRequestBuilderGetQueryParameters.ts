@@ -1,5 +1,7 @@
 
-/** A container for service communications resources. Read-only. */
+/**
+ * A container for service communications resources. Read-only.
+ */
 export class ServiceAnnouncementRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

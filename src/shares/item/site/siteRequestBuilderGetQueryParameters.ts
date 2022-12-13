@@ -1,5 +1,7 @@
 
-/** Used to access the underlying site */
+/**
+ * Used to access the underlying site
+ */
 export class SiteRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** Get delegatedPermissionClassifications from servicePrincipals */
+/**
+ * Get delegatedPermissionClassifications from servicePrincipals
+ */
 export class DelegatedPermissionClassificationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

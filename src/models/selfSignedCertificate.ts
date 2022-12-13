@@ -119,7 +119,7 @@ export class SelfSignedCertificate implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the keyId property value. The keyId property
-     * @returns a string
+     * @returns a Guid
      */
     public get keyId() {
         return this._keyId;

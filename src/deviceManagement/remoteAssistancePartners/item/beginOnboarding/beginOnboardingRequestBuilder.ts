@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {BeginOnboardingRequestBuilderPostRequestConfiguration} from './beginOnboardingRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the beginOnboarding method. */
+/**
+ * Provides operations to call the beginOnboarding method.
+ */
 export class BeginOnboardingRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

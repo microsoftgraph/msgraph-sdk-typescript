@@ -1,5 +1,7 @@
 
-/** Get a list of the todoTaskList objects and their properties. */
+/**
+ * Get a list of the todoTaskList objects and their properties.
+ */
 export class ListsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

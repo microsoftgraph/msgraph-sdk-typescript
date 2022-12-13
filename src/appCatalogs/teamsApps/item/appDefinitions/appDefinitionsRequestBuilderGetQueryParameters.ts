@@ -1,5 +1,7 @@
 
-/** The details for each version of the app. */
+/**
+ * The details for each version of the app.
+ */
 export class AppDefinitionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

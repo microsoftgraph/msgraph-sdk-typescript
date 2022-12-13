@@ -1,5 +1,7 @@
 
-/** Invoke function getDirectRoutingCalls */
+/**
+ * Invoke function getDirectRoutingCalls
+ */
 export class GetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

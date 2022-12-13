@@ -10,7 +10,9 @@ import {ManagedMobileAppItemRequestBuilder} from './apps/item/managedMobileAppIt
 import {DeploymentSummaryRequestBuilder} from './deploymentSummary/deploymentSummaryRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the androidManagedAppProtections property of the microsoft.graph.deviceAppManagement entity. */
+/**
+ * Provides operations to manage the androidManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
+ */
 export class AndroidManagedAppProtectionItemRequestBuilder {
     /** Provides operations to manage the apps property of the microsoft.graph.androidManagedAppProtection entity. */
     public get apps(): AppsRequestBuilder {
@@ -76,7 +78,7 @@ export class AndroidManagedAppProtectionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -86,7 +88,7 @@ export class AndroidManagedAppProtectionItemRequestBuilder {
     };
     /**
      * Update the navigation property androidManagedAppProtections in deviceAppManagement
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -96,7 +98,7 @@ export class AndroidManagedAppProtectionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -137,7 +139,7 @@ export class AndroidManagedAppProtectionItemRequestBuilder {
     };
     /**
      * Update the navigation property androidManagedAppProtections in deviceAppManagement
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AndroidManagedAppProtection

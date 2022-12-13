@@ -1,5 +1,7 @@
 
-/** Targeted managed app configurations. */
+/**
+ * Targeted managed app configurations.
+ */
 export class TargetedManagedAppConfigurationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

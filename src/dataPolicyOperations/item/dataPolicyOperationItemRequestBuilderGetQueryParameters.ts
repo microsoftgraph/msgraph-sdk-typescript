@@ -1,5 +1,7 @@
 
-/** Retrieve the properties of a **dataPolicyOperation** object. */
+/**
+ * Retrieve the properties of a **dataPolicyOperation** object.
+ */
 export class DataPolicyOperationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

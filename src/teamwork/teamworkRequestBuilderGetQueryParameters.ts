@@ -1,5 +1,7 @@
 
-/** Get teamwork */
+/**
+ * Get teamwork
+ */
 export class TeamworkRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

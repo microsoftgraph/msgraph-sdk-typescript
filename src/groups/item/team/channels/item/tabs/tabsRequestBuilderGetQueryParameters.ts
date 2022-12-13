@@ -1,5 +1,7 @@
 
-/** Retrieve the list of tabs in the specified channel within a team.  */
+/**
+ * Retrieve the list of tabs in the specified channel within a team. 
+ */
 export class TabsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

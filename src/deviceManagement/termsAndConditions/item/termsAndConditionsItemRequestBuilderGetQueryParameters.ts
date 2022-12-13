@@ -1,5 +1,7 @@
 
-/** The terms and conditions associated with device management of the company. */
+/**
+ * The terms and conditions associated with device management of the company.
+ */
 export class TermsAndConditionsItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

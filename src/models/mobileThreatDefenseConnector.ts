@@ -2,7 +2,9 @@ import {Entity} from './index';
 import {MobileThreatPartnerTenantState} from './mobileThreatPartnerTenantState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Entity which represents a connection to Mobile threat defense partner. */
+/**
+ * Entity which represents a connection to Mobile threat defense partner.
+ */
 export class MobileThreatDefenseConnector extends Entity implements Parsable {
     /** For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant */
     private _androidDeviceBlockedOnMissingPartnerData?: boolean | undefined;

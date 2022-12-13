@@ -2,7 +2,9 @@ import {BaseCollectionPaginationCountResponse, Site} from '../../../../models/';
 import {createSiteFromDiscriminatorValue} from '../../../../models/createSiteFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the add method. */
+/**
+ * Provides operations to call the add method.
+ */
 export class AddResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Site[] | undefined;

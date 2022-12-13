@@ -1,5 +1,7 @@
 
-/** Optional. NavigationProperty/Containment; navigation property to the activity's historyItems. */
+/**
+ * Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.
+ */
 export class HistoryItemsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

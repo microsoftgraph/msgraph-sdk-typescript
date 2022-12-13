@@ -1,5 +1,7 @@
 
-/** Get branding */
+/**
+ * Get branding
+ */
 export class BrandingRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

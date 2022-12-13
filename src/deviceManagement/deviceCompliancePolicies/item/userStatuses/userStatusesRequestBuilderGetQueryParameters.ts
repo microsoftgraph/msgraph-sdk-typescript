@@ -1,5 +1,7 @@
 
-/** List of DeviceComplianceUserStatus. */
+/**
+ * List of DeviceComplianceUserStatus.
+ */
 export class UserStatusesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

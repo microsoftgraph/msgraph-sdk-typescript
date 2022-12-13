@@ -1,5 +1,7 @@
 
-/** Get attachmentSessions from me */
+/**
+ * Get attachmentSessions from me
+ */
 export class AttachmentSessionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

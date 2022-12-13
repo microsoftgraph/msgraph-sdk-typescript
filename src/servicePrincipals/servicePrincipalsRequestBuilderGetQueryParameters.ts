@@ -1,5 +1,7 @@
 
-/** Retrieve a list of servicePrincipal objects. */
+/**
+ * Retrieve a list of servicePrincipal objects.
+ */
 export class ServicePrincipalsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

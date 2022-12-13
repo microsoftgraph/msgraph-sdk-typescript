@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the collection of application entities. */
 export enum Status {
     Active = "active",
     Updated = "updated",

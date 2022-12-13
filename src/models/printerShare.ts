@@ -4,7 +4,9 @@ import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorVal
 import {Group, Printer, PrinterBase, User} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/**
+ * Provides operations to manage the collection of agreementAcceptance entities.
+ */
 export class PrinterShare extends PrinterBase implements Parsable {
     /** If true, all users and groups will be granted access to this printer share. This supersedes the allow lists defined by the allowedUsers and allowedGroups navigation properties. */
     private _allowAllUsers?: boolean | undefined;

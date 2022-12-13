@@ -4,7 +4,9 @@ import {GetReportFiltersRequestBuilderPostRequestConfiguration} from './getRepor
 import {GetReportFiltersPostRequestBody} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getReportFilters method. */
+/**
+ * Provides operations to call the getReportFilters method.
+ */
 export class GetReportFiltersRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -27,7 +29,7 @@ export class GetReportFiltersRequestBuilder {
     };
     /**
      * Invoke action getReportFilters
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -46,7 +48,7 @@ export class GetReportFiltersRequestBuilder {
     };
     /**
      * Invoke action getReportFilters
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ArrayBuffer

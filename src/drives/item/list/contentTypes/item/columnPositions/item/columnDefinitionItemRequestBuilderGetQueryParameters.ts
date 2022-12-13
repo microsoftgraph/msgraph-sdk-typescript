@@ -1,5 +1,7 @@
 
-/** Column order information in a content type. */
+/**
+ * Column order information in a content type.
+ */
 export class ColumnDefinitionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

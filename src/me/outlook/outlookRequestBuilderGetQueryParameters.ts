@@ -1,5 +1,7 @@
 
-/** Get outlook from me */
+/**
+ * Get outlook from me
+ */
 export class OutlookRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

@@ -2,6 +2,9 @@ import {createAccessReviewHistoryDefinitionFromDiscriminatorValue} from './creat
 import {AccessReviewHistoryDefinition, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
+ */
 export class AccessReviewHistoryDefinitionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: AccessReviewHistoryDefinition[] | undefined;

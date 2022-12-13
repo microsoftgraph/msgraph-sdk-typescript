@@ -1,5 +1,7 @@
 
-/** Device category */
+/**
+ * Device category
+ */
 export class DeviceCategoryRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

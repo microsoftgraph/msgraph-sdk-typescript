@@ -1,5 +1,7 @@
 
-/** Get a list of the siteSource objects associated with an ediscoveryCustodian. */
+/**
+ * Get a list of the siteSource objects associated with an ediscoveryCustodian.
+ */
 export class SiteSourcesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

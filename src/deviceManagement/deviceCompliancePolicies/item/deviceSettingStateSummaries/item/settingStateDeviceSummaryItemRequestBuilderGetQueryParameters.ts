@@ -1,5 +1,7 @@
 
-/** Compliance Setting State Device Summary */
+/**
+ * Compliance Setting State Device Summary
+ */
 export class SettingStateDeviceSummaryItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

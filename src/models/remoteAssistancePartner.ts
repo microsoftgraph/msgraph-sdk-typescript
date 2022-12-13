@@ -2,7 +2,9 @@ import {Entity} from './index';
 import {RemoteAssistanceOnboardingStatus} from './remoteAssistanceOnboardingStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** RemoteAssistPartner resources represent the metadata and status of a given Remote Assistance partner service. */
+/**
+ * RemoteAssistPartner resources represent the metadata and status of a given Remote Assistance partner service.
+ */
 export class RemoteAssistancePartner extends Entity implements Parsable {
     /** Display name of the partner. */
     private _displayName?: string | undefined;

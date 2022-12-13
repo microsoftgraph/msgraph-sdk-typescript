@@ -34,7 +34,9 @@ import {StoreItemRequestBuilder} from './termStores/item/storeItemRequestBuilder
 import {TermStoresRequestBuilder} from './termStores/termStoresRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of site entities. */
+/**
+ * Provides operations to manage the collection of site entities.
+ */
 export class SiteItemRequestBuilder {
     /** Provides operations to manage the analytics property of the microsoft.graph.site entity. */
     public get analytics(): AnalyticsRequestBuilder {
@@ -143,7 +145,7 @@ export class SiteItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -153,7 +155,7 @@ export class SiteItemRequestBuilder {
     };
     /**
      * Update entity in sites
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -163,7 +165,7 @@ export class SiteItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -198,6 +200,7 @@ export class SiteItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Site
+     * @see {@link https://docs.microsoft.com/graph/api/site-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SiteItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Site | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -282,7 +285,7 @@ export class SiteItemRequestBuilder {
     };
     /**
      * Update entity in sites
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Site

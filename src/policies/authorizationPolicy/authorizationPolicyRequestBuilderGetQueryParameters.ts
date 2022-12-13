@@ -1,5 +1,7 @@
 
-/** The policy that controls Azure AD authorization settings. */
+/**
+ * The policy that controls Azure AD authorization settings.
+ */
 export class AuthorizationPolicyRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

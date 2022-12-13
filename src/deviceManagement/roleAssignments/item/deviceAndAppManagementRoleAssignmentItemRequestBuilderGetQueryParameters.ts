@@ -1,5 +1,7 @@
 
-/** The Role Assignments. */
+/**
+ * The Role Assignments.
+ */
 export class DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

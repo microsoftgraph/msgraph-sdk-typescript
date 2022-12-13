@@ -1,5 +1,7 @@
 
-/** Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object. */
+/**
+ * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object.
+ */
 export class IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

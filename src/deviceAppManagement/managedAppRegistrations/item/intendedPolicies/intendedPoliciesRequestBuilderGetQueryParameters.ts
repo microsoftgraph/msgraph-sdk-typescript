@@ -1,5 +1,7 @@
 
-/** Zero or more policies admin intended for the app as of now. */
+/**
+ * Zero or more policies admin intended for the app as of now.
+ */
 export class IntendedPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

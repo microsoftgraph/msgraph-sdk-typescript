@@ -42,7 +42,7 @@ export class ResourceAccess implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the id property value. The unique identifier of an app role or delegated permission exposed by the resource application. For delegated permissions, this should match the id property of one of the delegated permissions in the oauth2PermissionScopes collection of the resource application's service principal. For app roles (application permissions), this should match the id property of an app role in the appRoles collection of the resource application's service principal.
-     * @returns a string
+     * @returns a Guid
      */
     public get id() {
         return this._id;

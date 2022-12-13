@@ -1,5 +1,7 @@
 
-/** Get attachments from users */
+/**
+ * Get attachments from users
+ */
 export class AttachmentBaseItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

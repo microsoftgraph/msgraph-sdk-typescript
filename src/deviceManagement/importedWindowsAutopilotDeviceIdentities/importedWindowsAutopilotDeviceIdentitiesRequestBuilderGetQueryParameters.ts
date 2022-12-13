@@ -1,5 +1,7 @@
 
-/** Collection of imported Windows autopilot devices. */
+/**
+ * Collection of imported Windows autopilot devices.
+ */
 export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

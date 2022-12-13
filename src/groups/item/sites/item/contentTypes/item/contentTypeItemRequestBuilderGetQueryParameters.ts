@@ -1,5 +1,7 @@
 
-/** The collection of content types defined for this site. */
+/**
+ * The collection of content types defined for this site.
+ */
 export class ContentTypeItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** The email address registered to a user for authentication. */
+/**
+ * The email address registered to a user for authentication.
+ */
 export class EmailAuthenticationMethodItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

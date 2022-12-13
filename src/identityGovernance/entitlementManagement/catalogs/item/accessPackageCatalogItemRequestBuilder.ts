@@ -9,7 +9,9 @@ import {AccessPackagesRequestBuilder} from './accessPackages/accessPackagesReque
 import {AccessPackageItemRequestBuilder} from './accessPackages/item/accessPackageItemRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity. */
+/**
+ * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
+ */
 export class AccessPackageCatalogItemRequestBuilder {
     /** Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity. */
     public get accessPackages(): AccessPackagesRequestBuilder {
@@ -71,7 +73,7 @@ export class AccessPackageCatalogItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -81,7 +83,7 @@ export class AccessPackageCatalogItemRequestBuilder {
     };
     /**
      * Update the navigation property catalogs in identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -91,7 +93,7 @@ export class AccessPackageCatalogItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -132,7 +134,7 @@ export class AccessPackageCatalogItemRequestBuilder {
     };
     /**
      * Update the navigation property catalogs in identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageCatalog

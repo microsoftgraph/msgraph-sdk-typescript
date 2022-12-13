@@ -1,5 +1,7 @@
 
-/** The connectors that are associated with the printer. */
+/**
+ * The connectors that are associated with the printer.
+ */
 export class PrintConnectorItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

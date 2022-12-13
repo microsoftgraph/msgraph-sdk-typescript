@@ -1,5 +1,7 @@
 
-/** Represents a group. */
+/**
+ * Represents a group.
+ */
 export class GroupRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

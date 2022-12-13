@@ -1,5 +1,7 @@
 
-/** Get attachmentSessions from me */
+/**
+ * Get attachmentSessions from me
+ */
 export class AttachmentSessionItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

@@ -15,7 +15,9 @@ import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValue
 import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the inReplyTo property of the microsoft.graph.post entity. */
+/**
+ * Provides operations to manage the inReplyTo property of the microsoft.graph.post entity.
+ */
 export class InReplyToRequestBuilder {
     /** Provides operations to manage the attachments property of the microsoft.graph.post entity. */
     public get attachments(): AttachmentsRequestBuilder {
@@ -81,7 +83,7 @@ export class InReplyToRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

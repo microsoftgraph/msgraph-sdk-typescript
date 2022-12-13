@@ -1,5 +1,7 @@
 
-/** The apps installed in the personal scope of this user. */
+/**
+ * The apps installed in the personal scope of this user.
+ */
 export class UserScopeTeamsAppInstallationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

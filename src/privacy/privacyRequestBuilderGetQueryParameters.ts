@@ -1,5 +1,7 @@
 
-/** Get privacy */
+/**
+ * Get privacy
+ */
 export class PrivacyRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** Get group from users */
+/**
+ * Get group from users
+ */
 export class GroupRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

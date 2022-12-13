@@ -4,7 +4,9 @@ import {BackgroundImageRequestBuilderGetRequestConfiguration} from './background
 import {BackgroundImageRequestBuilderPutRequestConfiguration} from './backgroundImageRequestBuilderPutRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the media for the organization entity. */
+/**
+ * Provides operations to manage the media for the organization entity.
+ */
 export class BackgroundImageRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -65,6 +67,7 @@ export class BackgroundImageRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ArrayBuffer
+     * @see {@link https://docs.microsoft.com/graph/api/organizationalbranding-list-localizations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BackgroundImageRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.createGetRequestInformation(

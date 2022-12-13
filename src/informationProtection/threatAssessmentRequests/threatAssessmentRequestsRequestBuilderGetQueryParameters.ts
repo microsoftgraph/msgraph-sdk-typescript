@@ -1,5 +1,7 @@
 
-/** Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types: */
+/**
+ * Retrieve a list of threatAssessmentRequest objects. A threat assessment request can be one of the following types:
+ */
 export class ThreatAssessmentRequestsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

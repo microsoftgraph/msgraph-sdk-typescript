@@ -2,7 +2,9 @@ import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscrimi
 import {Entity, Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the collection of application entities.
+ */
 export class ScopedRoleMembership extends Entity implements Parsable {
     /** Unique identifier for the administrative unit that the directory role is scoped to */
     private _administrativeUnitId?: string | undefined;

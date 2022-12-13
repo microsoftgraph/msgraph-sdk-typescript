@@ -1,5 +1,7 @@
 
-/** The collection of field definitions for this list. */
+/**
+ * The collection of field definitions for this list.
+ */
 export class ColumnDefinitionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

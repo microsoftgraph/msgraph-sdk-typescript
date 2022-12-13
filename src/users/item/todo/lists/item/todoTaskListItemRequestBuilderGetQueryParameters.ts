@@ -1,5 +1,7 @@
 
-/** The task lists in the users mailbox. */
+/**
+ * The task lists in the users mailbox.
+ */
 export class TodoTaskListItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

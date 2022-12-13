@@ -6,11 +6,17 @@ import {IdentityProtectionRequestBuilderGetRequestConfiguration} from './identit
 import {IdentityProtectionRequestBuilderPatchRequestConfiguration} from './identityProtectionRequestBuilderPatchRequestConfiguration';
 import {RiskDetectionItemRequestBuilder} from './riskDetections/item/riskDetectionItemRequestBuilder';
 import {RiskDetectionsRequestBuilder} from './riskDetections/riskDetectionsRequestBuilder';
+import {RiskyServicePrincipalItemRequestBuilder} from './riskyServicePrincipals/item/riskyServicePrincipalItemRequestBuilder';
+import {RiskyServicePrincipalsRequestBuilder} from './riskyServicePrincipals/riskyServicePrincipalsRequestBuilder';
 import {RiskyUserItemRequestBuilder} from './riskyUsers/item/riskyUserItemRequestBuilder';
 import {RiskyUsersRequestBuilder} from './riskyUsers/riskyUsersRequestBuilder';
+import {ServicePrincipalRiskDetectionItemRequestBuilder} from './servicePrincipalRiskDetections/item/servicePrincipalRiskDetectionItemRequestBuilder';
+import {ServicePrincipalRiskDetectionsRequestBuilder} from './servicePrincipalRiskDetections/servicePrincipalRiskDetectionsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityProtectionRoot singleton. */
+/**
+ * Provides operations to manage the identityProtectionRoot singleton.
+ */
 export class IdentityProtectionRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -20,9 +26,17 @@ export class IdentityProtectionRequestBuilder {
     public get riskDetections(): RiskDetectionsRequestBuilder {
         return new RiskDetectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity. */
+    public get riskyServicePrincipals(): RiskyServicePrincipalsRequestBuilder {
+        return new RiskyServicePrincipalsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity. */
     public get riskyUsers(): RiskyUsersRequestBuilder {
         return new RiskyUsersRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity. */
+    public get servicePrincipalRiskDetections(): ServicePrincipalRiskDetectionsRequestBuilder {
+        return new ServicePrincipalRiskDetectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
@@ -49,7 +63,7 @@ export class IdentityProtectionRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -59,7 +73,7 @@ export class IdentityProtectionRequestBuilder {
     };
     /**
      * Update identityProtection
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -69,7 +83,7 @@ export class IdentityProtectionRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -95,7 +109,7 @@ export class IdentityProtectionRequestBuilder {
     };
     /**
      * Update identityProtection
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityProtectionRoot
@@ -123,6 +137,17 @@ export class IdentityProtectionRequestBuilder {
         return new RiskDetectionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
+     * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
+     * @param id Unique identifier of the item
+     * @returns a RiskyServicePrincipalItemRequestBuilder
+     */
+    public riskyServicePrincipalsById(id: string) : RiskyServicePrincipalItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["riskyServicePrincipal%2Did"] = id
+        return new RiskyServicePrincipalItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
      * @param id Unique identifier of the item
      * @returns a RiskyUserItemRequestBuilder
@@ -132,5 +157,16 @@ export class IdentityProtectionRequestBuilder {
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["riskyUser%2Did"] = id
         return new RiskyUserItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
+     * @param id Unique identifier of the item
+     * @returns a ServicePrincipalRiskDetectionItemRequestBuilder
+     */
+    public servicePrincipalRiskDetectionsById(id: string) : ServicePrincipalRiskDetectionItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["servicePrincipalRiskDetection%2Did"] = id
+        return new ServicePrincipalRiskDetectionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

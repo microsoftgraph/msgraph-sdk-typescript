@@ -1,5 +1,7 @@
 
-/** Retrieve the properties and relationships of a **plannerPlanDetails** object. */
+/**
+ * Retrieve the properties and relationships of a **plannerPlanDetails** object.
+ */
 export class DetailsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

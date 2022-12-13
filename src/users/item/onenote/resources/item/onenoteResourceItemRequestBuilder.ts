@@ -8,7 +8,9 @@ import {OnenoteResourceItemRequestBuilderGetRequestConfiguration} from './onenot
 import {OnenoteResourceItemRequestBuilderPatchRequestConfiguration} from './onenoteResourceItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the resources property of the microsoft.graph.onenote entity. */
+/**
+ * Provides operations to manage the resources property of the microsoft.graph.onenote entity.
+ */
 export class OnenoteResourceItemRequestBuilder {
     /** Provides operations to manage the media for the user entity. */
     public get content(): ContentRequestBuilder {
@@ -59,7 +61,7 @@ export class OnenoteResourceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -69,7 +71,7 @@ export class OnenoteResourceItemRequestBuilder {
     };
     /**
      * Update the navigation property resources in users
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +81,7 @@ export class OnenoteResourceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -120,7 +122,7 @@ export class OnenoteResourceItemRequestBuilder {
     };
     /**
      * Update the navigation property resources in users
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnenoteResource

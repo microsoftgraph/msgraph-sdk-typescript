@@ -1,5 +1,7 @@
 
-/** Get communications */
+/**
+ * Get communications
+ */
 export class CommunicationsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

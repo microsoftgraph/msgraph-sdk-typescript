@@ -8,7 +8,9 @@ import {createSettingStateDeviceSummaryFromDiscriminatorValue} from './createSet
 import {DeviceComplianceDeviceOverview, DeviceComplianceDeviceStatus, DeviceCompliancePolicyAssignment, DeviceComplianceScheduledActionForRule, DeviceComplianceUserOverview, DeviceComplianceUserStatus, Entity, SettingStateDeviceSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.  */
+/**
+ * This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here. 
+ */
 export class DeviceCompliancePolicy extends Entity implements Parsable {
     /** The collection of assignments for this compliance policy. */
     private _assignments?: DeviceCompliancePolicyAssignment[] | undefined;

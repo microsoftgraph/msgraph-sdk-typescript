@@ -1,5 +1,7 @@
 
-/** Read-only. Supports $expand. */
+/**
+ * Read-only. Supports $expand.
+ */
 export class InReplyToRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

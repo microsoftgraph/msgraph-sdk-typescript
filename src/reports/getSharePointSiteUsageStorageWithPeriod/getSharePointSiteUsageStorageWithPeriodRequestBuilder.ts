@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {GetSharePointSiteUsageStorageWithPeriodRequestBuilderGetRequestConfiguration} from './getSharePointSiteUsageStorageWithPeriodRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getSharePointSiteUsageStorage method. */
+/**
+ * Provides operations to call the getSharePointSiteUsageStorage method.
+ */
 export class GetSharePointSiteUsageStorageWithPeriodRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

@@ -1,5 +1,7 @@
 
-/** Get the collection of bookingAppointment objects for a bookingBusiness that occurs in the specified date range. */
+/**
+ * Get the collection of bookingAppointment objects for a bookingBusiness that occurs in the specified date range.
+ */
 export class CalendarViewRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

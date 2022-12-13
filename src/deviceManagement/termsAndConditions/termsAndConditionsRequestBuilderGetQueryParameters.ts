@@ -1,5 +1,7 @@
 
-/** The terms and conditions associated with device management of the company. */
+/**
+ * The terms and conditions associated with device management of the company.
+ */
 export class TermsAndConditionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -26,7 +26,9 @@ import {TimeOffItemRequestBuilder} from './timesOff/item/timeOffItemRequestBuild
 import {TimesOffRequestBuilder} from './timesOff/timesOffRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the schedule property of the microsoft.graph.team entity. */
+/**
+ * Provides operations to manage the schedule property of the microsoft.graph.team entity.
+ */
 export class ScheduleRequestBuilder {
     /** Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity. */
     public get offerShiftRequests(): OfferShiftRequestsRequestBuilder {
@@ -113,7 +115,7 @@ export class ScheduleRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -123,7 +125,7 @@ export class ScheduleRequestBuilder {
     };
     /**
      * Update the navigation property schedule in users
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -133,7 +135,7 @@ export class ScheduleRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PUT;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -161,6 +163,7 @@ export class ScheduleRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Schedule
+     * @see {@link https://docs.microsoft.com/graph/api/schedule-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ScheduleRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Schedule | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -207,7 +210,7 @@ export class ScheduleRequestBuilder {
     };
     /**
      * Update the navigation property schedule in users
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Schedule

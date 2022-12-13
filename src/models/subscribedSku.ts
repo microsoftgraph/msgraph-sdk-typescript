@@ -3,7 +3,6 @@ import {createServicePlanInfoFromDiscriminatorValue} from './createServicePlanIn
 import {Entity, LicenseUnitsDetail, ServicePlanInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
 export class SubscribedSku extends Entity implements Parsable {
     /** For example, 'User' or 'Company'. */
     private _appliesTo?: string | undefined;
@@ -48,7 +47,7 @@ export class SubscribedSku extends Entity implements Parsable {
         this._capabilityStatus = value;
     };
     /**
-     * Instantiates a new subscribedSku and sets the default values.
+     * Instantiates a new SubscribedSku and sets the default values.
      */
     public constructor() {
         super();
@@ -127,7 +126,7 @@ export class SubscribedSku extends Entity implements Parsable {
     };
     /**
      * Gets the skuId property value. The unique identifier (GUID) for the service SKU.
-     * @returns a string
+     * @returns a Guid
      */
     public get skuId() {
         return this._skuId;

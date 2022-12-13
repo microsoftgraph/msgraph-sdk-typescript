@@ -1,5 +1,7 @@
 
-/** Retrieve the properties and relationships of the specified team. */
+/**
+ * Retrieve the properties and relationships of the specified team.
+ */
 export class TeamsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

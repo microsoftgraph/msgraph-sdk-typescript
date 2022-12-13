@@ -1,5 +1,7 @@
 
-/** Get identity */
+/**
+ * Get identity
+ */
 export class IdentityRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

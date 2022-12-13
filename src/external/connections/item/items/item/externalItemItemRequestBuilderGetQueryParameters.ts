@@ -1,5 +1,7 @@
 
-/** Get items from external */
+/**
+ * Get items from external
+ */
 export class ExternalItemItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

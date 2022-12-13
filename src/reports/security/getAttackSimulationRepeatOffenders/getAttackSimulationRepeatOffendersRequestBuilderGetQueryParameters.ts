@@ -1,5 +1,7 @@
 
-/** Invoke function getAttackSimulationRepeatOffenders */
+/**
+ * Invoke function getAttackSimulationRepeatOffenders
+ */
 export class GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

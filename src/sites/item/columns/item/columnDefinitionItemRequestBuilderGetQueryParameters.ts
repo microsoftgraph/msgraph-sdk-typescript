@@ -1,5 +1,7 @@
 
-/** The collection of column definitions reusable across lists under this site. */
+/**
+ * The collection of column definitions reusable across lists under this site.
+ */
 export class ColumnDefinitionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

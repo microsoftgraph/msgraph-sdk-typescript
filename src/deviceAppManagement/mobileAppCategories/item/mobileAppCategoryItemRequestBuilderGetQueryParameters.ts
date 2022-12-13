@@ -1,5 +1,7 @@
 
-/** The mobile app categories. */
+/**
+ * The mobile app categories.
+ */
 export class MobileAppCategoryItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

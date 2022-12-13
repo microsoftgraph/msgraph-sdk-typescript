@@ -1,5 +1,7 @@
 
-/** Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [list][list]. */
+/**
+ * Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [list][list].
+ */
 export class ColumnsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

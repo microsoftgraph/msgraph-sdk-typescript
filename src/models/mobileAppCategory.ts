@@ -1,7 +1,9 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains properties for a single Intune app category. */
+/**
+ * Contains properties for a single Intune app category.
+ */
 export class MobileAppCategory extends Entity implements Parsable {
     /** The name of the app category. */
     private _displayName?: string | undefined;

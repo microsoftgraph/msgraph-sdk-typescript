@@ -14,7 +14,9 @@ import {UnarchiveRequestBuilder} from './unarchive/unarchiveRequestBuilder';
 import {UnfavoriteRequestBuilder} from './unfavorite/unfavoriteRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity. */
+/**
+ * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
+ */
 export class MessagesRequestBuilder {
     /** Provides operations to call the archive method. */
     public get archive(): ArchiveRequestBuilder {
@@ -73,7 +75,7 @@ export class MessagesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -83,7 +85,7 @@ export class MessagesRequestBuilder {
     };
     /**
      * Create new navigation property to messages for admin
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -93,7 +95,7 @@ export class MessagesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -106,6 +108,7 @@ export class MessagesRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServiceUpdateMessageCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/serviceannouncement-list-messages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MessagesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServiceUpdateMessageCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -119,7 +122,7 @@ export class MessagesRequestBuilder {
     };
     /**
      * Create new navigation property to messages for admin
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServiceUpdateMessage

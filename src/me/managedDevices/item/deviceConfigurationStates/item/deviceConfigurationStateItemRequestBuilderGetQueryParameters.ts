@@ -1,5 +1,7 @@
 
-/** Device configuration states for this device. */
+/**
+ * Device configuration states for this device.
+ */
 export class DeviceConfigurationStateItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

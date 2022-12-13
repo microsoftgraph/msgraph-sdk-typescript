@@ -1,5 +1,7 @@
 
-/** Get the list of organizational contacts for this organization. */
+/**
+ * Get the list of organizational contacts for this organization.
+ */
 export class ContactsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

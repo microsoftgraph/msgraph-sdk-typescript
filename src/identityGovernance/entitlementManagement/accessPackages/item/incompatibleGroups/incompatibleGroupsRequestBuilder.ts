@@ -7,7 +7,9 @@ import {IncompatibleGroupsRequestBuilderGetRequestConfiguration} from './incompa
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the incompatibleGroups property of the microsoft.graph.accessPackage entity. */
+/**
+ * Provides operations to manage the incompatibleGroups property of the microsoft.graph.accessPackage entity.
+ */
 export class IncompatibleGroupsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -46,7 +48,7 @@ export class IncompatibleGroupsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -59,6 +61,7 @@ export class IncompatibleGroupsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/accesspackage-list-incompatiblegroups?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IncompatibleGroupsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(

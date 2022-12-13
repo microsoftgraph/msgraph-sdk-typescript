@@ -20,7 +20,9 @@ import {DriveItemItemRequestBuilder as I84fa13b6eac9cfef44567037b23371a9c0c4988f
 import {SpecialRequestBuilder} from './special/specialRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the drives property of the microsoft.graph.user entity. */
+/**
+ * Provides operations to manage the drives property of the microsoft.graph.user entity.
+ */
 export class DriveItemRequestBuilder {
     /** Provides operations to manage the bundles property of the microsoft.graph.drive entity. */
     public get bundles(): BundlesRequestBuilder {
@@ -102,7 +104,7 @@ export class DriveItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -112,7 +114,7 @@ export class DriveItemRequestBuilder {
     };
     /**
      * Update the navigation property drives in users
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -122,7 +124,7 @@ export class DriveItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -185,7 +187,7 @@ export class DriveItemRequestBuilder {
     };
     /**
      * Update the navigation property drives in users
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Drive

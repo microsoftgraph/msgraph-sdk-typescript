@@ -424,7 +424,7 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
     };
     /**
      * Gets the rightsManagementServicesTemplateId property value. TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access
-     * @returns a string
+     * @returns a Guid
      */
     public get rightsManagementServicesTemplateId() {
         return this._rightsManagementServicesTemplateId;

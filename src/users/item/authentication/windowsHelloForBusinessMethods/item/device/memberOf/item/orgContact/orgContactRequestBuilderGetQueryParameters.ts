@@ -1,5 +1,7 @@
 
-/** Get the item of type microsoft.graph.directoryObject as microsoft.graph.orgContact */
+/**
+ * Get the item of type microsoft.graph.directoryObject as microsoft.graph.orgContact
+ */
 export class OrgContactRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** A collection of team members who have access to the shared channel. */
+/**
+ * A collection of team members who have access to the shared channel.
+ */
 export class ConversationMemberItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

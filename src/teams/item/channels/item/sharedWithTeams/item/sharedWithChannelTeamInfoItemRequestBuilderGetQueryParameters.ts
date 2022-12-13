@@ -1,5 +1,7 @@
 
-/** A collection of teams with which a channel is shared. */
+/**
+ * A collection of teams with which a channel is shared.
+ */
 export class SharedWithChannelTeamInfoItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

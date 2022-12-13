@@ -1,5 +1,7 @@
 
-/** The collection of long-running operations on the list. */
+/**
+ * The collection of long-running operations on the list.
+ */
 export class OperationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

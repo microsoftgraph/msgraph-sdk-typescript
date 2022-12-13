@@ -1,5 +1,7 @@
 
-/** Get entities from scopedRoleMemberships */
+/**
+ * Get entities from scopedRoleMemberships
+ */
 export class ScopedRoleMembershipsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

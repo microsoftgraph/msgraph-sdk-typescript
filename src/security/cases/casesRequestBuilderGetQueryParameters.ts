@@ -1,5 +1,7 @@
 
-/** Get cases from security */
+/**
+ * Get cases from security
+ */
 export class CasesRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

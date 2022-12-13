@@ -1,5 +1,7 @@
 
-/** The remote assist partners. */
+/**
+ * The remote assist partners.
+ */
 export class RemoteAssistancePartnerItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

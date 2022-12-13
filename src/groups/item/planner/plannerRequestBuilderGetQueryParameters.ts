@@ -1,5 +1,7 @@
 
-/** Entry-point to Planner resource that might exist for a Unified Group. */
+/**
+ * Entry-point to Planner resource that might exist for a Unified Group.
+ */
 export class PlannerRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

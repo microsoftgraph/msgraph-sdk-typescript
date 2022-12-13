@@ -1,5 +1,7 @@
 
-/** Invoke function getRecentNotebooks */
+/**
+ * Invoke function getRecentNotebooks
+ */
 export class GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

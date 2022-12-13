@@ -1,5 +1,7 @@
 
-/** Get offerShiftRequests from teams */
+/**
+ * Get offerShiftRequests from teams
+ */
 export class OfferShiftRequestItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

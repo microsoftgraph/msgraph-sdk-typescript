@@ -6,7 +6,9 @@ import {createUserInstallStateSummaryFromDiscriminatorValue} from './createUserI
 import {DeviceInstallState, EBookInstallSummary, Entity, ManagedEBookAssignment, MimeContent, UserInstallStateSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** An abstract class containing the base properties for Managed eBook. */
+/**
+ * An abstract class containing the base properties for Managed eBook.
+ */
 export class ManagedEBook extends Entity implements Parsable {
     /** The list of assignments for this eBook. */
     private _assignments?: ManagedEBookAssignment[] | undefined;

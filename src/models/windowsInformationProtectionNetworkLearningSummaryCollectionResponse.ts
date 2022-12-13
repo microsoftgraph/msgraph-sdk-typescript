@@ -2,6 +2,9 @@ import {createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminato
 import {BaseCollectionPaginationCountResponse, WindowsInformationProtectionNetworkLearningSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the windowsInformationProtectionNetworkLearningSummaries property of the microsoft.graph.deviceManagement entity.
+ */
 export class WindowsInformationProtectionNetworkLearningSummaryCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: WindowsInformationProtectionNetworkLearningSummary[] | undefined;

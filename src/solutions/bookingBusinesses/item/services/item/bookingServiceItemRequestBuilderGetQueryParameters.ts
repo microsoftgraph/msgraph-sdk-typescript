@@ -1,5 +1,7 @@
 
-/** All the services offered by this business. Read-only. Nullable. */
+/**
+ * All the services offered by this business. Read-only. Nullable.
+ */
 export class BookingServiceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

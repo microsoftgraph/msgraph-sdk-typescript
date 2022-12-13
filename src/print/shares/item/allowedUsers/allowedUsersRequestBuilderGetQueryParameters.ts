@@ -1,5 +1,7 @@
 
-/** Retrieve a list of users who have been granted access to submit print jobs to the associated printerShare. */
+/**
+ * Retrieve a list of users who have been granted access to submit print jobs to the associated printerShare.
+ */
 export class AllowedUsersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

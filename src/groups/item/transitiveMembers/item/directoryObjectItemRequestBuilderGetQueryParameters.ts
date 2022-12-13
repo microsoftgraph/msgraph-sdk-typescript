@@ -1,5 +1,7 @@
 
-/** The direct and transitive members of a group. Nullable. */
+/**
+ * The direct and transitive members of a group. Nullable.
+ */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

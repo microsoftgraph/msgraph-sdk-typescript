@@ -1,5 +1,7 @@
 
-/** Retrieve a list of calendars belonging to a calendar group. */
+/**
+ * Retrieve a list of calendars belonging to a calendar group.
+ */
 export class CalendarsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

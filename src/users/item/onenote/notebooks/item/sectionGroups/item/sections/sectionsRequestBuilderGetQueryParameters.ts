@@ -1,5 +1,7 @@
 
-/** Retrieve a list of onenoteSection objects from the specified section group. */
+/**
+ * Retrieve a list of onenoteSection objects from the specified section group.
+ */
 export class SectionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

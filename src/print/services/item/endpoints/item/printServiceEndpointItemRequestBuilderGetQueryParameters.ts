@@ -1,5 +1,7 @@
 
-/** Endpoints that can be used to access the service. Read-only. Nullable. */
+/**
+ * Endpoints that can be used to access the service. Read-only. Nullable.
+ */
 export class PrintServiceEndpointItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

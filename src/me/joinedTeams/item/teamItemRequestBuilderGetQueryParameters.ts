@@ -1,5 +1,7 @@
 
-/** Get joinedTeams from me */
+/**
+ * Get joinedTeams from me
+ */
 export class TeamItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

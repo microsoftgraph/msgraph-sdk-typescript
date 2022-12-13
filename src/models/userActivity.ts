@@ -5,7 +5,9 @@ import {ActivityHistoryItem, Entity, Json, VisualInfo} from './index';
 import {Status} from './status';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/**
+ * Provides operations to manage the collection of application entities.
+ */
 export class UserActivity extends Entity implements Parsable {
     /** Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists. */
     private _activationUrl?: string | undefined;

@@ -1,5 +1,7 @@
 
-/** Invoke function additionalAccess */
+/**
+ * Invoke function additionalAccess
+ */
 export class AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

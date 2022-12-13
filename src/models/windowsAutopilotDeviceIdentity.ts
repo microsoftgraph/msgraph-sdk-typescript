@@ -2,7 +2,9 @@ import {EnrollmentState} from './enrollmentState';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** The windowsAutopilotDeviceIdentity resource represents a Windows Autopilot Device. */
+/**
+ * The windowsAutopilotDeviceIdentity resource represents a Windows Autopilot Device.
+ */
 export class WindowsAutopilotDeviceIdentity extends Entity implements Parsable {
     /** Addressable user name. */
     private _addressableUserName?: string | undefined;

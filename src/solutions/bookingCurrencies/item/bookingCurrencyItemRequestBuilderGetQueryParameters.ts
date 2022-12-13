@@ -1,5 +1,7 @@
 
-/** Get bookingCurrencies from solutions */
+/**
+ * Get bookingCurrencies from solutions
+ */
 export class BookingCurrencyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -2,6 +2,9 @@ import {createDriveFromDiscriminatorValue} from './createDriveFromDiscriminatorV
 import {BaseCollectionPaginationCountResponse, Drive} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of drive entities.
+ */
 export class DriveCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Drive[] | undefined;

@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {GetOffice365GroupsActivityDetailWithDateRequestBuilderGetRequestConfiguration} from './getOffice365GroupsActivityDetailWithDateRequestBuilderGetRequestConfiguration';
 import {DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getOffice365GroupsActivityDetail method. */
+/**
+ * Provides operations to call the getOffice365GroupsActivityDetail method.
+ */
 export class GetOffice365GroupsActivityDetailWithDateRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

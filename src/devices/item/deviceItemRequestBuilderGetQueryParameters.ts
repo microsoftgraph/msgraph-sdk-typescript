@@ -1,5 +1,7 @@
 
-/** Get the properties and relationships of a device object. */
+/**
+ * Get the properties and relationships of a device object.
+ */
 export class DeviceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

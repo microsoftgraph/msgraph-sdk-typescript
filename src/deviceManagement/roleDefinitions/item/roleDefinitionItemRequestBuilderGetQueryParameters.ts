@@ -1,5 +1,7 @@
 
-/** The Role Definitions. */
+/**
+ * The Role Definitions.
+ */
 export class RoleDefinitionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

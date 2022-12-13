@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {ReprocessRequestBuilderPostRequestConfiguration} from './reprocessRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the reprocess method. */
+/**
+ * Provides operations to call the reprocess method.
+ */
 export class ReprocessRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

@@ -29,7 +29,9 @@ import {UnmuteRequestBuilder} from './unmute/unmuteRequestBuilder';
 import {UpdateRecordingStatusRequestBuilder} from './updateRecordingStatus/updateRecordingStatusRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity. */
+/**
+ * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
+ */
 export class CallItemRequestBuilder {
     /** Provides operations to call the addLargeGalleryView method. */
     public get addLargeGalleryView(): AddLargeGalleryViewRequestBuilder {
@@ -170,7 +172,7 @@ export class CallItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -180,7 +182,7 @@ export class CallItemRequestBuilder {
     };
     /**
      * Update the navigation property calls in communications
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -190,7 +192,7 @@ export class CallItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -253,7 +255,7 @@ export class CallItemRequestBuilder {
     };
     /**
      * Update the navigation property calls in communications
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Call

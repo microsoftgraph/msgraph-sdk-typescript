@@ -1,5 +1,7 @@
 
-/** Represents all authentication methods registered to a user. */
+/**
+ * Represents all authentication methods registered to a user.
+ */
 export class AuthenticationMethodItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

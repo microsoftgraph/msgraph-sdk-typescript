@@ -1,5 +1,7 @@
 
-/** The mobile apps. */
+/**
+ * The mobile apps.
+ */
 export class MobileAppsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

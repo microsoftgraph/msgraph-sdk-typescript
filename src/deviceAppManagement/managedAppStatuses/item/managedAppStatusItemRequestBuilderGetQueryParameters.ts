@@ -1,5 +1,7 @@
 
-/** The managed app statuses. */
+/**
+ * The managed app statuses.
+ */
 export class ManagedAppStatusItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

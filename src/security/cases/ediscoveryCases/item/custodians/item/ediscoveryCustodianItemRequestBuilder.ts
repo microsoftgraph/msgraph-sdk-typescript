@@ -19,7 +19,9 @@ import {UserSourceItemRequestBuilder} from './userSources/item/userSourceItemReq
 import {UserSourcesRequestBuilder} from './userSources/userSourcesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity. */
+/**
+ * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
+ */
 export class EdiscoveryCustodianItemRequestBuilder {
     /** Provides operations to call the activate method. */
     public get activate(): ActivateRequestBuilder {
@@ -102,7 +104,7 @@ export class EdiscoveryCustodianItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -112,7 +114,7 @@ export class EdiscoveryCustodianItemRequestBuilder {
     };
     /**
      * Update the navigation property custodians in security
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -122,7 +124,7 @@ export class EdiscoveryCustodianItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -163,7 +165,7 @@ export class EdiscoveryCustodianItemRequestBuilder {
     };
     /**
      * Update the navigation property custodians in security
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCustodian

@@ -1,5 +1,7 @@
 
-/** The windows information protection network learning summaries. */
+/**
+ * The windows information protection network learning summaries.
+ */
 export class WindowsInformationProtectionNetworkLearningSummariesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

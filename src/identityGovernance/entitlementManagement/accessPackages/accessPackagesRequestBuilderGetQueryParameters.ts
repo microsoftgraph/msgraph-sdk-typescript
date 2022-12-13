@@ -1,5 +1,7 @@
 
-/** Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs. */
+/**
+ * Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs.
+ */
 export class AccessPackagesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

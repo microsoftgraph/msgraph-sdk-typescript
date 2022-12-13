@@ -1,5 +1,7 @@
 
-/** Invoke function getActivitiesByInterval */
+/**
+ * Invoke function getActivitiesByInterval
+ */
 export class GetActivitiesByIntervalRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

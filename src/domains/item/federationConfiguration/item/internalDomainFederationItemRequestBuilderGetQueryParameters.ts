@@ -1,5 +1,7 @@
 
-/** Domain settings configured by a customer when federated with Azure AD. Supports $expand. */
+/**
+ * Domain settings configured by a customer when federated with Azure AD. Supports $expand.
+ */
 export class InternalDomainFederationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

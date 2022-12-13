@@ -1,5 +1,7 @@
 
-/** The primary users associated with the managed device. */
+/**
+ * The primary users associated with the managed device.
+ */
 export class UsersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

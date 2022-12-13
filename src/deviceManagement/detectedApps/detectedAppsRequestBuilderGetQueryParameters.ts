@@ -1,5 +1,7 @@
 
-/** The list of detected apps associated with a device. */
+/**
+ * The list of detected apps associated with a device.
+ */
 export class DetectedAppsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

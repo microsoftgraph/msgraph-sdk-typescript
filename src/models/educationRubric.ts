@@ -6,6 +6,9 @@ import {createRubricQualityFromDiscriminatorValue} from './createRubricQualityFr
 import {EducationAssignmentGradeType, EducationItemBody, Entity, IdentitySet, RubricLevel, RubricQuality} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of agreementAcceptance entities.
+ */
 export class EducationRubric extends Entity implements Parsable {
     /** The user who created this resource. */
     private _createdBy?: IdentitySet | undefined;

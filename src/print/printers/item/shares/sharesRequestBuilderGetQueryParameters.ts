@@ -1,5 +1,7 @@
 
-/** Retrieve a list of printer shares associated with the printer. */
+/**
+ * Retrieve a list of printer shares associated with the printer.
+ */
 export class SharesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

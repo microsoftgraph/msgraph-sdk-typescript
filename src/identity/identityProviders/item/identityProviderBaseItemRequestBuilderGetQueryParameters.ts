@@ -1,5 +1,7 @@
 
-/** Get identityProviders from identity */
+/**
+ * Get identityProviders from identity
+ */
 export class IdentityProviderBaseItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

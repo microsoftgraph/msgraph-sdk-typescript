@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {GetOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration} from './getOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration';
 import {DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getOffice365ActiveUserDetail method. */
+/**
+ * Provides operations to call the getOffice365ActiveUserDetail method.
+ */
 export class GetOffice365ActiveUserDetailWithDateRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

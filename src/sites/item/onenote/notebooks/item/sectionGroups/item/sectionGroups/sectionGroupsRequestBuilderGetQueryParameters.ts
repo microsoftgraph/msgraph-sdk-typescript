@@ -1,5 +1,7 @@
 
-/** Retrieve a list of section groups from the specified section group. */
+/**
+ * Retrieve a list of section groups from the specified section group.
+ */
 export class SectionGroupsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,7 @@
 
-/** Retrieve the properties of an applicationTemplate object. */
+/**
+ * Retrieve the properties of an applicationTemplate object.
+ */
 export class ApplicationTemplateItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

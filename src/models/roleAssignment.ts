@@ -2,7 +2,9 @@ import {createRoleDefinitionFromDiscriminatorValue} from './createRoleDefinition
 import {Entity, RoleDefinition} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** The Role Assignment resource. Role assignments tie together a role definition with members and scopes. There can be one or more role assignments per role. This applies to custom and built-in roles. */
+/**
+ * The Role Assignment resource. Role assignments tie together a role definition with members and scopes. There can be one or more role assignments per role. This applies to custom and built-in roles.
+ */
 export class RoleAssignment extends Entity implements Parsable {
     /** Description of the Role Assignment. */
     private _description?: string | undefined;

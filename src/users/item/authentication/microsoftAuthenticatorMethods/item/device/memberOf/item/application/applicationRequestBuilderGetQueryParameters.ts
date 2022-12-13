@@ -1,5 +1,7 @@
 
-/** Get the item of type microsoft.graph.directoryObject as microsoft.graph.application */
+/**
+ * Get the item of type microsoft.graph.directoryObject as microsoft.graph.application
+ */
 export class ApplicationRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

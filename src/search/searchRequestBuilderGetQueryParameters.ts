@@ -1,5 +1,7 @@
 
-/** Get search */
+/**
+ * Get search
+ */
 export class SearchRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

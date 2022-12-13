@@ -1,5 +1,7 @@
 
-/** Get education */
+/**
+ * Get education
+ */
 export class EducationRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

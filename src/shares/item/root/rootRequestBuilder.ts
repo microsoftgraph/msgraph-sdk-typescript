@@ -6,7 +6,9 @@ import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {RootRequestBuilderGetRequestConfiguration} from './rootRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the root property of the microsoft.graph.sharedDriveItem entity. */
+/**
+ * Provides operations to manage the root property of the microsoft.graph.sharedDriveItem entity.
+ */
 export class RootRequestBuilder {
     /** Provides operations to manage the media for the sharedDriveItem entity. */
     public get content(): ContentRequestBuilder {
@@ -41,7 +43,7 @@ export class RootRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

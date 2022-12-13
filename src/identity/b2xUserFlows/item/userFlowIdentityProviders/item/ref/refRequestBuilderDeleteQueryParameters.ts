@@ -1,5 +1,7 @@
 
-/** Delete ref of navigation property userFlowIdentityProviders for identity */
+/**
+ * Delete ref of navigation property userFlowIdentityProviders for identity
+ */
 export class RefRequestBuilderDeleteQueryParameters {
     /** Delete Uri */
     public id?: string | undefined;

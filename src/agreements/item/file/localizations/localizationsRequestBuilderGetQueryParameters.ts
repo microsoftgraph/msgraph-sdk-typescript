@@ -1,5 +1,7 @@
 
-/** The localized version of the terms of use agreement files attached to the agreement. */
+/**
+ * The localized version of the terms of use agreement files attached to the agreement.
+ */
 export class LocalizationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

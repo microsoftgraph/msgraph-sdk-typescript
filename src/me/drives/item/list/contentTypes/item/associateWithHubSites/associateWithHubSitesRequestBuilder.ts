@@ -4,7 +4,9 @@ import {AssociateWithHubSitesRequestBuilderPostRequestConfiguration} from './ass
 import {AssociateWithHubSitesPostRequestBody} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the associateWithHubSites method. */
+/**
+ * Provides operations to call the associateWithHubSites method.
+ */
 export class AssociateWithHubSitesRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -27,7 +29,7 @@ export class AssociateWithHubSitesRequestBuilder {
     };
     /**
      * Associate a published [content type][contentType] present in a content type hub with a list of hub sites.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -46,9 +48,10 @@ export class AssociateWithHubSitesRequestBuilder {
     };
     /**
      * Associate a published [content type][contentType] present in a content type hub with a list of hub sites.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/contenttype-associatewithhubsites?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AssociateWithHubSitesPostRequestBody | undefined, requestConfiguration?: AssociateWithHubSitesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

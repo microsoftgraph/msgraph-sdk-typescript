@@ -1,4 +1,4 @@
-import {AzureActiveDirectoryTenant, DomainIdentitySource, ExternalDomainFederation, IdentitySource} from './index';
+import {AzureActiveDirectoryTenant, CrossCloudAzureActiveDirectoryTenant, DomainIdentitySource, ExternalDomainFederation, IdentitySource} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createIdentitySourceFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentitySource {
@@ -10,6 +10,8 @@ export function createIdentitySourceFromDiscriminatorValue(parseNode: ParseNode 
             switch (mappingValue) {
                 case "#microsoft.graph.azureActiveDirectoryTenant":
                     return new AzureActiveDirectoryTenant();
+                case "#microsoft.graph.crossCloudAzureActiveDirectoryTenant":
+                    return new CrossCloudAzureActiveDirectoryTenant();
                 case "#microsoft.graph.domainIdentitySource":
                     return new DomainIdentitySource();
                 case "#microsoft.graph.externalDomainFederation":

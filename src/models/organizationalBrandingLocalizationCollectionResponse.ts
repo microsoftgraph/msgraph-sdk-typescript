@@ -2,6 +2,9 @@ import {createOrganizationalBrandingLocalizationFromDiscriminatorValue} from './
 import {BaseCollectionPaginationCountResponse, OrganizationalBrandingLocalization} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
+ */
 export class OrganizationalBrandingLocalizationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: OrganizationalBrandingLocalization[] | undefined;

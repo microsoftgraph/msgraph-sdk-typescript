@@ -1,7 +1,9 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the collection of application entities.
+ */
 export class Extension extends Entity implements Parsable {
     /**
      * Instantiates a new extension and sets the default values.

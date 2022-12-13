@@ -18,7 +18,9 @@ import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {SetMobileDeviceManagementAuthorityRequestBuilder} from './setMobileDeviceManagementAuthority/setMobileDeviceManagementAuthorityRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of organization entities. */
+/**
+ * Provides operations to manage the collection of organization entities.
+ */
 export class OrganizationItemRequestBuilder {
     /** Provides operations to manage the branding property of the microsoft.graph.organization entity. */
     public get branding(): BrandingRequestBuilder {
@@ -112,7 +114,7 @@ export class OrganizationItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -122,7 +124,7 @@ export class OrganizationItemRequestBuilder {
     };
     /**
      * Update the properties of the currently authenticated organization. In this case, `organization` is defined as a collection of exactly one record, and so its **ID** must be specified in the request.  The **ID** is also known as the **tenantId** of the organization.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -132,7 +134,7 @@ export class OrganizationItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -171,6 +173,7 @@ export class OrganizationItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Organization
+     * @see {@link https://docs.microsoft.com/graph/api/organization-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OrganizationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Organization | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -184,10 +187,11 @@ export class OrganizationItemRequestBuilder {
     };
     /**
      * Update the properties of the currently authenticated organization. In this case, `organization` is defined as a collection of exactly one record, and so its **ID** must be specified in the request.  The **ID** is also known as the **tenantId** of the organization.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Organization
+     * @see {@link https://docs.microsoft.com/graph/api/organization-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Organization | undefined, requestConfiguration?: OrganizationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Organization | undefined> {
         if(!body) throw new Error("body cannot be undefined");

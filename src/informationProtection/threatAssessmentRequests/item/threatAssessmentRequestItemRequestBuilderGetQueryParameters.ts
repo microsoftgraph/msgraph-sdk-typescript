@@ -1,5 +1,7 @@
 
-/** Get threatAssessmentRequests from informationProtection */
+/**
+ * Get threatAssessmentRequests from informationProtection
+ */
 export class ThreatAssessmentRequestItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

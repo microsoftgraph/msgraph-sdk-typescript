@@ -1,7 +1,9 @@
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /policies/featureRolloutPolicies/{featureRolloutPolicy-id}/appliesTo/{directoryObject-id} */
+/**
+ * Builds and executes requests for operations under /policies/featureRolloutPolicies/{featureRolloutPolicy-id}/appliesTo/{directoryObject-id}
+ */
 export class DirectoryObjectItemRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

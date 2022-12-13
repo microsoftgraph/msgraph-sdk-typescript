@@ -1,5 +1,7 @@
 
-/** The user's terms of use acceptance statuses. Read-only. Nullable. */
+/**
+ * The user's terms of use acceptance statuses. Read-only. Nullable.
+ */
 export class AgreementAcceptanceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

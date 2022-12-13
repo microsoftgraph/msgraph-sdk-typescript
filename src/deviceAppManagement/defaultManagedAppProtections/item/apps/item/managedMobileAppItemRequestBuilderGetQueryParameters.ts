@@ -1,5 +1,7 @@
 
-/** List of apps to which the policy is deployed. */
+/**
+ * List of apps to which the policy is deployed.
+ */
 export class ManagedMobileAppItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

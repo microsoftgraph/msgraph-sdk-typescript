@@ -1,5 +1,7 @@
 
-/** Read the properties and relationships of a store object. */
+/**
+ * Read the properties and relationships of a store object.
+ */
 export class TermStoreRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

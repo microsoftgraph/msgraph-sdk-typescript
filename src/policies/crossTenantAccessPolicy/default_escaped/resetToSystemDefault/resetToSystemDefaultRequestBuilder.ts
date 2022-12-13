@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {ResetToSystemDefaultRequestBuilderPostRequestConfiguration} from './resetToSystemDefaultRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the resetToSystemDefault method. */
+/**
+ * Provides operations to call the resetToSystemDefault method.
+ */
 export class ResetToSystemDefaultRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -44,6 +46,7 @@ export class ResetToSystemDefaultRequestBuilder {
      * Reset any changes made to the default configuration in a cross-tenant access policy back to the system default.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationdefault-resettosystemdefault?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: ResetToSystemDefaultRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createPostRequestInformation(

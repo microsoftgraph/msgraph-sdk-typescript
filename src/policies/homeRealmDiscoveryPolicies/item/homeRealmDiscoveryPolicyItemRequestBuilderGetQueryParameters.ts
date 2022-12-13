@@ -1,5 +1,7 @@
 
-/** The policy to control Azure AD authentication behavior for federated users. */
+/**
+ * The policy to control Azure AD authentication behavior for federated users.
+ */
 export class HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

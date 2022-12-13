@@ -2,7 +2,9 @@ import {createCalendarFromDiscriminatorValue} from './createCalendarFromDiscrimi
 import {Calendar, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the collection of application entities.
+ */
 export class CalendarGroup extends Entity implements Parsable {
     /** The calendars in the calendar group. Navigation property. Read-only. Nullable. */
     private _calendars?: Calendar[] | undefined;
@@ -42,7 +44,7 @@ export class CalendarGroup extends Entity implements Parsable {
     };
     /**
      * Gets the classId property value. The class identifier. Read-only.
-     * @returns a string
+     * @returns a Guid
      */
     public get classId() {
         return this._classId;

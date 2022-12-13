@@ -1,5 +1,7 @@
 
-/** Retrieve a list of schools in which the class is taught. */
+/**
+ * Retrieve a list of schools in which the class is taught.
+ */
 export class SchoolsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

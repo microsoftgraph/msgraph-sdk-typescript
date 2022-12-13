@@ -1,5 +1,7 @@
 
-/** The device compliance policies. */
+/**
+ * The device compliance policies.
+ */
 export class DeviceCompliancePolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

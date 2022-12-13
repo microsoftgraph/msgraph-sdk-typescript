@@ -1,5 +1,7 @@
 
-/** Retrieve the properties of a specific group setting object. The setting can be a tenant-level or group-specific setting. */
+/**
+ * Retrieve the properties of a specific group setting object. The setting can be a tenant-level or group-specific setting.
+ */
 export class GroupSettingItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

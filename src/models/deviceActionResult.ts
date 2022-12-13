@@ -1,7 +1,9 @@
 import {ActionState} from './actionState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Device action result */
+/**
+ * Device action result
+ */
 export class DeviceActionResult implements AdditionalDataHolder, Parsable {
     /** Action name */
     private _actionName?: string | undefined;

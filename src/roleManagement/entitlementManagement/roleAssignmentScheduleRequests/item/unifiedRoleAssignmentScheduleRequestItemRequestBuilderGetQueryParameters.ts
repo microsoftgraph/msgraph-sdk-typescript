@@ -1,5 +1,7 @@
 
-/** Requests for active role assignments to principals through PIM. */
+/**
+ * Requests for active role assignments to principals through PIM.
+ */
 export class UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only. */
+/**
+ * A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only.
+ */
 export class PrintTaskItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

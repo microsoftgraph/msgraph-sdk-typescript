@@ -3,7 +3,9 @@ import {PstnCallLogRow} from '../../../models/callRecords/';
 import {createPstnCallLogRowFromDiscriminatorValue} from '../../../models/callRecords/createPstnCallLogRowFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getPstnCalls method. */
+/**
+ * Provides operations to call the getPstnCalls method.
+ */
 export class GetPstnCallsWithFromDateTimeWithToDateTimeResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: PstnCallLogRow[] | undefined;

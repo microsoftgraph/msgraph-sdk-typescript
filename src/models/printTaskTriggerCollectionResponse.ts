@@ -2,6 +2,9 @@ import {createPrintTaskTriggerFromDiscriminatorValue} from './createPrintTaskTri
 import {BaseCollectionPaginationCountResponse, PrintTaskTrigger} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
+ */
 export class PrintTaskTriggerCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: PrintTaskTrigger[] | undefined;

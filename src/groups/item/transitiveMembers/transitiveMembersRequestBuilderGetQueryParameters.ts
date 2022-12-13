@@ -1,5 +1,7 @@
 
-/** The direct and transitive members of a group. Nullable. */
+/**
+ * The direct and transitive members of a group. Nullable.
+ */
 export class TransitiveMembersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

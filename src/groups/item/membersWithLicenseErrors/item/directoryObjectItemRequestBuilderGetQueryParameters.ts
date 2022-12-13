@@ -1,5 +1,7 @@
 
-/** A list of group members with license errors from this group-based license assignment. Read-only. */
+/**
+ * A list of group members with license errors from this group-based license assignment. Read-only.
+ */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

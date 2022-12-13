@@ -4,7 +4,9 @@ import {CheckinRequestBuilderPostRequestConfiguration} from './checkinRequestBui
 import {CheckinPostRequestBody} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the checkin method. */
+/**
+ * Provides operations to call the checkin method.
+ */
 export class CheckinRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -27,7 +29,7 @@ export class CheckinRequestBuilder {
     };
     /**
      * Check in a checked out **driveItem** resource, which makes the version of the document available to others.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -46,9 +48,10 @@ export class CheckinRequestBuilder {
     };
     /**
      * Check in a checked out **driveItem** resource, which makes the version of the document available to others.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/driveitem-checkin?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CheckinPostRequestBody | undefined, requestConfiguration?: CheckinRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

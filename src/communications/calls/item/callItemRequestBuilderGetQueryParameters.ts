@@ -1,5 +1,7 @@
 
-/** Get calls from communications */
+/**
+ * Get calls from communications
+ */
 export class CallItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

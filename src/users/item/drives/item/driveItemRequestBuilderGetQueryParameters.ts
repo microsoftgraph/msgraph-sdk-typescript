@@ -1,5 +1,7 @@
 
-/** A collection of drives available for this user. Read-only. */
+/**
+ * A collection of drives available for this user. Read-only.
+ */
 export class DriveItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set]. */
+/**
+ * The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set].
+ */
 export class FromTermRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

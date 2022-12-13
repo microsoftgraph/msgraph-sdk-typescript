@@ -2,6 +2,9 @@ import {createRiskDetectionFromDiscriminatorValue} from './createRiskDetectionFr
 import {BaseCollectionPaginationCountResponse, RiskDetection} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity.
+ */
 export class RiskDetectionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: RiskDetection[] | undefined;

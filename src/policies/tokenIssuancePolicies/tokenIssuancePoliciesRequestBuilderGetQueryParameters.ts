@@ -1,5 +1,7 @@
 
-/** Get a list of tokenIssuancePolicy objects. */
+/**
+ * Get a list of tokenIssuancePolicy objects.
+ */
 export class TokenIssuancePoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

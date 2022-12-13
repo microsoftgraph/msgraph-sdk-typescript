@@ -1,5 +1,7 @@
 
-/** Retrieve the list of **printers** that are registered in the tenant. */
+/**
+ * Retrieve the list of **printers** that are registered in the tenant.
+ */
 export class PrintersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

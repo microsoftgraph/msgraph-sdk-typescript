@@ -1,5 +1,7 @@
 
-/** The list of assignments for this eBook. */
+/**
+ * The list of assignments for this eBook.
+ */
 export class AssignmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

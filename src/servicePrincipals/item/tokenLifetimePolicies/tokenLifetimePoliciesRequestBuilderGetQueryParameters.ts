@@ -1,5 +1,7 @@
 
-/** The tokenLifetimePolicies assigned to this service principal. */
+/**
+ * The tokenLifetimePolicies assigned to this service principal.
+ */
 export class TokenLifetimePoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

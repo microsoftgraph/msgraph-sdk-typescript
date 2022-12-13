@@ -16,7 +16,9 @@ import {ManagedDevicePartnerReportedHealthState} from './managedDevicePartnerRep
 import {ManagementAgentType} from './managementAgentType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Devices that are managed or pre-enrolled through Intune */
+/**
+ * Devices that are managed or pre-enrolled through Intune
+ */
 export class ManagedDevice extends Entity implements Parsable {
     /** Code that allows the Activation Lock on a device to be bypassed. This property is read-only. */
     private _activationLockBypassCode?: string | undefined;

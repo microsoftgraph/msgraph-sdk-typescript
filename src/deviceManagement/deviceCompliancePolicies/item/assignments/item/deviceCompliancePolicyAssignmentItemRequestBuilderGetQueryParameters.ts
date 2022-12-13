@@ -1,5 +1,7 @@
 
-/** The collection of assignments for this compliance policy. */
+/**
+ * The collection of assignments for this compliance policy.
+ */
 export class DeviceCompliancePolicyAssignmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

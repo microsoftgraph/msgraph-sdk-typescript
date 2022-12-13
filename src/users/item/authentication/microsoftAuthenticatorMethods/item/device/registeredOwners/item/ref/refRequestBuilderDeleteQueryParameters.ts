@@ -1,5 +1,7 @@
 
-/** Delete ref of navigation property registeredOwners for users */
+/**
+ * Delete ref of navigation property registeredOwners for users
+ */
 export class RefRequestBuilderDeleteQueryParameters {
     /** Delete Uri */
     public id?: string | undefined;

@@ -1,5 +1,7 @@
 
-/** The list of Exchange Connectors configured by the tenant. */
+/**
+ * The list of Exchange Connectors configured by the tenant.
+ */
 export class DeviceManagementExchangeConnectorItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

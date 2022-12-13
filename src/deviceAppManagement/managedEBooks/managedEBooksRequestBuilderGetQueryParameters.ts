@@ -1,5 +1,7 @@
 
-/** The Managed eBook. */
+/**
+ * The Managed eBook.
+ */
 export class ManagedEBooksRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

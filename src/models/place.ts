@@ -3,6 +3,9 @@ import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddre
 import {Entity, OutlookGeoCoordinates, PhysicalAddress} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of agreementAcceptance entities.
+ */
 export class Place extends Entity implements Parsable {
     /** The street address of the place. */
     private _address?: PhysicalAddress | undefined;
@@ -27,7 +30,7 @@ export class Place extends Entity implements Parsable {
         this._address = value;
     };
     /**
-     * Instantiates a new Place and sets the default values.
+     * Instantiates a new place and sets the default values.
      */
     public constructor() {
         super();

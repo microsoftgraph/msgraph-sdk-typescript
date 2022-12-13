@@ -1,5 +1,7 @@
 
-/** Get entities from workbooks */
+/**
+ * Get entities from workbooks
+ */
 export class WorkbooksRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,7 +1,9 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Device Compilance Policy and Configuration for a Setting State summary */
+/**
+ * Device Compilance Policy and Configuration for a Setting State summary
+ */
 export class SettingStateDeviceSummary extends Entity implements Parsable {
     /** Device Compliant count for the setting */
     private _compliantDeviceCount?: number | undefined;

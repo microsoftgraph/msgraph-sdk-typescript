@@ -2,7 +2,9 @@ import {AccessPackageAssignmentRequestRequirements, BaseCollectionPaginationCoun
 import {createAccessPackageAssignmentRequestRequirementsFromDiscriminatorValue} from '../../../../../models/createAccessPackageAssignmentRequestRequirementsFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getApplicablePolicyRequirements method. */
+/**
+ * Provides operations to call the getApplicablePolicyRequirements method.
+ */
 export class GetApplicablePolicyRequirementsResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: AccessPackageAssignmentRequestRequirements[] | undefined;

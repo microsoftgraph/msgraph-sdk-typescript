@@ -1,5 +1,7 @@
 
-/** The details of the Microsoft Authenticator app registered to a user for authentication. */
+/**
+ * The details of the Microsoft Authenticator app registered to a user for authentication.
+ */
 export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

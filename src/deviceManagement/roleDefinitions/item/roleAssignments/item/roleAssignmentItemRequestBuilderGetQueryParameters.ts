@@ -1,5 +1,7 @@
 
-/** List of Role assignments for this role definition. */
+/**
+ * List of Role assignments for this role definition.
+ */
 export class RoleAssignmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

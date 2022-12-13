@@ -1,13 +1,31 @@
 import {createBitlockerFromDiscriminatorValue} from './createBitlockerFromDiscriminatorValue';
 import {createThreatAssessmentRequestFromDiscriminatorValue} from './createThreatAssessmentRequestFromDiscriminatorValue';
-import {Bitlocker, Entity, ThreatAssessmentRequest} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Bitlocker, ThreatAssessmentRequest} from './index';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class InformationProtection extends Entity implements Parsable {
+export class InformationProtection implements AdditionalDataHolder, Parsable {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    private _additionalData: Record<string, unknown>;
     /** The bitlocker property */
     private _bitlocker?: Bitlocker | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The threatAssessmentRequests property */
     private _threatAssessmentRequests?: ThreatAssessmentRequest[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
     /**
      * Gets the bitlocker property value. The bitlocker property
      * @returns a bitlocker
@@ -26,17 +44,32 @@ export class InformationProtection extends Entity implements Parsable {
      * Instantiates a new InformationProtection and sets the default values.
      */
     public constructor() {
-        super();
+        this._additionalData = {};
     };
     /**
      * The deserialization information for the current model
      * @returns a Record<string, (node: ParseNode) => void>
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
+        return {
             "bitlocker": n => { this.bitlocker = n.getObjectValue<Bitlocker>(createBitlockerFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "threatAssessmentRequests": n => { this.threatAssessmentRequests = n.getCollectionOfObjectValues<ThreatAssessmentRequest>(createThreatAssessmentRequestFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Serializes information the current object
@@ -44,9 +77,10 @@ export class InformationProtection extends Entity implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
         writer.writeObjectValue<Bitlocker>("bitlocker", this.bitlocker);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<ThreatAssessmentRequest>("threatAssessmentRequests", this.threatAssessmentRequests);
+        writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the threatAssessmentRequests property value. The threatAssessmentRequests property

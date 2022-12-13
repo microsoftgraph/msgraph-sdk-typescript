@@ -1,5 +1,7 @@
 
-/** Represents entry point for identity userflow attributes. */
+/**
+ * Represents entry point for identity userflow attributes.
+ */
 export class IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

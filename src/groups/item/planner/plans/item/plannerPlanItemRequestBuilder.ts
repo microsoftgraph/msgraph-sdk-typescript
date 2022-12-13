@@ -12,7 +12,9 @@ import {PlannerTaskItemRequestBuilder} from './tasks/item/plannerTaskItemRequest
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the plans property of the microsoft.graph.plannerGroup entity. */
+/**
+ * Provides operations to manage the plans property of the microsoft.graph.plannerGroup entity.
+ */
 export class PlannerPlanItemRequestBuilder {
     /** Provides operations to manage the buckets property of the microsoft.graph.plannerPlan entity. */
     public get buckets(): BucketsRequestBuilder {
@@ -82,7 +84,7 @@ export class PlannerPlanItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -92,7 +94,7 @@ export class PlannerPlanItemRequestBuilder {
     };
     /**
      * Update the navigation property plans in groups
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +104,7 @@ export class PlannerPlanItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -143,7 +145,7 @@ export class PlannerPlanItemRequestBuilder {
     };
     /**
      * Update the navigation property plans in groups
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerPlan

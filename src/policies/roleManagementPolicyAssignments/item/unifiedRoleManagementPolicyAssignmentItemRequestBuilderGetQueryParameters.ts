@@ -1,5 +1,7 @@
 
-/** The assignment of a role management policy to a role definition object. */
+/**
+ * The assignment of a role management policy to a role definition object.
+ */
 export class UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable. */
+/**
+ * A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
+ */
 export class ConversationThreadItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

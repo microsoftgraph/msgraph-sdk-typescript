@@ -1,5 +1,7 @@
 
-/** The authentication methods that are supported for the user. */
+/**
+ * The authentication methods that are supported for the user.
+ */
 export class AuthenticationRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

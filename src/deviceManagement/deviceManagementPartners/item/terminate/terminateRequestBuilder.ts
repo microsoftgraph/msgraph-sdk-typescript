@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {TerminateRequestBuilderPostRequestConfiguration} from './terminateRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the terminate method. */
+/**
+ * Provides operations to call the terminate method.
+ */
 export class TerminateRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

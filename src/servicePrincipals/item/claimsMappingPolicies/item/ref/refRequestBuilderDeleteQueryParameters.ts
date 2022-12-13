@@ -1,5 +1,7 @@
 
-/** Delete ref of navigation property claimsMappingPolicies for servicePrincipals */
+/**
+ * Delete ref of navigation property claimsMappingPolicies for servicePrincipals
+ */
 export class RefRequestBuilderDeleteQueryParameters {
     /** Delete Uri */
     public id?: string | undefined;

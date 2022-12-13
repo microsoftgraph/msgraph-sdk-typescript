@@ -1,5 +1,7 @@
 
-/** Column order information in a content type. */
+/**
+ * Column order information in a content type.
+ */
 export class ColumnPositionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

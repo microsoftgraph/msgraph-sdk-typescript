@@ -217,7 +217,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the appOwnerOrganizationId property value. Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le).
-     * @returns a string
+     * @returns a Guid
      */
     public get appOwnerOrganizationId() {
         return this._appOwnerOrganizationId;
@@ -840,7 +840,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the tokenEncryptionKeyId property value. Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD issues tokens for this application encrypted using the key specified by this property. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.
-     * @returns a string
+     * @returns a Guid
      */
     public get tokenEncryptionKeyId() {
         return this._tokenEncryptionKeyId;

@@ -9,7 +9,9 @@ import {GroupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration} from '.
 import {RemoveGroupRequestBuilder} from './removeGroup/removeGroupRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of groupLifecyclePolicy entities. */
+/**
+ * Provides operations to manage the collection of groupLifecyclePolicy entities.
+ */
 export class GroupLifecyclePolicyItemRequestBuilder {
     /** Provides operations to call the addGroup method. */
     public get addGroup(): AddGroupRequestBuilder {
@@ -64,7 +66,7 @@ export class GroupLifecyclePolicyItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -74,7 +76,7 @@ export class GroupLifecyclePolicyItemRequestBuilder {
     };
     /**
      * Update the properties of a groupLifecyclePolicygroupLifecyclePolicy resource type object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -84,7 +86,7 @@ export class GroupLifecyclePolicyItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -96,6 +98,7 @@ export class GroupLifecyclePolicyItemRequestBuilder {
      * Delete a groupLifecyclePolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/grouplifecyclepolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: GroupLifecyclePolicyItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
@@ -112,6 +115,7 @@ export class GroupLifecyclePolicyItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupLifecyclePolicy
+     * @see {@link https://docs.microsoft.com/graph/api/grouplifecyclepolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: GroupLifecyclePolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupLifecyclePolicy | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -125,10 +129,11 @@ export class GroupLifecyclePolicyItemRequestBuilder {
     };
     /**
      * Update the properties of a groupLifecyclePolicygroupLifecyclePolicy resource type object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupLifecyclePolicy
+     * @see {@link https://docs.microsoft.com/graph/api/grouplifecyclepolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: GroupLifecyclePolicy | undefined, requestConfiguration?: GroupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupLifecyclePolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

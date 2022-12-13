@@ -1,5 +1,7 @@
 
-/** Retrieve a list of **plannerplan** objects. */
+/**
+ * Retrieve a list of **plannerplan** objects.
+ */
 export class PlansRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

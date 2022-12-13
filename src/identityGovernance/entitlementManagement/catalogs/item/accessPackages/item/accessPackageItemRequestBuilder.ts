@@ -17,7 +17,9 @@ import {IncompatibleGroupsRequestBuilder} from './incompatibleGroups/incompatibl
 import {GroupItemRequestBuilder} from './incompatibleGroups/item/groupItemRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity. */
+/**
+ * Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity.
+ */
 export class AccessPackageItemRequestBuilder {
     /** Provides operations to manage the accessPackagesIncompatibleWith property of the microsoft.graph.accessPackage entity. */
     public get accessPackagesIncompatibleWith(): AccessPackagesIncompatibleWithRequestBuilder {
@@ -110,7 +112,7 @@ export class AccessPackageItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -120,7 +122,7 @@ export class AccessPackageItemRequestBuilder {
     };
     /**
      * Update the navigation property accessPackages in identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -130,7 +132,7 @@ export class AccessPackageItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -193,7 +195,7 @@ export class AccessPackageItemRequestBuilder {
     };
     /**
      * Update the navigation property accessPackages in identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackage

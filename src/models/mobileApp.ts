@@ -5,7 +5,9 @@ import {Entity, MimeContent, MobileAppAssignment, MobileAppCategory} from './ind
 import {MobileAppPublishingState} from './mobileAppPublishingState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** An abstract class containing the base properties for Intune mobile apps. */
+/**
+ * An abstract class containing the base properties for Intune mobile apps.
+ */
 export class MobileApp extends Entity implements Parsable {
     /** The list of group assignments for this mobile app. */
     private _assignments?: MobileAppAssignment[] | undefined;

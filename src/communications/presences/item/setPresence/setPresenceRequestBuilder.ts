@@ -4,7 +4,9 @@ import {SetPresencePostRequestBody} from './index';
 import {SetPresenceRequestBuilderPostRequestConfiguration} from './setPresenceRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the setPresence method. */
+/**
+ * Provides operations to call the setPresence method.
+ */
 export class SetPresenceRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -27,7 +29,7 @@ export class SetPresenceRequestBuilder {
     };
     /**
      * Set the state of a user's presence session as an application.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -46,9 +48,10 @@ export class SetPresenceRequestBuilder {
     };
     /**
      * Set the state of a user's presence session as an application.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/presence-setpresence?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SetPresencePostRequestBody | undefined, requestConfiguration?: SetPresenceRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

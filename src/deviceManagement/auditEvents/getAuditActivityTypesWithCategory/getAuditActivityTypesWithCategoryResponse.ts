@@ -1,7 +1,9 @@
 import {BaseCollectionPaginationCountResponse} from '../../../models/';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getAuditActivityTypes method. */
+/**
+ * Provides operations to call the getAuditActivityTypes method.
+ */
 export class GetAuditActivityTypesWithCategoryResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: string[] | undefined;

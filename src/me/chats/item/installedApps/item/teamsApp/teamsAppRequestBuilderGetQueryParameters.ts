@@ -1,5 +1,7 @@
 
-/** The app that is installed. */
+/**
+ * The app that is installed.
+ */
 export class TeamsAppRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

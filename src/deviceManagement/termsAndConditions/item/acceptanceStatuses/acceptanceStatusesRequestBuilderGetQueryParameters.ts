@@ -1,5 +1,7 @@
 
-/** The list of acceptance statuses for this T&C policy. */
+/**
+ * The list of acceptance statuses for this T&C policy.
+ */
 export class AcceptanceStatusesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

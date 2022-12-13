@@ -1,5 +1,7 @@
 
-/** The list of printer shares registered in the tenant. */
+/**
+ * The list of printer shares registered in the tenant.
+ */
 export class PrinterShareItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

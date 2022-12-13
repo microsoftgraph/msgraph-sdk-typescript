@@ -1,5 +1,7 @@
 
-/** Invoke function doesUserHaveAccess */
+/**
+ * Invoke function doesUserHaveAccess
+ */
 export class DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderGetQueryParameters {
     /** Usage: tenantId='@tenantId' */
     public tenantId?: string | undefined;

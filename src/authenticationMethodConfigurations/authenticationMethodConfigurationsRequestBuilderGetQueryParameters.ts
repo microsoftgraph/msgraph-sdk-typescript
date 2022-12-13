@@ -1,5 +1,7 @@
 
-/** Get entities from authenticationMethodConfigurations */
+/**
+ * Get entities from authenticationMethodConfigurations
+ */
 export class AuthenticationMethodConfigurationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

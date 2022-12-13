@@ -2,6 +2,9 @@ import {createContractFromDiscriminatorValue} from './createContractFromDiscrimi
 import {BaseCollectionPaginationCountResponse, Contract} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of contract entities.
+ */
 export class ContractCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Contract[] | undefined;

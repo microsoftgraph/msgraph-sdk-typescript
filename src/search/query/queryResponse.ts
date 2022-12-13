@@ -2,7 +2,9 @@ import {BaseCollectionPaginationCountResponse, SearchResponse} from '../../model
 import {createSearchResponseFromDiscriminatorValue} from '../../models/createSearchResponseFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the query method. */
+/**
+ * Provides operations to call the query method.
+ */
 export class QueryResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: SearchResponse[] | undefined;

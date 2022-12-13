@@ -1,5 +1,7 @@
 
-/** A container for access packages. */
+/**
+ * A container for access packages.
+ */
 export class AccessPackageCatalogItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

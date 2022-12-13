@@ -1,5 +1,7 @@
 
-/** Read-only. Nullable. The collection of tasks in the bucket. */
+/**
+ * Read-only. Nullable. The collection of tasks in the bucket.
+ */
 export class PlannerTaskItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

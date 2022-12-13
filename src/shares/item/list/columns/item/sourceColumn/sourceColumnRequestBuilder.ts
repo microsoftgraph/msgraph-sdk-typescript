@@ -5,7 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {SourceColumnRequestBuilderGetRequestConfiguration} from './sourceColumnRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the sourceColumn property of the microsoft.graph.columnDefinition entity. */
+/**
+ * Provides operations to manage the sourceColumn property of the microsoft.graph.columnDefinition entity.
+ */
 export class SourceColumnRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -36,7 +38,7 @@ export class SourceColumnRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

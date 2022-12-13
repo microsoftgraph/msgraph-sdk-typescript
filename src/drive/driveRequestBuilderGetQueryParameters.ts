@@ -1,5 +1,7 @@
 
-/** Get drive */
+/**
+ * Get drive
+ */
 export class DriveRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** Device configuration installation status by user. */
+/**
+ * Device configuration installation status by user.
+ */
 export class DeviceConfigurationUserStatusItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

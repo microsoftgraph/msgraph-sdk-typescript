@@ -1,5 +1,7 @@
 
-/** Get group from me */
+/**
+ * Get group from me
+ */
 export class GroupRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

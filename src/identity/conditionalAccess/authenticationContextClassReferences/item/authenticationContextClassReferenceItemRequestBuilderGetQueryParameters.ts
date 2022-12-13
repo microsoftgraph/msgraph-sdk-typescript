@@ -1,5 +1,7 @@
 
-/** Read-only. Nullable. Returns a collection of the specified authentication context class references. */
+/**
+ * Read-only. Nullable. Returns a collection of the specified authentication context class references.
+ */
 export class AuthenticationContextClassReferenceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

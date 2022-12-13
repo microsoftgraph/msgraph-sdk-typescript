@@ -1,5 +1,7 @@
 
-/** Get the item of type microsoft.graph.mobileApp as microsoft.graph.mobileLobApp */
+/**
+ * Get the item of type microsoft.graph.mobileApp as microsoft.graph.mobileLobApp
+ */
 export class MobileLobAppRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

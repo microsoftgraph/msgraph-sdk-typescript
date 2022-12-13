@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {RefRequestBuilderDeleteRequestConfiguration} from './refRequestBuilderDeleteRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of policyRoot entities. */
+/**
+ * Provides operations to manage the collection of policyRoot entities.
+ */
 export class RefRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

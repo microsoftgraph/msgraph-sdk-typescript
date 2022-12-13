@@ -1,5 +1,7 @@
 
-/** App configuration user status summary. */
+/**
+ * App configuration user status summary.
+ */
 export class UserStatusSummaryRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

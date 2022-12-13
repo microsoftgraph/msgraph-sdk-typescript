@@ -1,7 +1,9 @@
 import {StateManagementSetting} from './stateManagementSetting';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Windows Firewall Profile Policies. */
+/**
+ * Windows Firewall Profile Policies.
+ */
 export class WindowsFirewallNetworkProfile implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;

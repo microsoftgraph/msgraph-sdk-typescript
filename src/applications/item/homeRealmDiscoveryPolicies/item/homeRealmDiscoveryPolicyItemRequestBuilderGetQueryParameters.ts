@@ -1,5 +1,7 @@
 
-/** Get homeRealmDiscoveryPolicies from applications */
+/**
+ * Get homeRealmDiscoveryPolicies from applications
+ */
 export class HomeRealmDiscoveryPolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

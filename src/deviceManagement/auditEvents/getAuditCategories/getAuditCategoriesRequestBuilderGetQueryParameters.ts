@@ -1,5 +1,7 @@
 
-/** Invoke function getAuditCategories */
+/**
+ * Invoke function getAuditCategories
+ */
 export class GetAuditCategoriesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

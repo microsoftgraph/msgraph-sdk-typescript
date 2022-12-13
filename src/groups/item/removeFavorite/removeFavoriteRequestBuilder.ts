@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {RemoveFavoriteRequestBuilderPostRequestConfiguration} from './removeFavoriteRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the removeFavorite method. */
+/**
+ * Provides operations to call the removeFavorite method.
+ */
 export class RemoveFavoriteRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -44,6 +46,7 @@ export class RemoveFavoriteRequestBuilder {
      * Remove the group from the list of the current user's favorite groups. Supported for Microsoft 365 groups only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/group-removefavorite?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: RemoveFavoriteRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createPostRequestInformation(

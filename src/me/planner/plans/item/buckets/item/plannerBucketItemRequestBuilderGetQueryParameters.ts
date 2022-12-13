@@ -1,5 +1,7 @@
 
-/** Read-only. Nullable. Collection of buckets in the plan. */
+/**
+ * Read-only. Nullable. Collection of buckets in the plan.
+ */
 export class PlannerBucketItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

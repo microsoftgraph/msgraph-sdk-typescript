@@ -1,5 +1,7 @@
 
-/** The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable. */
+/**
+ * The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.
+ */
 export class DriveItemVersionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

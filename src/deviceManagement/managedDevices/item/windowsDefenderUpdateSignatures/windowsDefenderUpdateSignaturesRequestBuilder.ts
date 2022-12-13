@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {WindowsDefenderUpdateSignaturesRequestBuilderPostRequestConfiguration} from './windowsDefenderUpdateSignaturesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the windowsDefenderUpdateSignatures method. */
+/**
+ * Provides operations to call the windowsDefenderUpdateSignatures method.
+ */
 export class WindowsDefenderUpdateSignaturesRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

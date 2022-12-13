@@ -2,6 +2,9 @@ import {createDetectedAppFromDiscriminatorValue} from './createDetectedAppFromDi
 import {BaseCollectionPaginationCountResponse, DetectedApp} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
+ */
 export class DetectedAppCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DetectedApp[] | undefined;

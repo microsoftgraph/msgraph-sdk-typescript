@@ -1,5 +1,7 @@
 
-/** Get transitiveMemberOf from contacts */
+/**
+ * Get transitiveMemberOf from contacts
+ */
 export class TransitiveMemberOfRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

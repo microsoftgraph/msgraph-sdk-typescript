@@ -2,7 +2,9 @@ import {BaseCollectionPaginationCountResponse, Permission} from '../../../../mod
 import {createPermissionFromDiscriminatorValue} from '../../../../models/createPermissionFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the grant method. */
+/**
+ * Provides operations to call the grant method.
+ */
 export class GrantResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Permission[] | undefined;

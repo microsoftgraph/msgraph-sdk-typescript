@@ -1,5 +1,7 @@
 
-/** Windows information protection for apps running on devices which are MDM enrolled. */
+/**
+ * Windows information protection for apps running on devices which are MDM enrolled.
+ */
 export class MdmWindowsInformationProtectionPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

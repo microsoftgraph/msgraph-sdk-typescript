@@ -1,5 +1,7 @@
 
-/** Get items from external */
+/**
+ * Get items from external
+ */
 export class ItemsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

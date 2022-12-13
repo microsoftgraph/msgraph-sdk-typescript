@@ -1,5 +1,7 @@
 
-/** Members of this directory role that are scoped to administrative units. Read-only. Nullable. */
+/**
+ * Members of this directory role that are scoped to administrative units. Read-only. Nullable.
+ */
 export class ScopedRoleMembershipItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

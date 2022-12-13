@@ -2,7 +2,9 @@ import {BaseDeltaFunctionResponse, ServicePrincipal} from '../../models/';
 import {createServicePrincipalFromDiscriminatorValue} from '../../models/createServicePrincipalFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the delta method. */
+/**
+ * Provides operations to call the delta method.
+ */
 export class DeltaResponse extends BaseDeltaFunctionResponse implements Parsable {
     /** The value property */
     private _value?: ServicePrincipal[] | undefined;

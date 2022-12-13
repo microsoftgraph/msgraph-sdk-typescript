@@ -1,5 +1,7 @@
 
-/** The recovery keys associated with the bitlocker entity. */
+/**
+ * The recovery keys associated with the bitlocker entity.
+ */
 export class BitlockerRecoveryKeyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

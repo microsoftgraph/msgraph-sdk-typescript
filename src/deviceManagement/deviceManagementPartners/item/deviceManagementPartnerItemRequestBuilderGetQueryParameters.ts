@@ -1,5 +1,7 @@
 
-/** The list of Device Management Partners configured by the tenant. */
+/**
+ * The list of Device Management Partners configured by the tenant.
+ */
 export class DeviceManagementPartnerItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

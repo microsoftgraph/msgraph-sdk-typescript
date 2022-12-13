@@ -6,7 +6,9 @@ import {createAccessReviewStageFromDiscriminatorValue} from './createAccessRevie
 import {AccessReviewInstanceDecisionItem, AccessReviewReviewer, AccessReviewReviewerScope, AccessReviewScope, AccessReviewStage, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/**
+ * Provides operations to manage the collection of agreementAcceptance entities.
+ */
 export class AccessReviewInstance extends Entity implements Parsable {
     /** Returns the collection of reviewers who were contacted to complete this review. While the reviewers and fallbackReviewers properties of the accessReviewScheduleDefinition might specify group owners or managers as reviewers, contactedReviewers returns their individual identities. Supports $select. Read-only. */
     private _contactedReviewers?: AccessReviewReviewer[] | undefined;

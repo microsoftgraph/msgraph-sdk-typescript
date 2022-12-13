@@ -1,5 +1,7 @@
 
-/** A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly. */
+/**
+ * A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
+ */
 export class ServiceHealthItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

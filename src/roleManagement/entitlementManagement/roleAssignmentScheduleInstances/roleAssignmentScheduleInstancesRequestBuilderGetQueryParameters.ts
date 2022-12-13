@@ -1,5 +1,7 @@
 
-/** Get the instances of active role assignments in your tenant. The active assignments include those made through assignments and activation requests, and directly through the role assignments API. */
+/**
+ * Get the instances of active role assignments in your tenant. The active assignments include those made through assignments and activation requests, and directly through the role assignments API.
+ */
 export class RoleAssignmentScheduleInstancesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

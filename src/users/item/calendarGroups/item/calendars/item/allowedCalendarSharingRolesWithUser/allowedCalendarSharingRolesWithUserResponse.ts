@@ -2,7 +2,9 @@ import {BaseCollectionPaginationCountResponse} from '../../../../../../../models
 import {CalendarRoleType} from '../../../../../../../models/calendarRoleType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the allowedCalendarSharingRoles method. */
+/**
+ * Provides operations to call the allowedCalendarSharingRoles method.
+ */
 export class AllowedCalendarSharingRolesWithUserResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: CalendarRoleType[] | undefined;

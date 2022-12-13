@@ -1,5 +1,7 @@
 
-/** Get signIns from auditLogs */
+/**
+ * Get signIns from auditLogs
+ */
 export class SignInItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

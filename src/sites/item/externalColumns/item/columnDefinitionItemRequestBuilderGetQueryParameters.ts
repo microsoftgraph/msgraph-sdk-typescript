@@ -1,5 +1,7 @@
 
-/** Get externalColumns from sites */
+/**
+ * Get externalColumns from sites
+ */
 export class ColumnDefinitionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

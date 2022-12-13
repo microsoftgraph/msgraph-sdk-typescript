@@ -1,5 +1,7 @@
 
-/** Get a list of the microsoftAuthenticatorAuthenticationMethod objects and their properties. */
+/**
+ * Get a list of the microsoftAuthenticatorAuthenticationMethod objects and their properties.
+ */
 export class MicrosoftAuthenticatorMethodsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

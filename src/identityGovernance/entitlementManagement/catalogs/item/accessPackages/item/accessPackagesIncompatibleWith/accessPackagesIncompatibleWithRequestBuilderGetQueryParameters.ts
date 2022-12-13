@@ -1,5 +1,7 @@
 
-/** Retrieve a list of the accessPackage objects that have marked a specified accessPackage as incompatible. */
+/**
+ * Retrieve a list of the accessPackage objects that have marked a specified accessPackage as incompatible.
+ */
 export class AccessPackagesIncompatibleWithRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,7 @@
 
-/** Get transitiveMemberOf from servicePrincipals */
+/**
+ * Get transitiveMemberOf from servicePrincipals
+ */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** Return a collection of DriveItems in the **children** relationship of a DriveItem. DriveItems with a non-null **folder** or **package** facet can have one or more child DriveItems. */
+/**
+ * Return a collection of DriveItems in the **children** relationship of a DriveItem. DriveItems with a non-null **folder** or **package** facet can have one or more child DriveItems.
+ */
 export class ChildrenRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

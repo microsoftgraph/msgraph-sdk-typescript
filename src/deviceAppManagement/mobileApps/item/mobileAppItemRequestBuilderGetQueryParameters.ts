@@ -1,5 +1,7 @@
 
-/** The mobile apps. */
+/**
+ * The mobile apps.
+ */
 export class MobileAppItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

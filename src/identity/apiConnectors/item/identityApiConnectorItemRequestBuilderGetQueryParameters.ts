@@ -1,5 +1,7 @@
 
-/** Represents entry point for API connectors. */
+/**
+ * Represents entry point for API connectors.
+ */
 export class IdentityApiConnectorItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

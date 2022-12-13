@@ -1,5 +1,7 @@
 
-/** List of ManagedDeviceMobileAppConfigurationDeviceStatus. */
+/**
+ * List of ManagedDeviceMobileAppConfigurationDeviceStatus.
+ */
 export class ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

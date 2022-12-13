@@ -1,5 +1,7 @@
 
-/** Get print */
+/**
+ * Get print
+ */
 export class PrintRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

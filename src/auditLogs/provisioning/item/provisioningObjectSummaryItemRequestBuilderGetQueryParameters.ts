@@ -1,5 +1,7 @@
 
-/** Get provisioning from auditLogs */
+/**
+ * Get provisioning from auditLogs
+ */
 export class ProvisioningObjectSummaryItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

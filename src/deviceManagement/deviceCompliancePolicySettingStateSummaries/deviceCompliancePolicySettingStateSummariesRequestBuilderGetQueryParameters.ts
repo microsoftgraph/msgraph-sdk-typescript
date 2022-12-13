@@ -1,5 +1,7 @@
 
-/** The summary states of compliance policy settings for this account. */
+/**
+ * The summary states of compliance policy settings for this account.
+ */
 export class DeviceCompliancePolicySettingStateSummariesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

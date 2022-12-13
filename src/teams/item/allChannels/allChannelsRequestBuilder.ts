@@ -6,7 +6,9 @@ import {AllChannelsRequestBuilderGetRequestConfiguration} from './allChannelsReq
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the allChannels property of the microsoft.graph.team entity. */
+/**
+ * Provides operations to manage the allChannels property of the microsoft.graph.team entity.
+ */
 export class AllChannelsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -41,7 +43,7 @@ export class AllChannelsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -54,6 +56,7 @@ export class AllChannelsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChannelCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/team-list-allchannels?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AllChannelsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChannelCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(

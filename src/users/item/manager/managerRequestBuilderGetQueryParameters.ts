@@ -1,5 +1,7 @@
 
-/** Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node. */
+/**
+ * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
+ */
 export class ManagerRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

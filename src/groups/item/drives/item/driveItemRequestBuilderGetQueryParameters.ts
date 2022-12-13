@@ -1,5 +1,7 @@
 
-/** The group's drives. Read-only. */
+/**
+ * The group's drives. Read-only.
+ */
 export class DriveItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

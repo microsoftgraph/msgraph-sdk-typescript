@@ -1,5 +1,7 @@
 
-/** All items contained in the drive. Read-only. Nullable. */
+/**
+ * All items contained in the drive. Read-only. Nullable.
+ */
 export class DriveItemItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

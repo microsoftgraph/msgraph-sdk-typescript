@@ -1,5 +1,7 @@
 
-/** Retrieves the educationUser members of an educationClass. */
+/**
+ * Retrieves the educationUser members of an educationClass.
+ */
 export class MembersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -2,6 +2,9 @@ import {createDeviceCompliancePolicyFromDiscriminatorValue} from './createDevice
 import {BaseCollectionPaginationCountResponse, DeviceCompliancePolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
+ */
 export class DeviceCompliancePolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DeviceCompliancePolicy[] | undefined;

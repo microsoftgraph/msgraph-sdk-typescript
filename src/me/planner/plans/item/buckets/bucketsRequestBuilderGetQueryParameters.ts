@@ -1,5 +1,7 @@
 
-/** Retrieve a list of plannerBucket objects contained by a plannerPlan object. */
+/**
+ * Retrieve a list of plannerBucket objects contained by a plannerPlan object.
+ */
 export class BucketsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,7 @@
 
-/** Get a list of the riskyUser objects and their properties. */
+/**
+ * Get a list of the riskyUser objects and their properties.
+ */
 export class RiskyUsersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

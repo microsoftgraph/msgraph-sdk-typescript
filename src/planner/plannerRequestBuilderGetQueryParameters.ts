@@ -1,5 +1,7 @@
 
-/** Get planner */
+/**
+ * Get planner
+ */
 export class PlannerRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

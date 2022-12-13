@@ -1,5 +1,7 @@
 
-/** Get entitlementManagement from identityGovernance */
+/**
+ * Get entitlementManagement from identityGovernance
+ */
 export class EntitlementManagementRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

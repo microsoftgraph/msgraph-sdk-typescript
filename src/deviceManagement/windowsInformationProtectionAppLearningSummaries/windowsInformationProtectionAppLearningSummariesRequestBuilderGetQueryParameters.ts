@@ -1,5 +1,7 @@
 
-/** The windows information protection app learning summaries. */
+/**
+ * The windows information protection app learning summaries.
+ */
 export class WindowsInformationProtectionAppLearningSummariesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

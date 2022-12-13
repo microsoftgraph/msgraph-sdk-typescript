@@ -32,7 +32,7 @@ export class OnPremisesConditionalAccessSettings extends Entity implements Parsa
     };
     /**
      * Gets the excludedGroups property value. User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy.
-     * @returns a string
+     * @returns a Guid
      */
     public get excludedGroups() {
         return this._excludedGroups;
@@ -58,7 +58,7 @@ export class OnPremisesConditionalAccessSettings extends Entity implements Parsa
     };
     /**
      * Gets the includedGroups property value. User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
-     * @returns a string
+     * @returns a Guid
      */
     public get includedGroups() {
         return this._includedGroups;

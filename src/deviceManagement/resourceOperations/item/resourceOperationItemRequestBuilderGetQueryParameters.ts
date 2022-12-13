@@ -1,5 +1,7 @@
 
-/** The Resource Operations. */
+/**
+ * The Resource Operations.
+ */
 export class ResourceOperationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

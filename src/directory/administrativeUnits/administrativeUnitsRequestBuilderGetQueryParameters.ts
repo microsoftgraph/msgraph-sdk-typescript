@@ -1,5 +1,7 @@
 
-/** Retrieve a list of administrativeUnit objects. */
+/**
+ * Retrieve a list of administrativeUnit objects.
+ */
 export class AdministrativeUnitsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

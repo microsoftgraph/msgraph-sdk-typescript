@@ -1,5 +1,7 @@
 
-/** Get a list of activityBasedTimeoutPolicy objects. */
+/**
+ * Get a list of activityBasedTimeoutPolicy objects.
+ */
 export class ActivityBasedTimeoutPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

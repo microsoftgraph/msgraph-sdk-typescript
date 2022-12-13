@@ -1,5 +1,7 @@
 
-/** The values of the columns set on this list item. */
+/**
+ * The values of the columns set on this list item.
+ */
 export class FieldsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

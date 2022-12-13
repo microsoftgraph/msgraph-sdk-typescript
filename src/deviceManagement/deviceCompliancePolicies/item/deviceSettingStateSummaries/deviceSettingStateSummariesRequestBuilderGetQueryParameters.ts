@@ -1,5 +1,7 @@
 
-/** Compliance Setting State Device Summary */
+/**
+ * Compliance Setting State Device Summary
+ */
 export class DeviceSettingStateSummariesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

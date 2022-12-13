@@ -2,7 +2,9 @@ import {Entity} from './index';
 import {MobileAppContentFileUploadState} from './mobileAppContentFileUploadState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains properties for a single installer file that is associated with a given mobileAppContent version. */
+/**
+ * Contains properties for a single installer file that is associated with a given mobileAppContent version.
+ */
 export class MobileAppContentFile extends Entity implements Parsable {
     /** The Azure Storage URI. */
     private _azureStorageUri?: string | undefined;

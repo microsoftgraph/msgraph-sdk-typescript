@@ -1,7 +1,9 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Represents an operation applied against an app registration. */
+/**
+ * Represents an operation applied against an app registration.
+ */
 export class ManagedAppOperation extends Entity implements Parsable {
     /** The operation name. */
     private _displayName?: string | undefined;

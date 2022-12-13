@@ -14,7 +14,9 @@ import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {SchemaRequestBuilder} from './schema/schemaRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of externalConnection entities. */
+/**
+ * Provides operations to manage the collection of externalConnection entities.
+ */
 export class ExternalConnectionItemRequestBuilder {
     /** Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity. */
     public get groups(): GroupsRequestBuilder {
@@ -77,7 +79,7 @@ export class ExternalConnectionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -87,7 +89,7 @@ export class ExternalConnectionItemRequestBuilder {
     };
     /**
      * Update entity in connections
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -97,7 +99,7 @@ export class ExternalConnectionItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -171,7 +173,7 @@ export class ExternalConnectionItemRequestBuilder {
     };
     /**
      * Update entity in connections
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalConnection

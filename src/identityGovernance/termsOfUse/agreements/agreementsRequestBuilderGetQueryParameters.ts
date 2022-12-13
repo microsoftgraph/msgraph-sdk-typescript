@@ -1,5 +1,7 @@
 
-/** Retrieve a list of agreement objects. */
+/**
+ * Retrieve a list of agreement objects.
+ */
 export class AgreementsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

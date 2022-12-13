@@ -1,5 +1,7 @@
 
-/** Get oauth2PermissionGrants from users */
+/**
+ * Get oauth2PermissionGrants from users
+ */
 export class OAuth2PermissionGrantItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

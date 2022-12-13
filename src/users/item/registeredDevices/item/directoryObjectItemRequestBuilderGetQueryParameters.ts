@@ -1,5 +1,7 @@
 
-/** Devices that are registered for the user. Read-only. Nullable. Supports $expand. */
+/**
+ * Devices that are registered for the user. Read-only. Nullable. Supports $expand.
+ */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

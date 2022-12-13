@@ -1,5 +1,7 @@
 
-/** Get the items of type microsoft.graph.orgContact in the microsoft.graph.directoryObject collection */
+/**
+ * Get the items of type microsoft.graph.orgContact in the microsoft.graph.directoryObject collection
+ */
 export class OrgContactRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

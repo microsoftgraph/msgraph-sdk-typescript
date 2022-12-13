@@ -157,7 +157,7 @@ export class IosVppEBook extends ManagedEBook implements Parsable {
     };
     /**
      * Gets the vppTokenId property value. The Vpp token ID.
-     * @returns a string
+     * @returns a Guid
      */
     public get vppTokenId() {
         return this._vppTokenId;

@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {SubscribeByMailRequestBuilderPostRequestConfiguration} from './subscribeByMailRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the subscribeByMail method. */
+/**
+ * Provides operations to call the subscribeByMail method.
+ */
 export class SubscribeByMailRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -44,6 +46,7 @@ export class SubscribeByMailRequestBuilder {
      * Calling this method will enable the current user to receive email notifications for this group, about new posts, events, and files in that group. Supported for Microsoft 365 groups only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/group-subscribebymail?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: SubscribeByMailRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createPostRequestInformation(

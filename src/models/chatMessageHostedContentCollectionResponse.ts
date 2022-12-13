@@ -2,6 +2,9 @@ import {createChatMessageHostedContentFromDiscriminatorValue} from './createChat
 import {BaseCollectionPaginationCountResponse, ChatMessageHostedContent} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
+ */
 export class ChatMessageHostedContentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ChatMessageHostedContent[] | undefined;

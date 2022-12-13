@@ -2,6 +2,9 @@ import {createRiskyUserFromDiscriminatorValue} from './createRiskyUserFromDiscri
 import {BaseCollectionPaginationCountResponse, RiskyUser} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
+ */
 export class RiskyUserCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: RiskyUser[] | undefined;

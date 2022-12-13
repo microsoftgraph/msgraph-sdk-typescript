@@ -1,5 +1,7 @@
 
-/** Condition sets which are included in this permission grant policy. Automatically expanded on GET. */
+/**
+ * Condition sets which are included in this permission grant policy. Automatically expanded on GET.
+ */
 export class PermissionGrantConditionSetItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

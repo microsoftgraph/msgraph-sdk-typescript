@@ -12,7 +12,9 @@ import {LocalizationsRequestBuilder} from './localizations/localizationsRequestB
 import {SquareLogoRequestBuilder} from './squareLogo/squareLogoRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the branding property of the microsoft.graph.organization entity. */
+/**
+ * Provides operations to manage the branding property of the microsoft.graph.organization entity.
+ */
 export class BrandingRequestBuilder {
     /** Provides operations to manage the media for the organization entity. */
     public get backgroundImage(): BackgroundImageRequestBuilder {
@@ -75,7 +77,7 @@ export class BrandingRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -85,7 +87,7 @@ export class BrandingRequestBuilder {
     };
     /**
      * Update the properties of the default branding object specified by the organizationalBranding resource.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +97,7 @@ export class BrandingRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -107,6 +109,7 @@ export class BrandingRequestBuilder {
      * Delete the default organizational branding object. To delete the organizationalBranding object, all images (Stream types) must first be removed from the object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/organizationalbranding-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: BrandingRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
@@ -123,6 +126,7 @@ export class BrandingRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OrganizationalBranding
+     * @see {@link https://docs.microsoft.com/graph/api/organizationalbranding-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BrandingRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OrganizationalBranding | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -147,10 +151,11 @@ export class BrandingRequestBuilder {
     };
     /**
      * Update the properties of the default branding object specified by the organizationalBranding resource.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OrganizationalBranding
+     * @see {@link https://docs.microsoft.com/graph/api/organizationalbranding-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: OrganizationalBranding | undefined, requestConfiguration?: BrandingRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OrganizationalBranding | undefined> {
         if(!body) throw new Error("body cannot be undefined");

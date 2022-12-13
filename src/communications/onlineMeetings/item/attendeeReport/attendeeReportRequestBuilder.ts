@@ -4,7 +4,9 @@ import {AttendeeReportRequestBuilderGetRequestConfiguration} from './attendeeRep
 import {AttendeeReportRequestBuilderPutRequestConfiguration} from './attendeeReportRequestBuilderPutRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the media for the cloudCommunications entity. */
+/**
+ * Provides operations to manage the media for the cloudCommunications entity.
+ */
 export class AttendeeReportRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -65,6 +67,7 @@ export class AttendeeReportRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ArrayBuffer
+     * @see {@link https://docs.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttendeeReportRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.createGetRequestInformation(

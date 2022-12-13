@@ -1,5 +1,7 @@
 
-/** Device configuration installation status by user. */
+/**
+ * Device configuration installation status by user.
+ */
 export class UserStatusesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

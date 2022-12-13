@@ -11,7 +11,9 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetCompatibleHubContentTypesRequestBuilder} from './getCompatibleHubContentTypes/getCompatibleHubContentTypesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the contentTypes property of the microsoft.graph.site entity. */
+/**
+ * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
+ */
 export class ContentTypesRequestBuilder {
     /** Provides operations to call the addCopy method. */
     public get addCopy(): AddCopyRequestBuilder {
@@ -54,7 +56,7 @@ export class ContentTypesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -64,7 +66,7 @@ export class ContentTypesRequestBuilder {
     };
     /**
      * Create a new [contentType][] in a [site][].
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -74,7 +76,7 @@ export class ContentTypesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -87,6 +89,7 @@ export class ContentTypesRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentTypeCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/site-list-contenttypes?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ContentTypesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentTypeCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -107,10 +110,11 @@ export class ContentTypesRequestBuilder {
     };
     /**
      * Create a new [contentType][] in a [site][].
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentType
+     * @see {@link https://docs.microsoft.com/graph/api/site-post-contenttypes?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ContentType | undefined, requestConfiguration?: ContentTypesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
         if(!body) throw new Error("body cannot be undefined");

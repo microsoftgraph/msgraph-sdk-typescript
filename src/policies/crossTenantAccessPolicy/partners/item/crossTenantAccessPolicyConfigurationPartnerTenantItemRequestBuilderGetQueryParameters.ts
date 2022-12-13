@@ -1,5 +1,7 @@
 
-/** Defines partner-specific configurations for external Azure Active Directory organizations. */
+/**
+ * Defines partner-specific configurations for external Azure Active Directory organizations.
+ */
 export class CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

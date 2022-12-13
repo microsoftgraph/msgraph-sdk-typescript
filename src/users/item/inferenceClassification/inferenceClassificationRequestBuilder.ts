@@ -8,7 +8,9 @@ import {InferenceClassificationOverrideItemRequestBuilder} from './overrides/ite
 import {OverridesRequestBuilder} from './overrides/overridesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the inferenceClassification property of the microsoft.graph.user entity. */
+/**
+ * Provides operations to manage the inferenceClassification property of the microsoft.graph.user entity.
+ */
 export class InferenceClassificationRequestBuilder {
     /** Provides operations to manage the overrides property of the microsoft.graph.inferenceClassification entity. */
     public get overrides(): OverridesRequestBuilder {
@@ -43,7 +45,7 @@ export class InferenceClassificationRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -53,7 +55,7 @@ export class InferenceClassificationRequestBuilder {
     };
     /**
      * Update the navigation property inferenceClassification in users
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +65,7 @@ export class InferenceClassificationRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -100,7 +102,7 @@ export class InferenceClassificationRequestBuilder {
     };
     /**
      * Update the navigation property inferenceClassification in users
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InferenceClassification

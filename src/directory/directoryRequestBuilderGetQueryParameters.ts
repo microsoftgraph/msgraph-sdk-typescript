@@ -1,5 +1,7 @@
 
-/** Get directory */
+/**
+ * Get directory
+ */
 export class DirectoryRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

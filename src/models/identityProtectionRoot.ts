@@ -1,6 +1,8 @@
 import {createRiskDetectionFromDiscriminatorValue} from './createRiskDetectionFromDiscriminatorValue';
+import {createRiskyServicePrincipalFromDiscriminatorValue} from './createRiskyServicePrincipalFromDiscriminatorValue';
 import {createRiskyUserFromDiscriminatorValue} from './createRiskyUserFromDiscriminatorValue';
-import {RiskDetection, RiskyUser} from './index';
+import {createServicePrincipalRiskDetectionFromDiscriminatorValue} from './createServicePrincipalRiskDetectionFromDiscriminatorValue';
+import {RiskDetection, RiskyServicePrincipal, RiskyUser, ServicePrincipalRiskDetection} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityProtectionRoot implements AdditionalDataHolder, Parsable {
@@ -10,8 +12,12 @@ export class IdentityProtectionRoot implements AdditionalDataHolder, Parsable {
     private _odataType?: string | undefined;
     /** Risk detection in Azure AD Identity Protection and the associated information about the detection. */
     private _riskDetections?: RiskDetection[] | undefined;
+    /** Azure AD service principals that are at risk. */
+    private _riskyServicePrincipals?: RiskyServicePrincipal[] | undefined;
     /** Users that are flagged as at-risk by Azure AD Identity Protection. */
     private _riskyUsers?: RiskyUser[] | undefined;
+    /** Represents information about detected at-risk service principals in an Azure AD tenant. */
+    private _servicePrincipalRiskDetections?: ServicePrincipalRiskDetection[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -40,7 +46,9 @@ export class IdentityProtectionRoot implements AdditionalDataHolder, Parsable {
         return {
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "riskDetections": n => { this.riskDetections = n.getCollectionOfObjectValues<RiskDetection>(createRiskDetectionFromDiscriminatorValue); },
+            "riskyServicePrincipals": n => { this.riskyServicePrincipals = n.getCollectionOfObjectValues<RiskyServicePrincipal>(createRiskyServicePrincipalFromDiscriminatorValue); },
             "riskyUsers": n => { this.riskyUsers = n.getCollectionOfObjectValues<RiskyUser>(createRiskyUserFromDiscriminatorValue); },
+            "servicePrincipalRiskDetections": n => { this.servicePrincipalRiskDetections = n.getCollectionOfObjectValues<ServicePrincipalRiskDetection>(createServicePrincipalRiskDetectionFromDiscriminatorValue); },
         };
     };
     /**
@@ -72,6 +80,20 @@ export class IdentityProtectionRoot implements AdditionalDataHolder, Parsable {
         this._riskDetections = value;
     };
     /**
+     * Gets the riskyServicePrincipals property value. Azure AD service principals that are at risk.
+     * @returns a riskyServicePrincipal
+     */
+    public get riskyServicePrincipals() {
+        return this._riskyServicePrincipals;
+    };
+    /**
+     * Sets the riskyServicePrincipals property value. Azure AD service principals that are at risk.
+     * @param value Value to set for the riskyServicePrincipals property.
+     */
+    public set riskyServicePrincipals(value: RiskyServicePrincipal[] | undefined) {
+        this._riskyServicePrincipals = value;
+    };
+    /**
      * Gets the riskyUsers property value. Users that are flagged as at-risk by Azure AD Identity Protection.
      * @returns a riskyUser
      */
@@ -93,7 +115,23 @@ export class IdentityProtectionRoot implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<RiskDetection>("riskDetections", this.riskDetections);
+        writer.writeCollectionOfObjectValues<RiskyServicePrincipal>("riskyServicePrincipals", this.riskyServicePrincipals);
         writer.writeCollectionOfObjectValues<RiskyUser>("riskyUsers", this.riskyUsers);
+        writer.writeCollectionOfObjectValues<ServicePrincipalRiskDetection>("servicePrincipalRiskDetections", this.servicePrincipalRiskDetections);
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the servicePrincipalRiskDetections property value. Represents information about detected at-risk service principals in an Azure AD tenant.
+     * @returns a servicePrincipalRiskDetection
+     */
+    public get servicePrincipalRiskDetections() {
+        return this._servicePrincipalRiskDetections;
+    };
+    /**
+     * Sets the servicePrincipalRiskDetections property value. Represents information about detected at-risk service principals in an Azure AD tenant.
+     * @param value Value to set for the servicePrincipalRiskDetections property.
+     */
+    public set servicePrincipalRiskDetections(value: ServicePrincipalRiskDetection[] | undefined) {
+        this._servicePrincipalRiskDetections = value;
     };
 }

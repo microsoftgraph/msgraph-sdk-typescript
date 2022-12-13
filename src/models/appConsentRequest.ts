@@ -3,7 +3,9 @@ import {createUserConsentRequestFromDiscriminatorValue} from './createUserConsen
 import {AppConsentRequestScope, Entity, UserConsentRequest} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the collection of agreement entities.
+ */
 export class AppConsentRequest extends Entity implements Parsable {
     /** The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby. */
     private _appDisplayName?: string | undefined;

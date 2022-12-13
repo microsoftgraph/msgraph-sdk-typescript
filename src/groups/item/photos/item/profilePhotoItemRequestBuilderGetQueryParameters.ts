@@ -1,5 +1,7 @@
 
-/** The profile photos owned by the group. Read-only. Nullable. */
+/**
+ * The profile photos owned by the group. Read-only. Nullable.
+ */
 export class ProfilePhotoItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

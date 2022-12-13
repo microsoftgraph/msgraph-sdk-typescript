@@ -1,5 +1,7 @@
 
-/** Get entities from agreementAcceptances */
+/**
+ * Get entities from agreementAcceptances
+ */
 export class AgreementAcceptancesRequestBuilderGetQueryParameters {
     /** Search items by search phrases */
     public search?: string | undefined;

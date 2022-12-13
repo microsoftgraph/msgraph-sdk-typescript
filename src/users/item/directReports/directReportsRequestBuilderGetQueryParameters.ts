@@ -1,5 +1,7 @@
 
-/** The users and contacts that report to the user. (The users and contacts that have their manager property set to this user.) Read-only. Nullable. Supports $expand. */
+/**
+ * The users and contacts that report to the user. (The users and contacts that have their manager property set to this user.) Read-only. Nullable. Supports $expand.
+ */
 export class DirectReportsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

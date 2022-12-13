@@ -1,5 +1,7 @@
 
-/** Custodian sources that are included in the eDiscovery search. */
+/**
+ * Custodian sources that are included in the eDiscovery search.
+ */
 export class DataSourceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** Role definition this assignment is part of. */
+/**
+ * Role definition this assignment is part of.
+ */
 export class RoleDefinitionRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

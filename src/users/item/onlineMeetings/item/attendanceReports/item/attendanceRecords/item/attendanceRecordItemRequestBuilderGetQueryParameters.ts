@@ -1,5 +1,7 @@
 
-/** List of attendance records of an attendance report. Read-only. */
+/**
+ * List of attendance records of an attendance report. Read-only.
+ */
 export class AttendanceRecordItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

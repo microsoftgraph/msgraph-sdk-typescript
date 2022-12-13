@@ -1,5 +1,7 @@
 
-/** Get secureScores from security */
+/**
+ * Get secureScores from security
+ */
 export class SecureScoreItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

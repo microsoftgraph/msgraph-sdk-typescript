@@ -2,7 +2,9 @@ import {ComplianceStatus} from './complianceStatus';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Device compliance setting State for a given device. */
+/**
+ * Device compliance setting State for a given device.
+ */
 export class DeviceComplianceSettingState extends Entity implements Parsable {
     /** The DateTime when device compliance grace period expires */
     private _complianceGracePeriodExpirationDateTime?: Date | undefined;

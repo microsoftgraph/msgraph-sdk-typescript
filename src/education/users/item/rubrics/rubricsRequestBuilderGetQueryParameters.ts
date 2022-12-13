@@ -1,5 +1,7 @@
 
-/** Retrieve a list of educationRubric objects. */
+/**
+ * Retrieve a list of educationRubric objects.
+ */
 export class RubricsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

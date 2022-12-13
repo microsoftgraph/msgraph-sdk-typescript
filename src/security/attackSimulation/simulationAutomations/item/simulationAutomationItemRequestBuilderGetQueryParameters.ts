@@ -1,5 +1,7 @@
 
-/** Represents simulation automation created to run on a tenant. */
+/**
+ * Represents simulation automation created to run on a tenant.
+ */
 export class SimulationAutomationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

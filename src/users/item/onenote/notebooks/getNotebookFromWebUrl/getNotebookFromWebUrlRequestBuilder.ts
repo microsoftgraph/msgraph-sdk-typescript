@@ -6,7 +6,9 @@ import {GetNotebookFromWebUrlRequestBuilderPostRequestConfiguration} from './get
 import {GetNotebookFromWebUrlPostRequestBody} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getNotebookFromWebUrl method. */
+/**
+ * Provides operations to call the getNotebookFromWebUrl method.
+ */
 export class GetNotebookFromWebUrlRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -29,7 +31,7 @@ export class GetNotebookFromWebUrlRequestBuilder {
     };
     /**
      * Retrieve the properties and relationships of a notebook object by using its URL path. The location can be user notebooks on Microsoft 365, group notebooks, or SharePoint site-hosted team notebooks on Microsoft 365.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -39,7 +41,7 @@ export class GetNotebookFromWebUrlRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -49,10 +51,11 @@ export class GetNotebookFromWebUrlRequestBuilder {
     };
     /**
      * Retrieve the properties and relationships of a notebook object by using its URL path. The location can be user notebooks on Microsoft 365, group notebooks, or SharePoint site-hosted team notebooks on Microsoft 365.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CopyNotebookModel
+     * @see {@link https://docs.microsoft.com/graph/api/notebook-getnotebookfromweburl?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetNotebookFromWebUrlPostRequestBody | undefined, requestConfiguration?: GetNotebookFromWebUrlRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CopyNotebookModel | undefined> {
         if(!body) throw new Error("body cannot be undefined");

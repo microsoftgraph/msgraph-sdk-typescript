@@ -1,5 +1,7 @@
 
-/** Get a list of the federatedIdentityCredential objects and their properties. */
+/**
+ * Get a list of the federatedIdentityCredential objects and their properties.
+ */
 export class FederatedIdentityCredentialsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

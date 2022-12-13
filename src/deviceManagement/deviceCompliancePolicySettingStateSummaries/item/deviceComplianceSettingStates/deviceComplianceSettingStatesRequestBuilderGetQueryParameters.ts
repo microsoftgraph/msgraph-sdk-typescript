@@ -1,5 +1,7 @@
 
-/** Not yet documented */
+/**
+ * Not yet documented
+ */
 export class DeviceComplianceSettingStatesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

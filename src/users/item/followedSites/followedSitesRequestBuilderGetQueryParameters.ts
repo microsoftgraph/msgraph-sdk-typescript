@@ -1,5 +1,7 @@
 
-/** List the sites that have been followed by the signed in user. */
+/**
+ * List the sites that have been followed by the signed in user.
+ */
 export class FollowedSitesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

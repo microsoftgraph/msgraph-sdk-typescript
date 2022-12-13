@@ -2,7 +2,9 @@ import {BaseCollectionPaginationCountResponse, DeviceConfigurationAssignment} fr
 import {createDeviceConfigurationAssignmentFromDiscriminatorValue} from '../../../../models/createDeviceConfigurationAssignmentFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the assign method. */
+/**
+ * Provides operations to call the assign method.
+ */
 export class AssignResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DeviceConfigurationAssignment[] | undefined;

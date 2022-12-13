@@ -1,5 +1,7 @@
 
-/** The list of available print connectors. */
+/**
+ * The list of available print connectors.
+ */
 export class PrintConnectorItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -47,7 +47,7 @@ export class DirectoryObjectPartnerReference extends DirectoryObject implements 
     };
     /**
      * Gets the externalPartnerTenantId property value. The tenant identifier for the partner tenant. Read-only.
-     * @returns a string
+     * @returns a Guid
      */
     public get externalPartnerTenantId() {
         return this._externalPartnerTenantId;

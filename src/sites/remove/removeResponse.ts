@@ -2,7 +2,9 @@ import {BaseCollectionPaginationCountResponse, Site} from '../../models/';
 import {createSiteFromDiscriminatorValue} from '../../models/createSiteFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the remove method. */
+/**
+ * Provides operations to call the remove method.
+ */
 export class RemoveResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Site[] | undefined;

@@ -1,5 +1,7 @@
 
-/** Recently deleted items. Read-only. Nullable. */
+/**
+ * Recently deleted items. Read-only. Nullable.
+ */
 export class DeletedItemsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

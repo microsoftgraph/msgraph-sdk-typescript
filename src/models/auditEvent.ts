@@ -3,7 +3,9 @@ import {createAuditResourceFromDiscriminatorValue} from './createAuditResourceFr
 import {AuditActor, AuditResource, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** A class containing the properties for Audit Event. */
+/**
+ * A class containing the properties for Audit Event.
+ */
 export class AuditEvent extends Entity implements Parsable {
     /** Friendly name of the activity. */
     private _activity?: string | undefined;
@@ -147,7 +149,7 @@ export class AuditEvent extends Entity implements Parsable {
     };
     /**
      * Gets the correlationId property value. The client request Id that is used to correlate activity within the system.
-     * @returns a string
+     * @returns a Guid
      */
     public get correlationId() {
         return this._correlationId;

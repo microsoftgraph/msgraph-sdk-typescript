@@ -1,5 +1,7 @@
 
-/** The principal that's getting a role eligibility through the request. Supports $expand. */
+/**
+ * The principal that's getting a role eligibility through the request. Supports $expand.
+ */
 export class PrincipalRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

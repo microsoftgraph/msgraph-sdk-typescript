@@ -2,7 +2,9 @@ import {createAppListItemFromDiscriminatorValue} from './createAppListItemFromDi
 import {AppListItem} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Network Usage Rules allow enterprises to specify how managed apps use networks, such as cellular data networks. */
+/**
+ * Network Usage Rules allow enterprises to specify how managed apps use networks, such as cellular data networks.
+ */
 export class IosNetworkUsageRule implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;

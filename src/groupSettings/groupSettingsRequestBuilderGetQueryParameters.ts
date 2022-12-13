@@ -1,5 +1,7 @@
 
-/** Retrieve a list of tenant-level or group-specific group settings objects. */
+/**
+ * Retrieve a list of tenant-level or group-specific group settings objects.
+ */
 export class GroupSettingsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

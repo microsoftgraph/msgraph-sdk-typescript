@@ -1,5 +1,7 @@
 
-/** Get solutions */
+/**
+ * Get solutions
+ */
 export class SolutionsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

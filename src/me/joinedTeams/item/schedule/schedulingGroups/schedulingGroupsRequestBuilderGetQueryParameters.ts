@@ -1,5 +1,7 @@
 
-/** Get the list of schedulingGroups in this schedule. */
+/**
+ * Get the list of schedulingGroups in this schedule.
+ */
 export class SchedulingGroupsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,7 @@
 
-/** Get appCatalogs */
+/**
+ * Get appCatalogs
+ */
 export class AppCatalogsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

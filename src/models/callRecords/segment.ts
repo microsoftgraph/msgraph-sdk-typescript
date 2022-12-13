@@ -5,7 +5,9 @@ import {createMediaFromDiscriminatorValue} from './createMediaFromDiscriminatorV
 import {Endpoint, FailureInfo, Media} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the cloudCommunications singleton.
+ */
 export class Segment extends Entity implements Parsable {
     /** Endpoint that answered this segment. */
     private _callee?: Endpoint | undefined;

@@ -1,5 +1,7 @@
 
-/** The async operations that ran or are running on this team. */
+/**
+ * The async operations that ran or are running on this team.
+ */
 export class TeamsAsyncOperationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

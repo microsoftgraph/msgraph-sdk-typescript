@@ -1,5 +1,7 @@
 
-/** Add different branding based on a locale. */
+/**
+ * Add different branding based on a locale.
+ */
 export class OrganizationalBrandingLocalizationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

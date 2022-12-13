@@ -1,5 +1,7 @@
 
-/** The list of previous versions of the list item. */
+/**
+ * The list of previous versions of the list item.
+ */
 export class ListItemVersionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

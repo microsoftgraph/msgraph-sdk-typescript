@@ -9,7 +9,9 @@ import {ServicePrincipalRequestBuilder} from './servicePrincipal/servicePrincipa
 import {UserRequestBuilder} from './user/userRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the registeredUsers property of the microsoft.graph.device entity. */
+/**
+ * Provides operations to manage the registeredUsers property of the microsoft.graph.device entity.
+ */
 export class DirectoryObjectItemRequestBuilder {
     /** Casts the previous resource to appRoleAssignment. */
     public get appRoleAssignment(): AppRoleAssignmentRequestBuilder {
@@ -56,7 +58,7 @@ export class DirectoryObjectItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

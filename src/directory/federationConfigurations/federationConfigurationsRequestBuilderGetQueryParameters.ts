@@ -1,5 +1,7 @@
 
-/** Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol. */
+/**
+ * Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol.
+ */
 export class FederationConfigurationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

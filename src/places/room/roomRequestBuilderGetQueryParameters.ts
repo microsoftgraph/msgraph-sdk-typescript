@@ -1,5 +1,7 @@
 
-/** Get the items of type microsoft.graph.room in the microsoft.graph.place collection */
+/**
+ * Get the items of type microsoft.graph.room in the microsoft.graph.place collection
+ */
 export class RoomRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

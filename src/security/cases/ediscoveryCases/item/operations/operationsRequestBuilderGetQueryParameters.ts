@@ -1,5 +1,7 @@
 
-/** Get a list of the caseOperation objects and their properties. */
+/**
+ * Get a list of the caseOperation objects and their properties.
+ */
 export class OperationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

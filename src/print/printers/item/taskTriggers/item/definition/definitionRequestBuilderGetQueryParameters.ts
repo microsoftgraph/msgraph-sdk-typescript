@@ -1,5 +1,7 @@
 
-/** An abstract definition that will be used to create a printTask when triggered by a print event. Read-only. */
+/**
+ * An abstract definition that will be used to create a printTask when triggered by a print event. Read-only.
+ */
 export class DefinitionRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

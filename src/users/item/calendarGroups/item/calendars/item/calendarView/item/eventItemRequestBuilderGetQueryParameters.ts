@@ -1,5 +1,7 @@
 
-/** The calendar view for the calendar. Navigation property. Read-only. */
+/**
+ * The calendar view for the calendar. Navigation property. Read-only.
+ */
 export class EventItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

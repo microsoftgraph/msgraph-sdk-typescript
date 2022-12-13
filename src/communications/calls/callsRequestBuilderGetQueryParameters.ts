@@ -1,5 +1,7 @@
 
-/** Get calls from communications */
+/**
+ * Get calls from communications
+ */
 export class CallsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

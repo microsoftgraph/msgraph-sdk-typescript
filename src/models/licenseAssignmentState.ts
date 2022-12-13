@@ -53,7 +53,7 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the disabledPlans property value. The disabledPlans property
-     * @returns a string
+     * @returns a Guid
      */
     public get disabledPlans() {
         return this._disabledPlans;
@@ -139,7 +139,7 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the skuId property value. The skuId property
-     * @returns a string
+     * @returns a Guid
      */
     public get skuId() {
         return this._skuId;

@@ -216,7 +216,7 @@ export class ChangeNotification implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the subscriptionId property value. The unique identifier of the subscription that generated the notification.Required.
-     * @returns a string
+     * @returns a Guid
      */
     public get subscriptionId() {
         return this._subscriptionId;
@@ -230,7 +230,7 @@ export class ChangeNotification implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the tenantId property value. The unique identifier of the tenant from which the change notification originated. Required.
-     * @returns a string
+     * @returns a Guid
      */
     public get tenantId() {
         return this._tenantId;

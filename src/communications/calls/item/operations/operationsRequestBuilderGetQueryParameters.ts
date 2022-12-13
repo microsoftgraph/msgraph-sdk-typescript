@@ -1,5 +1,7 @@
 
-/** Get operations from communications */
+/**
+ * Get operations from communications
+ */
 export class OperationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

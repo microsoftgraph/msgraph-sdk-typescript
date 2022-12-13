@@ -1,5 +1,7 @@
 
-/** The policy that specifies the conditions under which consent can be granted. */
+/**
+ * The policy that specifies the conditions under which consent can be granted.
+ */
 export class PermissionGrantPolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

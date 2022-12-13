@@ -1,5 +1,7 @@
 
-/** Get entity from certificateBasedAuthConfiguration by key */
+/**
+ * Get entity from certificateBasedAuthConfiguration by key
+ */
 export class CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

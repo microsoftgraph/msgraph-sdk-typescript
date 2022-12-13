@@ -113,7 +113,7 @@ export class PasswordCredential implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the keyId property value. The unique identifier for the password.
-     * @returns a string
+     * @returns a Guid
      */
     public get keyId() {
         return this._keyId;

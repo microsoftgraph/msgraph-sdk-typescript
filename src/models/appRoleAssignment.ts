@@ -1,7 +1,9 @@
 import {DirectoryObject} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the collection of application entities.
+ */
 export class AppRoleAssignment extends DirectoryObject implements Parsable {
     /** The identifier (id) for the app role which is assigned to the principal. This app role must be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to the resource app without any specific app roles. Required on create. */
     private _appRoleId?: string | undefined;
@@ -19,7 +21,7 @@ export class AppRoleAssignment extends DirectoryObject implements Parsable {
     private _resourceId?: string | undefined;
     /**
      * Gets the appRoleId property value. The identifier (id) for the app role which is assigned to the principal. This app role must be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to the resource app without any specific app roles. Required on create.
-     * @returns a string
+     * @returns a Guid
      */
     public get appRoleId() {
         return this._appRoleId;
@@ -83,7 +85,7 @@ export class AppRoleAssignment extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the principalId property value. The unique identifier (id) for the user, security group, or service principal being granted the app role. Security groups with dynamic memberships are supported. Required on create.
-     * @returns a string
+     * @returns a Guid
      */
     public get principalId() {
         return this._principalId;
@@ -125,7 +127,7 @@ export class AppRoleAssignment extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the resourceId property value. The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only).
-     * @returns a string
+     * @returns a Guid
      */
     public get resourceId() {
         return this._resourceId;

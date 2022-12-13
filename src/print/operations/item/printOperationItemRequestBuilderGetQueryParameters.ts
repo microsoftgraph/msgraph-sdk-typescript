@@ -1,5 +1,7 @@
 
-/** The list of print long running operations. */
+/**
+ * The list of print long running operations.
+ */
 export class PrintOperationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

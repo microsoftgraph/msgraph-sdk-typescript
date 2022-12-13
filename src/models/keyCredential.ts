@@ -116,7 +116,7 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the keyId property value. The unique identifier (GUID) for the key.
-     * @returns a string
+     * @returns a Guid
      */
     public get keyId() {
         return this._keyId;

@@ -1,5 +1,7 @@
 
-/** Collection of all sets available in the term store. This relationship can only be used to load a specific term set. */
+/**
+ * Collection of all sets available in the term store. This relationship can only be used to load a specific term set.
+ */
 export class SetsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,7 @@
 
-/** Content in a message hosted by Microsoft Teams - for example, images or code snippets. */
+/**
+ * Content in a message hosted by Microsoft Teams - for example, images or code snippets.
+ */
 export class ChatMessageHostedContentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

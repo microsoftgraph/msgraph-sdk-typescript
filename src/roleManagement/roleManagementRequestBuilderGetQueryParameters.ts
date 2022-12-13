@@ -1,5 +1,7 @@
 
-/** Get roleManagement */
+/**
+ * Get roleManagement
+ */
 export class RoleManagementRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

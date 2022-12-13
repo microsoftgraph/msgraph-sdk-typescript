@@ -1,5 +1,7 @@
 
-/** Get subjectRightsRequests from privacy */
+/**
+ * Get subjectRightsRequests from privacy
+ */
 export class SubjectRightsRequestItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

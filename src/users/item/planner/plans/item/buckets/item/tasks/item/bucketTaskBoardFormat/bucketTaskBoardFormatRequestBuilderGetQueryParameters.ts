@@ -1,5 +1,7 @@
 
-/** Retrieve the properties and relationships of **plannerBucketTaskBoardTaskFormat** object. */
+/**
+ * Retrieve the properties and relationships of **plannerBucketTaskBoardTaskFormat** object.
+ */
 export class BucketTaskBoardFormatRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

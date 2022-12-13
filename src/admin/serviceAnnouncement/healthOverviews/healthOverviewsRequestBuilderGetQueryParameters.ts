@@ -1,5 +1,7 @@
 
-/** Retrieve the serviceHealth resources from the **healthOverviews** navigation property. This operation provides the health report of all subscribed services for a tenant. */
+/**
+ * Retrieve the serviceHealth resources from the **healthOverviews** navigation property. This operation provides the health report of all subscribed services for a tenant.
+ */
 export class HealthOverviewsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,7 @@
 
-/** The managed app statuses. */
+/**
+ * The managed app statuses.
+ */
 export class ManagedAppStatusesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

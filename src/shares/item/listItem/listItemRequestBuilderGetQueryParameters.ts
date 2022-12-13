@@ -1,5 +1,7 @@
 
-/** Used to access the underlying listItem */
+/**
+ * Used to access the underlying listItem
+ */
 export class ListItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

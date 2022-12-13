@@ -1,5 +1,7 @@
 
-/** Retrieve a list of event objects. */
+/**
+ * Retrieve a list of event objects.
+ */
 export class EventsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,7 @@
 
-/** Instances for role eligibility requests. */
+/**
+ * Instances for role eligibility requests.
+ */
 export class UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -7,7 +7,9 @@ import {GroupSettingItemRequestBuilderGetRequestConfiguration} from './groupSett
 import {GroupSettingItemRequestBuilderPatchRequestConfiguration} from './groupSettingItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of groupSetting entities. */
+/**
+ * Provides operations to manage the collection of groupSetting entities.
+ */
 export class GroupSettingItemRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -54,7 +56,7 @@ export class GroupSettingItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -64,7 +66,7 @@ export class GroupSettingItemRequestBuilder {
     };
     /**
      * Update the properties of a groupSetting object for tenant-wide group settings or a specific group setting.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -74,7 +76,7 @@ export class GroupSettingItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -86,6 +88,7 @@ export class GroupSettingItemRequestBuilder {
      * Delete a tenant-level or group-specific groupSetting object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/groupsetting-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: GroupSettingItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
@@ -102,6 +105,7 @@ export class GroupSettingItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupSetting
+     * @see {@link https://docs.microsoft.com/graph/api/groupsetting-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: GroupSettingItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupSetting | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -115,10 +119,11 @@ export class GroupSettingItemRequestBuilder {
     };
     /**
      * Update the properties of a groupSetting object for tenant-wide group settings or a specific group setting.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupSetting
+     * @see {@link https://docs.microsoft.com/graph/api/groupsetting-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: GroupSetting | undefined, requestConfiguration?: GroupSettingItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupSetting | undefined> {
         if(!body) throw new Error("body cannot be undefined");

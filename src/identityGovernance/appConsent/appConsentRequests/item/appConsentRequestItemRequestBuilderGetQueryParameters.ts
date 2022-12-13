@@ -1,5 +1,7 @@
 
-/** A collection of userConsentRequest objects for a specific application. */
+/**
+ * A collection of userConsentRequest objects for a specific application.
+ */
 export class AppConsentRequestItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

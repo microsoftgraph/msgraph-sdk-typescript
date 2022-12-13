@@ -13,7 +13,9 @@ import {RemoveHoldRequestBuilder} from './removeHold/removeHoldRequestBuilder';
 import {UpdateIndexRequestBuilder} from './updateIndex/updateIndexRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity. */
+/**
+ * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity.
+ */
 export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
     /** Provides operations to call the applyHold method. */
     public get applyHold(): ApplyHoldRequestBuilder {
@@ -84,7 +86,7 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -94,7 +96,7 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
     };
     /**
      * Update the navigation property noncustodialDataSources in security
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +106,7 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -145,7 +147,7 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
     };
     /**
      * Update the navigation property noncustodialDataSources in security
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryNoncustodialDataSource

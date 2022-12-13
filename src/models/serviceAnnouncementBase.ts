@@ -2,7 +2,9 @@ import {createKeyValuePairFromDiscriminatorValue} from './createKeyValuePairFrom
 import {Entity, KeyValuePair} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the admin singleton. */
+/**
+ * Provides operations to manage the admin singleton.
+ */
 export class ServiceAnnouncementBase extends Entity implements Parsable {
     /** Additional details about service event. This property doesn't support filters. */
     private _details?: KeyValuePair[] | undefined;

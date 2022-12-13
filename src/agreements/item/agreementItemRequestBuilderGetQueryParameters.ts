@@ -1,5 +1,7 @@
 
-/** Get entity from agreements by key */
+/**
+ * Get entity from agreements by key
+ */
 export class AgreementItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

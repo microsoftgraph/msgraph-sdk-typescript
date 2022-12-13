@@ -1,5 +1,7 @@
 
-/** Get the educationRubric object attached to an educationAssignment, if one exists. */
+/**
+ * Get the educationRubric object attached to an educationAssignment, if one exists.
+ */
 export class RubricRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

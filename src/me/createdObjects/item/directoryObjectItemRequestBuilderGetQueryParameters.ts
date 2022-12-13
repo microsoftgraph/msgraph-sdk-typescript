@@ -1,5 +1,7 @@
 
-/** Directory objects that were created by the user. Read-only. Nullable. */
+/**
+ * Directory objects that were created by the user. Read-only. Nullable.
+ */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

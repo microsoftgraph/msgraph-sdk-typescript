@@ -1,5 +1,7 @@
 
-/** Retrieve the properties and relationships of a directoryroletemplate object. */
+/**
+ * Retrieve the properties and relationships of a directoryroletemplate object.
+ */
 export class DirectoryRoleTemplateItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

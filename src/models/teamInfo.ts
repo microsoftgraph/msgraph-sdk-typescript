@@ -2,7 +2,9 @@ import {createTeamFromDiscriminatorValue} from './createTeamFromDiscriminatorVal
 import {Entity, Team} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the collection of agreement entities.
+ */
 export class TeamInfo extends Entity implements Parsable {
     /** The name of the team. */
     private _displayName?: string | undefined;

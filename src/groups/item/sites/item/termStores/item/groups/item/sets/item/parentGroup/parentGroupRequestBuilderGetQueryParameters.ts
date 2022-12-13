@@ -1,5 +1,7 @@
 
-/** The parent [group] that contains the set. */
+/**
+ * The parent [group] that contains the set.
+ */
 export class ParentGroupRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

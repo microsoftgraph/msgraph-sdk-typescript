@@ -1,5 +1,7 @@
 
-/** Get identityProtection */
+/**
+ * Get identityProtection
+ */
 export class IdentityProtectionRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

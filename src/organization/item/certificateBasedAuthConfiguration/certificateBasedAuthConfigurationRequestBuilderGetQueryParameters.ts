@@ -1,5 +1,7 @@
 
-/** Get a list of certificateBasedAuthConfiguration objects. */
+/**
+ * Get a list of certificateBasedAuthConfiguration objects.
+ */
 export class CertificateBasedAuthConfigurationRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

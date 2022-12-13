@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {EnableSmsSignInRequestBuilderPostRequestConfiguration} from './enableSmsSignInRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the enableSmsSignIn method. */
+/**
+ * Provides operations to call the enableSmsSignIn method.
+ */
 export class EnableSmsSignInRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -44,6 +46,7 @@ export class EnableSmsSignInRequestBuilder {
      * Enable SMS sign-in for an existing `mobile` phone number registered to a user. To be successfully enabled:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/phoneauthenticationmethod-enablesmssignin?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: EnableSmsSignInRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createPostRequestInformation(

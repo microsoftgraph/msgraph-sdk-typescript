@@ -1,5 +1,7 @@
 
-/** Zero or more long running operations triggered on the app registration. */
+/**
+ * Zero or more long running operations triggered on the app registration.
+ */
 export class ManagedAppOperationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

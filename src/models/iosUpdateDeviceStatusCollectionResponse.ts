@@ -2,6 +2,9 @@ import {createIosUpdateDeviceStatusFromDiscriminatorValue} from './createIosUpda
 import {BaseCollectionPaginationCountResponse, IosUpdateDeviceStatus} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the iosUpdateStatuses property of the microsoft.graph.deviceManagement entity.
+ */
 export class IosUpdateDeviceStatusCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: IosUpdateDeviceStatus[] | undefined;

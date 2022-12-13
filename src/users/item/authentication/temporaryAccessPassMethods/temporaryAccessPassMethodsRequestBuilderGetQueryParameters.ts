@@ -1,5 +1,7 @@
 
-/** Retrieve a list of a user's temporaryAccessPassAuthenticationMethod objects and their properties. This API will only return a single object in the collection as a user can have only one Temporary Access Pass method. */
+/**
+ * Retrieve a list of a user's temporaryAccessPassAuthenticationMethod objects and their properties. This API will only return a single object in the collection as a user can have only one Temporary Access Pass method.
+ */
 export class TemporaryAccessPassMethodsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

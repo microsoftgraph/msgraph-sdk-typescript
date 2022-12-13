@@ -1,5 +1,7 @@
 
-/** The list of localized messages for this Notification Message Template. */
+/**
+ * The list of localized messages for this Notification Message Template.
+ */
 export class LocalizedNotificationMessagesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

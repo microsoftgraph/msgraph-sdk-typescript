@@ -1,5 +1,7 @@
 
-/** Parent contentType from which this content type is derived. */
+/**
+ * Parent contentType from which this content type is derived.
+ */
 export class BaseRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

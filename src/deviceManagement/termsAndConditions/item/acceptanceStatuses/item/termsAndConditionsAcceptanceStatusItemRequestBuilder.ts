@@ -8,7 +8,9 @@ import {TermsAndConditionsAcceptanceStatusItemRequestBuilderGetRequestConfigurat
 import {TermsAndConditionsAcceptanceStatusItemRequestBuilderPatchRequestConfiguration} from './termsAndConditionsAcceptanceStatusItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity. */
+/**
+ * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
+ */
 export class TermsAndConditionsAcceptanceStatusItemRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -59,7 +61,7 @@ export class TermsAndConditionsAcceptanceStatusItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -69,7 +71,7 @@ export class TermsAndConditionsAcceptanceStatusItemRequestBuilder {
     };
     /**
      * Update the navigation property acceptanceStatuses in deviceManagement
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +81,7 @@ export class TermsAndConditionsAcceptanceStatusItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -120,7 +122,7 @@ export class TermsAndConditionsAcceptanceStatusItemRequestBuilder {
     };
     /**
      * Update the navigation property acceptanceStatuses in deviceManagement
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TermsAndConditionsAcceptanceStatus

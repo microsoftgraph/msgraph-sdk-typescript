@@ -1,5 +1,7 @@
 
-/** Get the collection of [items][item] in a [list][]. */
+/**
+ * Get the collection of [items][item] in a [list][].
+ */
 export class ItemsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

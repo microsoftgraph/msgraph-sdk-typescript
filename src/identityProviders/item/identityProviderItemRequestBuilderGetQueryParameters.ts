@@ -1,5 +1,7 @@
 
-/** Retrieve the properties of an existing identityProvider. */
+/**
+ * Retrieve the properties of an existing identityProvider.
+ */
 export class IdentityProviderItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

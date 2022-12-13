@@ -2,6 +2,9 @@ import {createAttachmentFromDiscriminatorValue} from './createAttachmentFromDisc
 import {Attachment, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the attachments property of the microsoft.graph.event entity.
+ */
 export class AttachmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Attachment[] | undefined;

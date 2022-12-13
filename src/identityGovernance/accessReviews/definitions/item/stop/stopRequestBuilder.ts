@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {StopRequestBuilderPostRequestConfiguration} from './stopRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the stop method. */
+/**
+ * Provides operations to call the stop method.
+ */
 export class StopRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

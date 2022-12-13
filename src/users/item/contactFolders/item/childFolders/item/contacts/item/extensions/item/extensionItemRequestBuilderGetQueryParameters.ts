@@ -1,5 +1,7 @@
 
-/** The collection of open extensions defined for the contact. Read-only. Nullable. */
+/**
+ * The collection of open extensions defined for the contact. Read-only. Nullable.
+ */
 export class ExtensionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

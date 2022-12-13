@@ -2,7 +2,9 @@ import {ArchivedPrintJob, BaseCollectionPaginationCountResponse} from '../../mod
 import {createArchivedPrintJobFromDiscriminatorValue} from '../../models/createArchivedPrintJobFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getUserArchivedPrintJobs method. */
+/**
+ * Provides operations to call the getUserArchivedPrintJobs method.
+ */
 export class GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ArchivedPrintJob[] | undefined;

@@ -1,5 +1,7 @@
 
-/** The underlying Microsoft 365 group object. */
+/**
+ * The underlying Microsoft 365 group object.
+ */
 export class GroupRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

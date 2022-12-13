@@ -1,5 +1,7 @@
 
-/** Retrieve a list of connectedOrganization objects. */
+/**
+ * Retrieve a list of connectedOrganization objects.
+ */
 export class ConnectedOrganizationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

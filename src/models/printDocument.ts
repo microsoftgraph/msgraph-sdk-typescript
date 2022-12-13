@@ -1,7 +1,9 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/**
+ * Provides operations to manage the collection of agreementAcceptance entities.
+ */
 export class PrintDocument extends Entity implements Parsable {
     /** The document's content (MIME) type. Read-only. */
     private _contentType?: string | undefined;

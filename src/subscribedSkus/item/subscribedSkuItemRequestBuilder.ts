@@ -7,7 +7,9 @@ import {SubscribedSkuItemRequestBuilderGetRequestConfiguration} from './subscrib
 import {SubscribedSkuItemRequestBuilderPatchRequestConfiguration} from './subscribedSkuItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of subscribedSku entities. */
+/**
+ * Provides operations to manage the collection of subscribedSku entities.
+ */
 export class SubscribedSkuItemRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -54,7 +56,7 @@ export class SubscribedSkuItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -64,7 +66,7 @@ export class SubscribedSkuItemRequestBuilder {
     };
     /**
      * Update entity in subscribedSkus
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -74,7 +76,7 @@ export class SubscribedSkuItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -102,6 +104,7 @@ export class SubscribedSkuItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SubscribedSku
+     * @see {@link https://docs.microsoft.com/graph/api/subscribedsku-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SubscribedSkuItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SubscribedSku | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -115,7 +118,7 @@ export class SubscribedSkuItemRequestBuilder {
     };
     /**
      * Update entity in subscribedSkus
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SubscribedSku

@@ -1,5 +1,7 @@
 
-/** SharePoint can be configured to retain the history for list items. Previous versions may be retained for a finite period of time depending on admin settings which may be unique per user or location. */
+/**
+ * SharePoint can be configured to retain the history for list items. Previous versions may be retained for a finite period of time depending on admin settings which may be unique per user or location.
+ */
 export class VersionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

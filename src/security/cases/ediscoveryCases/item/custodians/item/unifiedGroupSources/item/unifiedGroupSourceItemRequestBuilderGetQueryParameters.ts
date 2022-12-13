@@ -1,5 +1,7 @@
 
-/** Data source entity for groups associated with the custodian. */
+/**
+ * Data source entity for groups associated with the custodian.
+ */
 export class UnifiedGroupSourceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

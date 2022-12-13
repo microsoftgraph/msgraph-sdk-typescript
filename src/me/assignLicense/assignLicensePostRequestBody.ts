@@ -2,7 +2,9 @@ import {AssignedLicense} from '../../models/';
 import {createAssignedLicenseFromDiscriminatorValue} from '../../models/createAssignedLicenseFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the assignLicense method. */
+/**
+ * Provides operations to call the assignLicense method.
+ */
 export class AssignLicensePostRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
@@ -56,7 +58,7 @@ export class AssignLicensePostRequestBody implements AdditionalDataHolder, Parsa
     };
     /**
      * Gets the removeLicenses property value. The removeLicenses property
-     * @returns a string
+     * @returns a Guid
      */
     public get removeLicenses() {
         return this._removeLicenses;

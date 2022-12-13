@@ -1,5 +1,7 @@
 
-/** Retrieve a list of conditionalAccessPolicy objects. */
+/**
+ * Retrieve a list of conditionalAccessPolicy objects.
+ */
 export class PoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

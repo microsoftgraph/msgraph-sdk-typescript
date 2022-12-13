@@ -1,5 +1,7 @@
 
-/** The custom rules that define an access scenario. */
+/**
+ * The custom rules that define an access scenario.
+ */
 export class ConditionalAccessPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

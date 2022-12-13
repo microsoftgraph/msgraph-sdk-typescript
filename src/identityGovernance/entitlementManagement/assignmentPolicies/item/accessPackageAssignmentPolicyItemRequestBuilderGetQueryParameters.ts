@@ -1,5 +1,7 @@
 
-/** Access package assignment policies govern which subjects can request or be assigned an access package via an access package assignment. */
+/**
+ * Access package assignment policies govern which subjects can request or be assigned an access package via an access package assignment.
+ */
 export class AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

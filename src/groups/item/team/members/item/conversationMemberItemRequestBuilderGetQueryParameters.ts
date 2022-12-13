@@ -1,5 +1,7 @@
 
-/** Members and owners of the team. */
+/**
+ * Members and owners of the team.
+ */
 export class ConversationMemberItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

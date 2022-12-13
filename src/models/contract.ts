@@ -33,7 +33,7 @@ export class Contract extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the customerId property value. The unique identifier for the customer tenant referenced by this partnership. Corresponds to the id property of the customer tenant's organization resource.
-     * @returns a string
+     * @returns a Guid
      */
     public get customerId() {
         return this._customerId;

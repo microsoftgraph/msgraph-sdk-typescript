@@ -1,5 +1,7 @@
 
-/** The list of device enrollment configurations */
+/**
+ * The list of device enrollment configurations
+ */
 export class DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,7 @@
 
-/** The Role Definitions. */
+/**
+ * The Role Definitions.
+ */
 export class RoleDefinitionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

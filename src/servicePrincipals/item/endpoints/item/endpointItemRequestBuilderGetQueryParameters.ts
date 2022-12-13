@@ -1,5 +1,7 @@
 
-/** Get endpoints from servicePrincipals */
+/**
+ * Get endpoints from servicePrincipals
+ */
 export class EndpointItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -2,7 +2,9 @@ import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObje
 import {BaseCollectionPaginationCountResponse, DirectoryObject} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the owners property of the microsoft.graph.application entity. */
+/**
+ * Provides operations to manage the directReports property of the microsoft.graph.orgContact entity.
+ */
 export class DirectoryObjectCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DirectoryObject[] | undefined;

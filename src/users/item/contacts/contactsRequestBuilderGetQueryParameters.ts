@@ -1,5 +1,7 @@
 
-/** Get a contact collection from the default contacts folder of the signed-in user. There are two scenarios where an app can get contacts in another user's contact folder: */
+/**
+ * Get a contact collection from the default contacts folder of the signed-in user. There are two scenarios where an app can get contacts in another user's contact folder:
+ */
 export class ContactsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

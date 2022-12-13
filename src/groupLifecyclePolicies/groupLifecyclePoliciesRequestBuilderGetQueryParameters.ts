@@ -1,5 +1,7 @@
 
-/** List all the groupLifecyclePolicies. */
+/**
+ * List all the groupLifecyclePolicies.
+ */
 export class GroupLifecyclePoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

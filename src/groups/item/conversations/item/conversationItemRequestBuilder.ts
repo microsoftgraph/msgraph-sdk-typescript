@@ -8,7 +8,9 @@ import {ConversationThreadItemRequestBuilder} from './threads/item/conversationT
 import {ThreadsRequestBuilder} from './threads/threadsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the conversations property of the microsoft.graph.group entity. */
+/**
+ * Provides operations to manage the conversations property of the microsoft.graph.group entity.
+ */
 export class ConversationItemRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -59,7 +61,7 @@ export class ConversationItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

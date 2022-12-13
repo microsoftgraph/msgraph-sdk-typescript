@@ -1,5 +1,7 @@
 
-/** Get authenticationMethodsPolicy */
+/**
+ * Get authenticationMethodsPolicy
+ */
 export class AuthenticationMethodsPolicyRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

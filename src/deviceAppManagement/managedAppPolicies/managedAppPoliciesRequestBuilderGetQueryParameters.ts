@@ -1,5 +1,7 @@
 
-/** Managed app policies. */
+/**
+ * Managed app policies.
+ */
 export class ManagedAppPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

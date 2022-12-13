@@ -99,7 +99,7 @@ export class AppRole implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the id property value. Unique role identifier inside the appRoles collection. When creating a new app role, a new GUID identifier must be provided.
-     * @returns a string
+     * @returns a Guid
      */
     public get id() {
         return this._id;

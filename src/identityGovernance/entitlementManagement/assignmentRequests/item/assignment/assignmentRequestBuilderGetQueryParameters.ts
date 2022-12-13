@@ -1,5 +1,7 @@
 
-/** For a requestType of userAdd or adminAdd, this is an access package assignment requested to be created.  For a requestType of userRemove, adminRemove or systemRemove, this has the id property of an existing assignment to be removed.   Supports $expand. */
+/**
+ * For a requestType of userAdd or adminAdd, this is an access package assignment requested to be created.  For a requestType of userRemove, adminRemove or systemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.
+ */
 export class AssignmentRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

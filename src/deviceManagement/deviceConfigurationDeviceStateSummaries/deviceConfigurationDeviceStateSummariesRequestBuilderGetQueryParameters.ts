@@ -1,5 +1,7 @@
 
-/** The device configuration device state summary for this account. */
+/**
+ * The device configuration device state summary for this account.
+ */
 export class DeviceConfigurationDeviceStateSummariesRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

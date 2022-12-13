@@ -1,5 +1,7 @@
 
-/** Apple push notification certificate. */
+/**
+ * Apple push notification certificate.
+ */
 export class ApplePushNotificationCertificateRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

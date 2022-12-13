@@ -1,5 +1,7 @@
 
-/** Represents the FIDO2 security keys registered to a user for authentication. */
+/**
+ * Represents the FIDO2 security keys registered to a user for authentication.
+ */
 export class Fido2MethodsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

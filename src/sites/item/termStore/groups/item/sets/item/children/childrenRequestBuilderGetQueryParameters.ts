@@ -1,5 +1,7 @@
 
-/** Get the first level children of a [set] or [term] resource using the children navigation property. */
+/**
+ * Get the first level children of a [set] or [term] resource using the children navigation property.
+ */
 export class ChildrenRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

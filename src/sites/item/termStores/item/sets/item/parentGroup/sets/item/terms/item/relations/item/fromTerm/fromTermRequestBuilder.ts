@@ -5,7 +5,9 @@ import {createTermFromDiscriminatorValue} from '../../../../../../../../../../..
 import {FromTermRequestBuilderGetRequestConfiguration} from './fromTermRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the fromTerm property of the microsoft.graph.termStore.relation entity. */
+/**
+ * Provides operations to manage the fromTerm property of the microsoft.graph.termStore.relation entity.
+ */
 export class FromTermRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -36,7 +38,7 @@ export class FromTermRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

@@ -1,5 +1,7 @@
 
-/** Get workforceIntegrations from teamwork */
+/**
+ * Get workforceIntegrations from teamwork
+ */
 export class WorkforceIntegrationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** Get a list of all partner configurations within a cross-tenant access policy. */
+/**
+ * Get a list of all partner configurations within a cross-tenant access policy.
+ */
 export class PartnersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

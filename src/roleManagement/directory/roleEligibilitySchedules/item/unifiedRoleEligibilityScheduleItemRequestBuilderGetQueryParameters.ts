@@ -1,5 +1,7 @@
 
-/** Schedules for role eligibility operations. */
+/**
+ * Schedules for role eligibility operations.
+ */
 export class UnifiedRoleEligibilityScheduleItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

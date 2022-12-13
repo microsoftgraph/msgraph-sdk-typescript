@@ -1,5 +1,7 @@
 
-/** List all app installations within a chat. */
+/**
+ * List all app installations within a chat.
+ */
 export class InstalledAppsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

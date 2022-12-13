@@ -6,7 +6,9 @@ import {ProfilePhotoItemRequestBuilderGetRequestConfiguration} from './profilePh
 import {ContentRequestBuilder} from './value/contentRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the photos property of the microsoft.graph.user entity. */
+/**
+ * Provides operations to manage the photos property of the microsoft.graph.user entity.
+ */
 export class ProfilePhotoItemRequestBuilder {
     /** Provides operations to manage the media for the user entity. */
     public get content(): ContentRequestBuilder {
@@ -41,7 +43,7 @@ export class ProfilePhotoItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

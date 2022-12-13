@@ -1,5 +1,7 @@
 
-/** Android managed app policies. */
+/**
+ * Android managed app policies.
+ */
 export class AndroidManagedAppProtectionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

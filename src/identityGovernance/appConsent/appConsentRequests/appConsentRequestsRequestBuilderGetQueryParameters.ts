@@ -1,5 +1,7 @@
 
-/** Retrieve appConsentRequest objects and their properties. */
+/**
+ * Retrieve appConsentRequest objects and their properties.
+ */
 export class AppConsentRequestsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

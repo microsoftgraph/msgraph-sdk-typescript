@@ -1,5 +1,7 @@
 
-/** Invoke function getPstnCalls */
+/**
+ * Invoke function getPstnCalls
+ */
 export class GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

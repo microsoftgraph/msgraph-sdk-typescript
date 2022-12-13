@@ -103,7 +103,7 @@ export class ServicePlanInfo implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the servicePlanId property value. The unique identifier of the service plan.
-     * @returns a string
+     * @returns a Guid
      */
     public get servicePlanId() {
         return this._servicePlanId;

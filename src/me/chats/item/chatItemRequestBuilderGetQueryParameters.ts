@@ -1,5 +1,7 @@
 
-/** Get chats from me */
+/**
+ * Get chats from me
+ */
 export class ChatItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

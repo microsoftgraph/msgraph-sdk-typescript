@@ -1,5 +1,7 @@
 
-/** Retrieve a list of authenticationContextClassReference objects. */
+/**
+ * Retrieve a list of authenticationContextClassReference objects.
+ */
 export class AuthenticationContextClassReferencesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

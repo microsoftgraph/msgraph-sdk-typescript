@@ -1,5 +1,7 @@
 
-/** Get lastSharedMethod from me */
+/**
+ * Get lastSharedMethod from me
+ */
 export class LastSharedMethodRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

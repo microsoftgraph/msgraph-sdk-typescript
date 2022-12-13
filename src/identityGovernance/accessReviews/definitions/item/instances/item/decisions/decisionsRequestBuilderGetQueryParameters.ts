@@ -1,5 +1,7 @@
 
-/** Get the accessReviewInstanceDecisionItem resources from the decisions navigation property on a given accessReviewInstance. A list of zero or more accessReviewInstanceDecisionItem objects are returned, including all of their nested properties. */
+/**
+ * Get the accessReviewInstanceDecisionItem resources from the decisions navigation property on a given accessReviewInstance. A list of zero or more accessReviewInstanceDecisionItem objects are returned, including all of their nested properties.
+ */
 export class DecisionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

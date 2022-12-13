@@ -1,5 +1,7 @@
 
-/** Retrieve a list of **plannerplan** objects shared with a user object. */
+/**
+ * Retrieve a list of **plannerplan** objects shared with a user object.
+ */
 export class PlansRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

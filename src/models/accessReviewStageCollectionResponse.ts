@@ -2,6 +2,9 @@ import {createAccessReviewStageFromDiscriminatorValue} from './createAccessRevie
 import {AccessReviewStage, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
+ */
 export class AccessReviewStageCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: AccessReviewStage[] | undefined;

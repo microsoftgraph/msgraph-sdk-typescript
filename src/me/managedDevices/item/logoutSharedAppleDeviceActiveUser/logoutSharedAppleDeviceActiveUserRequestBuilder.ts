@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {LogoutSharedAppleDeviceActiveUserRequestBuilderPostRequestConfiguration} from './logoutSharedAppleDeviceActiveUserRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the logoutSharedAppleDeviceActiveUser method. */
+/**
+ * Provides operations to call the logoutSharedAppleDeviceActiveUser method.
+ */
 export class LogoutSharedAppleDeviceActiveUserRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

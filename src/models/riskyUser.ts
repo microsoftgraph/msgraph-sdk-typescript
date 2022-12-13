@@ -5,7 +5,9 @@ import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/**
+ * Provides operations to manage the collection of agreementAcceptance entities.
+ */
 export class RiskyUser extends Entity implements Parsable {
     /** The activity related to user risk level change */
     private _history?: RiskyUserHistoryItem[] | undefined;

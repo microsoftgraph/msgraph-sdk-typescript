@@ -1,5 +1,7 @@
 
-/** Retrieve a list of accessPackageCatalog objects. */
+/**
+ * Retrieve a list of accessPackageCatalog objects.
+ */
 export class CatalogsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

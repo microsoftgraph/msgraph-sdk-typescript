@@ -1,5 +1,7 @@
 
-/** The collection of assignments for this compliance policy. */
+/**
+ * The collection of assignments for this compliance policy.
+ */
 export class AssignmentsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

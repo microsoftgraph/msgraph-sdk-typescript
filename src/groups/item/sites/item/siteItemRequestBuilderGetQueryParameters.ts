@@ -1,5 +1,7 @@
 
-/** The list of SharePoint sites in this group. Access the default site with /sites/root. */
+/**
+ * The list of SharePoint sites in this group. Access the default site with /sites/root.
+ */
 export class SiteItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

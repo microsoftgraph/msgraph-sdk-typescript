@@ -1,5 +1,7 @@
 
-/** Get informationProtection */
+/**
+ * Get informationProtection
+ */
 export class InformationProtectionRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

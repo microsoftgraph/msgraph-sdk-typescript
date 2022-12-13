@@ -1,7 +1,9 @@
 import {BitLockerEncryptionMethod} from './bitLockerEncryptionMethod';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** BitLocker Removable Drive Policies. */
+/**
+ * BitLocker Removable Drive Policies.
+ */
 export class BitLockerRemovableDrivePolicy implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;

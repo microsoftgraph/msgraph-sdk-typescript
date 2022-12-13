@@ -1,5 +1,7 @@
 
-/** The list of assignments for this eBook. */
+/**
+ * The list of assignments for this eBook.
+ */
 export class ManagedEBookAssignmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

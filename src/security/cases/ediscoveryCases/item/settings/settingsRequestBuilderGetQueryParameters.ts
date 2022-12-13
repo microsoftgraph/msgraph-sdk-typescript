@@ -1,5 +1,7 @@
 
-/** Read the properties and relationships of an ediscoveryCaseSettings object. */
+/**
+ * Read the properties and relationships of an ediscoveryCaseSettings object.
+ */
 export class SettingsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

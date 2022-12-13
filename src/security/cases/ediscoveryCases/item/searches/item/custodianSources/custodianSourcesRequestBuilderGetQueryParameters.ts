@@ -1,5 +1,7 @@
 
-/** Get the list of custodial data sources associated with an eDiscovery search. */
+/**
+ * Get the list of custodial data sources associated with an eDiscovery search.
+ */
 export class CustodianSourcesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

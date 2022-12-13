@@ -2,7 +2,9 @@ import {AttackSimulationTrainingUserCoverage, BaseCollectionPaginationCountRespo
 import {createAttackSimulationTrainingUserCoverageFromDiscriminatorValue} from '../../../models/createAttackSimulationTrainingUserCoverageFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getAttackSimulationTrainingUserCoverage method. */
+/**
+ * Provides operations to call the getAttackSimulationTrainingUserCoverage method.
+ */
 export class GetAttackSimulationTrainingUserCoverageResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: AttackSimulationTrainingUserCoverage[] | undefined;

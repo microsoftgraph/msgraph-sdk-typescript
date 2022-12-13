@@ -1,5 +1,7 @@
 
-/** Get the educationUser resources associated with an educationSchool. */
+/**
+ * Get the educationUser resources associated with an educationSchool.
+ */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

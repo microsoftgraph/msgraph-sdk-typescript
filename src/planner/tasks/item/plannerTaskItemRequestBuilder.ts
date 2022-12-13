@@ -11,7 +11,9 @@ import {PlannerTaskItemRequestBuilderPatchRequestConfiguration} from './plannerT
 import {ProgressTaskBoardFormatRequestBuilder} from './progressTaskBoardFormat/progressTaskBoardFormatRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the tasks property of the microsoft.graph.planner entity. */
+/**
+ * Provides operations to manage the tasks property of the microsoft.graph.planner entity.
+ */
 export class PlannerTaskItemRequestBuilder {
     /** Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity. */
     public get assignedToTaskBoardFormat(): AssignedToTaskBoardFormatRequestBuilder {
@@ -74,7 +76,7 @@ export class PlannerTaskItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -84,7 +86,7 @@ export class PlannerTaskItemRequestBuilder {
     };
     /**
      * Update the navigation property tasks in planner
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class PlannerTaskItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -135,7 +137,7 @@ export class PlannerTaskItemRequestBuilder {
     };
     /**
      * Update the navigation property tasks in planner
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerTask

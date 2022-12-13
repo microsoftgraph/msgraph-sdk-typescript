@@ -1,5 +1,7 @@
 
-/** Get items from connections */
+/**
+ * Get items from connections
+ */
 export class ItemsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

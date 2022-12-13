@@ -3,7 +3,9 @@ import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenan
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Entity which represents a connection to device management partner. */
+/**
+ * Entity which represents a connection to device management partner.
+ */
 export class DeviceManagementPartner extends Entity implements Parsable {
     /** Partner display name */
     private _displayName?: string | undefined;

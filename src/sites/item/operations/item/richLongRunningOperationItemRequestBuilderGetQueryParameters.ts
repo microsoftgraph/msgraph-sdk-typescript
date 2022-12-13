@@ -1,5 +1,7 @@
 
-/** The collection of long-running operations on the site. */
+/**
+ * The collection of long-running operations on the site.
+ */
 export class RichLongRunningOperationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

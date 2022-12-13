@@ -3,7 +3,9 @@ import {createTeamsAppFromDiscriminatorValue} from './createTeamsAppFromDiscrimi
 import {Entity, TeamsApp, TeamsAppDefinition} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the collection of chat entities.
+ */
 export class TeamsAppInstallation extends Entity implements Parsable {
     /** The app that is installed. */
     private _teamsApp?: TeamsApp | undefined;

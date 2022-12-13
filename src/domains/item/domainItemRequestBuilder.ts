@@ -10,6 +10,7 @@ import {DirectoryObjectItemRequestBuilder} from './domainNameReferences/item/dir
 import {FederationConfigurationRequestBuilder} from './federationConfiguration/federationConfigurationRequestBuilder';
 import {InternalDomainFederationItemRequestBuilder} from './federationConfiguration/item/internalDomainFederationItemRequestBuilder';
 import {ForceDeleteRequestBuilder} from './forceDelete/forceDeleteRequestBuilder';
+import {PromoteRequestBuilder} from './promote/promoteRequestBuilder';
 import {DomainDnsRecordItemRequestBuilder as I645b7a6c2b2e75703879ecf7aedd6400ebb0b1e58a2b8a9feaf4bbea098347da} from './serviceConfigurationRecords/item/domainDnsRecordItemRequestBuilder';
 import {ServiceConfigurationRecordsRequestBuilder} from './serviceConfigurationRecords/serviceConfigurationRecordsRequestBuilder';
 import {DomainDnsRecordItemRequestBuilder as Ib1b6b04364f5e14b4cb6820dc9f0e89b24894aa2bef616b4a1220973381758c2} from './verificationDnsRecords/item/domainDnsRecordItemRequestBuilder';
@@ -17,7 +18,9 @@ import {VerificationDnsRecordsRequestBuilder} from './verificationDnsRecords/ver
 import {VerifyRequestBuilder} from './verify/verifyRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of domain entities. */
+/**
+ * Provides operations to manage the collection of domain entities.
+ */
 export class DomainItemRequestBuilder {
     /** Provides operations to manage the domainNameReferences property of the microsoft.graph.domain entity. */
     public get domainNameReferences(): DomainNameReferencesRequestBuilder {
@@ -33,6 +36,10 @@ export class DomainItemRequestBuilder {
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the promote method. */
+    public get promote(): PromoteRequestBuilder {
+        return new PromoteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity. */
@@ -88,7 +95,7 @@ export class DomainItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -98,7 +105,7 @@ export class DomainItemRequestBuilder {
     };
     /**
      * Update the properties of domain object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -108,7 +115,7 @@ export class DomainItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -120,6 +127,7 @@ export class DomainItemRequestBuilder {
      * Deletes a domain from a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/domain-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DomainItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
@@ -158,6 +166,7 @@ export class DomainItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Domain
+     * @see {@link https://docs.microsoft.com/graph/api/domain-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DomainItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Domain | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -171,10 +180,11 @@ export class DomainItemRequestBuilder {
     };
     /**
      * Update the properties of domain object.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Domain
+     * @see {@link https://docs.microsoft.com/graph/api/domain-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Domain | undefined, requestConfiguration?: DomainItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Domain | undefined> {
         if(!body) throw new Error("body cannot be undefined");

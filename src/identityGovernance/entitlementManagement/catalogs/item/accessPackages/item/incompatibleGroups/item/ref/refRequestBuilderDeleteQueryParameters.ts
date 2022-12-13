@@ -1,5 +1,7 @@
 
-/** Delete ref of navigation property incompatibleGroups for identityGovernance */
+/**
+ * Delete ref of navigation property incompatibleGroups for identityGovernance
+ */
 export class RefRequestBuilderDeleteQueryParameters {
     /** Delete Uri */
     public id?: string | undefined;

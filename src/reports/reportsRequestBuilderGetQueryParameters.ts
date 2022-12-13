@@ -1,5 +1,7 @@
 
-/** Get reports */
+/**
+ * Get reports
+ */
 export class ReportsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

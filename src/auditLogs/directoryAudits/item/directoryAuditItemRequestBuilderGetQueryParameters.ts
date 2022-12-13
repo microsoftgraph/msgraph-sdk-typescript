@@ -1,5 +1,7 @@
 
-/** Get directoryAudits from auditLogs */
+/**
+ * Get directoryAudits from auditLogs
+ */
 export class DirectoryAuditItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

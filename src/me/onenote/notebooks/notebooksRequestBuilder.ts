@@ -10,7 +10,9 @@ import {NotebooksRequestBuilderGetRequestConfiguration} from './notebooksRequest
 import {NotebooksRequestBuilderPostRequestConfiguration} from './notebooksRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the notebooks property of the microsoft.graph.onenote entity. */
+/**
+ * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
+ */
 export class NotebooksRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
@@ -49,7 +51,7 @@ export class NotebooksRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -59,7 +61,7 @@ export class NotebooksRequestBuilder {
     };
     /**
      * Create a new OneNote notebook.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -69,7 +71,7 @@ export class NotebooksRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -82,6 +84,7 @@ export class NotebooksRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of NotebookCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/onenote-list-notebooks?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NotebooksRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<NotebookCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
@@ -104,10 +107,11 @@ export class NotebooksRequestBuilder {
     };
     /**
      * Create a new OneNote notebook.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Notebook
+     * @see {@link https://docs.microsoft.com/graph/api/onenote-post-notebooks?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Notebook | undefined, requestConfiguration?: NotebooksRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Notebook | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,7 @@
 
-/** The custom rules that define an access scenario. */
+/**
+ * The custom rules that define an access scenario.
+ */
 export class ConditionalAccessPolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

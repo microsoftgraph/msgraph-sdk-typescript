@@ -1,5 +1,7 @@
 
-/** A list of categories defined for the user. */
+/**
+ * A list of categories defined for the user.
+ */
 export class OutlookCategoryItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */
     public select?: string[] | undefined;

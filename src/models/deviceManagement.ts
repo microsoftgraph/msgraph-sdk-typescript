@@ -36,6 +36,9 @@ import {DeviceManagementSubscriptionState} from './deviceManagementSubscriptionS
 import {ApplePushNotificationCertificate, AuditEvent, ComplianceManagementPartner, DetectedApp, DeviceAndAppManagementRoleAssignment, DeviceCategory, DeviceCompliancePolicy, DeviceCompliancePolicyDeviceStateSummary, DeviceCompliancePolicySettingStateSummary, DeviceConfiguration, DeviceConfigurationDeviceStateSummary, DeviceEnrollmentConfiguration, DeviceManagementExchangeConnector, DeviceManagementPartner, DeviceManagementReports, DeviceManagementSettings, DeviceManagementTroubleshootingEvent, Entity, ImportedWindowsAutopilotDeviceIdentity, IntuneBrand, IosUpdateDeviceStatus, ManagedDevice, ManagedDeviceOverview, MobileThreatDefenseConnector, NotificationMessageTemplate, OnPremisesConditionalAccessSettings, RemoteAssistancePartner, ResourceOperation, RoleDefinition, SoftwareUpdateStatusSummary, TelecomExpenseManagementPartner, TermsAndConditions, WindowsAutopilotDeviceIdentity, WindowsInformationProtectionAppLearningSummary, WindowsInformationProtectionNetworkLearningSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Singleton entity that acts as a container for all device management functionality.
+ */
 export class DeviceManagement extends Entity implements Parsable {
     /** Apple push notification certificate. */
     private _applePushNotificationCertificate?: ApplePushNotificationCertificate | undefined;
@@ -166,7 +169,7 @@ export class DeviceManagement extends Entity implements Parsable {
         this._conditionalAccessSettings = value;
     };
     /**
-     * Instantiates a new DeviceManagement and sets the default values.
+     * Instantiates a new deviceManagement and sets the default values.
      */
     public constructor() {
         super();
@@ -371,7 +374,7 @@ export class DeviceManagement extends Entity implements Parsable {
     };
     /**
      * Gets the intuneAccountId property value. Intune Account Id for given tenant
-     * @returns a string
+     * @returns a Guid
      */
     public get intuneAccountId() {
         return this._intuneAccountId;

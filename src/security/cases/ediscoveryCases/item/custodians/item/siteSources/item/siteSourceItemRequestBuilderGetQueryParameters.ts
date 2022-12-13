@@ -1,5 +1,7 @@
 
-/** Data source entity for SharePoint sites associated with the custodian. */
+/**
+ * Data source entity for SharePoint sites associated with the custodian.
+ */
 export class SiteSourceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

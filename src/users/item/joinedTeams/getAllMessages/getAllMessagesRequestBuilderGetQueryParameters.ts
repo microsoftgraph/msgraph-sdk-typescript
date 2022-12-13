@@ -1,5 +1,7 @@
 
-/** Invoke function getAllMessages */
+/**
+ * Invoke function getAllMessages
+ */
 export class GetAllMessagesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

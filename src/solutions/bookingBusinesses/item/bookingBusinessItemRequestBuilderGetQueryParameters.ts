@@ -1,5 +1,7 @@
 
-/** Get bookingBusinesses from solutions */
+/**
+ * Get bookingBusinesses from solutions
+ */
 export class BookingBusinessItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

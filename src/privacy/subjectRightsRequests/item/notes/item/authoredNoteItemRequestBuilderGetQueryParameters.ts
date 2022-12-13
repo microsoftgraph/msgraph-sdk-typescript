@@ -1,5 +1,7 @@
 
-/** List of notes associcated with the request. */
+/**
+ * List of notes associcated with the request.
+ */
 export class AuthoredNoteItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

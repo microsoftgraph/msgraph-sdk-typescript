@@ -1,5 +1,7 @@
 
-/** Retrieve a list of scopedRoleMembership objects for a directory role. */
+/**
+ * Retrieve a list of scopedRoleMembership objects for a directory role.
+ */
 export class ScopedMembersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

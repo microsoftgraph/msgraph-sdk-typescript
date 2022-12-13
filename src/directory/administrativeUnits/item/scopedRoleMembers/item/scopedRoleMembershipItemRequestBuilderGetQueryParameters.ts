@@ -1,5 +1,7 @@
 
-/** Scoped-role members of this administrative unit. */
+/**
+ * Scoped-role members of this administrative unit.
+ */
 export class ScopedRoleMembershipItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

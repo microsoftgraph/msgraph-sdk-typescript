@@ -1,5 +1,7 @@
 
-/** Zero or more policys already applied on the registered app when it last synchronized with managment service. */
+/**
+ * Zero or more policys already applied on the registered app when it last synchronized with managment service.
+ */
 export class AppliedPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

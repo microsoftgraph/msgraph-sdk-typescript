@@ -1,5 +1,7 @@
 
-/** Get role management policies and their details. */
+/**
+ * Get role management policies and their details.
+ */
 export class RoleManagementPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

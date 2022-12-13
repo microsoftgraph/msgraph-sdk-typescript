@@ -1,5 +1,7 @@
 
-/** Recently deleted items. Read-only. Nullable. */
+/**
+ * Recently deleted items. Read-only. Nullable.
+ */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

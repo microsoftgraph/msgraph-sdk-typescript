@@ -1,5 +1,7 @@
 
-/** The set of subscriptions on the list. */
+/**
+ * The set of subscriptions on the list.
+ */
 export class SubscriptionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

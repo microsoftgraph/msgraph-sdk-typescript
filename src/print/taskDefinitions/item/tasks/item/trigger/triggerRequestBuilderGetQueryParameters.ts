@@ -1,5 +1,7 @@
 
-/** The printTaskTrigger that triggered this task's execution. Read-only. */
+/**
+ * The printTaskTrigger that triggered this task's execution. Read-only.
+ */
 export class TriggerRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

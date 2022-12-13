@@ -1,5 +1,7 @@
 
-/** The template this team was created from. See available templates. */
+/**
+ * The template this team was created from. See available templates.
+ */
 export class TemplateRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

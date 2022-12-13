@@ -1,5 +1,7 @@
 
-/** Get audioRoutingGroups from communications */
+/**
+ * Get audioRoutingGroups from communications
+ */
 export class AudioRoutingGroupItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -91,7 +91,7 @@ export class PermissionScope implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the id property value. Unique delegated permission identifier inside the collection of delegated permissions defined for a resource application.
-     * @returns a string
+     * @returns a Guid
      */
     public get id() {
         return this._id;

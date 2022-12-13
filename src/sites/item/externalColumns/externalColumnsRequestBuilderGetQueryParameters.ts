@@ -1,5 +1,7 @@
 
-/** Get externalColumns from sites */
+/**
+ * Get externalColumns from sites
+ */
 export class ExternalColumnsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

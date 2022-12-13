@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the deviceManagement singleton. */
 export enum RatingUnitedKingdomTelevisionType {
     /** Default value, allow all TV shows content */
     AllAllowed = "allAllowed",

@@ -10,7 +10,9 @@ import {IdentityGovernanceRequestBuilderPatchRequestConfiguration} from './ident
 import {TermsOfUseRequestBuilder} from './termsOfUse/termsOfUseRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton. */
+/**
+ * Provides operations to manage the identityGovernance singleton.
+ */
 export class IdentityGovernanceRequestBuilder {
     /** Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity. */
     public get accessReviews(): AccessReviewsRequestBuilder {
@@ -57,7 +59,7 @@ export class IdentityGovernanceRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -67,7 +69,7 @@ export class IdentityGovernanceRequestBuilder {
     };
     /**
      * Update identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -77,7 +79,7 @@ export class IdentityGovernanceRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -103,7 +105,7 @@ export class IdentityGovernanceRequestBuilder {
     };
     /**
      * Update identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityGovernance

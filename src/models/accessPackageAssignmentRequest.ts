@@ -7,7 +7,9 @@ import {createEntitlementManagementScheduleFromDiscriminatorValue} from './creat
 import {AccessPackage, AccessPackageAssignment, AccessPackageSubject, EntitlementManagementSchedule, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreement entities. */
+/**
+ * Provides operations to manage the collection of agreement entities.
+ */
 export class AccessPackageAssignmentRequest extends Entity implements Parsable {
     /** The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand. */
     private _accessPackage?: AccessPackage | undefined;
@@ -19,7 +21,7 @@ export class AccessPackageAssignmentRequest extends Entity implements Parsable {
     private _createdDateTime?: Date | undefined;
     /** The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand. */
     private _requestor?: AccessPackageSubject | undefined;
-    /** The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd, unknownFutureValue. A request from the user themselves would have requestType of userAdd, userUpdate or userRemove. This property cannot be changed once set. */
+    /** The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd (not supported), unknownFutureValue. A request from the user themselves would have requestType of userAdd, userUpdate or userRemove. This property cannot be changed once set. */
     private _requestType?: AccessPackageRequestType | undefined;
     /** The range of dates that access is to be assigned to the requestor. This property cannot be changed once set. */
     private _schedule?: EntitlementManagementSchedule | undefined;
@@ -121,14 +123,14 @@ export class AccessPackageAssignmentRequest extends Entity implements Parsable {
         this._requestor = value;
     };
     /**
-     * Gets the requestType property value. The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd, unknownFutureValue. A request from the user themselves would have requestType of userAdd, userUpdate or userRemove. This property cannot be changed once set.
+     * Gets the requestType property value. The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd (not supported), unknownFutureValue. A request from the user themselves would have requestType of userAdd, userUpdate or userRemove. This property cannot be changed once set.
      * @returns a accessPackageRequestType
      */
     public get requestType() {
         return this._requestType;
     };
     /**
-     * Sets the requestType property value. The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd, unknownFutureValue. A request from the user themselves would have requestType of userAdd, userUpdate or userRemove. This property cannot be changed once set.
+     * Sets the requestType property value. The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd (not supported), unknownFutureValue. A request from the user themselves would have requestType of userAdd, userUpdate or userRemove. This property cannot be changed once set.
      * @param value Value to set for the requestType property.
      */
     public set requestType(value: AccessPackageRequestType | undefined) {

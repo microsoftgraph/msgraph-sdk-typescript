@@ -1,5 +1,7 @@
 
-/** Get onenote from users */
+/**
+ * Get onenote from users
+ */
 export class OnenoteRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

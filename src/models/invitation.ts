@@ -18,7 +18,7 @@ export class Invitation extends Entity implements Parsable {
     private _inviteRedeemUrl?: string | undefined;
     /** The URL the user should be redirected to once the invitation is redeemed. Required. */
     private _inviteRedirectUrl?: string | undefined;
-    /** The resetRedemption property */
+    /** Reset the user's redemption status and reinvite a user while retaining their user identifier, group memberships, and app assignments. This property allows you to enable a user to sign-in using a different email address from the one in the previous invitation. For more information about using this property, see Reset redemption status for a guest user. */
     private _resetRedemption?: boolean | undefined;
     /** Indicates whether an email should be sent to the user being invited. The default is false. */
     private _sendInvitationMessage?: boolean | undefined;
@@ -147,14 +147,14 @@ export class Invitation extends Entity implements Parsable {
         this._inviteRedirectUrl = value;
     };
     /**
-     * Gets the resetRedemption property value. The resetRedemption property
+     * Gets the resetRedemption property value. Reset the user's redemption status and reinvite a user while retaining their user identifier, group memberships, and app assignments. This property allows you to enable a user to sign-in using a different email address from the one in the previous invitation. For more information about using this property, see Reset redemption status for a guest user.
      * @returns a boolean
      */
     public get resetRedemption() {
         return this._resetRedemption;
     };
     /**
-     * Sets the resetRedemption property value. The resetRedemption property
+     * Sets the resetRedemption property value. Reset the user's redemption status and reinvite a user while retaining their user identifier, group memberships, and app assignments. This property allows you to enable a user to sign-in using a different email address from the one in the previous invitation. For more information about using this property, see Reset redemption status for a guest user.
      * @param value Value to set for the resetRedemption property.
      */
     public set resetRedemption(value: boolean | undefined) {

@@ -1,5 +1,7 @@
 
-/** The devices that have the discovered application installed */
+/**
+ * The devices that have the discovered application installed
+ */
 export class ManagedDeviceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

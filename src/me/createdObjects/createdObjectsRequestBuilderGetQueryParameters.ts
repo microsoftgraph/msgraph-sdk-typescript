@@ -1,5 +1,7 @@
 
-/** Get a list of directory objects that were created by the user. This API returns only those directory objects that were created by a user who isn't in any administrator role; otherwise, it returns an empty object. */
+/**
+ * Get a list of directory objects that were created by the user. This API returns only those directory objects that were created by a user who isn't in any administrator role; otherwise, it returns an empty object.
+ */
 export class CreatedObjectsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

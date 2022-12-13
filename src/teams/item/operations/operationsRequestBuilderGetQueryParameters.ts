@@ -1,5 +1,7 @@
 
-/** The async operations that ran or are running on this team. */
+/**
+ * The async operations that ran or are running on this team.
+ */
 export class OperationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

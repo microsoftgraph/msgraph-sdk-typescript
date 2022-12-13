@@ -1,5 +1,7 @@
 
-/** The user attribute that you want to add to your user flow. */
+/**
+ * The user attribute that you want to add to your user flow.
+ */
 export class UserAttributeRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

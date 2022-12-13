@@ -1,5 +1,7 @@
 
-/** The list of device categories with the tenant. */
+/**
+ * The list of device categories with the tenant.
+ */
 export class DeviceCategoryItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

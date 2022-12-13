@@ -4,7 +4,9 @@ import {DeviceAndAppManagementAssignmentTarget, Entity, MobileAppAssignmentSetti
 import {InstallIntent} from './installIntent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** A class containing the properties used for Group Assignment of a Mobile App. */
+/**
+ * A class containing the properties used for Group Assignment of a Mobile App.
+ */
 export class MobileAppAssignment extends Entity implements Parsable {
     /** Possible values for the install intent chosen by the admin. */
     private _intent?: InstallIntent | undefined;

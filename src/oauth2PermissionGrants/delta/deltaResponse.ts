@@ -2,7 +2,9 @@ import {BaseDeltaFunctionResponse, OAuth2PermissionGrant} from '../../models/';
 import {createOAuth2PermissionGrantFromDiscriminatorValue} from '../../models/createOAuth2PermissionGrantFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the delta method. */
+/**
+ * Provides operations to call the delta method.
+ */
 export class DeltaResponse extends BaseDeltaFunctionResponse implements Parsable {
     /** The value property */
     private _value?: OAuth2PermissionGrant[] | undefined;

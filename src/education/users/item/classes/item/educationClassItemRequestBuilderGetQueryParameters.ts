@@ -1,5 +1,7 @@
 
-/** Classes to which the user belongs. Nullable. */
+/**
+ * Classes to which the user belongs. Nullable.
+ */
 export class EducationClassItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

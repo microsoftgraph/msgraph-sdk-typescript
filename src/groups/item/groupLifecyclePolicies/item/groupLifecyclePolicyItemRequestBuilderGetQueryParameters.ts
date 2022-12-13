@@ -1,5 +1,7 @@
 
-/** The collection of lifecycle policies for this group. Read-only. Nullable. */
+/**
+ * The collection of lifecycle policies for this group. Read-only. Nullable.
+ */
 export class GroupLifecyclePolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -12,5 +12,7 @@ export enum RiskDetail {
     Hidden = "hidden",
     AdminConfirmedUserCompromised = "adminConfirmedUserCompromised",
     UnknownFutureValue = "unknownFutureValue",
+    AdminConfirmedServicePrincipalCompromised = "adminConfirmedServicePrincipalCompromised",
+    AdminDismissedAllRiskForServicePrincipal = "adminDismissedAllRiskForServicePrincipal",
     M365DAdminDismissedDetection = "m365DAdminDismissedDetection",
 }

@@ -1,5 +1,7 @@
 
-/** The set of appointments of this business in a specified date range. Read-only. Nullable. */
+/**
+ * The set of appointments of this business in a specified date range. Read-only. Nullable.
+ */
 export class BookingAppointmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

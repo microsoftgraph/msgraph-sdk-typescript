@@ -2,7 +2,9 @@ import {BaseCollectionPaginationCountResponse, TimeZoneInformation} from '../../
 import {createTimeZoneInformationFromDiscriminatorValue} from '../../../models/createTimeZoneInformationFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the supportedTimeZones method. */
+/**
+ * Provides operations to call the supportedTimeZones method.
+ */
 export class SupportedTimeZonesWithTimeZoneStandardResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: TimeZoneInformation[] | undefined;

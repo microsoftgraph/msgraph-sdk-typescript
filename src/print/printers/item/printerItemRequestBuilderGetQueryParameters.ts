@@ -1,5 +1,7 @@
 
-/** The list of printers registered in the tenant. */
+/**
+ * The list of printers registered in the tenant.
+ */
 export class PrinterItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

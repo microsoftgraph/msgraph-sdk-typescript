@@ -7,7 +7,9 @@ import {createSettingStateDeviceSummaryFromDiscriminatorValue} from './createSet
 import {DeviceConfigurationAssignment, DeviceConfigurationDeviceOverview, DeviceConfigurationDeviceStatus, DeviceConfigurationUserOverview, DeviceConfigurationUserStatus, Entity, SettingStateDeviceSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Device Configuration. */
+/**
+ * Device Configuration.
+ */
 export class DeviceConfiguration extends Entity implements Parsable {
     /** The list of assignments for the device configuration profile. */
     private _assignments?: DeviceConfigurationAssignment[] | undefined;

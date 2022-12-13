@@ -1,5 +1,7 @@
 
-/** Returns the tags that are a child of a tag. */
+/**
+ * Returns the tags that are a child of a tag.
+ */
 export class ChildTagsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,5 +1,7 @@
 
-/** The tokenLifetimePolicies assigned to this service principal. */
+/**
+ * The tokenLifetimePolicies assigned to this service principal.
+ */
 export class TokenLifetimePolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

@@ -1,5 +1,7 @@
 
-/** Directory objects created by this service principal. Read-only. Nullable. */
+/**
+ * Directory objects created by this service principal. Read-only. Nullable.
+ */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

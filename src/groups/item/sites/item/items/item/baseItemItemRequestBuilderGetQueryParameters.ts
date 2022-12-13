@@ -1,5 +1,7 @@
 
-/** Used to address any item contained in this site. This collection can't be enumerated. */
+/**
+ * Used to address any item contained in this site. This collection can't be enumerated.
+ */
 export class BaseItemItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

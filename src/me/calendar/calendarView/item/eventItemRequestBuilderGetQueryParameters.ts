@@ -1,5 +1,7 @@
 
-/** The calendar view for the calendar. Navigation property. Read-only. */
+/**
+ * The calendar view for the calendar. Navigation property. Read-only.
+ */
 export class EventItemRequestBuilderGetQueryParameters {
     /** The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00 */
     public endDateTime?: string | undefined;

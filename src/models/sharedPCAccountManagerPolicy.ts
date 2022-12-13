@@ -1,7 +1,9 @@
 import {SharedPCAccountDeletionPolicyType} from './sharedPCAccountDeletionPolicyType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** SharedPC Account Manager Policy. Only applies when the account manager is enabled. */
+/**
+ * SharedPC Account Manager Policy. Only applies when the account manager is enabled.
+ */
 export class SharedPCAccountManagerPolicy implements AdditionalDataHolder, Parsable {
     /** Possible values for when accounts are deleted on a shared PC. */
     private _accountDeletionPolicy?: SharedPCAccountDeletionPolicyType | undefined;

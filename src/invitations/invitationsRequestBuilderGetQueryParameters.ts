@@ -1,5 +1,7 @@
 
-/** Get entities from invitations */
+/**
+ * Get entities from invitations
+ */
 export class InvitationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

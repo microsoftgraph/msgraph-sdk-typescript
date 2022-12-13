@@ -1,5 +1,7 @@
 
-/** Retrieve a list of organization objects. */
+/**
+ * Retrieve a list of organization objects.
+ */
 export class OrganizationRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

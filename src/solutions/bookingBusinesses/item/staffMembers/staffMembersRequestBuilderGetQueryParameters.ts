@@ -1,5 +1,7 @@
 
-/** Get a list of bookingStaffMember objects in the specified bookingBusiness. */
+/**
+ * Get a list of bookingStaffMember objects in the specified bookingBusiness.
+ */
 export class StaffMembersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

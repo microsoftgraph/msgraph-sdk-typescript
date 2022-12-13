@@ -1,5 +1,7 @@
 
-/** Returns a list of case ediscoveryCustodian objects for this case. */
+/**
+ * Returns a list of case ediscoveryCustodian objects for this case.
+ */
 export class EdiscoveryCustodianItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

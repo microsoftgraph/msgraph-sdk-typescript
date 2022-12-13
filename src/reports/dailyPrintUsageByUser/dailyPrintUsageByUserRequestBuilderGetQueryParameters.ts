@@ -1,5 +1,7 @@
 
-/** Retrieve a list of daily print usage summaries, grouped by user. */
+/**
+ * Retrieve a list of daily print usage summaries, grouped by user.
+ */
 export class DailyPrintUsageByUserRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

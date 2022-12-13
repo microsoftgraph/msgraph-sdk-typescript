@@ -1,7 +1,9 @@
 import {Win32LobAppRuleType} from './win32LobAppRuleType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** A base complex type to store the detection or requirement rule data for a Win32 LOB app. */
+/**
+ * A base complex type to store the detection or requirement rule data for a Win32 LOB app.
+ */
 export class Win32LobAppRule implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;

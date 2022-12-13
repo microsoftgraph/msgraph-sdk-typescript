@@ -5,7 +5,9 @@ import {UnarchivePostRequestBody, UnarchiveResponse} from './index';
 import {UnarchiveRequestBuilderPostRequestConfiguration} from './unarchiveRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the unarchive method. */
+/**
+ * Provides operations to call the unarchive method.
+ */
 export class UnarchiveRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -28,7 +30,7 @@ export class UnarchiveRequestBuilder {
     };
     /**
      * Unarchive a list of serviceUpdateMessages for the signed in user.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -38,7 +40,7 @@ export class UnarchiveRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -48,10 +50,11 @@ export class UnarchiveRequestBuilder {
     };
     /**
      * Unarchive a list of serviceUpdateMessages for the signed in user.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnarchiveResponse
+     * @see {@link https://docs.microsoft.com/graph/api/serviceupdatemessage-unarchive?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UnarchivePostRequestBody | undefined, requestConfiguration?: UnarchiveRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnarchiveResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

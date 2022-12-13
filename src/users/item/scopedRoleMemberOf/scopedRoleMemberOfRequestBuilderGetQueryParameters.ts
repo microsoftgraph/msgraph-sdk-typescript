@@ -1,5 +1,7 @@
 
-/** Get scopedRoleMemberOf from users */
+/**
+ * Get scopedRoleMemberOf from users
+ */
 export class ScopedRoleMemberOfRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

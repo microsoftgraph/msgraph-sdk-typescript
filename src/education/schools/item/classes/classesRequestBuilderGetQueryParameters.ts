@@ -1,5 +1,7 @@
 
-/** Get the educationClass resources owned by an educationSchool. */
+/**
+ * Get the educationClass resources owned by an educationSchool.
+ */
 export class ClassesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

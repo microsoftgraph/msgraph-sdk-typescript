@@ -1,5 +1,7 @@
 
-/** Returns a list of case ediscoveryNoncustodialDataSource objects for this case. */
+/**
+ * Returns a list of case ediscoveryNoncustodialDataSource objects for this case.
+ */
 export class NoncustodialDataSourcesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

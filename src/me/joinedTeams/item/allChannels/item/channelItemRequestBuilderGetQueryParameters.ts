@@ -1,5 +1,7 @@
 
-/** List of channels either hosted in or shared with the team (incoming channels). */
+/**
+ * List of channels either hosted in or shared with the team (incoming channels).
+ */
 export class ChannelItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

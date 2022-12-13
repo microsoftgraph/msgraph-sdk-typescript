@@ -31,7 +31,7 @@ export class AssignedLicense implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the disabledPlans property value. A collection of the unique identifiers for plans that have been disabled.
-     * @returns a string
+     * @returns a Guid
      */
     public get disabledPlans() {
         return this._disabledPlans;
@@ -81,7 +81,7 @@ export class AssignedLicense implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the skuId property value. The unique identifier for the SKU.
-     * @returns a string
+     * @returns a Guid
      */
     public get skuId() {
         return this._skuId;

@@ -1,5 +1,7 @@
 
-/** The list of Mobile threat Defense connectors configured by the tenant. */
+/**
+ * The list of Mobile threat Defense connectors configured by the tenant.
+ */
 export class MobileThreatDefenseConnectorItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

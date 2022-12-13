@@ -1,5 +1,7 @@
 
-/** Retrieve the properties and relationships of all offerShiftRequest objects in a team. */
+/**
+ * Retrieve the properties and relationships of all offerShiftRequest objects in a team.
+ */
 export class OfferShiftRequestsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

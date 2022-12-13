@@ -1,5 +1,7 @@
 
-/** Navigation link to the terms and conditions that are assigned. */
+/**
+ * Navigation link to the terms and conditions that are assigned.
+ */
 export class TermsAndConditionsRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

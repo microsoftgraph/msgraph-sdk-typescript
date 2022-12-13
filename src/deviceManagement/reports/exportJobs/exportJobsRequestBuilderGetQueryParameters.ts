@@ -1,5 +1,7 @@
 
-/** Entity representing a job to export a report */
+/**
+ * Entity representing a job to export a report
+ */
 export class ExportJobsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

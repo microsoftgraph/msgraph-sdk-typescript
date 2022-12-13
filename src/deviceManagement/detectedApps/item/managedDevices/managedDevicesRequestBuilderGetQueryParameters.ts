@@ -1,5 +1,7 @@
 
-/** The devices that have the discovered application installed */
+/**
+ * The devices that have the discovered application installed
+ */
 export class ManagedDevicesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

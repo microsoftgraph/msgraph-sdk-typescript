@@ -23,7 +23,9 @@ import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
 import {UnhideForUserRequestBuilder} from './unhideForUser/unhideForUserRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the chats property of the microsoft.graph.user entity. */
+/**
+ * Provides operations to manage the chats property of the microsoft.graph.user entity.
+ */
 export class ChatItemRequestBuilder {
     /** Provides operations to call the hideForUser method. */
     public get hideForUser(): HideForUserRequestBuilder {
@@ -114,7 +116,7 @@ export class ChatItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -124,7 +126,7 @@ export class ChatItemRequestBuilder {
     };
     /**
      * Update the navigation property chats in me
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -134,7 +136,7 @@ export class ChatItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -208,7 +210,7 @@ export class ChatItemRequestBuilder {
     };
     /**
      * Update the navigation property chats in me
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Chat

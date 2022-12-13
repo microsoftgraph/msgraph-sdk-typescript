@@ -5,7 +5,9 @@ import {RemovePostRequestBody, RemoveResponse} from './index';
 import {RemoveRequestBuilderPostRequestConfiguration} from './removeRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the remove method. */
+/**
+ * Provides operations to call the remove method.
+ */
 export class RemoveRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -28,7 +30,7 @@ export class RemoveRequestBuilder {
     };
     /**
      * Unfollow a user's site or multiple sites.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -38,7 +40,7 @@ export class RemoveRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -48,10 +50,11 @@ export class RemoveRequestBuilder {
     };
     /**
      * Unfollow a user's site or multiple sites.
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RemoveResponse
+     * @see {@link https://docs.microsoft.com/graph/api/site-unfollow?view=graph-rest-1.0|Find more info here}
      */
     public post(body: RemovePostRequestBody | undefined, requestConfiguration?: RemoveRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RemoveResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

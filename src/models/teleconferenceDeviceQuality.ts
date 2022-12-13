@@ -43,7 +43,7 @@ export class TeleconferenceDeviceQuality implements AdditionalDataHolder, Parsab
     };
     /**
      * Gets the callChainId property value. A unique identifier for all  the participant calls in a conference or a unique identifier for two participant calls in P2P call. This needs to be copied over from Microsoft.Graph.Call.CallChainId.
-     * @returns a string
+     * @returns a Guid
      */
     public get callChainId() {
         return this._callChainId;
@@ -166,7 +166,7 @@ export class TeleconferenceDeviceQuality implements AdditionalDataHolder, Parsab
     };
     /**
      * Gets the mediaLegId property value. A unique identifier for a specific media leg of a participant in a conference.  One participant can have multiple media leg identifiers if retargeting happens. CVI partner assigns this value.
-     * @returns a string
+     * @returns a Guid
      */
     public get mediaLegId() {
         return this._mediaLegId;
@@ -208,7 +208,7 @@ export class TeleconferenceDeviceQuality implements AdditionalDataHolder, Parsab
     };
     /**
      * Gets the participantId property value. A unique identifier for a specific participant in a conference. The CVI partner needs to copy over Call.MyParticipantId to this property.
-     * @returns a string
+     * @returns a Guid
      */
     public get participantId() {
         return this._participantId;

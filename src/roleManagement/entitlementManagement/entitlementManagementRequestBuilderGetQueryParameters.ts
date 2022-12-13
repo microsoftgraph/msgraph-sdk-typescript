@@ -1,5 +1,7 @@
 
-/** Container for roles and assignments for entitlement management resources. */
+/**
+ * Container for roles and assignments for entitlement management resources.
+ */
 export class EntitlementManagementRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

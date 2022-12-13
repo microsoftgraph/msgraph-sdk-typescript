@@ -1,5 +1,7 @@
 
-/** The phone numbers registered to a user for authentication. */
+/**
+ * The phone numbers registered to a user for authentication.
+ */
 export class PhoneAuthenticationMethodItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

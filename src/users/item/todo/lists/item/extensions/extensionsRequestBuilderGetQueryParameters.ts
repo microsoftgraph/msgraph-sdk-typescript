@@ -1,5 +1,7 @@
 
-/** The collection of open extensions defined for the task list. Nullable. */
+/**
+ * The collection of open extensions defined for the task list. Nullable.
+ */
 export class ExtensionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

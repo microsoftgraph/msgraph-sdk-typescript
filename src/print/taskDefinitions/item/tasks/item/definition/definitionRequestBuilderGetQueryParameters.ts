@@ -1,5 +1,7 @@
 
-/** The printTaskDefinition that was used to create this task. Read-only. */
+/**
+ * The printTaskDefinition that was used to create this task. Read-only.
+ */
 export class DefinitionRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

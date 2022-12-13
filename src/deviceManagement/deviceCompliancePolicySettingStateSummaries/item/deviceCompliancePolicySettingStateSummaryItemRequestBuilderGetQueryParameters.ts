@@ -1,5 +1,7 @@
 
-/** The summary states of compliance policy settings for this account. */
+/**
+ * The summary states of compliance policy settings for this account.
+ */
 export class DeviceCompliancePolicySettingStateSummaryItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

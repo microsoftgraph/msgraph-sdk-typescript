@@ -68,7 +68,7 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the knownClientApplications property value. Used for bundling consent if you have a solution that contains two parts: a client app and a custom web API app. If you set the appID of the client app to this value, the user only consents once to the client app. Azure AD knows that consenting to the client means implicitly consenting to the web API and automatically provisions service principals for both APIs at the same time. Both the client and the web API app must be registered in the same tenant.
-     * @returns a string
+     * @returns a Guid
      */
     public get knownClientApplications() {
         return this._knownClientApplications;

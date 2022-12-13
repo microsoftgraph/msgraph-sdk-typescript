@@ -1,5 +1,7 @@
 
-/** Get onlineMeetings from me */
+/**
+ * Get onlineMeetings from me
+ */
 export class OnlineMeetingItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

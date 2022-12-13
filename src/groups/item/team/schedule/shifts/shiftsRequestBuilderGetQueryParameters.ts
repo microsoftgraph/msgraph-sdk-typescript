@@ -1,5 +1,7 @@
 
-/** Get the list of shift instances in a schedule. */
+/**
+ * Get the list of shift instances in a schedule.
+ */
 export class ShiftsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

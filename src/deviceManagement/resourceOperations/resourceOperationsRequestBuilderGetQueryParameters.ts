@@ -1,5 +1,7 @@
 
-/** The Resource Operations. */
+/**
+ * The Resource Operations.
+ */
 export class ResourceOperationsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

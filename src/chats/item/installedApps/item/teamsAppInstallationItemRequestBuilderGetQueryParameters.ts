@@ -1,5 +1,7 @@
 
-/** A collection of all the apps in the chat. Nullable. */
+/**
+ * A collection of all the apps in the chat. Nullable.
+ */
 export class TeamsAppInstallationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

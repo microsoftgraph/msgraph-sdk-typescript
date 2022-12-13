@@ -1,5 +1,7 @@
 
-/** Users that are flagged as at-risk by Azure AD Identity Protection. */
+/**
+ * Users that are flagged as at-risk by Azure AD Identity Protection.
+ */
 export class RiskyUserItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

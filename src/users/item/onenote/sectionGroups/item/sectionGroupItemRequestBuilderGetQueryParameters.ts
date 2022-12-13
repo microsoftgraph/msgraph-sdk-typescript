@@ -1,5 +1,7 @@
 
-/** The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable. */
+/**
+ * The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+ */
 export class SectionGroupItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

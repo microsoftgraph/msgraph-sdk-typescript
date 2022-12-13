@@ -1,5 +1,7 @@
 
-/** Get the list of commercial subscriptions that an organization has acquired. For the mapping of license names as displayed on the Azure portal or the Microsoft 365 admin center against their Microsoft Graph **skuId** and **skuPartNumber** properties, see Product names and service plan identifiers for licensing. */
+/**
+ * Get the list of commercial subscriptions that an organization has acquired. For the mapping of license names as displayed on the Azure portal or the Microsoft 365 admin center against their Microsoft Graph **skuId** and **skuPartNumber** properties, see Product names and service plan identifiers for licensing.
+ */
 export class SubscribedSkusRequestBuilderGetQueryParameters {
     /** Order items by property values */
     public orderby?: string[] | undefined;

@@ -2,6 +2,9 @@ import {createAdministrativeUnitFromDiscriminatorValue} from './createAdministra
 import {AdministrativeUnit, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
+ */
 export class AdministrativeUnitCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: AdministrativeUnit[] | undefined;

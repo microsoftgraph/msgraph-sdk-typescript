@@ -1,7 +1,9 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/**
+ * Provides operations to manage the collection of agreementAcceptance entities.
+ */
 export class ExternalDomainName extends Entity implements Parsable {
     /**
      * Instantiates a new externalDomainName and sets the default values.

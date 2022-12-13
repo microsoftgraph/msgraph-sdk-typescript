@@ -8,7 +8,9 @@ import {EdiscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration} from 
 import {EdiscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration} from './ediscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity. */
+/**
+ * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
+ */
 export class EdiscoveryReviewSetQueryItemRequestBuilder {
     /** Provides operations to call the applyTags method. */
     public get applyTags(): ApplyTagsRequestBuilder {
@@ -59,7 +61,7 @@ export class EdiscoveryReviewSetQueryItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -69,7 +71,7 @@ export class EdiscoveryReviewSetQueryItemRequestBuilder {
     };
     /**
      * Update the navigation property queries in security
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +81,7 @@ export class EdiscoveryReviewSetQueryItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -120,7 +122,7 @@ export class EdiscoveryReviewSetQueryItemRequestBuilder {
     };
     /**
      * Update the navigation property queries in security
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryReviewSetQuery

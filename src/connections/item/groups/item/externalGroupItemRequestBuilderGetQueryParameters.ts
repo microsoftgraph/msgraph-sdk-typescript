@@ -1,5 +1,7 @@
 
-/** Get groups from connections */
+/**
+ * Get groups from connections
+ */
 export class ExternalGroupItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

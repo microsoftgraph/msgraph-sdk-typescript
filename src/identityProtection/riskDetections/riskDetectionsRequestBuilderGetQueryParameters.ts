@@ -1,5 +1,7 @@
 
-/** Get a list of the riskDetection objects and their properties. */
+/**
+ * Get a list of the riskDetection objects and their properties.
+ */
 export class RiskDetectionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

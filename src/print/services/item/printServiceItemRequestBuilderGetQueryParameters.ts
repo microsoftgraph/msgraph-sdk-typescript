@@ -1,5 +1,7 @@
 
-/** The list of available Universal Print service endpoints. */
+/**
+ * The list of available Universal Print service endpoints.
+ */
 export class PrintServiceItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

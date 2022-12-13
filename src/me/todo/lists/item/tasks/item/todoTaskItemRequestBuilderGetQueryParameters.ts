@@ -1,5 +1,7 @@
 
-/** The tasks in this task list. Read-only. Nullable. */
+/**
+ * The tasks in this task list. Read-only. Nullable.
+ */
 export class TodoTaskItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

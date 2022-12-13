@@ -1,5 +1,7 @@
 
-/** Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification. */
+/**
+ * Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification.
+ */
 export class DefaultPagesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

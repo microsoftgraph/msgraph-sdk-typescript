@@ -1,5 +1,7 @@
 
-/** Get all the educationAssignmentResource objects associated with an assignment. */
+/**
+ * Get all the educationAssignmentResource objects associated with an assignment.
+ */
 export class ResourcesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

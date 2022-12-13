@@ -1,5 +1,7 @@
 
-/** The set of subscriptions on the item. Only supported on the root of a drive. */
+/**
+ * The set of subscriptions on the item. Only supported on the root of a drive.
+ */
 export class SubscriptionsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

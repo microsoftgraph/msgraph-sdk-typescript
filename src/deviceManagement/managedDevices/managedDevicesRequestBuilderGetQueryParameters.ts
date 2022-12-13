@@ -1,5 +1,7 @@
 
-/** The list of managed devices. */
+/**
+ * The list of managed devices.
+ */
 export class ManagedDevicesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

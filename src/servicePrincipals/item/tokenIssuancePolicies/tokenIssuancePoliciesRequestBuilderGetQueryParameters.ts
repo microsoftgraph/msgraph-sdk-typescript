@@ -1,5 +1,7 @@
 
-/** The tokenIssuancePolicies assigned to this service principal. */
+/**
+ * The tokenIssuancePolicies assigned to this service principal.
+ */
 export class TokenIssuancePoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

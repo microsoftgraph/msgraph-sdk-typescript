@@ -1,5 +1,7 @@
 
-/** Retrieve the instances of an access review history definition created in the last 30 days. */
+/**
+ * Retrieve the instances of an access review history definition created in the last 30 days.
+ */
 export class InstancesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

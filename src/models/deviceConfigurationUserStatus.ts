@@ -2,7 +2,9 @@ import {ComplianceStatus} from './complianceStatus';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/**
+ * Provides operations to manage the deviceManagement singleton.
+ */
 export class DeviceConfigurationUserStatus extends Entity implements Parsable {
     /** Devices count for that user. */
     private _devicesCount?: number | undefined;

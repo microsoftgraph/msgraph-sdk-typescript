@@ -10,7 +10,9 @@ import {SupportedTimeZonesRequestBuilder} from './supportedTimeZones/supportedTi
 import {SupportedTimeZonesWithTimeZoneStandardRequestBuilder} from './supportedTimeZonesWithTimeZoneStandard/supportedTimeZonesWithTimeZoneStandardRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the outlook property of the microsoft.graph.user entity. */
+/**
+ * Provides operations to manage the outlook property of the microsoft.graph.user entity.
+ */
 export class OutlookRequestBuilder {
     /** Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity. */
     public get masterCategories(): MasterCategoriesRequestBuilder {
@@ -45,7 +47,7 @@ export class OutlookRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);

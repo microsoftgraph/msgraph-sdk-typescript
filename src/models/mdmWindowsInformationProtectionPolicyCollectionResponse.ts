@@ -2,6 +2,9 @@ import {createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue} from 
 import {BaseCollectionPaginationCountResponse, MdmWindowsInformationProtectionPolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
+ */
 export class MdmWindowsInformationProtectionPolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: MdmWindowsInformationProtectionPolicy[] | undefined;

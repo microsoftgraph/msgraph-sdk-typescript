@@ -79,7 +79,7 @@ export class ResourceSpecificPermission implements AdditionalDataHolder, Parsabl
     };
     /**
      * Gets the id property value. The unique identifier for the resource-specific application permission.
-     * @returns a string
+     * @returns a Guid
      */
     public get id() {
         return this._id;

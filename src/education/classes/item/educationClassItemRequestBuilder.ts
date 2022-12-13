@@ -20,7 +20,9 @@ import {EducationUserItemRequestBuilder as I488920e98e9b46d483b4a3ff7deaa8b183c5
 import {TeachersRequestBuilder} from './teachers/teachersRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the classes property of the microsoft.graph.educationRoot entity. */
+/**
+ * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
+ */
 export class EducationClassItemRequestBuilder {
     /** Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity. */
     public get assignmentCategories(): AssignmentCategoriesRequestBuilder {
@@ -121,7 +123,7 @@ export class EducationClassItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -131,7 +133,7 @@ export class EducationClassItemRequestBuilder {
     };
     /**
      * Update the navigation property classes in education
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -141,7 +143,7 @@ export class EducationClassItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -193,7 +195,7 @@ export class EducationClassItemRequestBuilder {
     };
     /**
      * Update the navigation property classes in education
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationClass

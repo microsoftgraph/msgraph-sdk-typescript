@@ -1,6 +1,8 @@
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the setPresence method. */
+/**
+ * Provides operations to call the setPresence method.
+ */
 export class SetPresencePostRequestBody implements AdditionalDataHolder, Parsable {
     /** The activity property */
     private _activity?: string | undefined;

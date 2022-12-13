@@ -1,5 +1,7 @@
 
-/** Returns a list of case caseOperation objects for this case. */
+/**
+ * Returns a list of case caseOperation objects for this case.
+ */
 export class CaseOperationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

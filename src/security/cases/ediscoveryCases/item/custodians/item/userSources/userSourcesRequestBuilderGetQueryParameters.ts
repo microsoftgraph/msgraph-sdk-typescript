@@ -1,5 +1,7 @@
 
-/** Get a list of the userSource objects associated with an ediscoveryCustodian. */
+/**
+ * Get a list of the userSource objects associated with an ediscoveryCustodian.
+ */
 export class UserSourcesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the cloudCommunications singleton. */
 export enum MeetingChatMode {
     Enabled = "enabled",
     Disabled = "disabled",

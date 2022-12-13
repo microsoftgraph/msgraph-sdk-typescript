@@ -3,7 +3,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {GetYammerActivityCountsWithPeriodRequestBuilderGetRequestConfiguration} from './getYammerActivityCountsWithPeriodRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getYammerActivityCounts method. */
+/**
+ * Provides operations to call the getYammerActivityCounts method.
+ */
 export class GetYammerActivityCountsWithPeriodRequestBuilder {
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

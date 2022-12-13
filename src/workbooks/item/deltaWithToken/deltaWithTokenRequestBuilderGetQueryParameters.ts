@@ -1,5 +1,7 @@
 
-/** Invoke function delta */
+/**
+ * Invoke function delta
+ */
 export class DeltaWithTokenRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

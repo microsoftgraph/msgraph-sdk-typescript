@@ -1,5 +1,7 @@
 
-/** noncustodialDataSource sources that are included in the eDiscovery search */
+/**
+ * noncustodialDataSource sources that are included in the eDiscovery search
+ */
 export class NoncustodialSourcesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

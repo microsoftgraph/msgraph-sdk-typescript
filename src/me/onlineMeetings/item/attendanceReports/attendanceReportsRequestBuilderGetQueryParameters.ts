@@ -1,5 +1,7 @@
 
-/** Get a list of meetingAttendanceReport objects for an onlineMeeting. Each time an online meeting ends, an attendance report is generated for that session. */
+/**
+ * Get a list of meetingAttendanceReport objects for an onlineMeeting. Each time an online meeting ends, an attendance report is generated for that session.
+ */
 export class AttendanceReportsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;

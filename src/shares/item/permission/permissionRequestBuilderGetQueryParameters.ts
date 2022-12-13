@@ -1,5 +1,7 @@
 
-/** Used to access the permission representing the underlying sharing link */
+/**
+ * Used to access the permission representing the underlying sharing link
+ */
 export class PermissionRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;

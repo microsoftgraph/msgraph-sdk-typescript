@@ -11,7 +11,9 @@ import {TermsOfUseRequestBuilderGetRequestConfiguration} from './termsOfUseReque
 import {TermsOfUseRequestBuilderPatchRequestConfiguration} from './termsOfUseRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the termsOfUse property of the microsoft.graph.identityGovernance entity. */
+/**
+ * Provides operations to manage the termsOfUse property of the microsoft.graph.identityGovernance entity.
+ */
 export class TermsOfUseRequestBuilder {
     /** Provides operations to manage the agreementAcceptances property of the microsoft.graph.termsOfUseContainer entity. */
     public get agreementAcceptances(): AgreementAcceptancesRequestBuilder {
@@ -88,7 +90,7 @@ export class TermsOfUseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
@@ -98,7 +100,7 @@ export class TermsOfUseRequestBuilder {
     };
     /**
      * Update the navigation property termsOfUse in identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -108,7 +110,7 @@ export class TermsOfUseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = "application/json";
+        requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
@@ -149,7 +151,7 @@ export class TermsOfUseRequestBuilder {
     };
     /**
      * Update the navigation property termsOfUse in identityGovernance
-     * @param body 
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TermsOfUseContainer
