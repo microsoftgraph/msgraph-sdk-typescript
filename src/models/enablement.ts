@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum Enablement {
     /** Device default value, no intent. */
     NotConfigured = "notConfigured",

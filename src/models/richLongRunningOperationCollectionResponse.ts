@@ -2,9 +2,6 @@ import {createRichLongRunningOperationFromDiscriminatorValue} from './createRich
 import {BaseCollectionPaginationCountResponse, RichLongRunningOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the operations property of the microsoft.graph.list entity.
- */
 export class RichLongRunningOperationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: RichLongRunningOperation[] | undefined;

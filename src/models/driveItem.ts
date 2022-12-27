@@ -30,7 +30,7 @@ import {Audio, BaseItem, Bundle, Deleted, DriveItemVersion, File, FileSystemInfo
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of application entities.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class DriveItem extends BaseItem implements Parsable {
     /** Analytics about the view activities that took place on this item. */

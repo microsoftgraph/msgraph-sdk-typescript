@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreementAcceptance entities.
+ * Provides operations to manage the admin singleton.
  */
 export class NamedLocation extends Entity implements Parsable {
     /** The Timestamp type represents creation date and time of the location using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */

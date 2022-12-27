@@ -5,6 +5,9 @@ import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of agreement entities.
+ */
 export class RiskyServicePrincipal extends Entity implements Parsable {
     /** The globally unique identifier for the associated application (its appId property), if any. */
     private _appId?: string | undefined;
@@ -41,7 +44,7 @@ export class RiskyServicePrincipal extends Entity implements Parsable {
         this._appId = value;
     };
     /**
-     * Instantiates a new RiskyServicePrincipal and sets the default values.
+     * Instantiates a new riskyServicePrincipal and sets the default values.
      */
     public constructor() {
         super();

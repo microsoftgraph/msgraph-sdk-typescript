@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the admin singleton. */
 export enum BookingPriceType {
     /** The price of the service is not defined. */
     Undefined = "undefined",

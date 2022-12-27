@@ -2,7 +2,7 @@ import {DirectoryObject} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to call the instantiate method.
  */
 export class Endpoint extends DirectoryObject implements Parsable {
     /** The capability property */

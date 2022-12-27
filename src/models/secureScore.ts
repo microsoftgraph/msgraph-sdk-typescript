@@ -5,7 +5,7 @@ import {AverageComparativeScore, ControlScore, Entity, SecurityVendorInformation
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the admin singleton.
  */
 export class SecureScore extends Entity implements Parsable {
     /** Active user count of the given tenant. */

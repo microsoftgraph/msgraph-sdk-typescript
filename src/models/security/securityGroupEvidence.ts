@@ -2,9 +2,9 @@ import {AlertEvidence} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SecurityGroupEvidence extends AlertEvidence implements Parsable {
-    /** The displayName property */
+    /** The name of the security group. */
     private _displayName?: string | undefined;
-    /** The securityGroupId property */
+    /** Unique identifier of the security group. */
     private _securityGroupId?: string | undefined;
     /**
      * Instantiates a new SecurityGroupEvidence and sets the default values.
@@ -13,14 +13,14 @@ export class SecurityGroupEvidence extends AlertEvidence implements Parsable {
         super();
     };
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name of the security group.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The name of the security group.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -37,14 +37,14 @@ export class SecurityGroupEvidence extends AlertEvidence implements Parsable {
         };
     };
     /**
-     * Gets the securityGroupId property value. The securityGroupId property
+     * Gets the securityGroupId property value. Unique identifier of the security group.
      * @returns a string
      */
     public get securityGroupId() {
         return this._securityGroupId;
     };
     /**
-     * Sets the securityGroupId property value. The securityGroupId property
+     * Sets the securityGroupId property value. Unique identifier of the security group.
      * @param value Value to set for the securityGroupId property.
      */
     public set securityGroupId(value: string | undefined) {

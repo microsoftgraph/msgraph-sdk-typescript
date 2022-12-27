@@ -2,9 +2,6 @@ import {createPrintOperationFromDiscriminatorValue} from './createPrintOperation
 import {BaseCollectionPaginationCountResponse, PrintOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the operations property of the microsoft.graph.print entity.
- */
 export class PrintOperationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: PrintOperation[] | undefined;

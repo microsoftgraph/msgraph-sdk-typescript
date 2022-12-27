@@ -2,7 +2,7 @@ import {AlertEvidence} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UrlEvidence extends AlertEvidence implements Parsable {
-    /** The url property */
+    /** The Unique Resource Locator (URL). */
     private _url?: string | undefined;
     /**
      * Instantiates a new UrlEvidence and sets the default values.
@@ -29,14 +29,14 @@ export class UrlEvidence extends AlertEvidence implements Parsable {
         writer.writeStringValue("url", this.url);
     };
     /**
-     * Gets the url property value. The url property
+     * Gets the url property value. The Unique Resource Locator (URL).
      * @returns a string
      */
     public get url() {
         return this._url;
     };
     /**
-     * Sets the url property value. The url property
+     * Sets the url property value. The Unique Resource Locator (URL).
      * @param value Value to set for the url property.
      */
     public set url(value: string | undefined) {

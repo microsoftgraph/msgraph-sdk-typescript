@@ -5,25 +5,25 @@ import {AlertEvidence, FileDetails, UserAccount} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ProcessEvidence extends AlertEvidence implements Parsable {
-    /** The detectionStatus property */
+    /** The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue. */
     private _detectionStatus?: DetectionStatus | undefined;
-    /** The imageFile property */
+    /** Image file details. */
     private _imageFile?: FileDetails | undefined;
-    /** The mdeDeviceId property */
+    /** A unique identifier assigned to a device by Microsoft Defender for Endpoint. */
     private _mdeDeviceId?: string | undefined;
-    /** The parentProcessCreationDateTime property */
+    /** Date and time when the parent of the process was created. */
     private _parentProcessCreationDateTime?: Date | undefined;
-    /** The parentProcessId property */
+    /** Process ID (PID) of the parent process that spawned the process. */
     private _parentProcessId?: number | undefined;
-    /** The parentProcessImageFile property */
+    /** Parent process image file details. */
     private _parentProcessImageFile?: FileDetails | undefined;
-    /** The processCommandLine property */
+    /** Command line used to create the new process. */
     private _processCommandLine?: string | undefined;
-    /** The processCreationDateTime property */
+    /** Date and time the process was created. */
     private _processCreationDateTime?: Date | undefined;
-    /** The processId property */
+    /** Process ID (PID) of the newly created process. */
     private _processId?: number | undefined;
-    /** The userAccount property */
+    /** User details of the user that ran the process. */
     private _userAccount?: UserAccount | undefined;
     /**
      * Instantiates a new ProcessEvidence and sets the default values.
@@ -32,14 +32,14 @@ export class ProcessEvidence extends AlertEvidence implements Parsable {
         super();
     };
     /**
-     * Gets the detectionStatus property value. The detectionStatus property
+     * Gets the detectionStatus property value. The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
      * @returns a detectionStatus
      */
     public get detectionStatus() {
         return this._detectionStatus;
     };
     /**
-     * Sets the detectionStatus property value. The detectionStatus property
+     * Sets the detectionStatus property value. The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
      * @param value Value to set for the detectionStatus property.
      */
     public set detectionStatus(value: DetectionStatus | undefined) {
@@ -64,112 +64,112 @@ export class ProcessEvidence extends AlertEvidence implements Parsable {
         };
     };
     /**
-     * Gets the imageFile property value. The imageFile property
+     * Gets the imageFile property value. Image file details.
      * @returns a fileDetails
      */
     public get imageFile() {
         return this._imageFile;
     };
     /**
-     * Sets the imageFile property value. The imageFile property
+     * Sets the imageFile property value. Image file details.
      * @param value Value to set for the imageFile property.
      */
     public set imageFile(value: FileDetails | undefined) {
         this._imageFile = value;
     };
     /**
-     * Gets the mdeDeviceId property value. The mdeDeviceId property
+     * Gets the mdeDeviceId property value. A unique identifier assigned to a device by Microsoft Defender for Endpoint.
      * @returns a string
      */
     public get mdeDeviceId() {
         return this._mdeDeviceId;
     };
     /**
-     * Sets the mdeDeviceId property value. The mdeDeviceId property
+     * Sets the mdeDeviceId property value. A unique identifier assigned to a device by Microsoft Defender for Endpoint.
      * @param value Value to set for the mdeDeviceId property.
      */
     public set mdeDeviceId(value: string | undefined) {
         this._mdeDeviceId = value;
     };
     /**
-     * Gets the parentProcessCreationDateTime property value. The parentProcessCreationDateTime property
+     * Gets the parentProcessCreationDateTime property value. Date and time when the parent of the process was created.
      * @returns a Date
      */
     public get parentProcessCreationDateTime() {
         return this._parentProcessCreationDateTime;
     };
     /**
-     * Sets the parentProcessCreationDateTime property value. The parentProcessCreationDateTime property
+     * Sets the parentProcessCreationDateTime property value. Date and time when the parent of the process was created.
      * @param value Value to set for the parentProcessCreationDateTime property.
      */
     public set parentProcessCreationDateTime(value: Date | undefined) {
         this._parentProcessCreationDateTime = value;
     };
     /**
-     * Gets the parentProcessId property value. The parentProcessId property
+     * Gets the parentProcessId property value. Process ID (PID) of the parent process that spawned the process.
      * @returns a int64
      */
     public get parentProcessId() {
         return this._parentProcessId;
     };
     /**
-     * Sets the parentProcessId property value. The parentProcessId property
+     * Sets the parentProcessId property value. Process ID (PID) of the parent process that spawned the process.
      * @param value Value to set for the parentProcessId property.
      */
     public set parentProcessId(value: number | undefined) {
         this._parentProcessId = value;
     };
     /**
-     * Gets the parentProcessImageFile property value. The parentProcessImageFile property
+     * Gets the parentProcessImageFile property value. Parent process image file details.
      * @returns a fileDetails
      */
     public get parentProcessImageFile() {
         return this._parentProcessImageFile;
     };
     /**
-     * Sets the parentProcessImageFile property value. The parentProcessImageFile property
+     * Sets the parentProcessImageFile property value. Parent process image file details.
      * @param value Value to set for the parentProcessImageFile property.
      */
     public set parentProcessImageFile(value: FileDetails | undefined) {
         this._parentProcessImageFile = value;
     };
     /**
-     * Gets the processCommandLine property value. The processCommandLine property
+     * Gets the processCommandLine property value. Command line used to create the new process.
      * @returns a string
      */
     public get processCommandLine() {
         return this._processCommandLine;
     };
     /**
-     * Sets the processCommandLine property value. The processCommandLine property
+     * Sets the processCommandLine property value. Command line used to create the new process.
      * @param value Value to set for the processCommandLine property.
      */
     public set processCommandLine(value: string | undefined) {
         this._processCommandLine = value;
     };
     /**
-     * Gets the processCreationDateTime property value. The processCreationDateTime property
+     * Gets the processCreationDateTime property value. Date and time the process was created.
      * @returns a Date
      */
     public get processCreationDateTime() {
         return this._processCreationDateTime;
     };
     /**
-     * Sets the processCreationDateTime property value. The processCreationDateTime property
+     * Sets the processCreationDateTime property value. Date and time the process was created.
      * @param value Value to set for the processCreationDateTime property.
      */
     public set processCreationDateTime(value: Date | undefined) {
         this._processCreationDateTime = value;
     };
     /**
-     * Gets the processId property value. The processId property
+     * Gets the processId property value. Process ID (PID) of the newly created process.
      * @returns a int64
      */
     public get processId() {
         return this._processId;
     };
     /**
-     * Sets the processId property value. The processId property
+     * Sets the processId property value. Process ID (PID) of the newly created process.
      * @param value Value to set for the processId property.
      */
     public set processId(value: number | undefined) {
@@ -194,14 +194,14 @@ export class ProcessEvidence extends AlertEvidence implements Parsable {
         writer.writeObjectValue<UserAccount>("userAccount", this.userAccount);
     };
     /**
-     * Gets the userAccount property value. The userAccount property
+     * Gets the userAccount property value. User details of the user that ran the process.
      * @returns a userAccount
      */
     public get userAccount() {
         return this._userAccount;
     };
     /**
-     * Sets the userAccount property value. The userAccount property
+     * Sets the userAccount property value. User details of the user that ran the process.
      * @param value Value to set for the userAccount property.
      */
     public set userAccount(value: UserAccount | undefined) {

@@ -6,7 +6,7 @@ import {Entity, ResourceReference, ResourceVisualization, SharingDetail} from '.
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of application entities.
+ * Provides operations to manage the admin singleton.
  */
 export class SharedInsight extends Entity implements Parsable {
     /** Details about the shared item. Read only. */

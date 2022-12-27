@@ -6,7 +6,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class MicrosoftAuthenticatorAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration implements Parsable {
     /** A collection of Microsoft Authenticator settings such as application context and location context, and whether they are enabled for all users or specific users only. */
     private _featureSettings?: MicrosoftAuthenticatorFeatureSettings | undefined;
-    /** A collection of users or groups who are enabled to use the authentication method. Expanded by default. */
+    /** A collection of groups that are enabled to use the authentication method. Expanded by default. */
     private _includeTargets?: MicrosoftAuthenticatorAuthenticationMethodTarget[] | undefined;
     /**
      * Instantiates a new MicrosoftAuthenticatorAuthenticationMethodConfiguration and sets the default values.
@@ -40,14 +40,14 @@ export class MicrosoftAuthenticatorAuthenticationMethodConfiguration extends Aut
         };
     };
     /**
-     * Gets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method. Expanded by default.
+     * Gets the includeTargets property value. A collection of groups that are enabled to use the authentication method. Expanded by default.
      * @returns a microsoftAuthenticatorAuthenticationMethodTarget
      */
     public get includeTargets() {
         return this._includeTargets;
     };
     /**
-     * Sets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method. Expanded by default.
+     * Sets the includeTargets property value. A collection of groups that are enabled to use the authentication method. Expanded by default.
      * @param value Value to set for the includeTargets property.
      */
     public set includeTargets(value: MicrosoftAuthenticatorAuthenticationMethodTarget[] | undefined) {

@@ -3,7 +3,7 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreementAcceptance entities.
+ * Provides operations to manage the collection of dataPolicyOperation entities.
  */
 export class DataPolicyOperation extends Entity implements Parsable {
     /** Represents when the request for this data policy operation was completed, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Null until the operation completes. */

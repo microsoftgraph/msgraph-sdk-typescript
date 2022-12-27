@@ -21,7 +21,7 @@ import {BooleanColumn, CalculatedColumn, ChoiceColumn, ColumnValidation, Content
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the admin singleton.
  */
 export class ColumnDefinition extends Entity implements Parsable {
     /** This column stores boolean values. */

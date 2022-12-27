@@ -3,7 +3,7 @@ import {EducationResource, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the admin singleton.
  */
 export class EducationSubmissionResource extends Entity implements Parsable {
     /** Pointer to the assignment from which this resource was copied. If this is null, the student uploaded the resource. */

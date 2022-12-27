@@ -18,7 +18,7 @@ import {createStoreFromDiscriminatorValue} from './termStore/createStoreFromDisc
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the admin singleton.
  */
 export class Site extends BaseItem implements Parsable {
     /** Analytics about the view activities that took place in this site. */

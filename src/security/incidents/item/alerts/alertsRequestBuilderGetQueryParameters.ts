@@ -1,6 +1,6 @@
 
 /**
- * Get alerts from security
+ * The list of related alerts. Supports $expand.
  */
 export class AlertsRequestBuilderGetQueryParameters {
     /** Include count of items */

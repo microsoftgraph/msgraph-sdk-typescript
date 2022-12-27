@@ -6,17 +6,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AlertEvidence implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The createdDateTime property */
+    /** The time the evidence was created and added to the alert. */
     private _createdDateTime?: Date | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /** The remediationStatus property */
     private _remediationStatus?: EvidenceRemediationStatus | undefined;
-    /** The remediationStatusDetails property */
+    /** Details about the remediation status. */
     private _remediationStatusDetails?: string | undefined;
-    /** The roles property */
+    /** The role/s that an evidence entity represents in an alert, e.g., an IP address that is associated with an attacker will have the evidence role 'Attacker'. */
     private _roles?: EvidenceRole[] | undefined;
-    /** The tags property */
+    /** Array of custom tags associated with an evidence instance, for example to denote a group of devices, high value assets, etc. */
     private _tags?: string[] | undefined;
     /** The verdict property */
     private _verdict?: EvidenceVerdict | undefined;
@@ -41,14 +41,14 @@ export class AlertEvidence implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The time the evidence was created and added to the alert.
      * @returns a Date
      */
     public get createdDateTime() {
         return this._createdDateTime;
     };
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The time the evidence was created and added to the alert.
      * @param value Value to set for the createdDateTime property.
      */
     public set createdDateTime(value: Date | undefined) {
@@ -98,28 +98,28 @@ export class AlertEvidence implements AdditionalDataHolder, Parsable {
         this._remediationStatus = value;
     };
     /**
-     * Gets the remediationStatusDetails property value. The remediationStatusDetails property
+     * Gets the remediationStatusDetails property value. Details about the remediation status.
      * @returns a string
      */
     public get remediationStatusDetails() {
         return this._remediationStatusDetails;
     };
     /**
-     * Sets the remediationStatusDetails property value. The remediationStatusDetails property
+     * Sets the remediationStatusDetails property value. Details about the remediation status.
      * @param value Value to set for the remediationStatusDetails property.
      */
     public set remediationStatusDetails(value: string | undefined) {
         this._remediationStatusDetails = value;
     };
     /**
-     * Gets the roles property value. The roles property
+     * Gets the roles property value. The role/s that an evidence entity represents in an alert, e.g., an IP address that is associated with an attacker will have the evidence role 'Attacker'.
      * @returns a evidenceRole
      */
     public get roles() {
         return this._roles;
     };
     /**
-     * Sets the roles property value. The roles property
+     * Sets the roles property value. The role/s that an evidence entity represents in an alert, e.g., an IP address that is associated with an attacker will have the evidence role 'Attacker'.
      * @param value Value to set for the roles property.
      */
     public set roles(value: EvidenceRole[] | undefined) {
@@ -141,14 +141,14 @@ export class AlertEvidence implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the tags property value. The tags property
+     * Gets the tags property value. Array of custom tags associated with an evidence instance, for example to denote a group of devices, high value assets, etc.
      * @returns a string
      */
     public get tags() {
         return this._tags;
     };
     /**
-     * Sets the tags property value. The tags property
+     * Sets the tags property value. Array of custom tags associated with an evidence instance, for example to denote a group of devices, high value assets, etc.
      * @param value Value to set for the tags property.
      */
     public set tags(value: string[] | undefined) {

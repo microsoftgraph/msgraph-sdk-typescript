@@ -6,7 +6,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class EmailAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration implements Parsable {
     /** Determines whether email OTP is usable by external users for authentication. Possible values are: default, enabled, disabled, unknownFutureValue. Tenants in the default state who did not use public preview will automatically have email OTP enabled beginning in October 2021. */
     private _allowExternalIdToUseEmailOtp?: ExternalEmailOtpState | undefined;
-    /** A collection of users or groups who are enabled to use the authentication method. */
+    /** A collection of groups that are enabled to use the authentication method. */
     private _includeTargets?: AuthenticationMethodTarget[] | undefined;
     /**
      * Gets the allowExternalIdToUseEmailOtp property value. Determines whether email OTP is usable by external users for authentication. Possible values are: default, enabled, disabled, unknownFutureValue. Tenants in the default state who did not use public preview will automatically have email OTP enabled beginning in October 2021.
@@ -40,14 +40,14 @@ export class EmailAuthenticationMethodConfiguration extends AuthenticationMethod
         };
     };
     /**
-     * Gets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
+     * Gets the includeTargets property value. A collection of groups that are enabled to use the authentication method.
      * @returns a authenticationMethodTarget
      */
     public get includeTargets() {
         return this._includeTargets;
     };
     /**
-     * Sets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
+     * Sets the includeTargets property value. A collection of groups that are enabled to use the authentication method.
      * @param value Value to set for the includeTargets property.
      */
     public set includeTargets(value: AuthenticationMethodTarget[] | undefined) {

@@ -3,7 +3,7 @@ import {AttendanceRecord, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the cloudCommunications singleton.
+ * Provides operations to manage the admin singleton.
  */
 export class MeetingAttendanceReport extends Entity implements Parsable {
     /** List of attendance records of an attendance report. Read-only. */

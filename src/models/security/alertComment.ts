@@ -3,11 +3,11 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AlertComment implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The comment property */
+    /** The comment text. */
     private _comment?: string | undefined;
-    /** The createdByDisplayName property */
+    /** The person or app name that submitted the comment. */
     private _createdByDisplayName?: string | undefined;
-    /** The createdDateTime property */
+    /** The time when the comment was submitted. */
     private _createdDateTime?: Date | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
@@ -26,14 +26,14 @@ export class AlertComment implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the comment property value. The comment property
+     * Gets the comment property value. The comment text.
      * @returns a string
      */
     public get comment() {
         return this._comment;
     };
     /**
-     * Sets the comment property value. The comment property
+     * Sets the comment property value. The comment text.
      * @param value Value to set for the comment property.
      */
     public set comment(value: string | undefined) {
@@ -46,28 +46,28 @@ export class AlertComment implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the createdByDisplayName property value. The createdByDisplayName property
+     * Gets the createdByDisplayName property value. The person or app name that submitted the comment.
      * @returns a string
      */
     public get createdByDisplayName() {
         return this._createdByDisplayName;
     };
     /**
-     * Sets the createdByDisplayName property value. The createdByDisplayName property
+     * Sets the createdByDisplayName property value. The person or app name that submitted the comment.
      * @param value Value to set for the createdByDisplayName property.
      */
     public set createdByDisplayName(value: string | undefined) {
         this._createdByDisplayName = value;
     };
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The time when the comment was submitted.
      * @returns a Date
      */
     public get createdDateTime() {
         return this._createdDateTime;
     };
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The time when the comment was submitted.
      * @param value Value to set for the createdDateTime property.
      */
     public set createdDateTime(value: Date | undefined) {
