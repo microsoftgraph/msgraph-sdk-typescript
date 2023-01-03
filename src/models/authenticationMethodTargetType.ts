@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
+/** Provides operations to manage the appCatalogs singleton. */
 export enum AuthenticationMethodTargetType {
     User = "user",
     Group = "group",

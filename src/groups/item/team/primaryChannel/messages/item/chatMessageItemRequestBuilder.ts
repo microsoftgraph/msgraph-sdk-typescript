@@ -9,6 +9,8 @@ import {HostedContentsRequestBuilder} from './hostedContents/hostedContentsReque
 import {ChatMessageHostedContentItemRequestBuilder} from './hostedContents/item/chatMessageHostedContentItemRequestBuilder';
 import {ChatMessageItemRequestBuilder as I4138b97f03ab9da9e31412c0f18e6522968dfb2bc457364e70d13f77eb8eee65} from './replies/item/chatMessageItemRequestBuilder';
 import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
+import {SoftDeleteRequestBuilder} from './softDelete/softDeleteRequestBuilder';
+import {UndoSoftDeleteRequestBuilder} from './undoSoftDelete/undoSoftDeleteRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -27,6 +29,14 @@ export class ChatMessageItemRequestBuilder {
     }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the softDelete method. */
+    public get softDelete(): SoftDeleteRequestBuilder {
+        return new SoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the undoSoftDelete method. */
+    public get undoSoftDelete(): UndoSoftDeleteRequestBuilder {
+        return new UndoSoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

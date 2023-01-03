@@ -189,7 +189,7 @@ export class Application extends DirectoryObject implements Parsable {
         this._certification = value;
     };
     /**
-     * Instantiates a new application and sets the default values.
+     * Instantiates a new Application and sets the default values.
      */
     public constructor() {
         super();

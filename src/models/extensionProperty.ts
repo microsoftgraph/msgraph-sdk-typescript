@@ -2,7 +2,7 @@ import {DirectoryObject} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to call the instantiate method.
+ * Provides operations to manage the appCatalogs singleton.
  */
 export class ExtensionProperty extends DirectoryObject implements Parsable {
     /** Display name of the application object on which this extension property is defined. Read-only. */

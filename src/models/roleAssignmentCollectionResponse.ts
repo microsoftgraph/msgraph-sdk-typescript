@@ -2,9 +2,6 @@ import {createRoleAssignmentFromDiscriminatorValue} from './createRoleAssignment
 import {BaseCollectionPaginationCountResponse, RoleAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the roleAssignments property of the microsoft.graph.roleDefinition entity.
- */
 export class RoleAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: RoleAssignment[] | undefined;

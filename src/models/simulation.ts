@@ -8,7 +8,7 @@ import {SimulationStatus} from './simulationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreementAcceptance entities.
+ * Provides operations to manage the appCatalogs singleton.
  */
 export class Simulation extends Entity implements Parsable {
     /** The social engineering technique used in the attack simulation and training campaign. Supports $filter and $orderby. Possible values are: unknown, credentialHarvesting, attachmentMalware, driveByUrl, linkInAttachment, linkToMalwareFile, unknownFutureValue. For more information on the types of social engineering attack techniques, see simulations. */

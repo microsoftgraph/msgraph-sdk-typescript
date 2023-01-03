@@ -4,7 +4,7 @@ import {CaseStatus} from './caseStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the appCatalogs singleton.
  */
 export class Case_escaped extends Entity implements Parsable {
     /** The createdDateTime property */

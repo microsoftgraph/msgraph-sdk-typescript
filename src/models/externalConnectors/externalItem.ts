@@ -6,7 +6,7 @@ import {Acl, ExternalItemContent, Properties} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of externalConnection entities.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class ExternalItem extends Entity implements Parsable {
     /** An array of access control entries. Each entry specifies the access granted to a user or group. Required. */

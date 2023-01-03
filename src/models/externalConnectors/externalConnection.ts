@@ -9,7 +9,7 @@ import {Configuration, ConnectionOperation, ExternalGroup, ExternalItem, Schema}
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of externalConnection entities.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class ExternalConnection extends Entity implements Parsable {
     /** Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional. */

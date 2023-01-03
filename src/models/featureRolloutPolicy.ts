@@ -4,7 +4,7 @@ import {StagedFeatureName} from './stagedFeatureName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the appCatalogs singleton.
  */
 export class FeatureRolloutPolicy extends Entity implements Parsable {
     /** Nullable. Specifies a list of directoryObjects that feature is enabled for. */

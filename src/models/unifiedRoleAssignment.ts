@@ -5,7 +5,7 @@ import {AppScope, DirectoryObject, Entity, UnifiedRoleDefinition} from './index'
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the appCatalogs singleton.
  */
 export class UnifiedRoleAssignment extends Entity implements Parsable {
     /** Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand. */

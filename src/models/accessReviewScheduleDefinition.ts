@@ -9,7 +9,7 @@ import {AccessReviewInstance, AccessReviewNotificationRecipientItem, AccessRevie
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreementAcceptance entities.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class AccessReviewScheduleDefinition extends Entity implements Parsable {
     /** Defines the list of additional users or group members to be notified of the access review progress. */

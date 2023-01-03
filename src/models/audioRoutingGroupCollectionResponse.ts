@@ -2,9 +2,6 @@ import {createAudioRoutingGroupFromDiscriminatorValue} from './createAudioRoutin
 import {AudioRoutingGroup, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
- */
 export class AudioRoutingGroupCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: AudioRoutingGroup[] | undefined;

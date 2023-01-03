@@ -21,7 +21,7 @@ import {Modality} from './modality';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the cloudCommunications singleton.
+ * Provides operations to manage the appCatalogs singleton.
  */
 export class Call extends Entity implements Parsable {
     /** The audioRoutingGroups property */

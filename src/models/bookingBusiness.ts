@@ -32,7 +32,7 @@ export class BookingBusiness extends Entity implements Parsable {
     private _email?: string | undefined;
     /** The scheduling page has been made available to external customers. Use the publish and unpublish actions to set this property. Read-only. */
     private _isPublished?: boolean | undefined;
-    /** The languageTag property */
+    /** The language of the self-service booking page. */
     private _languageTag?: string | undefined;
     /** The telephone number for the business. The phone property, together with address and webSiteUrl, appear in the footer of a business scheduling page. */
     private _phone?: string | undefined;
@@ -233,14 +233,14 @@ export class BookingBusiness extends Entity implements Parsable {
         this._isPublished = value;
     };
     /**
-     * Gets the languageTag property value. The languageTag property
+     * Gets the languageTag property value. The language of the self-service booking page.
      * @returns a string
      */
     public get languageTag() {
         return this._languageTag;
     };
     /**
-     * Sets the languageTag property value. The languageTag property
+     * Sets the languageTag property value. The language of the self-service booking page.
      * @param value Value to set for the languageTag property.
      */
     public set languageTag(value: string | undefined) {

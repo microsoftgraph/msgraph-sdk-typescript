@@ -2,9 +2,6 @@ import {createAuthenticationContextClassReferenceFromDiscriminatorValue} from '.
 import {AuthenticationContextClassReference, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.
- */
 export class AuthenticationContextClassReferenceCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: AuthenticationContextClassReference[] | undefined;

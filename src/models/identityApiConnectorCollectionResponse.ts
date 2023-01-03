@@ -2,9 +2,6 @@ import {createIdentityApiConnectorFromDiscriminatorValue} from './createIdentity
 import {BaseCollectionPaginationCountResponse, IdentityApiConnector} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
- */
 export class IdentityApiConnectorCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: IdentityApiConnector[] | undefined;

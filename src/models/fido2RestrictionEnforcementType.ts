@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
+/** Provides operations to manage the appCatalogs singleton. */
 export enum Fido2RestrictionEnforcementType {
     Allow = "allow",
     Block = "block",

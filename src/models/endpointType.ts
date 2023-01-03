@@ -1,4 +1,4 @@
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the appCatalogs singleton. */
 export enum EndpointType {
     Default_escaped = "default",
     Voicemail = "voicemail",

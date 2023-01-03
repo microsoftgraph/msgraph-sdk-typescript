@@ -29,7 +29,7 @@ export class SetUpResourcesFolderRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Create a SharePoint folder to upload files for a given educationAssignment.  The teacher determines the resources to upload in the assignment's folder. 
+     * Create a SharePoint folder to upload files for a given educationAssignment. Only teachers can perform this operation. The teacher determines the resources to upload in the assignment's folder. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -46,7 +46,7 @@ export class SetUpResourcesFolderRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a SharePoint folder to upload files for a given educationAssignment.  The teacher determines the resources to upload in the assignment's folder. 
+     * Create a SharePoint folder to upload files for a given educationAssignment. Only teachers can perform this operation. The teacher determines the resources to upload in the assignment's folder. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationAssignment

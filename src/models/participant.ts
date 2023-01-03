@@ -5,7 +5,7 @@ import {Entity, MediaStream, ParticipantInfo, RecordingInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the cloudCommunications singleton.
+ * Provides operations to manage the appCatalogs singleton.
  */
 export class Participant extends Entity implements Parsable {
     /** The info property */

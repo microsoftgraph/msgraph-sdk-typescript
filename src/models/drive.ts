@@ -45,7 +45,7 @@ export class Drive extends BaseItem implements Parsable {
         this._bundles = value;
     };
     /**
-     * Instantiates a new Drive and sets the default values.
+     * Instantiates a new drive and sets the default values.
      */
     public constructor() {
         super();

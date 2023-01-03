@@ -37,7 +37,7 @@ export class AssignmentCategoriesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Retrieve a list of educationCategory objects.
+     * Retrieve a list of educationCategory objects. Only teachers can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -55,7 +55,7 @@ export class AssignmentCategoriesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Creates a new educationCategory on an educationClass.
+     * Creates a new educationCategory on an educationClass. Only teachers can perform this operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -82,7 +82,7 @@ export class AssignmentCategoriesRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * Retrieve a list of educationCategory objects.
+     * Retrieve a list of educationCategory objects. Only teachers can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationCategoryCollectionResponse
@@ -99,7 +99,7 @@ export class AssignmentCategoriesRequestBuilder {
         return this.requestAdapter?.sendAsync<EducationCategoryCollectionResponse>(requestInfo, createEducationCategoryCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Creates a new educationCategory on an educationClass.
+     * Creates a new educationCategory on an educationClass. Only teachers can perform this operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

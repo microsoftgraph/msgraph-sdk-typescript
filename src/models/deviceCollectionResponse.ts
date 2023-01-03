@@ -2,9 +2,6 @@ import {createDeviceFromDiscriminatorValue} from './createDeviceFromDiscriminato
 import {BaseCollectionPaginationCountResponse, Device} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Casts the previous resource to device.
- */
 export class DeviceCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Device[] | undefined;

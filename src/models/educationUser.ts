@@ -19,7 +19,7 @@ import {AssignedLicense, AssignedPlan, EducationAssignment, EducationClass, Educ
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreementAcceptance entities.
+ * Provides operations to manage the appCatalogs singleton.
  */
 export class EducationUser extends Entity implements Parsable {
     /** True if the account is enabled; otherwise, false. This property is required when a user is created. Supports $filter. */

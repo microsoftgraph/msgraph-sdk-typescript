@@ -30,7 +30,7 @@ export class RefRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * List all the categories associated with an assignment.
+     * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -67,7 +67,7 @@ export class RefRequestBuilder {
         return requestInfo;
     };
     /**
-     * List all the categories associated with an assignment.
+     * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of StringCollectionResponse

@@ -2,9 +2,6 @@ import {createAppConsentRequestFromDiscriminatorValue} from './createAppConsentR
 import {AppConsentRequest, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity.
- */
 export class AppConsentRequestCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: AppConsentRequest[] | undefined;

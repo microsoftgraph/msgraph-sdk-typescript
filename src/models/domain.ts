@@ -6,7 +6,7 @@ import {DirectoryObject, DomainDnsRecord, DomainState, Entity, InternalDomainFed
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of domain entities.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class Domain extends Entity implements Parsable {
     /** Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable. */

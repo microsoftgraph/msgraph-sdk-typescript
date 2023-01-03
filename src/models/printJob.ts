@@ -7,7 +7,7 @@ import {Entity, PrintDocument, PrintJobConfiguration, PrintJobStatus, PrintTask,
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreementAcceptance entities.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class PrintJob extends Entity implements Parsable {
     /** The configuration property */

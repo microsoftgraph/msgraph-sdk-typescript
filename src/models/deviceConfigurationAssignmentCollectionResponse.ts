@@ -2,9 +2,6 @@ import {createDeviceConfigurationAssignmentFromDiscriminatorValue} from './creat
 import {BaseCollectionPaginationCountResponse, DeviceConfigurationAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the assignments property of the microsoft.graph.deviceConfiguration entity.
- */
 export class DeviceConfigurationAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DeviceConfigurationAssignment[] | undefined;

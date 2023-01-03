@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreementAcceptance entities.
+ * Provides operations to manage the appCatalogs singleton.
  */
 export class LinkedResource extends Entity implements Parsable {
     /** Field indicating the app name of the source that is sending the linkedResource. */

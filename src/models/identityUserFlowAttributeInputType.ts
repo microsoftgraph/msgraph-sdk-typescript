@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Provides operations to manage the appCatalogs singleton. */
 export enum IdentityUserFlowAttributeInputType {
     TextBox = "textBox",
     DateTimeDropdown = "dateTimeDropdown",
