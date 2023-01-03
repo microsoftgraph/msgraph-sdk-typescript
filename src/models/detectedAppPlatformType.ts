@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Provides operations to manage the collection of agreement entities. */
 export enum DetectedAppPlatformType {
     /** Default. Set to unknown when platform cannot be determined. */
     Unknown = "unknown",

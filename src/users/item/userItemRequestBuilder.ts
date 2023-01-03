@@ -367,7 +367,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UserActivityItemRequestBuilder
      */
-    public activitiesById(id: string) : UserActivityItemRequestBuilder {
+    public activitiesById(id: string) : UserActivityItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["userActivity%2Did"] = id
@@ -378,7 +378,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AgreementAcceptanceItemRequestBuilder
      */
-    public agreementAcceptancesById(id: string) : AgreementAcceptanceItemRequestBuilder {
+    public agreementAcceptancesById(id: string) : AgreementAcceptanceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["agreementAcceptance%2Did"] = id
@@ -389,7 +389,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AppRoleAssignmentItemRequestBuilder
      */
-    public appRoleAssignmentsById(id: string) : AppRoleAssignmentItemRequestBuilder {
+    public appRoleAssignmentsById(id: string) : AppRoleAssignmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["appRoleAssignment%2Did"] = id
@@ -400,7 +400,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a CalendarGroupItemRequestBuilder
      */
-    public calendarGroupsById(id: string) : CalendarGroupItemRequestBuilder {
+    public calendarGroupsById(id: string) : CalendarGroupItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["calendarGroup%2Did"] = id
@@ -411,7 +411,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a CalendarItemRequestBuilder
      */
-    public calendarsById(id: string) : CalendarItemRequestBuilder {
+    public calendarsById(id: string) : CalendarItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["calendar%2Did"] = id
@@ -422,7 +422,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public calendarViewById(id: string) : I9889f7042ea0c7baeef72c5c5c39ef038b559e5469ac1eedcabb5fe36eb4fe1e {
+    public calendarViewById(id: string) : I9889f7042ea0c7baeef72c5c5c39ef038b559e5469ac1eedcabb5fe36eb4fe1e | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
@@ -433,7 +433,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ChatItemRequestBuilder
      */
-    public chatsById(id: string) : ChatItemRequestBuilder {
+    public chatsById(id: string) : ChatItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["chat%2Did"] = id
@@ -457,7 +457,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ContactFolderItemRequestBuilder
      */
-    public contactFoldersById(id: string) : ContactFolderItemRequestBuilder {
+    public contactFoldersById(id: string) : ContactFolderItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contactFolder%2Did"] = id
@@ -468,7 +468,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ContactItemRequestBuilder
      */
-    public contactsById(id: string) : ContactItemRequestBuilder {
+    public contactsById(id: string) : ContactItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contact%2Did"] = id
@@ -495,7 +495,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public createdObjectsById(id: string) : I13a05fb66a37b5dfa3567df795d847fae976eccdda038bff5df5faeeb34b1c53 {
+    public createdObjectsById(id: string) : I13a05fb66a37b5dfa3567df795d847fae976eccdda038bff5df5faeeb34b1c53 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -560,7 +560,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceManagementTroubleshootingEventItemRequestBuilder
      */
-    public deviceManagementTroubleshootingEventsById(id: string) : DeviceManagementTroubleshootingEventItemRequestBuilder {
+    public deviceManagementTroubleshootingEventsById(id: string) : DeviceManagementTroubleshootingEventItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceManagementTroubleshootingEvent%2Did"] = id
@@ -571,7 +571,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public directReportsById(id: string) : I4ab1790d36cffc75d13c6872e157e304fb0d57c8dc80ac0eca7835d8089803b5 {
+    public directReportsById(id: string) : I4ab1790d36cffc75d13c6872e157e304fb0d57c8dc80ac0eca7835d8089803b5 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -582,7 +582,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemRequestBuilder
      */
-    public drivesById(id: string) : DriveItemRequestBuilder {
+    public drivesById(id: string) : DriveItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["drive%2Did"] = id
@@ -593,7 +593,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public eventsById(id: string) : I1875dbe2e0edb9aeff76c4d549b423834624b170a2f600d67c18f55eb6de64c6 {
+    public eventsById(id: string) : I1875dbe2e0edb9aeff76c4d549b423834624b170a2f600d67c18f55eb6de64c6 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
@@ -604,7 +604,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ExtensionItemRequestBuilder
      */
-    public extensionsById(id: string) : ExtensionItemRequestBuilder {
+    public extensionsById(id: string) : ExtensionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["extension%2Did"] = id
@@ -615,7 +615,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SiteItemRequestBuilder
      */
-    public followedSitesById(id: string) : SiteItemRequestBuilder {
+    public followedSitesById(id: string) : SiteItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["site%2Did"] = id
@@ -657,7 +657,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TeamItemRequestBuilder
      */
-    public joinedTeamsById(id: string) : TeamItemRequestBuilder {
+    public joinedTeamsById(id: string) : TeamItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["team%2Did"] = id
@@ -668,7 +668,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a LicenseDetailsItemRequestBuilder
      */
-    public licenseDetailsById(id: string) : LicenseDetailsItemRequestBuilder {
+    public licenseDetailsById(id: string) : LicenseDetailsItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["licenseDetails%2Did"] = id
@@ -679,7 +679,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MailFolderItemRequestBuilder
      */
-    public mailFoldersById(id: string) : MailFolderItemRequestBuilder {
+    public mailFoldersById(id: string) : MailFolderItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["mailFolder%2Did"] = id
@@ -690,7 +690,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedAppRegistrationItemRequestBuilder
      */
-    public managedAppRegistrationsById(id: string) : ManagedAppRegistrationItemRequestBuilder {
+    public managedAppRegistrationsById(id: string) : ManagedAppRegistrationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedAppRegistration%2Did"] = id
@@ -701,7 +701,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedDeviceItemRequestBuilder
      */
-    public managedDevicesById(id: string) : ManagedDeviceItemRequestBuilder {
+    public managedDevicesById(id: string) : ManagedDeviceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedDevice%2Did"] = id
@@ -712,7 +712,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public memberOfById(id: string) : I720843e239c1ed20e17df69dac6a352aeb0f129a6d3f3195c06030b3d94b6dfe {
+    public memberOfById(id: string) : I720843e239c1ed20e17df69dac6a352aeb0f129a6d3f3195c06030b3d94b6dfe | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -723,7 +723,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MessageItemRequestBuilder
      */
-    public messagesById(id: string) : MessageItemRequestBuilder {
+    public messagesById(id: string) : MessageItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["message%2Did"] = id
@@ -734,7 +734,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a OAuth2PermissionGrantItemRequestBuilder
      */
-    public oauth2PermissionGrantsById(id: string) : OAuth2PermissionGrantItemRequestBuilder {
+    public oauth2PermissionGrantsById(id: string) : OAuth2PermissionGrantItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["oAuth2PermissionGrant%2Did"] = id
@@ -745,7 +745,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a OnlineMeetingItemRequestBuilder
      */
-    public onlineMeetingsById(id: string) : OnlineMeetingItemRequestBuilder {
+    public onlineMeetingsById(id: string) : OnlineMeetingItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["onlineMeeting%2Did"] = id
@@ -756,7 +756,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public ownedDevicesById(id: string) : I4c79e3611486b034b39c2f58da356887eb83a4f200ad4a1f4511507140055f9c {
+    public ownedDevicesById(id: string) : I4c79e3611486b034b39c2f58da356887eb83a4f200ad4a1f4511507140055f9c | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -767,7 +767,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public ownedObjectsById(id: string) : I69173b5067053acdcf55feed84283a5de87d54596557a815cd24597de28fcfe2 {
+    public ownedObjectsById(id: string) : I69173b5067053acdcf55feed84283a5de87d54596557a815cd24597de28fcfe2 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -797,7 +797,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PersonItemRequestBuilder
      */
-    public peopleById(id: string) : PersonItemRequestBuilder {
+    public peopleById(id: string) : PersonItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["person%2Did"] = id
@@ -808,7 +808,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ProfilePhotoItemRequestBuilder
      */
-    public photosById(id: string) : ProfilePhotoItemRequestBuilder {
+    public photosById(id: string) : ProfilePhotoItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["profilePhoto%2Did"] = id
@@ -819,7 +819,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public registeredDevicesById(id: string) : I7689ff8bd62424f33e7f671948c9da2ff4fcdb4f9c3be5b02fba87d981ac0696 {
+    public registeredDevicesById(id: string) : I7689ff8bd62424f33e7f671948c9da2ff4fcdb4f9c3be5b02fba87d981ac0696 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -841,7 +841,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ScopedRoleMembershipItemRequestBuilder
      */
-    public scopedRoleMemberOfById(id: string) : ScopedRoleMembershipItemRequestBuilder {
+    public scopedRoleMemberOfById(id: string) : ScopedRoleMembershipItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["scopedRoleMembership%2Did"] = id
@@ -852,7 +852,7 @@ export class UserItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public transitiveMemberOfById(id: string) : I01e9baa1e8bb574e0d26abbb063c7ffdbf71a41941b07ff3da88eb8ef717aec3 {
+    public transitiveMemberOfById(id: string) : I01e9baa1e8bb574e0d26abbb063c7ffdbf71a41941b07ff3da88eb8ef717aec3 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id

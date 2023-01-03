@@ -140,7 +140,7 @@ export class EdiscoveryCaseItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EdiscoveryCustodianItemRequestBuilder
      */
-    public custodiansById(id: string) : EdiscoveryCustodianItemRequestBuilder {
+    public custodiansById(id: string) : EdiscoveryCustodianItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["ediscoveryCustodian%2Did"] = id
@@ -182,7 +182,7 @@ export class EdiscoveryCaseItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EdiscoveryNoncustodialDataSourceItemRequestBuilder
      */
-    public noncustodialDataSourcesById(id: string) : EdiscoveryNoncustodialDataSourceItemRequestBuilder {
+    public noncustodialDataSourcesById(id: string) : EdiscoveryNoncustodialDataSourceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["ediscoveryNoncustodialDataSource%2Did"] = id
@@ -193,7 +193,7 @@ export class EdiscoveryCaseItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a CaseOperationItemRequestBuilder
      */
-    public operationsById(id: string) : CaseOperationItemRequestBuilder {
+    public operationsById(id: string) : CaseOperationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["caseOperation%2Did"] = id
@@ -222,7 +222,7 @@ export class EdiscoveryCaseItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EdiscoveryReviewSetItemRequestBuilder
      */
-    public reviewSetsById(id: string) : EdiscoveryReviewSetItemRequestBuilder {
+    public reviewSetsById(id: string) : EdiscoveryReviewSetItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["ediscoveryReviewSet%2Did"] = id
@@ -233,7 +233,7 @@ export class EdiscoveryCaseItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EdiscoverySearchItemRequestBuilder
      */
-    public searchesById(id: string) : EdiscoverySearchItemRequestBuilder {
+    public searchesById(id: string) : EdiscoverySearchItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["ediscoverySearch%2Did"] = id
@@ -244,7 +244,7 @@ export class EdiscoveryCaseItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EdiscoveryReviewTagItemRequestBuilder
      */
-    public tagsById(id: string) : EdiscoveryReviewTagItemRequestBuilder {
+    public tagsById(id: string) : EdiscoveryReviewTagItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["ediscoveryReviewTag%2Did"] = id

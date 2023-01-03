@@ -126,7 +126,7 @@ export class TodoRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TodoTaskListItemRequestBuilder
      */
-    public listsById(id: string) : TodoTaskListItemRequestBuilder {
+    public listsById(id: string) : TodoTaskListItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["todoTaskList%2Did"] = id

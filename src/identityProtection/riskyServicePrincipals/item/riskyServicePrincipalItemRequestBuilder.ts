@@ -126,7 +126,7 @@ export class RiskyServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a RiskyServicePrincipalHistoryItemItemRequestBuilder
      */
-    public historyById(id: string) : RiskyServicePrincipalHistoryItemItemRequestBuilder {
+    public historyById(id: string) : RiskyServicePrincipalHistoryItemItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["riskyServicePrincipalHistoryItem%2Did"] = id

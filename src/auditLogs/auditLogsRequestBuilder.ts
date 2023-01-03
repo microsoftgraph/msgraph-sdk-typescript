@@ -90,7 +90,7 @@ export class AuditLogsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryAuditItemRequestBuilder
      */
-    public directoryAuditsById(id: string) : DirectoryAuditItemRequestBuilder {
+    public directoryAuditsById(id: string) : DirectoryAuditItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryAudit%2Did"] = id
@@ -135,7 +135,7 @@ export class AuditLogsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ProvisioningObjectSummaryItemRequestBuilder
      */
-    public provisioningById(id: string) : ProvisioningObjectSummaryItemRequestBuilder {
+    public provisioningById(id: string) : ProvisioningObjectSummaryItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["provisioningObjectSummary%2Did"] = id
@@ -146,7 +146,7 @@ export class AuditLogsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SignInItemRequestBuilder
      */
-    public signInsById(id: string) : SignInItemRequestBuilder {
+    public signInsById(id: string) : SignInItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["signIn%2Did"] = id

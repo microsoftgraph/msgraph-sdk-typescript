@@ -27,7 +27,7 @@ export class ExternalRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ExternalConnectionItemRequestBuilder
      */
-    public connectionsById(id: string) : ExternalConnectionItemRequestBuilder {
+    public connectionsById(id: string) : ExternalConnectionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["externalConnection%2Did"] = id

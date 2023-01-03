@@ -127,7 +127,7 @@ export class DriveItemItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
-    public childrenById(id: string) : Ia4e06e3749d2f8c1033950e42c0135873f385a01b564411719748942874c067a {
+    public childrenById(id: string) : Ia4e06e3749d2f8c1033950e42c0135873f385a01b564411719748942874c067a | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did1"] = id
@@ -290,7 +290,7 @@ export class DriveItemItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PermissionItemRequestBuilder
      */
-    public permissionsById(id: string) : PermissionItemRequestBuilder {
+    public permissionsById(id: string) : PermissionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["permission%2Did"] = id
@@ -310,7 +310,7 @@ export class DriveItemItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SubscriptionItemRequestBuilder
      */
-    public subscriptionsById(id: string) : SubscriptionItemRequestBuilder {
+    public subscriptionsById(id: string) : SubscriptionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["subscription%2Did"] = id
@@ -321,7 +321,7 @@ export class DriveItemItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ThumbnailSetItemRequestBuilder
      */
-    public thumbnailsById(id: string) : ThumbnailSetItemRequestBuilder {
+    public thumbnailsById(id: string) : ThumbnailSetItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["thumbnailSet%2Did"] = id
@@ -332,7 +332,7 @@ export class DriveItemItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemVersionItemRequestBuilder
      */
-    public versionsById(id: string) : DriveItemVersionItemRequestBuilder {
+    public versionsById(id: string) : DriveItemVersionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItemVersion%2Did"] = id

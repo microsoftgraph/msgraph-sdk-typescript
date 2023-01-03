@@ -1,4 +1,4 @@
-/** Provides operations to manage the cloudCommunications singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum ServiceRole {
     Unknown = "unknown",
     CustomBot = "customBot",

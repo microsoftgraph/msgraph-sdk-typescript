@@ -33,7 +33,7 @@ export class SolutionsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a BookingBusinessItemRequestBuilder
      */
-    public bookingBusinessesById(id: string) : BookingBusinessItemRequestBuilder {
+    public bookingBusinessesById(id: string) : BookingBusinessItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bookingBusiness%2Did"] = id
@@ -44,7 +44,7 @@ export class SolutionsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a BookingCurrencyItemRequestBuilder
      */
-    public bookingCurrenciesById(id: string) : BookingCurrencyItemRequestBuilder {
+    public bookingCurrenciesById(id: string) : BookingCurrencyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bookingCurrency%2Did"] = id

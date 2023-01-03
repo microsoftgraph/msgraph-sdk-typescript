@@ -110,7 +110,7 @@ export class CasesRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EdiscoveryCaseItemRequestBuilder
      */
-    public ediscoveryCasesById(id: string) : EdiscoveryCaseItemRequestBuilder {
+    public ediscoveryCasesById(id: string) : EdiscoveryCaseItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["ediscoveryCase%2Did"] = id

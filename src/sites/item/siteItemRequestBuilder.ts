@@ -105,7 +105,7 @@ export class SiteItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ColumnDefinitionItemRequestBuilder
      */
-    public columnsById(id: string) : Ic5c5a962388fb63cc9ed08bfeb1992bad1d22528a8039fcf3e1d564ccf85f55f {
+    public columnsById(id: string) : Ic5c5a962388fb63cc9ed08bfeb1992bad1d22528a8039fcf3e1d564ccf85f55f | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
@@ -129,7 +129,7 @@ export class SiteItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ContentTypeItemRequestBuilder
      */
-    public contentTypesById(id: string) : ContentTypeItemRequestBuilder {
+    public contentTypesById(id: string) : ContentTypeItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contentType%2Did"] = id
@@ -178,7 +178,7 @@ export class SiteItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemRequestBuilder
      */
-    public drivesById(id: string) : DriveItemRequestBuilder {
+    public drivesById(id: string) : DriveItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["drive%2Did"] = id
@@ -189,7 +189,7 @@ export class SiteItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ColumnDefinitionItemRequestBuilder
      */
-    public externalColumnsById(id: string) : I05b0e95c6db100e902b5bbe2eedbdae577c635269cee074a241f96054e6495ab {
+    public externalColumnsById(id: string) : I05b0e95c6db100e902b5bbe2eedbdae577c635269cee074a241f96054e6495ab | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
@@ -255,7 +255,7 @@ export class SiteItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a BaseItemItemRequestBuilder
      */
-    public itemsById(id: string) : BaseItemItemRequestBuilder {
+    public itemsById(id: string) : BaseItemItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["baseItem%2Did"] = id
@@ -266,7 +266,7 @@ export class SiteItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ListItemRequestBuilder
      */
-    public listsById(id: string) : ListItemRequestBuilder {
+    public listsById(id: string) : ListItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["list%2Did"] = id
@@ -277,7 +277,7 @@ export class SiteItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a RichLongRunningOperationItemRequestBuilder
      */
-    public operationsById(id: string) : RichLongRunningOperationItemRequestBuilder {
+    public operationsById(id: string) : RichLongRunningOperationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["richLongRunningOperation%2Did"] = id
@@ -306,7 +306,7 @@ export class SiteItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PermissionItemRequestBuilder
      */
-    public permissionsById(id: string) : PermissionItemRequestBuilder {
+    public permissionsById(id: string) : PermissionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["permission%2Did"] = id
@@ -317,7 +317,7 @@ export class SiteItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SiteItemRequestBuilder
      */
-    public sitesById(id: string) : I970c62a442bccf661328f8d074fc6478726d615df17f78fd01bbd631d128e3c9 {
+    public sitesById(id: string) : I970c62a442bccf661328f8d074fc6478726d615df17f78fd01bbd631d128e3c9 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["site%2Did1"] = id
@@ -328,7 +328,7 @@ export class SiteItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a StoreItemRequestBuilder
      */
-    public termStoresById(id: string) : StoreItemRequestBuilder {
+    public termStoresById(id: string) : StoreItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["store%2Did"] = id

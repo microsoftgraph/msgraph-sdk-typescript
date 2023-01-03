@@ -197,7 +197,7 @@ export class ReportsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PrintUsageByPrinterItemRequestBuilder
      */
-    public dailyPrintUsageByPrinterById(id: string) : I040d432bf097a5c3e088b5b286dc35b17b6fde7ba1189da8ab6b5cbe1c14edd4 {
+    public dailyPrintUsageByPrinterById(id: string) : I040d432bf097a5c3e088b5b286dc35b17b6fde7ba1189da8ab6b5cbe1c14edd4 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printUsageByPrinter%2Did"] = id
@@ -208,7 +208,7 @@ export class ReportsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PrintUsageByUserItemRequestBuilder
      */
-    public dailyPrintUsageByUserById(id: string) : I0a6ffb5ab17952fcc5b605654a921e4b7048a059232acf91ceb8af666ce0f236 {
+    public dailyPrintUsageByUserById(id: string) : I0a6ffb5ab17952fcc5b605654a921e4b7048a059232acf91ceb8af666ce0f236 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printUsageByUser%2Did"] = id
@@ -1103,7 +1103,7 @@ export class ReportsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PrintUsageByPrinterItemRequestBuilder
      */
-    public monthlyPrintUsageByPrinterById(id: string) : I464ef823ccbb3cda573d85f5b690bdfbadd75533d381eee43a717ec4bcf9e9da {
+    public monthlyPrintUsageByPrinterById(id: string) : I464ef823ccbb3cda573d85f5b690bdfbadd75533d381eee43a717ec4bcf9e9da | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printUsageByPrinter%2Did"] = id
@@ -1114,7 +1114,7 @@ export class ReportsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PrintUsageByUserItemRequestBuilder
      */
-    public monthlyPrintUsageByUserById(id: string) : Ib890b4082f7b0793dcec266773608fab2228163761130f66570881247e35699c {
+    public monthlyPrintUsageByUserById(id: string) : Ib890b4082f7b0793dcec266773608fab2228163761130f66570881247e35699c | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printUsageByUser%2Did"] = id

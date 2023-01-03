@@ -101,7 +101,7 @@ export class AccessReviewsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessReviewScheduleDefinitionItemRequestBuilder
      */
-    public definitionsById(id: string) : AccessReviewScheduleDefinitionItemRequestBuilder {
+    public definitionsById(id: string) : AccessReviewScheduleDefinitionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessReviewScheduleDefinition%2Did"] = id
@@ -143,7 +143,7 @@ export class AccessReviewsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessReviewHistoryDefinitionItemRequestBuilder
      */
-    public historyDefinitionsById(id: string) : AccessReviewHistoryDefinitionItemRequestBuilder {
+    public historyDefinitionsById(id: string) : AccessReviewHistoryDefinitionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessReviewHistoryDefinition%2Did"] = id

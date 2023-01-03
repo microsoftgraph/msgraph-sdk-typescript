@@ -73,7 +73,7 @@ export class BitlockerRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a BitlockerRecoveryKeyItemRequestBuilder
      */
-    public recoveryKeysById(id: string) : BitlockerRecoveryKeyItemRequestBuilder {
+    public recoveryKeysById(id: string) : BitlockerRecoveryKeyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bitlockerRecoveryKey%2Did"] = id

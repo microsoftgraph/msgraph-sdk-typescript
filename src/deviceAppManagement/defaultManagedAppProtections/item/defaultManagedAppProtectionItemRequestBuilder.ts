@@ -33,7 +33,7 @@ export class DefaultManagedAppProtectionItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedMobileAppItemRequestBuilder
      */
-    public appsById(id: string) : ManagedMobileAppItemRequestBuilder {
+    public appsById(id: string) : ManagedMobileAppItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedMobileApp%2Did"] = id

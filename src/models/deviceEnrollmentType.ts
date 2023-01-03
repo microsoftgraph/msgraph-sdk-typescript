@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum DeviceEnrollmentType {
     /** Default value, enrollment type was not collected. */
     Unknown = "unknown",

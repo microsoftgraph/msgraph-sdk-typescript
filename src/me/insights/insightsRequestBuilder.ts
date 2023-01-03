@@ -156,7 +156,7 @@ export class InsightsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SharedInsightItemRequestBuilder
      */
-    public sharedById(id: string) : SharedInsightItemRequestBuilder {
+    public sharedById(id: string) : SharedInsightItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["sharedInsight%2Did"] = id
@@ -167,7 +167,7 @@ export class InsightsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TrendingItemRequestBuilder
      */
-    public trendingById(id: string) : TrendingItemRequestBuilder {
+    public trendingById(id: string) : TrendingItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["trending%2Did"] = id
@@ -178,7 +178,7 @@ export class InsightsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UsedInsightItemRequestBuilder
      */
-    public usedById(id: string) : UsedInsightItemRequestBuilder {
+    public usedById(id: string) : UsedInsightItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["usedInsight%2Did"] = id

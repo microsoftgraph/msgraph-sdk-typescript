@@ -158,7 +158,7 @@ export class DirectoryRoleItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public membersById(id: string) : DirectoryObjectItemRequestBuilder {
+    public membersById(id: string) : DirectoryObjectItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -187,7 +187,7 @@ export class DirectoryRoleItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ScopedRoleMembershipItemRequestBuilder
      */
-    public scopedMembersById(id: string) : ScopedRoleMembershipItemRequestBuilder {
+    public scopedMembersById(id: string) : ScopedRoleMembershipItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["scopedRoleMembership%2Did"] = id

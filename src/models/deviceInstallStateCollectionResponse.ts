@@ -2,9 +2,6 @@ import {createDeviceInstallStateFromDiscriminatorValue} from './createDeviceInst
 import {BaseCollectionPaginationCountResponse, DeviceInstallState} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the deviceStates property of the microsoft.graph.managedEBook entity.
- */
 export class DeviceInstallStateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DeviceInstallState[] | undefined;

@@ -109,7 +109,7 @@ export class BrandingRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a OrganizationalBrandingLocalizationItemRequestBuilder
      */
-    public localizationsById(id: string) : OrganizationalBrandingLocalizationItemRequestBuilder {
+    public localizationsById(id: string) : OrganizationalBrandingLocalizationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["organizationalBrandingLocalization%2Did"] = id

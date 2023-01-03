@@ -52,7 +52,7 @@ export class TodoTaskItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AttachmentBaseItemRequestBuilder
      */
-    public attachmentsById(id: string) : AttachmentBaseItemRequestBuilder {
+    public attachmentsById(id: string) : AttachmentBaseItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["attachmentBase%2Did"] = id
@@ -63,7 +63,7 @@ export class TodoTaskItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AttachmentSessionItemRequestBuilder
      */
-    public attachmentSessionsById(id: string) : AttachmentSessionItemRequestBuilder {
+    public attachmentSessionsById(id: string) : AttachmentSessionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["attachmentSession%2Did"] = id
@@ -74,7 +74,7 @@ export class TodoTaskItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ChecklistItemItemRequestBuilder
      */
-    public checklistItemsById(id: string) : ChecklistItemItemRequestBuilder {
+    public checklistItemsById(id: string) : ChecklistItemItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["checklistItem%2Did"] = id
@@ -167,7 +167,7 @@ export class TodoTaskItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ExtensionItemRequestBuilder
      */
-    public extensionsById(id: string) : ExtensionItemRequestBuilder {
+    public extensionsById(id: string) : ExtensionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["extension%2Did"] = id
@@ -194,7 +194,7 @@ export class TodoTaskItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a LinkedResourceItemRequestBuilder
      */
-    public linkedResourcesById(id: string) : LinkedResourceItemRequestBuilder {
+    public linkedResourcesById(id: string) : LinkedResourceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["linkedResource%2Did"] = id

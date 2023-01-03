@@ -2,9 +2,6 @@ import {createManagedAppPolicyFromDiscriminatorValue} from './createManagedAppPo
 import {BaseCollectionPaginationCountResponse, ManagedAppPolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the managedAppPolicies property of the microsoft.graph.deviceAppManagement entity.
- */
 export class ManagedAppPolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ManagedAppPolicy[] | undefined;

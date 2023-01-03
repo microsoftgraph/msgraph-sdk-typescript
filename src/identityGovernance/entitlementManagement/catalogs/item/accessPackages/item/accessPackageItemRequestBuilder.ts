@@ -56,7 +56,7 @@ export class AccessPackageItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessPackageItemRequestBuilder
      */
-    public accessPackagesIncompatibleWithById(id: string) : I0f7e6b283e479d72a6d9d336ee5e2552141f4d76a9a6ac81fe249c4bc7bcd2e5 {
+    public accessPackagesIncompatibleWithById(id: string) : I0f7e6b283e479d72a6d9d336ee5e2552141f4d76a9a6ac81fe249c4bc7bcd2e5 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessPackage%2Did1"] = id
@@ -67,7 +67,7 @@ export class AccessPackageItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessPackageAssignmentPolicyItemRequestBuilder
      */
-    public assignmentPoliciesById(id: string) : AccessPackageAssignmentPolicyItemRequestBuilder {
+    public assignmentPoliciesById(id: string) : AccessPackageAssignmentPolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessPackageAssignmentPolicy%2Did"] = id
@@ -176,7 +176,7 @@ export class AccessPackageItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessPackageItemRequestBuilder
      */
-    public incompatibleAccessPackagesById(id: string) : I8cfc274500b86997c5a1d8da7cc7aabfd9284b78e1a192fee878c6c9bff1e764 {
+    public incompatibleAccessPackagesById(id: string) : I8cfc274500b86997c5a1d8da7cc7aabfd9284b78e1a192fee878c6c9bff1e764 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessPackage%2Did1"] = id
@@ -187,7 +187,7 @@ export class AccessPackageItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a GroupItemRequestBuilder
      */
-    public incompatibleGroupsById(id: string) : GroupItemRequestBuilder {
+    public incompatibleGroupsById(id: string) : GroupItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["group%2Did"] = id

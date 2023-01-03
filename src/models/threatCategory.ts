@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum ThreatCategory {
     Undefined = "undefined",
     Spam = "spam",

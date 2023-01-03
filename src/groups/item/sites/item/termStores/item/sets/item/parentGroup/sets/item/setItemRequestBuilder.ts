@@ -40,7 +40,7 @@ export class SetItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TermItemRequestBuilder
      */
-    public childrenById(id: string) : Ifd56cf7f5e4c0f13e270f2f4fba7db4c80d2132f739cfc5f8b7278b3828c7906 {
+    public childrenById(id: string) : Ifd56cf7f5e4c0f13e270f2f4fba7db4c80d2132f739cfc5f8b7278b3828c7906 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["term%2Did"] = id
@@ -167,7 +167,7 @@ export class SetItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a RelationItemRequestBuilder
      */
-    public relationsById(id: string) : RelationItemRequestBuilder {
+    public relationsById(id: string) : RelationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["relation%2Did"] = id
@@ -178,7 +178,7 @@ export class SetItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TermItemRequestBuilder
      */
-    public termsById(id: string) : I99d02de22921f1c97cdc56dbb1dc36ffdea854ccc85fd05a3c31450a8243289d {
+    public termsById(id: string) : I99d02de22921f1c97cdc56dbb1dc36ffdea854ccc85fd05a3c31450a8243289d | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["term%2Did"] = id

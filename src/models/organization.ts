@@ -9,6 +9,9 @@ import {AssignedPlan, CertificateBasedAuthConfiguration, DirectoryObject, Extens
 import {MdmAuthority} from './mdmAuthority';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of agreement entities.
+ */
 export class Organization extends DirectoryObject implements Parsable {
     /** The collection of service plans associated with the tenant. Not nullable. */
     private _assignedPlans?: AssignedPlan[] | undefined;
@@ -131,7 +134,7 @@ export class Organization extends DirectoryObject implements Parsable {
         this._city = value;
     };
     /**
-     * Instantiates a new Organization and sets the default values.
+     * Instantiates a new organization and sets the default values.
      */
     public constructor() {
         super();

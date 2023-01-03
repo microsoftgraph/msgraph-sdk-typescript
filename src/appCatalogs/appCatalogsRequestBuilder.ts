@@ -112,7 +112,7 @@ export class AppCatalogsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TeamsAppItemRequestBuilder
      */
-    public teamsAppsById(id: string) : TeamsAppItemRequestBuilder {
+    public teamsAppsById(id: string) : TeamsAppItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["teamsApp%2Did"] = id

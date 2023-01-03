@@ -110,7 +110,7 @@ export class DeviceAppManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AndroidManagedAppProtectionItemRequestBuilder
      */
-    public androidManagedAppProtectionsById(id: string) : AndroidManagedAppProtectionItemRequestBuilder {
+    public androidManagedAppProtectionsById(id: string) : AndroidManagedAppProtectionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["androidManagedAppProtection%2Did"] = id
@@ -172,7 +172,7 @@ export class DeviceAppManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DefaultManagedAppProtectionItemRequestBuilder
      */
-    public defaultManagedAppProtectionsById(id: string) : DefaultManagedAppProtectionItemRequestBuilder {
+    public defaultManagedAppProtectionsById(id: string) : DefaultManagedAppProtectionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["defaultManagedAppProtection%2Did"] = id
@@ -199,7 +199,7 @@ export class DeviceAppManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a IosManagedAppProtectionItemRequestBuilder
      */
-    public iosManagedAppProtectionsById(id: string) : IosManagedAppProtectionItemRequestBuilder {
+    public iosManagedAppProtectionsById(id: string) : IosManagedAppProtectionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["iosManagedAppProtection%2Did"] = id
@@ -210,7 +210,7 @@ export class DeviceAppManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedAppPolicyItemRequestBuilder
      */
-    public managedAppPoliciesById(id: string) : ManagedAppPolicyItemRequestBuilder {
+    public managedAppPoliciesById(id: string) : ManagedAppPolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedAppPolicy%2Did"] = id
@@ -221,7 +221,7 @@ export class DeviceAppManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedAppRegistrationItemRequestBuilder
      */
-    public managedAppRegistrationsById(id: string) : ManagedAppRegistrationItemRequestBuilder {
+    public managedAppRegistrationsById(id: string) : ManagedAppRegistrationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedAppRegistration%2Did"] = id
@@ -232,7 +232,7 @@ export class DeviceAppManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedAppStatusItemRequestBuilder
      */
-    public managedAppStatusesById(id: string) : ManagedAppStatusItemRequestBuilder {
+    public managedAppStatusesById(id: string) : ManagedAppStatusItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedAppStatus%2Did"] = id
@@ -243,7 +243,7 @@ export class DeviceAppManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedEBookItemRequestBuilder
      */
-    public managedEBooksById(id: string) : ManagedEBookItemRequestBuilder {
+    public managedEBooksById(id: string) : ManagedEBookItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedEBook%2Did"] = id
@@ -254,7 +254,7 @@ export class DeviceAppManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MdmWindowsInformationProtectionPolicyItemRequestBuilder
      */
-    public mdmWindowsInformationProtectionPoliciesById(id: string) : MdmWindowsInformationProtectionPolicyItemRequestBuilder {
+    public mdmWindowsInformationProtectionPoliciesById(id: string) : MdmWindowsInformationProtectionPolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["mdmWindowsInformationProtectionPolicy%2Did"] = id
@@ -265,7 +265,7 @@ export class DeviceAppManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MobileAppCategoryItemRequestBuilder
      */
-    public mobileAppCategoriesById(id: string) : MobileAppCategoryItemRequestBuilder {
+    public mobileAppCategoriesById(id: string) : MobileAppCategoryItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["mobileAppCategory%2Did"] = id
@@ -276,7 +276,7 @@ export class DeviceAppManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedDeviceMobileAppConfigurationItemRequestBuilder
      */
-    public mobileAppConfigurationsById(id: string) : ManagedDeviceMobileAppConfigurationItemRequestBuilder {
+    public mobileAppConfigurationsById(id: string) : ManagedDeviceMobileAppConfigurationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedDeviceMobileAppConfiguration%2Did"] = id
@@ -287,7 +287,7 @@ export class DeviceAppManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MobileAppItemRequestBuilder
      */
-    public mobileAppsById(id: string) : MobileAppItemRequestBuilder {
+    public mobileAppsById(id: string) : MobileAppItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["mobileApp%2Did"] = id
@@ -316,7 +316,7 @@ export class DeviceAppManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TargetedManagedAppConfigurationItemRequestBuilder
      */
-    public targetedManagedAppConfigurationsById(id: string) : TargetedManagedAppConfigurationItemRequestBuilder {
+    public targetedManagedAppConfigurationsById(id: string) : TargetedManagedAppConfigurationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["targetedManagedAppConfiguration%2Did"] = id
@@ -327,7 +327,7 @@ export class DeviceAppManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a VppTokenItemRequestBuilder
      */
-    public vppTokensById(id: string) : VppTokenItemRequestBuilder {
+    public vppTokensById(id: string) : VppTokenItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["vppToken%2Did"] = id
@@ -338,7 +338,7 @@ export class DeviceAppManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a WindowsInformationProtectionPolicyItemRequestBuilder
      */
-    public windowsInformationProtectionPoliciesById(id: string) : WindowsInformationProtectionPolicyItemRequestBuilder {
+    public windowsInformationProtectionPoliciesById(id: string) : WindowsInformationProtectionPolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["windowsInformationProtectionPolicy%2Did"] = id

@@ -117,7 +117,7 @@ export class InformationProtectionRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ThreatAssessmentRequestItemRequestBuilder
      */
-    public threatAssessmentRequestsById(id: string) : ThreatAssessmentRequestItemRequestBuilder {
+    public threatAssessmentRequestsById(id: string) : ThreatAssessmentRequestItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["threatAssessmentRequest%2Did"] = id

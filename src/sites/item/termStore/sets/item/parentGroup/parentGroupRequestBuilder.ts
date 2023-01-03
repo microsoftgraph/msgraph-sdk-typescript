@@ -144,7 +144,7 @@ export class ParentGroupRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SetItemRequestBuilder
      */
-    public setsById(id: string) : SetItemRequestBuilder {
+    public setsById(id: string) : SetItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["set%2Did1"] = id

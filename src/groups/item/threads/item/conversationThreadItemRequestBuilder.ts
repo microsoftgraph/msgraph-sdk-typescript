@@ -149,7 +149,7 @@ export class ConversationThreadItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PostItemRequestBuilder
      */
-    public postsById(id: string) : PostItemRequestBuilder {
+    public postsById(id: string) : PostItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["post%2Did"] = id

@@ -100,7 +100,7 @@ export class AccessReviewStageItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessReviewInstanceDecisionItemItemRequestBuilder
      */
-    public decisionsById(id: string) : AccessReviewInstanceDecisionItemItemRequestBuilder {
+    public decisionsById(id: string) : AccessReviewInstanceDecisionItemItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessReviewInstanceDecisionItem%2Did"] = id

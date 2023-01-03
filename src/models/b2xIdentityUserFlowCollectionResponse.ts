@@ -2,9 +2,6 @@ import {createB2xIdentityUserFlowFromDiscriminatorValue} from './createB2xIdenti
 import {B2xIdentityUserFlow, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
- */
 export class B2xIdentityUserFlowCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: B2xIdentityUserFlow[] | undefined;

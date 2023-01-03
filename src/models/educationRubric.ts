@@ -7,7 +7,7 @@ import {EducationAssignmentGradeType, EducationItemBody, Entity, IdentitySet, Ru
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreementAcceptance entities.
+ * Provides operations to manage the collection of agreement entities.
  */
 export class EducationRubric extends Entity implements Parsable {
     /** The user who created this resource. */

@@ -150,7 +150,7 @@ export class AttackSimulationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SimulationAutomationItemRequestBuilder
      */
-    public simulationAutomationsById(id: string) : SimulationAutomationItemRequestBuilder {
+    public simulationAutomationsById(id: string) : SimulationAutomationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["simulationAutomation%2Did"] = id
@@ -161,7 +161,7 @@ export class AttackSimulationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SimulationItemRequestBuilder
      */
-    public simulationsById(id: string) : SimulationItemRequestBuilder {
+    public simulationsById(id: string) : SimulationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["simulation%2Did"] = id

@@ -126,7 +126,7 @@ export class TeamworkTagItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TeamworkTagMemberItemRequestBuilder
      */
-    public membersById(id: string) : TeamworkTagMemberItemRequestBuilder {
+    public membersById(id: string) : TeamworkTagMemberItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["teamworkTagMember%2Did"] = id

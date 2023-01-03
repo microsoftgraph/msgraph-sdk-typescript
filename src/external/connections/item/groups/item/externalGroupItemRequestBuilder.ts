@@ -126,7 +126,7 @@ export class ExternalGroupItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a IdentityItemRequestBuilder
      */
-    public membersById(id: string) : IdentityItemRequestBuilder {
+    public membersById(id: string) : IdentityItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["identity%2Did"] = id

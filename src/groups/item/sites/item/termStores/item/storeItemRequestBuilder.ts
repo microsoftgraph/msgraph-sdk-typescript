@@ -132,7 +132,7 @@ export class StoreItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a GroupItemRequestBuilder
      */
-    public groupsById(id: string) : GroupItemRequestBuilder {
+    public groupsById(id: string) : GroupItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["group%2Did1"] = id
@@ -161,7 +161,7 @@ export class StoreItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SetItemRequestBuilder
      */
-    public setsById(id: string) : SetItemRequestBuilder {
+    public setsById(id: string) : SetItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["set%2Did"] = id

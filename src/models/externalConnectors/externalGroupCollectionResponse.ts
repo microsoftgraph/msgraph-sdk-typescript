@@ -3,9 +3,6 @@ import {createExternalGroupFromDiscriminatorValue} from './createExternalGroupFr
 import {ExternalGroup} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
- */
 export class ExternalGroupCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ExternalGroup[] | undefined;

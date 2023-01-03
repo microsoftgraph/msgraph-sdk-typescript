@@ -9,6 +9,8 @@ import {HostedContentsRequestBuilder} from './hostedContents/hostedContentsReque
 import {ChatMessageHostedContentItemRequestBuilder} from './hostedContents/item/chatMessageHostedContentItemRequestBuilder';
 import {ChatMessageItemRequestBuilder as I62a6ac2517fafde401867e60462105c94875dfcbe3a9cd3ff4d908d53e2e806e} from './replies/item/chatMessageItemRequestBuilder';
 import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
+import {SoftDeleteRequestBuilder} from './softDelete/softDeleteRequestBuilder';
+import {UndoSoftDeleteRequestBuilder} from './undoSoftDelete/undoSoftDeleteRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -27,6 +29,14 @@ export class ChatMessageItemRequestBuilder {
     }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the softDelete method. */
+    public get softDelete(): SoftDeleteRequestBuilder {
+        return new SoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the undoSoftDelete method. */
+    public get undoSoftDelete(): UndoSoftDeleteRequestBuilder {
+        return new UndoSoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
@@ -132,7 +142,7 @@ export class ChatMessageItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ChatMessageHostedContentItemRequestBuilder
      */
-    public hostedContentsById(id: string) : ChatMessageHostedContentItemRequestBuilder {
+    public hostedContentsById(id: string) : ChatMessageHostedContentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["chatMessageHostedContent%2Did"] = id
@@ -161,7 +171,7 @@ export class ChatMessageItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ChatMessageItemRequestBuilder
      */
-    public repliesById(id: string) : I62a6ac2517fafde401867e60462105c94875dfcbe3a9cd3ff4d908d53e2e806e {
+    public repliesById(id: string) : I62a6ac2517fafde401867e60462105c94875dfcbe3a9cd3ff4d908d53e2e806e | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["chatMessage%2Did1"] = id

@@ -38,7 +38,7 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EnrollmentConfigurationAssignmentItemRequestBuilder
      */
-    public assignmentsById(id: string) : EnrollmentConfigurationAssignmentItemRequestBuilder {
+    public assignmentsById(id: string) : EnrollmentConfigurationAssignmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["enrollmentConfigurationAssignment%2Did"] = id

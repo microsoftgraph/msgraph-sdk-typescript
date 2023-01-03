@@ -2,9 +2,6 @@ import {createRoomFromDiscriminatorValue} from './createRoomFromDiscriminatorVal
 import {BaseCollectionPaginationCountResponse, Room} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Casts the previous resource to room.
- */
 export class RoomCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Room[] | undefined;

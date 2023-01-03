@@ -144,7 +144,7 @@ export class DomainItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public domainNameReferencesById(id: string) : DirectoryObjectItemRequestBuilder {
+    public domainNameReferencesById(id: string) : DirectoryObjectItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -155,7 +155,7 @@ export class DomainItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a InternalDomainFederationItemRequestBuilder
      */
-    public federationConfigurationById(id: string) : InternalDomainFederationItemRequestBuilder {
+    public federationConfigurationById(id: string) : InternalDomainFederationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["internalDomainFederation%2Did"] = id
@@ -202,7 +202,7 @@ export class DomainItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DomainDnsRecordItemRequestBuilder
      */
-    public serviceConfigurationRecordsById(id: string) : I645b7a6c2b2e75703879ecf7aedd6400ebb0b1e58a2b8a9feaf4bbea098347da {
+    public serviceConfigurationRecordsById(id: string) : I645b7a6c2b2e75703879ecf7aedd6400ebb0b1e58a2b8a9feaf4bbea098347da | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["domainDnsRecord%2Did"] = id
@@ -213,7 +213,7 @@ export class DomainItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DomainDnsRecordItemRequestBuilder
      */
-    public verificationDnsRecordsById(id: string) : Ib1b6b04364f5e14b4cb6820dc9f0e89b24894aa2bef616b4a1220973381758c2 {
+    public verificationDnsRecordsById(id: string) : Ib1b6b04364f5e14b4cb6820dc9f0e89b24894aa2bef616b4a1220973381758c2 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["domainDnsRecord%2Did"] = id

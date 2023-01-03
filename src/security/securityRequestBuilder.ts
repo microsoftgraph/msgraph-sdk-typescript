@@ -66,7 +66,7 @@ export class SecurityRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AlertItemRequestBuilder
      */
-    public alerts_v2ById(id: string) : Iff91ca8d0e283ef3ff2700a5c7e213199d3bea0fdcb785e753f5343b999184ca {
+    public alerts_v2ById(id: string) : Iff91ca8d0e283ef3ff2700a5c7e213199d3bea0fdcb785e753f5343b999184ca | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["alert%2Did"] = id
@@ -77,7 +77,7 @@ export class SecurityRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AlertItemRequestBuilder
      */
-    public alertsById(id: string) : If4e8f48ca93bee3f14909d52abf51c7edfe2ac75b7b71f1ee7e470575f234198 {
+    public alertsById(id: string) : If4e8f48ca93bee3f14909d52abf51c7edfe2ac75b7b71f1ee7e470575f234198 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["alert%2Did"] = id
@@ -155,7 +155,7 @@ export class SecurityRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a IncidentItemRequestBuilder
      */
-    public incidentsById(id: string) : IncidentItemRequestBuilder {
+    public incidentsById(id: string) : IncidentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["incident%2Did"] = id
@@ -184,7 +184,7 @@ export class SecurityRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SecureScoreControlProfileItemRequestBuilder
      */
-    public secureScoreControlProfilesById(id: string) : SecureScoreControlProfileItemRequestBuilder {
+    public secureScoreControlProfilesById(id: string) : SecureScoreControlProfileItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["secureScoreControlProfile%2Did"] = id
@@ -195,7 +195,7 @@ export class SecurityRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SecureScoreItemRequestBuilder
      */
-    public secureScoresById(id: string) : SecureScoreItemRequestBuilder {
+    public secureScoresById(id: string) : SecureScoreItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["secureScore%2Did"] = id

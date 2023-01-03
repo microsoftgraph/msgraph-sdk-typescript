@@ -131,7 +131,7 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessReviewInstanceItemRequestBuilder
      */
-    public instancesById(id: string) : AccessReviewInstanceItemRequestBuilder {
+    public instancesById(id: string) : AccessReviewInstanceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessReviewInstance%2Did"] = id

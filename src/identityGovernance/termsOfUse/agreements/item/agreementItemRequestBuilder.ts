@@ -39,7 +39,7 @@ export class AgreementItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AgreementAcceptanceItemRequestBuilder
      */
-    public acceptancesById(id: string) : AgreementAcceptanceItemRequestBuilder {
+    public acceptancesById(id: string) : AgreementAcceptanceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["agreementAcceptance%2Did"] = id
@@ -132,7 +132,7 @@ export class AgreementItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AgreementFileLocalizationItemRequestBuilder
      */
-    public filesById(id: string) : AgreementFileLocalizationItemRequestBuilder {
+    public filesById(id: string) : AgreementFileLocalizationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["agreementFileLocalization%2Did"] = id

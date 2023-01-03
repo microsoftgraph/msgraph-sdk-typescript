@@ -195,7 +195,7 @@ export class ReportsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceManagementExportJobItemRequestBuilder
      */
-    public exportJobsById(id: string) : DeviceManagementExportJobItemRequestBuilder {
+    public exportJobsById(id: string) : DeviceManagementExportJobItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceManagementExportJob%2Did"] = id

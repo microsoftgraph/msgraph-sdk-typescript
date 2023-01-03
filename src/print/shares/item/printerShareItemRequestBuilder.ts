@@ -39,7 +39,7 @@ export class PrinterShareItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a GroupItemRequestBuilder
      */
-    public allowedGroupsById(id: string) : GroupItemRequestBuilder {
+    public allowedGroupsById(id: string) : GroupItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["group%2Did"] = id
@@ -50,7 +50,7 @@ export class PrinterShareItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UserItemRequestBuilder
      */
-    public allowedUsersById(id: string) : UserItemRequestBuilder {
+    public allowedUsersById(id: string) : UserItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["user%2Did"] = id

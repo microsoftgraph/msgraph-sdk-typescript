@@ -117,7 +117,7 @@ export class TeamworkRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a WorkforceIntegrationItemRequestBuilder
      */
-    public workforceIntegrationsById(id: string) : WorkforceIntegrationItemRequestBuilder {
+    public workforceIntegrationsById(id: string) : WorkforceIntegrationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["workforceIntegration%2Did"] = id

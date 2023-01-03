@@ -147,7 +147,7 @@ export class SubjectRightsRequestItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AuthoredNoteItemRequestBuilder
      */
-    public notesById(id: string) : AuthoredNoteItemRequestBuilder {
+    public notesById(id: string) : AuthoredNoteItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["authoredNote%2Did"] = id

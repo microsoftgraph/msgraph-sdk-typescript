@@ -28,7 +28,7 @@ export class AccessPackageCatalogItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessPackageItemRequestBuilder
      */
-    public accessPackagesById(id: string) : AccessPackageItemRequestBuilder {
+    public accessPackagesById(id: string) : AccessPackageItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessPackage%2Did"] = id

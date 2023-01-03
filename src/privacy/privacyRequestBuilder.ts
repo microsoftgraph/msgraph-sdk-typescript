@@ -112,7 +112,7 @@ export class PrivacyRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SubjectRightsRequestItemRequestBuilder
      */
-    public subjectRightsRequestsById(id: string) : SubjectRightsRequestItemRequestBuilder {
+    public subjectRightsRequestsById(id: string) : SubjectRightsRequestItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["subjectRightsRequest%2Did"] = id

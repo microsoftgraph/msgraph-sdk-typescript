@@ -144,7 +144,7 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceComplianceActionItemItemRequestBuilder
      */
-    public scheduledActionConfigurationsById(id: string) : DeviceComplianceActionItemItemRequestBuilder {
+    public scheduledActionConfigurationsById(id: string) : DeviceComplianceActionItemItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceComplianceActionItem%2Did"] = id

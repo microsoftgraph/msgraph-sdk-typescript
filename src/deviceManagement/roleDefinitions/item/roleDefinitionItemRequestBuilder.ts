@@ -144,7 +144,7 @@ export class RoleDefinitionItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a RoleAssignmentItemRequestBuilder
      */
-    public roleAssignmentsById(id: string) : RoleAssignmentItemRequestBuilder {
+    public roleAssignmentsById(id: string) : RoleAssignmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["roleAssignment%2Did"] = id

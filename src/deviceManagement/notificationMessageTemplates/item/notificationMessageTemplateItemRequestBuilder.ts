@@ -131,7 +131,7 @@ export class NotificationMessageTemplateItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a LocalizedNotificationMessageItemRequestBuilder
      */
-    public localizedNotificationMessagesById(id: string) : LocalizedNotificationMessageItemRequestBuilder {
+    public localizedNotificationMessagesById(id: string) : LocalizedNotificationMessageItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["localizedNotificationMessage%2Did"] = id

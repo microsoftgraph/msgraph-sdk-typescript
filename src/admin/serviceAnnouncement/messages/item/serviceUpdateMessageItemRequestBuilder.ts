@@ -33,7 +33,7 @@ export class ServiceUpdateMessageItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ServiceAnnouncementAttachmentItemRequestBuilder
      */
-    public attachmentsById(id: string) : ServiceAnnouncementAttachmentItemRequestBuilder {
+    public attachmentsById(id: string) : ServiceAnnouncementAttachmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["serviceAnnouncementAttachment%2Did"] = id

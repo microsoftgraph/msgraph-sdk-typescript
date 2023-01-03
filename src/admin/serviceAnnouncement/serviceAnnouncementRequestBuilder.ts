@@ -138,7 +138,7 @@ export class ServiceAnnouncementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ServiceHealthItemRequestBuilder
      */
-    public healthOverviewsById(id: string) : ServiceHealthItemRequestBuilder {
+    public healthOverviewsById(id: string) : ServiceHealthItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["serviceHealth%2Did"] = id
@@ -149,7 +149,7 @@ export class ServiceAnnouncementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ServiceHealthIssueItemRequestBuilder
      */
-    public issuesById(id: string) : ServiceHealthIssueItemRequestBuilder {
+    public issuesById(id: string) : ServiceHealthIssueItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["serviceHealthIssue%2Did"] = id
@@ -160,7 +160,7 @@ export class ServiceAnnouncementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ServiceUpdateMessageItemRequestBuilder
      */
-    public messagesById(id: string) : ServiceUpdateMessageItemRequestBuilder {
+    public messagesById(id: string) : ServiceUpdateMessageItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["serviceUpdateMessage%2Did"] = id

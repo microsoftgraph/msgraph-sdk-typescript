@@ -180,7 +180,7 @@ export class ScheduleRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a OfferShiftRequestItemRequestBuilder
      */
-    public offerShiftRequestsById(id: string) : OfferShiftRequestItemRequestBuilder {
+    public offerShiftRequestsById(id: string) : OfferShiftRequestItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["offerShiftRequest%2Did"] = id
@@ -191,7 +191,7 @@ export class ScheduleRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a OpenShiftChangeRequestItemRequestBuilder
      */
-    public openShiftChangeRequestsById(id: string) : OpenShiftChangeRequestItemRequestBuilder {
+    public openShiftChangeRequestsById(id: string) : OpenShiftChangeRequestItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["openShiftChangeRequest%2Did"] = id
@@ -202,7 +202,7 @@ export class ScheduleRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a OpenShiftItemRequestBuilder
      */
-    public openShiftsById(id: string) : OpenShiftItemRequestBuilder {
+    public openShiftsById(id: string) : OpenShiftItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["openShift%2Did"] = id
@@ -231,7 +231,7 @@ export class ScheduleRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SchedulingGroupItemRequestBuilder
      */
-    public schedulingGroupsById(id: string) : SchedulingGroupItemRequestBuilder {
+    public schedulingGroupsById(id: string) : SchedulingGroupItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["schedulingGroup%2Did"] = id
@@ -242,7 +242,7 @@ export class ScheduleRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ShiftItemRequestBuilder
      */
-    public shiftsById(id: string) : ShiftItemRequestBuilder {
+    public shiftsById(id: string) : ShiftItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["shift%2Did"] = id
@@ -253,7 +253,7 @@ export class ScheduleRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SwapShiftsChangeRequestItemRequestBuilder
      */
-    public swapShiftsChangeRequestsById(id: string) : SwapShiftsChangeRequestItemRequestBuilder {
+    public swapShiftsChangeRequestsById(id: string) : SwapShiftsChangeRequestItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["swapShiftsChangeRequest%2Did"] = id
@@ -264,7 +264,7 @@ export class ScheduleRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TimeOffReasonItemRequestBuilder
      */
-    public timeOffReasonsById(id: string) : TimeOffReasonItemRequestBuilder {
+    public timeOffReasonsById(id: string) : TimeOffReasonItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["timeOffReason%2Did"] = id
@@ -275,7 +275,7 @@ export class ScheduleRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TimeOffRequestItemRequestBuilder
      */
-    public timeOffRequestsById(id: string) : TimeOffRequestItemRequestBuilder {
+    public timeOffRequestsById(id: string) : TimeOffRequestItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["timeOffRequest%2Did"] = id
@@ -286,7 +286,7 @@ export class ScheduleRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TimeOffItemRequestBuilder
      */
-    public timesOffById(id: string) : TimeOffItemRequestBuilder {
+    public timesOffById(id: string) : TimeOffItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["timeOff%2Did"] = id

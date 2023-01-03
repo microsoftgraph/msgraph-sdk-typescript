@@ -116,7 +116,7 @@ export class PermissionGrantPolicyItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PermissionGrantConditionSetItemRequestBuilder
      */
-    public excludesById(id: string) : I1de425db59fc7a06aa6b53fd64ff14ab529beb4d0ae123c9d20ff450221dc84c {
+    public excludesById(id: string) : I1de425db59fc7a06aa6b53fd64ff14ab529beb4d0ae123c9d20ff450221dc84c | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["permissionGrantConditionSet%2Did"] = id
@@ -143,7 +143,7 @@ export class PermissionGrantPolicyItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PermissionGrantConditionSetItemRequestBuilder
      */
-    public includesById(id: string) : I9067e26394e951d2b2b0e68ce6a008b8c038bd570d8dff07053a60f58777011f {
+    public includesById(id: string) : I9067e26394e951d2b2b0e68ce6a008b8c038bd570d8dff07053a60f58777011f | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["permissionGrantConditionSet%2Did"] = id

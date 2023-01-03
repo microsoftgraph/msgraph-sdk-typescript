@@ -94,7 +94,7 @@ export class InferenceClassificationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a InferenceClassificationOverrideItemRequestBuilder
      */
-    public overridesById(id: string) : InferenceClassificationOverrideItemRequestBuilder {
+    public overridesById(id: string) : InferenceClassificationOverrideItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["inferenceClassificationOverride%2Did"] = id

@@ -73,7 +73,7 @@ export class BookingBusinessItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a BookingAppointmentItemRequestBuilder
      */
-    public appointmentsById(id: string) : If8492a98c98902c4f6ba4863614de95da278d3415d72f020e0e93895216cb97d {
+    public appointmentsById(id: string) : If8492a98c98902c4f6ba4863614de95da278d3415d72f020e0e93895216cb97d | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bookingAppointment%2Did"] = id
@@ -84,7 +84,7 @@ export class BookingBusinessItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a BookingAppointmentItemRequestBuilder
      */
-    public calendarViewById(id: string) : Ibaa5b72e3646c195719ac2d5f1bdd23edfb26f61b42918c45bc195a6229375c4 {
+    public calendarViewById(id: string) : Ibaa5b72e3646c195719ac2d5f1bdd23edfb26f61b42918c45bc195a6229375c4 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bookingAppointment%2Did"] = id
@@ -162,7 +162,7 @@ export class BookingBusinessItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a BookingCustomerBaseItemRequestBuilder
      */
-    public customersById(id: string) : BookingCustomerBaseItemRequestBuilder {
+    public customersById(id: string) : BookingCustomerBaseItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bookingCustomerBase%2Did"] = id
@@ -173,7 +173,7 @@ export class BookingBusinessItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a BookingCustomQuestionItemRequestBuilder
      */
-    public customQuestionsById(id: string) : BookingCustomQuestionItemRequestBuilder {
+    public customQuestionsById(id: string) : BookingCustomQuestionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bookingCustomQuestion%2Did"] = id
@@ -233,7 +233,7 @@ export class BookingBusinessItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a BookingServiceItemRequestBuilder
      */
-    public servicesById(id: string) : BookingServiceItemRequestBuilder {
+    public servicesById(id: string) : BookingServiceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bookingService%2Did"] = id
@@ -244,7 +244,7 @@ export class BookingBusinessItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a BookingStaffMemberBaseItemRequestBuilder
      */
-    public staffMembersById(id: string) : BookingStaffMemberBaseItemRequestBuilder {
+    public staffMembersById(id: string) : BookingStaffMemberBaseItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bookingStaffMemberBase%2Did"] = id

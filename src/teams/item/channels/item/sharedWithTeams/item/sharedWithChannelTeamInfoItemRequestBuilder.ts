@@ -28,7 +28,7 @@ export class SharedWithChannelTeamInfoItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ConversationMemberItemRequestBuilder
      */
-    public allowedMembersById(id: string) : ConversationMemberItemRequestBuilder {
+    public allowedMembersById(id: string) : ConversationMemberItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["conversationMember%2Did"] = id

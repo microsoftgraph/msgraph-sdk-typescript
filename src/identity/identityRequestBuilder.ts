@@ -50,7 +50,7 @@ export class IdentityRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a IdentityApiConnectorItemRequestBuilder
      */
-    public apiConnectorsById(id: string) : IdentityApiConnectorItemRequestBuilder {
+    public apiConnectorsById(id: string) : IdentityApiConnectorItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["identityApiConnector%2Did"] = id
@@ -61,7 +61,7 @@ export class IdentityRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a B2xIdentityUserFlowItemRequestBuilder
      */
-    public b2xUserFlowsById(id: string) : B2xIdentityUserFlowItemRequestBuilder {
+    public b2xUserFlowsById(id: string) : B2xIdentityUserFlowItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["b2xIdentityUserFlow%2Did"] = id
@@ -139,7 +139,7 @@ export class IdentityRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a IdentityProviderBaseItemRequestBuilder
      */
-    public identityProvidersById(id: string) : IdentityProviderBaseItemRequestBuilder {
+    public identityProvidersById(id: string) : IdentityProviderBaseItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["identityProviderBase%2Did"] = id
@@ -168,7 +168,7 @@ export class IdentityRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a IdentityUserFlowAttributeItemRequestBuilder
      */
-    public userFlowAttributesById(id: string) : IdentityUserFlowAttributeItemRequestBuilder {
+    public userFlowAttributesById(id: string) : IdentityUserFlowAttributeItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["identityUserFlowAttribute%2Did"] = id

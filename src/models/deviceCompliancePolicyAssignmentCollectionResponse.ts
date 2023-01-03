@@ -2,9 +2,6 @@ import {createDeviceCompliancePolicyAssignmentFromDiscriminatorValue} from './cr
 import {BaseCollectionPaginationCountResponse, DeviceCompliancePolicyAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the assignments property of the microsoft.graph.deviceCompliancePolicy entity.
- */
 export class DeviceCompliancePolicyAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DeviceCompliancePolicyAssignment[] | undefined;

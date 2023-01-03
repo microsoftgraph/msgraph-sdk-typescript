@@ -156,7 +156,7 @@ export class OnenoteRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a NotebookItemRequestBuilder
      */
-    public notebooksById(id: string) : NotebookItemRequestBuilder {
+    public notebooksById(id: string) : NotebookItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["notebook%2Did"] = id
@@ -167,7 +167,7 @@ export class OnenoteRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a OnenoteOperationItemRequestBuilder
      */
-    public operationsById(id: string) : OnenoteOperationItemRequestBuilder {
+    public operationsById(id: string) : OnenoteOperationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["onenoteOperation%2Did"] = id
@@ -178,7 +178,7 @@ export class OnenoteRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a OnenotePageItemRequestBuilder
      */
-    public pagesById(id: string) : OnenotePageItemRequestBuilder {
+    public pagesById(id: string) : OnenotePageItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["onenotePage%2Did"] = id
@@ -207,7 +207,7 @@ export class OnenoteRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a OnenoteResourceItemRequestBuilder
      */
-    public resourcesById(id: string) : OnenoteResourceItemRequestBuilder {
+    public resourcesById(id: string) : OnenoteResourceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["onenoteResource%2Did"] = id
@@ -218,7 +218,7 @@ export class OnenoteRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SectionGroupItemRequestBuilder
      */
-    public sectionGroupsById(id: string) : SectionGroupItemRequestBuilder {
+    public sectionGroupsById(id: string) : SectionGroupItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["sectionGroup%2Did"] = id
@@ -229,7 +229,7 @@ export class OnenoteRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a OnenoteSectionItemRequestBuilder
      */
-    public sectionsById(id: string) : OnenoteSectionItemRequestBuilder {
+    public sectionsById(id: string) : OnenoteSectionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["onenoteSection%2Did"] = id

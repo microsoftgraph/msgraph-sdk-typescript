@@ -39,7 +39,7 @@ export class DirectoryRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AdministrativeUnitItemRequestBuilder
      */
-    public administrativeUnitsById(id: string) : AdministrativeUnitItemRequestBuilder {
+    public administrativeUnitsById(id: string) : AdministrativeUnitItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["administrativeUnit%2Did"] = id
@@ -101,7 +101,7 @@ export class DirectoryRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public deletedItemsById(id: string) : DirectoryObjectItemRequestBuilder {
+    public deletedItemsById(id: string) : DirectoryObjectItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -112,7 +112,7 @@ export class DirectoryRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a IdentityProviderBaseItemRequestBuilder
      */
-    public federationConfigurationsById(id: string) : IdentityProviderBaseItemRequestBuilder {
+    public federationConfigurationsById(id: string) : IdentityProviderBaseItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["identityProviderBase%2Did"] = id

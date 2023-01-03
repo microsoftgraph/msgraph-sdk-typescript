@@ -126,7 +126,7 @@ export class DetectedAppItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedDeviceItemRequestBuilder
      */
-    public managedDevicesById(id: string) : ManagedDeviceItemRequestBuilder {
+    public managedDevicesById(id: string) : ManagedDeviceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedDevice%2Did"] = id

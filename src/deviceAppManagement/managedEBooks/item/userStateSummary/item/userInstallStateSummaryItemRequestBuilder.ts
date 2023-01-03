@@ -110,7 +110,7 @@ export class UserInstallStateSummaryItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceInstallStateItemRequestBuilder
      */
-    public deviceStatesById(id: string) : DeviceInstallStateItemRequestBuilder {
+    public deviceStatesById(id: string) : DeviceInstallStateItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceInstallState%2Did"] = id

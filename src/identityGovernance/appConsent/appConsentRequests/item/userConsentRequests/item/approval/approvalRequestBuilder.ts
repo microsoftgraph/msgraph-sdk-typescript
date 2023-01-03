@@ -144,7 +144,7 @@ export class ApprovalRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ApprovalStageItemRequestBuilder
      */
-    public stagesById(id: string) : ApprovalStageItemRequestBuilder {
+    public stagesById(id: string) : ApprovalStageItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["approvalStage%2Did"] = id

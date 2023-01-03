@@ -4,13 +4,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class PlannerPlanContainer implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The identifier of the resource that contains the plan. */
+    /** The identifier of the resource that contains the plan. Optional. */
     private _containerId?: string | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster. */
+    /** The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster. Optional. */
     private _type?: PlannerContainerType | undefined;
-    /** The full canonical URL of the container. */
+    /** The full canonical URL of the container. Optional. */
     private _url?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -33,14 +33,14 @@ export class PlannerPlanContainer implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the containerId property value. The identifier of the resource that contains the plan.
+     * Gets the containerId property value. The identifier of the resource that contains the plan. Optional.
      * @returns a string
      */
     public get containerId() {
         return this._containerId;
     };
     /**
-     * Sets the containerId property value. The identifier of the resource that contains the plan.
+     * Sets the containerId property value. The identifier of the resource that contains the plan. Optional.
      * @param value Value to set for the containerId property.
      */
     public set containerId(value: string | undefined) {
@@ -85,28 +85,28 @@ export class PlannerPlanContainer implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.
+     * Gets the type property value. The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster. Optional.
      * @returns a plannerContainerType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.
+     * Sets the type property value. The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster. Optional.
      * @param value Value to set for the type property.
      */
     public set type(value: PlannerContainerType | undefined) {
         this._type = value;
     };
     /**
-     * Gets the url property value. The full canonical URL of the container.
+     * Gets the url property value. The full canonical URL of the container. Optional.
      * @returns a string
      */
     public get url() {
         return this._url;
     };
     /**
-     * Sets the url property value. The full canonical URL of the container.
+     * Sets the url property value. The full canonical URL of the container. Optional.
      * @param value Value to set for the url property.
      */
     public set url(value: string | undefined) {

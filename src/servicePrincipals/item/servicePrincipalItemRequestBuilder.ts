@@ -162,7 +162,7 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AppRoleAssignmentItemRequestBuilder
      */
-    public appRoleAssignedToById(id: string) : I93168b8558556722da9cecc35d7553892e9e7c2bde1e1fb43b3db6857cf15658 {
+    public appRoleAssignedToById(id: string) : I93168b8558556722da9cecc35d7553892e9e7c2bde1e1fb43b3db6857cf15658 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["appRoleAssignment%2Did"] = id
@@ -173,7 +173,7 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AppRoleAssignmentItemRequestBuilder
      */
-    public appRoleAssignmentsById(id: string) : I0f96074f1bfce1552adeec4df64587124a7f4fef296a83e3a7d09766250b6d14 {
+    public appRoleAssignmentsById(id: string) : I0f96074f1bfce1552adeec4df64587124a7f4fef296a83e3a7d09766250b6d14 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["appRoleAssignment%2Did"] = id
@@ -184,7 +184,7 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ClaimsMappingPolicyItemRequestBuilder
      */
-    public claimsMappingPoliciesById(id: string) : ClaimsMappingPolicyItemRequestBuilder {
+    public claimsMappingPoliciesById(id: string) : ClaimsMappingPolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["claimsMappingPolicy%2Did"] = id
@@ -224,7 +224,7 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public createdObjectsById(id: string) : Idd5bcd509e8fa4de83b0ab51581c31faee151d3fe6ef9edcf927694965d73a2c {
+    public createdObjectsById(id: string) : Idd5bcd509e8fa4de83b0ab51581c31faee151d3fe6ef9edcf927694965d73a2c | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -273,7 +273,7 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DelegatedPermissionClassificationItemRequestBuilder
      */
-    public delegatedPermissionClassificationsById(id: string) : DelegatedPermissionClassificationItemRequestBuilder {
+    public delegatedPermissionClassificationsById(id: string) : DelegatedPermissionClassificationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["delegatedPermissionClassification%2Did"] = id
@@ -300,7 +300,7 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EndpointItemRequestBuilder
      */
-    public endpointsById(id: string) : EndpointItemRequestBuilder {
+    public endpointsById(id: string) : EndpointItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["endpoint%2Did"] = id
@@ -311,7 +311,7 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a FederatedIdentityCredentialItemRequestBuilder
      */
-    public federatedIdentityCredentialsById(id: string) : FederatedIdentityCredentialItemRequestBuilder {
+    public federatedIdentityCredentialsById(id: string) : FederatedIdentityCredentialItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["federatedIdentityCredential%2Did"] = id
@@ -339,7 +339,7 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a HomeRealmDiscoveryPolicyItemRequestBuilder
      */
-    public homeRealmDiscoveryPoliciesById(id: string) : HomeRealmDiscoveryPolicyItemRequestBuilder {
+    public homeRealmDiscoveryPoliciesById(id: string) : HomeRealmDiscoveryPolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["homeRealmDiscoveryPolicy%2Did"] = id
@@ -350,7 +350,7 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public memberOfById(id: string) : If04f7937796df91a9e5b988ef3bf59350050b50c9239bd5559c64c4c55486c2a {
+    public memberOfById(id: string) : If04f7937796df91a9e5b988ef3bf59350050b50c9239bd5559c64c4c55486c2a | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -361,7 +361,7 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a OAuth2PermissionGrantItemRequestBuilder
      */
-    public oauth2PermissionGrantsById(id: string) : OAuth2PermissionGrantItemRequestBuilder {
+    public oauth2PermissionGrantsById(id: string) : OAuth2PermissionGrantItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["oAuth2PermissionGrant%2Did"] = id
@@ -372,7 +372,7 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public ownedObjectsById(id: string) : Ia867b6ae3f11225ff7b901f1fce150f9e21290a6d6c449c35e70db3ddcd52411 {
+    public ownedObjectsById(id: string) : Ia867b6ae3f11225ff7b901f1fce150f9e21290a6d6c449c35e70db3ddcd52411 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -383,7 +383,7 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public ownersById(id: string) : I0835d8d8ef8d42e8d6c78b47f39ee556ddd6a1be84094c5c876147cb74186e0f {
+    public ownersById(id: string) : I0835d8d8ef8d42e8d6c78b47f39ee556ddd6a1be84094c5c876147cb74186e0f | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -412,7 +412,7 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TokenIssuancePolicyItemRequestBuilder
      */
-    public tokenIssuancePoliciesById(id: string) : TokenIssuancePolicyItemRequestBuilder {
+    public tokenIssuancePoliciesById(id: string) : TokenIssuancePolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["tokenIssuancePolicy%2Did"] = id
@@ -423,7 +423,7 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TokenLifetimePolicyItemRequestBuilder
      */
-    public tokenLifetimePoliciesById(id: string) : TokenLifetimePolicyItemRequestBuilder {
+    public tokenLifetimePoliciesById(id: string) : TokenLifetimePolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["tokenLifetimePolicy%2Did"] = id
@@ -434,7 +434,7 @@ export class ServicePrincipalItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public transitiveMemberOfById(id: string) : Ib912ed8d8ac5765b62081ae40c470fcf950149a603500b416773d4e060862120 {
+    public transitiveMemberOfById(id: string) : Ib912ed8d8ac5765b62081ae40c470fcf950149a603500b416773d4e060862120 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id

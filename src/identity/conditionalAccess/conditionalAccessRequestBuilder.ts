@@ -46,7 +46,7 @@ export class ConditionalAccessRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AuthenticationContextClassReferenceItemRequestBuilder
      */
-    public authenticationContextClassReferencesById(id: string) : AuthenticationContextClassReferenceItemRequestBuilder {
+    public authenticationContextClassReferencesById(id: string) : AuthenticationContextClassReferenceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["authenticationContextClassReference%2Did"] = id
@@ -155,7 +155,7 @@ export class ConditionalAccessRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a NamedLocationItemRequestBuilder
      */
-    public namedLocationsById(id: string) : NamedLocationItemRequestBuilder {
+    public namedLocationsById(id: string) : NamedLocationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["namedLocation%2Did"] = id
@@ -184,7 +184,7 @@ export class ConditionalAccessRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ConditionalAccessPolicyItemRequestBuilder
      */
-    public policiesById(id: string) : ConditionalAccessPolicyItemRequestBuilder {
+    public policiesById(id: string) : ConditionalAccessPolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["conditionalAccessPolicy%2Did"] = id
@@ -195,7 +195,7 @@ export class ConditionalAccessRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ConditionalAccessTemplateItemRequestBuilder
      */
-    public templatesById(id: string) : ConditionalAccessTemplateItemRequestBuilder {
+    public templatesById(id: string) : ConditionalAccessTemplateItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["conditionalAccessTemplate%2Did"] = id

@@ -9,7 +9,7 @@ import {Entity, WorkbookChartAreaFormat, WorkbookChartAxes, WorkbookChartDataLab
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of application entities.
+ * Provides operations to manage the collection of agreementAcceptance entities.
  */
 export class WorkbookChart extends Entity implements Parsable {
     /** Represents chart axes. Read-only. */

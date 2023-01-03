@@ -2,6 +2,9 @@ import {createConversationMemberFromDiscriminatorValue} from './createConversati
 import {ConversationMember, TeamInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Provides operations to manage the collection of agreement entities.
+ */
 export class SharedWithChannelTeamInfo extends TeamInfo implements Parsable {
     /** A collection of team members who have access to the shared channel. */
     private _allowedMembers?: ConversationMember[] | undefined;
@@ -22,7 +25,7 @@ export class SharedWithChannelTeamInfo extends TeamInfo implements Parsable {
         this._allowedMembers = value;
     };
     /**
-     * Instantiates a new SharedWithChannelTeamInfo and sets the default values.
+     * Instantiates a new sharedWithChannelTeamInfo and sets the default values.
      */
     public constructor() {
         super();

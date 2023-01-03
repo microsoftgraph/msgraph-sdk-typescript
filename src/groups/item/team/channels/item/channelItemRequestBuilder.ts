@@ -172,7 +172,7 @@ export class ChannelItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ConversationMemberItemRequestBuilder
      */
-    public membersById(id: string) : ConversationMemberItemRequestBuilder {
+    public membersById(id: string) : ConversationMemberItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["conversationMember%2Did"] = id
@@ -183,7 +183,7 @@ export class ChannelItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ChatMessageItemRequestBuilder
      */
-    public messagesById(id: string) : ChatMessageItemRequestBuilder {
+    public messagesById(id: string) : ChatMessageItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["chatMessage%2Did"] = id
@@ -212,7 +212,7 @@ export class ChannelItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SharedWithChannelTeamInfoItemRequestBuilder
      */
-    public sharedWithTeamsById(id: string) : SharedWithChannelTeamInfoItemRequestBuilder {
+    public sharedWithTeamsById(id: string) : SharedWithChannelTeamInfoItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["sharedWithChannelTeamInfo%2Did"] = id
@@ -223,7 +223,7 @@ export class ChannelItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TeamsTabItemRequestBuilder
      */
-    public tabsById(id: string) : TeamsTabItemRequestBuilder {
+    public tabsById(id: string) : TeamsTabItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["teamsTab%2Did"] = id
