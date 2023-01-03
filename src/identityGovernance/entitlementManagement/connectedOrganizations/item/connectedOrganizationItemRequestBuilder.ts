@@ -116,7 +116,7 @@ export class ConnectedOrganizationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public externalSponsorsById(id: string) : I7878104e7b0ea53246ac468b5705cce3cfc580d4222a924819428d7221076aa2 {
+    public externalSponsorsById(id: string) : I7878104e7b0ea53246ac468b5705cce3cfc580d4222a924819428d7221076aa2 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -143,7 +143,7 @@ export class ConnectedOrganizationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public internalSponsorsById(id: string) : I8a781ad6078cf6e70aa40eeebfc1c290e68a68bb1597594a6a8f9d0f0ea3b516 {
+    public internalSponsorsById(id: string) : I8a781ad6078cf6e70aa40eeebfc1c290e68a68bb1597594a6a8f9d0f0ea3b516 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id

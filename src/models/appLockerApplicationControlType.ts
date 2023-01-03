@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum AppLockerApplicationControlType {
     /** Device default value, no Application Control type selected. */
     NotConfigured = "notConfigured",

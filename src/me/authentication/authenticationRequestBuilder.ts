@@ -164,7 +164,7 @@ export class AuthenticationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EmailAuthenticationMethodItemRequestBuilder
      */
-    public emailMethodsById(id: string) : EmailAuthenticationMethodItemRequestBuilder {
+    public emailMethodsById(id: string) : EmailAuthenticationMethodItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["emailAuthenticationMethod%2Did"] = id
@@ -175,7 +175,7 @@ export class AuthenticationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a Fido2AuthenticationMethodItemRequestBuilder
      */
-    public fido2MethodsById(id: string) : Fido2AuthenticationMethodItemRequestBuilder {
+    public fido2MethodsById(id: string) : Fido2AuthenticationMethodItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["fido2AuthenticationMethod%2Did"] = id
@@ -202,7 +202,7 @@ export class AuthenticationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AuthenticationMethodItemRequestBuilder
      */
-    public methodsById(id: string) : AuthenticationMethodItemRequestBuilder {
+    public methodsById(id: string) : AuthenticationMethodItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["authenticationMethod%2Did"] = id
@@ -213,7 +213,7 @@ export class AuthenticationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder
      */
-    public microsoftAuthenticatorMethodsById(id: string) : MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {
+    public microsoftAuthenticatorMethodsById(id: string) : MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["microsoftAuthenticatorAuthenticationMethod%2Did"] = id
@@ -224,7 +224,7 @@ export class AuthenticationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a LongRunningOperationItemRequestBuilder
      */
-    public operationsById(id: string) : LongRunningOperationItemRequestBuilder {
+    public operationsById(id: string) : LongRunningOperationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["longRunningOperation%2Did"] = id
@@ -235,7 +235,7 @@ export class AuthenticationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PasswordAuthenticationMethodItemRequestBuilder
      */
-    public passwordMethodsById(id: string) : PasswordAuthenticationMethodItemRequestBuilder {
+    public passwordMethodsById(id: string) : PasswordAuthenticationMethodItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["passwordAuthenticationMethod%2Did"] = id
@@ -264,7 +264,7 @@ export class AuthenticationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PhoneAuthenticationMethodItemRequestBuilder
      */
-    public phoneMethodsById(id: string) : PhoneAuthenticationMethodItemRequestBuilder {
+    public phoneMethodsById(id: string) : PhoneAuthenticationMethodItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["phoneAuthenticationMethod%2Did"] = id
@@ -275,7 +275,7 @@ export class AuthenticationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SoftwareOathAuthenticationMethodItemRequestBuilder
      */
-    public softwareOathMethodsById(id: string) : SoftwareOathAuthenticationMethodItemRequestBuilder {
+    public softwareOathMethodsById(id: string) : SoftwareOathAuthenticationMethodItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["softwareOathAuthenticationMethod%2Did"] = id
@@ -286,7 +286,7 @@ export class AuthenticationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TemporaryAccessPassAuthenticationMethodItemRequestBuilder
      */
-    public temporaryAccessPassMethodsById(id: string) : TemporaryAccessPassAuthenticationMethodItemRequestBuilder {
+    public temporaryAccessPassMethodsById(id: string) : TemporaryAccessPassAuthenticationMethodItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["temporaryAccessPassAuthenticationMethod%2Did"] = id
@@ -297,7 +297,7 @@ export class AuthenticationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder
      */
-    public windowsHelloForBusinessMethodsById(id: string) : WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder {
+    public windowsHelloForBusinessMethodsById(id: string) : WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["windowsHelloForBusinessAuthenticationMethod%2Did"] = id

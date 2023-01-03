@@ -76,7 +76,7 @@ export class OutlookRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a OutlookCategoryItemRequestBuilder
      */
-    public masterCategoriesById(id: string) : OutlookCategoryItemRequestBuilder {
+    public masterCategoriesById(id: string) : OutlookCategoryItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["outlookCategory%2Did"] = id

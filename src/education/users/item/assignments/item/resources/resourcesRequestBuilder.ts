@@ -36,7 +36,7 @@ export class ResourcesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get all the educationAssignmentResource objects associated with an assignment.
+     * Get all the educationAssignmentResource objects associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -54,7 +54,7 @@ export class ResourcesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create an assignment resource. You can create the following types of assignment resources: Every resource has an @odata.type property to indicate which type of resource is being created. 
+     * Create an assignment resource. Only teachers can perform this operation. You can create the following types of assignment resources: Every resource has an **@odata.type** property to indicate which type of resource is being created.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -74,7 +74,7 @@ export class ResourcesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get all the educationAssignmentResource objects associated with an assignment.
+     * Get all the educationAssignmentResource objects associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationAssignmentResourceCollectionResponse
@@ -91,7 +91,7 @@ export class ResourcesRequestBuilder {
         return this.requestAdapter?.sendAsync<EducationAssignmentResourceCollectionResponse>(requestInfo, createEducationAssignmentResourceCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create an assignment resource. You can create the following types of assignment resources: Every resource has an @odata.type property to indicate which type of resource is being created. 
+     * Create an assignment resource. Only teachers can perform this operation. You can create the following types of assignment resources: Every resource has an **@odata.type** property to indicate which type of resource is being created.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

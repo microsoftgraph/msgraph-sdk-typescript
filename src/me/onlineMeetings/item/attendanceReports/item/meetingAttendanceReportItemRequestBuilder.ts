@@ -28,7 +28,7 @@ export class MeetingAttendanceReportItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AttendanceRecordItemRequestBuilder
      */
-    public attendanceRecordsById(id: string) : AttendanceRecordItemRequestBuilder {
+    public attendanceRecordsById(id: string) : AttendanceRecordItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["attendanceRecord%2Did"] = id

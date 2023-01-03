@@ -39,7 +39,7 @@ export class TermItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TermItemRequestBuilder
      */
-    public childrenById(id: string) : I4d0d1256f202e39491d2f61848b15f852ed53384bf4eb5c754e90a4f9b5720aa {
+    public childrenById(id: string) : I4d0d1256f202e39491d2f61848b15f852ed53384bf4eb5c754e90a4f9b5720aa | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["term%2Did1"] = id
@@ -166,7 +166,7 @@ export class TermItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a RelationItemRequestBuilder
      */
-    public relationsById(id: string) : RelationItemRequestBuilder {
+    public relationsById(id: string) : RelationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["relation%2Did"] = id

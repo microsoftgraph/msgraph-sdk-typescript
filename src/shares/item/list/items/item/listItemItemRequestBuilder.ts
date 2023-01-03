@@ -133,7 +133,7 @@ export class ListItemItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DocumentSetVersionItemRequestBuilder
      */
-    public documentSetVersionsById(id: string) : DocumentSetVersionItemRequestBuilder {
+    public documentSetVersionsById(id: string) : DocumentSetVersionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["documentSetVersion%2Did"] = id
@@ -198,7 +198,7 @@ export class ListItemItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ListItemVersionItemRequestBuilder
      */
-    public versionsById(id: string) : ListItemVersionItemRequestBuilder {
+    public versionsById(id: string) : ListItemVersionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["listItemVersion%2Did"] = id

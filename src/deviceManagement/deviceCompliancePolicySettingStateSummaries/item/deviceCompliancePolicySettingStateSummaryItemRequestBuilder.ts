@@ -110,7 +110,7 @@ export class DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceComplianceSettingStateItemRequestBuilder
      */
-    public deviceComplianceSettingStatesById(id: string) : DeviceComplianceSettingStateItemRequestBuilder {
+    public deviceComplianceSettingStatesById(id: string) : DeviceComplianceSettingStateItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceComplianceSettingState%2Did"] = id

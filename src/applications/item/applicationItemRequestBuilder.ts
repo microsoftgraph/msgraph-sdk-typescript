@@ -206,7 +206,7 @@ export class ApplicationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ExtensionPropertyItemRequestBuilder
      */
-    public extensionPropertiesById(id: string) : ExtensionPropertyItemRequestBuilder {
+    public extensionPropertiesById(id: string) : ExtensionPropertyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["extensionProperty%2Did"] = id
@@ -217,7 +217,7 @@ export class ApplicationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a FederatedIdentityCredentialItemRequestBuilder
      */
-    public federatedIdentityCredentialsById(id: string) : FederatedIdentityCredentialItemRequestBuilder {
+    public federatedIdentityCredentialsById(id: string) : FederatedIdentityCredentialItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["federatedIdentityCredential%2Did"] = id
@@ -245,7 +245,7 @@ export class ApplicationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a HomeRealmDiscoveryPolicyItemRequestBuilder
      */
-    public homeRealmDiscoveryPoliciesById(id: string) : HomeRealmDiscoveryPolicyItemRequestBuilder {
+    public homeRealmDiscoveryPoliciesById(id: string) : HomeRealmDiscoveryPolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["homeRealmDiscoveryPolicy%2Did"] = id
@@ -256,7 +256,7 @@ export class ApplicationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public ownersById(id: string) : DirectoryObjectItemRequestBuilder {
+    public ownersById(id: string) : DirectoryObjectItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -286,7 +286,7 @@ export class ApplicationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TokenIssuancePolicyItemRequestBuilder
      */
-    public tokenIssuancePoliciesById(id: string) : TokenIssuancePolicyItemRequestBuilder {
+    public tokenIssuancePoliciesById(id: string) : TokenIssuancePolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["tokenIssuancePolicy%2Did"] = id
@@ -297,7 +297,7 @@ export class ApplicationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TokenLifetimePolicyItemRequestBuilder
      */
-    public tokenLifetimePoliciesById(id: string) : TokenLifetimePolicyItemRequestBuilder {
+    public tokenLifetimePoliciesById(id: string) : TokenLifetimePolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["tokenLifetimePolicy%2Did"] = id

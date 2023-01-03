@@ -49,7 +49,7 @@ export class TargetedManagedAppConfigurationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedMobileAppItemRequestBuilder
      */
-    public appsById(id: string) : ManagedMobileAppItemRequestBuilder {
+    public appsById(id: string) : ManagedMobileAppItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedMobileApp%2Did"] = id
@@ -60,7 +60,7 @@ export class TargetedManagedAppConfigurationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TargetedManagedAppPolicyAssignmentItemRequestBuilder
      */
-    public assignmentsById(id: string) : TargetedManagedAppPolicyAssignmentItemRequestBuilder {
+    public assignmentsById(id: string) : TargetedManagedAppPolicyAssignmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["targetedManagedAppPolicyAssignment%2Did"] = id

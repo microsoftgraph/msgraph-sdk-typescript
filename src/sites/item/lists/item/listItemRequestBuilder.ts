@@ -57,7 +57,7 @@ export class ListItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ColumnDefinitionItemRequestBuilder
      */
-    public columnsById(id: string) : ColumnDefinitionItemRequestBuilder {
+    public columnsById(id: string) : ColumnDefinitionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
@@ -81,7 +81,7 @@ export class ListItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ContentTypeItemRequestBuilder
      */
-    public contentTypesById(id: string) : ContentTypeItemRequestBuilder {
+    public contentTypesById(id: string) : ContentTypeItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contentType%2Did"] = id
@@ -177,7 +177,7 @@ export class ListItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ListItemItemRequestBuilder
      */
-    public itemsById(id: string) : ListItemItemRequestBuilder {
+    public itemsById(id: string) : ListItemItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["listItem%2Did"] = id
@@ -188,7 +188,7 @@ export class ListItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a RichLongRunningOperationItemRequestBuilder
      */
-    public operationsById(id: string) : RichLongRunningOperationItemRequestBuilder {
+    public operationsById(id: string) : RichLongRunningOperationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["richLongRunningOperation%2Did"] = id
@@ -217,7 +217,7 @@ export class ListItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SubscriptionItemRequestBuilder
      */
-    public subscriptionsById(id: string) : SubscriptionItemRequestBuilder {
+    public subscriptionsById(id: string) : SubscriptionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["subscription%2Did"] = id

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the admin singleton. */
 export enum ActionState {
     /** Not a valid action state */
     None = "none",

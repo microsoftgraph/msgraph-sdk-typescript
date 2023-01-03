@@ -144,7 +144,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a IdentityProviderItemRequestBuilder
      */
-    public identityProvidersById(id: string) : IdentityProviderItemRequestBuilder {
+    public identityProvidersById(id: string) : IdentityProviderItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["identityProvider%2Did"] = id
@@ -155,7 +155,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UserFlowLanguageConfigurationItemRequestBuilder
      */
-    public languagesById(id: string) : UserFlowLanguageConfigurationItemRequestBuilder {
+    public languagesById(id: string) : UserFlowLanguageConfigurationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["userFlowLanguageConfiguration%2Did"] = id
@@ -184,7 +184,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a IdentityUserFlowAttributeAssignmentItemRequestBuilder
      */
-    public userAttributeAssignmentsById(id: string) : IdentityUserFlowAttributeAssignmentItemRequestBuilder {
+    public userAttributeAssignmentsById(id: string) : IdentityUserFlowAttributeAssignmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["identityUserFlowAttributeAssignment%2Did"] = id
@@ -195,7 +195,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a IdentityProviderBaseItemRequestBuilder
      */
-    public userFlowIdentityProvidersById(id: string) : IdentityProviderBaseItemRequestBuilder {
+    public userFlowIdentityProvidersById(id: string) : IdentityProviderBaseItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["identityProviderBase%2Did"] = id

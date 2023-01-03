@@ -39,7 +39,7 @@ export class TeamworkRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AssociatedTeamInfoItemRequestBuilder
      */
-    public associatedTeamsById(id: string) : AssociatedTeamInfoItemRequestBuilder {
+    public associatedTeamsById(id: string) : AssociatedTeamInfoItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["associatedTeamInfo%2Did"] = id
@@ -148,7 +148,7 @@ export class TeamworkRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UserScopeTeamsAppInstallationItemRequestBuilder
      */
-    public installedAppsById(id: string) : UserScopeTeamsAppInstallationItemRequestBuilder {
+    public installedAppsById(id: string) : UserScopeTeamsAppInstallationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["userScopeTeamsAppInstallation%2Did"] = id

@@ -186,7 +186,7 @@ export class EntitlementManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleAssignmentItemRequestBuilder
      */
-    public roleAssignmentsById(id: string) : UnifiedRoleAssignmentItemRequestBuilder {
+    public roleAssignmentsById(id: string) : UnifiedRoleAssignmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleAssignment%2Did"] = id
@@ -197,7 +197,7 @@ export class EntitlementManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder
      */
-    public roleAssignmentScheduleInstancesById(id: string) : UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder {
+    public roleAssignmentScheduleInstancesById(id: string) : UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleAssignmentScheduleInstance%2Did"] = id
@@ -208,7 +208,7 @@ export class EntitlementManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleAssignmentScheduleRequestItemRequestBuilder
      */
-    public roleAssignmentScheduleRequestsById(id: string) : UnifiedRoleAssignmentScheduleRequestItemRequestBuilder {
+    public roleAssignmentScheduleRequestsById(id: string) : UnifiedRoleAssignmentScheduleRequestItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleAssignmentScheduleRequest%2Did"] = id
@@ -219,7 +219,7 @@ export class EntitlementManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleAssignmentScheduleItemRequestBuilder
      */
-    public roleAssignmentSchedulesById(id: string) : UnifiedRoleAssignmentScheduleItemRequestBuilder {
+    public roleAssignmentSchedulesById(id: string) : UnifiedRoleAssignmentScheduleItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleAssignmentSchedule%2Did"] = id
@@ -230,7 +230,7 @@ export class EntitlementManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleDefinitionItemRequestBuilder
      */
-    public roleDefinitionsById(id: string) : UnifiedRoleDefinitionItemRequestBuilder {
+    public roleDefinitionsById(id: string) : UnifiedRoleDefinitionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleDefinition%2Did"] = id
@@ -241,7 +241,7 @@ export class EntitlementManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder
      */
-    public roleEligibilityScheduleInstancesById(id: string) : UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder {
+    public roleEligibilityScheduleInstancesById(id: string) : UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleEligibilityScheduleInstance%2Did"] = id
@@ -252,7 +252,7 @@ export class EntitlementManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleEligibilityScheduleRequestItemRequestBuilder
      */
-    public roleEligibilityScheduleRequestsById(id: string) : UnifiedRoleEligibilityScheduleRequestItemRequestBuilder {
+    public roleEligibilityScheduleRequestsById(id: string) : UnifiedRoleEligibilityScheduleRequestItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleEligibilityScheduleRequest%2Did"] = id
@@ -263,7 +263,7 @@ export class EntitlementManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleEligibilityScheduleItemRequestBuilder
      */
-    public roleEligibilitySchedulesById(id: string) : UnifiedRoleEligibilityScheduleItemRequestBuilder {
+    public roleEligibilitySchedulesById(id: string) : UnifiedRoleEligibilityScheduleItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleEligibilitySchedule%2Did"] = id

@@ -3,7 +3,7 @@ import {Entity, KeyValuePair} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the admin singleton.
+ * Provides operations to manage the collection of agreementAcceptance entities.
  */
 export class ServiceAnnouncementBase extends Entity implements Parsable {
     /** Additional details about service event. This property doesn't support filters. */

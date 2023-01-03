@@ -40,7 +40,7 @@ export class ManagedAppRegistrationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedAppPolicyItemRequestBuilder
      */
-    public appliedPoliciesById(id: string) : Ieeaba3839496ecf69dd412858bb89c71b8061bacc48d9e4f363c1d0603b278c9 {
+    public appliedPoliciesById(id: string) : Ieeaba3839496ecf69dd412858bb89c71b8061bacc48d9e4f363c1d0603b278c9 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedAppPolicy%2Did"] = id
@@ -149,7 +149,7 @@ export class ManagedAppRegistrationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedAppPolicyItemRequestBuilder
      */
-    public intendedPoliciesById(id: string) : Idd29f9cb721ede8ef48ce7470339b90954dc8da5b1ca8bab07978f58c2ea4e3c {
+    public intendedPoliciesById(id: string) : Idd29f9cb721ede8ef48ce7470339b90954dc8da5b1ca8bab07978f58c2ea4e3c | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedAppPolicy%2Did"] = id
@@ -160,7 +160,7 @@ export class ManagedAppRegistrationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedAppOperationItemRequestBuilder
      */
-    public operationsById(id: string) : ManagedAppOperationItemRequestBuilder {
+    public operationsById(id: string) : ManagedAppOperationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedAppOperation%2Did"] = id

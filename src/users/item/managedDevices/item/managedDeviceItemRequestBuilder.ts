@@ -216,7 +216,7 @@ export class ManagedDeviceItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceCompliancePolicyStateItemRequestBuilder
      */
-    public deviceCompliancePolicyStatesById(id: string) : DeviceCompliancePolicyStateItemRequestBuilder {
+    public deviceCompliancePolicyStatesById(id: string) : DeviceCompliancePolicyStateItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceCompliancePolicyState%2Did"] = id
@@ -227,7 +227,7 @@ export class ManagedDeviceItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceConfigurationStateItemRequestBuilder
      */
-    public deviceConfigurationStatesById(id: string) : DeviceConfigurationStateItemRequestBuilder {
+    public deviceConfigurationStatesById(id: string) : DeviceConfigurationStateItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceConfigurationState%2Did"] = id

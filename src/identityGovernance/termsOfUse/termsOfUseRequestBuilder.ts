@@ -34,7 +34,7 @@ export class TermsOfUseRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AgreementAcceptanceItemRequestBuilder
      */
-    public agreementAcceptancesById(id: string) : AgreementAcceptanceItemRequestBuilder {
+    public agreementAcceptancesById(id: string) : AgreementAcceptanceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["agreementAcceptance%2Did"] = id
@@ -45,7 +45,7 @@ export class TermsOfUseRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AgreementItemRequestBuilder
      */
-    public agreementsById(id: string) : AgreementItemRequestBuilder {
+    public agreementsById(id: string) : AgreementItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["agreement%2Did"] = id

@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum IosNotificationAlertType {
     /** Device default value, no intent. */
     DeviceDefault = "deviceDefault",

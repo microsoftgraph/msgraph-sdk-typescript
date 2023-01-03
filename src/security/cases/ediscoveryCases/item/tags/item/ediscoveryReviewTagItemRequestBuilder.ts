@@ -33,7 +33,7 @@ export class EdiscoveryReviewTagItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EdiscoveryReviewTagItemRequestBuilder
      */
-    public childTagsById(id: string) : Ie04ba6f0ce34de449e352ca037084834d656ce248273d13fdbcdf016b5e0ee16 {
+    public childTagsById(id: string) : Ie04ba6f0ce34de449e352ca037084834d656ce248273d13fdbcdf016b5e0ee16 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["ediscoveryReviewTag%2Did1"] = id

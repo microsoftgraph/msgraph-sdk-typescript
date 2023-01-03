@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
+/** Provides operations to manage the admin singleton. */
 export enum AuthenticationMethodState {
     Enabled = "enabled",
     Disabled = "disabled",

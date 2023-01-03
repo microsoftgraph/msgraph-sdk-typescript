@@ -7,12 +7,12 @@ import {Entity, IdentitySet, PlannerBucket, PlannerPlanContainer, PlannerPlanDet
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of application entities.
+ * Provides operations to manage the admin singleton.
  */
 export class PlannerPlan extends Entity implements Parsable {
     /** Read-only. Nullable. Collection of buckets in the plan. */
     private _buckets?: PlannerBucket[] | undefined;
-    /** Identifies the container of the plan. After it is set, this property can’t be updated. Required. */
+    /** Identifies the container of the plan. Specify only the url, the containerId and type, or all properties. After it is set, this property can’t be updated. Required. */
     private _container?: PlannerPlanContainer | undefined;
     /** Read-only. The user who created the plan. */
     private _createdBy?: IdentitySet | undefined;
@@ -47,14 +47,14 @@ export class PlannerPlan extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the container property value. Identifies the container of the plan. After it is set, this property can’t be updated. Required.
+     * Gets the container property value. Identifies the container of the plan. Specify only the url, the containerId and type, or all properties. After it is set, this property can’t be updated. Required.
      * @returns a plannerPlanContainer
      */
     public get container() {
         return this._container;
     };
     /**
-     * Sets the container property value. Identifies the container of the plan. After it is set, this property can’t be updated. Required.
+     * Sets the container property value. Identifies the container of the plan. Specify only the url, the containerId and type, or all properties. After it is set, this property can’t be updated. Required.
      * @param value Value to set for the container property.
      */
     public set container(value: PlannerPlanContainer | undefined) {

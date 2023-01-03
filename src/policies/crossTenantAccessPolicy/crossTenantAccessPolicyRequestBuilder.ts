@@ -132,7 +132,7 @@ export class CrossTenantAccessPolicyRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
      */
-    public partnersById(id: string) : CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder {
+    public partnersById(id: string) : CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["crossTenantAccessPolicyConfigurationPartner%2DtenantId"] = id

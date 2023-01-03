@@ -72,7 +72,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceCompliancePolicyAssignmentItemRequestBuilder
      */
-    public assignmentsById(id: string) : DeviceCompliancePolicyAssignmentItemRequestBuilder {
+    public assignmentsById(id: string) : DeviceCompliancePolicyAssignmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceCompliancePolicyAssignment%2Did"] = id
@@ -165,7 +165,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SettingStateDeviceSummaryItemRequestBuilder
      */
-    public deviceSettingStateSummariesById(id: string) : SettingStateDeviceSummaryItemRequestBuilder {
+    public deviceSettingStateSummariesById(id: string) : SettingStateDeviceSummaryItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["settingStateDeviceSummary%2Did"] = id
@@ -176,7 +176,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceComplianceDeviceStatusItemRequestBuilder
      */
-    public deviceStatusesById(id: string) : DeviceComplianceDeviceStatusItemRequestBuilder {
+    public deviceStatusesById(id: string) : DeviceComplianceDeviceStatusItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceComplianceDeviceStatus%2Did"] = id
@@ -221,7 +221,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceComplianceScheduledActionForRuleItemRequestBuilder
      */
-    public scheduledActionsForRuleById(id: string) : DeviceComplianceScheduledActionForRuleItemRequestBuilder {
+    public scheduledActionsForRuleById(id: string) : DeviceComplianceScheduledActionForRuleItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceComplianceScheduledActionForRule%2Did"] = id
@@ -232,7 +232,7 @@ export class DeviceCompliancePolicyItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceComplianceUserStatusItemRequestBuilder
      */
-    public userStatusesById(id: string) : DeviceComplianceUserStatusItemRequestBuilder {
+    public userStatusesById(id: string) : DeviceComplianceUserStatusItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceComplianceUserStatus%2Did"] = id

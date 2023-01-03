@@ -6,7 +6,7 @@ import {DirectoryObject, OnPremisesProvisioningError, Phone, PhysicalOfficeAddre
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of orgContact entities.
+ * Provides operations to manage the collection of agreementAcceptance entities.
  */
 export class OrgContact extends DirectoryObject implements Parsable {
     /** The addresses property */

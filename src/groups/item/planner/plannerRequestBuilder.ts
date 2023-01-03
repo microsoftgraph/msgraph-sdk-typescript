@@ -144,7 +144,7 @@ export class PlannerRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PlannerPlanItemRequestBuilder
      */
-    public plansById(id: string) : PlannerPlanItemRequestBuilder {
+    public plansById(id: string) : PlannerPlanItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["plannerPlan%2Did"] = id

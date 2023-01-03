@@ -160,7 +160,7 @@ export class SectionGroupItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SectionGroupItemRequestBuilder
      */
-    public sectionGroupsById(id: string) : Ifd2be6e4ebe01b028a3794b6fc91cfbf2682b4e2d95629b5f9c99a40e84d6e05 {
+    public sectionGroupsById(id: string) : Ifd2be6e4ebe01b028a3794b6fc91cfbf2682b4e2d95629b5f9c99a40e84d6e05 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["sectionGroup%2Did1"] = id
@@ -171,7 +171,7 @@ export class SectionGroupItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a OnenoteSectionItemRequestBuilder
      */
-    public sectionsById(id: string) : OnenoteSectionItemRequestBuilder {
+    public sectionsById(id: string) : OnenoteSectionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["onenoteSection%2Did"] = id

@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum WindowsStartMenuModeType {
     /** User defined. Default value. */
     UserDefined = "userDefined",

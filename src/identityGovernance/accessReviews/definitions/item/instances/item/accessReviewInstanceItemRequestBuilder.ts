@@ -83,7 +83,7 @@ export class AccessReviewInstanceItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessReviewReviewerItemRequestBuilder
      */
-    public contactedReviewersById(id: string) : AccessReviewReviewerItemRequestBuilder {
+    public contactedReviewersById(id: string) : AccessReviewReviewerItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessReviewReviewer%2Did"] = id
@@ -148,7 +148,7 @@ export class AccessReviewInstanceItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessReviewInstanceDecisionItemItemRequestBuilder
      */
-    public decisionsById(id: string) : AccessReviewInstanceDecisionItemItemRequestBuilder {
+    public decisionsById(id: string) : AccessReviewInstanceDecisionItemItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessReviewInstanceDecisionItem%2Did"] = id
@@ -208,7 +208,7 @@ export class AccessReviewInstanceItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessReviewStageItemRequestBuilder
      */
-    public stagesById(id: string) : AccessReviewStageItemRequestBuilder {
+    public stagesById(id: string) : AccessReviewStageItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessReviewStage%2Did"] = id

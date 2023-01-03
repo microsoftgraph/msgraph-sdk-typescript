@@ -57,7 +57,7 @@ export class PrintRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PrintConnectorItemRequestBuilder
      */
-    public connectorsById(id: string) : PrintConnectorItemRequestBuilder {
+    public connectorsById(id: string) : PrintConnectorItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printConnector%2Did"] = id
@@ -135,7 +135,7 @@ export class PrintRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PrintOperationItemRequestBuilder
      */
-    public operationsById(id: string) : PrintOperationItemRequestBuilder {
+    public operationsById(id: string) : PrintOperationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printOperation%2Did"] = id
@@ -164,7 +164,7 @@ export class PrintRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PrinterItemRequestBuilder
      */
-    public printersById(id: string) : PrinterItemRequestBuilder {
+    public printersById(id: string) : PrinterItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printer%2Did"] = id
@@ -175,7 +175,7 @@ export class PrintRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PrintServiceItemRequestBuilder
      */
-    public servicesById(id: string) : PrintServiceItemRequestBuilder {
+    public servicesById(id: string) : PrintServiceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printService%2Did"] = id
@@ -186,7 +186,7 @@ export class PrintRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PrinterShareItemRequestBuilder
      */
-    public sharesById(id: string) : PrinterShareItemRequestBuilder {
+    public sharesById(id: string) : PrinterShareItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printerShare%2Did"] = id
@@ -197,7 +197,7 @@ export class PrintRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PrintTaskDefinitionItemRequestBuilder
      */
-    public taskDefinitionsById(id: string) : PrintTaskDefinitionItemRequestBuilder {
+    public taskDefinitionsById(id: string) : PrintTaskDefinitionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printTaskDefinition%2Did"] = id

@@ -181,7 +181,7 @@ export class ChatItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TeamsAppInstallationItemRequestBuilder
      */
-    public installedAppsById(id: string) : TeamsAppInstallationItemRequestBuilder {
+    public installedAppsById(id: string) : TeamsAppInstallationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["teamsAppInstallation%2Did"] = id
@@ -192,7 +192,7 @@ export class ChatItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ConversationMemberItemRequestBuilder
      */
-    public membersById(id: string) : ConversationMemberItemRequestBuilder {
+    public membersById(id: string) : ConversationMemberItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["conversationMember%2Did"] = id
@@ -203,7 +203,7 @@ export class ChatItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ChatMessageItemRequestBuilder
      */
-    public messagesById(id: string) : ChatMessageItemRequestBuilder {
+    public messagesById(id: string) : ChatMessageItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["chatMessage%2Did"] = id
@@ -233,7 +233,7 @@ export class ChatItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PinnedChatMessageInfoItemRequestBuilder
      */
-    public pinnedMessagesById(id: string) : PinnedChatMessageInfoItemRequestBuilder {
+    public pinnedMessagesById(id: string) : PinnedChatMessageInfoItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["pinnedChatMessageInfo%2Did"] = id
@@ -244,7 +244,7 @@ export class ChatItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TeamsTabItemRequestBuilder
      */
-    public tabsById(id: string) : TeamsTabItemRequestBuilder {
+    public tabsById(id: string) : TeamsTabItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["teamsTab%2Did"] = id

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the admin singleton. */
 export enum DiskType {
     /** Enum member for unknown or default diskType */
     Unknown = "unknown",

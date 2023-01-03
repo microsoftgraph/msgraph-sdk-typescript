@@ -57,7 +57,7 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EducationAssignmentItemRequestBuilder
      */
-    public assignmentsById(id: string) : EducationAssignmentItemRequestBuilder {
+    public assignmentsById(id: string) : EducationAssignmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationAssignment%2Did"] = id
@@ -68,7 +68,7 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EducationClassItemRequestBuilder
      */
-    public classesById(id: string) : Id3109a268da6a38f6dfd6149fe79ba9ccaaf7786e01e3d08ac5df2ffbc27931a {
+    public classesById(id: string) : Id3109a268da6a38f6dfd6149fe79ba9ccaaf7786e01e3d08ac5df2ffbc27931a | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationClass%2Did"] = id
@@ -195,7 +195,7 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EducationRubricItemRequestBuilder
      */
-    public rubricsById(id: string) : EducationRubricItemRequestBuilder {
+    public rubricsById(id: string) : EducationRubricItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationRubric%2Did"] = id
@@ -206,7 +206,7 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EducationSchoolItemRequestBuilder
      */
-    public schoolsById(id: string) : EducationSchoolItemRequestBuilder {
+    public schoolsById(id: string) : EducationSchoolItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationSchool%2Did"] = id
@@ -217,7 +217,7 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EducationClassItemRequestBuilder
      */
-    public taughtClassesById(id: string) : Iadc76037e88909abc2414d5ebc137eba5c39b805fd1cdccb4055ab7505e3f66b {
+    public taughtClassesById(id: string) : Iadc76037e88909abc2414d5ebc137eba5c39b805fd1cdccb4055ab7505e3f66b | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationClass%2Did"] = id

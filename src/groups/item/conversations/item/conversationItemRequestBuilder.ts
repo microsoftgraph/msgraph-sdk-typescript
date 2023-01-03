@@ -105,7 +105,7 @@ export class ConversationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ConversationThreadItemRequestBuilder
      */
-    public threadsById(id: string) : ConversationThreadItemRequestBuilder {
+    public threadsById(id: string) : ConversationThreadItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["conversationThread%2Did"] = id

@@ -1,6 +1,6 @@
 
 /**
- * Get all the educationAssignmentResource objects associated with an assignment.
+ * Get all the educationAssignmentResource objects associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
  */
 export class ResourcesRequestBuilderGetQueryParameters {
     /** Include count of items */

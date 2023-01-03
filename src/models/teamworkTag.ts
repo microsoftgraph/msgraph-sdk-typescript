@@ -4,7 +4,7 @@ import {TeamworkTagType} from './teamworkTagType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the admin singleton.
  */
 export class TeamworkTag extends Entity implements Parsable {
     /** The description of the tag as it will appear to the user in Microsoft Teams. */

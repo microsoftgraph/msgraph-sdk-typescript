@@ -11,9 +11,6 @@ import {Attachment, Extension, FollowupFlag, InternetMessageHeader, ItemBody, Mu
 import {InferenceClassificationType} from './inferenceClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of application entities.
- */
 export class Message extends OutlookItem implements Parsable {
     /** The fileAttachment and itemAttachment attachments for the message. */
     private _attachments?: Attachment[] | undefined;
@@ -146,7 +143,7 @@ export class Message extends OutlookItem implements Parsable {
         this._ccRecipients = value;
     };
     /**
-     * Instantiates a new message and sets the default values.
+     * Instantiates a new Message and sets the default values.
      */
     public constructor() {
         super();

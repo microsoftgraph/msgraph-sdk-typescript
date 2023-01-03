@@ -62,7 +62,7 @@ export class DeviceConfigurationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceConfigurationAssignmentItemRequestBuilder
      */
-    public assignmentsById(id: string) : DeviceConfigurationAssignmentItemRequestBuilder {
+    public assignmentsById(id: string) : DeviceConfigurationAssignmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceConfigurationAssignment%2Did"] = id
@@ -155,7 +155,7 @@ export class DeviceConfigurationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SettingStateDeviceSummaryItemRequestBuilder
      */
-    public deviceSettingStateSummariesById(id: string) : SettingStateDeviceSummaryItemRequestBuilder {
+    public deviceSettingStateSummariesById(id: string) : SettingStateDeviceSummaryItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["settingStateDeviceSummary%2Did"] = id
@@ -166,7 +166,7 @@ export class DeviceConfigurationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceConfigurationDeviceStatusItemRequestBuilder
      */
-    public deviceStatusesById(id: string) : DeviceConfigurationDeviceStatusItemRequestBuilder {
+    public deviceStatusesById(id: string) : DeviceConfigurationDeviceStatusItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceConfigurationDeviceStatus%2Did"] = id
@@ -220,7 +220,7 @@ export class DeviceConfigurationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceConfigurationUserStatusItemRequestBuilder
      */
-    public userStatusesById(id: string) : DeviceConfigurationUserStatusItemRequestBuilder {
+    public userStatusesById(id: string) : DeviceConfigurationUserStatusItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceConfigurationUserStatus%2Did"] = id

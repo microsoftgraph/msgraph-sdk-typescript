@@ -49,7 +49,7 @@ export class MobileAppItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MobileAppAssignmentItemRequestBuilder
      */
-    public assignmentsById(id: string) : MobileAppAssignmentItemRequestBuilder {
+    public assignmentsById(id: string) : MobileAppAssignmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["mobileAppAssignment%2Did"] = id
@@ -60,7 +60,7 @@ export class MobileAppItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MobileAppCategoryItemRequestBuilder
      */
-    public categoriesById(id: string) : MobileAppCategoryItemRequestBuilder {
+    public categoriesById(id: string) : MobileAppCategoryItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["mobileAppCategory%2Did"] = id

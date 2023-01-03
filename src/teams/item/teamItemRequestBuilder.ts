@@ -114,7 +114,7 @@ export class TeamItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ChannelItemRequestBuilder
      */
-    public allChannelsById(id: string) : Icf114396fb81475b8d9ce385f2cc70e4c0eaf886b18392a08b4e16ab9eb28ec4 {
+    public allChannelsById(id: string) : Icf114396fb81475b8d9ce385f2cc70e4c0eaf886b18392a08b4e16ab9eb28ec4 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["channel%2Did"] = id
@@ -125,7 +125,7 @@ export class TeamItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ChannelItemRequestBuilder
      */
-    public channelsById(id: string) : I3a22bf31ea115153498d060c70df9e9b78c7178d4508be327a717c10a0ce6e8a {
+    public channelsById(id: string) : I3a22bf31ea115153498d060c70df9e9b78c7178d4508be327a717c10a0ce6e8a | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["channel%2Did"] = id
@@ -235,7 +235,7 @@ export class TeamItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ChannelItemRequestBuilder
      */
-    public incomingChannelsById(id: string) : Ie19e9c752da0af7521b61999d30001f8459fe510e7393c96a650b3f7a61ac5ec {
+    public incomingChannelsById(id: string) : Ie19e9c752da0af7521b61999d30001f8459fe510e7393c96a650b3f7a61ac5ec | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["channel%2Did"] = id
@@ -246,7 +246,7 @@ export class TeamItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TeamsAppInstallationItemRequestBuilder
      */
-    public installedAppsById(id: string) : TeamsAppInstallationItemRequestBuilder {
+    public installedAppsById(id: string) : TeamsAppInstallationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["teamsAppInstallation%2Did"] = id
@@ -257,7 +257,7 @@ export class TeamItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ConversationMemberItemRequestBuilder
      */
-    public membersById(id: string) : ConversationMemberItemRequestBuilder {
+    public membersById(id: string) : ConversationMemberItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["conversationMember%2Did"] = id
@@ -268,7 +268,7 @@ export class TeamItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TeamsAsyncOperationItemRequestBuilder
      */
-    public operationsById(id: string) : TeamsAsyncOperationItemRequestBuilder {
+    public operationsById(id: string) : TeamsAsyncOperationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["teamsAsyncOperation%2Did"] = id
@@ -298,7 +298,7 @@ export class TeamItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TeamworkTagItemRequestBuilder
      */
-    public tagsById(id: string) : TeamworkTagItemRequestBuilder {
+    public tagsById(id: string) : TeamworkTagItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["teamworkTag%2Did"] = id

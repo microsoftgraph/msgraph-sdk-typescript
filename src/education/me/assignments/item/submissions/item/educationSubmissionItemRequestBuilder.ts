@@ -163,7 +163,7 @@ export class EducationSubmissionItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EducationOutcomeItemRequestBuilder
      */
-    public outcomesById(id: string) : EducationOutcomeItemRequestBuilder {
+    public outcomesById(id: string) : EducationOutcomeItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationOutcome%2Did"] = id
@@ -192,7 +192,7 @@ export class EducationSubmissionItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EducationSubmissionResourceItemRequestBuilder
      */
-    public resourcesById(id: string) : Ie6e240bf6d2125d4ac92291b6d932203325a569b5806e7039f13fd9954c22f62 {
+    public resourcesById(id: string) : Ie6e240bf6d2125d4ac92291b6d932203325a569b5806e7039f13fd9954c22f62 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationSubmissionResource%2Did"] = id
@@ -203,7 +203,7 @@ export class EducationSubmissionItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EducationSubmissionResourceItemRequestBuilder
      */
-    public submittedResourcesById(id: string) : I2613a71cf08facb0dc7897f83d5c2867ab86bf3e35f7eb4c0a1ad857df67e052 {
+    public submittedResourcesById(id: string) : I2613a71cf08facb0dc7897f83d5c2867ab86bf3e35f7eb4c0a1ad857df67e052 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationSubmissionResource%2Did"] = id

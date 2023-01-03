@@ -3,9 +3,6 @@ import {createRegistrationEnforcementFromDiscriminatorValue} from './createRegis
 import {AuthenticationMethodConfiguration, Entity, RegistrationEnforcement} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the authenticationMethodsPolicy singleton.
- */
 export class AuthenticationMethodsPolicy extends Entity implements Parsable {
     /** Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy. */
     private _authenticationMethodConfigurations?: AuthenticationMethodConfiguration[] | undefined;
@@ -36,7 +33,7 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
         this._authenticationMethodConfigurations = value;
     };
     /**
-     * Instantiates a new authenticationMethodsPolicy and sets the default values.
+     * Instantiates a new AuthenticationMethodsPolicy and sets the default values.
      */
     public constructor() {
         super();

@@ -62,7 +62,7 @@ export class MailFolderItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MailFolderItemRequestBuilder
      */
-    public childFoldersById(id: string) : I367d46967f0d2f5279ef6b800a7ff7ea45865a3d90922c7daf148f70708b640f {
+    public childFoldersById(id: string) : I367d46967f0d2f5279ef6b800a7ff7ea45865a3d90922c7daf148f70708b640f | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["mailFolder%2Did1"] = id
@@ -171,7 +171,7 @@ export class MailFolderItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MessageRuleItemRequestBuilder
      */
-    public messageRulesById(id: string) : MessageRuleItemRequestBuilder {
+    public messageRulesById(id: string) : MessageRuleItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["messageRule%2Did"] = id
@@ -182,7 +182,7 @@ export class MailFolderItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MessageItemRequestBuilder
      */
-    public messagesById(id: string) : MessageItemRequestBuilder {
+    public messagesById(id: string) : MessageItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["message%2Did"] = id
@@ -193,7 +193,7 @@ export class MailFolderItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
      */
-    public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyItemRequestBuilder {
+    public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["multiValueLegacyExtendedProperty%2Did"] = id
@@ -222,7 +222,7 @@ export class MailFolderItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
      */
-    public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyItemRequestBuilder {
+    public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["singleValueLegacyExtendedProperty%2Did"] = id

@@ -69,7 +69,7 @@ export class OrganizationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a CertificateBasedAuthConfigurationItemRequestBuilder
      */
-    public certificateBasedAuthConfigurationById(id: string) : CertificateBasedAuthConfigurationItemRequestBuilder {
+    public certificateBasedAuthConfigurationById(id: string) : CertificateBasedAuthConfigurationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["certificateBasedAuthConfiguration%2Did"] = id
@@ -162,7 +162,7 @@ export class OrganizationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ExtensionItemRequestBuilder
      */
-    public extensionsById(id: string) : ExtensionItemRequestBuilder {
+    public extensionsById(id: string) : ExtensionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["extension%2Did"] = id

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Provides operations to manage the admin singleton. */
 export enum PlannerPreviewType {
     Automatic = "automatic",
     NoPreview = "noPreview",

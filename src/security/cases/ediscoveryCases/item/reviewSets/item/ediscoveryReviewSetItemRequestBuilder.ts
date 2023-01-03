@@ -149,7 +149,7 @@ export class EdiscoveryReviewSetItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EdiscoveryReviewSetQueryItemRequestBuilder
      */
-    public queriesById(id: string) : EdiscoveryReviewSetQueryItemRequestBuilder {
+    public queriesById(id: string) : EdiscoveryReviewSetQueryItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["ediscoveryReviewSetQuery%2Did"] = id

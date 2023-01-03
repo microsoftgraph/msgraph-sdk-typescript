@@ -72,7 +72,7 @@ export class ContentTypeItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ContentTypeItemRequestBuilder
      */
-    public baseTypesById(id: string) : I1ded53447980a2c9d653deedd1a153d3b1bdd41de75e169b2bc35d776f867f84 {
+    public baseTypesById(id: string) : I1ded53447980a2c9d653deedd1a153d3b1bdd41de75e169b2bc35d776f867f84 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contentType%2Did1"] = id
@@ -83,7 +83,7 @@ export class ContentTypeItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ColumnLinkItemRequestBuilder
      */
-    public columnLinksById(id: string) : ColumnLinkItemRequestBuilder {
+    public columnLinksById(id: string) : ColumnLinkItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnLink%2Did"] = id
@@ -94,7 +94,7 @@ export class ContentTypeItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ColumnDefinitionItemRequestBuilder
      */
-    public columnPositionsById(id: string) : I611837f3d4855a35167d41fb02fca4a9b1e0bec9a99ff798f858e5c02b84387e {
+    public columnPositionsById(id: string) : I611837f3d4855a35167d41fb02fca4a9b1e0bec9a99ff798f858e5c02b84387e | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
@@ -105,7 +105,7 @@ export class ContentTypeItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ColumnDefinitionItemRequestBuilder
      */
-    public columnsById(id: string) : Icc4d3bc0a7226bc782dea71c26ecdbb1863913634076427920e7e9eebdc4e3c2 {
+    public columnsById(id: string) : Icc4d3bc0a7226bc782dea71c26ecdbb1863913634076427920e7e9eebdc4e3c2 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id

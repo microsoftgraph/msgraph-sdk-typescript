@@ -110,7 +110,7 @@ export class PrintServiceItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PrintServiceEndpointItemRequestBuilder
      */
-    public endpointsById(id: string) : PrintServiceEndpointItemRequestBuilder {
+    public endpointsById(id: string) : PrintServiceEndpointItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printServiceEndpoint%2Did"] = id

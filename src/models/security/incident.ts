@@ -9,88 +9,88 @@ import {Alert, AlertComment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the admin singleton.
  */
 export class Incident extends Entity implements Parsable {
-    /** The alerts property */
+    /** The list of related alerts. Supports $expand. */
     private _alerts?: Alert[] | undefined;
-    /** The assignedTo property */
+    /** Owner of the incident, or null if no owner is assigned. Free editable text. */
     private _assignedTo?: string | undefined;
-    /** The classification property */
+    /** The specification for the incident. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue. */
     private _classification?: AlertClassification | undefined;
-    /** The comments property */
+    /** Array of comments created by the Security Operations (SecOps) team when the incident is managed. */
     private _comments?: AlertComment[] | undefined;
-    /** The createdDateTime property */
+    /** Time when the incident was first created. */
     private _createdDateTime?: Date | undefined;
-    /** The customTags property */
+    /** Array of custom tags associated with an incident. */
     private _customTags?: string[] | undefined;
-    /** The determination property */
+    /** Specifies the determination of the incident. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue. */
     private _determination?: AlertDetermination | undefined;
-    /** The displayName property */
+    /** The incident name. */
     private _displayName?: string | undefined;
-    /** The incidentWebUrl property */
+    /** The URL for the incident page in the Microsoft 365 Defender portal. */
     private _incidentWebUrl?: string | undefined;
-    /** The lastUpdateDateTime property */
+    /** Time when the incident was last updated. */
     private _lastUpdateDateTime?: Date | undefined;
-    /** The redirectIncidentId property */
+    /** Only populated in case an incident is grouped together with another incident, as part of the logic that processes incidents. In such a case, the status property is redirected. */
     private _redirectIncidentId?: string | undefined;
     /** The severity property */
     private _severity?: AlertSeverity | undefined;
     /** The status property */
     private _status?: IncidentStatus | undefined;
-    /** The tenantId property */
+    /** The Azure Active Directory tenant in which the alert was created. */
     private _tenantId?: string | undefined;
     /**
-     * Gets the alerts property value. The alerts property
+     * Gets the alerts property value. The list of related alerts. Supports $expand.
      * @returns a alert
      */
     public get alerts() {
         return this._alerts;
     };
     /**
-     * Sets the alerts property value. The alerts property
+     * Sets the alerts property value. The list of related alerts. Supports $expand.
      * @param value Value to set for the alerts property.
      */
     public set alerts(value: Alert[] | undefined) {
         this._alerts = value;
     };
     /**
-     * Gets the assignedTo property value. The assignedTo property
+     * Gets the assignedTo property value. Owner of the incident, or null if no owner is assigned. Free editable text.
      * @returns a string
      */
     public get assignedTo() {
         return this._assignedTo;
     };
     /**
-     * Sets the assignedTo property value. The assignedTo property
+     * Sets the assignedTo property value. Owner of the incident, or null if no owner is assigned. Free editable text.
      * @param value Value to set for the assignedTo property.
      */
     public set assignedTo(value: string | undefined) {
         this._assignedTo = value;
     };
     /**
-     * Gets the classification property value. The classification property
+     * Gets the classification property value. The specification for the incident. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
      * @returns a alertClassification
      */
     public get classification() {
         return this._classification;
     };
     /**
-     * Sets the classification property value. The classification property
+     * Sets the classification property value. The specification for the incident. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
      * @param value Value to set for the classification property.
      */
     public set classification(value: AlertClassification | undefined) {
         this._classification = value;
     };
     /**
-     * Gets the comments property value. The comments property
+     * Gets the comments property value. Array of comments created by the Security Operations (SecOps) team when the incident is managed.
      * @returns a alertComment
      */
     public get comments() {
         return this._comments;
     };
     /**
-     * Sets the comments property value. The comments property
+     * Sets the comments property value. Array of comments created by the Security Operations (SecOps) team when the incident is managed.
      * @param value Value to set for the comments property.
      */
     public set comments(value: AlertComment[] | undefined) {
@@ -103,56 +103,56 @@ export class Incident extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Time when the incident was first created.
      * @returns a Date
      */
     public get createdDateTime() {
         return this._createdDateTime;
     };
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Time when the incident was first created.
      * @param value Value to set for the createdDateTime property.
      */
     public set createdDateTime(value: Date | undefined) {
         this._createdDateTime = value;
     };
     /**
-     * Gets the customTags property value. The customTags property
+     * Gets the customTags property value. Array of custom tags associated with an incident.
      * @returns a string
      */
     public get customTags() {
         return this._customTags;
     };
     /**
-     * Sets the customTags property value. The customTags property
+     * Sets the customTags property value. Array of custom tags associated with an incident.
      * @param value Value to set for the customTags property.
      */
     public set customTags(value: string[] | undefined) {
         this._customTags = value;
     };
     /**
-     * Gets the determination property value. The determination property
+     * Gets the determination property value. Specifies the determination of the incident. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      * @returns a alertDetermination
      */
     public get determination() {
         return this._determination;
     };
     /**
-     * Sets the determination property value. The determination property
+     * Sets the determination property value. Specifies the determination of the incident. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      * @param value Value to set for the determination property.
      */
     public set determination(value: AlertDetermination | undefined) {
         this._determination = value;
     };
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The incident name.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The incident name.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -181,42 +181,42 @@ export class Incident extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the incidentWebUrl property value. The incidentWebUrl property
+     * Gets the incidentWebUrl property value. The URL for the incident page in the Microsoft 365 Defender portal.
      * @returns a string
      */
     public get incidentWebUrl() {
         return this._incidentWebUrl;
     };
     /**
-     * Sets the incidentWebUrl property value. The incidentWebUrl property
+     * Sets the incidentWebUrl property value. The URL for the incident page in the Microsoft 365 Defender portal.
      * @param value Value to set for the incidentWebUrl property.
      */
     public set incidentWebUrl(value: string | undefined) {
         this._incidentWebUrl = value;
     };
     /**
-     * Gets the lastUpdateDateTime property value. The lastUpdateDateTime property
+     * Gets the lastUpdateDateTime property value. Time when the incident was last updated.
      * @returns a Date
      */
     public get lastUpdateDateTime() {
         return this._lastUpdateDateTime;
     };
     /**
-     * Sets the lastUpdateDateTime property value. The lastUpdateDateTime property
+     * Sets the lastUpdateDateTime property value. Time when the incident was last updated.
      * @param value Value to set for the lastUpdateDateTime property.
      */
     public set lastUpdateDateTime(value: Date | undefined) {
         this._lastUpdateDateTime = value;
     };
     /**
-     * Gets the redirectIncidentId property value. The redirectIncidentId property
+     * Gets the redirectIncidentId property value. Only populated in case an incident is grouped together with another incident, as part of the logic that processes incidents. In such a case, the status property is redirected.
      * @returns a string
      */
     public get redirectIncidentId() {
         return this._redirectIncidentId;
     };
     /**
-     * Sets the redirectIncidentId property value. The redirectIncidentId property
+     * Sets the redirectIncidentId property value. Only populated in case an incident is grouped together with another incident, as part of the logic that processes incidents. In such a case, the status property is redirected.
      * @param value Value to set for the redirectIncidentId property.
      */
     public set redirectIncidentId(value: string | undefined) {
@@ -273,14 +273,14 @@ export class Incident extends Entity implements Parsable {
         this._status = value;
     };
     /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. The Azure Active Directory tenant in which the alert was created.
      * @returns a string
      */
     public get tenantId() {
         return this._tenantId;
     };
     /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. The Azure Active Directory tenant in which the alert was created.
      * @param value Value to set for the tenantId property.
      */
     public set tenantId(value: string | undefined) {

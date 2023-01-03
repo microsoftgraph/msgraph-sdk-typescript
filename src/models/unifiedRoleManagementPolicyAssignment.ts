@@ -3,7 +3,7 @@ import {Entity, UnifiedRoleManagementPolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreementAcceptance entities.
+ * Provides operations to manage the admin singleton.
  */
 export class UnifiedRoleManagementPolicyAssignment extends Entity implements Parsable {
     /** The policy that's associated with a policy assignment. Supports $expand and a nested $expand of the rules and effectiveRules relationships for the policy. */

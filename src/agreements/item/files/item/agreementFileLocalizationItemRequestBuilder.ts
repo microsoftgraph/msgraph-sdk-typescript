@@ -144,7 +144,7 @@ export class AgreementFileLocalizationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AgreementFileVersionItemRequestBuilder
      */
-    public versionsById(id: string) : AgreementFileVersionItemRequestBuilder {
+    public versionsById(id: string) : AgreementFileVersionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["agreementFileVersion%2Did"] = id

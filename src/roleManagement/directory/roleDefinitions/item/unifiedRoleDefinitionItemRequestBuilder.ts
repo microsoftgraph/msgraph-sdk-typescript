@@ -126,7 +126,7 @@ export class UnifiedRoleDefinitionItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleDefinitionItemRequestBuilder
      */
-    public inheritsPermissionsFromById(id: string) : I644ca0d71f24b393735bbe6a2f1ed200b62356298a8e2146df6af63faec47ca7 {
+    public inheritsPermissionsFromById(id: string) : I644ca0d71f24b393735bbe6a2f1ed200b62356298a8e2146df6af63faec47ca7 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleDefinition%2Did1"] = id

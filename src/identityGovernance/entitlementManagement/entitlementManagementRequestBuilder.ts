@@ -69,7 +69,7 @@ export class EntitlementManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ApprovalItemRequestBuilder
      */
-    public accessPackageAssignmentApprovalsById(id: string) : ApprovalItemRequestBuilder {
+    public accessPackageAssignmentApprovalsById(id: string) : ApprovalItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["approval%2Did"] = id
@@ -80,7 +80,7 @@ export class EntitlementManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessPackageItemRequestBuilder
      */
-    public accessPackagesById(id: string) : AccessPackageItemRequestBuilder {
+    public accessPackagesById(id: string) : AccessPackageItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessPackage%2Did"] = id
@@ -91,7 +91,7 @@ export class EntitlementManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessPackageAssignmentPolicyItemRequestBuilder
      */
-    public assignmentPoliciesById(id: string) : AccessPackageAssignmentPolicyItemRequestBuilder {
+    public assignmentPoliciesById(id: string) : AccessPackageAssignmentPolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessPackageAssignmentPolicy%2Did"] = id
@@ -102,7 +102,7 @@ export class EntitlementManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessPackageAssignmentRequestItemRequestBuilder
      */
-    public assignmentRequestsById(id: string) : AccessPackageAssignmentRequestItemRequestBuilder {
+    public assignmentRequestsById(id: string) : AccessPackageAssignmentRequestItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessPackageAssignmentRequest%2Did"] = id
@@ -113,7 +113,7 @@ export class EntitlementManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessPackageAssignmentItemRequestBuilder
      */
-    public assignmentsById(id: string) : AccessPackageAssignmentItemRequestBuilder {
+    public assignmentsById(id: string) : AccessPackageAssignmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessPackageAssignment%2Did"] = id
@@ -124,7 +124,7 @@ export class EntitlementManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessPackageCatalogItemRequestBuilder
      */
-    public catalogsById(id: string) : AccessPackageCatalogItemRequestBuilder {
+    public catalogsById(id: string) : AccessPackageCatalogItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessPackageCatalog%2Did"] = id
@@ -135,7 +135,7 @@ export class EntitlementManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ConnectedOrganizationItemRequestBuilder
      */
-    public connectedOrganizationsById(id: string) : ConnectedOrganizationItemRequestBuilder {
+    public connectedOrganizationsById(id: string) : ConnectedOrganizationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["connectedOrganization%2Did"] = id

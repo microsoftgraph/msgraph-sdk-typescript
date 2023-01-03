@@ -111,7 +111,7 @@ export class PoliciesRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ActivityBasedTimeoutPolicyItemRequestBuilder
      */
-    public activityBasedTimeoutPoliciesById(id: string) : ActivityBasedTimeoutPolicyItemRequestBuilder {
+    public activityBasedTimeoutPoliciesById(id: string) : ActivityBasedTimeoutPolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["activityBasedTimeoutPolicy%2Did"] = id
@@ -122,7 +122,7 @@ export class PoliciesRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ClaimsMappingPolicyItemRequestBuilder
      */
-    public claimsMappingPoliciesById(id: string) : ClaimsMappingPolicyItemRequestBuilder {
+    public claimsMappingPoliciesById(id: string) : ClaimsMappingPolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["claimsMappingPolicy%2Did"] = id
@@ -133,7 +133,7 @@ export class PoliciesRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ConditionalAccessPolicyItemRequestBuilder
      */
-    public conditionalAccessPoliciesById(id: string) : ConditionalAccessPolicyItemRequestBuilder {
+    public conditionalAccessPoliciesById(id: string) : ConditionalAccessPolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["conditionalAccessPolicy%2Did"] = id
@@ -195,7 +195,7 @@ export class PoliciesRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a FeatureRolloutPolicyItemRequestBuilder
      */
-    public featureRolloutPoliciesById(id: string) : FeatureRolloutPolicyItemRequestBuilder {
+    public featureRolloutPoliciesById(id: string) : FeatureRolloutPolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["featureRolloutPolicy%2Did"] = id
@@ -222,7 +222,7 @@ export class PoliciesRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a HomeRealmDiscoveryPolicyItemRequestBuilder
      */
-    public homeRealmDiscoveryPoliciesById(id: string) : HomeRealmDiscoveryPolicyItemRequestBuilder {
+    public homeRealmDiscoveryPoliciesById(id: string) : HomeRealmDiscoveryPolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["homeRealmDiscoveryPolicy%2Did"] = id
@@ -251,7 +251,7 @@ export class PoliciesRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PermissionGrantPolicyItemRequestBuilder
      */
-    public permissionGrantPoliciesById(id: string) : PermissionGrantPolicyItemRequestBuilder {
+    public permissionGrantPoliciesById(id: string) : PermissionGrantPolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["permissionGrantPolicy%2Did"] = id
@@ -262,7 +262,7 @@ export class PoliciesRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleManagementPolicyItemRequestBuilder
      */
-    public roleManagementPoliciesById(id: string) : UnifiedRoleManagementPolicyItemRequestBuilder {
+    public roleManagementPoliciesById(id: string) : UnifiedRoleManagementPolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleManagementPolicy%2Did"] = id
@@ -273,7 +273,7 @@ export class PoliciesRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleManagementPolicyAssignmentItemRequestBuilder
      */
-    public roleManagementPolicyAssignmentsById(id: string) : UnifiedRoleManagementPolicyAssignmentItemRequestBuilder {
+    public roleManagementPolicyAssignmentsById(id: string) : UnifiedRoleManagementPolicyAssignmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleManagementPolicyAssignment%2Did"] = id
@@ -284,7 +284,7 @@ export class PoliciesRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TokenIssuancePolicyItemRequestBuilder
      */
-    public tokenIssuancePoliciesById(id: string) : TokenIssuancePolicyItemRequestBuilder {
+    public tokenIssuancePoliciesById(id: string) : TokenIssuancePolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["tokenIssuancePolicy%2Did"] = id
@@ -295,7 +295,7 @@ export class PoliciesRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TokenLifetimePolicyItemRequestBuilder
      */
-    public tokenLifetimePoliciesById(id: string) : TokenLifetimePolicyItemRequestBuilder {
+    public tokenLifetimePoliciesById(id: string) : TokenLifetimePolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["tokenLifetimePolicy%2Did"] = id

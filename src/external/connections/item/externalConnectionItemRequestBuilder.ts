@@ -143,7 +143,7 @@ export class ExternalConnectionItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ExternalGroupItemRequestBuilder
      */
-    public groupsById(id: string) : ExternalGroupItemRequestBuilder {
+    public groupsById(id: string) : ExternalGroupItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["externalGroup%2Did"] = id
@@ -154,7 +154,7 @@ export class ExternalConnectionItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ExternalItemItemRequestBuilder
      */
-    public itemsById(id: string) : ExternalItemItemRequestBuilder {
+    public itemsById(id: string) : ExternalItemItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["externalItem%2Did"] = id
@@ -165,7 +165,7 @@ export class ExternalConnectionItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ConnectionOperationItemRequestBuilder
      */
-    public operationsById(id: string) : ConnectionOperationItemRequestBuilder {
+    public operationsById(id: string) : ConnectionOperationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["connectionOperation%2Did"] = id

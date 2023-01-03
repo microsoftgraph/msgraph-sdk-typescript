@@ -34,7 +34,7 @@ export class TermsAndConditionsItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TermsAndConditionsAcceptanceStatusItemRequestBuilder
      */
-    public acceptanceStatusesById(id: string) : TermsAndConditionsAcceptanceStatusItemRequestBuilder {
+    public acceptanceStatusesById(id: string) : TermsAndConditionsAcceptanceStatusItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["termsAndConditionsAcceptanceStatus%2Did"] = id
@@ -45,7 +45,7 @@ export class TermsAndConditionsItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TermsAndConditionsAssignmentItemRequestBuilder
      */
-    public assignmentsById(id: string) : TermsAndConditionsAssignmentItemRequestBuilder {
+    public assignmentsById(id: string) : TermsAndConditionsAssignmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["termsAndConditionsAssignment%2Did"] = id

@@ -107,6 +107,7 @@ import {UsersRequestBuilder} from './users/usersRequestBuilder';
 import {DriveItemItemRequestBuilder} from './workbooks/item/driveItemItemRequestBuilder';
 import {WorkbooksRequestBuilder} from './workbooks/workbooksRequestBuilder';
 import {enableBackingStoreForSerializationWriterFactory, getPathParameters, ParseNodeFactoryRegistry, registerDefaultDeserializer, registerDefaultSerializer, RequestAdapter, SerializationWriterFactoryRegistry} from '@microsoft/kiota-abstractions';
+import {FormParseNodeFactory, FormSerializationWriterFactory} from '@microsoft/kiota-serialization-form';
 import {JsonParseNodeFactory, JsonSerializationWriterFactory} from '@microsoft/kiota-serialization-json';
 import {TextParseNodeFactory, TextSerializationWriterFactory} from '@microsoft/kiota-serialization-text';
 
@@ -397,7 +398,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a AgreementAcceptanceItemRequestBuilder
      */
-    public agreementAcceptancesById(id: string) : AgreementAcceptanceItemRequestBuilder {
+    public agreementAcceptancesById(id: string) : AgreementAcceptanceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["agreementAcceptance%2Did"] = id
@@ -408,7 +409,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a AgreementItemRequestBuilder
      */
-    public agreementsById(id: string) : AgreementItemRequestBuilder {
+    public agreementsById(id: string) : AgreementItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["agreement%2Did"] = id
@@ -419,7 +420,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a ApplicationItemRequestBuilder
      */
-    public applicationsById(id: string) : ApplicationItemRequestBuilder {
+    public applicationsById(id: string) : ApplicationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["application%2Did"] = id
@@ -430,7 +431,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a ApplicationTemplateItemRequestBuilder
      */
-    public applicationTemplatesById(id: string) : ApplicationTemplateItemRequestBuilder {
+    public applicationTemplatesById(id: string) : ApplicationTemplateItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["applicationTemplate%2Did"] = id
@@ -441,7 +442,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a AuthenticationMethodConfigurationItemRequestBuilder
      */
-    public authenticationMethodConfigurationsById(id: string) : AuthenticationMethodConfigurationItemRequestBuilder {
+    public authenticationMethodConfigurationsById(id: string) : AuthenticationMethodConfigurationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["authenticationMethodConfiguration%2Did"] = id
@@ -452,7 +453,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a CertificateBasedAuthConfigurationItemRequestBuilder
      */
-    public certificateBasedAuthConfigurationById(id: string) : CertificateBasedAuthConfigurationItemRequestBuilder {
+    public certificateBasedAuthConfigurationById(id: string) : CertificateBasedAuthConfigurationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["certificateBasedAuthConfiguration%2Did"] = id
@@ -463,7 +464,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a ChatItemRequestBuilder
      */
-    public chatsById(id: string) : ChatItemRequestBuilder {
+    public chatsById(id: string) : ChatItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["chat%2Did"] = id
@@ -474,7 +475,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a ExternalConnectionItemRequestBuilder
      */
-    public connectionsById(id: string) : ExternalConnectionItemRequestBuilder {
+    public connectionsById(id: string) : ExternalConnectionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["externalConnection%2Did"] = id
@@ -491,8 +492,10 @@ export class GraphBaseServiceClient {
         this.requestAdapter = requestAdapter;
         registerDefaultSerializer(JsonSerializationWriterFactory);
         registerDefaultSerializer(TextSerializationWriterFactory);
+        registerDefaultSerializer(FormSerializationWriterFactory);
         registerDefaultDeserializer(JsonParseNodeFactory);
         registerDefaultDeserializer(TextParseNodeFactory);
+        registerDefaultDeserializer(FormParseNodeFactory);
         if (requestAdapter.baseUrl === undefined || requestAdapter.baseUrl === "") {
             requestAdapter.baseUrl = "https://graph.microsoft.com/v1.0";
         }
@@ -502,7 +505,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a OrgContactItemRequestBuilder
      */
-    public contactsById(id: string) : OrgContactItemRequestBuilder {
+    public contactsById(id: string) : OrgContactItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["orgContact%2Did"] = id
@@ -513,7 +516,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a ContractItemRequestBuilder
      */
-    public contractsById(id: string) : ContractItemRequestBuilder {
+    public contractsById(id: string) : ContractItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contract%2Did"] = id
@@ -524,7 +527,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a DataPolicyOperationItemRequestBuilder
      */
-    public dataPolicyOperationsById(id: string) : DataPolicyOperationItemRequestBuilder {
+    public dataPolicyOperationsById(id: string) : DataPolicyOperationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["dataPolicyOperation%2Did"] = id
@@ -535,7 +538,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a DeviceItemRequestBuilder
      */
-    public devicesById(id: string) : DeviceItemRequestBuilder {
+    public devicesById(id: string) : DeviceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["device%2Did"] = id
@@ -546,7 +549,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public directoryObjectsById(id: string) : DirectoryObjectItemRequestBuilder {
+    public directoryObjectsById(id: string) : DirectoryObjectItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -557,7 +560,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a DirectoryRoleItemRequestBuilder
      */
-    public directoryRolesById(id: string) : DirectoryRoleItemRequestBuilder {
+    public directoryRolesById(id: string) : DirectoryRoleItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryRole%2Did"] = id
@@ -568,7 +571,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a DirectoryRoleTemplateItemRequestBuilder
      */
-    public directoryRoleTemplatesById(id: string) : DirectoryRoleTemplateItemRequestBuilder {
+    public directoryRoleTemplatesById(id: string) : DirectoryRoleTemplateItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryRoleTemplate%2Did"] = id
@@ -579,7 +582,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a DomainDnsRecordItemRequestBuilder
      */
-    public domainDnsRecordsById(id: string) : DomainDnsRecordItemRequestBuilder {
+    public domainDnsRecordsById(id: string) : DomainDnsRecordItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["domainDnsRecord%2Did"] = id
@@ -590,7 +593,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a DomainItemRequestBuilder
      */
-    public domainsById(id: string) : DomainItemRequestBuilder {
+    public domainsById(id: string) : DomainItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["domain%2Did"] = id
@@ -601,7 +604,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a DriveItemRequestBuilder
      */
-    public drivesById(id: string) : DriveItemRequestBuilder {
+    public drivesById(id: string) : DriveItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["drive%2Did"] = id
@@ -612,7 +615,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a GroupLifecyclePolicyItemRequestBuilder
      */
-    public groupLifecyclePoliciesById(id: string) : GroupLifecyclePolicyItemRequestBuilder {
+    public groupLifecyclePoliciesById(id: string) : GroupLifecyclePolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["groupLifecyclePolicy%2Did"] = id
@@ -623,7 +626,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a GroupItemRequestBuilder
      */
-    public groupsById(id: string) : GroupItemRequestBuilder {
+    public groupsById(id: string) : GroupItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["group%2Did"] = id
@@ -634,7 +637,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a GroupSettingItemRequestBuilder
      */
-    public groupSettingsById(id: string) : GroupSettingItemRequestBuilder {
+    public groupSettingsById(id: string) : GroupSettingItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["groupSetting%2Did"] = id
@@ -645,7 +648,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a GroupSettingTemplateItemRequestBuilder
      */
-    public groupSettingTemplatesById(id: string) : GroupSettingTemplateItemRequestBuilder {
+    public groupSettingTemplatesById(id: string) : GroupSettingTemplateItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["groupSettingTemplate%2Did"] = id
@@ -656,7 +659,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a IdentityProviderItemRequestBuilder
      */
-    public identityProvidersById(id: string) : IdentityProviderItemRequestBuilder {
+    public identityProvidersById(id: string) : IdentityProviderItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["identityProvider%2Did"] = id
@@ -667,7 +670,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a InvitationItemRequestBuilder
      */
-    public invitationsById(id: string) : InvitationItemRequestBuilder {
+    public invitationsById(id: string) : InvitationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["invitation%2Did"] = id
@@ -678,7 +681,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a OrganizationalBrandingLocalizationItemRequestBuilder
      */
-    public localizationsById(id: string) : OrganizationalBrandingLocalizationItemRequestBuilder {
+    public localizationsById(id: string) : OrganizationalBrandingLocalizationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["organizationalBrandingLocalization%2Did"] = id
@@ -689,7 +692,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a OAuth2PermissionGrantItemRequestBuilder
      */
-    public oauth2PermissionGrantsById(id: string) : OAuth2PermissionGrantItemRequestBuilder {
+    public oauth2PermissionGrantsById(id: string) : OAuth2PermissionGrantItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["oAuth2PermissionGrant%2Did"] = id
@@ -700,7 +703,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a OrganizationItemRequestBuilder
      */
-    public organizationById(id: string) : OrganizationItemRequestBuilder {
+    public organizationById(id: string) : OrganizationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["organization%2Did"] = id
@@ -711,7 +714,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a ResourceSpecificPermissionGrantItemRequestBuilder
      */
-    public permissionGrantsById(id: string) : ResourceSpecificPermissionGrantItemRequestBuilder {
+    public permissionGrantsById(id: string) : ResourceSpecificPermissionGrantItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["resourceSpecificPermissionGrant%2Did"] = id
@@ -722,7 +725,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a PlaceItemRequestBuilder
      */
-    public placesById(id: string) : PlaceItemRequestBuilder {
+    public placesById(id: string) : PlaceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["place%2Did"] = id
@@ -733,7 +736,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a SchemaExtensionItemRequestBuilder
      */
-    public schemaExtensionsById(id: string) : SchemaExtensionItemRequestBuilder {
+    public schemaExtensionsById(id: string) : SchemaExtensionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["schemaExtension%2Did"] = id
@@ -744,7 +747,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a ScopedRoleMembershipItemRequestBuilder
      */
-    public scopedRoleMembershipsById(id: string) : ScopedRoleMembershipItemRequestBuilder {
+    public scopedRoleMembershipsById(id: string) : ScopedRoleMembershipItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["scopedRoleMembership%2Did"] = id
@@ -755,7 +758,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a ServicePrincipalItemRequestBuilder
      */
-    public servicePrincipalsById(id: string) : ServicePrincipalItemRequestBuilder {
+    public servicePrincipalsById(id: string) : ServicePrincipalItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["servicePrincipal%2Did"] = id
@@ -766,7 +769,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a SharedDriveItemItemRequestBuilder
      */
-    public sharesById(id: string) : SharedDriveItemItemRequestBuilder {
+    public sharesById(id: string) : SharedDriveItemItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["sharedDriveItem%2Did"] = id
@@ -777,7 +780,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a SiteItemRequestBuilder
      */
-    public sitesById(id: string) : SiteItemRequestBuilder {
+    public sitesById(id: string) : SiteItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["site%2Did"] = id
@@ -788,7 +791,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a SubscribedSkuItemRequestBuilder
      */
-    public subscribedSkusById(id: string) : SubscribedSkuItemRequestBuilder {
+    public subscribedSkusById(id: string) : SubscribedSkuItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["subscribedSku%2Did"] = id
@@ -799,7 +802,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a SubscriptionItemRequestBuilder
      */
-    public subscriptionsById(id: string) : SubscriptionItemRequestBuilder {
+    public subscriptionsById(id: string) : SubscriptionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["subscription%2Did"] = id
@@ -810,7 +813,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a TeamItemRequestBuilder
      */
-    public teamsById(id: string) : TeamItemRequestBuilder {
+    public teamsById(id: string) : TeamItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["team%2Did"] = id
@@ -821,7 +824,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a TeamsTemplateItemRequestBuilder
      */
-    public teamsTemplatesById(id: string) : TeamsTemplateItemRequestBuilder {
+    public teamsTemplatesById(id: string) : TeamsTemplateItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["teamsTemplate%2Did"] = id
@@ -832,7 +835,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a UserItemRequestBuilder
      */
-    public usersById(id: string) : UserItemRequestBuilder {
+    public usersById(id: string) : UserItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["user%2Did"] = id
@@ -843,7 +846,7 @@ export class GraphBaseServiceClient {
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
-    public workbooksById(id: string) : DriveItemItemRequestBuilder {
+    public workbooksById(id: string) : DriveItemItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id

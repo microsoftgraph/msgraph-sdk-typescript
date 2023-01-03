@@ -1,4 +1,4 @@
-/** Provides operations to manage the appCatalogs singleton. */
+/** Provides operations to manage the admin singleton. */
 export enum TeamworkConversationIdentityType {
     Team = "team",
     Channel = "channel",

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Provides operations to manage the admin singleton. */
 export enum UserAccountSecurityType {
     Unknown = "unknown",
     Standard = "standard",

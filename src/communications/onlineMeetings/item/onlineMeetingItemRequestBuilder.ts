@@ -33,7 +33,7 @@ export class OnlineMeetingItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MeetingAttendanceReportItemRequestBuilder
      */
-    public attendanceReportsById(id: string) : MeetingAttendanceReportItemRequestBuilder {
+    public attendanceReportsById(id: string) : MeetingAttendanceReportItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["meetingAttendanceReport%2Did"] = id

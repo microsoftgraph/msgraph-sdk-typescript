@@ -126,7 +126,7 @@ export class ServiceHealthItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ServiceHealthIssueItemRequestBuilder
      */
-    public issuesById(id: string) : ServiceHealthIssueItemRequestBuilder {
+    public issuesById(id: string) : ServiceHealthIssueItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["serviceHealthIssue%2Did"] = id

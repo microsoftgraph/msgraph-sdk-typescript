@@ -28,7 +28,7 @@ export class FeatureRolloutPolicyItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public appliesToById(id: string) : DirectoryObjectItemRequestBuilder {
+    public appliesToById(id: string) : DirectoryObjectItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id

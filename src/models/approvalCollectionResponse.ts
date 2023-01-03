@@ -2,9 +2,6 @@ import {createApprovalFromDiscriminatorValue} from './createApprovalFromDiscrimi
 import {Approval, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
- */
 export class ApprovalCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Approval[] | undefined;

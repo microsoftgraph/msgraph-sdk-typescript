@@ -28,7 +28,7 @@ export class AuthenticationMethodsPolicyRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AuthenticationMethodConfigurationItemRequestBuilder
      */
-    public authenticationMethodConfigurationsById(id: string) : AuthenticationMethodConfigurationItemRequestBuilder {
+    public authenticationMethodConfigurationsById(id: string) : AuthenticationMethodConfigurationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["authenticationMethodConfiguration%2Did"] = id

@@ -116,7 +116,7 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleManagementPolicyRuleItemRequestBuilder
      */
-    public effectiveRulesById(id: string) : Ic6f793d374160642c2768dc2f8671aa9a06b7f3811c80234f6e9d5cc58f5a0ba {
+    public effectiveRulesById(id: string) : Ic6f793d374160642c2768dc2f8671aa9a06b7f3811c80234f6e9d5cc58f5a0ba | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleManagementPolicyRule%2Did"] = id
@@ -161,7 +161,7 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedRoleManagementPolicyRuleItemRequestBuilder
      */
-    public rulesById(id: string) : I4ae2fbd1842d4f5f7e2d464a244d1228c38ab27331849285a85c0173edbf44da {
+    public rulesById(id: string) : I4ae2fbd1842d4f5f7e2d464a244d1228c38ab27331849285a85c0173edbf44da | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleManagementPolicyRule%2Did"] = id

@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum Win32LobAppReturnCodeType {
     /** Failed. */
     Failed = "failed",

@@ -5,7 +5,7 @@ import {TeamsAsyncOperationType} from './teamsAsyncOperationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the admin singleton.
  */
 export class TeamsAsyncOperation extends Entity implements Parsable {
     /** Number of times the operation was attempted before being marked successful or failed. */

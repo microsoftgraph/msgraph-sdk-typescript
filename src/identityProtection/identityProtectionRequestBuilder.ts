@@ -130,7 +130,7 @@ export class IdentityProtectionRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a RiskDetectionItemRequestBuilder
      */
-    public riskDetectionsById(id: string) : RiskDetectionItemRequestBuilder {
+    public riskDetectionsById(id: string) : RiskDetectionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["riskDetection%2Did"] = id
@@ -141,7 +141,7 @@ export class IdentityProtectionRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a RiskyServicePrincipalItemRequestBuilder
      */
-    public riskyServicePrincipalsById(id: string) : RiskyServicePrincipalItemRequestBuilder {
+    public riskyServicePrincipalsById(id: string) : RiskyServicePrincipalItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["riskyServicePrincipal%2Did"] = id
@@ -152,7 +152,7 @@ export class IdentityProtectionRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a RiskyUserItemRequestBuilder
      */
-    public riskyUsersById(id: string) : RiskyUserItemRequestBuilder {
+    public riskyUsersById(id: string) : RiskyUserItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["riskyUser%2Did"] = id
@@ -163,7 +163,7 @@ export class IdentityProtectionRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ServicePrincipalRiskDetectionItemRequestBuilder
      */
-    public servicePrincipalRiskDetectionsById(id: string) : ServicePrincipalRiskDetectionItemRequestBuilder {
+    public servicePrincipalRiskDetectionsById(id: string) : ServicePrincipalRiskDetectionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["servicePrincipalRiskDetection%2Did"] = id

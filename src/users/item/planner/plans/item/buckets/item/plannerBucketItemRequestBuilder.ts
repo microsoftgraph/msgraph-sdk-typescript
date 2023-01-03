@@ -144,7 +144,7 @@ export class PlannerBucketItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PlannerTaskItemRequestBuilder
      */
-    public tasksById(id: string) : PlannerTaskItemRequestBuilder {
+    public tasksById(id: string) : PlannerTaskItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["plannerTask%2Did"] = id

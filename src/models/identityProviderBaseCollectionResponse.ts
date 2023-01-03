@@ -2,9 +2,6 @@ import {createIdentityProviderBaseFromDiscriminatorValue} from './createIdentity
 import {BaseCollectionPaginationCountResponse, IdentityProviderBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.
- */
 export class IdentityProviderBaseCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: IdentityProviderBase[] | undefined;

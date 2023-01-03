@@ -55,7 +55,7 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder
      */
-    public assignmentsById(id: string) : ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder {
+    public assignmentsById(id: string) : ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedDeviceMobileAppConfigurationAssignment%2Did"] = id
@@ -148,7 +148,7 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder
      */
-    public deviceStatusesById(id: string) : ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder {
+    public deviceStatusesById(id: string) : ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedDeviceMobileAppConfigurationDeviceStatus%2Did"] = id
@@ -193,7 +193,7 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder
      */
-    public userStatusesById(id: string) : ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder {
+    public userStatusesById(id: string) : ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedDeviceMobileAppConfigurationUserStatus%2Did"] = id

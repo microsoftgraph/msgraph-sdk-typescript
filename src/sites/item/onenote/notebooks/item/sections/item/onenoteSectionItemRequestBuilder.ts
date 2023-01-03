@@ -146,7 +146,7 @@ export class OnenoteSectionItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a OnenotePageItemRequestBuilder
      */
-    public pagesById(id: string) : OnenotePageItemRequestBuilder {
+    public pagesById(id: string) : OnenotePageItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["onenotePage%2Did"] = id

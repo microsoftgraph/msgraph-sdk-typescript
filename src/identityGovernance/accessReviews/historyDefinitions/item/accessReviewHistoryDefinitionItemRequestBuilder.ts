@@ -126,7 +126,7 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AccessReviewHistoryInstanceItemRequestBuilder
      */
-    public instancesById(id: string) : AccessReviewHistoryInstanceItemRequestBuilder {
+    public instancesById(id: string) : AccessReviewHistoryInstanceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessReviewHistoryInstance%2Did"] = id

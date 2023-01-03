@@ -50,7 +50,7 @@ export class ManagedEBookItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedEBookAssignmentItemRequestBuilder
      */
-    public assignmentsById(id: string) : ManagedEBookAssignmentItemRequestBuilder {
+    public assignmentsById(id: string) : ManagedEBookAssignmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedEBookAssignment%2Did"] = id
@@ -143,7 +143,7 @@ export class ManagedEBookItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceInstallStateItemRequestBuilder
      */
-    public deviceStatesById(id: string) : DeviceInstallStateItemRequestBuilder {
+    public deviceStatesById(id: string) : DeviceInstallStateItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceInstallState%2Did"] = id
@@ -188,7 +188,7 @@ export class ManagedEBookItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UserInstallStateSummaryItemRequestBuilder
      */
-    public userStateSummaryById(id: string) : UserInstallStateSummaryItemRequestBuilder {
+    public userStateSummaryById(id: string) : UserInstallStateSummaryItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["userInstallStateSummary%2Did"] = id

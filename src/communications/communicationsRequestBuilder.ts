@@ -50,7 +50,7 @@ export class CommunicationsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a CallRecordItemRequestBuilder
      */
-    public callRecordsById(id: string) : CallRecordItemRequestBuilder {
+    public callRecordsById(id: string) : CallRecordItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["callRecord%2Did"] = id
@@ -61,7 +61,7 @@ export class CommunicationsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a CallItemRequestBuilder
      */
-    public callsById(id: string) : CallItemRequestBuilder {
+    public callsById(id: string) : CallItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["call%2Did"] = id
@@ -139,7 +139,7 @@ export class CommunicationsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a OnlineMeetingItemRequestBuilder
      */
-    public onlineMeetingsById(id: string) : OnlineMeetingItemRequestBuilder {
+    public onlineMeetingsById(id: string) : OnlineMeetingItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["onlineMeeting%2Did"] = id
@@ -168,7 +168,7 @@ export class CommunicationsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PresenceItemRequestBuilder
      */
-    public presencesById(id: string) : PresenceItemRequestBuilder {
+    public presencesById(id: string) : PresenceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["presence%2Did"] = id

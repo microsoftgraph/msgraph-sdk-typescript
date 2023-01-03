@@ -116,7 +116,7 @@ export class CallItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AudioRoutingGroupItemRequestBuilder
      */
-    public audioRoutingGroupsById(id: string) : AudioRoutingGroupItemRequestBuilder {
+    public audioRoutingGroupsById(id: string) : AudioRoutingGroupItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["audioRoutingGroup%2Did"] = id
@@ -140,7 +140,7 @@ export class CallItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ContentSharingSessionItemRequestBuilder
      */
-    public contentSharingSessionsById(id: string) : ContentSharingSessionItemRequestBuilder {
+    public contentSharingSessionsById(id: string) : ContentSharingSessionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contentSharingSession%2Did"] = id
@@ -236,7 +236,7 @@ export class CallItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a CommsOperationItemRequestBuilder
      */
-    public operationsById(id: string) : CommsOperationItemRequestBuilder {
+    public operationsById(id: string) : CommsOperationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["commsOperation%2Did"] = id
@@ -247,7 +247,7 @@ export class CallItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ParticipantItemRequestBuilder
      */
-    public participantsById(id: string) : ParticipantItemRequestBuilder {
+    public participantsById(id: string) : ParticipantItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["participant%2Did"] = id

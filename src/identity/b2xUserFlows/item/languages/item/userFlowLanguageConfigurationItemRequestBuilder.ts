@@ -101,7 +101,7 @@ export class UserFlowLanguageConfigurationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UserFlowLanguagePageItemRequestBuilder
      */
-    public defaultPagesById(id: string) : I3ab4d590052fd74eee324a8325a2f14715700a273414960dc723c4305963bba3 {
+    public defaultPagesById(id: string) : I3ab4d590052fd74eee324a8325a2f14715700a273414960dc723c4305963bba3 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["userFlowLanguagePage%2Did"] = id
@@ -143,7 +143,7 @@ export class UserFlowLanguageConfigurationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UserFlowLanguagePageItemRequestBuilder
      */
-    public overridesPagesById(id: string) : Idef24b8bfc0dc333f97f637fc58518fe3e107b5e98cdba63af20ee968a2c4339 {
+    public overridesPagesById(id: string) : Idef24b8bfc0dc333f97f637fc58518fe3e107b5e98cdba63af20ee968a2c4339 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["userFlowLanguagePage%2Did"] = id

@@ -46,7 +46,7 @@ export class ContactFolderItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ContactFolderItemRequestBuilder
      */
-    public childFoldersById(id: string) : I1fac09ed3e8d677cadb92cf21d87b2bc419ec92c783d40d2fed029fd073d72a2 {
+    public childFoldersById(id: string) : I1fac09ed3e8d677cadb92cf21d87b2bc419ec92c783d40d2fed029fd073d72a2 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contactFolder%2Did1"] = id
@@ -70,7 +70,7 @@ export class ContactFolderItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ContactItemRequestBuilder
      */
-    public contactsById(id: string) : ContactItemRequestBuilder {
+    public contactsById(id: string) : ContactItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contact%2Did"] = id
@@ -166,7 +166,7 @@ export class ContactFolderItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
      */
-    public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyItemRequestBuilder {
+    public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["multiValueLegacyExtendedProperty%2Did"] = id
@@ -195,7 +195,7 @@ export class ContactFolderItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
      */
-    public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyItemRequestBuilder {
+    public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["singleValueLegacyExtendedProperty%2Did"] = id

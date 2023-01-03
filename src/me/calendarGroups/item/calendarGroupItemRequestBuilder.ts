@@ -28,7 +28,7 @@ export class CalendarGroupItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a CalendarItemRequestBuilder
      */
-    public calendarsById(id: string) : CalendarItemRequestBuilder {
+    public calendarsById(id: string) : CalendarItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["calendar%2Did"] = id

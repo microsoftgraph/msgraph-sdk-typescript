@@ -208,7 +208,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AuditEventItemRequestBuilder
      */
-    public auditEventsById(id: string) : AuditEventItemRequestBuilder {
+    public auditEventsById(id: string) : AuditEventItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["auditEvent%2Did"] = id
@@ -219,7 +219,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ComplianceManagementPartnerItemRequestBuilder
      */
-    public complianceManagementPartnersById(id: string) : ComplianceManagementPartnerItemRequestBuilder {
+    public complianceManagementPartnersById(id: string) : ComplianceManagementPartnerItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["complianceManagementPartner%2Did"] = id
@@ -281,7 +281,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DetectedAppItemRequestBuilder
      */
-    public detectedAppsById(id: string) : DetectedAppItemRequestBuilder {
+    public detectedAppsById(id: string) : DetectedAppItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["detectedApp%2Did"] = id
@@ -292,7 +292,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceCategoryItemRequestBuilder
      */
-    public deviceCategoriesById(id: string) : DeviceCategoryItemRequestBuilder {
+    public deviceCategoriesById(id: string) : DeviceCategoryItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceCategory%2Did"] = id
@@ -303,7 +303,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceCompliancePolicyItemRequestBuilder
      */
-    public deviceCompliancePoliciesById(id: string) : DeviceCompliancePolicyItemRequestBuilder {
+    public deviceCompliancePoliciesById(id: string) : DeviceCompliancePolicyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceCompliancePolicy%2Did"] = id
@@ -314,7 +314,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceCompliancePolicySettingStateSummaryItemRequestBuilder
      */
-    public deviceCompliancePolicySettingStateSummariesById(id: string) : DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
+    public deviceCompliancePolicySettingStateSummariesById(id: string) : DeviceCompliancePolicySettingStateSummaryItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceCompliancePolicySettingStateSummary%2Did"] = id
@@ -325,7 +325,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceConfigurationItemRequestBuilder
      */
-    public deviceConfigurationsById(id: string) : DeviceConfigurationItemRequestBuilder {
+    public deviceConfigurationsById(id: string) : DeviceConfigurationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceConfiguration%2Did"] = id
@@ -336,7 +336,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceEnrollmentConfigurationItemRequestBuilder
      */
-    public deviceEnrollmentConfigurationsById(id: string) : DeviceEnrollmentConfigurationItemRequestBuilder {
+    public deviceEnrollmentConfigurationsById(id: string) : DeviceEnrollmentConfigurationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceEnrollmentConfiguration%2Did"] = id
@@ -347,7 +347,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceManagementPartnerItemRequestBuilder
      */
-    public deviceManagementPartnersById(id: string) : DeviceManagementPartnerItemRequestBuilder {
+    public deviceManagementPartnersById(id: string) : DeviceManagementPartnerItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceManagementPartner%2Did"] = id
@@ -358,7 +358,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceManagementExchangeConnectorItemRequestBuilder
      */
-    public exchangeConnectorsById(id: string) : DeviceManagementExchangeConnectorItemRequestBuilder {
+    public exchangeConnectorsById(id: string) : DeviceManagementExchangeConnectorItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceManagementExchangeConnector%2Did"] = id
@@ -394,7 +394,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder
      */
-    public importedWindowsAutopilotDeviceIdentitiesById(id: string) : ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder {
+    public importedWindowsAutopilotDeviceIdentitiesById(id: string) : ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["importedWindowsAutopilotDeviceIdentity%2Did"] = id
@@ -405,7 +405,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a IosUpdateDeviceStatusItemRequestBuilder
      */
-    public iosUpdateStatusesById(id: string) : IosUpdateDeviceStatusItemRequestBuilder {
+    public iosUpdateStatusesById(id: string) : IosUpdateDeviceStatusItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["iosUpdateDeviceStatus%2Did"] = id
@@ -416,7 +416,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ManagedDeviceItemRequestBuilder
      */
-    public managedDevicesById(id: string) : ManagedDeviceItemRequestBuilder {
+    public managedDevicesById(id: string) : ManagedDeviceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedDevice%2Did"] = id
@@ -427,7 +427,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MobileThreatDefenseConnectorItemRequestBuilder
      */
-    public mobileThreatDefenseConnectorsById(id: string) : MobileThreatDefenseConnectorItemRequestBuilder {
+    public mobileThreatDefenseConnectorsById(id: string) : MobileThreatDefenseConnectorItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["mobileThreatDefenseConnector%2Did"] = id
@@ -438,7 +438,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a NotificationMessageTemplateItemRequestBuilder
      */
-    public notificationMessageTemplatesById(id: string) : NotificationMessageTemplateItemRequestBuilder {
+    public notificationMessageTemplatesById(id: string) : NotificationMessageTemplateItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["notificationMessageTemplate%2Did"] = id
@@ -467,7 +467,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a RemoteAssistancePartnerItemRequestBuilder
      */
-    public remoteAssistancePartnersById(id: string) : RemoteAssistancePartnerItemRequestBuilder {
+    public remoteAssistancePartnersById(id: string) : RemoteAssistancePartnerItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["remoteAssistancePartner%2Did"] = id
@@ -478,7 +478,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ResourceOperationItemRequestBuilder
      */
-    public resourceOperationsById(id: string) : ResourceOperationItemRequestBuilder {
+    public resourceOperationsById(id: string) : ResourceOperationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["resourceOperation%2Did"] = id
@@ -489,7 +489,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceAndAppManagementRoleAssignmentItemRequestBuilder
      */
-    public roleAssignmentsById(id: string) : DeviceAndAppManagementRoleAssignmentItemRequestBuilder {
+    public roleAssignmentsById(id: string) : DeviceAndAppManagementRoleAssignmentItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceAndAppManagementRoleAssignment%2Did"] = id
@@ -500,7 +500,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a RoleDefinitionItemRequestBuilder
      */
-    public roleDefinitionsById(id: string) : RoleDefinitionItemRequestBuilder {
+    public roleDefinitionsById(id: string) : RoleDefinitionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["roleDefinition%2Did"] = id
@@ -511,7 +511,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TelecomExpenseManagementPartnerItemRequestBuilder
      */
-    public telecomExpenseManagementPartnersById(id: string) : TelecomExpenseManagementPartnerItemRequestBuilder {
+    public telecomExpenseManagementPartnersById(id: string) : TelecomExpenseManagementPartnerItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["telecomExpenseManagementPartner%2Did"] = id
@@ -522,7 +522,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a TermsAndConditionsItemRequestBuilder
      */
-    public termsAndConditionsById(id: string) : TermsAndConditionsItemRequestBuilder {
+    public termsAndConditionsById(id: string) : TermsAndConditionsItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["termsAndConditions%2Did"] = id
@@ -533,7 +533,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DeviceManagementTroubleshootingEventItemRequestBuilder
      */
-    public troubleshootingEventsById(id: string) : DeviceManagementTroubleshootingEventItemRequestBuilder {
+    public troubleshootingEventsById(id: string) : DeviceManagementTroubleshootingEventItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceManagementTroubleshootingEvent%2Did"] = id
@@ -553,7 +553,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a WindowsAutopilotDeviceIdentityItemRequestBuilder
      */
-    public windowsAutopilotDeviceIdentitiesById(id: string) : WindowsAutopilotDeviceIdentityItemRequestBuilder {
+    public windowsAutopilotDeviceIdentitiesById(id: string) : WindowsAutopilotDeviceIdentityItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["windowsAutopilotDeviceIdentity%2Did"] = id
@@ -564,7 +564,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a WindowsInformationProtectionAppLearningSummaryItemRequestBuilder
      */
-    public windowsInformationProtectionAppLearningSummariesById(id: string) : WindowsInformationProtectionAppLearningSummaryItemRequestBuilder {
+    public windowsInformationProtectionAppLearningSummariesById(id: string) : WindowsInformationProtectionAppLearningSummaryItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["windowsInformationProtectionAppLearningSummary%2Did"] = id
@@ -575,7 +575,7 @@ export class DeviceManagementRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder
      */
-    public windowsInformationProtectionNetworkLearningSummariesById(id: string) : WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder {
+    public windowsInformationProtectionNetworkLearningSummariesById(id: string) : WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["windowsInformationProtectionNetworkLearningSummary%2Did"] = id

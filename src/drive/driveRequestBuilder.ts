@@ -58,7 +58,7 @@ export class DriveRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
-    public bundlesById(id: string) : I10f4dcaadb5a1f2d3105fc6d16e5c2ea3b642768e4d7c3416cfe9efa36b65e54 {
+    public bundlesById(id: string) : I10f4dcaadb5a1f2d3105fc6d16e5c2ea3b642768e4d7c3416cfe9efa36b65e54 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
@@ -120,7 +120,7 @@ export class DriveRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
-    public followingById(id: string) : Ia482175b8241b1f3db80abb1db6c0bcf2c0fbe645beca8cbde13b4a02e43157c {
+    public followingById(id: string) : Ia482175b8241b1f3db80abb1db6c0bcf2c0fbe645beca8cbde13b4a02e43157c | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
@@ -147,7 +147,7 @@ export class DriveRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
-    public itemsById(id: string) : I0cdd68a6e644be5de98b668037bb753286ca76c84715997cc1cd3a2fee80959e {
+    public itemsById(id: string) : I0cdd68a6e644be5de98b668037bb753286ca76c84715997cc1cd3a2fee80959e | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
@@ -199,7 +199,7 @@ export class DriveRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
      */
-    public specialById(id: string) : I9dc897b05b0aeb3dc08facbb7c2f19266cdc829fe3c2e2739534189f5b4b1e8f {
+    public specialById(id: string) : I9dc897b05b0aeb3dc08facbb7c2f19266cdc829fe3c2e2739534189f5b4b1e8f | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id

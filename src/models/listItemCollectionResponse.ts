@@ -2,9 +2,6 @@ import {createListItemFromDiscriminatorValue} from './createListItemFromDiscrimi
 import {BaseCollectionPaginationCountResponse, ListItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the items property of the microsoft.graph.list entity.
- */
 export class ListItemCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ListItem[] | undefined;

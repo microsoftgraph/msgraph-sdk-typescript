@@ -47,7 +47,7 @@ export class AlertItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get alerts_v2 from security
+     * A collection of alerts in Microsoft 365 Defender.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -100,7 +100,7 @@ export class AlertItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get alerts_v2 from security
+     * A collection of alerts in Microsoft 365 Defender.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Alert

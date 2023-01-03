@@ -45,7 +45,7 @@ export class PrinterItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PrintConnectorItemRequestBuilder
      */
-    public connectorsById(id: string) : PrintConnectorItemRequestBuilder {
+    public connectorsById(id: string) : PrintConnectorItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printConnector%2Did"] = id
@@ -172,7 +172,7 @@ export class PrinterItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PrinterShareItemRequestBuilder
      */
-    public sharesById(id: string) : PrinterShareItemRequestBuilder {
+    public sharesById(id: string) : PrinterShareItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printerShare%2Did"] = id
@@ -183,7 +183,7 @@ export class PrinterItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a PrintTaskTriggerItemRequestBuilder
      */
-    public taskTriggersById(id: string) : PrintTaskTriggerItemRequestBuilder {
+    public taskTriggersById(id: string) : PrintTaskTriggerItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printTaskTrigger%2Did"] = id

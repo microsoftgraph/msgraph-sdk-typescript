@@ -28,7 +28,7 @@ export class AppConsentRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AppConsentRequestItemRequestBuilder
      */
-    public appConsentRequestsById(id: string) : AppConsentRequestItemRequestBuilder {
+    public appConsentRequestsById(id: string) : AppConsentRequestItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["appConsentRequest%2Did"] = id

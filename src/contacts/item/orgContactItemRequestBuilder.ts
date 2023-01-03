@@ -152,7 +152,7 @@ export class OrgContactItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public directReportsById(id: string) : Iee145da274f90da30fe6820c5f8a64af13825c71ebf378b7d48b800d0777ebac {
+    public directReportsById(id: string) : Iee145da274f90da30fe6820c5f8a64af13825c71ebf378b7d48b800d0777ebac | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -180,7 +180,7 @@ export class OrgContactItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public memberOfById(id: string) : I4a5ee1c2bab055f2debd3cfee5a1f5655587fb5f30daf40163cad5ac6cadc4ed {
+    public memberOfById(id: string) : I4a5ee1c2bab055f2debd3cfee5a1f5655587fb5f30daf40163cad5ac6cadc4ed | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -209,7 +209,7 @@ export class OrgContactItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public transitiveMemberOfById(id: string) : I5e2e99a1b0622616292c222076de6d6be0dbe7361b4cbe754854c565683e630d {
+    public transitiveMemberOfById(id: string) : I5e2e99a1b0622616292c222076de6d6be0dbe7361b4cbe754854c565683e630d | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id

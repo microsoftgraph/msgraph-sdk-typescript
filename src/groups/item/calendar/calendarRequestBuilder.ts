@@ -65,7 +65,7 @@ export class CalendarRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a CalendarPermissionItemRequestBuilder
      */
-    public calendarPermissionsById(id: string) : CalendarPermissionItemRequestBuilder {
+    public calendarPermissionsById(id: string) : CalendarPermissionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["calendarPermission%2Did"] = id
@@ -76,7 +76,7 @@ export class CalendarRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public calendarViewById(id: string) : Ia37c4f2788e8539b4ad493ef0f7564284b2653562101b1c5610d87bd28473e54 {
+    public calendarViewById(id: string) : Ia37c4f2788e8539b4ad493ef0f7564284b2653562101b1c5610d87bd28473e54 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
@@ -118,7 +118,7 @@ export class CalendarRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EventItemRequestBuilder
      */
-    public eventsById(id: string) : If1a0e680765fa137febff0c68951aa0726cd3293b1c03ae66337cc39cb59139b {
+    public eventsById(id: string) : If1a0e680765fa137febff0c68951aa0726cd3293b1c03ae66337cc39cb59139b | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["event%2Did"] = id
@@ -145,7 +145,7 @@ export class CalendarRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
      */
-    public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyItemRequestBuilder {
+    public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["multiValueLegacyExtendedProperty%2Did"] = id
@@ -156,7 +156,7 @@ export class CalendarRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
      */
-    public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyItemRequestBuilder {
+    public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["singleValueLegacyExtendedProperty%2Did"] = id

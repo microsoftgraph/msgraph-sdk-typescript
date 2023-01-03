@@ -60,7 +60,7 @@ export class EdiscoverySearchItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DataSourceItemRequestBuilder
      */
-    public additionalSourcesById(id: string) : I860231e803b45916356ab4415de9e4f00c75d6b57892bd05665f99af41076c06 {
+    public additionalSourcesById(id: string) : I860231e803b45916356ab4415de9e4f00c75d6b57892bd05665f99af41076c06 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["dataSource%2Did"] = id
@@ -138,7 +138,7 @@ export class EdiscoverySearchItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DataSourceItemRequestBuilder
      */
-    public custodianSourcesById(id: string) : I816d4625b66c6d2c4612002c52b267d5854146b45897bff33e764e473e80311e {
+    public custodianSourcesById(id: string) : I816d4625b66c6d2c4612002c52b267d5854146b45897bff33e764e473e80311e | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["dataSource%2Did"] = id
@@ -180,7 +180,7 @@ export class EdiscoverySearchItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a EdiscoveryNoncustodialDataSourceItemRequestBuilder
      */
-    public noncustodialSourcesById(id: string) : EdiscoveryNoncustodialDataSourceItemRequestBuilder {
+    public noncustodialSourcesById(id: string) : EdiscoveryNoncustodialDataSourceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["ediscoveryNoncustodialDataSource%2Did"] = id

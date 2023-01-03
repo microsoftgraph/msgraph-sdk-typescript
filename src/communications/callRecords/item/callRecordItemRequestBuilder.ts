@@ -144,7 +144,7 @@ export class CallRecordItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SessionItemRequestBuilder
      */
-    public sessionsById(id: string) : SessionItemRequestBuilder {
+    public sessionsById(id: string) : SessionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["session%2Did"] = id

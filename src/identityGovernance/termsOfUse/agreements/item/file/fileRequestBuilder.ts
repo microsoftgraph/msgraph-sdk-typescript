@@ -127,7 +127,7 @@ export class FileRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a AgreementFileLocalizationItemRequestBuilder
      */
-    public localizationsById(id: string) : AgreementFileLocalizationItemRequestBuilder {
+    public localizationsById(id: string) : AgreementFileLocalizationItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["agreementFileLocalization%2Did"] = id

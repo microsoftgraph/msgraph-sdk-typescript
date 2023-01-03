@@ -159,7 +159,7 @@ export class DeviceRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ExtensionItemRequestBuilder
      */
-    public extensionsById(id: string) : ExtensionItemRequestBuilder {
+    public extensionsById(id: string) : ExtensionItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["extension%2Did"] = id
@@ -186,7 +186,7 @@ export class DeviceRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public memberOfById(id: string) : I52d8c06def5b301eb634fa39bd09573057685b449a3a4390399985112c2eddf9 {
+    public memberOfById(id: string) : I52d8c06def5b301eb634fa39bd09573057685b449a3a4390399985112c2eddf9 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -215,7 +215,7 @@ export class DeviceRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public registeredOwnersById(id: string) : I1e6dceb8da158b45f055fde184c97133ff9fc6e2d5a8836a7e45f638619aa70e {
+    public registeredOwnersById(id: string) : I1e6dceb8da158b45f055fde184c97133ff9fc6e2d5a8836a7e45f638619aa70e | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -226,7 +226,7 @@ export class DeviceRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public registeredUsersById(id: string) : Ic60e5d549b00843fc502eefea95c42d87d2353bfd7fdf6394fa379fae6eaffa2 {
+    public registeredUsersById(id: string) : Ic60e5d549b00843fc502eefea95c42d87d2353bfd7fdf6394fa379fae6eaffa2 | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
@@ -237,7 +237,7 @@ export class DeviceRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */
-    public transitiveMemberOfById(id: string) : If7d2f5d451fd11561bedbbf15e0fe47a748a5744203077dc1e8d47dc05b1e8eb {
+    public transitiveMemberOfById(id: string) : If7d2f5d451fd11561bedbbf15e0fe47a748a5744203077dc1e8d47dc05b1e8eb | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id

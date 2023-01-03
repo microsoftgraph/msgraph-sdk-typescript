@@ -6,7 +6,7 @@ import {Notebook, OnenoteEntityHierarchyModel, OnenotePage, SectionGroup, Sectio
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of agreement entities.
+ * Provides operations to manage the admin singleton.
  */
 export class OnenoteSection extends OnenoteEntityHierarchyModel implements Parsable {
     /** Indicates whether this is the user's default section. Read-only. */

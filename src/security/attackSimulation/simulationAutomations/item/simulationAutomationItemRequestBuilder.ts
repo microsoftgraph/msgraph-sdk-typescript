@@ -144,7 +144,7 @@ export class SimulationAutomationItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SimulationAutomationRunItemRequestBuilder
      */
-    public runsById(id: string) : SimulationAutomationRunItemRequestBuilder {
+    public runsById(id: string) : SimulationAutomationRunItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["simulationAutomationRun%2Did"] = id

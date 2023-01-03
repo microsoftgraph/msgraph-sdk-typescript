@@ -4,7 +4,7 @@ import {WorkbookOperationStatus} from './workbookOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to manage the collection of application entities.
+ * Provides operations to manage the admin singleton.
  */
 export class WorkbookOperation extends Entity implements Parsable {
     /** The error returned by the operation. */

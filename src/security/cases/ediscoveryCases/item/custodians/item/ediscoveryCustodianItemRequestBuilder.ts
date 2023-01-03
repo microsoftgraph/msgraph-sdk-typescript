@@ -186,7 +186,7 @@ export class EdiscoveryCustodianItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a SiteSourceItemRequestBuilder
      */
-    public siteSourcesById(id: string) : SiteSourceItemRequestBuilder {
+    public siteSourcesById(id: string) : SiteSourceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["siteSource%2Did"] = id
@@ -197,7 +197,7 @@ export class EdiscoveryCustodianItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UnifiedGroupSourceItemRequestBuilder
      */
-    public unifiedGroupSourcesById(id: string) : UnifiedGroupSourceItemRequestBuilder {
+    public unifiedGroupSourcesById(id: string) : UnifiedGroupSourceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedGroupSource%2Did"] = id
@@ -208,7 +208,7 @@ export class EdiscoveryCustodianItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a UserSourceItemRequestBuilder
      */
-    public userSourcesById(id: string) : UserSourceItemRequestBuilder {
+    public userSourcesById(id: string) : UserSourceItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["userSource%2Did"] = id

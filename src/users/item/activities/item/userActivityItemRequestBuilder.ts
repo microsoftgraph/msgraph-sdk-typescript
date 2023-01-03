@@ -126,7 +126,7 @@ export class UserActivityItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a ActivityHistoryItemItemRequestBuilder
      */
-    public historyItemsById(id: string) : ActivityHistoryItemItemRequestBuilder {
+    public historyItemsById(id: string) : ActivityHistoryItemItemRequestBuilder | undefined {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["activityHistoryItem%2Did"] = id
