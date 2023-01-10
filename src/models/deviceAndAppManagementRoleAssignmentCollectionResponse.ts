@@ -2,9 +2,6 @@ import {createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue} from '
 import {BaseCollectionPaginationCountResponse, DeviceAndAppManagementRoleAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the roleAssignments property of the microsoft.graph.deviceManagement entity.
- */
 export class DeviceAndAppManagementRoleAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DeviceAndAppManagementRoleAssignment[] | undefined;

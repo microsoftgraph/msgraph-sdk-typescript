@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Contains all supported file system detection type. */
 export enum Win32LobAppFileSystemOperationType {
     /** Not configured. */
     NotConfigured = "notConfigured",

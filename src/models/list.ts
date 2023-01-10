@@ -10,9 +10,6 @@ import {createSystemFacetFromDiscriminatorValue} from './createSystemFacetFromDi
 import {BaseItem, ColumnDefinition, ContentType, Drive, ListInfo, ListItem, RichLongRunningOperation, SharepointIds, Subscription, SystemFacet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreement entities.
- */
 export class List extends BaseItem implements Parsable {
     /** The collection of field definitions for this list. */
     private _columns?: ColumnDefinition[] | undefined;
@@ -28,7 +25,7 @@ export class List extends BaseItem implements Parsable {
     private _list?: ListInfo | undefined;
     /** The collection of long-running operations on the list. */
     private _operations?: RichLongRunningOperation[] | undefined;
-    /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
+    /** The sharepointIds property */
     private _sharepointIds?: SharepointIds | undefined;
     /** The set of subscriptions on the list. */
     private _subscriptions?: Subscription[] | undefined;
@@ -176,14 +173,14 @@ export class List extends BaseItem implements Parsable {
         writer.writeObjectValue<SystemFacet>("system", this.system);
     };
     /**
-     * Gets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
+     * Gets the sharepointIds property value. The sharepointIds property
      * @returns a sharepointIds
      */
     public get sharepointIds() {
         return this._sharepointIds;
     };
     /**
-     * Sets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
+     * Sets the sharepointIds property value. The sharepointIds property
      * @param value Value to set for the sharepointIds property.
      */
     public set sharepointIds(value: SharepointIds | undefined) {

@@ -2,9 +2,6 @@ import {createConditionalAccessTemplateFromDiscriminatorValue} from './createCon
 import {BaseCollectionPaginationCountResponse, ConditionalAccessTemplate} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity.
- */
 export class ConditionalAccessTemplateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ConditionalAccessTemplate[] | undefined;

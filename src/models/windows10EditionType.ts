@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Windows 10 Edition type. */
 export enum Windows10EditionType {
     /** Windows 10 Enterprise */
     Windows10Enterprise = "windows10Enterprise",

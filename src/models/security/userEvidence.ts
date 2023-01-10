@@ -3,7 +3,7 @@ import {AlertEvidence, UserAccount} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserEvidence extends AlertEvidence implements Parsable {
-    /** The userAccount property */
+    /** The user account details. */
     private _userAccount?: UserAccount | undefined;
     /**
      * Instantiates a new UserEvidence and sets the default values.
@@ -30,14 +30,14 @@ export class UserEvidence extends AlertEvidence implements Parsable {
         writer.writeObjectValue<UserAccount>("userAccount", this.userAccount);
     };
     /**
-     * Gets the userAccount property value. The userAccount property
+     * Gets the userAccount property value. The user account details.
      * @returns a userAccount
      */
     public get userAccount() {
         return this._userAccount;
     };
     /**
-     * Sets the userAccount property value. The userAccount property
+     * Sets the userAccount property value. The user account details.
      * @param value Value to set for the userAccount property.
      */
     public set userAccount(value: UserAccount | undefined) {

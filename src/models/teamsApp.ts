@@ -3,9 +3,6 @@ import {Entity, TeamsAppDefinition} from './index';
 import {TeamsAppDistributionMethod} from './teamsAppDistributionMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the appCatalogs singleton.
- */
 export class TeamsApp extends Entity implements Parsable {
     /** The details for each version of the app. */
     private _appDefinitions?: TeamsAppDefinition[] | undefined;

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Possible values for WIP Protection enforcement levels */
 export enum WindowsInformationProtectionEnforcementLevel {
     /** No protection enforcement */
     NoProtection = "noProtection",

@@ -1,4 +1,3 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum SimulationStatus {
     Unknown = "unknown",
     Draft = "draft",

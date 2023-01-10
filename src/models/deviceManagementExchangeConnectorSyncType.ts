@@ -1,4 +1,4 @@
-/** Provides operations to call the sync method. */
+/** The type of Exchange Connector sync requested. */
 export enum DeviceManagementExchangeConnectorSyncType {
     /** Discover all the device in Exchange. */
     FullSync = "fullSync",

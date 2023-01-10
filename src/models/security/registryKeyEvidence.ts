@@ -2,9 +2,9 @@ import {AlertEvidence} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RegistryKeyEvidence extends AlertEvidence implements Parsable {
-    /** The registryHive property */
+    /** Registry hive of the key that the recorded action was applied to. */
     private _registryHive?: string | undefined;
-    /** The registryKey property */
+    /** Registry key that the recorded action was applied to. */
     private _registryKey?: string | undefined;
     /**
      * Instantiates a new RegistryKeyEvidence and sets the default values.
@@ -23,28 +23,28 @@ export class RegistryKeyEvidence extends AlertEvidence implements Parsable {
         };
     };
     /**
-     * Gets the registryHive property value. The registryHive property
+     * Gets the registryHive property value. Registry hive of the key that the recorded action was applied to.
      * @returns a string
      */
     public get registryHive() {
         return this._registryHive;
     };
     /**
-     * Sets the registryHive property value. The registryHive property
+     * Sets the registryHive property value. Registry hive of the key that the recorded action was applied to.
      * @param value Value to set for the registryHive property.
      */
     public set registryHive(value: string | undefined) {
         this._registryHive = value;
     };
     /**
-     * Gets the registryKey property value. The registryKey property
+     * Gets the registryKey property value. Registry key that the recorded action was applied to.
      * @returns a string
      */
     public get registryKey() {
         return this._registryKey;
     };
     /**
-     * Sets the registryKey property value. The registryKey property
+     * Sets the registryKey property value. Registry key that the recorded action was applied to.
      * @param value Value to set for the registryKey property.
      */
     public set registryKey(value: string | undefined) {

@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Possible values for automatic update mode. */
 export enum AutomaticUpdateMode {
     /** User Defined, default value, no intent. */
     UserDefined = "userDefined",

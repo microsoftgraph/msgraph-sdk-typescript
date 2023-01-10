@@ -1,8 +1,5 @@
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the setUserPreferredPresence method.
- */
 export class SetUserPreferredPresencePostRequestBody implements AdditionalDataHolder, Parsable {
     /** The activity property */
     private _activity?: string | undefined;

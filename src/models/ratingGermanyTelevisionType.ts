@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** TV content rating labels in Germany */
 export enum RatingGermanyTelevisionType {
     /** Default value, allow all TV shows content */
     AllAllowed = "allAllowed",

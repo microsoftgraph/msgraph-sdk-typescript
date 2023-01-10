@@ -131,7 +131,7 @@ export class Organization extends DirectoryObject implements Parsable {
         this._city = value;
     };
     /**
-     * Instantiates a new Organization and sets the default values.
+     * Instantiates a new organization and sets the default values.
      */
     public constructor() {
         super();

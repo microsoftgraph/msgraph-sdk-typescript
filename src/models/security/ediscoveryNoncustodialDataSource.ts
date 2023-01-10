@@ -3,9 +3,6 @@ import {createEdiscoveryIndexOperationFromDiscriminatorValue} from './createEdis
 import {DataSource, DataSourceContainer, EdiscoveryIndexOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreement entities.
- */
 export class EdiscoveryNoncustodialDataSource extends DataSourceContainer implements Parsable {
     /** User source or SharePoint site data source as non-custodial data source. */
     private _dataSource?: DataSource | undefined;

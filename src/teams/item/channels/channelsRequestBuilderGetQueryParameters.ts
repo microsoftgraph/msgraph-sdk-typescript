@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the list of channels in this team. This method supports federation. Any shared channel that the request initiator belongs to will be included in the response.
+ * Retrieve the list of channels in this team.
  */
 export class ChannelsRequestBuilderGetQueryParameters {
     /** Include count of items */

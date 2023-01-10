@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Compliance state. */
 export enum ComplianceState {
     /** Unknown. */
     Unknown = "unknown",

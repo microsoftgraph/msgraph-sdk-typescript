@@ -6,9 +6,6 @@ import {Endpoint, FailureInfo, Segment} from './index';
 import {Modality} from './modality';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the cloudCommunications singleton.
- */
 export class Session extends Entity implements Parsable {
     /** Endpoint that answered the session. */
     private _callee?: Endpoint | undefined;

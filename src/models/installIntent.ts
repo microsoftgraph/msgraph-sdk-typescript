@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Possible values for the install intent chosen by the admin. */
 export enum InstallIntent {
     /** Available install intent. */
     Available = "available",

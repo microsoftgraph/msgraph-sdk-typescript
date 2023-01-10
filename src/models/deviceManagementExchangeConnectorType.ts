@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** The type of Exchange Connector. */
 export enum DeviceManagementExchangeConnectorType {
     /** Connects to on-premises Exchange Environment. */
     OnPremises = "onPremises",

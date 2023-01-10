@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Contains properties for Windows device type. */
 export enum WindowsDeviceType {
     /** No flags set. */
     None = "none",

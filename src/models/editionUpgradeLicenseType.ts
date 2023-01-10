@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Edition Upgrade License type */
 export enum EditionUpgradeLicenseType {
     /** Product Key Type */
     ProductKey = "productKey",

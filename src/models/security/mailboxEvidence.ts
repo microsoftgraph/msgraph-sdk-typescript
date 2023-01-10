@@ -3,11 +3,11 @@ import {AlertEvidence, UserAccount} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MailboxEvidence extends AlertEvidence implements Parsable {
-    /** The displayName property */
+    /** The name associated with the mailbox. */
     private _displayName?: string | undefined;
-    /** The primaryAddress property */
+    /** The primary email address of the mailbox. */
     private _primaryAddress?: string | undefined;
-    /** The userAccount property */
+    /** The user account of the mailbox. */
     private _userAccount?: UserAccount | undefined;
     /**
      * Instantiates a new MailboxEvidence and sets the default values.
@@ -16,14 +16,14 @@ export class MailboxEvidence extends AlertEvidence implements Parsable {
         super();
     };
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name associated with the mailbox.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The name associated with the mailbox.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -41,14 +41,14 @@ export class MailboxEvidence extends AlertEvidence implements Parsable {
         };
     };
     /**
-     * Gets the primaryAddress property value. The primaryAddress property
+     * Gets the primaryAddress property value. The primary email address of the mailbox.
      * @returns a string
      */
     public get primaryAddress() {
         return this._primaryAddress;
     };
     /**
-     * Sets the primaryAddress property value. The primaryAddress property
+     * Sets the primaryAddress property value. The primary email address of the mailbox.
      * @param value Value to set for the primaryAddress property.
      */
     public set primaryAddress(value: string | undefined) {
@@ -66,14 +66,14 @@ export class MailboxEvidence extends AlertEvidence implements Parsable {
         writer.writeObjectValue<UserAccount>("userAccount", this.userAccount);
     };
     /**
-     * Gets the userAccount property value. The userAccount property
+     * Gets the userAccount property value. The user account of the mailbox.
      * @returns a userAccount
      */
     public get userAccount() {
         return this._userAccount;
     };
     /**
-     * Sets the userAccount property value. The userAccount property
+     * Sets the userAccount property value. The user account of the mailbox.
      * @param value Value to set for the userAccount property.
      */
     public set userAccount(value: UserAccount | undefined) {

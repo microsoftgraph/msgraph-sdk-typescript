@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Scheduled the update installation on the weeks of the month */
 export enum WindowsUpdateForBusinessUpdateWeeks {
     /** Allow the user to set. */
     UserDefined = "userDefined",

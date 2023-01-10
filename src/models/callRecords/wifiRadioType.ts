@@ -1,4 +1,3 @@
-/** Provides operations to manage the cloudCommunications singleton. */
 export enum WifiRadioType {
     Unknown = "unknown",
     Wifi80211a = "wifi80211a",

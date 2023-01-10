@@ -2,9 +2,6 @@ import {createDirectoryRoleTemplateFromDiscriminatorValue} from './createDirecto
 import {BaseCollectionPaginationCountResponse, DirectoryRoleTemplate} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of directoryRoleTemplate entities.
- */
 export class DirectoryRoleTemplateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DirectoryRoleTemplate[] | undefined;

@@ -2,9 +2,6 @@ import {BaseCollectionPaginationCountResponse, StaffAvailabilityItem} from '../.
 import {createStaffAvailabilityItemFromDiscriminatorValue} from '../../../../models/createStaffAvailabilityItemFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the getStaffAvailability method.
- */
 export class GetStaffAvailabilityResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: StaffAvailabilityItem[] | undefined;

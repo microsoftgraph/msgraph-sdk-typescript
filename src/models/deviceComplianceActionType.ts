@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Scheduled Action Type Enum */
 export enum DeviceComplianceActionType {
     /** No Action */
     NoAction = "noAction",

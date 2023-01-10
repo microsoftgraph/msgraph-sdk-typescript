@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Possible values for when accounts are deleted on a shared PC. */
 export enum SharedPCAccountDeletionPolicyType {
     /** Delete immediately. */
     Immediate = "immediate",

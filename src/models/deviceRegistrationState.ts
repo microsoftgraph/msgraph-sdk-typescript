@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Device registration status. */
 export enum DeviceRegistrationState {
     /** The device is not registered. */
     NotRegistered = "notRegistered",

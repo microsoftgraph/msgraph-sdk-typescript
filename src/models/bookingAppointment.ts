@@ -6,12 +6,15 @@ import {createLocationFromDiscriminatorValue} from './createLocationFromDiscrimi
 import {BookingCustomerInformationBase, BookingReminder, DateTimeTimeZone, Entity, Location} from './index';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Represents a booked appointment of a service by a customer in a business.
+ */
 export class BookingAppointment extends Entity implements Parsable {
     /** Additional information that is sent to the customer when an appointment is confirmed. */
     private _additionalInformation?: string | undefined;
-    /** The anonymousJoinWebUrl property */
+    /** The URL of the meeting to join anonymously. */
     private _anonymousJoinWebUrl?: string | undefined;
-    /** It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional. */
+    /** A collection of customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional. */
     private _customers?: BookingCustomerInformationBase[] | undefined;
     /** The time zone of the customer. For a list of possible values, see dateTimeTimeZone. */
     private _customerTimeZone?: string | undefined;
@@ -70,34 +73,34 @@ export class BookingAppointment extends Entity implements Parsable {
         this._additionalInformation = value;
     };
     /**
-     * Gets the anonymousJoinWebUrl property value. The anonymousJoinWebUrl property
+     * Gets the anonymousJoinWebUrl property value. The URL of the meeting to join anonymously.
      * @returns a string
      */
     public get anonymousJoinWebUrl() {
         return this._anonymousJoinWebUrl;
     };
     /**
-     * Sets the anonymousJoinWebUrl property value. The anonymousJoinWebUrl property
+     * Sets the anonymousJoinWebUrl property value. The URL of the meeting to join anonymously.
      * @param value Value to set for the anonymousJoinWebUrl property.
      */
     public set anonymousJoinWebUrl(value: string | undefined) {
         this._anonymousJoinWebUrl = value;
     };
     /**
-     * Instantiates a new BookingAppointment and sets the default values.
+     * Instantiates a new bookingAppointment and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
-     * Gets the customers property value. It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.
+     * Gets the customers property value. A collection of customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.
      * @returns a bookingCustomerInformationBase
      */
     public get customers() {
         return this._customers;
     };
     /**
-     * Sets the customers property value. It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.
+     * Sets the customers property value. A collection of customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.
      * @param value Value to set for the customers property.
      */
     public set customers(value: BookingCustomerInformationBase[] | undefined) {

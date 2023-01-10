@@ -2,9 +2,6 @@ import {BaseCollectionPaginationCountResponse, MailTips} from '../../models/';
 import {createMailTipsFromDiscriminatorValue} from '../../models/createMailTipsFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the getMailTips method.
- */
 export class GetMailTipsResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: MailTips[] | undefined;

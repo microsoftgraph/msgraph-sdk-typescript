@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Auto restart required notification dismissal method */
 export enum AutoRestartNotificationDismissalMethod {
     /** Not configured */
     NotConfigured = "notConfigured",

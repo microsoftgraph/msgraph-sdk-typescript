@@ -2,9 +2,6 @@ import {createUserInstallStateSummaryFromDiscriminatorValue} from './createUserI
 import {BaseCollectionPaginationCountResponse, UserInstallStateSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.
- */
 export class UserInstallStateSummaryCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: UserInstallStateSummary[] | undefined;

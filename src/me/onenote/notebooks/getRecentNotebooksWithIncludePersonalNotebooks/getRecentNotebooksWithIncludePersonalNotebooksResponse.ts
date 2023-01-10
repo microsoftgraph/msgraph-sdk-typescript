@@ -2,9 +2,6 @@ import {BaseCollectionPaginationCountResponse, RecentNotebook} from '../../../..
 import {createRecentNotebookFromDiscriminatorValue} from '../../../../models/createRecentNotebookFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the getRecentNotebooks method.
- */
 export class GetRecentNotebooksWithIncludePersonalNotebooksResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: RecentNotebook[] | undefined;

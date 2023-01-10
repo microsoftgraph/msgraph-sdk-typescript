@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Possible values for the file format of a report */
 export enum DeviceManagementReportFileFormat {
     /** CSV Format */
     Csv = "csv",

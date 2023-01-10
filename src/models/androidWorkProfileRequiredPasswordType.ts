@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Android Work Profile required password type. */
 export enum AndroidWorkProfileRequiredPasswordType {
     /** Device default value, no intent. */
     DeviceDefault = "deviceDefault",

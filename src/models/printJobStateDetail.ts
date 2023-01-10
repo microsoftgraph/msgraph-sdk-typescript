@@ -1,4 +1,3 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum PrintJobStateDetail {
     UploadPending = "uploadPending",
     Transforming = "transforming",

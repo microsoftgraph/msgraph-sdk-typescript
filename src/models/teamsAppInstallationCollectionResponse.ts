@@ -2,9 +2,6 @@ import {createTeamsAppInstallationFromDiscriminatorValue} from './createTeamsApp
 import {BaseCollectionPaginationCountResponse, TeamsAppInstallation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the installedApps property of the microsoft.graph.chat entity.
- */
 export class TeamsAppInstallationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: TeamsAppInstallation[] | undefined;

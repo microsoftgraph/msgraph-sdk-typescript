@@ -2,9 +2,6 @@ import {BaseCollectionPaginationCountResponse, ChatMessage} from '../../models/'
 import {createChatMessageFromDiscriminatorValue} from '../../models/createChatMessageFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the getAllMessages method.
- */
 export class GetAllMessagesResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ChatMessage[] | undefined;

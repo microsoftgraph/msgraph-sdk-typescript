@@ -4,9 +4,6 @@ import {createRecordingInfoFromDiscriminatorValue} from './createRecordingInfoFr
 import {Entity, MediaStream, ParticipantInfo, RecordingInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the cloudCommunications singleton.
- */
 export class Participant extends Entity implements Parsable {
     /** The info property */
     private _info?: ParticipantInfo | undefined;

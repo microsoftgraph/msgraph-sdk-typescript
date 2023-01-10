@@ -5,9 +5,6 @@ import {createTeamworkActivityTopicFromDiscriminatorValue} from '../../../models
 import {createTeamworkNotificationRecipientFromDiscriminatorValue} from '../../../models/createTeamworkNotificationRecipientFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the sendActivityNotification method.
- */
 export class SendActivityNotificationPostRequestBody implements AdditionalDataHolder, Parsable {
     /** The activityType property */
     private _activityType?: string | undefined;

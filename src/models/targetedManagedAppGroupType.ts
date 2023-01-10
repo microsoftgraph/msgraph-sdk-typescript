@@ -1,4 +1,4 @@
-/** Provides operations to call the targetApps method. */
+/** Indicates a collection of apps to target which can be one of several pre-defined lists of apps or a manually selected list of apps */
 export enum TargetedManagedAppGroupType {
     /** Target the collection of apps manually selected by the admin. */
     SelectedPublicApps = "selectedPublicApps",

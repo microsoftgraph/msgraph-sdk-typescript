@@ -2,9 +2,6 @@ import {createProvisioningObjectSummaryFromDiscriminatorValue} from './createPro
 import {BaseCollectionPaginationCountResponse, ProvisioningObjectSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
- */
 export class ProvisioningObjectSummaryCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ProvisioningObjectSummary[] | undefined;

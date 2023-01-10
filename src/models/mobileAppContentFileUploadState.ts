@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Contains properties for upload request states. */
 export enum MobileAppContentFileUploadState {
     Success = "success",
     TransientError = "transientError",

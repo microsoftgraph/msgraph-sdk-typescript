@@ -3,9 +3,6 @@ import {createExternalConnectionFromDiscriminatorValue} from './createExternalCo
 import {ExternalConnection} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of externalConnection entities.
- */
 export class ExternalConnectionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ExternalConnection[] | undefined;

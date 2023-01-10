@@ -3,9 +3,6 @@ import {DirectRoutingLogRow} from '../../../models/callRecords/';
 import {createDirectRoutingLogRowFromDiscriminatorValue} from '../../../models/callRecords/createDirectRoutingLogRowFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the getDirectRoutingCalls method.
- */
 export class GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DirectRoutingLogRow[] | undefined;
