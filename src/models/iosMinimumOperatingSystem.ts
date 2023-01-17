@@ -8,19 +8,21 @@ export class IosMinimumOperatingSystem implements AdditionalDataHolder, Parsable
     private _additionalData: Record<string, unknown>;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** Version 10.0 or later. */
+    /** When TRUE, only Version 10.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE. */
     private _v10_0?: boolean | undefined;
-    /** Version 11.0 or later. */
+    /** When TRUE, only Version 11.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE. */
     private _v11_0?: boolean | undefined;
-    /** Version 12.0 or later. */
+    /** When TRUE, only Version 12.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE. */
     private _v12_0?: boolean | undefined;
-    /** Version 13.0 or later. */
+    /** When TRUE, only Version 13.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE. */
     private _v13_0?: boolean | undefined;
-    /** Version 14.0 or later. */
+    /** When TRUE, only Version 14.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE. */
     private _v14_0?: boolean | undefined;
-    /** Version 8.0 or later. */
+    /** When TRUE, only Version 15.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE. */
+    private _v15_0?: boolean | undefined;
+    /** When TRUE, only Version 8.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE. */
     private _v8_0?: boolean | undefined;
-    /** Version 9.0 or later. */
+    /** When TRUE, only Version 9.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE. */
     private _v9_0?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -54,6 +56,7 @@ export class IosMinimumOperatingSystem implements AdditionalDataHolder, Parsable
             "v12_0": n => { this.v12_0 = n.getBooleanValue(); },
             "v13_0": n => { this.v13_0 = n.getBooleanValue(); },
             "v14_0": n => { this.v14_0 = n.getBooleanValue(); },
+            "v15_0": n => { this.v15_0 = n.getBooleanValue(); },
             "v8_0": n => { this.v8_0 = n.getBooleanValue(); },
             "v9_0": n => { this.v9_0 = n.getBooleanValue(); },
         };
@@ -84,103 +87,118 @@ export class IosMinimumOperatingSystem implements AdditionalDataHolder, Parsable
         writer.writeBooleanValue("v12_0", this.v12_0);
         writer.writeBooleanValue("v13_0", this.v13_0);
         writer.writeBooleanValue("v14_0", this.v14_0);
+        writer.writeBooleanValue("v15_0", this.v15_0);
         writer.writeBooleanValue("v8_0", this.v8_0);
         writer.writeBooleanValue("v9_0", this.v9_0);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the v10_0 property value. Version 10.0 or later.
+     * Gets the v10_0 property value. When TRUE, only Version 10.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @returns a boolean
      */
     public get v10_0() {
         return this._v10_0;
     };
     /**
-     * Sets the v10_0 property value. Version 10.0 or later.
+     * Sets the v10_0 property value. When TRUE, only Version 10.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param value Value to set for the v10_0 property.
      */
     public set v10_0(value: boolean | undefined) {
         this._v10_0 = value;
     };
     /**
-     * Gets the v11_0 property value. Version 11.0 or later.
+     * Gets the v11_0 property value. When TRUE, only Version 11.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @returns a boolean
      */
     public get v11_0() {
         return this._v11_0;
     };
     /**
-     * Sets the v11_0 property value. Version 11.0 or later.
+     * Sets the v11_0 property value. When TRUE, only Version 11.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param value Value to set for the v11_0 property.
      */
     public set v11_0(value: boolean | undefined) {
         this._v11_0 = value;
     };
     /**
-     * Gets the v12_0 property value. Version 12.0 or later.
+     * Gets the v12_0 property value. When TRUE, only Version 12.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @returns a boolean
      */
     public get v12_0() {
         return this._v12_0;
     };
     /**
-     * Sets the v12_0 property value. Version 12.0 or later.
+     * Sets the v12_0 property value. When TRUE, only Version 12.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param value Value to set for the v12_0 property.
      */
     public set v12_0(value: boolean | undefined) {
         this._v12_0 = value;
     };
     /**
-     * Gets the v13_0 property value. Version 13.0 or later.
+     * Gets the v13_0 property value. When TRUE, only Version 13.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @returns a boolean
      */
     public get v13_0() {
         return this._v13_0;
     };
     /**
-     * Sets the v13_0 property value. Version 13.0 or later.
+     * Sets the v13_0 property value. When TRUE, only Version 13.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param value Value to set for the v13_0 property.
      */
     public set v13_0(value: boolean | undefined) {
         this._v13_0 = value;
     };
     /**
-     * Gets the v14_0 property value. Version 14.0 or later.
+     * Gets the v14_0 property value. When TRUE, only Version 14.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @returns a boolean
      */
     public get v14_0() {
         return this._v14_0;
     };
     /**
-     * Sets the v14_0 property value. Version 14.0 or later.
+     * Sets the v14_0 property value. When TRUE, only Version 14.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param value Value to set for the v14_0 property.
      */
     public set v14_0(value: boolean | undefined) {
         this._v14_0 = value;
     };
     /**
-     * Gets the v8_0 property value. Version 8.0 or later.
+     * Gets the v15_0 property value. When TRUE, only Version 15.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @returns a boolean
+     */
+    public get v15_0() {
+        return this._v15_0;
+    };
+    /**
+     * Sets the v15_0 property value. When TRUE, only Version 15.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param value Value to set for the v15_0 property.
+     */
+    public set v15_0(value: boolean | undefined) {
+        this._v15_0 = value;
+    };
+    /**
+     * Gets the v8_0 property value. When TRUE, only Version 8.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @returns a boolean
      */
     public get v8_0() {
         return this._v8_0;
     };
     /**
-     * Sets the v8_0 property value. Version 8.0 or later.
+     * Sets the v8_0 property value. When TRUE, only Version 8.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param value Value to set for the v8_0 property.
      */
     public set v8_0(value: boolean | undefined) {
         this._v8_0 = value;
     };
     /**
-     * Gets the v9_0 property value. Version 9.0 or later.
+     * Gets the v9_0 property value. When TRUE, only Version 9.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @returns a boolean
      */
     public get v9_0() {
         return this._v9_0;
     };
     /**
-     * Sets the v9_0 property value. Version 9.0 or later.
+     * Sets the v9_0 property value. When TRUE, only Version 9.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
      * @param value Value to set for the v9_0 property.
      */
     public set v9_0(value: boolean | undefined) {

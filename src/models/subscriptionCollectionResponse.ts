@@ -2,9 +2,6 @@ import {createSubscriptionFromDiscriminatorValue} from './createSubscriptionFrom
 import {BaseCollectionPaginationCountResponse, Subscription} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the subscriptions property of the microsoft.graph.driveItem entity.
- */
 export class SubscriptionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Subscription[] | undefined;

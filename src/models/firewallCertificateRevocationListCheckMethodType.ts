@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Possible values for firewallCertificateRevocationListCheckMethod */
 export enum FirewallCertificateRevocationListCheckMethodType {
     /** No value configured by Intune, do not override the user-configured device default value */
     DeviceDefault = "deviceDefault",

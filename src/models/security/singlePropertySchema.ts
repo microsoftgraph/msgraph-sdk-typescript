@@ -3,11 +3,11 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class SinglePropertySchema implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The name property */
+    /** The name of the property. */
     private _name?: string | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The type property */
+    /** The type of the property. */
     private _type?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -41,14 +41,14 @@ export class SinglePropertySchema implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The name of the property.
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The name of the property.
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {
@@ -80,14 +80,14 @@ export class SinglePropertySchema implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. The type property
+     * Gets the type property value. The type of the property.
      * @returns a string
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The type property
+     * Sets the type property value. The type of the property.
      * @param value Value to set for the type property.
      */
     public set type(value: string | undefined) {

@@ -2,9 +2,6 @@ import {createRiskUserActivityFromDiscriminatorValue} from './createRiskUserActi
 import {RiskUserActivity, RiskyUser} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreementAcceptance entities.
- */
 export class RiskyUserHistoryItem extends RiskyUser implements Parsable {
     /** The activity related to user risk level change. */
     private _activity?: RiskUserActivity | undefined;

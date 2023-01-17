@@ -1,5 +1,6 @@
+import {createMobileContainedAppFromDiscriminatorValue} from './createMobileContainedAppFromDiscriminatorValue';
 import {createWindowsMinimumOperatingSystemFromDiscriminatorValue} from './createWindowsMinimumOperatingSystemFromDiscriminatorValue';
-import {MobileLobApp, WindowsMinimumOperatingSystem} from './index';
+import {MobileContainedApp, MobileLobApp, WindowsMinimumOperatingSystem} from './index';
 import {WindowsArchitecture} from './windowsArchitecture';
 import {WindowsDeviceType} from './windowsDeviceType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -9,6 +10,8 @@ export class WindowsUniversalAppX extends MobileLobApp implements Parsable {
     private _applicableArchitectures?: WindowsArchitecture | undefined;
     /** Contains properties for Windows device type. */
     private _applicableDeviceTypes?: WindowsDeviceType | undefined;
+    /** The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app. */
+    private _committedContainedApps?: MobileContainedApp[] | undefined;
     /** The Identity Name. */
     private _identityName?: string | undefined;
     /** The Identity Publisher Hash. */
@@ -50,6 +53,20 @@ export class WindowsUniversalAppX extends MobileLobApp implements Parsable {
         this._applicableDeviceTypes = value;
     };
     /**
+     * Gets the committedContainedApps property value. The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app.
+     * @returns a mobileContainedApp
+     */
+    public get committedContainedApps() {
+        return this._committedContainedApps;
+    };
+    /**
+     * Sets the committedContainedApps property value. The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app.
+     * @param value Value to set for the committedContainedApps property.
+     */
+    public set committedContainedApps(value: MobileContainedApp[] | undefined) {
+        this._committedContainedApps = value;
+    };
+    /**
      * Instantiates a new WindowsUniversalAppX and sets the default values.
      */
     public constructor() {
@@ -64,6 +81,7 @@ export class WindowsUniversalAppX extends MobileLobApp implements Parsable {
         return {...super.getFieldDeserializers(),
             "applicableArchitectures": n => { this.applicableArchitectures = n.getEnumValue<WindowsArchitecture>(WindowsArchitecture); },
             "applicableDeviceTypes": n => { this.applicableDeviceTypes = n.getEnumValue<WindowsDeviceType>(WindowsDeviceType); },
+            "committedContainedApps": n => { this.committedContainedApps = n.getCollectionOfObjectValues<MobileContainedApp>(createMobileContainedAppFromDiscriminatorValue); },
             "identityName": n => { this.identityName = n.getStringValue(); },
             "identityPublisherHash": n => { this.identityPublisherHash = n.getStringValue(); },
             "identityResourceIdentifier": n => { this.identityResourceIdentifier = n.getStringValue(); },
@@ -165,6 +183,7 @@ export class WindowsUniversalAppX extends MobileLobApp implements Parsable {
         super.serialize(writer);
         writer.writeEnumValue<WindowsArchitecture>("applicableArchitectures", this.applicableArchitectures);
         writer.writeEnumValue<WindowsDeviceType>("applicableDeviceTypes", this.applicableDeviceTypes);
+        writer.writeCollectionOfObjectValues<MobileContainedApp>("committedContainedApps", this.committedContainedApps);
         writer.writeStringValue("identityName", this.identityName);
         writer.writeStringValue("identityPublisherHash", this.identityPublisherHash);
         writer.writeStringValue("identityResourceIdentifier", this.identityResourceIdentifier);

@@ -2,9 +2,6 @@ import {BaseCollectionPaginationCountResponse, ImportedWindowsAutopilotDeviceIde
 import {createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from '../../../models/createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the import method.
- */
 export class ImportResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;

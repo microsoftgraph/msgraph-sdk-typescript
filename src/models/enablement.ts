@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Possible values of a property */
 export enum Enablement {
     /** Device default value, no intent. */
     NotConfigured = "notConfigured",

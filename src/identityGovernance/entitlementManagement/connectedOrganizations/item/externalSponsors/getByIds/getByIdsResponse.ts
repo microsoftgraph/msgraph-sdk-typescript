@@ -2,9 +2,6 @@ import {BaseCollectionPaginationCountResponse, DirectoryObject} from '../../../.
 import {createDirectoryObjectFromDiscriminatorValue} from '../../../../../../models/createDirectoryObjectFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the getByIds method.
- */
 export class GetByIdsResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DirectoryObject[] | undefined;

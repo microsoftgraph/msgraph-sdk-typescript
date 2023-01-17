@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class PasswordProfile implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** true if the user must change her password on the next login; otherwise false. If not set, default is false. NOTE:  For Azure B2C tenants, set to false and instead use custom policies and user flows to force password reset at first sign in. See Force password reset at first logon. */
+    /** true if the user must change her password on the next login; otherwise false. */
     private _forceChangePasswordNextSignIn?: boolean | undefined;
     /** If true, at next sign-in, the user must perform a multi-factor authentication (MFA) before being forced to change their password. The behavior is identical to forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before password change. After a password change, this property will be automatically reset to false. If not set, default is false. */
     private _forceChangePasswordNextSignInWithMfa?: boolean | undefined;
@@ -32,14 +32,14 @@ export class PasswordProfile implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the forceChangePasswordNextSignIn property value. true if the user must change her password on the next login; otherwise false. If not set, default is false. NOTE:  For Azure B2C tenants, set to false and instead use custom policies and user flows to force password reset at first sign in. See Force password reset at first logon.
+     * Gets the forceChangePasswordNextSignIn property value. true if the user must change her password on the next login; otherwise false.
      * @returns a boolean
      */
     public get forceChangePasswordNextSignIn() {
         return this._forceChangePasswordNextSignIn;
     };
     /**
-     * Sets the forceChangePasswordNextSignIn property value. true if the user must change her password on the next login; otherwise false. If not set, default is false. NOTE:  For Azure B2C tenants, set to false and instead use custom policies and user flows to force password reset at first sign in. See Force password reset at first logon.
+     * Sets the forceChangePasswordNextSignIn property value. true if the user must change her password on the next login; otherwise false.
      * @param value Value to set for the forceChangePasswordNextSignIn property.
      */
     public set forceChangePasswordNextSignIn(value: boolean | undefined) {

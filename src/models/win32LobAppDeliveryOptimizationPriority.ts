@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Contains value for delivery optimization priority. */
 export enum Win32LobAppDeliveryOptimizationPriority {
     /** Not configured or background normal delivery optimization priority. */
     NotConfigured = "notConfigured",

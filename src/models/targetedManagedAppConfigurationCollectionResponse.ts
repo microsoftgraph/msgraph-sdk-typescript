@@ -2,9 +2,6 @@ import {createTargetedManagedAppConfigurationFromDiscriminatorValue} from './cre
 import {BaseCollectionPaginationCountResponse, TargetedManagedAppConfiguration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
- */
 export class TargetedManagedAppConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: TargetedManagedAppConfiguration[] | undefined;

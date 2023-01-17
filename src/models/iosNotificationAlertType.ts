@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Notification Settings Alert Type. */
 export enum IosNotificationAlertType {
     /** Device default value, no intent. */
     DeviceDefault = "deviceDefault",

@@ -2,9 +2,6 @@ import {EdiscoveryReviewTag} from '../../../../../../../../../models/security/';
 import {createEdiscoveryReviewTagFromDiscriminatorValue} from '../../../../../../../../../models/security/createEdiscoveryReviewTagFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the applyTags method.
- */
 export class ApplyTagsPostRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;

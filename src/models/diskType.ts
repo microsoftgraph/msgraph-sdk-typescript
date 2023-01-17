@@ -1,4 +1,3 @@
-/** Provides operations to manage the collection of agreement entities. */
 export enum DiskType {
     /** Enum member for unknown or default diskType */
     Unknown = "unknown",

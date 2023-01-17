@@ -1,4 +1,3 @@
-/** Provides operations to manage the cloudCommunications singleton. */
 export enum ServiceRole {
     Unknown = "unknown",
     CustomBot = "customBot",

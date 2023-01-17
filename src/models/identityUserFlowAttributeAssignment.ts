@@ -4,9 +4,6 @@ import {IdentityUserFlowAttributeInputType} from './identityUserFlowAttributeInp
 import {Entity, IdentityUserFlowAttribute, UserAttributeValuesItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreementAcceptance entities.
- */
 export class IdentityUserFlowAttributeAssignment extends Entity implements Parsable {
     /** The display name of the identityUserFlowAttribute within a user flow. */
     private _displayName?: string | undefined;

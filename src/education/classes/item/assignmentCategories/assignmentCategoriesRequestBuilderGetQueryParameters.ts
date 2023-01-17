@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of educationCategory objects.
+ * Retrieve a list of educationCategory objects. Only teachers can perform this operation.
  */
 export class AssignmentCategoriesRequestBuilderGetQueryParameters {
     /** Include count of items */

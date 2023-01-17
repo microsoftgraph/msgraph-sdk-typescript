@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Type of accounts that are allowed to share the PC. */
 export enum SharedPCAllowedAccountType {
     /** Only guest accounts. */
     Guest = "guest",

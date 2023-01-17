@@ -1,29 +1,29 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserAccount implements AdditionalDataHolder, Parsable {
-    /** The accountName property */
+    /** The user account's displayed name. */
     private _accountName?: string | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The azureAdUserId property */
+    /** The user object identifier in Azure AD. */
     private _azureAdUserId?: string | undefined;
-    /** The domainName property */
+    /** The name of the Active Directory domain of which the user is a member. */
     private _domainName?: string | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The userPrincipalName property */
+    /** The user principal name of the account in Azure AD. */
     private _userPrincipalName?: string | undefined;
-    /** The userSid property */
+    /** The local security identifier of the user account. */
     private _userSid?: string | undefined;
     /**
-     * Gets the accountName property value. The accountName property
+     * Gets the accountName property value. The user account's displayed name.
      * @returns a string
      */
     public get accountName() {
         return this._accountName;
     };
     /**
-     * Sets the accountName property value. The accountName property
+     * Sets the accountName property value. The user account's displayed name.
      * @param value Value to set for the accountName property.
      */
     public set accountName(value: string | undefined) {
@@ -44,14 +44,14 @@ export class UserAccount implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the azureAdUserId property value. The azureAdUserId property
+     * Gets the azureAdUserId property value. The user object identifier in Azure AD.
      * @returns a string
      */
     public get azureAdUserId() {
         return this._azureAdUserId;
     };
     /**
-     * Sets the azureAdUserId property value. The azureAdUserId property
+     * Sets the azureAdUserId property value. The user object identifier in Azure AD.
      * @param value Value to set for the azureAdUserId property.
      */
     public set azureAdUserId(value: string | undefined) {
@@ -64,14 +64,14 @@ export class UserAccount implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the domainName property value. The domainName property
+     * Gets the domainName property value. The name of the Active Directory domain of which the user is a member.
      * @returns a string
      */
     public get domainName() {
         return this._domainName;
     };
     /**
-     * Sets the domainName property value. The domainName property
+     * Sets the domainName property value. The name of the Active Directory domain of which the user is a member.
      * @param value Value to set for the domainName property.
      */
     public set domainName(value: string | undefined) {
@@ -120,28 +120,28 @@ export class UserAccount implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the userPrincipalName property value. The userPrincipalName property
+     * Gets the userPrincipalName property value. The user principal name of the account in Azure AD.
      * @returns a string
      */
     public get userPrincipalName() {
         return this._userPrincipalName;
     };
     /**
-     * Sets the userPrincipalName property value. The userPrincipalName property
+     * Sets the userPrincipalName property value. The user principal name of the account in Azure AD.
      * @param value Value to set for the userPrincipalName property.
      */
     public set userPrincipalName(value: string | undefined) {
         this._userPrincipalName = value;
     };
     /**
-     * Gets the userSid property value. The userSid property
+     * Gets the userSid property value. The local security identifier of the user account.
      * @returns a string
      */
     public get userSid() {
         return this._userSid;
     };
     /**
-     * Sets the userSid property value. The userSid property
+     * Sets the userSid property value. The local security identifier of the user account.
      * @param value Value to set for the userSid property.
      */
     public set userSid(value: string | undefined) {

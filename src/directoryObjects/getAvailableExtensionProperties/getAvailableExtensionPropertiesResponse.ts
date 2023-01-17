@@ -2,9 +2,6 @@ import {BaseCollectionPaginationCountResponse, ExtensionProperty} from '../../mo
 import {createExtensionPropertyFromDiscriminatorValue} from '../../models/createExtensionPropertyFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the getAvailableExtensionProperties method.
- */
 export class GetAvailableExtensionPropertiesResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ExtensionProperty[] | undefined;

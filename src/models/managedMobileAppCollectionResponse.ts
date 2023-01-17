@@ -2,9 +2,6 @@ import {createManagedMobileAppFromDiscriminatorValue} from './createManagedMobil
 import {BaseCollectionPaginationCountResponse, ManagedMobileApp} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the apps property of the microsoft.graph.androidManagedAppProtection entity.
- */
 export class ManagedMobileAppCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ManagedMobileApp[] | undefined;

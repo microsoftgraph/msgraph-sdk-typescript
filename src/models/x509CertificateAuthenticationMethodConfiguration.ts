@@ -9,7 +9,7 @@ export class X509CertificateAuthenticationMethodConfiguration extends Authentica
     private _authenticationModeConfiguration?: X509CertificateAuthenticationModeConfiguration | undefined;
     /** Defines fields in the X.509 certificate that map to attributes of the Azure AD user object in order to bind the certificate to the user. The priority of the object determines the order in which the binding is carried out. The first binding that matches will be used and the rest ignored. */
     private _certificateUserBindings?: X509CertificateUserBinding[] | undefined;
-    /** A collection of users or groups who are enabled to use the authentication method. */
+    /** A collection of groups that are enabled to use the authentication method. */
     private _includeTargets?: AuthenticationMethodTarget[] | undefined;
     /**
      * Gets the authenticationModeConfiguration property value. Defines strong authentication configurations. This configuration includes the default authentication mode and the different rules for strong authentication bindings.
@@ -58,14 +58,14 @@ export class X509CertificateAuthenticationMethodConfiguration extends Authentica
         };
     };
     /**
-     * Gets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
+     * Gets the includeTargets property value. A collection of groups that are enabled to use the authentication method.
      * @returns a authenticationMethodTarget
      */
     public get includeTargets() {
         return this._includeTargets;
     };
     /**
-     * Sets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
+     * Sets the includeTargets property value. A collection of groups that are enabled to use the authentication method.
      * @param value Value to set for the includeTargets property.
      */
     public set includeTargets(value: AuthenticationMethodTarget[] | undefined) {

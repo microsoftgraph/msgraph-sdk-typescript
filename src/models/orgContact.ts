@@ -5,9 +5,6 @@ import {createPhysicalOfficeAddressFromDiscriminatorValue} from './createPhysica
 import {DirectoryObject, OnPremisesProvisioningError, Phone, PhysicalOfficeAddress} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of orgContact entities.
- */
 export class OrgContact extends DirectoryObject implements Parsable {
     /** The addresses property */
     private _addresses?: PhysicalOfficeAddress[] | undefined;

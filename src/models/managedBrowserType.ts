@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Type of managed browser */
 export enum ManagedBrowserType {
     /** Not configured */
     NotConfigured = "notConfigured",

@@ -2,15 +2,15 @@ import {AlertEvidence} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RegistryValueEvidence extends AlertEvidence implements Parsable {
-    /** The registryHive property */
+    /** Registry hive of the key that the recorded action was applied to. */
     private _registryHive?: string | undefined;
-    /** The registryKey property */
+    /** Registry key that the recorded action was applied to. */
     private _registryKey?: string | undefined;
-    /** The registryValue property */
+    /** Data of the registry value that the recorded action was applied to. */
     private _registryValue?: string | undefined;
-    /** The registryValueName property */
+    /** Name of the registry value that the recorded action was applied to. */
     private _registryValueName?: string | undefined;
-    /** The registryValueType property */
+    /** Data type, such as binary or string, of the registry value that the recorded action was applied to. */
     private _registryValueType?: string | undefined;
     /**
      * Instantiates a new RegistryValueEvidence and sets the default values.
@@ -32,70 +32,70 @@ export class RegistryValueEvidence extends AlertEvidence implements Parsable {
         };
     };
     /**
-     * Gets the registryHive property value. The registryHive property
+     * Gets the registryHive property value. Registry hive of the key that the recorded action was applied to.
      * @returns a string
      */
     public get registryHive() {
         return this._registryHive;
     };
     /**
-     * Sets the registryHive property value. The registryHive property
+     * Sets the registryHive property value. Registry hive of the key that the recorded action was applied to.
      * @param value Value to set for the registryHive property.
      */
     public set registryHive(value: string | undefined) {
         this._registryHive = value;
     };
     /**
-     * Gets the registryKey property value. The registryKey property
+     * Gets the registryKey property value. Registry key that the recorded action was applied to.
      * @returns a string
      */
     public get registryKey() {
         return this._registryKey;
     };
     /**
-     * Sets the registryKey property value. The registryKey property
+     * Sets the registryKey property value. Registry key that the recorded action was applied to.
      * @param value Value to set for the registryKey property.
      */
     public set registryKey(value: string | undefined) {
         this._registryKey = value;
     };
     /**
-     * Gets the registryValue property value. The registryValue property
+     * Gets the registryValue property value. Data of the registry value that the recorded action was applied to.
      * @returns a string
      */
     public get registryValue() {
         return this._registryValue;
     };
     /**
-     * Sets the registryValue property value. The registryValue property
+     * Sets the registryValue property value. Data of the registry value that the recorded action was applied to.
      * @param value Value to set for the registryValue property.
      */
     public set registryValue(value: string | undefined) {
         this._registryValue = value;
     };
     /**
-     * Gets the registryValueName property value. The registryValueName property
+     * Gets the registryValueName property value. Name of the registry value that the recorded action was applied to.
      * @returns a string
      */
     public get registryValueName() {
         return this._registryValueName;
     };
     /**
-     * Sets the registryValueName property value. The registryValueName property
+     * Sets the registryValueName property value. Name of the registry value that the recorded action was applied to.
      * @param value Value to set for the registryValueName property.
      */
     public set registryValueName(value: string | undefined) {
         this._registryValueName = value;
     };
     /**
-     * Gets the registryValueType property value. The registryValueType property
+     * Gets the registryValueType property value. Data type, such as binary or string, of the registry value that the recorded action was applied to.
      * @returns a string
      */
     public get registryValueType() {
         return this._registryValueType;
     };
     /**
-     * Sets the registryValueType property value. The registryValueType property
+     * Sets the registryValueType property value. Data type, such as binary or string, of the registry value that the recorded action was applied to.
      * @param value Value to set for the registryValueType property.
      */
     public set registryValueType(value: string | undefined) {

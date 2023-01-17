@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Possible values for welcome screen meeting information. */
 export enum WelcomeScreenMeetingInformation {
     /** User Defined, default value, no intent. */
     UserDefined = "userDefined",

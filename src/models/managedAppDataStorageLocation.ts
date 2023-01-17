@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Storage locations where managed apps can potentially store their data */
 export enum ManagedAppDataStorageLocation {
     /** OneDrive for business */
     OneDriveForBusiness = "oneDriveForBusiness",

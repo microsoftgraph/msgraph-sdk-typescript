@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** State Management Setting. */
 export enum StateManagementSetting {
     /** Not configured. */
     NotConfigured = "notConfigured",

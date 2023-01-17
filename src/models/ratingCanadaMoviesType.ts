@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Movies rating labels in Canada */
 export enum RatingCanadaMoviesType {
     /** Default value, allow all movies content */
     AllAllowed = "allAllowed",

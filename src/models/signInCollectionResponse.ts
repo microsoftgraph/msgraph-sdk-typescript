@@ -2,9 +2,6 @@ import {createSignInFromDiscriminatorValue} from './createSignInFromDiscriminato
 import {BaseCollectionPaginationCountResponse, SignIn} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
- */
 export class SignInCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: SignIn[] | undefined;

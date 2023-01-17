@@ -1,6 +1,6 @@
 
 /**
- * Get the riskyUserHistoryItems from the history navigation property.
+ * Read the properties and relationships of a riskyUserHistoryItem object.
  */
 export class HistoryRequestBuilderGetQueryParameters {
     /** Include count of items */

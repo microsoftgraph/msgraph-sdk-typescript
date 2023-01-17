@@ -5,9 +5,6 @@ import {createSharingDetailFromDiscriminatorValue} from './createSharingDetailFr
 import {Entity, ResourceReference, ResourceVisualization, SharingDetail} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of application entities.
- */
 export class SharedInsight extends Entity implements Parsable {
     /** Details about the shared item. Read only. */
     private _lastShared?: SharingDetail | undefined;

@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Contains all supported Powershell Script output detection type. */
 export enum Win32LobAppPowerShellScriptRuleOperationType {
     /** Not configured. */
     NotConfigured = "notConfigured",

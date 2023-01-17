@@ -2,9 +2,6 @@ import {BaseCollectionPaginationCountResponse, ConvertIdResult} from '../../../m
 import {createConvertIdResultFromDiscriminatorValue} from '../../../models/createConvertIdResultFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the translateExchangeIds method.
- */
 export class TranslateExchangeIdsResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ConvertIdResult[] | undefined;

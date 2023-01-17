@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Possible statuses associated with a generated report */
 export enum DeviceManagementReportStatus {
     /** Report generation status is unknown */
     Unknown = "unknown",

@@ -10,7 +10,7 @@ export class BookingStaffMember extends BookingStaffMemberBase implements Parsab
     private _displayName?: string | undefined;
     /** The email address of the staff member. This can be in the same Microsoft 365 tenant as the business, or in a different email domain. This email address can be used if the sendConfirmationsToOwner property is set to true in the scheduling policy of the business. Required. */
     private _emailAddress?: string | undefined;
-    /** The isEmailNotificationEnabled property */
+    /** True indicates that a staff member will be notified via email when a booking assigned to them is created or changed. */
     private _isEmailNotificationEnabled?: boolean | undefined;
     /** The role property */
     private _role?: BookingStaffRole | undefined;
@@ -86,14 +86,14 @@ export class BookingStaffMember extends BookingStaffMemberBase implements Parsab
         };
     };
     /**
-     * Gets the isEmailNotificationEnabled property value. The isEmailNotificationEnabled property
+     * Gets the isEmailNotificationEnabled property value. True indicates that a staff member will be notified via email when a booking assigned to them is created or changed.
      * @returns a boolean
      */
     public get isEmailNotificationEnabled() {
         return this._isEmailNotificationEnabled;
     };
     /**
-     * Sets the isEmailNotificationEnabled property value. The isEmailNotificationEnabled property
+     * Sets the isEmailNotificationEnabled property value. True indicates that a staff member will be notified via email when a booking assigned to them is created or changed.
      * @param value Value to set for the isEmailNotificationEnabled property.
      */
     public set isEmailNotificationEnabled(value: boolean | undefined) {

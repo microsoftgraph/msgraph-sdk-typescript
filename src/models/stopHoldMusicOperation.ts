@@ -1,12 +1,9 @@
 import {CommsOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreementAcceptance entities.
- */
 export class StopHoldMusicOperation extends CommsOperation implements Parsable {
     /**
-     * Instantiates a new stopHoldMusicOperation and sets the default values.
+     * Instantiates a new StopHoldMusicOperation and sets the default values.
      */
     public constructor() {
         super();

@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Possible values for Windows user account control settings. */
 export enum WindowsUserAccountControlSettings {
     /** User Defined, default value, no intent. */
     UserDefined = "userDefined",

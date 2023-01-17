@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** App configuration key types. */
 export enum MdmAppConfigKeyType {
     StringType = "stringType",
     IntegerType = "integerType",

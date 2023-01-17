@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Windows Update Notification Display Options */
 export enum WindowsUpdateNotificationDisplayOption {
     /** Not configured */
     NotConfigured = "notConfigured",

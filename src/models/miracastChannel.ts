@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Possible values for Miracast channel. */
 export enum MiracastChannel {
     /** User Defined, default value, no intent. */
     UserDefined = "userDefined",

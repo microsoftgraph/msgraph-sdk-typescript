@@ -4,9 +4,6 @@ import {Set} from './index';
 import {TermGroupScope} from './termGroupScope';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreement entities.
- */
 export class Group extends Entity implements Parsable {
     /** Date and time of the group creation. Read-only. */
     private _createdDateTime?: Date | undefined;
