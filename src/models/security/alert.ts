@@ -10,51 +10,48 @@ import {AlertComment, AlertEvidence} from './index';
 import {ServiceSource} from './serviceSource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreement entities.
- */
 export class Alert extends Entity implements Parsable {
-    /** The actorDisplayName property */
+    /** The adversary or activity group that is associated with this alert. */
     private _actorDisplayName?: string | undefined;
-    /** The alertWebUrl property */
+    /** URL for the alert page in the Microsoft 365 Defender portal. */
     private _alertWebUrl?: string | undefined;
-    /** The assignedTo property */
+    /** Owner of the alert, or null if no owner is assigned. */
     private _assignedTo?: string | undefined;
-    /** The category property */
+    /** The attack kill-chain category that the alert belongs to. Aligned with the MITRE ATT&CK framework. */
     private _category?: string | undefined;
-    /** The classification property */
+    /** Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, benignPositive, unknownFutureValue. */
     private _classification?: AlertClassification | undefined;
-    /** The comments property */
+    /** Array of comments created by the Security Operations (SecOps) team during the alert management process. */
     private _comments?: AlertComment[] | undefined;
-    /** The createdDateTime property */
+    /** Time when Microsoft 365 Defender created the alert. */
     private _createdDateTime?: Date | undefined;
-    /** The description property */
+    /** String value describing each alert. */
     private _description?: string | undefined;
-    /** The detectionSource property */
+    /** Detection technology or sensor that identified the notable component or activity. */
     private _detectionSource?: DetectionSource | undefined;
-    /** The detectorId property */
+    /** The ID of the detector that triggered the alert. */
     private _detectorId?: string | undefined;
-    /** The determination property */
+    /** Specifies the result of the investigation, whether the alert represents a true attack and if so, the nature of the attack. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue. */
     private _determination?: AlertDetermination | undefined;
-    /** The evidence property */
+    /** Collection of evidence related to the alert. */
     private _evidence?: AlertEvidence[] | undefined;
-    /** The firstActivityDateTime property */
+    /** The earliest activity associated with the alert. */
     private _firstActivityDateTime?: Date | undefined;
-    /** The incidentId property */
+    /** Unique identifier to represent the incident this alert resource is associated with. */
     private _incidentId?: string | undefined;
-    /** The incidentWebUrl property */
+    /** URL for the incident page in the Microsoft 365 Defender portal. */
     private _incidentWebUrl?: string | undefined;
-    /** The lastActivityDateTime property */
+    /** The oldest activity associated with the alert. */
     private _lastActivityDateTime?: Date | undefined;
-    /** The lastUpdateDateTime property */
+    /** Time when the alert was last updated at Microsoft 365 Defender. */
     private _lastUpdateDateTime?: Date | undefined;
-    /** The mitreTechniques property */
+    /** The attack techniques, as aligned with the MITRE ATT&CK framework. */
     private _mitreTechniques?: string[] | undefined;
-    /** The providerAlertId property */
+    /** The ID of the alert as it appears in the security provider product that generated the alert. */
     private _providerAlertId?: string | undefined;
-    /** The recommendedActions property */
+    /** Recommended response and remediation actions to take in the event this alert was generated. */
     private _recommendedActions?: string | undefined;
-    /** The resolvedDateTime property */
+    /** Time when the alert was resolved. */
     private _resolvedDateTime?: Date | undefined;
     /** The serviceSource property */
     private _serviceSource?: ServiceSource | undefined;
@@ -62,93 +59,93 @@ export class Alert extends Entity implements Parsable {
     private _severity?: AlertSeverity | undefined;
     /** The status property */
     private _status?: AlertStatus | undefined;
-    /** The tenantId property */
+    /** The Azure Active Directory tenant the alert was created in. */
     private _tenantId?: string | undefined;
-    /** The threatDisplayName property */
+    /** The threat associated with this alert. */
     private _threatDisplayName?: string | undefined;
-    /** The threatFamilyName property */
+    /** Threat family associated with this alert. */
     private _threatFamilyName?: string | undefined;
-    /** The title property */
+    /** Brief identifying string value describing the alert. */
     private _title?: string | undefined;
     /**
-     * Gets the actorDisplayName property value. The actorDisplayName property
+     * Gets the actorDisplayName property value. The adversary or activity group that is associated with this alert.
      * @returns a string
      */
     public get actorDisplayName() {
         return this._actorDisplayName;
     };
     /**
-     * Sets the actorDisplayName property value. The actorDisplayName property
+     * Sets the actorDisplayName property value. The adversary or activity group that is associated with this alert.
      * @param value Value to set for the actorDisplayName property.
      */
     public set actorDisplayName(value: string | undefined) {
         this._actorDisplayName = value;
     };
     /**
-     * Gets the alertWebUrl property value. The alertWebUrl property
+     * Gets the alertWebUrl property value. URL for the alert page in the Microsoft 365 Defender portal.
      * @returns a string
      */
     public get alertWebUrl() {
         return this._alertWebUrl;
     };
     /**
-     * Sets the alertWebUrl property value. The alertWebUrl property
+     * Sets the alertWebUrl property value. URL for the alert page in the Microsoft 365 Defender portal.
      * @param value Value to set for the alertWebUrl property.
      */
     public set alertWebUrl(value: string | undefined) {
         this._alertWebUrl = value;
     };
     /**
-     * Gets the assignedTo property value. The assignedTo property
+     * Gets the assignedTo property value. Owner of the alert, or null if no owner is assigned.
      * @returns a string
      */
     public get assignedTo() {
         return this._assignedTo;
     };
     /**
-     * Sets the assignedTo property value. The assignedTo property
+     * Sets the assignedTo property value. Owner of the alert, or null if no owner is assigned.
      * @param value Value to set for the assignedTo property.
      */
     public set assignedTo(value: string | undefined) {
         this._assignedTo = value;
     };
     /**
-     * Gets the category property value. The category property
+     * Gets the category property value. The attack kill-chain category that the alert belongs to. Aligned with the MITRE ATT&CK framework.
      * @returns a string
      */
     public get category() {
         return this._category;
     };
     /**
-     * Sets the category property value. The category property
+     * Sets the category property value. The attack kill-chain category that the alert belongs to. Aligned with the MITRE ATT&CK framework.
      * @param value Value to set for the category property.
      */
     public set category(value: string | undefined) {
         this._category = value;
     };
     /**
-     * Gets the classification property value. The classification property
+     * Gets the classification property value. Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, benignPositive, unknownFutureValue.
      * @returns a alertClassification
      */
     public get classification() {
         return this._classification;
     };
     /**
-     * Sets the classification property value. The classification property
+     * Sets the classification property value. Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, benignPositive, unknownFutureValue.
      * @param value Value to set for the classification property.
      */
     public set classification(value: AlertClassification | undefined) {
         this._classification = value;
     };
     /**
-     * Gets the comments property value. The comments property
+     * Gets the comments property value. Array of comments created by the Security Operations (SecOps) team during the alert management process.
      * @returns a alertComment
      */
     public get comments() {
         return this._comments;
     };
     /**
-     * Sets the comments property value. The comments property
+     * Sets the comments property value. Array of comments created by the Security Operations (SecOps) team during the alert management process.
      * @param value Value to set for the comments property.
      */
     public set comments(value: AlertComment[] | undefined) {
@@ -161,98 +158,98 @@ export class Alert extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Time when Microsoft 365 Defender created the alert.
      * @returns a Date
      */
     public get createdDateTime() {
         return this._createdDateTime;
     };
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Time when Microsoft 365 Defender created the alert.
      * @param value Value to set for the createdDateTime property.
      */
     public set createdDateTime(value: Date | undefined) {
         this._createdDateTime = value;
     };
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. String value describing each alert.
      * @returns a string
      */
     public get description() {
         return this._description;
     };
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. String value describing each alert.
      * @param value Value to set for the description property.
      */
     public set description(value: string | undefined) {
         this._description = value;
     };
     /**
-     * Gets the detectionSource property value. The detectionSource property
+     * Gets the detectionSource property value. Detection technology or sensor that identified the notable component or activity.
      * @returns a detectionSource
      */
     public get detectionSource() {
         return this._detectionSource;
     };
     /**
-     * Sets the detectionSource property value. The detectionSource property
+     * Sets the detectionSource property value. Detection technology or sensor that identified the notable component or activity.
      * @param value Value to set for the detectionSource property.
      */
     public set detectionSource(value: DetectionSource | undefined) {
         this._detectionSource = value;
     };
     /**
-     * Gets the detectorId property value. The detectorId property
+     * Gets the detectorId property value. The ID of the detector that triggered the alert.
      * @returns a string
      */
     public get detectorId() {
         return this._detectorId;
     };
     /**
-     * Sets the detectorId property value. The detectorId property
+     * Sets the detectorId property value. The ID of the detector that triggered the alert.
      * @param value Value to set for the detectorId property.
      */
     public set detectorId(value: string | undefined) {
         this._detectorId = value;
     };
     /**
-     * Gets the determination property value. The determination property
+     * Gets the determination property value. Specifies the result of the investigation, whether the alert represents a true attack and if so, the nature of the attack. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      * @returns a alertDetermination
      */
     public get determination() {
         return this._determination;
     };
     /**
-     * Sets the determination property value. The determination property
+     * Sets the determination property value. Specifies the result of the investigation, whether the alert represents a true attack and if so, the nature of the attack. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      * @param value Value to set for the determination property.
      */
     public set determination(value: AlertDetermination | undefined) {
         this._determination = value;
     };
     /**
-     * Gets the evidence property value. The evidence property
+     * Gets the evidence property value. Collection of evidence related to the alert.
      * @returns a alertEvidence
      */
     public get evidence() {
         return this._evidence;
     };
     /**
-     * Sets the evidence property value. The evidence property
+     * Sets the evidence property value. Collection of evidence related to the alert.
      * @param value Value to set for the evidence property.
      */
     public set evidence(value: AlertEvidence[] | undefined) {
         this._evidence = value;
     };
     /**
-     * Gets the firstActivityDateTime property value. The firstActivityDateTime property
+     * Gets the firstActivityDateTime property value. The earliest activity associated with the alert.
      * @returns a Date
      */
     public get firstActivityDateTime() {
         return this._firstActivityDateTime;
     };
     /**
-     * Sets the firstActivityDateTime property value. The firstActivityDateTime property
+     * Sets the firstActivityDateTime property value. The earliest activity associated with the alert.
      * @param value Value to set for the firstActivityDateTime property.
      */
     public set firstActivityDateTime(value: Date | undefined) {
@@ -295,112 +292,112 @@ export class Alert extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the incidentId property value. The incidentId property
+     * Gets the incidentId property value. Unique identifier to represent the incident this alert resource is associated with.
      * @returns a string
      */
     public get incidentId() {
         return this._incidentId;
     };
     /**
-     * Sets the incidentId property value. The incidentId property
+     * Sets the incidentId property value. Unique identifier to represent the incident this alert resource is associated with.
      * @param value Value to set for the incidentId property.
      */
     public set incidentId(value: string | undefined) {
         this._incidentId = value;
     };
     /**
-     * Gets the incidentWebUrl property value. The incidentWebUrl property
+     * Gets the incidentWebUrl property value. URL for the incident page in the Microsoft 365 Defender portal.
      * @returns a string
      */
     public get incidentWebUrl() {
         return this._incidentWebUrl;
     };
     /**
-     * Sets the incidentWebUrl property value. The incidentWebUrl property
+     * Sets the incidentWebUrl property value. URL for the incident page in the Microsoft 365 Defender portal.
      * @param value Value to set for the incidentWebUrl property.
      */
     public set incidentWebUrl(value: string | undefined) {
         this._incidentWebUrl = value;
     };
     /**
-     * Gets the lastActivityDateTime property value. The lastActivityDateTime property
+     * Gets the lastActivityDateTime property value. The oldest activity associated with the alert.
      * @returns a Date
      */
     public get lastActivityDateTime() {
         return this._lastActivityDateTime;
     };
     /**
-     * Sets the lastActivityDateTime property value. The lastActivityDateTime property
+     * Sets the lastActivityDateTime property value. The oldest activity associated with the alert.
      * @param value Value to set for the lastActivityDateTime property.
      */
     public set lastActivityDateTime(value: Date | undefined) {
         this._lastActivityDateTime = value;
     };
     /**
-     * Gets the lastUpdateDateTime property value. The lastUpdateDateTime property
+     * Gets the lastUpdateDateTime property value. Time when the alert was last updated at Microsoft 365 Defender.
      * @returns a Date
      */
     public get lastUpdateDateTime() {
         return this._lastUpdateDateTime;
     };
     /**
-     * Sets the lastUpdateDateTime property value. The lastUpdateDateTime property
+     * Sets the lastUpdateDateTime property value. Time when the alert was last updated at Microsoft 365 Defender.
      * @param value Value to set for the lastUpdateDateTime property.
      */
     public set lastUpdateDateTime(value: Date | undefined) {
         this._lastUpdateDateTime = value;
     };
     /**
-     * Gets the mitreTechniques property value. The mitreTechniques property
+     * Gets the mitreTechniques property value. The attack techniques, as aligned with the MITRE ATT&CK framework.
      * @returns a string
      */
     public get mitreTechniques() {
         return this._mitreTechniques;
     };
     /**
-     * Sets the mitreTechniques property value. The mitreTechniques property
+     * Sets the mitreTechniques property value. The attack techniques, as aligned with the MITRE ATT&CK framework.
      * @param value Value to set for the mitreTechniques property.
      */
     public set mitreTechniques(value: string[] | undefined) {
         this._mitreTechniques = value;
     };
     /**
-     * Gets the providerAlertId property value. The providerAlertId property
+     * Gets the providerAlertId property value. The ID of the alert as it appears in the security provider product that generated the alert.
      * @returns a string
      */
     public get providerAlertId() {
         return this._providerAlertId;
     };
     /**
-     * Sets the providerAlertId property value. The providerAlertId property
+     * Sets the providerAlertId property value. The ID of the alert as it appears in the security provider product that generated the alert.
      * @param value Value to set for the providerAlertId property.
      */
     public set providerAlertId(value: string | undefined) {
         this._providerAlertId = value;
     };
     /**
-     * Gets the recommendedActions property value. The recommendedActions property
+     * Gets the recommendedActions property value. Recommended response and remediation actions to take in the event this alert was generated.
      * @returns a string
      */
     public get recommendedActions() {
         return this._recommendedActions;
     };
     /**
-     * Sets the recommendedActions property value. The recommendedActions property
+     * Sets the recommendedActions property value. Recommended response and remediation actions to take in the event this alert was generated.
      * @param value Value to set for the recommendedActions property.
      */
     public set recommendedActions(value: string | undefined) {
         this._recommendedActions = value;
     };
     /**
-     * Gets the resolvedDateTime property value. The resolvedDateTime property
+     * Gets the resolvedDateTime property value. Time when the alert was resolved.
      * @returns a Date
      */
     public get resolvedDateTime() {
         return this._resolvedDateTime;
     };
     /**
-     * Sets the resolvedDateTime property value. The resolvedDateTime property
+     * Sets the resolvedDateTime property value. Time when the alert was resolved.
      * @param value Value to set for the resolvedDateTime property.
      */
     public set resolvedDateTime(value: Date | undefined) {
@@ -485,56 +482,56 @@ export class Alert extends Entity implements Parsable {
         this._status = value;
     };
     /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. The Azure Active Directory tenant the alert was created in.
      * @returns a string
      */
     public get tenantId() {
         return this._tenantId;
     };
     /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. The Azure Active Directory tenant the alert was created in.
      * @param value Value to set for the tenantId property.
      */
     public set tenantId(value: string | undefined) {
         this._tenantId = value;
     };
     /**
-     * Gets the threatDisplayName property value. The threatDisplayName property
+     * Gets the threatDisplayName property value. The threat associated with this alert.
      * @returns a string
      */
     public get threatDisplayName() {
         return this._threatDisplayName;
     };
     /**
-     * Sets the threatDisplayName property value. The threatDisplayName property
+     * Sets the threatDisplayName property value. The threat associated with this alert.
      * @param value Value to set for the threatDisplayName property.
      */
     public set threatDisplayName(value: string | undefined) {
         this._threatDisplayName = value;
     };
     /**
-     * Gets the threatFamilyName property value. The threatFamilyName property
+     * Gets the threatFamilyName property value. Threat family associated with this alert.
      * @returns a string
      */
     public get threatFamilyName() {
         return this._threatFamilyName;
     };
     /**
-     * Sets the threatFamilyName property value. The threatFamilyName property
+     * Sets the threatFamilyName property value. Threat family associated with this alert.
      * @param value Value to set for the threatFamilyName property.
      */
     public set threatFamilyName(value: string | undefined) {
         this._threatFamilyName = value;
     };
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. Brief identifying string value describing the alert.
      * @returns a string
      */
     public get title() {
         return this._title;
     };
     /**
-     * Sets the title property value. The title property
+     * Sets the title property value. Brief identifying string value describing the alert.
      * @param value Value to set for the title property.
      */
     public set title(value: string | undefined) {

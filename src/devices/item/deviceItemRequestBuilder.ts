@@ -88,65 +88,11 @@ export class DeviceItemRequestBuilder {
     /**
      * Delete a registered device.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createDeleteRequestInformation(requestConfiguration?: DeviceItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        return requestInfo;
-    };
-    /**
-     * Get the properties and relationships of a device object.
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createGetRequestInformation(requestConfiguration?: DeviceItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = ["application/json"];
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        return requestInfo;
-    };
-    /**
-     * Update the properties of a registered device. Only certain properties of a device can be updated through approved Mobile Device Managment (MDM) apps.
-     * @param body The request body
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createPatchRequestInformation(body: Device | undefined, requestConfiguration?: DeviceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = ["application/json"];
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        return requestInfo;
-    };
-    /**
-     * Delete a registered device.
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/device-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInformation(
+        const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
@@ -174,7 +120,7 @@ export class DeviceItemRequestBuilder {
      * @see {@link https://docs.microsoft.com/graph/api/device-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Device | undefined> {
-        const requestInfo = this.createGetRequestInformation(
+        const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
@@ -204,7 +150,7 @@ export class DeviceItemRequestBuilder {
      */
     public patch(body: Device | undefined, requestConfiguration?: DeviceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Device | undefined> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInformation(
+        const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
@@ -234,6 +180,60 @@ export class DeviceItemRequestBuilder {
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject%2Did"] = id
         return new I24805e1657cebb359b83b032b97bef5f336c4e3bd1f53deaf63c8bb9254ca92f(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Delete a registered device.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toDeleteRequestInformation(requestConfiguration?: DeviceItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.DELETE;
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        return requestInfo;
+    };
+    /**
+     * Get the properties and relationships of a device object.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toGetRequestInformation(requestConfiguration?: DeviceItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = ["application/json"];
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        return requestInfo;
+    };
+    /**
+     * Update the properties of a registered device. Only certain properties of a device can be updated through approved Mobile Device Managment (MDM) apps.
+     * @param body The request body
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toPatchRequestInformation(body: Device | undefined, requestConfiguration?: DeviceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+        if(!body) throw new Error("body cannot be undefined");
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = ["application/json"];
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        return requestInfo;
     };
     /**
      * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity.

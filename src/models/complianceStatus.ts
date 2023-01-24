@@ -1,4 +1,3 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
 export enum ComplianceStatus {
     Unknown = "unknown",
     NotApplicable = "notApplicable",

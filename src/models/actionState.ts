@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** State of the action on the device */
 export enum ActionState {
     /** Not a valid action state */
     None = "none",

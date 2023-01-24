@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Web Browser Cookie Settings. */
 export enum WebBrowserCookieSettings {
     /** Browser default value, no intent. */
     BrowserDefault = "browserDefault",

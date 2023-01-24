@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Android Work Profile cross profile data sharing type. */
 export enum AndroidWorkProfileCrossProfileDataSharingType {
     /** Device default value, no intent. */
     DeviceDefault = "deviceDefault",

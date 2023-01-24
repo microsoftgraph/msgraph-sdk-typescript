@@ -44,64 +44,10 @@ export class ConversationThreadItemRequestBuilder {
     /**
      * Delete navigation property threads for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createDeleteRequestInformation(requestConfiguration?: ConversationThreadItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        return requestInfo;
-    };
-    /**
-     * The group's conversation threads. Nullable.
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createGetRequestInformation(requestConfiguration?: ConversationThreadItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = ["application/json"];
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        return requestInfo;
-    };
-    /**
-     * Update the navigation property threads in groups
-     * @param body The request body
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createPatchRequestInformation(body: ConversationThread | undefined, requestConfiguration?: ConversationThreadItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers["Accept"] = ["application/json"];
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        return requestInfo;
-    };
-    /**
-     * Delete navigation property threads for groups
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(requestConfiguration?: ConversationThreadItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInformation(
+        const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
@@ -117,7 +63,7 @@ export class ConversationThreadItemRequestBuilder {
      * @returns a Promise of ConversationThread
      */
     public get(requestConfiguration?: ConversationThreadItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConversationThread | undefined> {
-        const requestInfo = this.createGetRequestInformation(
+        const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
@@ -135,7 +81,7 @@ export class ConversationThreadItemRequestBuilder {
      */
     public patch(body: ConversationThread | undefined, requestConfiguration?: ConversationThreadItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConversationThread | undefined> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInformation(
+        const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
@@ -154,5 +100,59 @@ export class ConversationThreadItemRequestBuilder {
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["post%2Did"] = id
         return new PostItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Delete navigation property threads for groups
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toDeleteRequestInformation(requestConfiguration?: ConversationThreadItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.DELETE;
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        return requestInfo;
+    };
+    /**
+     * The group's conversation threads. Nullable.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toGetRequestInformation(requestConfiguration?: ConversationThreadItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = ["application/json"];
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        return requestInfo;
+    };
+    /**
+     * Update the navigation property threads in groups
+     * @param body The request body
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toPatchRequestInformation(body: ConversationThread | undefined, requestConfiguration?: ConversationThreadItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+        if(!body) throw new Error("body cannot be undefined");
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = ["application/json"];
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        return requestInfo;
     };
 }

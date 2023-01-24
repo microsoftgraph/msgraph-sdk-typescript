@@ -1,23 +1,23 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LoggedOnUser implements AdditionalDataHolder, Parsable {
-    /** The accountName property */
+    /** User account name of the logged-on user. */
     private _accountName?: string | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The domainName property */
+    /** User account domain of the logged-on user. */
     private _domainName?: string | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /**
-     * Gets the accountName property value. The accountName property
+     * Gets the accountName property value. User account name of the logged-on user.
      * @returns a string
      */
     public get accountName() {
         return this._accountName;
     };
     /**
-     * Sets the accountName property value. The accountName property
+     * Sets the accountName property value. User account name of the logged-on user.
      * @param value Value to set for the accountName property.
      */
     public set accountName(value: string | undefined) {
@@ -44,14 +44,14 @@ export class LoggedOnUser implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the domainName property value. The domainName property
+     * Gets the domainName property value. User account domain of the logged-on user.
      * @returns a string
      */
     public get domainName() {
         return this._domainName;
     };
     /**
-     * Sets the domainName property value. The domainName property
+     * Sets the domainName property value. User account domain of the logged-on user.
      * @param value Value to set for the domainName property.
      */
     public set domainName(value: string | undefined) {

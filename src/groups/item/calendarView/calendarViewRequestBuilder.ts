@@ -35,24 +35,6 @@ export class CalendarViewRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The calendar view for the calendar. Read-only.
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public createGetRequestInformation(requestConfiguration?: CalendarViewRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = ["application/json"];
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        return requestInfo;
-    };
-    /**
      * Provides operations to call the delta method.
      * @returns a deltaRequestBuilder
      */
@@ -67,7 +49,7 @@ export class CalendarViewRequestBuilder {
      * @see {@link https://docs.microsoft.com/graph/api/group-list-calendarview?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CalendarViewRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EventCollectionResponse | undefined> {
-        const requestInfo = this.createGetRequestInformation(
+        const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
@@ -75,5 +57,23 @@ export class CalendarViewRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<EventCollectionResponse>(requestInfo, createEventCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
+     * The calendar view for the calendar. Read-only.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toGetRequestInformation(requestConfiguration?: CalendarViewRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = ["application/json"];
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        return requestInfo;
     };
 }

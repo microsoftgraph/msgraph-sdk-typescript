@@ -1,4 +1,3 @@
-/** Provides operations to manage the collection of application entities. */
 export enum DayOfWeek {
     Sunday = "sunday",
     Monday = "monday",

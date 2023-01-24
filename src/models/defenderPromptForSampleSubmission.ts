@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Possible values for prompting user for samples submission. */
 export enum DefenderPromptForSampleSubmission {
     /** User Defined, default value, no intent. */
     UserDefined = "userDefined",

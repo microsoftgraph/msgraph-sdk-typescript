@@ -7,6 +7,7 @@ import {createProvisionedPlanFromDiscriminatorValue} from './createProvisionedPl
 import {createVerifiedDomainFromDiscriminatorValue} from './createVerifiedDomainFromDiscriminatorValue';
 import {AssignedPlan, CertificateBasedAuthConfiguration, DirectoryObject, Extension, OrganizationalBranding, PrivacyProfile, ProvisionedPlan, VerifiedDomain} from './index';
 import {MdmAuthority} from './mdmAuthority';
+import {PartnerTenantType} from './partnerTenantType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Organization extends DirectoryObject implements Parsable {
@@ -26,6 +27,8 @@ export class Organization extends DirectoryObject implements Parsable {
     private _countryLetterCode?: string | undefined;
     /** Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _createdDateTime?: Date | undefined;
+    /** Two-letter ISO 3166 country code indicating the default service usage location of an organization. */
+    private _defaultUsageLocation?: string | undefined;
     /** The display name for the tenant. */
     private _displayName?: string | undefined;
     /** The collection of open extensions defined for the organization. Read-only. Nullable. */
@@ -38,6 +41,8 @@ export class Organization extends DirectoryObject implements Parsable {
     private _onPremisesLastSyncDateTime?: Date | undefined;
     /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default). */
     private _onPremisesSyncEnabled?: boolean | undefined;
+    /** The partnerTenantType property */
+    private _partnerTenantType?: PartnerTenantType | undefined;
     /** Postal code of the address for the organization. */
     private _postalCode?: string | undefined;
     /** The preferred language for the organization. Should follow ISO 639-1 Code; for example, en. */
@@ -180,6 +185,20 @@ export class Organization extends DirectoryObject implements Parsable {
         this._createdDateTime = value;
     };
     /**
+     * Gets the defaultUsageLocation property value. Two-letter ISO 3166 country code indicating the default service usage location of an organization.
+     * @returns a string
+     */
+    public get defaultUsageLocation() {
+        return this._defaultUsageLocation;
+    };
+    /**
+     * Sets the defaultUsageLocation property value. Two-letter ISO 3166 country code indicating the default service usage location of an organization.
+     * @param value Value to set for the defaultUsageLocation property.
+     */
+    public set defaultUsageLocation(value: string | undefined) {
+        this._defaultUsageLocation = value;
+    };
+    /**
      * Gets the displayName property value. The display name for the tenant.
      * @returns a string
      */
@@ -221,12 +240,14 @@ export class Organization extends DirectoryObject implements Parsable {
             "country": n => { this.country = n.getStringValue(); },
             "countryLetterCode": n => { this.countryLetterCode = n.getStringValue(); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
+            "defaultUsageLocation": n => { this.defaultUsageLocation = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "extensions": n => { this.extensions = n.getCollectionOfObjectValues<Extension>(createExtensionFromDiscriminatorValue); },
             "marketingNotificationEmails": n => { this.marketingNotificationEmails = n.getCollectionOfPrimitiveValues<string>(); },
             "mobileDeviceManagementAuthority": n => { this.mobileDeviceManagementAuthority = n.getEnumValue<MdmAuthority>(MdmAuthority); },
             "onPremisesLastSyncDateTime": n => { this.onPremisesLastSyncDateTime = n.getDateValue(); },
             "onPremisesSyncEnabled": n => { this.onPremisesSyncEnabled = n.getBooleanValue(); },
+            "partnerTenantType": n => { this.partnerTenantType = n.getEnumValue<PartnerTenantType>(PartnerTenantType); },
             "postalCode": n => { this.postalCode = n.getStringValue(); },
             "preferredLanguage": n => { this.preferredLanguage = n.getStringValue(); },
             "privacyProfile": n => { this.privacyProfile = n.getObjectValue<PrivacyProfile>(createPrivacyProfileFromDiscriminatorValue); },
@@ -295,6 +316,20 @@ export class Organization extends DirectoryObject implements Parsable {
      */
     public set onPremisesSyncEnabled(value: boolean | undefined) {
         this._onPremisesSyncEnabled = value;
+    };
+    /**
+     * Gets the partnerTenantType property value. The partnerTenantType property
+     * @returns a partnerTenantType
+     */
+    public get partnerTenantType() {
+        return this._partnerTenantType;
+    };
+    /**
+     * Sets the partnerTenantType property value. The partnerTenantType property
+     * @param value Value to set for the partnerTenantType property.
+     */
+    public set partnerTenantType(value: PartnerTenantType | undefined) {
+        this._partnerTenantType = value;
     };
     /**
      * Gets the postalCode property value. Postal code of the address for the organization.
@@ -395,12 +430,14 @@ export class Organization extends DirectoryObject implements Parsable {
         writer.writeStringValue("country", this.country);
         writer.writeStringValue("countryLetterCode", this.countryLetterCode);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
+        writer.writeStringValue("defaultUsageLocation", this.defaultUsageLocation);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeCollectionOfObjectValues<Extension>("extensions", this.extensions);
         writer.writeCollectionOfPrimitiveValues<string>("marketingNotificationEmails", this.marketingNotificationEmails);
         writer.writeEnumValue<MdmAuthority>("mobileDeviceManagementAuthority", this.mobileDeviceManagementAuthority);
         writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
         writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);
+        writer.writeEnumValue<PartnerTenantType>("partnerTenantType", this.partnerTenantType);
         writer.writeStringValue("postalCode", this.postalCode);
         writer.writeStringValue("preferredLanguage", this.preferredLanguage);
         writer.writeObjectValue<PrivacyProfile>("privacyProfile", this.privacyProfile);

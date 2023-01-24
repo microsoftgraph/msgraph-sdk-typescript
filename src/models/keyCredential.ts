@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class KeyCredential implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Custom key identifier */
+    /** A 40-character binary type that can be used to identify the credential. Optional. When not provided in the payload, defaults to the thumbprint of the certificate. */
     private _customKeyIdentifier?: string | undefined;
     /** Friendly name for the key. Optional. */
     private _displayName?: string | undefined;
@@ -42,14 +42,14 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the customKeyIdentifier property value. Custom key identifier
+     * Gets the customKeyIdentifier property value. A 40-character binary type that can be used to identify the credential. Optional. When not provided in the payload, defaults to the thumbprint of the certificate.
      * @returns a binary
      */
     public get customKeyIdentifier() {
         return this._customKeyIdentifier;
     };
     /**
-     * Sets the customKeyIdentifier property value. Custom key identifier
+     * Sets the customKeyIdentifier property value. A 40-character binary type that can be used to identify the credential. Optional. When not provided in the payload, defaults to the thumbprint of the certificate.
      * @param value Value to set for the customKeyIdentifier property.
      */
     public set customKeyIdentifier(value: string | undefined) {

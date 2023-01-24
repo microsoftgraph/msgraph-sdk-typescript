@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Available health states for the Device Health API */
 export enum ManagedDevicePartnerReportedHealthState {
     /** Device health state is not yet reported */
     Unknown = "unknown",

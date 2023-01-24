@@ -2,17 +2,15 @@ import {createAudioConferencingFromDiscriminatorValue} from './createAudioConfer
 import {createBroadcastMeetingSettingsFromDiscriminatorValue} from './createBroadcastMeetingSettingsFromDiscriminatorValue';
 import {createChatInfoFromDiscriminatorValue} from './createChatInfoFromDiscriminatorValue';
 import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
+import {createJoinMeetingIdSettingsFromDiscriminatorValue} from './createJoinMeetingIdSettingsFromDiscriminatorValue';
 import {createLobbyBypassSettingsFromDiscriminatorValue} from './createLobbyBypassSettingsFromDiscriminatorValue';
 import {createMeetingAttendanceReportFromDiscriminatorValue} from './createMeetingAttendanceReportFromDiscriminatorValue';
 import {createMeetingParticipantsFromDiscriminatorValue} from './createMeetingParticipantsFromDiscriminatorValue';
-import {AudioConferencing, BroadcastMeetingSettings, ChatInfo, Entity, ItemBody, LobbyBypassSettings, MeetingAttendanceReport, MeetingParticipants} from './index';
+import {AudioConferencing, BroadcastMeetingSettings, ChatInfo, Entity, ItemBody, JoinMeetingIdSettings, LobbyBypassSettings, MeetingAttendanceReport, MeetingParticipants} from './index';
 import {MeetingChatMode} from './meetingChatMode';
 import {OnlineMeetingPresenters} from './onlineMeetingPresenters';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the cloudCommunications singleton.
- */
 export class OnlineMeeting extends Entity implements Parsable {
     /** Indicates whether attendees can turn on their camera. */
     private _allowAttendeeToEnableCamera?: boolean | undefined;
@@ -46,6 +44,8 @@ export class OnlineMeeting extends Entity implements Parsable {
     private _isEntryExitAnnounced?: boolean | undefined;
     /** The join information in the language and locale variant specified in the Accept-Language request HTTP header. Read-only. */
     private _joinInformation?: ItemBody | undefined;
+    /** Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings cannot be modified. To make any changes to this property, the meeting needs to be canceled and a new one needs to be created. */
+    private _joinMeetingIdSettings?: JoinMeetingIdSettings | undefined;
     /** The join URL of the online meeting. Read-only. */
     private _joinWebUrl?: string | undefined;
     /** Specifies which participants can bypass the meeting   lobby. */
@@ -270,6 +270,7 @@ export class OnlineMeeting extends Entity implements Parsable {
             "isBroadcast": n => { this.isBroadcast = n.getBooleanValue(); },
             "isEntryExitAnnounced": n => { this.isEntryExitAnnounced = n.getBooleanValue(); },
             "joinInformation": n => { this.joinInformation = n.getObjectValue<ItemBody>(createItemBodyFromDiscriminatorValue); },
+            "joinMeetingIdSettings": n => { this.joinMeetingIdSettings = n.getObjectValue<JoinMeetingIdSettings>(createJoinMeetingIdSettingsFromDiscriminatorValue); },
             "joinWebUrl": n => { this.joinWebUrl = n.getStringValue(); },
             "lobbyBypassSettings": n => { this.lobbyBypassSettings = n.getObjectValue<LobbyBypassSettings>(createLobbyBypassSettingsFromDiscriminatorValue); },
             "participants": n => { this.participants = n.getObjectValue<MeetingParticipants>(createMeetingParticipantsFromDiscriminatorValue); },
@@ -320,6 +321,20 @@ export class OnlineMeeting extends Entity implements Parsable {
      */
     public set joinInformation(value: ItemBody | undefined) {
         this._joinInformation = value;
+    };
+    /**
+     * Gets the joinMeetingIdSettings property value. Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings cannot be modified. To make any changes to this property, the meeting needs to be canceled and a new one needs to be created.
+     * @returns a joinMeetingIdSettings
+     */
+    public get joinMeetingIdSettings() {
+        return this._joinMeetingIdSettings;
+    };
+    /**
+     * Sets the joinMeetingIdSettings property value. Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings cannot be modified. To make any changes to this property, the meeting needs to be canceled and a new one needs to be created.
+     * @param value Value to set for the joinMeetingIdSettings property.
+     */
+    public set joinMeetingIdSettings(value: JoinMeetingIdSettings | undefined) {
+        this._joinMeetingIdSettings = value;
     };
     /**
      * Gets the joinWebUrl property value. The join URL of the online meeting. Read-only.
@@ -400,6 +415,7 @@ export class OnlineMeeting extends Entity implements Parsable {
         writer.writeBooleanValue("isBroadcast", this.isBroadcast);
         writer.writeBooleanValue("isEntryExitAnnounced", this.isEntryExitAnnounced);
         writer.writeObjectValue<ItemBody>("joinInformation", this.joinInformation);
+        writer.writeObjectValue<JoinMeetingIdSettings>("joinMeetingIdSettings", this.joinMeetingIdSettings);
         writer.writeStringValue("joinWebUrl", this.joinWebUrl);
         writer.writeObjectValue<LobbyBypassSettings>("lobbyBypassSettings", this.lobbyBypassSettings);
         writer.writeObjectValue<MeetingParticipants>("participants", this.participants);

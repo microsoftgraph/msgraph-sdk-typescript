@@ -2,9 +2,6 @@ import {createManagedDeviceFromDiscriminatorValue} from './createManagedDeviceFr
 import {BaseCollectionPaginationCountResponse, ManagedDevice} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the managedDevices property of the microsoft.graph.detectedApp entity.
- */
 export class ManagedDeviceCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ManagedDevice[] | undefined;

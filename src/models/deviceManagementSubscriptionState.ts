@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Tenant mobile device management subscription state. */
 export enum DeviceManagementSubscriptionState {
     /** Pending */
     Pending = "pending",

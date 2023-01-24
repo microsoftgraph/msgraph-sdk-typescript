@@ -7,7 +7,7 @@ export class TemporaryAccessPassAuthenticationMethodConfiguration extends Authen
     private _defaultLength?: number | undefined;
     /** Default lifetime in minutes for a Temporary Access Pass. Value can be any integer between the minimumLifetimeInMinutes and maximumLifetimeInMinutes. */
     private _defaultLifetimeInMinutes?: number | undefined;
-    /** A collection of users or groups who are enabled to use the authentication method. */
+    /** A collection of groups that are enabled to use the authentication method. */
     private _includeTargets?: AuthenticationMethodTarget[] | undefined;
     /** If true, all the passes in the tenant will be restricted to one-time use. If false, passes in the tenant can be created to be either one-time use or reusable. */
     private _isUsableOnce?: boolean | undefined;
@@ -65,14 +65,14 @@ export class TemporaryAccessPassAuthenticationMethodConfiguration extends Authen
         };
     };
     /**
-     * Gets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
+     * Gets the includeTargets property value. A collection of groups that are enabled to use the authentication method.
      * @returns a authenticationMethodTarget
      */
     public get includeTargets() {
         return this._includeTargets;
     };
     /**
-     * Sets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
+     * Sets the includeTargets property value. A collection of groups that are enabled to use the authentication method.
      * @param value Value to set for the includeTargets property.
      */
     public set includeTargets(value: AuthenticationMethodTarget[] | undefined) {

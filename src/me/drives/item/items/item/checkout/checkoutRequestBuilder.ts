@@ -29,9 +29,25 @@ export class CheckoutRequestBuilder {
     /**
      * Check out a **driveItem** resource to prevent others from editing the document, and prevent your changes from being visible until the documented is checked in.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/driveitem-checkout?view=graph-rest-1.0|Find more info here}
+     */
+    public post(requestConfiguration?: CheckoutRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+        const requestInfo = this.toPostRequestInformation(
+            requestConfiguration
+        );
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
+     * Check out a **driveItem** resource to prevent others from editing the document, and prevent your changes from being visible until the documented is checked in.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(requestConfiguration?: CheckoutRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(requestConfiguration?: CheckoutRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
@@ -41,21 +57,5 @@ export class CheckoutRequestBuilder {
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
         return requestInfo;
-    };
-    /**
-     * Check out a **driveItem** resource to prevent others from editing the document, and prevent your changes from being visible until the documented is checked in.
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @see {@link https://docs.microsoft.com/graph/api/driveitem-checkout?view=graph-rest-1.0|Find more info here}
-     */
-    public post(requestConfiguration?: CheckoutRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createPostRequestInformation(
-            requestConfiguration
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
 }

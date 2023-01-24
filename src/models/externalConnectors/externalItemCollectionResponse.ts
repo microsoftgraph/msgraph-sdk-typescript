@@ -3,9 +3,6 @@ import {createExternalItemFromDiscriminatorValue} from './createExternalItemFrom
 import {ExternalItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.
- */
 export class ExternalItemCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ExternalItem[] | undefined;

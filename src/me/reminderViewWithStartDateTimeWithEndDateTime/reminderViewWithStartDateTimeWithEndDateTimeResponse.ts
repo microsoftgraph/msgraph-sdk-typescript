@@ -2,9 +2,6 @@ import {BaseCollectionPaginationCountResponse, Reminder} from '../../models/';
 import {createReminderFromDiscriminatorValue} from '../../models/createReminderFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the reminderView method.
- */
 export class ReminderViewWithStartDateTimeWithEndDateTimeResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Reminder[] | undefined;

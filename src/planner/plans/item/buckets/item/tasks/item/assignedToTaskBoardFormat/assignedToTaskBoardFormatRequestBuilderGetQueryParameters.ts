@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of **plannerAssignedToTaskBoardTaskFormat** object.
+ * Retrieve the properties and relationships of a **plannerAssignedToTaskBoardTaskFormat** object.
  */
 export class AssignedToTaskBoardFormatRequestBuilderGetQueryParameters {
     /** Expand related entities */

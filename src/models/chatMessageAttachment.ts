@@ -15,6 +15,8 @@ export class ChatMessageAttachment implements AdditionalDataHolder, Parsable {
     private _name?: string | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
+    /** The teamsAppId property */
+    private _teamsAppId?: string | undefined;
     /** URL to a thumbnail image that the channel can use if it supports using an alternative, smaller form of content or contentUrl. For example, if you set contentType to application/word and set contentUrl to the location of the Word document, you might include a thumbnail image that represents the document. The channel could display the thumbnail image instead of the document. When the user clicks the image, the channel would open the document. */
     private _thumbnailUrl?: string | undefined;
     /**
@@ -91,6 +93,7 @@ export class ChatMessageAttachment implements AdditionalDataHolder, Parsable {
             "id": n => { this.id = n.getStringValue(); },
             "name": n => { this.name = n.getStringValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
+            "teamsAppId": n => { this.teamsAppId = n.getStringValue(); },
             "thumbnailUrl": n => { this.thumbnailUrl = n.getStringValue(); },
         };
     };
@@ -148,8 +151,23 @@ export class ChatMessageAttachment implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("id", this.id);
         writer.writeStringValue("name", this.name);
         writer.writeStringValue("@odata.type", this.odataType);
+        writer.writeStringValue("teamsAppId", this.teamsAppId);
         writer.writeStringValue("thumbnailUrl", this.thumbnailUrl);
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the teamsAppId property value. The teamsAppId property
+     * @returns a string
+     */
+    public get teamsAppId() {
+        return this._teamsAppId;
+    };
+    /**
+     * Sets the teamsAppId property value. The teamsAppId property
+     * @param value Value to set for the teamsAppId property.
+     */
+    public set teamsAppId(value: string | undefined) {
+        this._teamsAppId = value;
     };
     /**
      * Gets the thumbnailUrl property value. URL to a thumbnail image that the channel can use if it supports using an alternative, smaller form of content or contentUrl. For example, if you set contentType to application/word and set contentUrl to the location of the Word document, you might include a thumbnail image that represents the document. The channel could display the thumbnail image instead of the document. When the user clicks the image, the channel would open the document.

@@ -13,7 +13,7 @@ export class ConnectedOrganization extends Entity implements Parsable {
     private _displayName?: string | undefined;
     /** The externalSponsors property */
     private _externalSponsors?: DirectoryObject[] | undefined;
-    /** The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Nullable. */
+    /** The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource, externalDomainFederation or crossCloudAzureActiveDirectoryTenant. Nullable. */
     private _identitySources?: IdentitySource[] | undefined;
     /** The internalSponsors property */
     private _internalSponsors?: DirectoryObject[] | undefined;
@@ -100,14 +100,14 @@ export class ConnectedOrganization extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the identitySources property value. The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Nullable.
+     * Gets the identitySources property value. The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource, externalDomainFederation or crossCloudAzureActiveDirectoryTenant. Nullable.
      * @returns a identitySource
      */
     public get identitySources() {
         return this._identitySources;
     };
     /**
-     * Sets the identitySources property value. The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Nullable.
+     * Sets the identitySources property value. The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource, externalDomainFederation or crossCloudAzureActiveDirectoryTenant. Nullable.
      * @param value Value to set for the identitySources property.
      */
     public set identitySources(value: IdentitySource[] | undefined) {

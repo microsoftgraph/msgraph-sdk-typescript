@@ -1,6 +1,6 @@
 
 /**
- * Get entity from teamsTemplates by key
+ * Get entity from teamsTemplates by key (id)
  */
 export class TeamsTemplateItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

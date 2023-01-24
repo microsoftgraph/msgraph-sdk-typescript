@@ -1,4 +1,3 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
 export enum MeetingRequestType {
     None = "none",
     NewMeetingRequest = "newMeetingRequest",

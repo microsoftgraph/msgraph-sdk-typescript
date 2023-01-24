@@ -28,13 +28,13 @@ export class BookingService extends Entity implements Parsable {
     private _description?: string | undefined;
     /** A service name. */
     private _displayName?: string | undefined;
-    /** The isAnonymousJoinEnabled property */
+    /** True if the URL to join the appointment anonymously (anonymousJoinWebUrl) will be generated for the appointment booked for this service. */
     private _isAnonymousJoinEnabled?: boolean | undefined;
     /** True means this service is not available to customers for booking. */
     private _isHiddenFromCustomers?: boolean | undefined;
     /** True indicates that the appointments for the service will be held online. Default value is false. */
     private _isLocationOnline?: boolean | undefined;
-    /** The languageTag property */
+    /** The language of the self-service booking page. */
     private _languageTag?: string | undefined;
     /** The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation. */
     private _maximumAttendeesCount?: number | undefined;
@@ -214,14 +214,14 @@ export class BookingService extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the isAnonymousJoinEnabled property value. The isAnonymousJoinEnabled property
+     * Gets the isAnonymousJoinEnabled property value. True if the URL to join the appointment anonymously (anonymousJoinWebUrl) will be generated for the appointment booked for this service.
      * @returns a boolean
      */
     public get isAnonymousJoinEnabled() {
         return this._isAnonymousJoinEnabled;
     };
     /**
-     * Sets the isAnonymousJoinEnabled property value. The isAnonymousJoinEnabled property
+     * Sets the isAnonymousJoinEnabled property value. True if the URL to join the appointment anonymously (anonymousJoinWebUrl) will be generated for the appointment booked for this service.
      * @param value Value to set for the isAnonymousJoinEnabled property.
      */
     public set isAnonymousJoinEnabled(value: boolean | undefined) {
@@ -256,14 +256,14 @@ export class BookingService extends Entity implements Parsable {
         this._isLocationOnline = value;
     };
     /**
-     * Gets the languageTag property value. The languageTag property
+     * Gets the languageTag property value. The language of the self-service booking page.
      * @returns a string
      */
     public get languageTag() {
         return this._languageTag;
     };
     /**
-     * Sets the languageTag property value. The languageTag property
+     * Sets the languageTag property value. The language of the self-service booking page.
      * @param value Value to set for the languageTag property.
      */
     public set languageTag(value: string | undefined) {

@@ -1,4 +1,4 @@
-import {IosLobAppAssignmentSettings, IosStoreAppAssignmentSettings, IosVppAppAssignmentSettings, MacOsLobAppAssignmentSettings, MicrosoftStoreForBusinessAppAssignmentSettings, MobileAppAssignmentSettings, Win32LobAppAssignmentSettings} from './index';
+import {IosLobAppAssignmentSettings, IosStoreAppAssignmentSettings, IosVppAppAssignmentSettings, MacOsLobAppAssignmentSettings, MicrosoftStoreForBusinessAppAssignmentSettings, MobileAppAssignmentSettings, Win32LobAppAssignmentSettings, WindowsAppXAppAssignmentSettings} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createMobileAppAssignmentSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : MobileAppAssignmentSettings {
@@ -20,6 +20,8 @@ export function createMobileAppAssignmentSettingsFromDiscriminatorValue(parseNod
                     return new MicrosoftStoreForBusinessAppAssignmentSettings();
                 case "#microsoft.graph.win32LobAppAssignmentSettings":
                     return new Win32LobAppAssignmentSettings();
+                case "#microsoft.graph.windowsAppXAppAssignmentSettings":
+                    return new WindowsAppXAppAssignmentSettings();
             }
         }
     }

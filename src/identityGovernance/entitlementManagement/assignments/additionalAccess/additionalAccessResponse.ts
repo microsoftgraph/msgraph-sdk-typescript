@@ -2,9 +2,6 @@ import {AccessPackageAssignment, BaseCollectionPaginationCountResponse} from '..
 import {createAccessPackageAssignmentFromDiscriminatorValue} from '../../../../models/createAccessPackageAssignmentFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the additionalAccess method.
- */
 export class AdditionalAccessResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: AccessPackageAssignment[] | undefined;

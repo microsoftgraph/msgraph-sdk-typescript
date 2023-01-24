@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreement entities. */
+/** Mobile device management authority. */
 export enum MdmAuthority {
     /** Unknown */
     Unknown = "unknown",

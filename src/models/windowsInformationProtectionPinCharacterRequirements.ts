@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Pin Character Requirements */
 export enum WindowsInformationProtectionPinCharacterRequirements {
     /** Not allow */
     NotAllow = "notAllow",

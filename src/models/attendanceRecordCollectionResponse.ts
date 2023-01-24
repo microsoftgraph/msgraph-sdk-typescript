@@ -2,9 +2,6 @@ import {createAttendanceRecordFromDiscriminatorValue} from './createAttendanceRe
 import {AttendanceRecord, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
- */
 export class AttendanceRecordCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: AttendanceRecord[] | undefined;

@@ -1,6 +1,6 @@
 
 /**
- * Get entity from certificateBasedAuthConfiguration by key
+ * Get entity from certificateBasedAuthConfiguration by key (id)
  */
 export class CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

@@ -1,6 +1,6 @@
 
 /**
- * Get entity from permissionGrants by key
+ * Get entity from permissionGrants by key (id)
  */
 export class ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

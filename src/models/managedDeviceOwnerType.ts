@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Owner type of device. */
 export enum ManagedDeviceOwnerType {
     /** Unknown. */
     Unknown = "unknown",

@@ -1,4 +1,3 @@
-/** Provides operations to manage the collection of agreement entities. */
 export enum DataSourceScopes {
     None = "none",
     AllTenantMailboxes = "allTenantMailboxes",

@@ -4,9 +4,6 @@ import {createSecurityVendorInformationFromDiscriminatorValue} from './createSec
 import {ComplianceInformation, Entity, SecureScoreControlStateUpdate, SecurityVendorInformation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreement entities.
- */
 export class SecureScoreControlProfile extends Entity implements Parsable {
     /** Control action type (Config, Review, Behavior). */
     private _actionType?: string | undefined;
@@ -14,11 +11,11 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
     private _actionUrl?: string | undefined;
     /** GUID string for tenant ID. */
     private _azureTenantId?: string | undefined;
-    /** The complianceInformation property */
+    /** The collection of compliance information associated with secure score control */
     private _complianceInformation?: ComplianceInformation[] | undefined;
     /** Control action category (Identity, Data, Device, Apps, Infrastructure). */
     private _controlCategory?: string | undefined;
-    /** The controlStateUpdates property */
+    /** Flag to indicate where the tenant has marked a control (ignored, thirdParty, reviewed) (supports update). */
     private _controlStateUpdates?: SecureScoreControlStateUpdate[] | undefined;
     /** Flag to indicate if a control is depreciated. */
     private _deprecated?: boolean | undefined;
@@ -40,7 +37,7 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
     private _threats?: string[] | undefined;
     /** The tier property */
     private _tier?: string | undefined;
-    /** Title of the control. */
+    /** The title property */
     private _title?: string | undefined;
     /** The userImpact property */
     private _userImpact?: string | undefined;
@@ -89,14 +86,14 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
         this._azureTenantId = value;
     };
     /**
-     * Gets the complianceInformation property value. The complianceInformation property
+     * Gets the complianceInformation property value. The collection of compliance information associated with secure score control
      * @returns a complianceInformation
      */
     public get complianceInformation() {
         return this._complianceInformation;
     };
     /**
-     * Sets the complianceInformation property value. The complianceInformation property
+     * Sets the complianceInformation property value. The collection of compliance information associated with secure score control
      * @param value Value to set for the complianceInformation property.
      */
     public set complianceInformation(value: ComplianceInformation[] | undefined) {
@@ -123,14 +120,14 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
         this._controlCategory = value;
     };
     /**
-     * Gets the controlStateUpdates property value. The controlStateUpdates property
+     * Gets the controlStateUpdates property value. Flag to indicate where the tenant has marked a control (ignored, thirdParty, reviewed) (supports update).
      * @returns a secureScoreControlStateUpdate
      */
     public get controlStateUpdates() {
         return this._controlStateUpdates;
     };
     /**
-     * Sets the controlStateUpdates property value. The controlStateUpdates property
+     * Sets the controlStateUpdates property value. Flag to indicate where the tenant has marked a control (ignored, thirdParty, reviewed) (supports update).
      * @param value Value to set for the controlStateUpdates property.
      */
     public set controlStateUpdates(value: SecureScoreControlStateUpdate[] | undefined) {
@@ -331,14 +328,14 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
         this._tier = value;
     };
     /**
-     * Gets the title property value. Title of the control.
+     * Gets the title property value. The title property
      * @returns a string
      */
     public get title() {
         return this._title;
     };
     /**
-     * Sets the title property value. Title of the control.
+     * Sets the title property value. The title property
      * @param value Value to set for the title property.
      */
     public set title(value: string | undefined) {

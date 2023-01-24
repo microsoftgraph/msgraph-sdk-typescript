@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Indicates the publishing state of an app. */
 export enum MobileAppPublishingState {
     /** The app is not yet published. */
     NotPublished = "notPublished",

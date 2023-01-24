@@ -1,9 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the admin singleton.
- */
 export class ServiceAnnouncementAttachment extends Entity implements Parsable {
     /** The attachment content. */
     private _content?: string | undefined;

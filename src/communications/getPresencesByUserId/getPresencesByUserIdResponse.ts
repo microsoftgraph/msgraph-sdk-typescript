@@ -2,9 +2,6 @@ import {BaseCollectionPaginationCountResponse, Presence} from '../../models/';
 import {createPresenceFromDiscriminatorValue} from '../../models/createPresenceFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the getPresencesByUserId method.
- */
 export class GetPresencesByUserIdResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: Presence[] | undefined;

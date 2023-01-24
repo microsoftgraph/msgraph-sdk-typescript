@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "05FE452A6FD4DA673006140F9577238FFFC2AF039207C82F3E9594867D04D08B8E13FFE7FF39D104C9FEE6E68A1222C28AF6AD4EEB5575E931500449A1711D1F",
-  "descriptionLocation": "https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml",
+  "descriptionHash": "1E098EC68470753AFCAD34CC4D985778ABB027BC61274C9081F9DA51DC7D7AB00AF932D4CD7C950475909E8505C490C278D42D21F27D630DC8343577DE10C2E7",
+  "descriptionLocation": "/home/vsts/work/1/s/msgraph-metadata/clean_v10_openapi/openapi.yaml",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "0.8.3.0",
+  "kiotaVersion": "0.10.0-preview",
   "clientClassName": "GraphBaseServiceClient",
   "clientNamespaceName": "github.com/microsoftgraph/msgraph-sdk-typescript/",
   "language": "TypeScript",
@@ -10,18 +10,18 @@
   "includeAdditionalData": true,
   "serializers": [
     "Microsoft.Kiota.Serialization.Json.JsonSerializationWriterFactory",
-    "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory"
+    "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Form.FormSerializationWriterFactory"
   ],
   "deserializers": [
     "Microsoft.Kiota.Serialization.Json.JsonParseNodeFactory",
-    "Microsoft.Kiota.Serialization.Text.TextParseNodeFactory"
+    "Microsoft.Kiota.Serialization.Text.TextParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
   ],
   "structuredMimeTypes": [
     "application/json",
-    "application/xml",
     "text/plain",
-    "text/xml",
-    "text/yaml"
+    "application/x-www-form-urlencoded"
   ],
   "includePatterns": [],
   "excludePatterns": [],

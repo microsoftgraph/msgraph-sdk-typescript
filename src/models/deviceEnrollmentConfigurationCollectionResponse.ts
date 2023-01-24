@@ -2,9 +2,6 @@ import {createDeviceEnrollmentConfigurationFromDiscriminatorValue} from './creat
 import {BaseCollectionPaginationCountResponse, DeviceEnrollmentConfiguration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.deviceManagement entity.
- */
 export class DeviceEnrollmentConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DeviceEnrollmentConfiguration[] | undefined;

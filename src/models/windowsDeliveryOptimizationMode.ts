@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Delivery optimization mode for peer distribution */
 export enum WindowsDeliveryOptimizationMode {
     /** Allow the user to set. */
     UserDefined = "userDefined",

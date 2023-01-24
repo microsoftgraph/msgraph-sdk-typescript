@@ -1,4 +1,3 @@
-/** Provides operations to manage the cloudCommunications singleton. */
 export enum ClientPlatform {
     Unknown = "unknown",
     Windows = "windows",

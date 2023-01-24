@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** The current status of the Exchange Connector. */
 export enum DeviceManagementExchangeConnectorStatus {
     /** No Connector exists. */
     None = "none",

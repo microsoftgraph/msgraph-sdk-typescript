@@ -2,9 +2,6 @@ import {createManagedAppRegistrationFromDiscriminatorValue} from './createManage
 import {BaseCollectionPaginationCountResponse, ManagedAppRegistration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.
- */
 export class ManagedAppRegistrationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ManagedAppRegistration[] | undefined;

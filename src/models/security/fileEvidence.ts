@@ -4,11 +4,11 @@ import {AlertEvidence, FileDetails} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class FileEvidence extends AlertEvidence implements Parsable {
-    /** The detectionStatus property */
+    /** The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue. */
     private _detectionStatus?: DetectionStatus | undefined;
-    /** The fileDetails property */
+    /** The file details. */
     private _fileDetails?: FileDetails | undefined;
-    /** The mdeDeviceId property */
+    /** A unique identifier assigned to a device by Microsoft Defender for Endpoint. */
     private _mdeDeviceId?: string | undefined;
     /**
      * Instantiates a new FileEvidence and sets the default values.
@@ -17,28 +17,28 @@ export class FileEvidence extends AlertEvidence implements Parsable {
         super();
     };
     /**
-     * Gets the detectionStatus property value. The detectionStatus property
+     * Gets the detectionStatus property value. The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
      * @returns a detectionStatus
      */
     public get detectionStatus() {
         return this._detectionStatus;
     };
     /**
-     * Sets the detectionStatus property value. The detectionStatus property
+     * Sets the detectionStatus property value. The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
      * @param value Value to set for the detectionStatus property.
      */
     public set detectionStatus(value: DetectionStatus | undefined) {
         this._detectionStatus = value;
     };
     /**
-     * Gets the fileDetails property value. The fileDetails property
+     * Gets the fileDetails property value. The file details.
      * @returns a fileDetails
      */
     public get fileDetails() {
         return this._fileDetails;
     };
     /**
-     * Sets the fileDetails property value. The fileDetails property
+     * Sets the fileDetails property value. The file details.
      * @param value Value to set for the fileDetails property.
      */
     public set fileDetails(value: FileDetails | undefined) {
@@ -56,14 +56,14 @@ export class FileEvidence extends AlertEvidence implements Parsable {
         };
     };
     /**
-     * Gets the mdeDeviceId property value. The mdeDeviceId property
+     * Gets the mdeDeviceId property value. A unique identifier assigned to a device by Microsoft Defender for Endpoint.
      * @returns a string
      */
     public get mdeDeviceId() {
         return this._mdeDeviceId;
     };
     /**
-     * Sets the mdeDeviceId property value. The mdeDeviceId property
+     * Sets the mdeDeviceId property value. A unique identifier assigned to a device by Microsoft Defender for Endpoint.
      * @param value Value to set for the mdeDeviceId property.
      */
     public set mdeDeviceId(value: string | undefined) {

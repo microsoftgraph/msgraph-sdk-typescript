@@ -1,6 +1,6 @@
 
 /**
- * Get entity from invitations by key
+ * Get entity from invitations by key (id)
  */
 export class InvitationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

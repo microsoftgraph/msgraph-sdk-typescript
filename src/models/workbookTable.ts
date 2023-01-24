@@ -5,9 +5,6 @@ import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWor
 import {Entity, WorkbookTableColumn, WorkbookTableRow, WorkbookTableSort, WorkbookWorksheet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of application entities.
- */
 export class WorkbookTable extends Entity implements Parsable {
     /** Represents a collection of all the columns in the table. Read-only. */
     private _columns?: WorkbookTableColumn[] | undefined;

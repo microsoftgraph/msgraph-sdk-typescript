@@ -1,4 +1,3 @@
-/** Provides operations to manage the collection of agreement entities. */
 export enum SecurityNetworkProtocol {
     Unknown = "unknown",
     Ip = "ip",

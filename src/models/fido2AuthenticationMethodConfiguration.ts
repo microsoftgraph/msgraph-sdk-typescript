@@ -4,7 +4,7 @@ import {AuthenticationMethodConfiguration, AuthenticationMethodTarget, Fido2KeyR
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Fido2AuthenticationMethodConfiguration extends AuthenticationMethodConfiguration implements Parsable {
-    /** A collection of users or groups who are enabled to use the authentication method. */
+    /** A collection of groups that are enabled to use the authentication method. */
     private _includeTargets?: AuthenticationMethodTarget[] | undefined;
     /** Determines whether attestation must be enforced for FIDO2 security key registration. */
     private _isAttestationEnforced?: boolean | undefined;
@@ -32,14 +32,14 @@ export class Fido2AuthenticationMethodConfiguration extends AuthenticationMethod
         };
     };
     /**
-     * Gets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
+     * Gets the includeTargets property value. A collection of groups that are enabled to use the authentication method.
      * @returns a authenticationMethodTarget
      */
     public get includeTargets() {
         return this._includeTargets;
     };
     /**
-     * Sets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
+     * Sets the includeTargets property value. A collection of groups that are enabled to use the authentication method.
      * @param value Value to set for the includeTargets property.
      */
     public set includeTargets(value: AuthenticationMethodTarget[] | undefined) {

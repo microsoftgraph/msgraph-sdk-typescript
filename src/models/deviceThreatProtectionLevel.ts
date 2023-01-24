@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Device threat protection levels for the Device Threat Protection API. */
 export enum DeviceThreatProtectionLevel {
     /** Default Value. Do not use. */
     Unavailable = "unavailable",

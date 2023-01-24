@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Top level failure categories for enrollment. */
 export enum DeviceEnrollmentFailureReason {
     /** Default value, failure reason is unknown. */
     Unknown = "unknown",

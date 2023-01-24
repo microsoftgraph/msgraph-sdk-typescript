@@ -60,7 +60,7 @@ export class Team extends Entity implements Parsable {
     private _schedule?: Schedule | undefined;
     /** Optional. Indicates whether the team is intended for a particular use case.  Each team specialization has access to unique behaviors and experiences targeted to its use case. */
     private _specialization?: TeamSpecialization | undefined;
-    /** The summary property */
+    /** Contains summary information about the team, including number of owners, members, and guests. */
     private _summary?: TeamSummary | undefined;
     /** The tags associated with the team. */
     private _tags?: TeamworkTag[] | undefined;
@@ -443,14 +443,14 @@ export class Team extends Entity implements Parsable {
         this._specialization = value;
     };
     /**
-     * Gets the summary property value. The summary property
+     * Gets the summary property value. Contains summary information about the team, including number of owners, members, and guests.
      * @returns a teamSummary
      */
     public get summary() {
         return this._summary;
     };
     /**
-     * Sets the summary property value. The summary property
+     * Sets the summary property value. Contains summary information about the team, including number of owners, members, and guests.
      * @param value Value to set for the summary property.
      */
     public set summary(value: TeamSummary | undefined) {

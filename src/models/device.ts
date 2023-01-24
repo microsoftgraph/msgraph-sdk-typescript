@@ -4,9 +4,6 @@ import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscri
 import {AlternativeSecurityId, DirectoryObject, Extension} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Casts the previous resource to device.
- */
 export class Device extends DirectoryObject implements Parsable {
     /** true if the account is enabled; otherwise, false. Required. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property. */
     private _accountEnabled?: boolean | undefined;

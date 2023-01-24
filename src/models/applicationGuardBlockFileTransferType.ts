@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Possible values for applicationGuardBlockFileTransfer */
 export enum ApplicationGuardBlockFileTransferType {
     /** Not Configured */
     NotConfigured = "notConfigured",
