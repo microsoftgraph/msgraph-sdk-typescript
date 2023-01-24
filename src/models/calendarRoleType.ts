@@ -1,4 +1,3 @@
-/** Provides operations to manage the collection of application entities. */
 export enum CalendarRoleType {
     None = "none",
     FreeBusyRead = "freeBusyRead",

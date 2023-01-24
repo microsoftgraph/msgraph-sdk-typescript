@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Possible values for pre-release features. */
 export enum PrereleaseFeatures {
     /** User Defined, default value, no intent. */
     UserDefined = "userDefined",

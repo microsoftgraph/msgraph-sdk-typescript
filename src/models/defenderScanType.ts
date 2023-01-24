@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Possible values for system scan type. */
 export enum DefenderScanType {
     /** User Defined, default value, no intent. */
     UserDefined = "userDefined",

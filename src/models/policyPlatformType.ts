@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Supported platform types for policies. */
 export enum PolicyPlatformType {
     /** Android. */
     Android = "android",

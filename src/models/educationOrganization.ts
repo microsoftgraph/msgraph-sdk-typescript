@@ -12,7 +12,7 @@ export class EducationOrganization extends Entity implements Parsable {
     /** The name of the external source this resources was generated from. */
     private _externalSourceDetail?: string | undefined;
     /**
-     * Instantiates a new EducationOrganization and sets the default values.
+     * Instantiates a new educationOrganization and sets the default values.
      */
     public constructor() {
         super();

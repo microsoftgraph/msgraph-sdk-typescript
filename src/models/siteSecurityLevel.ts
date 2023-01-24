@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Possible values for site security level. */
 export enum SiteSecurityLevel {
     /** User Defined, default value, no intent. */
     UserDefined = "userDefined",

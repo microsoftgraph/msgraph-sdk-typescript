@@ -1,6 +1,6 @@
 
 /**
- * Get entity from authenticationMethodConfigurations by key
+ * Get entity from authenticationMethodConfigurations by key (id)
  */
 export class AuthenticationMethodConfigurationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

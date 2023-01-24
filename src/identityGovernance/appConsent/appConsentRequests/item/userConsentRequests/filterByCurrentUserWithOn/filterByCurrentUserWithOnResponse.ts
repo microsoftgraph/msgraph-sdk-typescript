@@ -2,9 +2,6 @@ import {BaseCollectionPaginationCountResponse, UserConsentRequest} from '../../.
 import {createUserConsentRequestFromDiscriminatorValue} from '../../../../../../models/createUserConsentRequestFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the filterByCurrentUser method.
- */
 export class FilterByCurrentUserWithOnResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: UserConsentRequest[] | undefined;

@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Character set which is to be used for a user's app PIN */
 export enum ManagedAppPinCharacterSet {
     /** Numeric characters */
     Numeric = "numeric",

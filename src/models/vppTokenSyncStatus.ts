@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Possible sync statuses associated with an Apple Volume Purchase Program token. */
 export enum VppTokenSyncStatus {
     /** Default status. */
     None = "none",

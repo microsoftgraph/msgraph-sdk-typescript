@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** The enum to specify the channels for Microsoft Edge apps. */
 export enum MicrosoftEdgeChannel {
     /** The Dev Channel is intended to help you plan and develop with the latest capabilities of Microsoft Edge. */
     Dev = "dev",

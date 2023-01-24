@@ -1,9 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the organizationalBranding singleton.
- */
 export class OrganizationalBrandingProperties extends Entity implements Parsable {
     /** Color that will appear in place of the background image in low-bandwidth connections. We recommend that you use the primary color of your banner logo or your organization color. Specify this in hexadecimal format, for example, white is #FFFFFF. */
     private _backgroundColor?: string | undefined;

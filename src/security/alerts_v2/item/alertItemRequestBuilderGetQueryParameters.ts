@@ -1,6 +1,6 @@
 
 /**
- * Get alerts_v2 from security
+ * A collection of alerts in Microsoft 365 Defender.
  */
 export class AlertItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

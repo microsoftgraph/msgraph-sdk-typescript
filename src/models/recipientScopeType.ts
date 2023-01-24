@@ -1,4 +1,3 @@
-/** Provides operations to call the getMailTips method. */
 export enum RecipientScopeType {
     None = "none",
     Internal = "internal",

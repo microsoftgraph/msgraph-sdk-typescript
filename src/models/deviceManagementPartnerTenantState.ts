@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Partner state of this tenant. */
 export enum DeviceManagementPartnerTenantState {
     /** Partner state is unknown. */
     Unknown = "unknown",

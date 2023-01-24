@@ -3,9 +3,6 @@ import {createIdentitySetFromDiscriminatorValue} from '../createIdentitySetFromD
 import {DataSourceHoldStatus} from './dataSourceHoldStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreement entities.
- */
 export class DataSource extends Entity implements Parsable {
     /** The user who created the dataSource. */
     private _createdBy?: IdentitySet | undefined;

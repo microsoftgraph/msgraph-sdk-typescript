@@ -17,9 +17,6 @@ import {Store} from './termStore/';
 import {createStoreFromDiscriminatorValue} from './termStore/createStoreFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreement entities.
- */
 export class Site extends BaseItem implements Parsable {
     /** Analytics about the view activities that took place in this site. */
     private _analytics?: ItemAnalytics | undefined;
@@ -88,7 +85,7 @@ export class Site extends BaseItem implements Parsable {
         this._columns = value;
     };
     /**
-     * Instantiates a new site and sets the default values.
+     * Instantiates a new Site and sets the default values.
      */
     public constructor() {
         super();

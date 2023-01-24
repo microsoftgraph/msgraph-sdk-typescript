@@ -5,9 +5,6 @@ import {createTermsExpirationFromDiscriminatorValue} from './createTermsExpirati
 import {AgreementAcceptance, AgreementFile, AgreementFileLocalization, Entity, TermsExpiration} from './index';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreement entities.
- */
 export class Agreement extends Entity implements Parsable {
     /** Read-only. Information about acceptances of this agreement. */
     private _acceptances?: AgreementAcceptance[] | undefined;

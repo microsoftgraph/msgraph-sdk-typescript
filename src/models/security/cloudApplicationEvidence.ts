@@ -2,25 +2,25 @@ import {AlertEvidence} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CloudApplicationEvidence extends AlertEvidence implements Parsable {
-    /** The appId property */
+    /** Unique identifier of the application. */
     private _appId?: number | undefined;
-    /** The displayName property */
+    /** Name of the application. */
     private _displayName?: string | undefined;
-    /** The instanceId property */
+    /** Identifier of the instance of the Software as a Service (SaaS) application. */
     private _instanceId?: number | undefined;
-    /** The instanceName property */
+    /** Name of the instance of the SaaS application. */
     private _instanceName?: string | undefined;
-    /** The saasAppId property */
+    /** The identifier of the SaaS application. */
     private _saasAppId?: number | undefined;
     /**
-     * Gets the appId property value. The appId property
+     * Gets the appId property value. Unique identifier of the application.
      * @returns a int64
      */
     public get appId() {
         return this._appId;
     };
     /**
-     * Sets the appId property value. The appId property
+     * Sets the appId property value. Unique identifier of the application.
      * @param value Value to set for the appId property.
      */
     public set appId(value: number | undefined) {
@@ -33,14 +33,14 @@ export class CloudApplicationEvidence extends AlertEvidence implements Parsable 
         super();
     };
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Name of the application.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Name of the application.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -60,42 +60,42 @@ export class CloudApplicationEvidence extends AlertEvidence implements Parsable 
         };
     };
     /**
-     * Gets the instanceId property value. The instanceId property
+     * Gets the instanceId property value. Identifier of the instance of the Software as a Service (SaaS) application.
      * @returns a int64
      */
     public get instanceId() {
         return this._instanceId;
     };
     /**
-     * Sets the instanceId property value. The instanceId property
+     * Sets the instanceId property value. Identifier of the instance of the Software as a Service (SaaS) application.
      * @param value Value to set for the instanceId property.
      */
     public set instanceId(value: number | undefined) {
         this._instanceId = value;
     };
     /**
-     * Gets the instanceName property value. The instanceName property
+     * Gets the instanceName property value. Name of the instance of the SaaS application.
      * @returns a string
      */
     public get instanceName() {
         return this._instanceName;
     };
     /**
-     * Sets the instanceName property value. The instanceName property
+     * Sets the instanceName property value. Name of the instance of the SaaS application.
      * @param value Value to set for the instanceName property.
      */
     public set instanceName(value: string | undefined) {
         this._instanceName = value;
     };
     /**
-     * Gets the saasAppId property value. The saasAppId property
+     * Gets the saasAppId property value. The identifier of the SaaS application.
      * @returns a int64
      */
     public get saasAppId() {
         return this._saasAppId;
     };
     /**
-     * Sets the saasAppId property value. The saasAppId property
+     * Sets the saasAppId property value. The identifier of the SaaS application.
      * @param value Value to set for the saasAppId property.
      */
     public set saasAppId(value: number | undefined) {

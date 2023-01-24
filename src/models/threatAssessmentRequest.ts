@@ -40,7 +40,7 @@ export class ThreatAssessmentRequest extends Entity implements Parsable {
         this._category = value;
     };
     /**
-     * Instantiates a new ThreatAssessmentRequest and sets the default values.
+     * Instantiates a new threatAssessmentRequest and sets the default values.
      */
     public constructor() {
         super();

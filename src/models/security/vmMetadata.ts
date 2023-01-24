@@ -8,11 +8,11 @@ export class VmMetadata implements AdditionalDataHolder, Parsable {
     private _cloudProvider?: VmCloudProvider | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The resourceId property */
+    /** Unique identifier of the Azure resource. */
     private _resourceId?: string | undefined;
-    /** The subscriptionId property */
+    /** Unique identifier of the Azure subscription the customer tenant belongs to. */
     private _subscriptionId?: string | undefined;
-    /** The vmId property */
+    /** Unique identifier of the virtual machine instance. */
     private _vmId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -76,14 +76,14 @@ export class VmMetadata implements AdditionalDataHolder, Parsable {
         this._odataType = value;
     };
     /**
-     * Gets the resourceId property value. The resourceId property
+     * Gets the resourceId property value. Unique identifier of the Azure resource.
      * @returns a string
      */
     public get resourceId() {
         return this._resourceId;
     };
     /**
-     * Sets the resourceId property value. The resourceId property
+     * Sets the resourceId property value. Unique identifier of the Azure resource.
      * @param value Value to set for the resourceId property.
      */
     public set resourceId(value: string | undefined) {
@@ -103,28 +103,28 @@ export class VmMetadata implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the subscriptionId property value. The subscriptionId property
+     * Gets the subscriptionId property value. Unique identifier of the Azure subscription the customer tenant belongs to.
      * @returns a string
      */
     public get subscriptionId() {
         return this._subscriptionId;
     };
     /**
-     * Sets the subscriptionId property value. The subscriptionId property
+     * Sets the subscriptionId property value. Unique identifier of the Azure subscription the customer tenant belongs to.
      * @param value Value to set for the subscriptionId property.
      */
     public set subscriptionId(value: string | undefined) {
         this._subscriptionId = value;
     };
     /**
-     * Gets the vmId property value. The vmId property
+     * Gets the vmId property value. Unique identifier of the virtual machine instance.
      * @returns a string
      */
     public get vmId() {
         return this._vmId;
     };
     /**
-     * Sets the vmId property value. The vmId property
+     * Sets the vmId property value. Unique identifier of the virtual machine instance.
      * @param value Value to set for the vmId property.
      */
     public set vmId(value: string | undefined) {

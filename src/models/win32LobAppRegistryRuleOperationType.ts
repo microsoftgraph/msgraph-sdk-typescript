@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Contains all supported registry data detection type. */
 export enum Win32LobAppRegistryRuleOperationType {
     /** Not configured. */
     NotConfigured = "notConfigured",

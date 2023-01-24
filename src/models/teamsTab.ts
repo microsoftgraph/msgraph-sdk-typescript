@@ -3,9 +3,6 @@ import {createTeamsTabConfigurationFromDiscriminatorValue} from './createTeamsTa
 import {Entity, TeamsApp, TeamsTabConfiguration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of chat entities.
- */
 export class TeamsTab extends Entity implements Parsable {
     /** Container for custom settings applied to a tab. The tab is considered configured only once this property is set. */
     private _configuration?: TeamsTabConfiguration | undefined;

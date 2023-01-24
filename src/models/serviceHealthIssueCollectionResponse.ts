@@ -2,9 +2,6 @@ import {createServiceHealthIssueFromDiscriminatorValue} from './createServiceHea
 import {BaseCollectionPaginationCountResponse, ServiceHealthIssue} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the issues property of the microsoft.graph.serviceHealth entity.
- */
 export class ServiceHealthIssueCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ServiceHealthIssue[] | undefined;

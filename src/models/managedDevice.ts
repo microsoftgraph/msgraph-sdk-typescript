@@ -20,7 +20,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
  * Devices that are managed or pre-enrolled through Intune
  */
 export class ManagedDevice extends Entity implements Parsable {
-    /** Code that allows the Activation Lock on a device to be bypassed. This property is read-only. */
+    /** The code that allows the Activation Lock on managed device to be bypassed. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity in LIST call. Individual GET call with select query options is needed to retrieve actual values. Supports: $select. $Search is not supported. Read-only. This property is read-only. */
     private _activationLockBypassCode?: string | undefined;
     /** Android security patch level. This property is read-only. */
     private _androidSecurityPatchLevel?: string | undefined;
@@ -62,7 +62,7 @@ export class ManagedDevice extends Entity implements Parsable {
     private _emailAddress?: string | undefined;
     /** Enrollment time of the device. This property is read-only. */
     private _enrolledDateTime?: Date | undefined;
-    /** Ethernet MAC. This property is read-only. */
+    /** Ethernet MAC. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity. Individual get call with select query options is needed to retrieve actual values. Example: deviceManagement/managedDevices({managedDeviceId})?$select=ethernetMacAddress Supports: $select. $Search is not supported. Read-only. This property is read-only. */
     private _ethernetMacAddress?: string | undefined;
     /** Device Exchange Access State. */
     private _exchangeAccessState?: DeviceManagementExchangeAccessState | undefined;
@@ -135,14 +135,14 @@ export class ManagedDevice extends Entity implements Parsable {
     /** Wi-Fi MAC. This property is read-only. */
     private _wiFiMacAddress?: string | undefined;
     /**
-     * Gets the activationLockBypassCode property value. Code that allows the Activation Lock on a device to be bypassed. This property is read-only.
+     * Gets the activationLockBypassCode property value. The code that allows the Activation Lock on managed device to be bypassed. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity in LIST call. Individual GET call with select query options is needed to retrieve actual values. Supports: $select. $Search is not supported. Read-only. This property is read-only.
      * @returns a string
      */
     public get activationLockBypassCode() {
         return this._activationLockBypassCode;
     };
     /**
-     * Sets the activationLockBypassCode property value. Code that allows the Activation Lock on a device to be bypassed. This property is read-only.
+     * Sets the activationLockBypassCode property value. The code that allows the Activation Lock on managed device to be bypassed. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity in LIST call. Individual GET call with select query options is needed to retrieve actual values. Supports: $select. $Search is not supported. Read-only. This property is read-only.
      * @param value Value to set for the activationLockBypassCode property.
      */
     public set activationLockBypassCode(value: string | undefined) {
@@ -435,14 +435,14 @@ export class ManagedDevice extends Entity implements Parsable {
         this._enrolledDateTime = value;
     };
     /**
-     * Gets the ethernetMacAddress property value. Ethernet MAC. This property is read-only.
+     * Gets the ethernetMacAddress property value. Ethernet MAC. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity. Individual get call with select query options is needed to retrieve actual values. Example: deviceManagement/managedDevices({managedDeviceId})?$select=ethernetMacAddress Supports: $select. $Search is not supported. Read-only. This property is read-only.
      * @returns a string
      */
     public get ethernetMacAddress() {
         return this._ethernetMacAddress;
     };
     /**
-     * Sets the ethernetMacAddress property value. Ethernet MAC. This property is read-only.
+     * Sets the ethernetMacAddress property value. Ethernet MAC. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity. Individual get call with select query options is needed to retrieve actual values. Example: deviceManagement/managedDevices({managedDeviceId})?$select=ethernetMacAddress Supports: $select. $Search is not supported. Read-only. This property is read-only.
      * @param value Value to set for the ethernetMacAddress property.
      */
     public set ethernetMacAddress(value: string | undefined) {

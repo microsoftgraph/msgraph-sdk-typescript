@@ -2,9 +2,6 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import {Entity, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreementAcceptance entities.
- */
 export class Request extends Entity implements Parsable {
     /** The identifier of the approval of the request. */
     private _approvalId?: string | undefined;

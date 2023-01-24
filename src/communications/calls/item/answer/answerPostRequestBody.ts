@@ -4,9 +4,6 @@ import {createMediaConfigFromDiscriminatorValue} from '../../../../models/create
 import {Modality} from '../../../../models/modality';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the answer method.
- */
 export class AnswerPostRequestBody implements AdditionalDataHolder, Parsable {
     /** The acceptedModalities property */
     private _acceptedModalities?: Modality[] | undefined;

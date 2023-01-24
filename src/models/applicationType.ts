@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Possible types of Application */
 export enum ApplicationType {
     /** The windows universal application */
     Universal = "universal",

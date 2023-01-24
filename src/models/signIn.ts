@@ -10,15 +10,12 @@ import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreement entities.
- */
 export class SignIn extends Entity implements Parsable {
     /** App name displayed in the Azure Portal. Supports $filter (eq and startsWith operators only). */
     private _appDisplayName?: string | undefined;
     /** Unique GUID representing the app ID in the Azure Active Directory. Supports $filter (eq operator only). */
     private _appId?: string | undefined;
-    /** The appliedConditionalAccessPolicies property */
+    /** Provides a list of conditional access policies that are triggered by the corresponding sign-in activity. */
     private _appliedConditionalAccessPolicies?: AppliedConditionalAccessPolicy[] | undefined;
     /** Identifies the client used for the sign-in activity. Modern authentication clients include Browser and modern clients. Legacy authentication clients include Exchange ActiveSync, IMAP, MAPI, SMTP, POP, and other clients. Supports $filter (eq operator only). */
     private _clientAppUsed?: string | undefined;
@@ -89,14 +86,14 @@ export class SignIn extends Entity implements Parsable {
         this._appId = value;
     };
     /**
-     * Gets the appliedConditionalAccessPolicies property value. The appliedConditionalAccessPolicies property
+     * Gets the appliedConditionalAccessPolicies property value. Provides a list of conditional access policies that are triggered by the corresponding sign-in activity.
      * @returns a appliedConditionalAccessPolicy
      */
     public get appliedConditionalAccessPolicies() {
         return this._appliedConditionalAccessPolicies;
     };
     /**
-     * Sets the appliedConditionalAccessPolicies property value. The appliedConditionalAccessPolicies property
+     * Sets the appliedConditionalAccessPolicies property value. Provides a list of conditional access policies that are triggered by the corresponding sign-in activity.
      * @param value Value to set for the appliedConditionalAccessPolicies property.
      */
     public set appliedConditionalAccessPolicies(value: AppliedConditionalAccessPolicy[] | undefined) {

@@ -8,9 +8,9 @@ export class HuntingQueryResults implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The results property */
+    /** The results of the hunting query. */
     private _results?: HuntingRowResult[] | undefined;
-    /** The schema property */
+    /** The schema for the response. */
     private _schema?: SinglePropertySchema[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -58,28 +58,28 @@ export class HuntingQueryResults implements AdditionalDataHolder, Parsable {
         this._odataType = value;
     };
     /**
-     * Gets the results property value. The results property
+     * Gets the results property value. The results of the hunting query.
      * @returns a huntingRowResult
      */
     public get results() {
         return this._results;
     };
     /**
-     * Sets the results property value. The results property
+     * Sets the results property value. The results of the hunting query.
      * @param value Value to set for the results property.
      */
     public set results(value: HuntingRowResult[] | undefined) {
         this._results = value;
     };
     /**
-     * Gets the schema property value. The schema property
+     * Gets the schema property value. The schema for the response.
      * @returns a singlePropertySchema
      */
     public get schema() {
         return this._schema;
     };
     /**
-     * Sets the schema property value. The schema property
+     * Sets the schema property value. The schema for the response.
      * @param value Value to set for the schema property.
      */
     public set schema(value: SinglePropertySchema[] | undefined) {

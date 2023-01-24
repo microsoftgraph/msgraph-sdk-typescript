@@ -1,4 +1,3 @@
-/** Provides operations to manage the collection of application entities. */
 export enum ManagementAgentType {
     /** The device is managed by Exchange server. */
     Eas = "eas",

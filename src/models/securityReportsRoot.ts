@@ -3,7 +3,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class SecurityReportsRoot extends Entity implements Parsable {
     /**
-     * Instantiates a new securityReportsRoot and sets the default values.
+     * Instantiates a new SecurityReportsRoot and sets the default values.
      */
     public constructor() {
         super();

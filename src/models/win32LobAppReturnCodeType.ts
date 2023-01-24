@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Indicates the type of return code. */
 export enum Win32LobAppReturnCodeType {
     /** Failed. */
     Failed = "failed",

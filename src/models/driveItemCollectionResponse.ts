@@ -2,9 +2,6 @@ import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscri
 import {BaseCollectionPaginationCountResponse, DriveItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the bundles property of the microsoft.graph.drive entity.
- */
 export class DriveItemCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DriveItem[] | undefined;

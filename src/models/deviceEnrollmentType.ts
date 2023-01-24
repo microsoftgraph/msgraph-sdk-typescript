@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Possible ways of adding a mobile device to management. */
 export enum DeviceEnrollmentType {
     /** Default value, enrollment type was not collected. */
     Unknown = "unknown",

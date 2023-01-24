@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** TV content rating labels in New Zealand */
 export enum RatingNewZealandTelevisionType {
     /** Default value, allow all TV shows content */
     AllAllowed = "allAllowed",

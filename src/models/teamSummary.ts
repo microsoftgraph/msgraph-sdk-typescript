@@ -3,13 +3,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class TeamSummary implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The guestsCount property */
+    /** Count of guests in a team. */
     private _guestsCount?: number | undefined;
-    /** The membersCount property */
+    /** Count of members in a team. */
     private _membersCount?: number | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The ownersCount property */
+    /** Count of owners in a team. */
     private _ownersCount?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -44,28 +44,28 @@ export class TeamSummary implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the guestsCount property value. The guestsCount property
+     * Gets the guestsCount property value. Count of guests in a team.
      * @returns a integer
      */
     public get guestsCount() {
         return this._guestsCount;
     };
     /**
-     * Sets the guestsCount property value. The guestsCount property
+     * Sets the guestsCount property value. Count of guests in a team.
      * @param value Value to set for the guestsCount property.
      */
     public set guestsCount(value: number | undefined) {
         this._guestsCount = value;
     };
     /**
-     * Gets the membersCount property value. The membersCount property
+     * Gets the membersCount property value. Count of members in a team.
      * @returns a integer
      */
     public get membersCount() {
         return this._membersCount;
     };
     /**
-     * Sets the membersCount property value. The membersCount property
+     * Sets the membersCount property value. Count of members in a team.
      * @param value Value to set for the membersCount property.
      */
     public set membersCount(value: number | undefined) {
@@ -86,14 +86,14 @@ export class TeamSummary implements AdditionalDataHolder, Parsable {
         this._odataType = value;
     };
     /**
-     * Gets the ownersCount property value. The ownersCount property
+     * Gets the ownersCount property value. Count of owners in a team.
      * @returns a integer
      */
     public get ownersCount() {
         return this._ownersCount;
     };
     /**
-     * Sets the ownersCount property value. The ownersCount property
+     * Sets the ownersCount property value. Count of owners in a team.
      * @param value Value to set for the ownersCount property.
      */
     public set ownersCount(value: number | undefined) {

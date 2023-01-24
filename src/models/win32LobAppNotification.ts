@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Contains value for notification status. */
 export enum Win32LobAppNotification {
     /** Show all notifications. */
     ShowAll = "showAll",

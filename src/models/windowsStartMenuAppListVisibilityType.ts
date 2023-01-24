@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Type of start menu app list visibility. */
 export enum WindowsStartMenuAppListVisibilityType {
     /** User defined. Default value. */
     UserDefined = "userDefined",

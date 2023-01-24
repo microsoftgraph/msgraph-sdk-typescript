@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Partner state of this tenant. */
 export enum MobileThreatPartnerTenantState {
     /** Partner is unavailable. */
     Unavailable = "unavailable",

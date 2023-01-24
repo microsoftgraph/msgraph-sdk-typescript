@@ -20,9 +20,6 @@ import {AudioRoutingGroup, CallMediaState, CallOptions, CallRoute, CallTranscrip
 import {Modality} from './modality';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the cloudCommunications singleton.
- */
 export class Call extends Entity implements Parsable {
     /** The audioRoutingGroups property */
     private _audioRoutingGroups?: AudioRoutingGroup[] | undefined;
@@ -46,7 +43,7 @@ export class Call extends Entity implements Parsable {
     private _mediaConfig?: MediaConfig | undefined;
     /** Read-only. The call media state. */
     private _mediaState?: CallMediaState | undefined;
-    /** The meeting information that's required for joining a meeting. */
+    /** The meeting information. Required information for meeting scenarios. */
     private _meetingInfo?: MeetingInfo | undefined;
     /** The myParticipantId property */
     private _myParticipantId?: string | undefined;
@@ -265,14 +262,14 @@ export class Call extends Entity implements Parsable {
         this._mediaState = value;
     };
     /**
-     * Gets the meetingInfo property value. The meeting information that's required for joining a meeting.
+     * Gets the meetingInfo property value. The meeting information. Required information for meeting scenarios.
      * @returns a meetingInfo
      */
     public get meetingInfo() {
         return this._meetingInfo;
     };
     /**
-     * Sets the meetingInfo property value. The meeting information that's required for joining a meeting.
+     * Sets the meetingInfo property value. The meeting information. Required information for meeting scenarios.
      * @param value Value to set for the meetingInfo property.
      */
     public set meetingInfo(value: MeetingInfo | undefined) {

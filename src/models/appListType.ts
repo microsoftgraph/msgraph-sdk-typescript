@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Possible values of the compliance app list. */
 export enum AppListType {
     /** Default value, no intent. */
     None = "none",

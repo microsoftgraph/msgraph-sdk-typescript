@@ -2,21 +2,21 @@ import {IdentitySource} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CrossCloudAzureActiveDirectoryTenant extends IdentitySource implements Parsable {
-    /** The cloudInstance property */
+    /** The ID of the cloud where the tenant is located, one of microsoftonline.com, microsoftonline.us or partner.microsoftonline.cn. Read only. */
     private _cloudInstance?: string | undefined;
-    /** The displayName property */
+    /** The name of the Azure Active Directory tenant. Read only. */
     private _displayName?: string | undefined;
-    /** The tenantId property */
+    /** The ID of the Azure Active Directory tenant. Read only. */
     private _tenantId?: string | undefined;
     /**
-     * Gets the cloudInstance property value. The cloudInstance property
+     * Gets the cloudInstance property value. The ID of the cloud where the tenant is located, one of microsoftonline.com, microsoftonline.us or partner.microsoftonline.cn. Read only.
      * @returns a string
      */
     public get cloudInstance() {
         return this._cloudInstance;
     };
     /**
-     * Sets the cloudInstance property value. The cloudInstance property
+     * Sets the cloudInstance property value. The ID of the cloud where the tenant is located, one of microsoftonline.com, microsoftonline.us or partner.microsoftonline.cn. Read only.
      * @param value Value to set for the cloudInstance property.
      */
     public set cloudInstance(value: string | undefined) {
@@ -30,14 +30,14 @@ export class CrossCloudAzureActiveDirectoryTenant extends IdentitySource impleme
         this.odataType = "#microsoft.graph.crossCloudAzureActiveDirectoryTenant";
     };
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name of the Azure Active Directory tenant. Read only.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The name of the Azure Active Directory tenant. Read only.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -66,14 +66,14 @@ export class CrossCloudAzureActiveDirectoryTenant extends IdentitySource impleme
         writer.writeStringValue("tenantId", this.tenantId);
     };
     /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. The ID of the Azure Active Directory tenant. Read only.
      * @returns a string
      */
     public get tenantId() {
         return this._tenantId;
     };
     /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. The ID of the Azure Active Directory tenant. Read only.
      * @param value Value to set for the tenantId property.
      */
     public set tenantId(value: string | undefined) {

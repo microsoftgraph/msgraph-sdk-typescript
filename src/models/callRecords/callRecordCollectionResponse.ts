@@ -3,9 +3,6 @@ import {createCallRecordFromDiscriminatorValue} from './createCallRecordFromDisc
 import {CallRecord} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
- */
 export class CallRecordCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: CallRecord[] | undefined;

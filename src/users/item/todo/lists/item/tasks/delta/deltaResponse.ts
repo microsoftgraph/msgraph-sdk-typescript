@@ -2,9 +2,6 @@ import {BaseDeltaFunctionResponse, TodoTask} from '../../../../../../../models/'
 import {createTodoTaskFromDiscriminatorValue} from '../../../../../../../models/createTodoTaskFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to call the delta method.
- */
 export class DeltaResponse extends BaseDeltaFunctionResponse implements Parsable {
     /** The value property */
     private _value?: TodoTask[] | undefined;

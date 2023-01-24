@@ -2,9 +2,6 @@ import {createServiceHealthFromDiscriminatorValue} from './createServiceHealthFr
 import {BaseCollectionPaginationCountResponse, ServiceHealth} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
- */
 export class ServiceHealthCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: ServiceHealth[] | undefined;

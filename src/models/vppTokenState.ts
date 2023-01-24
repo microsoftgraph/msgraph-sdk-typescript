@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceAppManagement singleton. */
+/** Possible states associated with an Apple Volume Purchase Program token. */
 export enum VppTokenState {
     /** Default state. */
     Unknown = "unknown",

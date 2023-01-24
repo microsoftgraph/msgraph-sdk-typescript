@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of application entities. */
+/** Device Exchange Access State Reason. */
 export enum DeviceManagementExchangeAccessStateReason {
     /** No access state reason discovered from Exchange */
     None = "none",

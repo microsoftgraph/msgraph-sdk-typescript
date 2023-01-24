@@ -2,9 +2,6 @@ import {createDeviceCategoryFromDiscriminatorValue} from './createDeviceCategory
 import {BaseCollectionPaginationCountResponse, DeviceCategory} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity.
- */
 export class DeviceCategoryCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
     /** The value property */
     private _value?: DeviceCategory[] | undefined;

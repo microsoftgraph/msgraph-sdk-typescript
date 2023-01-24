@@ -2,7 +2,7 @@ import {createAlertFromDiscriminatorValue as I1cb3f0565cf1eaf3d4684f805b8ff85c0f
 import {createAttackSimulationRootFromDiscriminatorValue} from './createAttackSimulationRootFromDiscriminatorValue';
 import {createSecureScoreControlProfileFromDiscriminatorValue} from './createSecureScoreControlProfileFromDiscriminatorValue';
 import {createSecureScoreFromDiscriminatorValue} from './createSecureScoreFromDiscriminatorValue';
-import {Alert as Ifc3dd46d8c20580598e3887e951736840b38f25b65d12c7df595f8b23d2eeae5, AttackSimulationRoot, Entity, SecureScore, SecureScoreControlProfile} from './index';
+import {Alert as If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3, AttackSimulationRoot, Entity, SecureScore, SecureScoreControlProfile} from './index';
 import {Alert as I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8, CasesRoot, Incident} from './security/';
 import {createAlertFromDiscriminatorValue as Ic3df26bb503216c70f1b1537fb1cb7605d034f17f11b693448013e01824d59a7} from './security/createAlertFromDiscriminatorValue';
 import {createCasesRootFromDiscriminatorValue} from './security/createCasesRootFromDiscriminatorValue';
@@ -11,14 +11,14 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class Security extends Entity implements Parsable {
     /** The alerts property */
-    private _alerts?: Ifc3dd46d8c20580598e3887e951736840b38f25b65d12c7df595f8b23d2eeae5[] | undefined;
-    /** The alerts_v2 property */
+    private _alerts?: If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3[] | undefined;
+    /** A collection of alerts in Microsoft 365 Defender. */
     private _alerts_v2?: I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8[] | undefined;
     /** The attackSimulation property */
     private _attackSimulation?: AttackSimulationRoot | undefined;
     /** The cases property */
     private _cases?: CasesRoot | undefined;
-    /** The incidents property */
+    /** A collection of incidents in Microsoft 365 Defender, each of which is a set of correlated alerts and associated metadata that reflects the story of an attack. */
     private _incidents?: Incident[] | undefined;
     /** The secureScoreControlProfiles property */
     private _secureScoreControlProfiles?: SecureScoreControlProfile[] | undefined;
@@ -35,18 +35,18 @@ export class Security extends Entity implements Parsable {
      * Sets the alerts property value. The alerts property
      * @param value Value to set for the alerts property.
      */
-    public set alerts(value: Ifc3dd46d8c20580598e3887e951736840b38f25b65d12c7df595f8b23d2eeae5[] | undefined) {
+    public set alerts(value: If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3[] | undefined) {
         this._alerts = value;
     };
     /**
-     * Gets the alerts_v2 property value. The alerts_v2 property
+     * Gets the alerts_v2 property value. A collection of alerts in Microsoft 365 Defender.
      * @returns a alert
      */
     public get alerts_v2() {
         return this._alerts_v2;
     };
     /**
-     * Sets the alerts_v2 property value. The alerts_v2 property
+     * Sets the alerts_v2 property value. A collection of alerts in Microsoft 365 Defender.
      * @param value Value to set for the alerts_v2 property.
      */
     public set alerts_v2(value: I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8[] | undefined) {
@@ -92,7 +92,7 @@ export class Security extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "alerts": n => { this.alerts = n.getCollectionOfObjectValues<Ifc3dd46d8c20580598e3887e951736840b38f25b65d12c7df595f8b23d2eeae5>(I1cb3f0565cf1eaf3d4684f805b8ff85c0f5befafa3890fbd5b7417da601b6295); },
+            "alerts": n => { this.alerts = n.getCollectionOfObjectValues<If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3>(I1cb3f0565cf1eaf3d4684f805b8ff85c0f5befafa3890fbd5b7417da601b6295); },
             "alerts_v2": n => { this.alerts_v2 = n.getCollectionOfObjectValues<I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8>(Ic3df26bb503216c70f1b1537fb1cb7605d034f17f11b693448013e01824d59a7); },
             "attackSimulation": n => { this.attackSimulation = n.getObjectValue<AttackSimulationRoot>(createAttackSimulationRootFromDiscriminatorValue); },
             "cases": n => { this.cases = n.getObjectValue<CasesRoot>(createCasesRootFromDiscriminatorValue); },
@@ -102,14 +102,14 @@ export class Security extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the incidents property value. The incidents property
+     * Gets the incidents property value. A collection of incidents in Microsoft 365 Defender, each of which is a set of correlated alerts and associated metadata that reflects the story of an attack.
      * @returns a incident
      */
     public get incidents() {
         return this._incidents;
     };
     /**
-     * Sets the incidents property value. The incidents property
+     * Sets the incidents property value. A collection of incidents in Microsoft 365 Defender, each of which is a set of correlated alerts and associated metadata that reflects the story of an attack.
      * @param value Value to set for the incidents property.
      */
     public set incidents(value: Incident[] | undefined) {
@@ -150,7 +150,7 @@ export class Security extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfObjectValues<Ifc3dd46d8c20580598e3887e951736840b38f25b65d12c7df595f8b23d2eeae5>("alerts", this.alerts);
+        writer.writeCollectionOfObjectValues<If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3>("alerts", this.alerts);
         writer.writeCollectionOfObjectValues<I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8>("alerts_v2", this.alerts_v2);
         writer.writeObjectValue<AttackSimulationRoot>("attackSimulation", this.attackSimulation);
         writer.writeObjectValue<CasesRoot>("cases", this.cases);

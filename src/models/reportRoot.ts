@@ -1,10 +1,15 @@
 import {createPrintUsageByPrinterFromDiscriminatorValue} from './createPrintUsageByPrinterFromDiscriminatorValue';
 import {createPrintUsageByUserFromDiscriminatorValue} from './createPrintUsageByUserFromDiscriminatorValue';
 import {createSecurityReportsRootFromDiscriminatorValue} from './createSecurityReportsRootFromDiscriminatorValue';
-import {Entity, PrintUsageByPrinter, PrintUsageByUser, SecurityReportsRoot} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {PrintUsageByPrinter, PrintUsageByUser, SecurityReportsRoot} from './index';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ReportRoot extends Entity implements Parsable {
+/**
+ * The resource that represents an instance of Enrollment Failure Reports.
+ */
+export class ReportRoot implements AdditionalDataHolder, Parsable {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    private _additionalData: Record<string, unknown>;
     /** The dailyPrintUsageByPrinter property */
     private _dailyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
     /** The dailyPrintUsageByUser property */
@@ -13,13 +18,29 @@ export class ReportRoot extends Entity implements Parsable {
     private _monthlyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
     /** The monthlyPrintUsageByUser property */
     private _monthlyPrintUsageByUser?: PrintUsageByUser[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The security property */
     private _security?: SecurityReportsRoot | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
     /**
      * Instantiates a new ReportRoot and sets the default values.
      */
     public constructor() {
-        super();
+        this._additionalData = {};
     };
     /**
      * Gets the dailyPrintUsageByPrinter property value. The dailyPrintUsageByPrinter property
@@ -54,11 +75,12 @@ export class ReportRoot extends Entity implements Parsable {
      * @returns a Record<string, (node: ParseNode) => void>
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
+        return {
             "dailyPrintUsageByPrinter": n => { this.dailyPrintUsageByPrinter = n.getCollectionOfObjectValues<PrintUsageByPrinter>(createPrintUsageByPrinterFromDiscriminatorValue); },
             "dailyPrintUsageByUser": n => { this.dailyPrintUsageByUser = n.getCollectionOfObjectValues<PrintUsageByUser>(createPrintUsageByUserFromDiscriminatorValue); },
             "monthlyPrintUsageByPrinter": n => { this.monthlyPrintUsageByPrinter = n.getCollectionOfObjectValues<PrintUsageByPrinter>(createPrintUsageByPrinterFromDiscriminatorValue); },
             "monthlyPrintUsageByUser": n => { this.monthlyPrintUsageByUser = n.getCollectionOfObjectValues<PrintUsageByUser>(createPrintUsageByUserFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "security": n => { this.security = n.getObjectValue<SecurityReportsRoot>(createSecurityReportsRootFromDiscriminatorValue); },
         };
     };
@@ -91,6 +113,20 @@ export class ReportRoot extends Entity implements Parsable {
         this._monthlyPrintUsageByUser = value;
     };
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
+    };
+    /**
      * Gets the security property value. The security property
      * @returns a securityReportsRoot
      */
@@ -110,11 +146,12 @@ export class ReportRoot extends Entity implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
         writer.writeCollectionOfObjectValues<PrintUsageByPrinter>("dailyPrintUsageByPrinter", this.dailyPrintUsageByPrinter);
         writer.writeCollectionOfObjectValues<PrintUsageByUser>("dailyPrintUsageByUser", this.dailyPrintUsageByUser);
         writer.writeCollectionOfObjectValues<PrintUsageByPrinter>("monthlyPrintUsageByPrinter", this.monthlyPrintUsageByPrinter);
         writer.writeCollectionOfObjectValues<PrintUsageByUser>("monthlyPrintUsageByUser", this.monthlyPrintUsageByUser);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<SecurityReportsRoot>("security", this.security);
+        writer.writeAdditionalData(this.additionalData);
     };
 }

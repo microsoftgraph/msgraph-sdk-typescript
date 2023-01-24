@@ -1,6 +1,6 @@
 
 /**
- * Get entity from localizations by key
+ * Get entity from localizations by key (id)
  */
 export class OrganizationalBrandingLocalizationItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

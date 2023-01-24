@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of agreementAcceptance entities. */
+/** Data can be transferred from/to these classes of apps */
 export enum ManagedAppDataTransferLevel {
     /** All apps. */
     AllApps = "allApps",

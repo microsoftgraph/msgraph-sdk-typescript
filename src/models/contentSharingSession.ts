@@ -1,9 +1,6 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the cloudCommunications singleton.
- */
 export class ContentSharingSession extends Entity implements Parsable {
     /**
      * Instantiates a new contentSharingSession and sets the default values.

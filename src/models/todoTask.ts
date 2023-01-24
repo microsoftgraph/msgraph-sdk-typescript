@@ -11,9 +11,6 @@ import {AttachmentBase, AttachmentSession, ChecklistItem, DateTimeTimeZone, Enti
 import {TaskStatus} from './taskStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * Provides operations to manage the collection of agreementAcceptance entities.
- */
 export class TodoTask extends Entity implements Parsable {
     /** The attachments property */
     private _attachments?: AttachmentBase[] | undefined;

@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Branding Options for the Message Template. Branding is defined in the Intune Admin Console. */
 export enum NotificationTemplateBrandingOptions {
     /** No Branding. */
     None = "none",
@@ -8,6 +8,8 @@ export enum NotificationTemplateBrandingOptions {
     IncludeCompanyName = "includeCompanyName",
     /** Include Contact Info. */
     IncludeContactInformation = "includeContactInformation",
+    /** Include Company Portal Link. */
+    IncludeCompanyPortalLink = "includeCompanyPortalLink",
     /** Include Device Details. */
     IncludeDeviceDetails = "includeDeviceDetails",
 }

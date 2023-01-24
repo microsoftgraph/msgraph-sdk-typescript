@@ -3,11 +3,11 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class EmailSender implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The displayName property */
+    /** The name of the sender. */
     private _displayName?: string | undefined;
-    /** The domainName property */
+    /** Sender domain. */
     private _domainName?: string | undefined;
-    /** The emailAddress property */
+    /** Sender email address. */
     private _emailAddress?: string | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
@@ -32,42 +32,42 @@ export class EmailSender implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name of the sender.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The name of the sender.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
         this._displayName = value;
     };
     /**
-     * Gets the domainName property value. The domainName property
+     * Gets the domainName property value. Sender domain.
      * @returns a string
      */
     public get domainName() {
         return this._domainName;
     };
     /**
-     * Sets the domainName property value. The domainName property
+     * Sets the domainName property value. Sender domain.
      * @param value Value to set for the domainName property.
      */
     public set domainName(value: string | undefined) {
         this._domainName = value;
     };
     /**
-     * Gets the emailAddress property value. The emailAddress property
+     * Gets the emailAddress property value. Sender email address.
      * @returns a string
      */
     public get emailAddress() {
         return this._emailAddress;
     };
     /**
-     * Sets the emailAddress property value. The emailAddress property
+     * Sets the emailAddress property value. Sender email address.
      * @param value Value to set for the emailAddress property.
      */
     public set emailAddress(value: string | undefined) {

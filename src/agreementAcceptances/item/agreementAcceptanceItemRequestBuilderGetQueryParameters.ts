@@ -1,6 +1,6 @@
 
 /**
- * Get entity from agreementAcceptances by key
+ * Get entity from agreementAcceptances by key (id)
  */
 export class AgreementAcceptanceItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */

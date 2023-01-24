@@ -34,25 +34,25 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
     private _inputBin?: string | undefined;
     /** The margin settings to use when printing. */
     private _margin?: PrintMargin | undefined;
-    /** The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic. */
+    /** The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. */
     private _mediaSize?: string | undefined;
-    /** The default media (such as paper) type to print the document on. */
+    /** The mediaType property */
     private _mediaType?: string | undefined;
-    /** The direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table. */
+    /** The multipageLayout property */
     private _multipageLayout?: PrintMultipageLayout | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The orientation setting the printer should use when printing the job. Valid values are described in the following table. */
+    /** The orientation property */
     private _orientation?: PrintOrientation | undefined;
-    /** The output bin to place completed prints into. See the printer's capabilities for a list of supported output bins. */
+    /** The outputBin property */
     private _outputBin?: string | undefined;
-    /** The page ranges to print. Read-only. */
+    /** The pageRanges property */
     private _pageRanges?: IntegerRange[] | undefined;
-    /** The number of document pages to print on each sheet. */
+    /** The pagesPerSheet property */
     private _pagesPerSheet?: number | undefined;
-    /** The print quality to use when printing the job. Valid values are described in the table below. Read-only. */
+    /** The quality property */
     private _quality?: PrintQuality | undefined;
-    /** Specifies how the printer should scale the document data to fit the requested media. Valid values are described in the following table. */
+    /** The scaling property */
     private _scaling?: PrintScaling | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -243,42 +243,42 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
         this._margin = value;
     };
     /**
-     * Gets the mediaSize property value. The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic.
+     * Gets the mediaSize property value. The media size to use when printing. Supports standard size names for ISO and ANSI media sizes.
      * @returns a string
      */
     public get mediaSize() {
         return this._mediaSize;
     };
     /**
-     * Sets the mediaSize property value. The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic.
+     * Sets the mediaSize property value. The media size to use when printing. Supports standard size names for ISO and ANSI media sizes.
      * @param value Value to set for the mediaSize property.
      */
     public set mediaSize(value: string | undefined) {
         this._mediaSize = value;
     };
     /**
-     * Gets the mediaType property value. The default media (such as paper) type to print the document on.
+     * Gets the mediaType property value. The mediaType property
      * @returns a string
      */
     public get mediaType() {
         return this._mediaType;
     };
     /**
-     * Sets the mediaType property value. The default media (such as paper) type to print the document on.
+     * Sets the mediaType property value. The mediaType property
      * @param value Value to set for the mediaType property.
      */
     public set mediaType(value: string | undefined) {
         this._mediaType = value;
     };
     /**
-     * Gets the multipageLayout property value. The direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.
+     * Gets the multipageLayout property value. The multipageLayout property
      * @returns a printMultipageLayout
      */
     public get multipageLayout() {
         return this._multipageLayout;
     };
     /**
-     * Sets the multipageLayout property value. The direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.
+     * Sets the multipageLayout property value. The multipageLayout property
      * @param value Value to set for the multipageLayout property.
      */
     public set multipageLayout(value: PrintMultipageLayout | undefined) {
@@ -299,84 +299,84 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
         this._odataType = value;
     };
     /**
-     * Gets the orientation property value. The orientation setting the printer should use when printing the job. Valid values are described in the following table.
+     * Gets the orientation property value. The orientation property
      * @returns a printOrientation
      */
     public get orientation() {
         return this._orientation;
     };
     /**
-     * Sets the orientation property value. The orientation setting the printer should use when printing the job. Valid values are described in the following table.
+     * Sets the orientation property value. The orientation property
      * @param value Value to set for the orientation property.
      */
     public set orientation(value: PrintOrientation | undefined) {
         this._orientation = value;
     };
     /**
-     * Gets the outputBin property value. The output bin to place completed prints into. See the printer's capabilities for a list of supported output bins.
+     * Gets the outputBin property value. The outputBin property
      * @returns a string
      */
     public get outputBin() {
         return this._outputBin;
     };
     /**
-     * Sets the outputBin property value. The output bin to place completed prints into. See the printer's capabilities for a list of supported output bins.
+     * Sets the outputBin property value. The outputBin property
      * @param value Value to set for the outputBin property.
      */
     public set outputBin(value: string | undefined) {
         this._outputBin = value;
     };
     /**
-     * Gets the pageRanges property value. The page ranges to print. Read-only.
+     * Gets the pageRanges property value. The pageRanges property
      * @returns a integerRange
      */
     public get pageRanges() {
         return this._pageRanges;
     };
     /**
-     * Sets the pageRanges property value. The page ranges to print. Read-only.
+     * Sets the pageRanges property value. The pageRanges property
      * @param value Value to set for the pageRanges property.
      */
     public set pageRanges(value: IntegerRange[] | undefined) {
         this._pageRanges = value;
     };
     /**
-     * Gets the pagesPerSheet property value. The number of document pages to print on each sheet.
+     * Gets the pagesPerSheet property value. The pagesPerSheet property
      * @returns a integer
      */
     public get pagesPerSheet() {
         return this._pagesPerSheet;
     };
     /**
-     * Sets the pagesPerSheet property value. The number of document pages to print on each sheet.
+     * Sets the pagesPerSheet property value. The pagesPerSheet property
      * @param value Value to set for the pagesPerSheet property.
      */
     public set pagesPerSheet(value: number | undefined) {
         this._pagesPerSheet = value;
     };
     /**
-     * Gets the quality property value. The print quality to use when printing the job. Valid values are described in the table below. Read-only.
+     * Gets the quality property value. The quality property
      * @returns a printQuality
      */
     public get quality() {
         return this._quality;
     };
     /**
-     * Sets the quality property value. The print quality to use when printing the job. Valid values are described in the table below. Read-only.
+     * Sets the quality property value. The quality property
      * @param value Value to set for the quality property.
      */
     public set quality(value: PrintQuality | undefined) {
         this._quality = value;
     };
     /**
-     * Gets the scaling property value. Specifies how the printer should scale the document data to fit the requested media. Valid values are described in the following table.
+     * Gets the scaling property value. The scaling property
      * @returns a printScaling
      */
     public get scaling() {
         return this._scaling;
     };
     /**
-     * Sets the scaling property value. Specifies how the printer should scale the document data to fit the requested media. Valid values are described in the following table.
+     * Sets the scaling property value. The scaling property
      * @param value Value to set for the scaling property.
      */
     public set scaling(value: PrintScaling | undefined) {

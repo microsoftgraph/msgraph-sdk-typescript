@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Generic visibility state. */
 export enum VisibilitySetting {
     /** Not configured. */
     NotConfigured = "notConfigured",

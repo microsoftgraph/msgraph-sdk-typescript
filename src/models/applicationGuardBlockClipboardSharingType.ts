@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton. */
+/** Possible values for applicationGuardBlockClipboardSharingType */
 export enum ApplicationGuardBlockClipboardSharingType {
     /** Not Configured */
     NotConfigured = "notConfigured",
