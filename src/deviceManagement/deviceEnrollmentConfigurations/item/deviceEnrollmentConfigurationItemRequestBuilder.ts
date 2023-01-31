@@ -2,35 +2,35 @@ import {DeviceEnrollmentConfiguration} from '../../../models/';
 import {createDeviceEnrollmentConfigurationFromDiscriminatorValue} from '../../../models/createDeviceEnrollmentConfigurationFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
 import {EnrollmentConfigurationAssignmentItemRequestBuilder} from './assignments/item/enrollmentConfigurationAssignmentItemRequestBuilder';
 import {DeviceEnrollmentConfigurationItemRequestBuilderDeleteRequestConfiguration} from './deviceEnrollmentConfigurationItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration} from './deviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration';
 import {DeviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration} from './deviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration';
-import {SetPriorityRequestBuilder} from './setPriority/setPriorityRequestBuilder';
+import {AssignRequestBuilder} from './microsoftGraphAssign/assignRequestBuilder';
+import {SetPriorityRequestBuilder} from './microsoftGraphSetPriority/setPriorityRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.deviceManagement entity.
  */
 export class DeviceEnrollmentConfigurationItemRequestBuilder {
-    /** Provides operations to call the assign method. */
-    public get assign(): AssignRequestBuilder {
-        return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the assignments property of the microsoft.graph.deviceEnrollmentConfiguration entity. */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the assign method. */
+    public get microsoftGraphAssign(): AssignRequestBuilder {
+        return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the setPriority method. */
+    public get microsoftGraphSetPriority(): SetPriorityRequestBuilder {
+        return new SetPriorityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the setPriority method. */
-    public get setPriority(): SetPriorityRequestBuilder {
-        return new SetPriorityRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
@@ -46,14 +46,16 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder {
     };
     /**
      * Instantiates a new DeviceEnrollmentConfigurationItemRequestBuilder and sets the default values.
+     * @param deviceEnrollmentConfigurationId key: id of deviceEnrollmentConfiguration
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, deviceEnrollmentConfigurationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations/{deviceEnrollmentConfiguration%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["deviceEnrollmentConfiguration%2Did"] = deviceEnrollmentConfigurationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -90,7 +92,6 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceEnrollmentConfigurations in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceEnrollmentConfiguration
@@ -142,7 +143,6 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceEnrollmentConfigurations in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

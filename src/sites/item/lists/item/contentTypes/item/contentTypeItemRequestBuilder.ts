@@ -2,7 +2,6 @@ import {ContentType} from '../../../../../../models/';
 import {createContentTypeFromDiscriminatorValue} from '../../../../../../models/createContentTypeFromDiscriminatorValue';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AssociateWithHubSitesRequestBuilder} from './associateWithHubSites/associateWithHubSitesRequestBuilder';
 import {BaseRequestBuilder} from './base/baseRequestBuilder';
 import {BaseTypesRequestBuilder} from './baseTypes/baseTypesRequestBuilder';
 import {ContentTypeItemRequestBuilder as I0a8bb98fe6d95114f523e0fe77457730ceaabbe1c1ad87a981168489faa3939e} from './baseTypes/item/contentTypeItemRequestBuilder';
@@ -15,20 +14,17 @@ import {ColumnDefinitionItemRequestBuilder as Ia5ad194dbbf9a0d205cb7ef776a12ec13
 import {ContentTypeItemRequestBuilderDeleteRequestConfiguration} from './contentTypeItemRequestBuilderDeleteRequestConfiguration';
 import {ContentTypeItemRequestBuilderGetRequestConfiguration} from './contentTypeItemRequestBuilderGetRequestConfiguration';
 import {ContentTypeItemRequestBuilderPatchRequestConfiguration} from './contentTypeItemRequestBuilderPatchRequestConfiguration';
-import {CopyToDefaultContentLocationRequestBuilder} from './copyToDefaultContentLocation/copyToDefaultContentLocationRequestBuilder';
-import {IsPublishedRequestBuilder} from './isPublished/isPublishedRequestBuilder';
-import {PublishRequestBuilder} from './publish/publishRequestBuilder';
-import {UnpublishRequestBuilder} from './unpublish/unpublishRequestBuilder';
+import {AssociateWithHubSitesRequestBuilder} from './microsoftGraphAssociateWithHubSites/associateWithHubSitesRequestBuilder';
+import {CopyToDefaultContentLocationRequestBuilder} from './microsoftGraphCopyToDefaultContentLocation/copyToDefaultContentLocationRequestBuilder';
+import {IsPublishedRequestBuilder} from './microsoftGraphIsPublished/isPublishedRequestBuilder';
+import {PublishRequestBuilder} from './microsoftGraphPublish/publishRequestBuilder';
+import {UnpublishRequestBuilder} from './microsoftGraphUnpublish/unpublishRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.list entity.
  */
 export class ContentTypeItemRequestBuilder {
-    /** Provides operations to call the associateWithHubSites method. */
-    public get associateWithHubSites(): AssociateWithHubSitesRequestBuilder {
-        return new AssociateWithHubSitesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the base property of the microsoft.graph.contentType entity. */
     public get base(): BaseRequestBuilder {
         return new BaseRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -49,22 +45,30 @@ export class ContentTypeItemRequestBuilder {
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the associateWithHubSites method. */
+    public get microsoftGraphAssociateWithHubSites(): AssociateWithHubSitesRequestBuilder {
+        return new AssociateWithHubSitesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the copyToDefaultContentLocation method. */
-    public get copyToDefaultContentLocation(): CopyToDefaultContentLocationRequestBuilder {
+    public get microsoftGraphCopyToDefaultContentLocation(): CopyToDefaultContentLocationRequestBuilder {
         return new CopyToDefaultContentLocationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the isPublished method. */
+    public get microsoftGraphIsPublished(): IsPublishedRequestBuilder {
+        return new IsPublishedRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the publish method. */
+    public get microsoftGraphPublish(): PublishRequestBuilder {
+        return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the unpublish method. */
+    public get microsoftGraphUnpublish(): UnpublishRequestBuilder {
+        return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
-    /** Provides operations to call the publish method. */
-    public get publish(): PublishRequestBuilder {
-        return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the unpublish method. */
-    public get unpublish(): UnpublishRequestBuilder {
-        return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
@@ -113,14 +117,16 @@ export class ContentTypeItemRequestBuilder {
     };
     /**
      * Instantiates a new ContentTypeItemRequestBuilder and sets the default values.
+     * @param contentTypeId key: id of contentType
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, contentTypeId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["contentType%2Did"] = contentTypeId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -156,15 +162,7 @@ export class ContentTypeItemRequestBuilder {
         return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to call the isPublished method.
-     * @returns a isPublishedRequestBuilder
-     */
-    public isPublished() : IsPublishedRequestBuilder {
-        return new IsPublishedRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
      * Update the navigation property contentTypes in sites
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentType
@@ -216,7 +214,6 @@ export class ContentTypeItemRequestBuilder {
     };
     /**
      * Update the navigation property contentTypes in sites
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

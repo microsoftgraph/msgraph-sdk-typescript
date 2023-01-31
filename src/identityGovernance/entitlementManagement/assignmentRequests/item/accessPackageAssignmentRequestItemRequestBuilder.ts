@@ -7,8 +7,8 @@ import {AccessPackageAssignmentRequestItemRequestBuilderDeleteRequestConfigurati
 import {AccessPackageAssignmentRequestItemRequestBuilderGetRequestConfiguration} from './accessPackageAssignmentRequestItemRequestBuilderGetRequestConfiguration';
 import {AccessPackageAssignmentRequestItemRequestBuilderPatchRequestConfiguration} from './accessPackageAssignmentRequestItemRequestBuilderPatchRequestConfiguration';
 import {AssignmentRequestBuilder} from './assignment/assignmentRequestBuilder';
-import {CancelRequestBuilder} from './cancel/cancelRequestBuilder';
-import {ReprocessRequestBuilder} from './reprocess/reprocessRequestBuilder';
+import {CancelRequestBuilder} from './microsoftGraphCancel/cancelRequestBuilder';
+import {ReprocessRequestBuilder} from './microsoftGraphReprocess/reprocessRequestBuilder';
 import {RequestorRequestBuilder} from './requestor/requestorRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -25,15 +25,15 @@ export class AccessPackageAssignmentRequestItemRequestBuilder {
         return new AssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the cancel method. */
-    public get cancel(): CancelRequestBuilder {
+    public get microsoftGraphCancel(): CancelRequestBuilder {
         return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the reprocess method. */
+    public get microsoftGraphReprocess(): ReprocessRequestBuilder {
+        return new ReprocessRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
-    /** Provides operations to call the reprocess method. */
-    public get reprocess(): ReprocessRequestBuilder {
-        return new ReprocessRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the requestor property of the microsoft.graph.accessPackageAssignmentRequest entity. */
@@ -44,14 +44,16 @@ export class AccessPackageAssignmentRequestItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new AccessPackageAssignmentRequestItemRequestBuilder and sets the default values.
+     * @param accessPackageAssignmentRequestId key: id of accessPackageAssignmentRequest
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, accessPackageAssignmentRequestId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignmentRequests/{accessPackageAssignmentRequest%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["accessPackageAssignmentRequest%2Did"] = accessPackageAssignmentRequestId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -88,7 +90,6 @@ export class AccessPackageAssignmentRequestItemRequestBuilder {
     };
     /**
      * Update the navigation property assignmentRequests in identityGovernance
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageAssignmentRequest
@@ -140,7 +141,6 @@ export class AccessPackageAssignmentRequestItemRequestBuilder {
     };
     /**
      * Update the navigation property assignmentRequests in identityGovernance
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

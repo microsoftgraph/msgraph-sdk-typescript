@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, MicrosoftAuthenticatorAuthenticat
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MicrosoftAuthenticatorAuthenticationMethodTargetCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: MicrosoftAuthenticatorAuthenticationMethodTarget[] | undefined;
     /**
      * Instantiates a new MicrosoftAuthenticatorAuthenticationMethodTargetCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class MicrosoftAuthenticatorAuthenticationMethodTargetCollectionResponse 
         writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodTarget>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a microsoftAuthenticatorAuthenticationMethodTarget
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: MicrosoftAuthenticatorAuthenticationMethodTarget[] | undefined) {

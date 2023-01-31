@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, WorkbookChart} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: WorkbookChart[] | undefined;
     /**
      * Instantiates a new WorkbookChartCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class WorkbookChartCollectionResponse extends BaseCollectionPaginationCou
         writer.writeCollectionOfObjectValues<WorkbookChart>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a workbookChart
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: WorkbookChart[] | undefined) {

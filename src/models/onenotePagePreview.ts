@@ -5,11 +5,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class OnenotePagePreview implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The links property */
     private _links?: OnenotePagePreviewLinks | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The previewText property */
     private _previewText?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -43,42 +40,42 @@ export class OnenotePagePreview implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the links property value. The links property
+     * Gets the links property value. 
      * @returns a onenotePagePreviewLinks
      */
     public get links() {
         return this._links;
     };
     /**
-     * Sets the links property value. The links property
+     * Sets the links property value. 
      * @param value Value to set for the links property.
      */
     public set links(value: OnenotePagePreviewLinks | undefined) {
         this._links = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the previewText property value. The previewText property
+     * Gets the previewText property value. 
      * @returns a string
      */
     public get previewText() {
         return this._previewText;
     };
     /**
-     * Sets the previewText property value. The previewText property
+     * Sets the previewText property value. 
      * @param value Value to set for the previewText property.
      */
     public set previewText(value: string | undefined) {

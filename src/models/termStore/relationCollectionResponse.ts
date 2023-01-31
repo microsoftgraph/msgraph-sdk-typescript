@@ -4,7 +4,6 @@ import {Relation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RelationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: Relation[] | undefined;
     /**
      * Instantiates a new RelationCollectionResponse and sets the default values.
@@ -31,14 +30,14 @@ export class RelationCollectionResponse extends BaseCollectionPaginationCountRes
         writer.writeCollectionOfObjectValues<Relation>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a relation
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Relation[] | undefined) {

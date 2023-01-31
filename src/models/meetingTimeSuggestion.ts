@@ -16,7 +16,6 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
     private _locations?: Location[] | undefined;
     /** A time period suggested for the meeting. */
     private _meetingTimeSlot?: TimeSlot | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Order of meeting time suggestions sorted by their computed confidence value from high to low, then by chronology if there are suggestions with the same confidence. */
     private _order?: number | undefined;
@@ -117,14 +116,14 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
         this._meetingTimeSlot = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

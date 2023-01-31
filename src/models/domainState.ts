@@ -5,7 +5,6 @@ export class DomainState implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Timestamp for when the last activity occurred. The value is updated when an operation is scheduled, the asynchronous task starts, and when the operation completes. */
     private _lastActionDateTime?: Date | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Type of asynchronous operation. The values can be ForceDelete or Verification */
     private _operation?: string | undefined;
@@ -58,14 +57,14 @@ export class DomainState implements AdditionalDataHolder, Parsable {
         this._lastActionDateTime = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

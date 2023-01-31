@@ -4,7 +4,6 @@ import {EdiscoveryReviewSet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EdiscoveryReviewSetCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: EdiscoveryReviewSet[] | undefined;
     /**
      * Instantiates a new EdiscoveryReviewSetCollectionResponse and sets the default values.
@@ -31,14 +30,14 @@ export class EdiscoveryReviewSetCollectionResponse extends BaseCollectionPaginat
         writer.writeCollectionOfObjectValues<EdiscoveryReviewSet>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a ediscoveryReviewSet
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: EdiscoveryReviewSet[] | undefined) {

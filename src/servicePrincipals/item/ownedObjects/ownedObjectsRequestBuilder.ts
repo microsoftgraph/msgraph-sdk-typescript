@@ -2,47 +2,47 @@ import {DirectoryObjectCollectionResponse} from '../../../models/';
 import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {ApplicationRequestBuilder} from './application/applicationRequestBuilder';
-import {AppRoleAssignmentRequestBuilder} from './appRoleAssignment/appRoleAssignmentRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {EndpointRequestBuilder} from './endpoint/endpointRequestBuilder';
-import {GroupRequestBuilder} from './group/groupRequestBuilder';
+import {ApplicationRequestBuilder} from './microsoftGraphApplication/applicationRequestBuilder';
+import {AppRoleAssignmentRequestBuilder} from './microsoftGraphAppRoleAssignment/appRoleAssignmentRequestBuilder';
+import {EndpointRequestBuilder} from './microsoftGraphEndpoint/endpointRequestBuilder';
+import {GroupRequestBuilder} from './microsoftGraphGroup/groupRequestBuilder';
+import {ServicePrincipalRequestBuilder} from './microsoftGraphServicePrincipal/servicePrincipalRequestBuilder';
 import {OwnedObjectsRequestBuilderGetRequestConfiguration} from './ownedObjectsRequestBuilderGetRequestConfiguration';
-import {ServicePrincipalRequestBuilder} from './servicePrincipal/servicePrincipalRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the ownedObjects property of the microsoft.graph.servicePrincipal entity.
  */
 export class OwnedObjectsRequestBuilder {
-    /** Casts the previous resource to application. */
-    public get application(): ApplicationRequestBuilder {
-        return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Casts the previous resource to appRoleAssignment. */
-    public get appRoleAssignment(): AppRoleAssignmentRequestBuilder {
-        return new AppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Casts the previous resource to application. */
+    public get microsoftGraphApplication(): ApplicationRequestBuilder {
+        return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Casts the previous resource to appRoleAssignment. */
+    public get microsoftGraphAppRoleAssignment(): AppRoleAssignmentRequestBuilder {
+        return new AppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Casts the previous resource to endpoint. */
-    public get endpoint(): EndpointRequestBuilder {
+    public get microsoftGraphEndpoint(): EndpointRequestBuilder {
         return new EndpointRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to group. */
-    public get group(): GroupRequestBuilder {
+    public get microsoftGraphGroup(): GroupRequestBuilder {
         return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Casts the previous resource to servicePrincipal. */
+    public get microsoftGraphServicePrincipal(): ServicePrincipalRequestBuilder {
+        return new ServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Casts the previous resource to servicePrincipal. */
-    public get servicePrincipal(): ServicePrincipalRequestBuilder {
-        return new ServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

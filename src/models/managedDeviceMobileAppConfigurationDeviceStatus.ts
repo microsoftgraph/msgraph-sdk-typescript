@@ -14,7 +14,6 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity impl
     private _deviceModel?: string | undefined;
     /** Last modified date time of the policy report. */
     private _lastReportedDateTime?: Date | undefined;
-    /** The status property */
     private _status?: ComplianceStatus | undefined;
     /** The User Name that is being reported */
     private _userName?: string | undefined;
@@ -113,14 +112,14 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity impl
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. 
      * @returns a complianceStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. 
      * @param value Value to set for the status property.
      */
     public set status(value: ComplianceStatus | undefined) {

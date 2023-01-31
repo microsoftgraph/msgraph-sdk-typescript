@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, Pkcs12CertificateInformation} fro
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Pkcs12CertificateInformationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: Pkcs12CertificateInformation[] | undefined;
     /**
      * Instantiates a new Pkcs12CertificateInformationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class Pkcs12CertificateInformationCollectionResponse extends BaseCollecti
         writer.writeCollectionOfObjectValues<Pkcs12CertificateInformation>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a pkcs12CertificateInformation
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Pkcs12CertificateInformation[] | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, GroupSettingTemplate} from './ind
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class GroupSettingTemplateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: GroupSettingTemplate[] | undefined;
     /**
      * Instantiates a new GroupSettingTemplateCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class GroupSettingTemplateCollectionResponse extends BaseCollectionPagina
         writer.writeCollectionOfObjectValues<GroupSettingTemplate>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a groupSettingTemplate
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: GroupSettingTemplate[] | undefined) {

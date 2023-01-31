@@ -53,7 +53,6 @@ export class CalendarPermissionsRequestBuilder {
     };
     /**
      * Create a calendarPermission resource to specify the identity and role of the user with whom the specified calendar is being shared or delegated.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CalendarPermission
@@ -90,7 +89,6 @@ export class CalendarPermissionsRequestBuilder {
     };
     /**
      * Create a calendarPermission resource to specify the identity and role of the user with whom the specified calendar is being shared or delegated.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

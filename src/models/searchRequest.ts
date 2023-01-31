@@ -10,31 +10,18 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class SearchRequest implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The aggregationFilters property */
     private _aggregationFilters?: string[] | undefined;
-    /** The aggregations property */
     private _aggregations?: AggregationOption[] | undefined;
-    /** The contentSources property */
     private _contentSources?: string[] | undefined;
-    /** The enableTopResults property */
     private _enableTopResults?: boolean | undefined;
-    /** The entityTypes property */
     private _entityTypes?: EntityType[] | undefined;
-    /** The fields property */
     private _fields?: string[] | undefined;
-    /** The from property */
     private _from?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The query property */
     private _query?: SearchQuery | undefined;
-    /** The queryAlterationOptions property */
     private _queryAlterationOptions?: SearchAlterationOptions | undefined;
-    /** The resultTemplateOptions property */
     private _resultTemplateOptions?: ResultTemplateOption | undefined;
-    /** The size property */
     private _size?: number | undefined;
-    /** The sortProperties property */
     private _sortProperties?: SortProperty[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -51,28 +38,28 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the aggregationFilters property value. The aggregationFilters property
+     * Gets the aggregationFilters property value. 
      * @returns a string
      */
     public get aggregationFilters() {
         return this._aggregationFilters;
     };
     /**
-     * Sets the aggregationFilters property value. The aggregationFilters property
+     * Sets the aggregationFilters property value. 
      * @param value Value to set for the aggregationFilters property.
      */
     public set aggregationFilters(value: string[] | undefined) {
         this._aggregationFilters = value;
     };
     /**
-     * Gets the aggregations property value. The aggregations property
+     * Gets the aggregations property value. 
      * @returns a aggregationOption
      */
     public get aggregations() {
         return this._aggregations;
     };
     /**
-     * Sets the aggregations property value. The aggregations property
+     * Sets the aggregations property value. 
      * @param value Value to set for the aggregations property.
      */
     public set aggregations(value: AggregationOption[] | undefined) {
@@ -85,70 +72,70 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the contentSources property value. The contentSources property
+     * Gets the contentSources property value. 
      * @returns a string
      */
     public get contentSources() {
         return this._contentSources;
     };
     /**
-     * Sets the contentSources property value. The contentSources property
+     * Sets the contentSources property value. 
      * @param value Value to set for the contentSources property.
      */
     public set contentSources(value: string[] | undefined) {
         this._contentSources = value;
     };
     /**
-     * Gets the enableTopResults property value. The enableTopResults property
+     * Gets the enableTopResults property value. 
      * @returns a boolean
      */
     public get enableTopResults() {
         return this._enableTopResults;
     };
     /**
-     * Sets the enableTopResults property value. The enableTopResults property
+     * Sets the enableTopResults property value. 
      * @param value Value to set for the enableTopResults property.
      */
     public set enableTopResults(value: boolean | undefined) {
         this._enableTopResults = value;
     };
     /**
-     * Gets the entityTypes property value. The entityTypes property
+     * Gets the entityTypes property value. 
      * @returns a entityType
      */
     public get entityTypes() {
         return this._entityTypes;
     };
     /**
-     * Sets the entityTypes property value. The entityTypes property
+     * Sets the entityTypes property value. 
      * @param value Value to set for the entityTypes property.
      */
     public set entityTypes(value: EntityType[] | undefined) {
         this._entityTypes = value;
     };
     /**
-     * Gets the fields property value. The fields property
+     * Gets the fields property value. 
      * @returns a string
      */
     public get fields() {
         return this._fields;
     };
     /**
-     * Sets the fields property value. The fields property
+     * Sets the fields property value. 
      * @param value Value to set for the fields property.
      */
     public set fields(value: string[] | undefined) {
         this._fields = value;
     };
     /**
-     * Gets the from property value. The from property
+     * Gets the from property value. 
      * @returns a integer
      */
     public get from() {
         return this._from;
     };
     /**
-     * Sets the from property value. The from property
+     * Sets the from property value. 
      * @param value Value to set for the from property.
      */
     public set from(value: number | undefined) {
@@ -176,56 +163,56 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the query property value. The query property
+     * Gets the query property value. 
      * @returns a searchQuery
      */
     public get query() {
         return this._query;
     };
     /**
-     * Sets the query property value. The query property
+     * Sets the query property value. 
      * @param value Value to set for the query property.
      */
     public set query(value: SearchQuery | undefined) {
         this._query = value;
     };
     /**
-     * Gets the queryAlterationOptions property value. The queryAlterationOptions property
+     * Gets the queryAlterationOptions property value. 
      * @returns a searchAlterationOptions
      */
     public get queryAlterationOptions() {
         return this._queryAlterationOptions;
     };
     /**
-     * Sets the queryAlterationOptions property value. The queryAlterationOptions property
+     * Sets the queryAlterationOptions property value. 
      * @param value Value to set for the queryAlterationOptions property.
      */
     public set queryAlterationOptions(value: SearchAlterationOptions | undefined) {
         this._queryAlterationOptions = value;
     };
     /**
-     * Gets the resultTemplateOptions property value. The resultTemplateOptions property
+     * Gets the resultTemplateOptions property value. 
      * @returns a resultTemplateOption
      */
     public get resultTemplateOptions() {
         return this._resultTemplateOptions;
     };
     /**
-     * Sets the resultTemplateOptions property value. The resultTemplateOptions property
+     * Sets the resultTemplateOptions property value. 
      * @param value Value to set for the resultTemplateOptions property.
      */
     public set resultTemplateOptions(value: ResultTemplateOption | undefined) {
@@ -253,28 +240,28 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the size property value. The size property
+     * Gets the size property value. 
      * @returns a integer
      */
     public get size() {
         return this._size;
     };
     /**
-     * Sets the size property value. The size property
+     * Sets the size property value. 
      * @param value Value to set for the size property.
      */
     public set size(value: number | undefined) {
         this._size = value;
     };
     /**
-     * Gets the sortProperties property value. The sortProperties property
+     * Gets the sortProperties property value. 
      * @returns a sortProperty
      */
     public get sortProperties() {
         return this._sortProperties;
     };
     /**
-     * Sets the sortProperties property value. The sortProperties property
+     * Sets the sortProperties property value. 
      * @param value Value to set for the sortProperties property.
      */
     public set sortProperties(value: SortProperty[] | undefined) {

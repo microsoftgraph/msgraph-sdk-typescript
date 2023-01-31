@@ -14,7 +14,6 @@ export class AttachmentItem implements AdditionalDataHolder, Parsable {
     private _isInline?: boolean | undefined;
     /** The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required. */
     private _name?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The length of the attachment in bytes. Required. */
     private _size?: number | undefined;
@@ -124,14 +123,14 @@ export class AttachmentItem implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

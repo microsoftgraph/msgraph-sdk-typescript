@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, WorkbookComment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookCommentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: WorkbookComment[] | undefined;
     /**
      * Instantiates a new WorkbookCommentCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class WorkbookCommentCollectionResponse extends BaseCollectionPaginationC
         writer.writeCollectionOfObjectValues<WorkbookComment>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a workbookComment
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: WorkbookComment[] | undefined) {

@@ -3,7 +3,6 @@ import {AlertHistoryState, BaseCollectionPaginationCountResponse} from './index'
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AlertHistoryStateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AlertHistoryState[] | undefined;
     /**
      * Instantiates a new AlertHistoryStateCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AlertHistoryStateCollectionResponse extends BaseCollectionPaginatio
         writer.writeCollectionOfObjectValues<AlertHistoryState>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a alertHistoryState
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AlertHistoryState[] | undefined) {

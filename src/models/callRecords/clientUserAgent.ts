@@ -8,9 +8,7 @@ export class ClientUserAgent extends UserAgent implements Parsable {
     private _azureADAppId?: string | undefined;
     /** Immutable resource identifier of the Azure Communication Service associated with this endpoint based on Communication Services APIs. */
     private _communicationServiceId?: string | undefined;
-    /** The platform property */
     private _platform?: ClientPlatform | undefined;
-    /** The productFamily property */
     private _productFamily?: ProductFamily | undefined;
     /**
      * Gets the azureADAppId property value. The unique identifier of the Azure AD application used by this endpoint.
@@ -60,28 +58,28 @@ export class ClientUserAgent extends UserAgent implements Parsable {
         };
     };
     /**
-     * Gets the platform property value. The platform property
+     * Gets the platform property value. 
      * @returns a clientPlatform
      */
     public get platform() {
         return this._platform;
     };
     /**
-     * Sets the platform property value. The platform property
+     * Sets the platform property value. 
      * @param value Value to set for the platform property.
      */
     public set platform(value: ClientPlatform | undefined) {
         this._platform = value;
     };
     /**
-     * Gets the productFamily property value. The productFamily property
+     * Gets the productFamily property value. 
      * @returns a productFamily
      */
     public get productFamily() {
         return this._productFamily;
     };
     /**
-     * Sets the productFamily property value. The productFamily property
+     * Sets the productFamily property value. 
      * @param value Value to set for the productFamily property.
      */
     public set productFamily(value: ProductFamily | undefined) {

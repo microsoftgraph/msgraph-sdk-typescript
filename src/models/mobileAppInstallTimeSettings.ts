@@ -8,7 +8,6 @@ export class MobileAppInstallTimeSettings implements AdditionalDataHolder, Parsa
     private _additionalData: Record<string, unknown>;
     /** The time at which the app should be installed. */
     private _deadlineDateTime?: Date | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The time at which the app should be available for installation. */
     private _startDateTime?: Date | undefined;
@@ -61,14 +60,14 @@ export class MobileAppInstallTimeSettings implements AdditionalDataHolder, Parsa
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, PublicErrorDetail} from './index'
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PublicErrorDetailCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: PublicErrorDetail[] | undefined;
     /**
      * Instantiates a new PublicErrorDetailCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class PublicErrorDetailCollectionResponse extends BaseCollectionPaginatio
         writer.writeCollectionOfObjectValues<PublicErrorDetail>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a publicErrorDetail
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: PublicErrorDetail[] | undefined) {

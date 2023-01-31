@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, PrintTaskDefinition} from './inde
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintTaskDefinitionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: PrintTaskDefinition[] | undefined;
     /**
      * Instantiates a new PrintTaskDefinitionCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class PrintTaskDefinitionCollectionResponse extends BaseCollectionPaginat
         writer.writeCollectionOfObjectValues<PrintTaskDefinition>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a printTaskDefinition
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: PrintTaskDefinition[] | undefined) {

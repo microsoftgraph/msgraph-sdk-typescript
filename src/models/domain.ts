@@ -24,9 +24,7 @@ export class Domain extends Entity implements Parsable {
     private _isRoot?: boolean | undefined;
     /** true if the domain has completed domain ownership verification. Not nullable */
     private _isVerified?: boolean | undefined;
-    /** The manufacturer property */
     private _manufacturer?: string | undefined;
-    /** The model property */
     private _model?: string | undefined;
     /** Specifies the number of days before a user receives notification that their password will expire. If the property is not set, a default value of 14 days will be used. */
     private _passwordNotificationWindowInDays?: number | undefined;
@@ -69,7 +67,7 @@ export class Domain extends Entity implements Parsable {
         this._availabilityStatus = value;
     };
     /**
-     * Instantiates a new domain and sets the default values.
+     * Instantiates a new Domain and sets the default values.
      */
     public constructor() {
         super();
@@ -198,28 +196,28 @@ export class Domain extends Entity implements Parsable {
         this._isVerified = value;
     };
     /**
-     * Gets the manufacturer property value. The manufacturer property
+     * Gets the manufacturer property value. 
      * @returns a string
      */
     public get manufacturer() {
         return this._manufacturer;
     };
     /**
-     * Sets the manufacturer property value. The manufacturer property
+     * Sets the manufacturer property value. 
      * @param value Value to set for the manufacturer property.
      */
     public set manufacturer(value: string | undefined) {
         this._manufacturer = value;
     };
     /**
-     * Gets the model property value. The model property
+     * Gets the model property value. 
      * @returns a string
      */
     public get model() {
         return this._model;
     };
     /**
-     * Sets the model property value. The model property
+     * Sets the model property value. 
      * @param value Value to set for the model property.
      */
     public set model(value: string | undefined) {

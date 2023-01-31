@@ -7,7 +7,6 @@ export class OcrSettings implements AdditionalDataHolder, Parsable {
     private _isEnabled?: boolean | undefined;
     /** Maximum image size that will be processed in KB). */
     private _maxImageSize?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The timeout duration for the OCR engine. A longer timeout might increase success of OCR, but might add to the total processing time. */
     private _timeout?: Duration | undefined;
@@ -72,14 +71,14 @@ export class OcrSettings implements AdditionalDataHolder, Parsable {
         this._maxImageSize = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

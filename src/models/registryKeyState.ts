@@ -10,7 +10,6 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
     private _hive?: RegistryHive | undefined;
     /** Current (i.e. changed) registry key (excludes HIVE). */
     private _key?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Previous (i.e. before changed) registry key (excludes HIVE). */
     private _oldKey?: string | undefined;
@@ -96,14 +95,14 @@ export class RegistryKeyState implements AdditionalDataHolder, Parsable {
         this._key = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, DeviceComplianceScheduledActionFo
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceComplianceScheduledActionForRuleCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: DeviceComplianceScheduledActionForRule[] | undefined;
     /**
      * Instantiates a new DeviceComplianceScheduledActionForRuleCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class DeviceComplianceScheduledActionForRuleCollectionResponse extends Ba
         writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRule>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a deviceComplianceScheduledActionForRule
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: DeviceComplianceScheduledActionForRule[] | undefined) {

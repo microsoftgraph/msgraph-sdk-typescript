@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, CallRoute} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CallRouteCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: CallRoute[] | undefined;
     /**
      * Instantiates a new CallRouteCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class CallRouteCollectionResponse extends BaseCollectionPaginationCountRe
         writer.writeCollectionOfObjectValues<CallRoute>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a callRoute
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: CallRoute[] | undefined) {

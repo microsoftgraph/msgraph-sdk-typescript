@@ -16,7 +16,6 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class ChatMessage extends Entity implements Parsable {
     /** References to attached objects like files, tabs, meetings etc. */
     private _attachments?: ChatMessageAttachment[] | undefined;
-    /** The body property */
     private _body?: ItemBody | undefined;
     /** If the message was sent in a channel, represents identity of the channel. */
     private _channelIdentity?: ChannelIdentity | undefined;
@@ -34,7 +33,6 @@ export class ChatMessage extends Entity implements Parsable {
     private _from?: ChatMessageFromIdentitySet | undefined;
     /** Content in a message hosted by Microsoft Teams - for example, images or code snippets. */
     private _hostedContents?: ChatMessageHostedContent[] | undefined;
-    /** The importance property */
     private _importance?: ChatMessageImportance | undefined;
     /** Read only. Timestamp when edits to the chat message were made. Triggers an 'Edited' flag in the Teams UI. If no edits are made the value is null. */
     private _lastEditedDateTime?: Date | undefined;
@@ -44,7 +42,6 @@ export class ChatMessage extends Entity implements Parsable {
     private _locale?: string | undefined;
     /** List of entities mentioned in the chat message. Supported entities are: user, bot, team, and channel. */
     private _mentions?: ChatMessageMention[] | undefined;
-    /** The messageType property */
     private _messageType?: ChatMessageType | undefined;
     /** Defines the properties of a policy violation set by a data loss prevention (DLP) application. */
     private _policyViolation?: ChatMessagePolicyViolation | undefined;
@@ -75,14 +72,14 @@ export class ChatMessage extends Entity implements Parsable {
         this._attachments = value;
     };
     /**
-     * Gets the body property value. The body property
+     * Gets the body property value. 
      * @returns a itemBody
      */
     public get body() {
         return this._body;
     };
     /**
-     * Sets the body property value. The body property
+     * Sets the body property value. 
      * @param value Value to set for the body property.
      */
     public set body(value: ItemBody | undefined) {
@@ -238,14 +235,14 @@ export class ChatMessage extends Entity implements Parsable {
         this._hostedContents = value;
     };
     /**
-     * Gets the importance property value. The importance property
+     * Gets the importance property value. 
      * @returns a chatMessageImportance
      */
     public get importance() {
         return this._importance;
     };
     /**
-     * Sets the importance property value. The importance property
+     * Sets the importance property value. 
      * @param value Value to set for the importance property.
      */
     public set importance(value: ChatMessageImportance | undefined) {
@@ -308,14 +305,14 @@ export class ChatMessage extends Entity implements Parsable {
         this._mentions = value;
     };
     /**
-     * Gets the messageType property value. The messageType property
+     * Gets the messageType property value. 
      * @returns a chatMessageType
      */
     public get messageType() {
         return this._messageType;
     };
     /**
-     * Sets the messageType property value. The messageType property
+     * Sets the messageType property value. 
      * @param value Value to set for the messageType property.
      */
     public set messageType(value: ChatMessageType | undefined) {

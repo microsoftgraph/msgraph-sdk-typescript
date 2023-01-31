@@ -5,11 +5,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class SearchAggregation implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The buckets property */
     private _buckets?: SearchBucket[] | undefined;
-    /** The field property */
     private _field?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -26,14 +23,14 @@ export class SearchAggregation implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the buckets property value. The buckets property
+     * Gets the buckets property value. 
      * @returns a searchBucket
      */
     public get buckets() {
         return this._buckets;
     };
     /**
-     * Sets the buckets property value. The buckets property
+     * Sets the buckets property value. 
      * @param value Value to set for the buckets property.
      */
     public set buckets(value: SearchBucket[] | undefined) {
@@ -46,14 +43,14 @@ export class SearchAggregation implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the field property value. The field property
+     * Gets the field property value. 
      * @returns a string
      */
     public get field() {
         return this._field;
     };
     /**
-     * Sets the field property value. The field property
+     * Sets the field property value. 
      * @param value Value to set for the field property.
      */
     public set field(value: string | undefined) {
@@ -71,14 +68,14 @@ export class SearchAggregation implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

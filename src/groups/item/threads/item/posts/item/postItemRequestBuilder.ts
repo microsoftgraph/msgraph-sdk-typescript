@@ -6,12 +6,12 @@ import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder
 import {AttachmentItemRequestBuilder} from './attachments/item/attachmentItemRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
-import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
 import {InReplyToRequestBuilder} from './inReplyTo/inReplyToRequestBuilder';
+import {ForwardRequestBuilder} from './microsoftGraphForward/forwardRequestBuilder';
+import {ReplyRequestBuilder} from './microsoftGraphReply/replyRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
 import {PostItemRequestBuilderGetRequestConfiguration} from './postItemRequestBuilderGetRequestConfiguration';
-import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
 import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyItemRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -28,13 +28,17 @@ export class PostItemRequestBuilder {
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the forward method. */
-    public get forward(): ForwardRequestBuilder {
-        return new ForwardRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the inReplyTo property of the microsoft.graph.post entity. */
     public get inReplyTo(): InReplyToRequestBuilder {
         return new InReplyToRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the forward method. */
+    public get microsoftGraphForward(): ForwardRequestBuilder {
+        return new ForwardRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the reply method. */
+    public get microsoftGraphReply(): ReplyRequestBuilder {
+        return new ReplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.post entity. */
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
@@ -42,10 +46,6 @@ export class PostItemRequestBuilder {
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
-    /** Provides operations to call the reply method. */
-    public get reply(): ReplyRequestBuilder {
-        return new ReplyRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.post entity. */
@@ -68,13 +68,15 @@ export class PostItemRequestBuilder {
     /**
      * Instantiates a new PostItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param postId key: id of post
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, postId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["post%2Did"] = postId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

@@ -13,7 +13,6 @@ export class ItemReference implements AdditionalDataHolder, Parsable {
     private _id?: string | undefined;
     /** The name of the item being referenced. Read-only. */
     private _name?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Path that can be used to navigate to the item. Read-only. */
     private _path?: string | undefined;
@@ -117,14 +116,14 @@ export class ItemReference implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

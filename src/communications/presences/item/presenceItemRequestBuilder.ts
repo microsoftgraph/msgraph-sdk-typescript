@@ -2,13 +2,13 @@ import {Presence} from '../../../models/';
 import {createPresenceFromDiscriminatorValue} from '../../../models/createPresenceFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {ClearPresenceRequestBuilder} from './clearPresence/clearPresenceRequestBuilder';
-import {ClearUserPreferredPresenceRequestBuilder} from './clearUserPreferredPresence/clearUserPreferredPresenceRequestBuilder';
+import {ClearPresenceRequestBuilder} from './microsoftGraphClearPresence/clearPresenceRequestBuilder';
+import {ClearUserPreferredPresenceRequestBuilder} from './microsoftGraphClearUserPreferredPresence/clearUserPreferredPresenceRequestBuilder';
+import {SetPresenceRequestBuilder} from './microsoftGraphSetPresence/setPresenceRequestBuilder';
+import {SetUserPreferredPresenceRequestBuilder} from './microsoftGraphSetUserPreferredPresence/setUserPreferredPresenceRequestBuilder';
 import {PresenceItemRequestBuilderDeleteRequestConfiguration} from './presenceItemRequestBuilderDeleteRequestConfiguration';
 import {PresenceItemRequestBuilderGetRequestConfiguration} from './presenceItemRequestBuilderGetRequestConfiguration';
 import {PresenceItemRequestBuilderPatchRequestConfiguration} from './presenceItemRequestBuilderPatchRequestConfiguration';
-import {SetPresenceRequestBuilder} from './setPresence/setPresenceRequestBuilder';
-import {SetUserPreferredPresenceRequestBuilder} from './setUserPreferredPresence/setUserPreferredPresenceRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -16,37 +16,39 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class PresenceItemRequestBuilder {
     /** Provides operations to call the clearPresence method. */
-    public get clearPresence(): ClearPresenceRequestBuilder {
+    public get microsoftGraphClearPresence(): ClearPresenceRequestBuilder {
         return new ClearPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the clearUserPreferredPresence method. */
-    public get clearUserPreferredPresence(): ClearUserPreferredPresenceRequestBuilder {
+    public get microsoftGraphClearUserPreferredPresence(): ClearUserPreferredPresenceRequestBuilder {
         return new ClearUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the setPresence method. */
+    public get microsoftGraphSetPresence(): SetPresenceRequestBuilder {
+        return new SetPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the setUserPreferredPresence method. */
+    public get microsoftGraphSetUserPreferredPresence(): SetUserPreferredPresenceRequestBuilder {
+        return new SetUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the setPresence method. */
-    public get setPresence(): SetPresenceRequestBuilder {
-        return new SetPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the setUserPreferredPresence method. */
-    public get setUserPreferredPresence(): SetUserPreferredPresenceRequestBuilder {
-        return new SetUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new PresenceItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param presenceId key: id of presence
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, presenceId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/communications/presences/{presence%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["presence%2Did"] = presenceId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -83,7 +85,6 @@ export class PresenceItemRequestBuilder {
     };
     /**
      * Update the navigation property presences in communications
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Presence
@@ -135,7 +136,6 @@ export class PresenceItemRequestBuilder {
     };
     /**
      * Update the navigation property presences in communications
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

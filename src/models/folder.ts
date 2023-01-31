@@ -7,7 +7,6 @@ export class Folder implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Number of children contained immediately within this container. */
     private _childCount?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** A collection of properties defining the recommended view for the folder. */
     private _view?: FolderView | undefined;
@@ -57,14 +56,14 @@ export class Folder implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

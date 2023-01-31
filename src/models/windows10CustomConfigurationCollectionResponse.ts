@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, Windows10CustomConfiguration} fro
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Windows10CustomConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: Windows10CustomConfiguration[] | undefined;
     /**
      * Instantiates a new Windows10CustomConfigurationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class Windows10CustomConfigurationCollectionResponse extends BaseCollecti
         writer.writeCollectionOfObjectValues<Windows10CustomConfiguration>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a windows10CustomConfiguration
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Windows10CustomConfiguration[] | undefined) {

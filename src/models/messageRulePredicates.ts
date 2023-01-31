@@ -49,7 +49,6 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
     private _messageActionFlag?: MessageActionFlag | undefined;
     /** Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply. */
     private _notSentToMe?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Represents the strings that appear in either the toRecipients or ccRecipients properties of an incoming message in order for the condition or exception to apply. */
     private _recipientContains?: string[] | undefined;
@@ -411,14 +410,14 @@ export class MessageRulePredicates implements AdditionalDataHolder, Parsable {
         this._notSentToMe = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -3,7 +3,6 @@ import {AlertTrigger, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AlertTriggerCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AlertTrigger[] | undefined;
     /**
      * Instantiates a new AlertTriggerCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AlertTriggerCollectionResponse extends BaseCollectionPaginationCoun
         writer.writeCollectionOfObjectValues<AlertTrigger>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a alertTrigger
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AlertTrigger[] | undefined) {

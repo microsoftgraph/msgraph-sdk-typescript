@@ -11,7 +11,6 @@ export class AccessPackageAssignmentRequestRequirements implements AdditionalDat
     private _isApprovalRequiredForAdd?: boolean | undefined;
     /** Indicates whether a request to update must be approved by an approver. */
     private _isApprovalRequiredForUpdate?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The description of the policy that the user is trying to request access using. */
     private _policyDescription?: string | undefined;
@@ -100,14 +99,14 @@ export class AccessPackageAssignmentRequestRequirements implements AdditionalDat
         this._isApprovalRequiredForUpdate = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

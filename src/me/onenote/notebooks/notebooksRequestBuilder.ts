@@ -4,8 +4,8 @@ import {createNotebookFromDiscriminatorValue} from '../../../models/createNotebo
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetNotebookFromWebUrlRequestBuilder} from './getNotebookFromWebUrl/getNotebookFromWebUrlRequestBuilder';
-import {GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder} from './getRecentNotebooksWithIncludePersonalNotebooks/getRecentNotebooksWithIncludePersonalNotebooksRequestBuilder';
+import {GetNotebookFromWebUrlRequestBuilder} from './microsoftGraphGetNotebookFromWebUrl/getNotebookFromWebUrlRequestBuilder';
+import {GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder} from './microsoftGraphGetRecentNotebooksWithIncludePersonalNotebooks/getRecentNotebooksWithIncludePersonalNotebooksRequestBuilder';
 import {NotebooksRequestBuilderGetRequestConfiguration} from './notebooksRequestBuilderGetRequestConfiguration';
 import {NotebooksRequestBuilderPostRequestConfiguration} from './notebooksRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -19,7 +19,7 @@ export class NotebooksRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getNotebookFromWebUrl method. */
-    public get getNotebookFromWebUrl(): GetNotebookFromWebUrlRequestBuilder {
+    public get microsoftGraphGetNotebookFromWebUrl(): GetNotebookFromWebUrlRequestBuilder {
         return new GetNotebookFromWebUrlRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
@@ -63,13 +63,12 @@ export class NotebooksRequestBuilder {
      * @param includePersonalNotebooks Usage: includePersonalNotebooks={includePersonalNotebooks}
      * @returns a getRecentNotebooksWithIncludePersonalNotebooksRequestBuilder
      */
-    public getRecentNotebooksWithIncludePersonalNotebooks(includePersonalNotebooks: boolean | undefined) : GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder {
+    public microsoftGraphGetRecentNotebooksWithIncludePersonalNotebooks(includePersonalNotebooks: boolean | undefined) : GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder {
         if(!includePersonalNotebooks) throw new Error("includePersonalNotebooks cannot be undefined");
         return new GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder(this.pathParameters, this.requestAdapter, includePersonalNotebooks);
     };
     /**
      * Create a new OneNote notebook.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Notebook
@@ -106,7 +105,6 @@ export class NotebooksRequestBuilder {
     };
     /**
      * Create a new OneNote notebook.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

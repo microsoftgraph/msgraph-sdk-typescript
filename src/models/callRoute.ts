@@ -6,13 +6,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class CallRoute implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The final property */
     private _final?: IdentitySet | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The original property */
     private _original?: IdentitySet | undefined;
-    /** The routingType property */
     private _routingType?: RoutingType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -35,14 +31,14 @@ export class CallRoute implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the final property value. The final property
+     * Gets the final property value. 
      * @returns a identitySet
      */
     public get final() {
         return this._final;
     };
     /**
-     * Sets the final property value. The final property
+     * Sets the final property value. 
      * @param value Value to set for the final property.
      */
     public set final(value: IdentitySet | undefined) {
@@ -61,42 +57,42 @@ export class CallRoute implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the original property value. The original property
+     * Gets the original property value. 
      * @returns a identitySet
      */
     public get original() {
         return this._original;
     };
     /**
-     * Sets the original property value. The original property
+     * Sets the original property value. 
      * @param value Value to set for the original property.
      */
     public set original(value: IdentitySet | undefined) {
         this._original = value;
     };
     /**
-     * Gets the routingType property value. The routingType property
+     * Gets the routingType property value. 
      * @returns a routingType
      */
     public get routingType() {
         return this._routingType;
     };
     /**
-     * Sets the routingType property value. The routingType property
+     * Sets the routingType property value. 
      * @param value Value to set for the routingType property.
      */
     public set routingType(value: RoutingType | undefined) {

@@ -7,11 +7,9 @@ export class ConditionalAccessApplications implements AdditionalDataHolder, Pars
     private _excludeApplications?: string[] | undefined;
     /** Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365 */
     private _includeApplications?: string[] | undefined;
-    /** The includeAuthenticationContextClassReferences property */
     private _includeAuthenticationContextClassReferences?: string[] | undefined;
     /** User actions to include. Supported values are urn:user:registersecurityinfo and urn:user:registerdevice */
     private _includeUserActions?: string[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -75,14 +73,14 @@ export class ConditionalAccessApplications implements AdditionalDataHolder, Pars
         this._includeApplications = value;
     };
     /**
-     * Gets the includeAuthenticationContextClassReferences property value. The includeAuthenticationContextClassReferences property
+     * Gets the includeAuthenticationContextClassReferences property value. 
      * @returns a string
      */
     public get includeAuthenticationContextClassReferences() {
         return this._includeAuthenticationContextClassReferences;
     };
     /**
-     * Sets the includeAuthenticationContextClassReferences property value. The includeAuthenticationContextClassReferences property
+     * Sets the includeAuthenticationContextClassReferences property value. 
      * @param value Value to set for the includeAuthenticationContextClassReferences property.
      */
     public set includeAuthenticationContextClassReferences(value: string[] | undefined) {
@@ -103,14 +101,14 @@ export class ConditionalAccessApplications implements AdditionalDataHolder, Pars
         this._includeUserActions = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, UsedInsight} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UsedInsightCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: UsedInsight[] | undefined;
     /**
      * Instantiates a new UsedInsightCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class UsedInsightCollectionResponse extends BaseCollectionPaginationCount
         writer.writeCollectionOfObjectValues<UsedInsight>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a usedInsight
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: UsedInsight[] | undefined) {

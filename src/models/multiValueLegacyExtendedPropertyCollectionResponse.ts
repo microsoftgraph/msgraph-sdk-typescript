@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, MultiValueLegacyExtendedProperty}
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MultiValueLegacyExtendedPropertyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: MultiValueLegacyExtendedProperty[] | undefined;
     /**
      * Instantiates a new MultiValueLegacyExtendedPropertyCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class MultiValueLegacyExtendedPropertyCollectionResponse extends BaseColl
         writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedProperty>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a multiValueLegacyExtendedProperty
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: MultiValueLegacyExtendedProperty[] | undefined) {

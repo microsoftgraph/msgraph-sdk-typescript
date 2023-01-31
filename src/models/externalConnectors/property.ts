@@ -19,9 +19,7 @@ export class Property implements AdditionalDataHolder, Parsable {
     private _labels?: Label[] | undefined;
     /** The name of the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &, ?, @, #, /, ~, ', ', <, >, `, ^.  Required. */
     private _name?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The type property */
     private _type?: PropertyType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -159,14 +157,14 @@ export class Property implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -190,14 +188,14 @@ export class Property implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. The type property
+     * Gets the type property value. 
      * @returns a propertyType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The type property
+     * Sets the type property value. 
      * @param value Value to set for the type property.
      */
     public set type(value: PropertyType | undefined) {

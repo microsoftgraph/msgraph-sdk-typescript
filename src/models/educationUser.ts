@@ -53,7 +53,6 @@ export class EducationUser extends Entity implements Parsable {
     private _middleName?: string | undefined;
     /** The primary cellular telephone number for the user. */
     private _mobilePhone?: string | undefined;
-    /** The officeLocation property */
     private _officeLocation?: string | undefined;
     /** Additional information used to associate the Azure Active Directory user with its Active Directory counterpart. */
     private _onPremisesInfo?: EducationOnPremisesInfo | undefined;
@@ -63,11 +62,9 @@ export class EducationUser extends Entity implements Parsable {
     private _passwordProfile?: PasswordProfile | undefined;
     /** The preferred language for the user that should follow the ISO 639-1 code, for example, en-US. */
     private _preferredLanguage?: string | undefined;
-    /** The primaryRole property */
     private _primaryRole?: EducationUserRole | undefined;
     /** The plans that are provisioned for the user. Read-only. Not nullable. */
     private _provisionedPlans?: ProvisionedPlan[] | undefined;
-    /** The refreshTokensValidFromDateTime property */
     private _refreshTokensValidFromDateTime?: Date | undefined;
     /** Related records associated with the user. Read-only. */
     private _relatedContacts?: RelatedContact[] | undefined;
@@ -386,14 +383,14 @@ export class EducationUser extends Entity implements Parsable {
         this._mobilePhone = value;
     };
     /**
-     * Gets the officeLocation property value. The officeLocation property
+     * Gets the officeLocation property value. 
      * @returns a string
      */
     public get officeLocation() {
         return this._officeLocation;
     };
     /**
-     * Sets the officeLocation property value. The officeLocation property
+     * Sets the officeLocation property value. 
      * @param value Value to set for the officeLocation property.
      */
     public set officeLocation(value: string | undefined) {
@@ -456,14 +453,14 @@ export class EducationUser extends Entity implements Parsable {
         this._preferredLanguage = value;
     };
     /**
-     * Gets the primaryRole property value. The primaryRole property
+     * Gets the primaryRole property value. 
      * @returns a educationUserRole
      */
     public get primaryRole() {
         return this._primaryRole;
     };
     /**
-     * Sets the primaryRole property value. The primaryRole property
+     * Sets the primaryRole property value. 
      * @param value Value to set for the primaryRole property.
      */
     public set primaryRole(value: EducationUserRole | undefined) {
@@ -484,14 +481,14 @@ export class EducationUser extends Entity implements Parsable {
         this._provisionedPlans = value;
     };
     /**
-     * Gets the refreshTokensValidFromDateTime property value. The refreshTokensValidFromDateTime property
+     * Gets the refreshTokensValidFromDateTime property value. 
      * @returns a Date
      */
     public get refreshTokensValidFromDateTime() {
         return this._refreshTokensValidFromDateTime;
     };
     /**
-     * Sets the refreshTokensValidFromDateTime property value. The refreshTokensValidFromDateTime property
+     * Sets the refreshTokensValidFromDateTime property value. 
      * @param value Value to set for the refreshTokensValidFromDateTime property.
      */
     public set refreshTokensValidFromDateTime(value: Date | undefined) {

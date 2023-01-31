@@ -6,13 +6,11 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class SearchHitsContainer implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The aggregations property */
     private _aggregations?: SearchAggregation[] | undefined;
     /** A collection of the search results. */
     private _hits?: SearchHit[] | undefined;
     /** Provides information if more results are available. Based on this information, you can adjust the from and size properties of the searchRequest accordingly. */
     private _moreResultsAvailable?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The total number of results. Note this is not the number of results on the page, but the total number of results satisfying the query. */
     private _total?: number | undefined;
@@ -31,14 +29,14 @@ export class SearchHitsContainer implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the aggregations property value. The aggregations property
+     * Gets the aggregations property value. 
      * @returns a searchAggregation
      */
     public get aggregations() {
         return this._aggregations;
     };
     /**
-     * Sets the aggregations property value. The aggregations property
+     * Sets the aggregations property value. 
      * @param value Value to set for the aggregations property.
      */
     public set aggregations(value: SearchAggregation[] | undefined) {
@@ -92,14 +90,14 @@ export class SearchHitsContainer implements AdditionalDataHolder, Parsable {
         this._moreResultsAvailable = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

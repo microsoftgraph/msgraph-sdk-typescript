@@ -18,7 +18,6 @@ export class RecurrencePattern implements AdditionalDataHolder, Parsable {
     private _interval?: number | undefined;
     /** The month in which the event occurs.  This is a number from 1 to 12. */
     private _month?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The recurrence pattern type: daily, weekly, absoluteMonthly, relativeMonthly, absoluteYearly, relativeYearly. Required. For more information, see values of type property. */
     private _type?: RecurrencePatternType | undefined;
@@ -143,14 +142,14 @@ export class RecurrencePattern implements AdditionalDataHolder, Parsable {
         this._month = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

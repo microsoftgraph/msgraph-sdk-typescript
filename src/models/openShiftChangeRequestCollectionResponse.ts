@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, OpenShiftChangeRequest} from './i
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OpenShiftChangeRequestCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: OpenShiftChangeRequest[] | undefined;
     /**
      * Instantiates a new OpenShiftChangeRequestCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class OpenShiftChangeRequestCollectionResponse extends BaseCollectionPagi
         writer.writeCollectionOfObjectValues<OpenShiftChangeRequest>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a openShiftChangeRequest
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: OpenShiftChangeRequest[] | undefined) {

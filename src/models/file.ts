@@ -9,9 +9,7 @@ export class File implements AdditionalDataHolder, Parsable {
     private _hashes?: Hashes | undefined;
     /** The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only. */
     private _mimeType?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The processingMetadata property */
     private _processingMetadata?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -74,28 +72,28 @@ export class File implements AdditionalDataHolder, Parsable {
         this._mimeType = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the processingMetadata property value. The processingMetadata property
+     * Gets the processingMetadata property value. 
      * @returns a boolean
      */
     public get processingMetadata() {
         return this._processingMetadata;
     };
     /**
-     * Sets the processingMetadata property value. The processingMetadata property
+     * Sets the processingMetadata property value. 
      * @param value Value to set for the processingMetadata property.
      */
     public set processingMetadata(value: boolean | undefined) {

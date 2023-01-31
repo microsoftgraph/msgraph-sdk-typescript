@@ -11,15 +11,12 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
     private _allowedContentTypes?: ContentTypeInfo[] | undefined;
     /** Default contents of document set. */
     private _defaultContents?: DocumentSetContent[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Specifies whether to push welcome page changes to inherited content types. */
     private _propagateWelcomePageChanges?: boolean | undefined;
-    /** The sharedColumns property */
     private _sharedColumns?: ColumnDefinition[] | undefined;
     /** Indicates whether to add the name of the document set to each file name. */
     private _shouldPrefixNameToFile?: boolean | undefined;
-    /** The welcomePageColumns property */
     private _welcomePageColumns?: ColumnDefinition[] | undefined;
     /** Welcome page absolute URL. */
     private _welcomePageUrl?: string | undefined;
@@ -88,14 +85,14 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -132,14 +129,14 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the sharedColumns property value. The sharedColumns property
+     * Gets the sharedColumns property value. 
      * @returns a columnDefinition
      */
     public get sharedColumns() {
         return this._sharedColumns;
     };
     /**
-     * Sets the sharedColumns property value. The sharedColumns property
+     * Sets the sharedColumns property value. 
      * @param value Value to set for the sharedColumns property.
      */
     public set sharedColumns(value: ColumnDefinition[] | undefined) {
@@ -160,14 +157,14 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
         this._shouldPrefixNameToFile = value;
     };
     /**
-     * Gets the welcomePageColumns property value. The welcomePageColumns property
+     * Gets the welcomePageColumns property value. 
      * @returns a columnDefinition
      */
     public get welcomePageColumns() {
         return this._welcomePageColumns;
     };
     /**
-     * Sets the welcomePageColumns property value. The welcomePageColumns property
+     * Sets the welcomePageColumns property value. 
      * @param value Value to set for the welcomePageColumns property.
      */
     public set welcomePageColumns(value: ColumnDefinition[] | undefined) {

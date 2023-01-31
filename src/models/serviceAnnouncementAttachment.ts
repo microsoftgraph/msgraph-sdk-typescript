@@ -4,13 +4,9 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class ServiceAnnouncementAttachment extends Entity implements Parsable {
     /** The attachment content. */
     private _content?: string | undefined;
-    /** The contentType property */
     private _contentType?: string | undefined;
-    /** The lastModifiedDateTime property */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The name property */
     private _name?: string | undefined;
-    /** The size property */
     private _size?: number | undefined;
     /**
      * Instantiates a new serviceAnnouncementAttachment and sets the default values.
@@ -33,14 +29,14 @@ export class ServiceAnnouncementAttachment extends Entity implements Parsable {
         this._content = value;
     };
     /**
-     * Gets the contentType property value. The contentType property
+     * Gets the contentType property value. 
      * @returns a string
      */
     public get contentType() {
         return this._contentType;
     };
     /**
-     * Sets the contentType property value. The contentType property
+     * Sets the contentType property value. 
      * @param value Value to set for the contentType property.
      */
     public set contentType(value: string | undefined) {
@@ -60,28 +56,28 @@ export class ServiceAnnouncementAttachment extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. 
      * @returns a Date
      */
     public get lastModifiedDateTime() {
         return this._lastModifiedDateTime;
     };
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. 
      * @param value Value to set for the lastModifiedDateTime property.
      */
     public set lastModifiedDateTime(value: Date | undefined) {
         this._lastModifiedDateTime = value;
     };
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. 
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. 
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {
@@ -101,14 +97,14 @@ export class ServiceAnnouncementAttachment extends Entity implements Parsable {
         writer.writeNumberValue("size", this.size);
     };
     /**
-     * Gets the size property value. The size property
+     * Gets the size property value. 
      * @returns a integer
      */
     public get size() {
         return this._size;
     };
     /**
-     * Sets the size property value. The size property
+     * Sets the size property value. 
      * @param value Value to set for the size property.
      */
     public set size(value: number | undefined) {

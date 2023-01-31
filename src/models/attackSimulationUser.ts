@@ -7,7 +7,6 @@ export class AttackSimulationUser implements AdditionalDataHolder, Parsable {
     private _displayName?: string | undefined;
     /** Email address of the user. */
     private _email?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** This is the id property value of the user resource that represents the user in the Azure Active Directory tenant. */
     private _userId?: string | undefined;
@@ -72,14 +71,14 @@ export class AttackSimulationUser implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

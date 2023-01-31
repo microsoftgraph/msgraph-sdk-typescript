@@ -19,7 +19,6 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
     private _isApproverJustificationRequired?: boolean | undefined;
     /** If true, then one or more escalationApprovers are configured in this approval stage. */
     private _isEscalationEnabled?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The subjects, typically users, who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors or externalSponsors. */
     private _primaryApprovers?: SubjectSet[] | undefined;
@@ -159,14 +158,14 @@ export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsabl
         this._isEscalationEnabled = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

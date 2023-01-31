@@ -3,7 +3,6 @@ import {AccessReviewStage, BaseCollectionPaginationCountResponse} from './index'
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewStageCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AccessReviewStage[] | undefined;
     /**
      * Instantiates a new AccessReviewStageCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AccessReviewStageCollectionResponse extends BaseCollectionPaginatio
         writer.writeCollectionOfObjectValues<AccessReviewStage>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a accessReviewStage
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AccessReviewStage[] | undefined) {

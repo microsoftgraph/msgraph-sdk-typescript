@@ -27,7 +27,6 @@ export class MailTips implements AdditionalDataHolder, Parsable {
     private _mailboxFull?: boolean | undefined;
     /** The maximum message size that has been configured for the recipient's organization or mailbox. */
     private _maxMessageSize?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The scope of the recipient. Possible values are: none, internal, external, externalPartner, externalNonParther. For example, an administrator can set another organization to be its 'partner'. The scope is useful if an administrator wants certain mailtips to be accessible to certain scopes. It's also useful to senders to inform them that their message may leave the organization, helping them make the correct decisions about wording, tone and content. */
     private _recipientScope?: RecipientScopeType | undefined;
@@ -203,14 +202,14 @@ export class MailTips implements AdditionalDataHolder, Parsable {
         this._maxMessageSize = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

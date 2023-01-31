@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, TodoTaskList} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TodoTaskListCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: TodoTaskList[] | undefined;
     /**
      * Instantiates a new TodoTaskListCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class TodoTaskListCollectionResponse extends BaseCollectionPaginationCoun
         writer.writeCollectionOfObjectValues<TodoTaskList>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a todoTaskList
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: TodoTaskList[] | undefined) {

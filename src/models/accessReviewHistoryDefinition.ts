@@ -8,7 +8,6 @@ import {AccessReviewHistoryInstance, AccessReviewHistoryScheduleSettings, Access
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewHistoryDefinition extends Entity implements Parsable {
-    /** The createdBy property */
     private _createdBy?: UserIdentity | undefined;
     /** Timestamp when the access review definition was created. */
     private _createdDateTime?: Date | undefined;
@@ -35,14 +34,14 @@ export class AccessReviewHistoryDefinition extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. 
      * @returns a userIdentity
      */
     public get createdBy() {
         return this._createdBy;
     };
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. 
      * @param value Value to set for the createdBy property.
      */
     public set createdBy(value: UserIdentity | undefined) {

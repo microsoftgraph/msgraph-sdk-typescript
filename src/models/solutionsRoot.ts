@@ -6,11 +6,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class SolutionsRoot implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The bookingBusinesses property */
     private _bookingBusinesses?: BookingBusiness[] | undefined;
-    /** The bookingCurrencies property */
     private _bookingCurrencies?: BookingCurrency[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -27,28 +24,28 @@ export class SolutionsRoot implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the bookingBusinesses property value. The bookingBusinesses property
+     * Gets the bookingBusinesses property value. 
      * @returns a bookingBusiness
      */
     public get bookingBusinesses() {
         return this._bookingBusinesses;
     };
     /**
-     * Sets the bookingBusinesses property value. The bookingBusinesses property
+     * Sets the bookingBusinesses property value. 
      * @param value Value to set for the bookingBusinesses property.
      */
     public set bookingBusinesses(value: BookingBusiness[] | undefined) {
         this._bookingBusinesses = value;
     };
     /**
-     * Gets the bookingCurrencies property value. The bookingCurrencies property
+     * Gets the bookingCurrencies property value. 
      * @returns a bookingCurrency
      */
     public get bookingCurrencies() {
         return this._bookingCurrencies;
     };
     /**
-     * Sets the bookingCurrencies property value. The bookingCurrencies property
+     * Sets the bookingCurrencies property value. 
      * @param value Value to set for the bookingCurrencies property.
      */
     public set bookingCurrencies(value: BookingCurrency[] | undefined) {
@@ -72,14 +69,14 @@ export class SolutionsRoot implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

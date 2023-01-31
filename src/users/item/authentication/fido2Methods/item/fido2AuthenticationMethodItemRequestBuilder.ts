@@ -18,14 +18,16 @@ export class Fido2AuthenticationMethodItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new Fido2AuthenticationMethodItemRequestBuilder and sets the default values.
+     * @param fido2AuthenticationMethodId key: id of fido2AuthenticationMethod
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, fido2AuthenticationMethodId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/authentication/fido2Methods/{fido2AuthenticationMethod%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["fido2AuthenticationMethod%2Did"] = fido2AuthenticationMethodId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

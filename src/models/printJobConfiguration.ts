@@ -28,7 +28,6 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
     private _feedOrientation?: PrinterFeedOrientation | undefined;
     /** Finishing processes to use when printing. */
     private _finishings?: PrintFinishing[] | undefined;
-    /** The fitPdfToPage property */
     private _fitPdfToPage?: boolean | undefined;
     /** The input bin (tray) to use when printing. See the printer's capabilities for a list of supported input bins. */
     private _inputBin?: string | undefined;
@@ -36,23 +35,14 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
     private _margin?: PrintMargin | undefined;
     /** The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. */
     private _mediaSize?: string | undefined;
-    /** The mediaType property */
     private _mediaType?: string | undefined;
-    /** The multipageLayout property */
     private _multipageLayout?: PrintMultipageLayout | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The orientation property */
     private _orientation?: PrintOrientation | undefined;
-    /** The outputBin property */
     private _outputBin?: string | undefined;
-    /** The pageRanges property */
     private _pageRanges?: IntegerRange[] | undefined;
-    /** The pagesPerSheet property */
     private _pagesPerSheet?: number | undefined;
-    /** The quality property */
     private _quality?: PrintQuality | undefined;
-    /** The scaling property */
     private _scaling?: PrintScaling | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -173,14 +163,14 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
         this._finishings = value;
     };
     /**
-     * Gets the fitPdfToPage property value. The fitPdfToPage property
+     * Gets the fitPdfToPage property value. 
      * @returns a boolean
      */
     public get fitPdfToPage() {
         return this._fitPdfToPage;
     };
     /**
-     * Sets the fitPdfToPage property value. The fitPdfToPage property
+     * Sets the fitPdfToPage property value. 
      * @param value Value to set for the fitPdfToPage property.
      */
     public set fitPdfToPage(value: boolean | undefined) {
@@ -257,126 +247,126 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
         this._mediaSize = value;
     };
     /**
-     * Gets the mediaType property value. The mediaType property
+     * Gets the mediaType property value. 
      * @returns a string
      */
     public get mediaType() {
         return this._mediaType;
     };
     /**
-     * Sets the mediaType property value. The mediaType property
+     * Sets the mediaType property value. 
      * @param value Value to set for the mediaType property.
      */
     public set mediaType(value: string | undefined) {
         this._mediaType = value;
     };
     /**
-     * Gets the multipageLayout property value. The multipageLayout property
+     * Gets the multipageLayout property value. 
      * @returns a printMultipageLayout
      */
     public get multipageLayout() {
         return this._multipageLayout;
     };
     /**
-     * Sets the multipageLayout property value. The multipageLayout property
+     * Sets the multipageLayout property value. 
      * @param value Value to set for the multipageLayout property.
      */
     public set multipageLayout(value: PrintMultipageLayout | undefined) {
         this._multipageLayout = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the orientation property value. The orientation property
+     * Gets the orientation property value. 
      * @returns a printOrientation
      */
     public get orientation() {
         return this._orientation;
     };
     /**
-     * Sets the orientation property value. The orientation property
+     * Sets the orientation property value. 
      * @param value Value to set for the orientation property.
      */
     public set orientation(value: PrintOrientation | undefined) {
         this._orientation = value;
     };
     /**
-     * Gets the outputBin property value. The outputBin property
+     * Gets the outputBin property value. 
      * @returns a string
      */
     public get outputBin() {
         return this._outputBin;
     };
     /**
-     * Sets the outputBin property value. The outputBin property
+     * Sets the outputBin property value. 
      * @param value Value to set for the outputBin property.
      */
     public set outputBin(value: string | undefined) {
         this._outputBin = value;
     };
     /**
-     * Gets the pageRanges property value. The pageRanges property
+     * Gets the pageRanges property value. 
      * @returns a integerRange
      */
     public get pageRanges() {
         return this._pageRanges;
     };
     /**
-     * Sets the pageRanges property value. The pageRanges property
+     * Sets the pageRanges property value. 
      * @param value Value to set for the pageRanges property.
      */
     public set pageRanges(value: IntegerRange[] | undefined) {
         this._pageRanges = value;
     };
     /**
-     * Gets the pagesPerSheet property value. The pagesPerSheet property
+     * Gets the pagesPerSheet property value. 
      * @returns a integer
      */
     public get pagesPerSheet() {
         return this._pagesPerSheet;
     };
     /**
-     * Sets the pagesPerSheet property value. The pagesPerSheet property
+     * Sets the pagesPerSheet property value. 
      * @param value Value to set for the pagesPerSheet property.
      */
     public set pagesPerSheet(value: number | undefined) {
         this._pagesPerSheet = value;
     };
     /**
-     * Gets the quality property value. The quality property
+     * Gets the quality property value. 
      * @returns a printQuality
      */
     public get quality() {
         return this._quality;
     };
     /**
-     * Sets the quality property value. The quality property
+     * Sets the quality property value. 
      * @param value Value to set for the quality property.
      */
     public set quality(value: PrintQuality | undefined) {
         this._quality = value;
     };
     /**
-     * Gets the scaling property value. The scaling property
+     * Gets the scaling property value. 
      * @returns a printScaling
      */
     public get scaling() {
         return this._scaling;
     };
     /**
-     * Sets the scaling property value. The scaling property
+     * Sets the scaling property value. 
      * @param value Value to set for the scaling property.
      */
     public set scaling(value: PrintScaling | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, SkypeForBusinessUserConversationM
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SkypeForBusinessUserConversationMemberCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: SkypeForBusinessUserConversationMember[] | undefined;
     /**
      * Instantiates a new SkypeForBusinessUserConversationMemberCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class SkypeForBusinessUserConversationMemberCollectionResponse extends Ba
         writer.writeCollectionOfObjectValues<SkypeForBusinessUserConversationMember>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a skypeForBusinessUserConversationMember
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: SkypeForBusinessUserConversationMember[] | undefined) {

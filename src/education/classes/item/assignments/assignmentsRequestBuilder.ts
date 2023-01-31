@@ -6,7 +6,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {AssignmentsRequestBuilderGetRequestConfiguration} from './assignmentsRequestBuilderGetRequestConfiguration';
 import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
+import {DeltaRequestBuilder} from './microsoftGraphDelta/deltaRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -16,6 +16,10 @@ export class AssignmentsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the delta method. */
+    public get microsoftGraphDelta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -37,13 +41,6 @@ export class AssignmentsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Provides operations to call the delta method.
-     * @returns a deltaRequestBuilder
-     */
-    public delta() : DeltaRequestBuilder {
-        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
      * Retrieve a list of assignment objects. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application executing with application permissions can see all assignment objects for the class. Students can only see assignments that are assigned to them.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -62,7 +59,6 @@ export class AssignmentsRequestBuilder {
     };
     /**
      * Create a new assignment. Only teachers in a class can create an assignment. Assignments start in the Draft state, which means that students will not see the assignment until publication.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationAssignment
@@ -99,7 +95,6 @@ export class AssignmentsRequestBuilder {
     };
     /**
      * Create a new assignment. Only teachers in a class can create an assignment. Assignments start in the Draft state, which means that students will not see the assignment until publication.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

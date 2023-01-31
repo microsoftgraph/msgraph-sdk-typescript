@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, ManagedMobileLobApp} from './inde
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedMobileLobAppCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ManagedMobileLobApp[] | undefined;
     /**
      * Instantiates a new ManagedMobileLobAppCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ManagedMobileLobAppCollectionResponse extends BaseCollectionPaginat
         writer.writeCollectionOfObjectValues<ManagedMobileLobApp>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a managedMobileLobApp
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ManagedMobileLobApp[] | undefined) {

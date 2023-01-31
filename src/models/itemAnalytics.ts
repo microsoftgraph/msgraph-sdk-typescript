@@ -3,21 +3,18 @@ import {Entity, ItemActivityStat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ItemAnalytics extends Entity implements Parsable {
-    /** The allTime property */
     private _allTime?: ItemActivityStat | undefined;
-    /** The itemActivityStats property */
     private _itemActivityStats?: ItemActivityStat[] | undefined;
-    /** The lastSevenDays property */
     private _lastSevenDays?: ItemActivityStat | undefined;
     /**
-     * Gets the allTime property value. The allTime property
+     * Gets the allTime property value. 
      * @returns a itemActivityStat
      */
     public get allTime() {
         return this._allTime;
     };
     /**
-     * Sets the allTime property value. The allTime property
+     * Sets the allTime property value. 
      * @param value Value to set for the allTime property.
      */
     public set allTime(value: ItemActivityStat | undefined) {
@@ -41,28 +38,28 @@ export class ItemAnalytics extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the itemActivityStats property value. The itemActivityStats property
+     * Gets the itemActivityStats property value. 
      * @returns a itemActivityStat
      */
     public get itemActivityStats() {
         return this._itemActivityStats;
     };
     /**
-     * Sets the itemActivityStats property value. The itemActivityStats property
+     * Sets the itemActivityStats property value. 
      * @param value Value to set for the itemActivityStats property.
      */
     public set itemActivityStats(value: ItemActivityStat[] | undefined) {
         this._itemActivityStats = value;
     };
     /**
-     * Gets the lastSevenDays property value. The lastSevenDays property
+     * Gets the lastSevenDays property value. 
      * @returns a itemActivityStat
      */
     public get lastSevenDays() {
         return this._lastSevenDays;
     };
     /**
-     * Sets the lastSevenDays property value. The lastSevenDays property
+     * Sets the lastSevenDays property value. 
      * @param value Value to set for the lastSevenDays property.
      */
     public set lastSevenDays(value: ItemActivityStat | undefined) {

@@ -18,14 +18,16 @@ export class AttachmentItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new AttachmentItemRequestBuilder and sets the default values.
+     * @param attachmentId key: id of attachment
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, attachmentId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/calendars/{calendar%2Did}/calendarView/{event%2Did}/instances/{event%2Did1}/attachments/{attachment%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["attachment%2Did"] = attachmentId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

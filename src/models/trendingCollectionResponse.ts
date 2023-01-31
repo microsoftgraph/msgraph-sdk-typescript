@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, Trending} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TrendingCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: Trending[] | undefined;
     /**
      * Instantiates a new TrendingCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class TrendingCollectionResponse extends BaseCollectionPaginationCountRes
         writer.writeCollectionOfObjectValues<Trending>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a trending
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Trending[] | undefined) {

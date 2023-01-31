@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, Channel} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ChannelCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: Channel[] | undefined;
     /**
      * Instantiates a new ChannelCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ChannelCollectionResponse extends BaseCollectionPaginationCountResp
         writer.writeCollectionOfObjectValues<Channel>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a channel
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Channel[] | undefined) {

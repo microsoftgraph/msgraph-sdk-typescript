@@ -7,7 +7,6 @@ export class CalculatedColumn implements AdditionalDataHolder, Parsable {
     private _format?: string | undefined;
     /** The formula used to compute the value for this column. */
     private _formula?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The output type used to format values in this column. Must be one of boolean, currency, dateTime, number, or text. */
     private _outputType?: string | undefined;
@@ -72,14 +71,14 @@ export class CalculatedColumn implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

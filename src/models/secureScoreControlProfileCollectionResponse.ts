@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, SecureScoreControlProfile} from '
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SecureScoreControlProfileCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: SecureScoreControlProfile[] | undefined;
     /**
      * Instantiates a new SecureScoreControlProfileCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class SecureScoreControlProfileCollectionResponse extends BaseCollectionP
         writer.writeCollectionOfObjectValues<SecureScoreControlProfile>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a secureScoreControlProfile
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: SecureScoreControlProfile[] | undefined) {

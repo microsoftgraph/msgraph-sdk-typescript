@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, SharedPCConfiguration} from './in
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SharedPCConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: SharedPCConfiguration[] | undefined;
     /**
      * Instantiates a new SharedPCConfigurationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class SharedPCConfigurationCollectionResponse extends BaseCollectionPagin
         writer.writeCollectionOfObjectValues<SharedPCConfiguration>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a sharedPCConfiguration
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: SharedPCConfiguration[] | undefined) {

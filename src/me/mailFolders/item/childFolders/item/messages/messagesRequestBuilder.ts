@@ -4,9 +4,9 @@ import {createMessageFromDiscriminatorValue} from '../../../../../../models/crea
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {MessagesRequestBuilderGetRequestConfiguration} from './messagesRequestBuilderGetRequestConfiguration';
 import {MessagesRequestBuilderPostRequestConfiguration} from './messagesRequestBuilderPostRequestConfiguration';
+import {DeltaRequestBuilder} from './microsoftGraphDelta/deltaRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -16,6 +16,10 @@ export class MessagesRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the delta method. */
+    public get microsoftGraphDelta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -37,13 +41,6 @@ export class MessagesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Provides operations to call the delta method.
-     * @returns a deltaRequestBuilder
-     */
-    public delta() : DeltaRequestBuilder {
-        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
      * Get all the messages in the specified user's mailbox, or those messages in a specified folder in the mailbox.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -62,7 +59,6 @@ export class MessagesRequestBuilder {
     };
     /**
      * Use this API to create a new Message in a mailfolder.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Message
@@ -99,7 +95,6 @@ export class MessagesRequestBuilder {
     };
     /**
      * Use this API to create a new Message in a mailfolder.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

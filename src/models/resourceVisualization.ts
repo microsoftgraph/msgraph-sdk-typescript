@@ -11,7 +11,6 @@ export class ResourceVisualization implements AdditionalDataHolder, Parsable {
     private _containerWebUrl?: string | undefined;
     /** The item's media type. Can be used for filtering for a specific type of file based on supported IANA Media Mime Types. Note that not all Media Mime Types are supported. */
     private _mediaType?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** A URL leading to the preview image for the item. */
     private _previewImageUrl?: string | undefined;
@@ -115,14 +114,14 @@ export class ResourceVisualization implements AdditionalDataHolder, Parsable {
         this._mediaType = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

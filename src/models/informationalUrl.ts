@@ -7,7 +7,6 @@ export class InformationalUrl implements AdditionalDataHolder, Parsable {
     private _logoUrl?: string | undefined;
     /** Link to the application's marketing page. For example, https://www.contoso.com/app/marketing */
     private _marketingUrl?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Link to the application's privacy statement. For example, https://www.contoso.com/app/privacy */
     private _privacyStatementUrl?: string | undefined;
@@ -78,14 +77,14 @@ export class InformationalUrl implements AdditionalDataHolder, Parsable {
         this._marketingUrl = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

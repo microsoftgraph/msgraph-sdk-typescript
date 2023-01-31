@@ -4,9 +4,7 @@ import {PrintEvent} from './printEvent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintTaskTrigger extends Entity implements Parsable {
-    /** The definition property */
     private _definition?: PrintTaskDefinition | undefined;
-    /** The event property */
     private _event?: PrintEvent | undefined;
     /**
      * Instantiates a new printTaskTrigger and sets the default values.
@@ -15,28 +13,28 @@ export class PrintTaskTrigger extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the definition property value. The definition property
+     * Gets the definition property value. 
      * @returns a printTaskDefinition
      */
     public get definition() {
         return this._definition;
     };
     /**
-     * Sets the definition property value. The definition property
+     * Sets the definition property value. 
      * @param value Value to set for the definition property.
      */
     public set definition(value: PrintTaskDefinition | undefined) {
         this._definition = value;
     };
     /**
-     * Gets the event property value. The event property
+     * Gets the event property value. 
      * @returns a printEvent
      */
     public get event() {
         return this._event;
     };
     /**
-     * Sets the event property value. The event property
+     * Sets the event property value. 
      * @param value Value to set for the event property.
      */
     public set event(value: PrintEvent | undefined) {

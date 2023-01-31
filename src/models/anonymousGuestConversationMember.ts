@@ -2,17 +2,16 @@ import {ConversationMember} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AnonymousGuestConversationMember extends ConversationMember implements Parsable {
-    /** The anonymousGuestId property */
     private _anonymousGuestId?: string | undefined;
     /**
-     * Gets the anonymousGuestId property value. The anonymousGuestId property
+     * Gets the anonymousGuestId property value. 
      * @returns a string
      */
     public get anonymousGuestId() {
         return this._anonymousGuestId;
     };
     /**
-     * Sets the anonymousGuestId property value. The anonymousGuestId property
+     * Sets the anonymousGuestId property value. 
      * @param value Value to set for the anonymousGuestId property.
      */
     public set anonymousGuestId(value: string | undefined) {

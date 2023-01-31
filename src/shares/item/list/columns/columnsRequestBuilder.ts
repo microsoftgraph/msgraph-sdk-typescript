@@ -54,7 +54,6 @@ export class ColumnsRequestBuilder {
     };
     /**
      * Create a column for a [list][list] with a request that specifies a [columnDefinition][columnDefinition].
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ColumnDefinition
@@ -91,7 +90,6 @@ export class ColumnsRequestBuilder {
     };
     /**
      * Create a column for a [list][list] with a request that specifies a [columnDefinition][columnDefinition].
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -3,14 +3,14 @@ import {createOnenotePageFromDiscriminatorValue} from '../../../../../../../../.
 import {ODataError} from '../../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
-import {CopyToSectionRequestBuilder} from './copyToSection/copyToSectionRequestBuilder';
+import {CopyToSectionRequestBuilder} from './microsoftGraphCopyToSection/copyToSectionRequestBuilder';
+import {OnenotePatchContentRequestBuilder} from './microsoftGraphOnenotePatchContent/onenotePatchContentRequestBuilder';
+import {PreviewRequestBuilder} from './microsoftGraphPreview/previewRequestBuilder';
 import {OnenotePageItemRequestBuilderDeleteRequestConfiguration} from './onenotePageItemRequestBuilderDeleteRequestConfiguration';
 import {OnenotePageItemRequestBuilderGetRequestConfiguration} from './onenotePageItemRequestBuilderGetRequestConfiguration';
 import {OnenotePageItemRequestBuilderPatchRequestConfiguration} from './onenotePageItemRequestBuilderPatchRequestConfiguration';
-import {OnenotePatchContentRequestBuilder} from './onenotePatchContent/onenotePatchContentRequestBuilder';
 import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookRequestBuilder';
 import {ParentSectionRequestBuilder} from './parentSection/parentSectionRequestBuilder';
-import {PreviewRequestBuilder} from './preview/previewRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -22,12 +22,16 @@ export class OnenotePageItemRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the copyToSection method. */
-    public get copyToSection(): CopyToSectionRequestBuilder {
+    public get microsoftGraphCopyToSection(): CopyToSectionRequestBuilder {
         return new CopyToSectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the onenotePatchContent method. */
-    public get onenotePatchContent(): OnenotePatchContentRequestBuilder {
+    public get microsoftGraphOnenotePatchContent(): OnenotePatchContentRequestBuilder {
         return new OnenotePatchContentRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the preview method. */
+    public get microsoftGraphPreview(): PreviewRequestBuilder {
+        return new PreviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the parentNotebook property of the microsoft.graph.onenotePage entity. */
     public get parentNotebook(): ParentNotebookRequestBuilder {
@@ -45,14 +49,16 @@ export class OnenotePageItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new OnenotePageItemRequestBuilder and sets the default values.
+     * @param onenotePageId key: id of onenotePage
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, onenotePageId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/onenote/notebooks/{notebook%2Did}/sectionGroups/{sectionGroup%2Did}/sections/{onenoteSection%2Did}/pages/{onenotePage%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["onenotePage%2Did"] = onenotePageId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -89,7 +95,6 @@ export class OnenotePageItemRequestBuilder {
     };
     /**
      * Update the navigation property pages in users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnenotePage
@@ -104,13 +109,6 @@ export class OnenotePageItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<OnenotePage>(requestInfo, createOnenotePageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to call the preview method.
-     * @returns a previewRequestBuilder
-     */
-    public preview() : PreviewRequestBuilder {
-        return new PreviewRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Delete navigation property pages for users
@@ -148,7 +146,6 @@ export class OnenotePageItemRequestBuilder {
     };
     /**
      * Update the navigation property pages in users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

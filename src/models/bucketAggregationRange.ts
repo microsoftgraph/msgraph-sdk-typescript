@@ -5,7 +5,6 @@ export class BucketAggregationRange implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Defines the lower bound from which to compute the aggregation. This can be a numeric value or a string representation of a date using the YYYY-MM-DDTHH:mm:ss.sssZ format. Required. */
     private _from?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Defines the upper bound up to which to compute the aggregation. This can be a numeric value or a string representation of a date using the YYYY-MM-DDTHH:mm:ss.sssZ format. Required. */
     private _to?: string | undefined;
@@ -55,14 +54,14 @@ export class BucketAggregationRange implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

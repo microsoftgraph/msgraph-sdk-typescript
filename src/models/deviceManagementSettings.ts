@@ -7,7 +7,6 @@ export class DeviceManagementSettings implements AdditionalDataHolder, Parsable 
     private _deviceComplianceCheckinThresholdDays?: number | undefined;
     /** Is feature enabled or not for scheduled action for rule. */
     private _isScheduledActionEnabled?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Device should be noncompliant when there is no compliance policy targeted when this is true */
     private _secureByDefault?: boolean | undefined;
@@ -72,14 +71,14 @@ export class DeviceManagementSettings implements AdditionalDataHolder, Parsable 
         this._isScheduledActionEnabled = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

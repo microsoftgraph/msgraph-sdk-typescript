@@ -6,7 +6,6 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class ActivityHistoryItem extends Entity implements Parsable {
     /** Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime. */
     private _activeDurationSeconds?: number | undefined;
-    /** The activity property */
     private _activity?: UserActivity | undefined;
     /** Set by the server. DateTime in UTC when the object was created on the server. */
     private _createdDateTime?: Date | undefined;
@@ -37,14 +36,14 @@ export class ActivityHistoryItem extends Entity implements Parsable {
         this._activeDurationSeconds = value;
     };
     /**
-     * Gets the activity property value. The activity property
+     * Gets the activity property value. 
      * @returns a userActivity
      */
     public get activity() {
         return this._activity;
     };
     /**
-     * Sets the activity property value. The activity property
+     * Sets the activity property value. 
      * @param value Value to set for the activity property.
      */
     public set activity(value: UserActivity | undefined) {

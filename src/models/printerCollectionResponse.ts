@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, Printer} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrinterCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: Printer[] | undefined;
     /**
      * Instantiates a new PrinterCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class PrinterCollectionResponse extends BaseCollectionPaginationCountResp
         writer.writeCollectionOfObjectValues<Printer>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a printer
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Printer[] | undefined) {

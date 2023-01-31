@@ -17,14 +17,16 @@ export class ContentTypeItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ContentTypeItemRequestBuilder and sets the default values.
+     * @param contentTypeId1 key: id of contentType
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, contentTypeId1?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}/baseTypes/{contentType%2Did1}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["contentType%2Did1"] = contentTypeId1
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

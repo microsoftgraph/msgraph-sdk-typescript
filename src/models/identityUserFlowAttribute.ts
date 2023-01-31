@@ -4,13 +4,11 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityUserFlowAttribute extends Entity implements Parsable {
-    /** The dataType property */
     private _dataType?: IdentityUserFlowAttributeDataType | undefined;
     /** The description of the user flow attribute that's shown to the user at the time of sign-up. */
     private _description?: string | undefined;
     /** The display name of the user flow attribute. */
     private _displayName?: string | undefined;
-    /** The userFlowAttributeType property */
     private _userFlowAttributeType?: IdentityUserFlowAttributeType | undefined;
     /**
      * Instantiates a new identityUserFlowAttribute and sets the default values.
@@ -19,14 +17,14 @@ export class IdentityUserFlowAttribute extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the dataType property value. The dataType property
+     * Gets the dataType property value. 
      * @returns a identityUserFlowAttributeDataType
      */
     public get dataType() {
         return this._dataType;
     };
     /**
-     * Sets the dataType property value. The dataType property
+     * Sets the dataType property value. 
      * @param value Value to set for the dataType property.
      */
     public set dataType(value: IdentityUserFlowAttributeDataType | undefined) {
@@ -85,14 +83,14 @@ export class IdentityUserFlowAttribute extends Entity implements Parsable {
         writer.writeEnumValue<IdentityUserFlowAttributeType>("userFlowAttributeType", this.userFlowAttributeType);
     };
     /**
-     * Gets the userFlowAttributeType property value. The userFlowAttributeType property
+     * Gets the userFlowAttributeType property value. 
      * @returns a identityUserFlowAttributeType
      */
     public get userFlowAttributeType() {
         return this._userFlowAttributeType;
     };
     /**
-     * Sets the userFlowAttributeType property value. The userFlowAttributeType property
+     * Sets the userFlowAttributeType property value. 
      * @param value Value to set for the userFlowAttributeType property.
      */
     public set userFlowAttributeType(value: IdentityUserFlowAttributeType | undefined) {

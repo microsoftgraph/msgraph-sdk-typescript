@@ -5,7 +5,6 @@ export class PrivacyProfile implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** A valid smtp email address for the privacy statement contact. Not required. */
     private _contactEmail?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** A valid URL format that begins with http:// or https://. Maximum length is 255 characters. The URL that directs to the company's privacy statement. Not required. */
     private _statementUrl?: string | undefined;
@@ -55,14 +54,14 @@ export class PrivacyProfile implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

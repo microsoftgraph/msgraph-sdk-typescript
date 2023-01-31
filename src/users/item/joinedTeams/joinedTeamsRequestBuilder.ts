@@ -4,9 +4,9 @@ import {createTeamFromDiscriminatorValue} from '../../../models/createTeamFromDi
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
 import {JoinedTeamsRequestBuilderGetRequestConfiguration} from './joinedTeamsRequestBuilderGetRequestConfiguration';
 import {JoinedTeamsRequestBuilderPostRequestConfiguration} from './joinedTeamsRequestBuilderPostRequestConfiguration';
+import {GetAllMessagesRequestBuilder} from './microsoftGraphGetAllMessages/getAllMessagesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -16,6 +16,10 @@ export class JoinedTeamsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getAllMessages method. */
+    public get microsoftGraphGetAllMessages(): GetAllMessagesRequestBuilder {
+        return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -54,15 +58,7 @@ export class JoinedTeamsRequestBuilder {
         return this.requestAdapter?.sendAsync<TeamCollectionResponse>(requestInfo, createTeamCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to call the getAllMessages method.
-     * @returns a getAllMessagesRequestBuilder
-     */
-    public getAllMessages() : GetAllMessagesRequestBuilder {
-        return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
      * Create new navigation property to joinedTeams for users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Team
@@ -98,7 +94,6 @@ export class JoinedTeamsRequestBuilder {
     };
     /**
      * Create new navigation property to joinedTeams for users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

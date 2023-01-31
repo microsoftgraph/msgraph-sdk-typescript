@@ -2,7 +2,6 @@ import {DeviceConfiguration} from '../../../models/';
 import {createDeviceConfigurationFromDiscriminatorValue} from '../../../models/createDeviceConfigurationFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
 import {DeviceConfigurationAssignmentItemRequestBuilder} from './assignments/item/deviceConfigurationAssignmentItemRequestBuilder';
 import {DeviceConfigurationItemRequestBuilderDeleteRequestConfiguration} from './deviceConfigurationItemRequestBuilderDeleteRequestConfiguration';
@@ -13,7 +12,8 @@ import {SettingStateDeviceSummaryItemRequestBuilder} from './deviceSettingStateS
 import {DeviceStatusesRequestBuilder} from './deviceStatuses/deviceStatusesRequestBuilder';
 import {DeviceConfigurationDeviceStatusItemRequestBuilder} from './deviceStatuses/item/deviceConfigurationDeviceStatusItemRequestBuilder';
 import {DeviceStatusOverviewRequestBuilder} from './deviceStatusOverview/deviceStatusOverviewRequestBuilder';
-import {GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder} from './getOmaSettingPlainTextValueWithSecretReferenceValueId/getOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder';
+import {AssignRequestBuilder} from './microsoftGraphAssign/assignRequestBuilder';
+import {GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder} from './microsoftGraphGetOmaSettingPlainTextValueWithSecretReferenceValueId/getOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder';
 import {DeviceConfigurationUserStatusItemRequestBuilder} from './userStatuses/item/deviceConfigurationUserStatusItemRequestBuilder';
 import {UserStatusesRequestBuilder} from './userStatuses/userStatusesRequestBuilder';
 import {UserStatusOverviewRequestBuilder} from './userStatusOverview/userStatusOverviewRequestBuilder';
@@ -23,10 +23,6 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
  */
 export class DeviceConfigurationItemRequestBuilder {
-    /** Provides operations to call the assign method. */
-    public get assign(): AssignRequestBuilder {
-        return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the assignments property of the microsoft.graph.deviceConfiguration entity. */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -42,6 +38,10 @@ export class DeviceConfigurationItemRequestBuilder {
     /** Provides operations to manage the deviceStatusOverview property of the microsoft.graph.deviceConfiguration entity. */
     public get deviceStatusOverview(): DeviceStatusOverviewRequestBuilder {
         return new DeviceStatusOverviewRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the assign method. */
+    public get microsoftGraphAssign(): AssignRequestBuilder {
+        return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -70,14 +70,16 @@ export class DeviceConfigurationItemRequestBuilder {
     };
     /**
      * Instantiates a new DeviceConfigurationItemRequestBuilder and sets the default values.
+     * @param deviceConfigurationId key: id of deviceConfiguration
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, deviceConfigurationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["deviceConfiguration%2Did"] = deviceConfigurationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -139,13 +141,12 @@ export class DeviceConfigurationItemRequestBuilder {
      * @param secretReferenceValueId Usage: secretReferenceValueId='{secretReferenceValueId}'
      * @returns a getOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder
      */
-    public getOmaSettingPlainTextValueWithSecretReferenceValueId(secretReferenceValueId: string | undefined) : GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder {
+    public microsoftGraphGetOmaSettingPlainTextValueWithSecretReferenceValueId(secretReferenceValueId: string | undefined) : GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder {
         if(!secretReferenceValueId) throw new Error("secretReferenceValueId cannot be undefined");
         return new GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder(this.pathParameters, this.requestAdapter, secretReferenceValueId);
     };
     /**
      * Update the navigation property deviceConfigurations in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceConfiguration
@@ -197,7 +198,6 @@ export class DeviceConfigurationItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceConfigurations in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

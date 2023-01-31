@@ -10,7 +10,6 @@ export class FeatureRolloutPolicy extends Entity implements Parsable {
     private _description?: string | undefined;
     /** The display name for this  feature rollout policy. */
     private _displayName?: string | undefined;
-    /** The feature property */
     private _feature?: StagedFeatureName | undefined;
     /** Indicates whether this feature rollout policy should be applied to the entire organization. */
     private _isAppliedToOrganization?: boolean | undefined;
@@ -65,14 +64,14 @@ export class FeatureRolloutPolicy extends Entity implements Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the feature property value. The feature property
+     * Gets the feature property value. 
      * @returns a stagedFeatureName
      */
     public get feature() {
         return this._feature;
     };
     /**
-     * Sets the feature property value. The feature property
+     * Sets the feature property value. 
      * @param value Value to set for the feature property.
      */
     public set feature(value: StagedFeatureName | undefined) {

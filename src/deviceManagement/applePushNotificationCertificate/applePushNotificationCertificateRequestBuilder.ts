@@ -5,13 +5,17 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {ApplePushNotificationCertificateRequestBuilderDeleteRequestConfiguration} from './applePushNotificationCertificateRequestBuilderDeleteRequestConfiguration';
 import {ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration} from './applePushNotificationCertificateRequestBuilderGetRequestConfiguration';
 import {ApplePushNotificationCertificateRequestBuilderPatchRequestConfiguration} from './applePushNotificationCertificateRequestBuilderPatchRequestConfiguration';
-import {DownloadApplePushNotificationCertificateSigningRequestRequestBuilder} from './downloadApplePushNotificationCertificateSigningRequest/downloadApplePushNotificationCertificateSigningRequestRequestBuilder';
+import {DownloadApplePushNotificationCertificateSigningRequestRequestBuilder} from './microsoftGraphDownloadApplePushNotificationCertificateSigningRequest/downloadApplePushNotificationCertificateSigningRequestRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the applePushNotificationCertificate property of the microsoft.graph.deviceManagement entity.
  */
 export class ApplePushNotificationCertificateRequestBuilder {
+    /** Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method. */
+    public get microsoftGraphDownloadApplePushNotificationCertificateSigningRequest(): DownloadApplePushNotificationCertificateSigningRequestRequestBuilder {
+        return new DownloadApplePushNotificationCertificateSigningRequestRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
@@ -47,13 +51,6 @@ export class ApplePushNotificationCertificateRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method.
-     * @returns a downloadApplePushNotificationCertificateSigningRequestRequestBuilder
-     */
-    public downloadApplePushNotificationCertificateSigningRequest() : DownloadApplePushNotificationCertificateSigningRequestRequestBuilder {
-        return new DownloadApplePushNotificationCertificateSigningRequestRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
      * Apple push notification certificate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -71,7 +68,6 @@ export class ApplePushNotificationCertificateRequestBuilder {
     };
     /**
      * Update the navigation property applePushNotificationCertificate in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApplePushNotificationCertificate
@@ -123,7 +119,6 @@ export class ApplePushNotificationCertificateRequestBuilder {
     };
     /**
      * Update the navigation property applePushNotificationCertificate in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

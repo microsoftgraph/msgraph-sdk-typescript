@@ -10,7 +10,6 @@ export class EducationFeedback implements AdditionalDataHolder, Parsable {
     private _feedbackBy?: IdentitySet | undefined;
     /** Moment in time when the feedback was given. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _feedbackDateTime?: Date | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Feedback. */
     private _text?: EducationItemBody | undefined;
@@ -75,14 +74,14 @@ export class EducationFeedback implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

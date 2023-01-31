@@ -17,7 +17,6 @@ export class BookingAppointment extends Entity implements Parsable {
     private _customerTimeZone?: string | undefined;
     /** The length of the appointment, denoted in ISO8601 format. */
     private _duration?: Duration | undefined;
-    /** The endDateTime property */
     private _endDateTime?: DateTimeTimeZone | undefined;
     /** The current number of customers in the appointment */
     private _filledAttendeesCount?: number | undefined;
@@ -53,7 +52,6 @@ export class BookingAppointment extends Entity implements Parsable {
     private _smsNotificationsEnabled?: boolean | undefined;
     /** The ID of each bookingStaffMember who is scheduled in this appointment. */
     private _staffMemberIds?: string[] | undefined;
-    /** The startDateTime property */
     private _startDateTime?: DateTimeTimeZone | undefined;
     /**
      * Gets the additionalInformation property value. Additional information that is sent to the customer when an appointment is confirmed.
@@ -132,14 +130,14 @@ export class BookingAppointment extends Entity implements Parsable {
         this._duration = value;
     };
     /**
-     * Gets the endDateTime property value. The endDateTime property
+     * Gets the endDateTime property value. 
      * @returns a dateTimeTimeZone
      */
     public get endDateTime() {
         return this._endDateTime;
     };
     /**
-     * Sets the endDateTime property value. The endDateTime property
+     * Sets the endDateTime property value. 
      * @param value Value to set for the endDateTime property.
      */
     public set endDateTime(value: DateTimeTimeZone | undefined) {
@@ -446,14 +444,14 @@ export class BookingAppointment extends Entity implements Parsable {
         this._staffMemberIds = value;
     };
     /**
-     * Gets the startDateTime property value. The startDateTime property
+     * Gets the startDateTime property value. 
      * @returns a dateTimeTimeZone
      */
     public get startDateTime() {
         return this._startDateTime;
     };
     /**
-     * Sets the startDateTime property value. The startDateTime property
+     * Sets the startDateTime property value. 
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: DateTimeTimeZone | undefined) {

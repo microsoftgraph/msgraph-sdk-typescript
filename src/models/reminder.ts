@@ -20,7 +20,6 @@ export class Reminder implements AdditionalDataHolder, Parsable {
     private _eventSubject?: string | undefined;
     /** The URL to open the event in Outlook on the web.The event will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame. */
     private _eventWebLink?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The date, time, and time zone that the reminder is set to occur. */
     private _reminderFireTime?: DateTimeTimeZone | undefined;
@@ -160,14 +159,14 @@ export class Reminder implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

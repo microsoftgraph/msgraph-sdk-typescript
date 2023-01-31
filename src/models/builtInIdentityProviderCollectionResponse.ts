@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, BuiltInIdentityProvider} from './
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BuiltInIdentityProviderCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: BuiltInIdentityProvider[] | undefined;
     /**
      * Instantiates a new BuiltInIdentityProviderCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class BuiltInIdentityProviderCollectionResponse extends BaseCollectionPag
         writer.writeCollectionOfObjectValues<BuiltInIdentityProvider>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a builtInIdentityProvider
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: BuiltInIdentityProvider[] | undefined) {

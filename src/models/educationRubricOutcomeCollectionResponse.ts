@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, EducationRubricOutcome} from './i
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationRubricOutcomeCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: EducationRubricOutcome[] | undefined;
     /**
      * Instantiates a new EducationRubricOutcomeCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class EducationRubricOutcomeCollectionResponse extends BaseCollectionPagi
         writer.writeCollectionOfObjectValues<EducationRubricOutcome>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a educationRubricOutcome
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: EducationRubricOutcome[] | undefined) {

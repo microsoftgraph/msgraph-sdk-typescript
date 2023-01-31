@@ -4,13 +4,10 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class Phone implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The language property */
     private _language?: string | undefined;
     /** The phone number. */
     private _number?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The region property */
     private _region?: string | undefined;
     /** The type of phone number. The possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio. */
     private _type?: PhoneType | undefined;
@@ -48,14 +45,14 @@ export class Phone implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the language property value. The language property
+     * Gets the language property value. 
      * @returns a string
      */
     public get language() {
         return this._language;
     };
     /**
-     * Sets the language property value. The language property
+     * Sets the language property value. 
      * @param value Value to set for the language property.
      */
     public set language(value: string | undefined) {
@@ -76,28 +73,28 @@ export class Phone implements AdditionalDataHolder, Parsable {
         this._number = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the region property value. The region property
+     * Gets the region property value. 
      * @returns a string
      */
     public get region() {
         return this._region;
     };
     /**
-     * Sets the region property value. The region property
+     * Sets the region property value. 
      * @param value Value to set for the region property.
      */
     public set region(value: string | undefined) {

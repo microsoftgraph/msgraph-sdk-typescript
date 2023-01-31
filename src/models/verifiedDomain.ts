@@ -11,7 +11,6 @@ export class VerifiedDomain implements AdditionalDataHolder, Parsable {
     private _isInitial?: boolean | undefined;
     /** The domain name; for example, contoso.onmicrosoft.com. */
     private _name?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** For example, Managed. */
     private _type?: string | undefined;
@@ -106,14 +105,14 @@ export class VerifiedDomain implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

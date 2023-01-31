@@ -11,7 +11,6 @@ export class LookupColumn implements AdditionalDataHolder, Parsable {
     private _columnName?: string | undefined;
     /** The unique identifier of the lookup source list. */
     private _listId?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** If specified, this column is a secondary lookup, pulling an additional field from the list item looked up by the primary lookup. Use the list item looked up by the primary as the source for the column named here. */
     private _primaryLookupColumnId?: string | undefined;
@@ -106,14 +105,14 @@ export class LookupColumn implements AdditionalDataHolder, Parsable {
         this._listId = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

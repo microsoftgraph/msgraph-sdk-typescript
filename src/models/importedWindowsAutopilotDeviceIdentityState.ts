@@ -8,11 +8,9 @@ export class ImportedWindowsAutopilotDeviceIdentityState implements AdditionalDa
     private _deviceErrorCode?: number | undefined;
     /** Device error name reported by Device Directory Service(DDS). */
     private _deviceErrorName?: string | undefined;
-    /** The deviceImportStatus property */
     private _deviceImportStatus?: ImportedWindowsAutopilotDeviceIdentityImportStatus | undefined;
     /** Device Registration ID for successfully added device reported by Device Directory Service(DDS). */
     private _deviceRegistrationId?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -63,14 +61,14 @@ export class ImportedWindowsAutopilotDeviceIdentityState implements AdditionalDa
         this._deviceErrorName = value;
     };
     /**
-     * Gets the deviceImportStatus property value. The deviceImportStatus property
+     * Gets the deviceImportStatus property value. 
      * @returns a importedWindowsAutopilotDeviceIdentityImportStatus
      */
     public get deviceImportStatus() {
         return this._deviceImportStatus;
     };
     /**
-     * Sets the deviceImportStatus property value. The deviceImportStatus property
+     * Sets the deviceImportStatus property value. 
      * @param value Value to set for the deviceImportStatus property.
      */
     public set deviceImportStatus(value: ImportedWindowsAutopilotDeviceIdentityImportStatus | undefined) {
@@ -104,14 +102,14 @@ export class ImportedWindowsAutopilotDeviceIdentityState implements AdditionalDa
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

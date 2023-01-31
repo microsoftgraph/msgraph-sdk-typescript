@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, TeamworkTagMember} from './index'
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamworkTagMemberCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: TeamworkTagMember[] | undefined;
     /**
      * Instantiates a new TeamworkTagMemberCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class TeamworkTagMemberCollectionResponse extends BaseCollectionPaginatio
         writer.writeCollectionOfObjectValues<TeamworkTagMember>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a teamworkTagMember
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: TeamworkTagMember[] | undefined) {

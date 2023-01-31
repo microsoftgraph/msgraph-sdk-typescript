@@ -5,21 +5,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AlertHistoryState implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The appId property */
     private _appId?: string | undefined;
-    /** The assignedTo property */
     private _assignedTo?: string | undefined;
-    /** The comments property */
     private _comments?: string[] | undefined;
-    /** The feedback property */
     private _feedback?: AlertFeedback | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The status property */
     private _status?: AlertStatus | undefined;
-    /** The updatedDateTime property */
     private _updatedDateTime?: Date | undefined;
-    /** The user property */
     private _user?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -36,42 +28,42 @@ export class AlertHistoryState implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the appId property value. The appId property
+     * Gets the appId property value. 
      * @returns a string
      */
     public get appId() {
         return this._appId;
     };
     /**
-     * Sets the appId property value. The appId property
+     * Sets the appId property value. 
      * @param value Value to set for the appId property.
      */
     public set appId(value: string | undefined) {
         this._appId = value;
     };
     /**
-     * Gets the assignedTo property value. The assignedTo property
+     * Gets the assignedTo property value. 
      * @returns a string
      */
     public get assignedTo() {
         return this._assignedTo;
     };
     /**
-     * Sets the assignedTo property value. The assignedTo property
+     * Sets the assignedTo property value. 
      * @param value Value to set for the assignedTo property.
      */
     public set assignedTo(value: string | undefined) {
         this._assignedTo = value;
     };
     /**
-     * Gets the comments property value. The comments property
+     * Gets the comments property value. 
      * @returns a string
      */
     public get comments() {
         return this._comments;
     };
     /**
-     * Sets the comments property value. The comments property
+     * Sets the comments property value. 
      * @param value Value to set for the comments property.
      */
     public set comments(value: string[] | undefined) {
@@ -84,14 +76,14 @@ export class AlertHistoryState implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the feedback property value. The feedback property
+     * Gets the feedback property value. 
      * @returns a alertFeedback
      */
     public get feedback() {
         return this._feedback;
     };
     /**
-     * Sets the feedback property value. The feedback property
+     * Sets the feedback property value. 
      * @param value Value to set for the feedback property.
      */
     public set feedback(value: AlertFeedback | undefined) {
@@ -114,14 +106,14 @@ export class AlertHistoryState implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -144,42 +136,42 @@ export class AlertHistoryState implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. 
      * @returns a alertStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. 
      * @param value Value to set for the status property.
      */
     public set status(value: AlertStatus | undefined) {
         this._status = value;
     };
     /**
-     * Gets the updatedDateTime property value. The updatedDateTime property
+     * Gets the updatedDateTime property value. 
      * @returns a Date
      */
     public get updatedDateTime() {
         return this._updatedDateTime;
     };
     /**
-     * Sets the updatedDateTime property value. The updatedDateTime property
+     * Sets the updatedDateTime property value. 
      * @param value Value to set for the updatedDateTime property.
      */
     public set updatedDateTime(value: Date | undefined) {
         this._updatedDateTime = value;
     };
     /**
-     * Gets the user property value. The user property
+     * Gets the user property value. 
      * @returns a string
      */
     public get user() {
         return this._user;
     };
     /**
-     * Sets the user property value. The user property
+     * Sets the user property value. 
      * @param value Value to set for the user property.
      */
     public set user(value: string | undefined) {

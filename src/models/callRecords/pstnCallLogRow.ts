@@ -36,7 +36,6 @@ export class PstnCallLogRow implements AdditionalDataHolder, Parsable {
     private _inventoryType?: string | undefined;
     /** The license used for the call. */
     private _licenseCapability?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The telecommunications operator which provided PSTN services for this call. This may be Microsoft, or it may be a third-party operator via the Operator Connect Program. */
     private _operator?: string | undefined;
@@ -329,14 +328,14 @@ export class PstnCallLogRow implements AdditionalDataHolder, Parsable {
         this._licenseCapability = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

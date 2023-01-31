@@ -41,7 +41,7 @@ export class Organization extends DirectoryObject implements Parsable {
     private _onPremisesLastSyncDateTime?: Date | undefined;
     /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default). */
     private _onPremisesSyncEnabled?: boolean | undefined;
-    /** The partnerTenantType property */
+    /** The type of partnership this tenant has with Microsoft. The possible values are: microsoftSupport, syndicatePartner, breadthPartner, breadthPartnerDelegatedAdmin, resellerPartnerDelegatedAdmin, valueAddedResellerPartnerDelegatedAdmin, unknownFutureValue. Nullable. For more information about the possible types, see partnerTenantType values. */
     private _partnerTenantType?: PartnerTenantType | undefined;
     /** Postal code of the address for the organization. */
     private _postalCode?: string | undefined;
@@ -51,9 +51,7 @@ export class Organization extends DirectoryObject implements Parsable {
     private _privacyProfile?: PrivacyProfile | undefined;
     /** Not nullable. */
     private _provisionedPlans?: ProvisionedPlan[] | undefined;
-    /** The securityComplianceNotificationMails property */
     private _securityComplianceNotificationMails?: string[] | undefined;
-    /** The securityComplianceNotificationPhones property */
     private _securityComplianceNotificationPhones?: string[] | undefined;
     /** State name of the address for the organization. */
     private _state?: string | undefined;
@@ -61,7 +59,7 @@ export class Organization extends DirectoryObject implements Parsable {
     private _street?: string | undefined;
     /** Not nullable. */
     private _technicalNotificationMails?: string[] | undefined;
-    /** The tenantType property */
+    /** Not nullable. The tenant type option that was selected when the tenant was created. The possible values are:  AAD - An enterprise identity access management (IAM) service that serves business-to-employee and business-to-business (B2B) scenarios.  AAD B2C A customer identity access management (CIAM) service that serves business-to-consumer (B2C) scenarios. */
     private _tenantType?: string | undefined;
     /** The collection of domains associated with this tenant. Not nullable. */
     private _verifiedDomains?: VerifiedDomain[] | undefined;
@@ -318,14 +316,14 @@ export class Organization extends DirectoryObject implements Parsable {
         this._onPremisesSyncEnabled = value;
     };
     /**
-     * Gets the partnerTenantType property value. The partnerTenantType property
+     * Gets the partnerTenantType property value. The type of partnership this tenant has with Microsoft. The possible values are: microsoftSupport, syndicatePartner, breadthPartner, breadthPartnerDelegatedAdmin, resellerPartnerDelegatedAdmin, valueAddedResellerPartnerDelegatedAdmin, unknownFutureValue. Nullable. For more information about the possible types, see partnerTenantType values.
      * @returns a partnerTenantType
      */
     public get partnerTenantType() {
         return this._partnerTenantType;
     };
     /**
-     * Sets the partnerTenantType property value. The partnerTenantType property
+     * Sets the partnerTenantType property value. The type of partnership this tenant has with Microsoft. The possible values are: microsoftSupport, syndicatePartner, breadthPartner, breadthPartnerDelegatedAdmin, resellerPartnerDelegatedAdmin, valueAddedResellerPartnerDelegatedAdmin, unknownFutureValue. Nullable. For more information about the possible types, see partnerTenantType values.
      * @param value Value to set for the partnerTenantType property.
      */
     public set partnerTenantType(value: PartnerTenantType | undefined) {
@@ -388,28 +386,28 @@ export class Organization extends DirectoryObject implements Parsable {
         this._provisionedPlans = value;
     };
     /**
-     * Gets the securityComplianceNotificationMails property value. The securityComplianceNotificationMails property
+     * Gets the securityComplianceNotificationMails property value. 
      * @returns a string
      */
     public get securityComplianceNotificationMails() {
         return this._securityComplianceNotificationMails;
     };
     /**
-     * Sets the securityComplianceNotificationMails property value. The securityComplianceNotificationMails property
+     * Sets the securityComplianceNotificationMails property value. 
      * @param value Value to set for the securityComplianceNotificationMails property.
      */
     public set securityComplianceNotificationMails(value: string[] | undefined) {
         this._securityComplianceNotificationMails = value;
     };
     /**
-     * Gets the securityComplianceNotificationPhones property value. The securityComplianceNotificationPhones property
+     * Gets the securityComplianceNotificationPhones property value. 
      * @returns a string
      */
     public get securityComplianceNotificationPhones() {
         return this._securityComplianceNotificationPhones;
     };
     /**
-     * Sets the securityComplianceNotificationPhones property value. The securityComplianceNotificationPhones property
+     * Sets the securityComplianceNotificationPhones property value. 
      * @param value Value to set for the securityComplianceNotificationPhones property.
      */
     public set securityComplianceNotificationPhones(value: string[] | undefined) {
@@ -493,14 +491,14 @@ export class Organization extends DirectoryObject implements Parsable {
         this._technicalNotificationMails = value;
     };
     /**
-     * Gets the tenantType property value. The tenantType property
+     * Gets the tenantType property value. Not nullable. The tenant type option that was selected when the tenant was created. The possible values are:  AAD - An enterprise identity access management (IAM) service that serves business-to-employee and business-to-business (B2B) scenarios.  AAD B2C A customer identity access management (CIAM) service that serves business-to-consumer (B2C) scenarios.
      * @returns a string
      */
     public get tenantType() {
         return this._tenantType;
     };
     /**
-     * Sets the tenantType property value. The tenantType property
+     * Sets the tenantType property value. Not nullable. The tenant type option that was selected when the tenant was created. The possible values are:  AAD - An enterprise identity access management (IAM) service that serves business-to-employee and business-to-business (B2B) scenarios.  AAD B2C A customer identity access management (CIAM) service that serves business-to-consumer (B2C) scenarios.
      * @param value Value to set for the tenantType property.
      */
     public set tenantType(value: string | undefined) {

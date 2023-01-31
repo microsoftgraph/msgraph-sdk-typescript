@@ -22,7 +22,6 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
     private _markImportance?: Importance | undefined;
     /** The ID of the folder that a message will be moved to. */
     private _moveToFolder?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Indicates whether a message should be permanently deleted and not saved to the Deleted Items folder. */
     private _permanentDelete?: boolean | undefined;
@@ -183,14 +182,14 @@ export class MessageRuleActions implements AdditionalDataHolder, Parsable {
         this._moveToFolder = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

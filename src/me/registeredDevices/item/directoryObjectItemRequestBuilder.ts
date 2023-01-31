@@ -2,10 +2,10 @@ import {DirectoryObject} from '../../../models/';
 import {createDirectoryObjectFromDiscriminatorValue} from '../../../models/createDirectoryObjectFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AppRoleAssignmentRequestBuilder} from './appRoleAssignment/appRoleAssignmentRequestBuilder';
-import {DeviceRequestBuilder} from './device/deviceRequestBuilder';
 import {DirectoryObjectItemRequestBuilderGetRequestConfiguration} from './directoryObjectItemRequestBuilderGetRequestConfiguration';
-import {EndpointRequestBuilder} from './endpoint/endpointRequestBuilder';
+import {AppRoleAssignmentRequestBuilder} from './microsoftGraphAppRoleAssignment/appRoleAssignmentRequestBuilder';
+import {DeviceRequestBuilder} from './microsoftGraphDevice/deviceRequestBuilder';
+import {EndpointRequestBuilder} from './microsoftGraphEndpoint/endpointRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -13,15 +13,15 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class DirectoryObjectItemRequestBuilder {
     /** Casts the previous resource to appRoleAssignment. */
-    public get appRoleAssignment(): AppRoleAssignmentRequestBuilder {
+    public get microsoftGraphAppRoleAssignment(): AppRoleAssignmentRequestBuilder {
         return new AppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to device. */
-    public get device(): DeviceRequestBuilder {
+    public get microsoftGraphDevice(): DeviceRequestBuilder {
         return new DeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to endpoint. */
-    public get endpoint(): EndpointRequestBuilder {
+    public get microsoftGraphEndpoint(): EndpointRequestBuilder {
         return new EndpointRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
@@ -32,14 +32,16 @@ export class DirectoryObjectItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
+     * @param directoryObjectId key: id of directoryObject
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, directoryObjectId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/registeredDevices/{directoryObject%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["directoryObject%2Did"] = directoryObjectId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

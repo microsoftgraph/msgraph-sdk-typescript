@@ -3,19 +3,12 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class UriClickSecurityState implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The clickAction property */
     private _clickAction?: string | undefined;
-    /** The clickDateTime property */
     private _clickDateTime?: Date | undefined;
-    /** The id property */
     private _id?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The sourceId property */
     private _sourceId?: string | undefined;
-    /** The uriDomain property */
     private _uriDomain?: string | undefined;
-    /** The verdict property */
     private _verdict?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -32,28 +25,28 @@ export class UriClickSecurityState implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the clickAction property value. The clickAction property
+     * Gets the clickAction property value. 
      * @returns a string
      */
     public get clickAction() {
         return this._clickAction;
     };
     /**
-     * Sets the clickAction property value. The clickAction property
+     * Sets the clickAction property value. 
      * @param value Value to set for the clickAction property.
      */
     public set clickAction(value: string | undefined) {
         this._clickAction = value;
     };
     /**
-     * Gets the clickDateTime property value. The clickDateTime property
+     * Gets the clickDateTime property value. 
      * @returns a Date
      */
     public get clickDateTime() {
         return this._clickDateTime;
     };
     /**
-     * Sets the clickDateTime property value. The clickDateTime property
+     * Sets the clickDateTime property value. 
      * @param value Value to set for the clickDateTime property.
      */
     public set clickDateTime(value: Date | undefined) {
@@ -81,28 +74,28 @@ export class UriClickSecurityState implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. 
      * @returns a string
      */
     public get id() {
         return this._id;
     };
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. 
      * @param value Value to set for the id property.
      */
     public set id(value: string | undefined) {
         this._id = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -124,42 +117,42 @@ export class UriClickSecurityState implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the sourceId property value. The sourceId property
+     * Gets the sourceId property value. 
      * @returns a string
      */
     public get sourceId() {
         return this._sourceId;
     };
     /**
-     * Sets the sourceId property value. The sourceId property
+     * Sets the sourceId property value. 
      * @param value Value to set for the sourceId property.
      */
     public set sourceId(value: string | undefined) {
         this._sourceId = value;
     };
     /**
-     * Gets the uriDomain property value. The uriDomain property
+     * Gets the uriDomain property value. 
      * @returns a string
      */
     public get uriDomain() {
         return this._uriDomain;
     };
     /**
-     * Sets the uriDomain property value. The uriDomain property
+     * Sets the uriDomain property value. 
      * @param value Value to set for the uriDomain property.
      */
     public set uriDomain(value: string | undefined) {
         this._uriDomain = value;
     };
     /**
-     * Gets the verdict property value. The verdict property
+     * Gets the verdict property value. 
      * @returns a string
      */
     public get verdict() {
         return this._verdict;
     };
     /**
-     * Sets the verdict property value. The verdict property
+     * Sets the verdict property value. 
      * @param value Value to set for the verdict property.
      */
     public set verdict(value: string | undefined) {

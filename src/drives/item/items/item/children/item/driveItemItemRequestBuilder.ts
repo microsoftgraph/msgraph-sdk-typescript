@@ -22,14 +22,16 @@ export class DriveItemItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new DriveItemItemRequestBuilder and sets the default values.
+     * @param driveItemId1 key: id of driveItem
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, driveItemId1?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/children/{driveItem%2Did1}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["driveItem%2Did1"] = driveItemId1
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

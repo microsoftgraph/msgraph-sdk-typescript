@@ -9,9 +9,7 @@ export class PrinterStatus implements AdditionalDataHolder, Parsable {
     private _description?: string | undefined;
     /** The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only. */
     private _details?: PrinterProcessingStateDetail[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The state property */
     private _state?: PrinterProcessingState | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -74,14 +72,14 @@ export class PrinterStatus implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -100,14 +98,14 @@ export class PrinterStatus implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the state property value. The state property
+     * Gets the state property value. 
      * @returns a printerProcessingState
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The state property
+     * Sets the state property value. 
      * @param value Value to set for the state property.
      */
     public set state(value: PrinterProcessingState | undefined) {

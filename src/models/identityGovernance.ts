@@ -6,27 +6,22 @@ import {AccessReviewSet, AppConsentApprovalRoute, EntitlementManagement, TermsOf
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityGovernance implements AdditionalDataHolder, Parsable {
-    /** The accessReviews property */
     private _accessReviews?: AccessReviewSet | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The appConsent property */
     private _appConsent?: AppConsentApprovalRoute | undefined;
-    /** The entitlementManagement property */
     private _entitlementManagement?: EntitlementManagement | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The termsOfUse property */
     private _termsOfUse?: TermsOfUseContainer | undefined;
     /**
-     * Gets the accessReviews property value. The accessReviews property
+     * Gets the accessReviews property value. 
      * @returns a accessReviewSet
      */
     public get accessReviews() {
         return this._accessReviews;
     };
     /**
-     * Sets the accessReviews property value. The accessReviews property
+     * Sets the accessReviews property value. 
      * @param value Value to set for the accessReviews property.
      */
     public set accessReviews(value: AccessReviewSet | undefined) {
@@ -47,14 +42,14 @@ export class IdentityGovernance implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the appConsent property value. The appConsent property
+     * Gets the appConsent property value. 
      * @returns a appConsentApprovalRoute
      */
     public get appConsent() {
         return this._appConsent;
     };
     /**
-     * Sets the appConsent property value. The appConsent property
+     * Sets the appConsent property value. 
      * @param value Value to set for the appConsent property.
      */
     public set appConsent(value: AppConsentApprovalRoute | undefined) {
@@ -67,14 +62,14 @@ export class IdentityGovernance implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the entitlementManagement property value. The entitlementManagement property
+     * Gets the entitlementManagement property value. 
      * @returns a entitlementManagement
      */
     public get entitlementManagement() {
         return this._entitlementManagement;
     };
     /**
-     * Sets the entitlementManagement property value. The entitlementManagement property
+     * Sets the entitlementManagement property value. 
      * @param value Value to set for the entitlementManagement property.
      */
     public set entitlementManagement(value: EntitlementManagement | undefined) {
@@ -94,14 +89,14 @@ export class IdentityGovernance implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -121,14 +116,14 @@ export class IdentityGovernance implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the termsOfUse property value. The termsOfUse property
+     * Gets the termsOfUse property value. 
      * @returns a termsOfUseContainer
      */
     public get termsOfUse() {
         return this._termsOfUse;
     };
     /**
-     * Sets the termsOfUse property value. The termsOfUse property
+     * Sets the termsOfUse property value. 
      * @param value Value to set for the termsOfUse property.
      */
     public set termsOfUse(value: TermsOfUseContainer | undefined) {

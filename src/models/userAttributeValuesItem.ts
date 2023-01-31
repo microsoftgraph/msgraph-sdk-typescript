@@ -7,7 +7,6 @@ export class UserAttributeValuesItem implements AdditionalDataHolder, Parsable {
     private _isDefault?: boolean | undefined;
     /** The display name of the property displayed to the user in the user flow. */
     private _name?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The value that is set when this item is selected. */
     private _value?: string | undefined;
@@ -72,14 +71,14 @@ export class UserAttributeValuesItem implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

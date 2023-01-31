@@ -14,7 +14,6 @@ export class EducationStudent implements AdditionalDataHolder, Parsable {
     private _grade?: string | undefined;
     /** Year the student is graduating from the school. */
     private _graduationYear?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Student Number. */
     private _studentNumber?: string | undefined;
@@ -124,14 +123,14 @@ export class EducationStudent implements AdditionalDataHolder, Parsable {
         this._graduationYear = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

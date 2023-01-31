@@ -4,9 +4,9 @@ import {createManagedAppRegistrationFromDiscriminatorValue} from '../../models/c
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetUserIdsWithFlaggedAppRegistrationRequestBuilder} from './getUserIdsWithFlaggedAppRegistration/getUserIdsWithFlaggedAppRegistrationRequestBuilder';
 import {ManagedAppRegistrationsRequestBuilderGetRequestConfiguration} from './managedAppRegistrationsRequestBuilderGetRequestConfiguration';
 import {ManagedAppRegistrationsRequestBuilderPostRequestConfiguration} from './managedAppRegistrationsRequestBuilderPostRequestConfiguration';
+import {GetUserIdsWithFlaggedAppRegistrationRequestBuilder} from './microsoftGraphGetUserIdsWithFlaggedAppRegistration/getUserIdsWithFlaggedAppRegistrationRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -16,6 +16,10 @@ export class ManagedAppRegistrationsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getUserIdsWithFlaggedAppRegistration method. */
+    public get microsoftGraphGetUserIdsWithFlaggedAppRegistration(): GetUserIdsWithFlaggedAppRegistrationRequestBuilder {
+        return new GetUserIdsWithFlaggedAppRegistrationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -53,15 +57,7 @@ export class ManagedAppRegistrationsRequestBuilder {
         return this.requestAdapter?.sendAsync<ManagedAppRegistrationCollectionResponse>(requestInfo, createManagedAppRegistrationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to call the getUserIdsWithFlaggedAppRegistration method.
-     * @returns a getUserIdsWithFlaggedAppRegistrationRequestBuilder
-     */
-    public getUserIdsWithFlaggedAppRegistration() : GetUserIdsWithFlaggedAppRegistrationRequestBuilder {
-        return new GetUserIdsWithFlaggedAppRegistrationRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
      * Create new navigation property to managedAppRegistrations for deviceAppManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedAppRegistration
@@ -97,7 +93,6 @@ export class ManagedAppRegistrationsRequestBuilder {
     };
     /**
      * Create new navigation property to managedAppRegistrations for deviceAppManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

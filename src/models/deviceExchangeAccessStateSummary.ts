@@ -10,7 +10,6 @@ export class DeviceExchangeAccessStateSummary implements AdditionalDataHolder, P
     private _allowedDeviceCount?: number | undefined;
     /** Total count of devices with Exchange Access State: Blocked. */
     private _blockedDeviceCount?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Total count of devices with Exchange Access State: Quarantined. */
     private _quarantinedDeviceCount?: number | undefined;
@@ -81,14 +80,14 @@ export class DeviceExchangeAccessStateSummary implements AdditionalDataHolder, P
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

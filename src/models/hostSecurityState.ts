@@ -5,15 +5,12 @@ export class HostSecurityState implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Host FQDN (Fully Qualified Domain Name) (for example, machine.company.com). */
     private _fqdn?: string | undefined;
-    /** The isAzureAdJoined property */
     private _isAzureAdJoined?: boolean | undefined;
-    /** The isAzureAdRegistered property */
     private _isAzureAdRegistered?: boolean | undefined;
     /** True if the host is domain joined to an on-premises Active Directory domain. */
     private _isHybridAzureDomainJoined?: boolean | undefined;
     /** The local host name, without the DNS domain name. */
     private _netBiosName?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Host Operating System. (For example, Windows10, MacOS, RHEL, etc.). */
     private _os?: string | undefined;
@@ -76,28 +73,28 @@ export class HostSecurityState implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the isAzureAdJoined property value. The isAzureAdJoined property
+     * Gets the isAzureAdJoined property value. 
      * @returns a boolean
      */
     public get isAzureAdJoined() {
         return this._isAzureAdJoined;
     };
     /**
-     * Sets the isAzureAdJoined property value. The isAzureAdJoined property
+     * Sets the isAzureAdJoined property value. 
      * @param value Value to set for the isAzureAdJoined property.
      */
     public set isAzureAdJoined(value: boolean | undefined) {
         this._isAzureAdJoined = value;
     };
     /**
-     * Gets the isAzureAdRegistered property value. The isAzureAdRegistered property
+     * Gets the isAzureAdRegistered property value. 
      * @returns a boolean
      */
     public get isAzureAdRegistered() {
         return this._isAzureAdRegistered;
     };
     /**
-     * Sets the isAzureAdRegistered property value. The isAzureAdRegistered property
+     * Sets the isAzureAdRegistered property value. 
      * @param value Value to set for the isAzureAdRegistered property.
      */
     public set isAzureAdRegistered(value: boolean | undefined) {
@@ -132,14 +129,14 @@ export class HostSecurityState implements AdditionalDataHolder, Parsable {
         this._netBiosName = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

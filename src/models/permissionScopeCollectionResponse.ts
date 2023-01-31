@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, PermissionScope} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PermissionScopeCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: PermissionScope[] | undefined;
     /**
      * Instantiates a new PermissionScopeCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class PermissionScopeCollectionResponse extends BaseCollectionPaginationC
         writer.writeCollectionOfObjectValues<PermissionScope>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a permissionScope
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: PermissionScope[] | undefined) {

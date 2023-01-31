@@ -11,11 +11,9 @@ export class AuthenticationMethodsRegistrationCampaign implements AdditionalData
     private _excludeTargets?: ExcludeTarget[] | undefined;
     /** Users and groups of users that are prompted to set up the authentication method. */
     private _includeTargets?: AuthenticationMethodsRegistrationCampaignIncludeTarget[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Specifies the number of days that the user sees a prompt again if they select 'Not now' and snoozes the prompt. Minimum: 0 days. Maximum: 14 days. If the value is '0', the user is prompted during every MFA attempt. */
     private _snoozeDurationInDays?: number | undefined;
-    /** The state property */
     private _state?: AdvancedConfigState | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -79,14 +77,14 @@ export class AuthenticationMethodsRegistrationCampaign implements AdditionalData
         this._includeTargets = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -120,14 +118,14 @@ export class AuthenticationMethodsRegistrationCampaign implements AdditionalData
         this._snoozeDurationInDays = value;
     };
     /**
-     * Gets the state property value. The state property
+     * Gets the state property value. 
      * @returns a advancedConfigState
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The state property
+     * Sets the state property value. 
      * @param value Value to set for the state property.
      */
     public set state(value: AdvancedConfigState | undefined) {

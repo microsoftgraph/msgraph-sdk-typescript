@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, BucketAggregationRange} from './i
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BucketAggregationRangeCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: BucketAggregationRange[] | undefined;
     /**
      * Instantiates a new BucketAggregationRangeCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class BucketAggregationRangeCollectionResponse extends BaseCollectionPagi
         writer.writeCollectionOfObjectValues<BucketAggregationRange>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a bucketAggregationRange
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: BucketAggregationRange[] | undefined) {

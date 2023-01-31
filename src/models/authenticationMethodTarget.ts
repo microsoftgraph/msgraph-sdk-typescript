@@ -5,7 +5,6 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class AuthenticationMethodTarget extends Entity implements Parsable {
     /** Determines if the user is enforced to register the authentication method. */
     private _isRegistrationRequired?: boolean | undefined;
-    /** The targetType property */
     private _targetType?: AuthenticationMethodTargetType | undefined;
     /**
      * Instantiates a new authenticationMethodTarget and sets the default values.
@@ -48,14 +47,14 @@ export class AuthenticationMethodTarget extends Entity implements Parsable {
         writer.writeEnumValue<AuthenticationMethodTargetType>("targetType", this.targetType);
     };
     /**
-     * Gets the targetType property value. The targetType property
+     * Gets the targetType property value. 
      * @returns a authenticationMethodTargetType
      */
     public get targetType() {
         return this._targetType;
     };
     /**
-     * Sets the targetType property value. The targetType property
+     * Sets the targetType property value. 
      * @param value Value to set for the targetType property.
      */
     public set targetType(value: AuthenticationMethodTargetType | undefined) {

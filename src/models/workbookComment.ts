@@ -7,7 +7,6 @@ export class WorkbookComment extends Entity implements Parsable {
     private _content?: string | undefined;
     /** Indicates the type for the comment. */
     private _contentType?: string | undefined;
-    /** The replies property */
     private _replies?: WorkbookCommentReply[] | undefined;
     /**
      * Instantiates a new workbookComment and sets the default values.
@@ -55,14 +54,14 @@ export class WorkbookComment extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the replies property value. The replies property
+     * Gets the replies property value. 
      * @returns a workbookCommentReply
      */
     public get replies() {
         return this._replies;
     };
     /**
-     * Sets the replies property value. The replies property
+     * Sets the replies property value. 
      * @param value Value to set for the replies property.
      */
     public set replies(value: WorkbookCommentReply[] | undefined) {

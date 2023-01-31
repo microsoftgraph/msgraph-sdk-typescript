@@ -3,23 +3,19 @@ import {CalendarSharingMessageAction, Message} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CalendarSharingMessage extends Message implements Parsable {
-    /** The canAccept property */
     private _canAccept?: boolean | undefined;
-    /** The sharingMessageAction property */
     private _sharingMessageAction?: CalendarSharingMessageAction | undefined;
-    /** The sharingMessageActions property */
     private _sharingMessageActions?: CalendarSharingMessageAction[] | undefined;
-    /** The suggestedCalendarName property */
     private _suggestedCalendarName?: string | undefined;
     /**
-     * Gets the canAccept property value. The canAccept property
+     * Gets the canAccept property value. 
      * @returns a boolean
      */
     public get canAccept() {
         return this._canAccept;
     };
     /**
-     * Sets the canAccept property value. The canAccept property
+     * Sets the canAccept property value. 
      * @param value Value to set for the canAccept property.
      */
     public set canAccept(value: boolean | undefined) {
@@ -57,42 +53,42 @@ export class CalendarSharingMessage extends Message implements Parsable {
         writer.writeStringValue("suggestedCalendarName", this.suggestedCalendarName);
     };
     /**
-     * Gets the sharingMessageAction property value. The sharingMessageAction property
+     * Gets the sharingMessageAction property value. 
      * @returns a calendarSharingMessageAction
      */
     public get sharingMessageAction() {
         return this._sharingMessageAction;
     };
     /**
-     * Sets the sharingMessageAction property value. The sharingMessageAction property
+     * Sets the sharingMessageAction property value. 
      * @param value Value to set for the sharingMessageAction property.
      */
     public set sharingMessageAction(value: CalendarSharingMessageAction | undefined) {
         this._sharingMessageAction = value;
     };
     /**
-     * Gets the sharingMessageActions property value. The sharingMessageActions property
+     * Gets the sharingMessageActions property value. 
      * @returns a calendarSharingMessageAction
      */
     public get sharingMessageActions() {
         return this._sharingMessageActions;
     };
     /**
-     * Sets the sharingMessageActions property value. The sharingMessageActions property
+     * Sets the sharingMessageActions property value. 
      * @param value Value to set for the sharingMessageActions property.
      */
     public set sharingMessageActions(value: CalendarSharingMessageAction[] | undefined) {
         this._sharingMessageActions = value;
     };
     /**
-     * Gets the suggestedCalendarName property value. The suggestedCalendarName property
+     * Gets the suggestedCalendarName property value. 
      * @returns a string
      */
     public get suggestedCalendarName() {
         return this._suggestedCalendarName;
     };
     /**
-     * Sets the suggestedCalendarName property value. The suggestedCalendarName property
+     * Sets the suggestedCalendarName property value. 
      * @param value Value to set for the suggestedCalendarName property.
      */
     public set suggestedCalendarName(value: string | undefined) {

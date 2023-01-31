@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, MacOSLobApp} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MacOSLobAppCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: MacOSLobApp[] | undefined;
     /**
      * Instantiates a new MacOSLobAppCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class MacOSLobAppCollectionResponse extends BaseCollectionPaginationCount
         writer.writeCollectionOfObjectValues<MacOSLobApp>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a macOSLobApp
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: MacOSLobApp[] | undefined) {

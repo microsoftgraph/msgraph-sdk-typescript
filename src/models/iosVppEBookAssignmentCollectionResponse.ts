@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, IosVppEBookAssignment} from './in
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosVppEBookAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: IosVppEBookAssignment[] | undefined;
     /**
      * Instantiates a new IosVppEBookAssignmentCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class IosVppEBookAssignmentCollectionResponse extends BaseCollectionPagin
         writer.writeCollectionOfObjectValues<IosVppEBookAssignment>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a iosVppEBookAssignment
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: IosVppEBookAssignment[] | undefined) {

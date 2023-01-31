@@ -8,9 +8,7 @@ export class RecordingInfo implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The identities of the recording initiator. */
     private _initiator?: IdentitySet | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The recordingStatus property */
     private _recordingStatus?: RecordingStatus | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -58,28 +56,28 @@ export class RecordingInfo implements AdditionalDataHolder, Parsable {
         this._initiator = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the recordingStatus property value. The recordingStatus property
+     * Gets the recordingStatus property value. 
      * @returns a recordingStatus
      */
     public get recordingStatus() {
         return this._recordingStatus;
     };
     /**
-     * Sets the recordingStatus property value. The recordingStatus property
+     * Sets the recordingStatus property value. 
      * @param value Value to set for the recordingStatus property.
      */
     public set recordingStatus(value: RecordingStatus | undefined) {

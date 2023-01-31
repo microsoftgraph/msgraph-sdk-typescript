@@ -12,14 +12,14 @@ import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
 import {DriveItemRequestBuilder} from './drives/item/driveItemRequestBuilder';
 import {ExternalColumnsRequestBuilder} from './externalColumns/externalColumnsRequestBuilder';
 import {ColumnDefinitionItemRequestBuilder as I05b0e95c6db100e902b5bbe2eedbdae577c635269cee074a241f96054e6495ab} from './externalColumns/item/columnDefinitionItemRequestBuilder';
-import {GetActivitiesByIntervalRequestBuilder} from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
-import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
-import {GetApplicableContentTypesForListWithListIdRequestBuilder} from './getApplicableContentTypesForListWithListId/getApplicableContentTypesForListWithListIdRequestBuilder';
-import {GetByPathWithPathRequestBuilder} from './getByPathWithPath/getByPathWithPathRequestBuilder';
 import {BaseItemItemRequestBuilder} from './items/item/baseItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListItemRequestBuilder} from './lists/item/listItemRequestBuilder';
 import {ListsRequestBuilder} from './lists/listsRequestBuilder';
+import {GetActivitiesByIntervalRequestBuilder} from './microsoftGraphGetActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
+import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from './microsoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
+import {GetApplicableContentTypesForListWithListIdRequestBuilder} from './microsoftGraphGetApplicableContentTypesForListWithListId/getApplicableContentTypesForListWithListIdRequestBuilder';
+import {GetByPathWithPathRequestBuilder} from './microsoftGraphGetByPathWithPath/getByPathWithPathRequestBuilder';
 import {OnenoteRequestBuilder} from './onenote/onenoteRequestBuilder';
 import {RichLongRunningOperationItemRequestBuilder} from './operations/item/richLongRunningOperationItemRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
@@ -70,6 +70,10 @@ export class SiteItemRequestBuilder {
     public get lists(): ListsRequestBuilder {
         return new ListsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the getActivitiesByInterval method. */
+    public get microsoftGraphGetActivitiesByInterval(): GetActivitiesByIntervalRequestBuilder {
+        return new GetActivitiesByIntervalRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the onenote property of the microsoft.graph.site entity. */
     public get onenote(): OnenoteRequestBuilder {
         return new OnenoteRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -115,12 +119,14 @@ export class SiteItemRequestBuilder {
      * Instantiates a new SiteItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param siteId key: id of site
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, siteId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/sites/{site%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["site%2Did"] = siteId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -175,44 +181,6 @@ export class SiteItemRequestBuilder {
         return this.requestAdapter?.sendAsync<Site>(requestInfo, createSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to call the getActivitiesByInterval method.
-     * @returns a getActivitiesByIntervalRequestBuilder
-     */
-    public getActivitiesByInterval() : GetActivitiesByIntervalRequestBuilder {
-        return new GetActivitiesByIntervalRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
-     * Provides operations to call the getActivitiesByInterval method.
-     * @param endDateTime Usage: endDateTime='{endDateTime}'
-     * @param interval Usage: interval='{interval}'
-     * @param startDateTime Usage: startDateTime='{startDateTime}'
-     * @returns a getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder
-     */
-    public getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(endDateTime: string | undefined, interval: string | undefined, startDateTime: string | undefined) : GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
-        if(!endDateTime) throw new Error("endDateTime cannot be undefined");
-        if(!interval) throw new Error("interval cannot be undefined");
-        if(!startDateTime) throw new Error("startDateTime cannot be undefined");
-        return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, interval, startDateTime);
-    };
-    /**
-     * Provides operations to call the getApplicableContentTypesForList method.
-     * @param listId Usage: listId='{listId}'
-     * @returns a getApplicableContentTypesForListWithListIdRequestBuilder
-     */
-    public getApplicableContentTypesForListWithListId(listId: string | undefined) : GetApplicableContentTypesForListWithListIdRequestBuilder {
-        if(!listId) throw new Error("listId cannot be undefined");
-        return new GetApplicableContentTypesForListWithListIdRequestBuilder(this.pathParameters, this.requestAdapter, listId);
-    };
-    /**
-     * Provides operations to call the getByPath method.
-     * @param path Usage: path='{path}'
-     * @returns a getByPathWithPathRequestBuilder
-     */
-    public getByPathWithPath(path: string | undefined) : GetByPathWithPathRequestBuilder {
-        if(!path) throw new Error("path cannot be undefined");
-        return new GetByPathWithPathRequestBuilder(this.pathParameters, this.requestAdapter, path);
-    };
-    /**
      * Provides operations to manage the items property of the microsoft.graph.site entity.
      * @param id Unique identifier of the item
      * @returns a BaseItemItemRequestBuilder
@@ -235,6 +203,37 @@ export class SiteItemRequestBuilder {
         return new ListItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
+     * Provides operations to call the getActivitiesByInterval method.
+     * @param endDateTime Usage: endDateTime='{endDateTime}'
+     * @param interval Usage: interval='{interval}'
+     * @param startDateTime Usage: startDateTime='{startDateTime}'
+     * @returns a getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder
+     */
+    public microsoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(endDateTime: string | undefined, interval: string | undefined, startDateTime: string | undefined) : GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
+        if(!endDateTime) throw new Error("endDateTime cannot be undefined");
+        if(!interval) throw new Error("interval cannot be undefined");
+        if(!startDateTime) throw new Error("startDateTime cannot be undefined");
+        return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, interval, startDateTime);
+    };
+    /**
+     * Provides operations to call the getApplicableContentTypesForList method.
+     * @param listId Usage: listId='{listId}'
+     * @returns a getApplicableContentTypesForListWithListIdRequestBuilder
+     */
+    public microsoftGraphGetApplicableContentTypesForListWithListId(listId: string | undefined) : GetApplicableContentTypesForListWithListIdRequestBuilder {
+        if(!listId) throw new Error("listId cannot be undefined");
+        return new GetApplicableContentTypesForListWithListIdRequestBuilder(this.pathParameters, this.requestAdapter, listId);
+    };
+    /**
+     * Provides operations to call the getByPath method.
+     * @param path Usage: path='{path}'
+     * @returns a getByPathWithPathRequestBuilder
+     */
+    public microsoftGraphGetByPathWithPath(path: string | undefined) : GetByPathWithPathRequestBuilder {
+        if(!path) throw new Error("path cannot be undefined");
+        return new GetByPathWithPathRequestBuilder(this.pathParameters, this.requestAdapter, path);
+    };
+    /**
      * Provides operations to manage the operations property of the microsoft.graph.site entity.
      * @param id Unique identifier of the item
      * @returns a RichLongRunningOperationItemRequestBuilder
@@ -246,8 +245,7 @@ export class SiteItemRequestBuilder {
         return new RichLongRunningOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update entity in sites by key (id)
-     * @param body The request body
+     * Update entity in sites
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Site
@@ -315,8 +313,7 @@ export class SiteItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in sites by key (id)
-     * @param body The request body
+     * Update entity in sites
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

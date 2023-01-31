@@ -6,7 +6,7 @@ import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {DriveItemVersionItemRequestBuilderDeleteRequestConfiguration} from './driveItemVersionItemRequestBuilderDeleteRequestConfiguration';
 import {DriveItemVersionItemRequestBuilderGetRequestConfiguration} from './driveItemVersionItemRequestBuilderGetRequestConfiguration';
 import {DriveItemVersionItemRequestBuilderPatchRequestConfiguration} from './driveItemVersionItemRequestBuilderPatchRequestConfiguration';
-import {RestoreVersionRequestBuilder} from './restoreVersion/restoreVersionRequestBuilder';
+import {RestoreVersionRequestBuilder} from './microsoftGraphRestoreVersion/restoreVersionRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -17,26 +17,28 @@ export class DriveItemVersionItemRequestBuilder {
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the restoreVersion method. */
+    public get microsoftGraphRestoreVersion(): RestoreVersionRequestBuilder {
+        return new RestoreVersionRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the restoreVersion method. */
-    public get restoreVersion(): RestoreVersionRequestBuilder {
-        return new RestoreVersionRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new DriveItemVersionItemRequestBuilder and sets the default values.
+     * @param driveItemVersionId key: id of driveItemVersion
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, driveItemVersionId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/versions/{driveItemVersion%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["driveItemVersion%2Did"] = driveItemVersionId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -73,7 +75,6 @@ export class DriveItemVersionItemRequestBuilder {
     };
     /**
      * Update the navigation property versions in drives
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveItemVersion
@@ -125,7 +126,6 @@ export class DriveItemVersionItemRequestBuilder {
     };
     /**
      * Update the navigation property versions in drives
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -4,12 +4,12 @@ import {createGroupFromDiscriminatorValue} from '../models/createGroupFromDiscri
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
-import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {GroupsRequestBuilderGetRequestConfiguration} from './groupsRequestBuilderGetRequestConfiguration';
 import {GroupsRequestBuilderPostRequestConfiguration} from './groupsRequestBuilderPostRequestConfiguration';
-import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
+import {DeltaRequestBuilder} from './microsoftGraphDelta/deltaRequestBuilder';
+import {GetAvailableExtensionPropertiesRequestBuilder} from './microsoftGraphGetAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
+import {GetByIdsRequestBuilder} from './microsoftGraphGetByIds/getByIdsRequestBuilder';
+import {ValidatePropertiesRequestBuilder} from './microsoftGraphValidateProperties/validatePropertiesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -20,13 +20,21 @@ export class GroupsRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the delta method. */
+    public get microsoftGraphDelta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the getAvailableExtensionProperties method. */
-    public get getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {
+    public get microsoftGraphGetAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {
         return new GetAvailableExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getByIds method. */
-    public get getByIds(): GetByIdsRequestBuilder {
+    public get microsoftGraphGetByIds(): GetByIdsRequestBuilder {
         return new GetByIdsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the validateProperties method. */
+    public get microsoftGraphValidateProperties(): ValidatePropertiesRequestBuilder {
+        return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -34,10 +42,6 @@ export class GroupsRequestBuilder {
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
-    /** Provides operations to call the validateProperties method. */
-    public get validateProperties(): ValidatePropertiesRequestBuilder {
-        return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /**
      * Instantiates a new GroupsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -50,13 +54,6 @@ export class GroupsRequestBuilder {
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
-    };
-    /**
-     * Provides operations to call the delta method.
-     * @returns a deltaRequestBuilder
-     */
-    public delta() : DeltaRequestBuilder {
-        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * List all the groups available in an organization, excluding dynamic distribution groups. To retrieve dynamic distribution groups, use the Exchange admin center. This operation returns by default only a subset of the properties for each group. These default properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the group and specify the properties in a `$select` OData query option. The **hasMembersWithLicenseErrors** and **isArchived** properties are an exception and are not returned in the `$select` query.
@@ -77,7 +74,6 @@ export class GroupsRequestBuilder {
     };
     /**
      * Create a new group as specified in the request body. You can create the following types of groups: This operation returns by default only a subset of the properties for each group. These default properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation and specify the properties in a `$select` OData query option.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Group
@@ -114,7 +110,6 @@ export class GroupsRequestBuilder {
     };
     /**
      * Create a new group as specified in the request body. You can create the following types of groups: This operation returns by default only a subset of the properties for each group. These default properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation and specify the properties in a `$select` OData query option.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

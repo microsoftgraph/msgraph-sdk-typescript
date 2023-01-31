@@ -14,7 +14,6 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
     private _lastModifiedDateTime?: Date | undefined;
     /** The version of the policy in use. Read-only. */
     private _policyVersion?: string | undefined;
-    /** The reconfirmationInDays property */
     private _reconfirmationInDays?: number | undefined;
     /** Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods. */
     private _registrationEnforcement?: RegistrationEnforcement | undefined;
@@ -110,14 +109,14 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
         this._policyVersion = value;
     };
     /**
-     * Gets the reconfirmationInDays property value. The reconfirmationInDays property
+     * Gets the reconfirmationInDays property value. 
      * @returns a integer
      */
     public get reconfirmationInDays() {
         return this._reconfirmationInDays;
     };
     /**
-     * Sets the reconfirmationInDays property value. The reconfirmationInDays property
+     * Sets the reconfirmationInDays property value. 
      * @param value Value to set for the reconfirmationInDays property.
      */
     public set reconfirmationInDays(value: number | undefined) {

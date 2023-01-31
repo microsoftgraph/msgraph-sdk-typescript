@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, ChatMessageMention} from './index
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ChatMessageMentionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ChatMessageMention[] | undefined;
     /**
      * Instantiates a new ChatMessageMentionCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ChatMessageMentionCollectionResponse extends BaseCollectionPaginati
         writer.writeCollectionOfObjectValues<ChatMessageMention>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a chatMessageMention
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ChatMessageMention[] | undefined) {

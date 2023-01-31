@@ -4,7 +4,6 @@ import {EdiscoveryNoncustodialDataSource} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EdiscoveryNoncustodialDataSourceCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: EdiscoveryNoncustodialDataSource[] | undefined;
     /**
      * Instantiates a new EdiscoveryNoncustodialDataSourceCollectionResponse and sets the default values.
@@ -31,14 +30,14 @@ export class EdiscoveryNoncustodialDataSourceCollectionResponse extends BaseColl
         writer.writeCollectionOfObjectValues<EdiscoveryNoncustodialDataSource>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a ediscoveryNoncustodialDataSource
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: EdiscoveryNoncustodialDataSource[] | undefined) {

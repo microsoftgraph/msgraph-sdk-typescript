@@ -21,7 +21,6 @@ export class Video implements AdditionalDataHolder, Parsable {
     private _frameRate?: number | undefined;
     /** Height of the video, in pixels. */
     private _height?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Width of the video, in pixels. */
     private _width?: number | undefined;
@@ -191,14 +190,14 @@ export class Video implements AdditionalDataHolder, Parsable {
         this._height = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

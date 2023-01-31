@@ -10,11 +10,11 @@ import {AccessPackageItemRequestBuilder as I0f7e6b283e479d72a6d9d336ee5e2552141f
 import {AssignmentPoliciesRequestBuilder} from './assignmentPolicies/assignmentPoliciesRequestBuilder';
 import {AccessPackageAssignmentPolicyItemRequestBuilder} from './assignmentPolicies/item/accessPackageAssignmentPolicyItemRequestBuilder';
 import {CatalogRequestBuilder} from './catalog/catalogRequestBuilder';
-import {GetApplicablePolicyRequirementsRequestBuilder} from './getApplicablePolicyRequirements/getApplicablePolicyRequirementsRequestBuilder';
 import {IncompatibleAccessPackagesRequestBuilder} from './incompatibleAccessPackages/incompatibleAccessPackagesRequestBuilder';
 import {AccessPackageItemRequestBuilder as I8cfc274500b86997c5a1d8da7cc7aabfd9284b78e1a192fee878c6c9bff1e764} from './incompatibleAccessPackages/item/accessPackageItemRequestBuilder';
 import {IncompatibleGroupsRequestBuilder} from './incompatibleGroups/incompatibleGroupsRequestBuilder';
 import {GroupItemRequestBuilder} from './incompatibleGroups/item/groupItemRequestBuilder';
+import {GetApplicablePolicyRequirementsRequestBuilder} from './microsoftGraphGetApplicablePolicyRequirements/getApplicablePolicyRequirementsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -33,10 +33,6 @@ export class AccessPackageItemRequestBuilder {
     public get catalog(): CatalogRequestBuilder {
         return new CatalogRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getApplicablePolicyRequirements method. */
-    public get getApplicablePolicyRequirements(): GetApplicablePolicyRequirementsRequestBuilder {
-        return new GetApplicablePolicyRequirementsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the incompatibleAccessPackages property of the microsoft.graph.accessPackage entity. */
     public get incompatibleAccessPackages(): IncompatibleAccessPackagesRequestBuilder {
         return new IncompatibleAccessPackagesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -44,6 +40,10 @@ export class AccessPackageItemRequestBuilder {
     /** Provides operations to manage the incompatibleGroups property of the microsoft.graph.accessPackage entity. */
     public get incompatibleGroups(): IncompatibleGroupsRequestBuilder {
         return new IncompatibleGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getApplicablePolicyRequirements method. */
+    public get microsoftGraphGetApplicablePolicyRequirements(): GetApplicablePolicyRequirementsRequestBuilder {
+        return new GetApplicablePolicyRequirementsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -75,14 +75,16 @@ export class AccessPackageItemRequestBuilder {
     };
     /**
      * Instantiates a new AccessPackageItemRequestBuilder and sets the default values.
+     * @param accessPackageId key: id of accessPackage
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, accessPackageId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/catalogs/{accessPackageCatalog%2Did}/accessPackages/{accessPackage%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["accessPackage%2Did"] = accessPackageId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -141,7 +143,6 @@ export class AccessPackageItemRequestBuilder {
     };
     /**
      * Update the navigation property accessPackages in identityGovernance
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackage
@@ -193,7 +194,6 @@ export class AccessPackageItemRequestBuilder {
     };
     /**
      * Update the navigation property accessPackages in identityGovernance
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

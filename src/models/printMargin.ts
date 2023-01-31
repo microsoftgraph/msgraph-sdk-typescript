@@ -7,7 +7,6 @@ export class PrintMargin implements AdditionalDataHolder, Parsable {
     private _bottom?: number | undefined;
     /** The margin in microns from the left edge. */
     private _left?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The margin in microns from the right edge. */
     private _right?: number | undefined;
@@ -75,14 +74,14 @@ export class PrintMargin implements AdditionalDataHolder, Parsable {
         this._left = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

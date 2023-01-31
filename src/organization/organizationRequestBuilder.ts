@@ -4,11 +4,11 @@ import {createOrganizationFromDiscriminatorValue} from '../models/createOrganiza
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
-import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
+import {GetAvailableExtensionPropertiesRequestBuilder} from './microsoftGraphGetAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
+import {GetByIdsRequestBuilder} from './microsoftGraphGetByIds/getByIdsRequestBuilder';
+import {ValidatePropertiesRequestBuilder} from './microsoftGraphValidateProperties/validatePropertiesRequestBuilder';
 import {OrganizationRequestBuilderGetRequestConfiguration} from './organizationRequestBuilderGetRequestConfiguration';
 import {OrganizationRequestBuilderPostRequestConfiguration} from './organizationRequestBuilderPostRequestConfiguration';
-import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -20,12 +20,16 @@ export class OrganizationRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getAvailableExtensionProperties method. */
-    public get getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {
+    public get microsoftGraphGetAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {
         return new GetAvailableExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getByIds method. */
-    public get getByIds(): GetByIdsRequestBuilder {
+    public get microsoftGraphGetByIds(): GetByIdsRequestBuilder {
         return new GetByIdsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the validateProperties method. */
+    public get microsoftGraphValidateProperties(): ValidatePropertiesRequestBuilder {
+        return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -33,10 +37,6 @@ export class OrganizationRequestBuilder {
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
-    /** Provides operations to call the validateProperties method. */
-    public get validateProperties(): ValidatePropertiesRequestBuilder {
-        return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /**
      * Instantiates a new OrganizationRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -69,7 +69,6 @@ export class OrganizationRequestBuilder {
     };
     /**
      * Add new entity to organization
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Organization
@@ -105,7 +104,6 @@ export class OrganizationRequestBuilder {
     };
     /**
      * Add new entity to organization
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

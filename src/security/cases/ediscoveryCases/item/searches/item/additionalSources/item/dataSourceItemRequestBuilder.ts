@@ -19,14 +19,16 @@ export class DataSourceItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new DataSourceItemRequestBuilder and sets the default values.
+     * @param dataSourceId key: id of dataSource
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, dataSourceId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}/additionalSources/{dataSource%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["dataSource%2Did"] = dataSourceId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -63,7 +65,6 @@ export class DataSourceItemRequestBuilder {
     };
     /**
      * Update the navigation property additionalSources in security
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DataSource
@@ -115,7 +116,6 @@ export class DataSourceItemRequestBuilder {
     };
     /**
      * Update the navigation property additionalSources in security
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -17,14 +17,16 @@ export class ConditionalAccessTemplateItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ConditionalAccessTemplateItemRequestBuilder and sets the default values.
+     * @param conditionalAccessTemplateId key: id of conditionalAccessTemplate
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, conditionalAccessTemplateId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/identity/conditionalAccess/templates/{conditionalAccessTemplate%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["conditionalAccessTemplate%2Did"] = conditionalAccessTemplateId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

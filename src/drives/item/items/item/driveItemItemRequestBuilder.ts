@@ -3,37 +3,38 @@ import {createDriveItemFromDiscriminatorValue} from '../../../../models/createDr
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
-import {CheckinRequestBuilder} from './checkin/checkinRequestBuilder';
-import {CheckoutRequestBuilder} from './checkout/checkoutRequestBuilder';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
 import {DriveItemItemRequestBuilder as Ia4e06e3749d2f8c1033950e42c0135873f385a01b564411719748942874c067a} from './children/item/driveItemItemRequestBuilder';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
-import {CopyRequestBuilder} from './copy/copyRequestBuilder';
-import {CreateLinkRequestBuilder} from './createLink/createLinkRequestBuilder';
-import {CreateUploadSessionRequestBuilder} from './createUploadSession/createUploadSessionRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {DeltaWithTokenRequestBuilder} from './deltaWithToken/deltaWithTokenRequestBuilder';
 import {DriveItemItemRequestBuilderDeleteRequestConfiguration} from './driveItemItemRequestBuilderDeleteRequestConfiguration';
 import {DriveItemItemRequestBuilderGetRequestConfiguration} from './driveItemItemRequestBuilderGetRequestConfiguration';
 import {DriveItemItemRequestBuilderPatchRequestConfiguration} from './driveItemItemRequestBuilderPatchRequestConfiguration';
-import {FollowRequestBuilder} from './follow/followRequestBuilder';
-import {GetActivitiesByIntervalRequestBuilder} from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
-import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
-import {InviteRequestBuilder} from './invite/inviteRequestBuilder';
 import {ListItemRequestBuilder} from './listItem/listItemRequestBuilder';
+import {CheckinRequestBuilder} from './microsoftGraphCheckin/checkinRequestBuilder';
+import {CheckoutRequestBuilder} from './microsoftGraphCheckout/checkoutRequestBuilder';
+import {CopyRequestBuilder} from './microsoftGraphCopy/copyRequestBuilder';
+import {CreateLinkRequestBuilder} from './microsoftGraphCreateLink/createLinkRequestBuilder';
+import {CreateUploadSessionRequestBuilder} from './microsoftGraphCreateUploadSession/createUploadSessionRequestBuilder';
+import {DeltaRequestBuilder} from './microsoftGraphDelta/deltaRequestBuilder';
+import {DeltaWithTokenRequestBuilder} from './microsoftGraphDeltaWithToken/deltaWithTokenRequestBuilder';
+import {FollowRequestBuilder} from './microsoftGraphFollow/followRequestBuilder';
+import {GetActivitiesByIntervalRequestBuilder} from './microsoftGraphGetActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
+import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from './microsoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
+import {InviteRequestBuilder} from './microsoftGraphInvite/inviteRequestBuilder';
+import {PreviewRequestBuilder} from './microsoftGraphPreview/previewRequestBuilder';
+import {RestoreRequestBuilder} from './microsoftGraphRestore/restoreRequestBuilder';
+import {SearchWithQRequestBuilder} from './microsoftGraphSearchWithQ/searchWithQRequestBuilder';
+import {UnfollowRequestBuilder} from './microsoftGraphUnfollow/unfollowRequestBuilder';
+import {ValidatePermissionRequestBuilder} from './microsoftGraphValidatePermission/validatePermissionRequestBuilder';
 import {PermissionItemRequestBuilder} from './permissions/item/permissionItemRequestBuilder';
 import {PermissionsRequestBuilder} from './permissions/permissionsRequestBuilder';
-import {PreviewRequestBuilder} from './preview/previewRequestBuilder';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {SearchWithQRequestBuilder} from './searchWithQ/searchWithQRequestBuilder';
 import {SubscriptionItemRequestBuilder} from './subscriptions/item/subscriptionItemRequestBuilder';
 import {SubscriptionsRequestBuilder} from './subscriptions/subscriptionsRequestBuilder';
 import {ThumbnailSetItemRequestBuilder} from './thumbnails/item/thumbnailSetItemRequestBuilder';
 import {ThumbnailsRequestBuilder} from './thumbnails/thumbnailsRequestBuilder';
-import {UnfollowRequestBuilder} from './unfollow/unfollowRequestBuilder';
-import {ValidatePermissionRequestBuilder} from './validatePermission/validatePermissionRequestBuilder';
 import {DriveItemVersionItemRequestBuilder} from './versions/item/driveItemVersionItemRequestBuilder';
 import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
+import {WorkbookRequestBuilder} from './workbook/workbookRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -44,14 +45,6 @@ export class DriveItemItemRequestBuilder {
     public get analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the checkin method. */
-    public get checkin(): CheckinRequestBuilder {
-        return new CheckinRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the checkout method. */
-    public get checkout(): CheckoutRequestBuilder {
-        return new CheckoutRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the children property of the microsoft.graph.driveItem entity. */
     public get children(): ChildrenRequestBuilder {
         return new ChildrenRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -60,29 +53,61 @@ export class DriveItemItemRequestBuilder {
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the copy method. */
-    public get copy(): CopyRequestBuilder {
-        return new CopyRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the createLink method. */
-    public get createLink(): CreateLinkRequestBuilder {
-        return new CreateLinkRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the createUploadSession method. */
-    public get createUploadSession(): CreateUploadSessionRequestBuilder {
-        return new CreateUploadSessionRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the follow method. */
-    public get follow(): FollowRequestBuilder {
-        return new FollowRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the invite method. */
-    public get invite(): InviteRequestBuilder {
-        return new InviteRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the listItem property of the microsoft.graph.driveItem entity. */
     public get listItem(): ListItemRequestBuilder {
         return new ListItemRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the checkin method. */
+    public get microsoftGraphCheckin(): CheckinRequestBuilder {
+        return new CheckinRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the checkout method. */
+    public get microsoftGraphCheckout(): CheckoutRequestBuilder {
+        return new CheckoutRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the copy method. */
+    public get microsoftGraphCopy(): CopyRequestBuilder {
+        return new CopyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the createLink method. */
+    public get microsoftGraphCreateLink(): CreateLinkRequestBuilder {
+        return new CreateLinkRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the createUploadSession method. */
+    public get microsoftGraphCreateUploadSession(): CreateUploadSessionRequestBuilder {
+        return new CreateUploadSessionRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the delta method. */
+    public get microsoftGraphDelta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the follow method. */
+    public get microsoftGraphFollow(): FollowRequestBuilder {
+        return new FollowRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getActivitiesByInterval method. */
+    public get microsoftGraphGetActivitiesByInterval(): GetActivitiesByIntervalRequestBuilder {
+        return new GetActivitiesByIntervalRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the invite method. */
+    public get microsoftGraphInvite(): InviteRequestBuilder {
+        return new InviteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the preview method. */
+    public get microsoftGraphPreview(): PreviewRequestBuilder {
+        return new PreviewRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the restore method. */
+    public get microsoftGraphRestore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the unfollow method. */
+    public get microsoftGraphUnfollow(): UnfollowRequestBuilder {
+        return new UnfollowRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the validatePermission method. */
+    public get microsoftGraphValidatePermission(): ValidatePermissionRequestBuilder {
+        return new ValidatePermissionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -90,16 +115,8 @@ export class DriveItemItemRequestBuilder {
     public get permissions(): PermissionsRequestBuilder {
         return new PermissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the preview method. */
-    public get preview(): PreviewRequestBuilder {
-        return new PreviewRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the restore method. */
-    public get restore(): RestoreRequestBuilder {
-        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the subscriptions property of the microsoft.graph.driveItem entity. */
     public get subscriptions(): SubscriptionsRequestBuilder {
         return new SubscriptionsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -108,19 +125,15 @@ export class DriveItemItemRequestBuilder {
     public get thumbnails(): ThumbnailsRequestBuilder {
         return new ThumbnailsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unfollow method. */
-    public get unfollow(): UnfollowRequestBuilder {
-        return new UnfollowRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
-    /** Provides operations to call the validatePermission method. */
-    public get validatePermission(): ValidatePermissionRequestBuilder {
-        return new ValidatePermissionRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the versions property of the microsoft.graph.driveItem entity. */
     public get versions(): VersionsRequestBuilder {
         return new VersionsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the workbook property of the microsoft.graph.driveItem entity. */
+    public get workbook(): WorkbookRequestBuilder {
+        return new WorkbookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the children property of the microsoft.graph.driveItem entity.
@@ -135,14 +148,16 @@ export class DriveItemItemRequestBuilder {
     };
     /**
      * Instantiates a new DriveItemItemRequestBuilder and sets the default values.
+     * @param driveItemId key: id of driveItem
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, driveItemId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["driveItem%2Did"] = driveItemId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -162,22 +177,6 @@ export class DriveItemItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to call the delta method.
-     * @returns a deltaRequestBuilder
-     */
-    public delta() : DeltaRequestBuilder {
-        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
-     * Provides operations to call the delta method.
-     * @param token Usage: token='{token}'
-     * @returns a deltaWithTokenRequestBuilder
-     */
-    public deltaWithToken(token: string | undefined) : DeltaWithTokenRequestBuilder {
-        if(!token) throw new Error("token cannot be undefined");
-        return new DeltaWithTokenRequestBuilder(this.pathParameters, this.requestAdapter, token);
-    };
-    /**
      * All items contained in the drive. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -194,11 +193,13 @@ export class DriveItemItemRequestBuilder {
         return this.requestAdapter?.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to call the getActivitiesByInterval method.
-     * @returns a getActivitiesByIntervalRequestBuilder
+     * Provides operations to call the delta method.
+     * @param token Usage: token='{token}'
+     * @returns a deltaWithTokenRequestBuilder
      */
-    public getActivitiesByInterval() : GetActivitiesByIntervalRequestBuilder {
-        return new GetActivitiesByIntervalRequestBuilder(this.pathParameters, this.requestAdapter);
+    public microsoftGraphDeltaWithToken(token: string | undefined) : DeltaWithTokenRequestBuilder {
+        if(!token) throw new Error("token cannot be undefined");
+        return new DeltaWithTokenRequestBuilder(this.pathParameters, this.requestAdapter, token);
     };
     /**
      * Provides operations to call the getActivitiesByInterval method.
@@ -207,15 +208,23 @@ export class DriveItemItemRequestBuilder {
      * @param startDateTime Usage: startDateTime='{startDateTime}'
      * @returns a getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder
      */
-    public getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(endDateTime: string | undefined, interval: string | undefined, startDateTime: string | undefined) : GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
+    public microsoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(endDateTime: string | undefined, interval: string | undefined, startDateTime: string | undefined) : GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
         if(!endDateTime) throw new Error("endDateTime cannot be undefined");
         if(!interval) throw new Error("interval cannot be undefined");
         if(!startDateTime) throw new Error("startDateTime cannot be undefined");
         return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, interval, startDateTime);
     };
     /**
+     * Provides operations to call the search method.
+     * @param q Usage: q='{q}'
+     * @returns a searchWithQRequestBuilder
+     */
+    public microsoftGraphSearchWithQ(q: string | undefined) : SearchWithQRequestBuilder {
+        if(!q) throw new Error("q cannot be undefined");
+        return new SearchWithQRequestBuilder(this.pathParameters, this.requestAdapter, q);
+    };
+    /**
      * Update the navigation property items in drives
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveItem
@@ -241,15 +250,6 @@ export class DriveItemItemRequestBuilder {
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["permission%2Did"] = id
         return new PermissionItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to call the search method.
-     * @param q Usage: q='{q}'
-     * @returns a searchWithQRequestBuilder
-     */
-    public searchWithQ(q: string | undefined) : SearchWithQRequestBuilder {
-        if(!q) throw new Error("q cannot be undefined");
-        return new SearchWithQRequestBuilder(this.pathParameters, this.requestAdapter, q);
     };
     /**
      * Provides operations to manage the subscriptions property of the microsoft.graph.driveItem entity.
@@ -309,7 +309,6 @@ export class DriveItemItemRequestBuilder {
     };
     /**
      * Update the navigation property items in drives
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

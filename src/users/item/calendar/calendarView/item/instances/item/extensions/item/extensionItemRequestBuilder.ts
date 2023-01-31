@@ -19,14 +19,16 @@ export class ExtensionItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ExtensionItemRequestBuilder and sets the default values.
+     * @param extensionId key: id of extension
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, extensionId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/calendar/calendarView/{event%2Did}/instances/{event%2Did1}/extensions/{extension%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["extension%2Did"] = extensionId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -63,7 +65,6 @@ export class ExtensionItemRequestBuilder {
     };
     /**
      * Update the navigation property extensions in users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Extension
@@ -115,7 +116,6 @@ export class ExtensionItemRequestBuilder {
     };
     /**
      * Update the navigation property extensions in users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

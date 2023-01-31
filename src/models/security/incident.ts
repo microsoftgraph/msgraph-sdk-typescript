@@ -31,9 +31,7 @@ export class Incident extends Entity implements Parsable {
     private _lastUpdateDateTime?: Date | undefined;
     /** Only populated in case an incident is grouped together with another incident, as part of the logic that processes incidents. In such a case, the status property is redirected. */
     private _redirectIncidentId?: string | undefined;
-    /** The severity property */
     private _severity?: AlertSeverity | undefined;
-    /** The status property */
     private _status?: IncidentStatus | undefined;
     /** The Azure Active Directory tenant in which the alert was created. */
     private _tenantId?: string | undefined;
@@ -242,28 +240,28 @@ export class Incident extends Entity implements Parsable {
         writer.writeStringValue("tenantId", this.tenantId);
     };
     /**
-     * Gets the severity property value. The severity property
+     * Gets the severity property value. 
      * @returns a alertSeverity
      */
     public get severity() {
         return this._severity;
     };
     /**
-     * Sets the severity property value. The severity property
+     * Sets the severity property value. 
      * @param value Value to set for the severity property.
      */
     public set severity(value: AlertSeverity | undefined) {
         this._severity = value;
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. 
      * @returns a incidentStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. 
      * @param value Value to set for the status property.
      */
     public set status(value: IncidentStatus | undefined) {

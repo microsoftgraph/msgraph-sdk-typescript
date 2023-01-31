@@ -24,14 +24,16 @@ export class IdentityUserFlowAttributeAssignmentItemRequestBuilder {
     }
     /**
      * Instantiates a new IdentityUserFlowAttributeAssignmentItemRequestBuilder and sets the default values.
+     * @param identityUserFlowAttributeAssignmentId key: id of identityUserFlowAttributeAssignment
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, identityUserFlowAttributeAssignmentId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userAttributeAssignments/{identityUserFlowAttributeAssignment%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["identityUserFlowAttributeAssignment%2Did"] = identityUserFlowAttributeAssignmentId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -68,7 +70,6 @@ export class IdentityUserFlowAttributeAssignmentItemRequestBuilder {
     };
     /**
      * Update the navigation property userAttributeAssignments in identity
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityUserFlowAttributeAssignment
@@ -120,7 +121,6 @@ export class IdentityUserFlowAttributeAssignmentItemRequestBuilder {
     };
     /**
      * Update the navigation property userAttributeAssignments in identity
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

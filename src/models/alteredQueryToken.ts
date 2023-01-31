@@ -5,7 +5,6 @@ export class AlteredQueryToken implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Defines the length of a changed segment. */
     private _length?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Defines the offset of a changed segment. */
     private _offset?: number | undefined;
@@ -58,14 +57,14 @@ export class AlteredQueryToken implements AdditionalDataHolder, Parsable {
         this._length = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

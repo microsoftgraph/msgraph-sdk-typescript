@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, LinkedResource} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LinkedResourceCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: LinkedResource[] | undefined;
     /**
      * Instantiates a new LinkedResourceCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class LinkedResourceCollectionResponse extends BaseCollectionPaginationCo
         writer.writeCollectionOfObjectValues<LinkedResource>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a linkedResource
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: LinkedResource[] | undefined) {

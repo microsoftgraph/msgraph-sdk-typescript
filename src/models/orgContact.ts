@@ -6,65 +6,47 @@ import {DirectoryObject, OnPremisesProvisioningError, Phone, PhysicalOfficeAddre
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OrgContact extends DirectoryObject implements Parsable {
-    /** The addresses property */
     private _addresses?: PhysicalOfficeAddress[] | undefined;
-    /** The companyName property */
     private _companyName?: string | undefined;
-    /** The department property */
     private _department?: string | undefined;
-    /** The directReports property */
     private _directReports?: DirectoryObject[] | undefined;
-    /** The displayName property */
     private _displayName?: string | undefined;
-    /** The givenName property */
     private _givenName?: string | undefined;
-    /** The jobTitle property */
     private _jobTitle?: string | undefined;
-    /** The mail property */
     private _mail?: string | undefined;
-    /** The mailNickname property */
     private _mailNickname?: string | undefined;
-    /** The manager property */
     private _manager?: DirectoryObject | undefined;
-    /** The memberOf property */
     private _memberOf?: DirectoryObject[] | undefined;
-    /** The onPremisesLastSyncDateTime property */
     private _onPremisesLastSyncDateTime?: Date | undefined;
-    /** The onPremisesProvisioningErrors property */
     private _onPremisesProvisioningErrors?: OnPremisesProvisioningError[] | undefined;
-    /** The onPremisesSyncEnabled property */
     private _onPremisesSyncEnabled?: boolean | undefined;
-    /** The phones property */
     private _phones?: Phone[] | undefined;
-    /** The proxyAddresses property */
     private _proxyAddresses?: string[] | undefined;
-    /** The surname property */
     private _surname?: string | undefined;
-    /** The transitiveMemberOf property */
     private _transitiveMemberOf?: DirectoryObject[] | undefined;
     /**
-     * Gets the addresses property value. The addresses property
+     * Gets the addresses property value. 
      * @returns a physicalOfficeAddress
      */
     public get addresses() {
         return this._addresses;
     };
     /**
-     * Sets the addresses property value. The addresses property
+     * Sets the addresses property value. 
      * @param value Value to set for the addresses property.
      */
     public set addresses(value: PhysicalOfficeAddress[] | undefined) {
         this._addresses = value;
     };
     /**
-     * Gets the companyName property value. The companyName property
+     * Gets the companyName property value. 
      * @returns a string
      */
     public get companyName() {
         return this._companyName;
     };
     /**
-     * Sets the companyName property value. The companyName property
+     * Sets the companyName property value. 
      * @param value Value to set for the companyName property.
      */
     public set companyName(value: string | undefined) {
@@ -78,42 +60,42 @@ export class OrgContact extends DirectoryObject implements Parsable {
         this.odataType = "#microsoft.graph.orgContact";
     };
     /**
-     * Gets the department property value. The department property
+     * Gets the department property value. 
      * @returns a string
      */
     public get department() {
         return this._department;
     };
     /**
-     * Sets the department property value. The department property
+     * Sets the department property value. 
      * @param value Value to set for the department property.
      */
     public set department(value: string | undefined) {
         this._department = value;
     };
     /**
-     * Gets the directReports property value. The directReports property
+     * Gets the directReports property value. 
      * @returns a directoryObject
      */
     public get directReports() {
         return this._directReports;
     };
     /**
-     * Sets the directReports property value. The directReports property
+     * Sets the directReports property value. 
      * @param value Value to set for the directReports property.
      */
     public set directReports(value: DirectoryObject[] | undefined) {
         this._directReports = value;
     };
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. 
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. 
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -146,154 +128,154 @@ export class OrgContact extends DirectoryObject implements Parsable {
         };
     };
     /**
-     * Gets the givenName property value. The givenName property
+     * Gets the givenName property value. 
      * @returns a string
      */
     public get givenName() {
         return this._givenName;
     };
     /**
-     * Sets the givenName property value. The givenName property
+     * Sets the givenName property value. 
      * @param value Value to set for the givenName property.
      */
     public set givenName(value: string | undefined) {
         this._givenName = value;
     };
     /**
-     * Gets the jobTitle property value. The jobTitle property
+     * Gets the jobTitle property value. 
      * @returns a string
      */
     public get jobTitle() {
         return this._jobTitle;
     };
     /**
-     * Sets the jobTitle property value. The jobTitle property
+     * Sets the jobTitle property value. 
      * @param value Value to set for the jobTitle property.
      */
     public set jobTitle(value: string | undefined) {
         this._jobTitle = value;
     };
     /**
-     * Gets the mail property value. The mail property
+     * Gets the mail property value. 
      * @returns a string
      */
     public get mail() {
         return this._mail;
     };
     /**
-     * Sets the mail property value. The mail property
+     * Sets the mail property value. 
      * @param value Value to set for the mail property.
      */
     public set mail(value: string | undefined) {
         this._mail = value;
     };
     /**
-     * Gets the mailNickname property value. The mailNickname property
+     * Gets the mailNickname property value. 
      * @returns a string
      */
     public get mailNickname() {
         return this._mailNickname;
     };
     /**
-     * Sets the mailNickname property value. The mailNickname property
+     * Sets the mailNickname property value. 
      * @param value Value to set for the mailNickname property.
      */
     public set mailNickname(value: string | undefined) {
         this._mailNickname = value;
     };
     /**
-     * Gets the manager property value. The manager property
+     * Gets the manager property value. 
      * @returns a directoryObject
      */
     public get manager() {
         return this._manager;
     };
     /**
-     * Sets the manager property value. The manager property
+     * Sets the manager property value. 
      * @param value Value to set for the manager property.
      */
     public set manager(value: DirectoryObject | undefined) {
         this._manager = value;
     };
     /**
-     * Gets the memberOf property value. The memberOf property
+     * Gets the memberOf property value. 
      * @returns a directoryObject
      */
     public get memberOf() {
         return this._memberOf;
     };
     /**
-     * Sets the memberOf property value. The memberOf property
+     * Sets the memberOf property value. 
      * @param value Value to set for the memberOf property.
      */
     public set memberOf(value: DirectoryObject[] | undefined) {
         this._memberOf = value;
     };
     /**
-     * Gets the onPremisesLastSyncDateTime property value. The onPremisesLastSyncDateTime property
+     * Gets the onPremisesLastSyncDateTime property value. 
      * @returns a Date
      */
     public get onPremisesLastSyncDateTime() {
         return this._onPremisesLastSyncDateTime;
     };
     /**
-     * Sets the onPremisesLastSyncDateTime property value. The onPremisesLastSyncDateTime property
+     * Sets the onPremisesLastSyncDateTime property value. 
      * @param value Value to set for the onPremisesLastSyncDateTime property.
      */
     public set onPremisesLastSyncDateTime(value: Date | undefined) {
         this._onPremisesLastSyncDateTime = value;
     };
     /**
-     * Gets the onPremisesProvisioningErrors property value. The onPremisesProvisioningErrors property
+     * Gets the onPremisesProvisioningErrors property value. 
      * @returns a onPremisesProvisioningError
      */
     public get onPremisesProvisioningErrors() {
         return this._onPremisesProvisioningErrors;
     };
     /**
-     * Sets the onPremisesProvisioningErrors property value. The onPremisesProvisioningErrors property
+     * Sets the onPremisesProvisioningErrors property value. 
      * @param value Value to set for the onPremisesProvisioningErrors property.
      */
     public set onPremisesProvisioningErrors(value: OnPremisesProvisioningError[] | undefined) {
         this._onPremisesProvisioningErrors = value;
     };
     /**
-     * Gets the onPremisesSyncEnabled property value. The onPremisesSyncEnabled property
+     * Gets the onPremisesSyncEnabled property value. 
      * @returns a boolean
      */
     public get onPremisesSyncEnabled() {
         return this._onPremisesSyncEnabled;
     };
     /**
-     * Sets the onPremisesSyncEnabled property value. The onPremisesSyncEnabled property
+     * Sets the onPremisesSyncEnabled property value. 
      * @param value Value to set for the onPremisesSyncEnabled property.
      */
     public set onPremisesSyncEnabled(value: boolean | undefined) {
         this._onPremisesSyncEnabled = value;
     };
     /**
-     * Gets the phones property value. The phones property
+     * Gets the phones property value. 
      * @returns a phone
      */
     public get phones() {
         return this._phones;
     };
     /**
-     * Sets the phones property value. The phones property
+     * Sets the phones property value. 
      * @param value Value to set for the phones property.
      */
     public set phones(value: Phone[] | undefined) {
         this._phones = value;
     };
     /**
-     * Gets the proxyAddresses property value. The proxyAddresses property
+     * Gets the proxyAddresses property value. 
      * @returns a string
      */
     public get proxyAddresses() {
         return this._proxyAddresses;
     };
     /**
-     * Sets the proxyAddresses property value. The proxyAddresses property
+     * Sets the proxyAddresses property value. 
      * @param value Value to set for the proxyAddresses property.
      */
     public set proxyAddresses(value: string[] | undefined) {
@@ -326,28 +308,28 @@ export class OrgContact extends DirectoryObject implements Parsable {
         writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", this.transitiveMemberOf);
     };
     /**
-     * Gets the surname property value. The surname property
+     * Gets the surname property value. 
      * @returns a string
      */
     public get surname() {
         return this._surname;
     };
     /**
-     * Sets the surname property value. The surname property
+     * Sets the surname property value. 
      * @param value Value to set for the surname property.
      */
     public set surname(value: string | undefined) {
         this._surname = value;
     };
     /**
-     * Gets the transitiveMemberOf property value. The transitiveMemberOf property
+     * Gets the transitiveMemberOf property value. 
      * @returns a directoryObject
      */
     public get transitiveMemberOf() {
         return this._transitiveMemberOf;
     };
     /**
-     * Sets the transitiveMemberOf property value. The transitiveMemberOf property
+     * Sets the transitiveMemberOf property value. 
      * @param value Value to set for the transitiveMemberOf property.
      */
     public set transitiveMemberOf(value: DirectoryObject[] | undefined) {

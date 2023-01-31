@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, ResourceOperation} from './index'
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ResourceOperationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ResourceOperation[] | undefined;
     /**
      * Instantiates a new ResourceOperationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ResourceOperationCollectionResponse extends BaseCollectionPaginatio
         writer.writeCollectionOfObjectValues<ResourceOperation>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a resourceOperation
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ResourceOperation[] | undefined) {

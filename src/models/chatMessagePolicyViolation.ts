@@ -12,7 +12,6 @@ export class ChatMessagePolicyViolation implements AdditionalDataHolder, Parsabl
     private _dlpAction?: ChatMessagePolicyViolationDlpActionTypes | undefined;
     /** Justification text provided by the sender of the message when overriding a policy violation. */
     private _justificationText?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Information to display to the message sender about why the message was flagged as a violation. */
     private _policyTip?: ChatMessagePolicyViolationPolicyTip | undefined;
@@ -83,14 +82,14 @@ export class ChatMessagePolicyViolation implements AdditionalDataHolder, Parsabl
         this._justificationText = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

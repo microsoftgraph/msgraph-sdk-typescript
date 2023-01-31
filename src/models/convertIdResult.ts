@@ -7,7 +7,6 @@ export class ConvertIdResult implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** An error object indicating the reason for the conversion failure. This value is not present if the conversion succeeded. */
     private _errorDetails?: GenericError | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The identifier that was converted. This value is the original, un-converted identifier. */
     private _sourceId?: string | undefined;
@@ -60,14 +59,14 @@ export class ConvertIdResult implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

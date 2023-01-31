@@ -6,7 +6,6 @@ export class PlannerPlanContainer implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The identifier of the resource that contains the plan. Optional. */
     private _containerId?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster. Optional. */
     private _type?: PlannerContainerType | undefined;
@@ -59,14 +58,14 @@ export class PlannerPlanContainer implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

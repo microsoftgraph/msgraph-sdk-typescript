@@ -13,9 +13,7 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
     private _error_escaped?: OperationError | undefined;
     /** Time when the async operation was last updated. */
     private _lastActionDateTime?: Date | undefined;
-    /** The operationType property */
     private _operationType?: TeamsAsyncOperationType | undefined;
-    /** The status property */
     private _status?: TeamsAsyncOperationStatus | undefined;
     /** The ID of the object that's created or modified as result of this async operation, typically a team. */
     private _targetResourceId?: string | undefined;
@@ -100,14 +98,14 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
         this._lastActionDateTime = value;
     };
     /**
-     * Gets the operationType property value. The operationType property
+     * Gets the operationType property value. 
      * @returns a teamsAsyncOperationType
      */
     public get operationType() {
         return this._operationType;
     };
     /**
-     * Sets the operationType property value. The operationType property
+     * Sets the operationType property value. 
      * @param value Value to set for the operationType property.
      */
     public set operationType(value: TeamsAsyncOperationType | undefined) {
@@ -130,14 +128,14 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
         writer.writeStringValue("targetResourceLocation", this.targetResourceLocation);
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. 
      * @returns a teamsAsyncOperationStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. 
      * @param value Value to set for the status property.
      */
     public set status(value: TeamsAsyncOperationStatus | undefined) {

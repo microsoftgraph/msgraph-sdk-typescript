@@ -9,7 +9,6 @@ export class SearchResponse implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** A collection of search results. */
     private _hitsContainers?: SearchHitsContainer[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Provides information related to spelling corrections in the alteration response. */
     private _queryAlterationResponse?: AlterationResponse | undefined;
@@ -65,14 +64,14 @@ export class SearchResponse implements AdditionalDataHolder, Parsable {
         this._hitsContainers = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

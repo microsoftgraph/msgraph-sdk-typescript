@@ -4,7 +4,6 @@ import {LocalizedDescription} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LocalizedDescriptionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: LocalizedDescription[] | undefined;
     /**
      * Instantiates a new LocalizedDescriptionCollectionResponse and sets the default values.
@@ -31,14 +30,14 @@ export class LocalizedDescriptionCollectionResponse extends BaseCollectionPagina
         writer.writeCollectionOfObjectValues<LocalizedDescription>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a localizedDescription
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: LocalizedDescription[] | undefined) {

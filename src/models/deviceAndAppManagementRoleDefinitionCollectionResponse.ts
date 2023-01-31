@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, DeviceAndAppManagementRoleDefinit
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceAndAppManagementRoleDefinitionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: DeviceAndAppManagementRoleDefinition[] | undefined;
     /**
      * Instantiates a new DeviceAndAppManagementRoleDefinitionCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class DeviceAndAppManagementRoleDefinitionCollectionResponse extends Base
         writer.writeCollectionOfObjectValues<DeviceAndAppManagementRoleDefinition>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a deviceAndAppManagementRoleDefinition
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: DeviceAndAppManagementRoleDefinition[] | undefined) {

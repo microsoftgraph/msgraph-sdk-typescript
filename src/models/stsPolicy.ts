@@ -3,21 +3,20 @@ import {DirectoryObject, PolicyBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class StsPolicy extends PolicyBase implements Parsable {
-    /** The appliesTo property */
     private _appliesTo?: DirectoryObject[] | undefined;
     /** A string collection containing a JSON string that defines the rules and settings for a policy. The syntax for the definition differs for each derived policy type. Required. */
     private _definition?: string[] | undefined;
     /** If set to true, activates this policy. There can be many policies for the same policy type, but only one can be activated as the organization default. Optional, default value is false. */
     private _isOrganizationDefault?: boolean | undefined;
     /**
-     * Gets the appliesTo property value. The appliesTo property
+     * Gets the appliesTo property value. 
      * @returns a directoryObject
      */
     public get appliesTo() {
         return this._appliesTo;
     };
     /**
-     * Sets the appliesTo property value. The appliesTo property
+     * Sets the appliesTo property value. 
      * @param value Value to set for the appliesTo property.
      */
     public set appliesTo(value: DirectoryObject[] | undefined) {

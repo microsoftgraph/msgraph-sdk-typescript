@@ -7,7 +7,6 @@ export class AccessReviewInstanceDecisionItemResource implements AdditionalDataH
     private _displayName?: string | undefined;
     /** Identifier of the resource */
     private _id?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy. */
     private _type?: string | undefined;
@@ -72,14 +71,14 @@ export class AccessReviewInstanceDecisionItemResource implements AdditionalDataH
         this._id = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

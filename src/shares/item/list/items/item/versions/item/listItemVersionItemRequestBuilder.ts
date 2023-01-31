@@ -6,7 +6,7 @@ import {FieldsRequestBuilder} from './fields/fieldsRequestBuilder';
 import {ListItemVersionItemRequestBuilderDeleteRequestConfiguration} from './listItemVersionItemRequestBuilderDeleteRequestConfiguration';
 import {ListItemVersionItemRequestBuilderGetRequestConfiguration} from './listItemVersionItemRequestBuilderGetRequestConfiguration';
 import {ListItemVersionItemRequestBuilderPatchRequestConfiguration} from './listItemVersionItemRequestBuilderPatchRequestConfiguration';
-import {RestoreVersionRequestBuilder} from './restoreVersion/restoreVersionRequestBuilder';
+import {RestoreVersionRequestBuilder} from './microsoftGraphRestoreVersion/restoreVersionRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -17,26 +17,28 @@ export class ListItemVersionItemRequestBuilder {
     public get fields(): FieldsRequestBuilder {
         return new FieldsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the restoreVersion method. */
+    public get microsoftGraphRestoreVersion(): RestoreVersionRequestBuilder {
+        return new RestoreVersionRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the restoreVersion method. */
-    public get restoreVersion(): RestoreVersionRequestBuilder {
-        return new RestoreVersionRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new ListItemVersionItemRequestBuilder and sets the default values.
+     * @param listItemVersionId key: id of listItemVersion
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, listItemVersionId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}/versions/{listItemVersion%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["listItemVersion%2Did"] = listItemVersionId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -73,7 +75,6 @@ export class ListItemVersionItemRequestBuilder {
     };
     /**
      * Update the navigation property versions in shares
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ListItemVersion
@@ -125,7 +126,6 @@ export class ListItemVersionItemRequestBuilder {
     };
     /**
      * Update the navigation property versions in shares
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

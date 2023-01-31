@@ -5,21 +5,21 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {DefaultRequestBuilderDeleteRequestConfiguration} from './defaultRequestBuilderDeleteRequestConfiguration';
 import {DefaultRequestBuilderGetRequestConfiguration} from './defaultRequestBuilderGetRequestConfiguration';
 import {DefaultRequestBuilderPatchRequestConfiguration} from './defaultRequestBuilderPatchRequestConfiguration';
-import {ResetToSystemDefaultRequestBuilder} from './resetToSystemDefault/resetToSystemDefaultRequestBuilder';
+import {ResetToSystemDefaultRequestBuilder} from './microsoftGraphResetToSystemDefault/resetToSystemDefaultRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the default property of the microsoft.graph.crossTenantAccessPolicy entity.
  */
 export class DefaultRequestBuilder {
+    /** Provides operations to call the resetToSystemDefault method. */
+    public get microsoftGraphResetToSystemDefault(): ResetToSystemDefaultRequestBuilder {
+        return new ResetToSystemDefaultRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the resetToSystemDefault method. */
-    public get resetToSystemDefault(): ResetToSystemDefaultRequestBuilder {
-        return new ResetToSystemDefaultRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
@@ -69,7 +69,6 @@ export class DefaultRequestBuilder {
     };
     /**
      * Update the default configuration of a cross-tenant access policy.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CrossTenantAccessPolicyConfigurationDefault
@@ -122,7 +121,6 @@ export class DefaultRequestBuilder {
     };
     /**
      * Update the default configuration of a cross-tenant access policy.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

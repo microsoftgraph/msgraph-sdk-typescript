@@ -19,14 +19,16 @@ export class DeviceConfigurationStateItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new DeviceConfigurationStateItemRequestBuilder and sets the default values.
+     * @param deviceConfigurationStateId key: id of deviceConfigurationState
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, deviceConfigurationStateId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/managedDevices/{managedDevice%2Did}/deviceConfigurationStates/{deviceConfigurationState%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["deviceConfigurationState%2Did"] = deviceConfigurationStateId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -63,7 +65,6 @@ export class DeviceConfigurationStateItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceConfigurationStates in me
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceConfigurationState
@@ -115,7 +116,6 @@ export class DeviceConfigurationStateItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceConfigurationStates in me
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -7,7 +7,6 @@ export class TraceRouteHop implements AdditionalDataHolder, Parsable {
     private _hopCount?: number | undefined;
     /** IP address used for this hop in the network trace. */
     private _ipAddress?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The time from when the trace route packet was sent from the client to this hop and back to the client, denoted in [ISO 8601][] format. For example, 1 second is denoted as PT1S, where P is the duration designator, T is the time designator, and S is the second designator. */
     private _roundTripTime?: Duration | undefined;
@@ -72,14 +71,14 @@ export class TraceRouteHop implements AdditionalDataHolder, Parsable {
         this._ipAddress = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

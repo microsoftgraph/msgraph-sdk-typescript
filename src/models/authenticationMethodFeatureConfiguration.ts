@@ -10,7 +10,6 @@ export class AuthenticationMethodFeatureConfiguration implements AdditionalDataH
     private _excludeTarget?: FeatureTarget | undefined;
     /** A single entity that is included in this feature. */
     private _includeTarget?: FeatureTarget | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Enable or disable the feature. Possible values are: default, enabled, disabled, unknownFutureValue. The default value is used when the configuration hasn't been explicitly set and uses the default behavior of Azure AD for the setting. The default value is disabled. */
     private _state?: AdvancedConfigState | undefined;
@@ -75,14 +74,14 @@ export class AuthenticationMethodFeatureConfiguration implements AdditionalDataH
         this._includeTarget = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

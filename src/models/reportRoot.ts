@@ -4,23 +4,14 @@ import {createSecurityReportsRootFromDiscriminatorValue} from './createSecurityR
 import {PrintUsageByPrinter, PrintUsageByUser, SecurityReportsRoot} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/**
- * The resource that represents an instance of Enrollment Failure Reports.
- */
 export class ReportRoot implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The dailyPrintUsageByPrinter property */
     private _dailyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
-    /** The dailyPrintUsageByUser property */
     private _dailyPrintUsageByUser?: PrintUsageByUser[] | undefined;
-    /** The monthlyPrintUsageByPrinter property */
     private _monthlyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
-    /** The monthlyPrintUsageByUser property */
     private _monthlyPrintUsageByUser?: PrintUsageByUser[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The security property */
     private _security?: SecurityReportsRoot | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -43,28 +34,28 @@ export class ReportRoot implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the dailyPrintUsageByPrinter property value. The dailyPrintUsageByPrinter property
+     * Gets the dailyPrintUsageByPrinter property value. 
      * @returns a printUsageByPrinter
      */
     public get dailyPrintUsageByPrinter() {
         return this._dailyPrintUsageByPrinter;
     };
     /**
-     * Sets the dailyPrintUsageByPrinter property value. The dailyPrintUsageByPrinter property
+     * Sets the dailyPrintUsageByPrinter property value. 
      * @param value Value to set for the dailyPrintUsageByPrinter property.
      */
     public set dailyPrintUsageByPrinter(value: PrintUsageByPrinter[] | undefined) {
         this._dailyPrintUsageByPrinter = value;
     };
     /**
-     * Gets the dailyPrintUsageByUser property value. The dailyPrintUsageByUser property
+     * Gets the dailyPrintUsageByUser property value. 
      * @returns a printUsageByUser
      */
     public get dailyPrintUsageByUser() {
         return this._dailyPrintUsageByUser;
     };
     /**
-     * Sets the dailyPrintUsageByUser property value. The dailyPrintUsageByUser property
+     * Sets the dailyPrintUsageByUser property value. 
      * @param value Value to set for the dailyPrintUsageByUser property.
      */
     public set dailyPrintUsageByUser(value: PrintUsageByUser[] | undefined) {
@@ -85,56 +76,56 @@ export class ReportRoot implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the monthlyPrintUsageByPrinter property value. The monthlyPrintUsageByPrinter property
+     * Gets the monthlyPrintUsageByPrinter property value. 
      * @returns a printUsageByPrinter
      */
     public get monthlyPrintUsageByPrinter() {
         return this._monthlyPrintUsageByPrinter;
     };
     /**
-     * Sets the monthlyPrintUsageByPrinter property value. The monthlyPrintUsageByPrinter property
+     * Sets the monthlyPrintUsageByPrinter property value. 
      * @param value Value to set for the monthlyPrintUsageByPrinter property.
      */
     public set monthlyPrintUsageByPrinter(value: PrintUsageByPrinter[] | undefined) {
         this._monthlyPrintUsageByPrinter = value;
     };
     /**
-     * Gets the monthlyPrintUsageByUser property value. The monthlyPrintUsageByUser property
+     * Gets the monthlyPrintUsageByUser property value. 
      * @returns a printUsageByUser
      */
     public get monthlyPrintUsageByUser() {
         return this._monthlyPrintUsageByUser;
     };
     /**
-     * Sets the monthlyPrintUsageByUser property value. The monthlyPrintUsageByUser property
+     * Sets the monthlyPrintUsageByUser property value. 
      * @param value Value to set for the monthlyPrintUsageByUser property.
      */
     public set monthlyPrintUsageByUser(value: PrintUsageByUser[] | undefined) {
         this._monthlyPrintUsageByUser = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the security property value. The security property
+     * Gets the security property value. 
      * @returns a securityReportsRoot
      */
     public get security() {
         return this._security;
     };
     /**
-     * Sets the security property value. The security property
+     * Sets the security property value. 
      * @param value Value to set for the security property.
      */
     public set security(value: SecurityReportsRoot | undefined) {

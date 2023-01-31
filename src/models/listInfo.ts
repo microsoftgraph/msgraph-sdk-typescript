@@ -7,7 +7,6 @@ export class ListInfo implements AdditionalDataHolder, Parsable {
     private _contentTypesEnabled?: boolean | undefined;
     /** If true, indicates that the list is not normally visible in the SharePoint user experience. */
     private _hidden?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** An enumerated value that represents the base list template used in creating the list. Possible values include documentLibrary, genericList, task, survey, announcements, contacts, and more. */
     private _template?: string | undefined;
@@ -72,14 +71,14 @@ export class ListInfo implements AdditionalDataHolder, Parsable {
         this._hidden = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

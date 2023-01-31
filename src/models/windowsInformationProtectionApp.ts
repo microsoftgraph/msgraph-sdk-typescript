@@ -12,7 +12,6 @@ export class WindowsInformationProtectionApp implements AdditionalDataHolder, Pa
     private _description?: string | undefined;
     /** App display name. */
     private _displayName?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The product name. */
     private _productName?: string | undefined;
@@ -95,14 +94,14 @@ export class WindowsInformationProtectionApp implements AdditionalDataHolder, Pa
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

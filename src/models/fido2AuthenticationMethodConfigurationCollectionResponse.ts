@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, Fido2AuthenticationMethodConfigur
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Fido2AuthenticationMethodConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: Fido2AuthenticationMethodConfiguration[] | undefined;
     /**
      * Instantiates a new Fido2AuthenticationMethodConfigurationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class Fido2AuthenticationMethodConfigurationCollectionResponse extends Ba
         writer.writeCollectionOfObjectValues<Fido2AuthenticationMethodConfiguration>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a fido2AuthenticationMethodConfiguration
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Fido2AuthenticationMethodConfiguration[] | undefined) {

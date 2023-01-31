@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, OAuth2PermissionGrant} from './in
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OAuth2PermissionGrantCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: OAuth2PermissionGrant[] | undefined;
     /**
      * Instantiates a new OAuth2PermissionGrantCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class OAuth2PermissionGrantCollectionResponse extends BaseCollectionPagin
         writer.writeCollectionOfObjectValues<OAuth2PermissionGrant>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a oAuth2PermissionGrant
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: OAuth2PermissionGrant[] | undefined) {

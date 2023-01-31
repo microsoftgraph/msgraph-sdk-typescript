@@ -9,7 +9,6 @@ export class SiteCollection implements AdditionalDataHolder, Parsable {
     private _dataLocationCode?: string | undefined;
     /** The hostname for the site collection. Read-only. */
     private _hostname?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** If present, indicates that this is a root site collection in SharePoint. Read-only. */
     private _root?: Root | undefined;
@@ -74,14 +73,14 @@ export class SiteCollection implements AdditionalDataHolder, Parsable {
         this._hostname = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

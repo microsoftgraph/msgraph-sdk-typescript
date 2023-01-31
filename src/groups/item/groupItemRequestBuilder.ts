@@ -4,16 +4,11 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AcceptedSendersRequestBuilder} from './acceptedSenders/acceptedSendersRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as I7078dd311b5262a56d3c5e7479b4134b70aa9ffeb3de1030a0917132e0be6ef1} from './acceptedSenders/item/directoryObjectItemRequestBuilder';
-import {AddFavoriteRequestBuilder} from './addFavorite/addFavoriteRequestBuilder';
 import {AppRoleAssignmentsRequestBuilder} from './appRoleAssignments/appRoleAssignmentsRequestBuilder';
 import {AppRoleAssignmentItemRequestBuilder} from './appRoleAssignments/item/appRoleAssignmentItemRequestBuilder';
-import {AssignLicenseRequestBuilder} from './assignLicense/assignLicenseRequestBuilder';
 import {CalendarRequestBuilder} from './calendar/calendarRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
 import {EventItemRequestBuilder as I2b1e0585fb04d85a776edc6c5efe4fe6d3c6110e43bc0f11f69aa25de9608306} from './calendarView/item/eventItemRequestBuilder';
-import {CheckGrantedPermissionsForAppRequestBuilder} from './checkGrantedPermissionsForApp/checkGrantedPermissionsForAppRequestBuilder';
-import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
-import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {ConversationsRequestBuilder} from './conversations/conversationsRequestBuilder';
 import {ConversationItemRequestBuilder} from './conversations/item/conversationItemRequestBuilder';
 import {CreatedOnBehalfOfRequestBuilder} from './createdOnBehalfOf/createdOnBehalfOfRequestBuilder';
@@ -24,8 +19,6 @@ import {EventsRequestBuilder} from './events/eventsRequestBuilder';
 import {EventItemRequestBuilder as Ie5d0b561fb23af8afd1816548753fadc6e57552e08b76fc25adbf65d2dbc0529} from './events/item/eventItemRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
-import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
-import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
 import {GroupItemRequestBuilderDeleteRequestConfiguration} from './groupItemRequestBuilderDeleteRequestConfiguration';
 import {GroupItemRequestBuilderGetRequestConfiguration} from './groupItemRequestBuilderGetRequestConfiguration';
 import {GroupItemRequestBuilderPatchRequestConfiguration} from './groupItemRequestBuilderPatchRequestConfiguration';
@@ -37,6 +30,20 @@ import {DirectoryObjectItemRequestBuilder as If711933078171881a5a7c3013697ba27e8
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as Iea01dc6c9d30cc8fe331f232004da183eff62bda12d7ddc2db73acc438f4bf11} from './membersWithLicenseErrors/item/directoryObjectItemRequestBuilder';
 import {MembersWithLicenseErrorsRequestBuilder} from './membersWithLicenseErrors/membersWithLicenseErrorsRequestBuilder';
+import {AddFavoriteRequestBuilder} from './microsoftGraphAddFavorite/addFavoriteRequestBuilder';
+import {AssignLicenseRequestBuilder} from './microsoftGraphAssignLicense/assignLicenseRequestBuilder';
+import {CheckGrantedPermissionsForAppRequestBuilder} from './microsoftGraphCheckGrantedPermissionsForApp/checkGrantedPermissionsForAppRequestBuilder';
+import {CheckMemberGroupsRequestBuilder} from './microsoftGraphCheckMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from './microsoftGraphCheckMemberObjects/checkMemberObjectsRequestBuilder';
+import {GetMemberGroupsRequestBuilder} from './microsoftGraphGetMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from './microsoftGraphGetMemberObjects/getMemberObjectsRequestBuilder';
+import {RemoveFavoriteRequestBuilder} from './microsoftGraphRemoveFavorite/removeFavoriteRequestBuilder';
+import {RenewRequestBuilder} from './microsoftGraphRenew/renewRequestBuilder';
+import {ResetUnseenCountRequestBuilder} from './microsoftGraphResetUnseenCount/resetUnseenCountRequestBuilder';
+import {RestoreRequestBuilder} from './microsoftGraphRestore/restoreRequestBuilder';
+import {SubscribeByMailRequestBuilder} from './microsoftGraphSubscribeByMail/subscribeByMailRequestBuilder';
+import {UnsubscribeByMailRequestBuilder} from './microsoftGraphUnsubscribeByMail/unsubscribeByMailRequestBuilder';
+import {ValidatePropertiesRequestBuilder} from './microsoftGraphValidateProperties/validatePropertiesRequestBuilder';
 import {OnenoteRequestBuilder} from './onenote/onenoteRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as I00e2f6af68b759b048247b53eb0db77f110c5e4b6819d79f3dbca0bb17d3a9b4} from './owners/item/directoryObjectItemRequestBuilder';
 import {OwnersRequestBuilder} from './owners/ownersRequestBuilder';
@@ -48,15 +55,10 @@ import {PhotosRequestBuilder} from './photos/photosRequestBuilder';
 import {PlannerRequestBuilder} from './planner/plannerRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as I2445613ee9357f9bdf7f816fa1c4dba543e3738d8dfaa1d6c00833aa5c2f2ac2} from './rejectedSenders/item/directoryObjectItemRequestBuilder';
 import {RejectedSendersRequestBuilder} from './rejectedSenders/rejectedSendersRequestBuilder';
-import {RemoveFavoriteRequestBuilder} from './removeFavorite/removeFavoriteRequestBuilder';
-import {RenewRequestBuilder} from './renew/renewRequestBuilder';
-import {ResetUnseenCountRequestBuilder} from './resetUnseenCount/resetUnseenCountRequestBuilder';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {GroupSettingItemRequestBuilder} from './settings/item/groupSettingItemRequestBuilder';
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
 import {SiteItemRequestBuilder} from './sites/item/siteItemRequestBuilder';
 import {SitesRequestBuilder} from './sites/sitesRequestBuilder';
-import {SubscribeByMailRequestBuilder} from './subscribeByMail/subscribeByMailRequestBuilder';
 import {TeamRequestBuilder} from './team/teamRequestBuilder';
 import {ConversationThreadItemRequestBuilder} from './threads/item/conversationThreadItemRequestBuilder';
 import {ThreadsRequestBuilder} from './threads/threadsRequestBuilder';
@@ -64,8 +66,6 @@ import {DirectoryObjectItemRequestBuilder as I484a42b65977280664fc7b52ebc191c4fb
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as I69d4124d58845297b36757fd2ca82a87d8b0f6cd7afe1f1f52275124523dd1af} from './transitiveMembers/item/directoryObjectItemRequestBuilder';
 import {TransitiveMembersRequestBuilder} from './transitiveMembers/transitiveMembersRequestBuilder';
-import {UnsubscribeByMailRequestBuilder} from './unsubscribeByMail/unsubscribeByMailRequestBuilder';
-import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -76,17 +76,9 @@ export class GroupItemRequestBuilder {
     public get acceptedSenders(): AcceptedSendersRequestBuilder {
         return new AcceptedSendersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the addFavorite method. */
-    public get addFavorite(): AddFavoriteRequestBuilder {
-        return new AddFavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the appRoleAssignments property of the microsoft.graph.group entity. */
     public get appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
         return new AppRoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the assignLicense method. */
-    public get assignLicense(): AssignLicenseRequestBuilder {
-        return new AssignLicenseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the calendar property of the microsoft.graph.group entity. */
     public get calendar(): CalendarRequestBuilder {
@@ -95,18 +87,6 @@ export class GroupItemRequestBuilder {
     /** Provides operations to manage the calendarView property of the microsoft.graph.group entity. */
     public get calendarView(): CalendarViewRequestBuilder {
         return new CalendarViewRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the checkGrantedPermissionsForApp method. */
-    public get checkGrantedPermissionsForApp(): CheckGrantedPermissionsForAppRequestBuilder {
-        return new CheckGrantedPermissionsForAppRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the checkMemberGroups method. */
-    public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
-        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the checkMemberObjects method. */
-    public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
-        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the conversations property of the microsoft.graph.group entity. */
     public get conversations(): ConversationsRequestBuilder {
@@ -132,14 +112,6 @@ export class GroupItemRequestBuilder {
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getMemberGroups method. */
-    public get getMemberGroups(): GetMemberGroupsRequestBuilder {
-        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the getMemberObjects method. */
-    public get getMemberObjects(): GetMemberObjectsRequestBuilder {
-        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity. */
     public get groupLifecyclePolicies(): GroupLifecyclePoliciesRequestBuilder {
         return new GroupLifecyclePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -155,6 +127,62 @@ export class GroupItemRequestBuilder {
     /** Provides operations to manage the membersWithLicenseErrors property of the microsoft.graph.group entity. */
     public get membersWithLicenseErrors(): MembersWithLicenseErrorsRequestBuilder {
         return new MembersWithLicenseErrorsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the addFavorite method. */
+    public get microsoftGraphAddFavorite(): AddFavoriteRequestBuilder {
+        return new AddFavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the assignLicense method. */
+    public get microsoftGraphAssignLicense(): AssignLicenseRequestBuilder {
+        return new AssignLicenseRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the checkGrantedPermissionsForApp method. */
+    public get microsoftGraphCheckGrantedPermissionsForApp(): CheckGrantedPermissionsForAppRequestBuilder {
+        return new CheckGrantedPermissionsForAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the checkMemberGroups method. */
+    public get microsoftGraphCheckMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the checkMemberObjects method. */
+    public get microsoftGraphCheckMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getMemberGroups method. */
+    public get microsoftGraphGetMemberGroups(): GetMemberGroupsRequestBuilder {
+        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getMemberObjects method. */
+    public get microsoftGraphGetMemberObjects(): GetMemberObjectsRequestBuilder {
+        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the removeFavorite method. */
+    public get microsoftGraphRemoveFavorite(): RemoveFavoriteRequestBuilder {
+        return new RemoveFavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the renew method. */
+    public get microsoftGraphRenew(): RenewRequestBuilder {
+        return new RenewRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the resetUnseenCount method. */
+    public get microsoftGraphResetUnseenCount(): ResetUnseenCountRequestBuilder {
+        return new ResetUnseenCountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the restore method. */
+    public get microsoftGraphRestore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the subscribeByMail method. */
+    public get microsoftGraphSubscribeByMail(): SubscribeByMailRequestBuilder {
+        return new SubscribeByMailRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the unsubscribeByMail method. */
+    public get microsoftGraphUnsubscribeByMail(): UnsubscribeByMailRequestBuilder {
+        return new UnsubscribeByMailRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the validateProperties method. */
+    public get microsoftGraphValidateProperties(): ValidatePropertiesRequestBuilder {
+        return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the onenote property of the microsoft.graph.group entity. */
     public get onenote(): OnenoteRequestBuilder {
@@ -186,24 +214,8 @@ export class GroupItemRequestBuilder {
     public get rejectedSenders(): RejectedSendersRequestBuilder {
         return new RejectedSendersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the removeFavorite method. */
-    public get removeFavorite(): RemoveFavoriteRequestBuilder {
-        return new RemoveFavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the renew method. */
-    public get renew(): RenewRequestBuilder {
-        return new RenewRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the resetUnseenCount method. */
-    public get resetUnseenCount(): ResetUnseenCountRequestBuilder {
-        return new ResetUnseenCountRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the restore method. */
-    public get restore(): RestoreRequestBuilder {
-        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the settings property of the microsoft.graph.group entity. */
     public get settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -211,10 +223,6 @@ export class GroupItemRequestBuilder {
     /** Provides operations to manage the sites property of the microsoft.graph.group entity. */
     public get sites(): SitesRequestBuilder {
         return new SitesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the subscribeByMail method. */
-    public get subscribeByMail(): SubscribeByMailRequestBuilder {
-        return new SubscribeByMailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the team property of the microsoft.graph.group entity. */
     public get team(): TeamRequestBuilder {
@@ -232,16 +240,8 @@ export class GroupItemRequestBuilder {
     public get transitiveMembers(): TransitiveMembersRequestBuilder {
         return new TransitiveMembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unsubscribeByMail method. */
-    public get unsubscribeByMail(): UnsubscribeByMailRequestBuilder {
-        return new UnsubscribeByMailRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
-    /** Provides operations to call the validateProperties method. */
-    public get validateProperties(): ValidatePropertiesRequestBuilder {
-        return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.acceptedSenders.item collection
      * @param id Unique identifier of the item
@@ -277,14 +277,16 @@ export class GroupItemRequestBuilder {
     };
     /**
      * Instantiates a new GroupItemRequestBuilder and sets the default values.
+     * @param groupId key: id of group
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, groupId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/groups/{group%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["group%2Did"] = groupId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -422,7 +424,6 @@ export class GroupItemRequestBuilder {
     };
     /**
      * Update the properties of a group object.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Group
@@ -541,7 +542,6 @@ export class GroupItemRequestBuilder {
     };
     /**
      * Update the properties of a group object.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

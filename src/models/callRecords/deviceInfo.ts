@@ -25,7 +25,6 @@ export class DeviceInfo implements AdditionalDataHolder, Parsable {
     private _lowSpeechToNoiseEventRatio?: number | undefined;
     /** Glitches per 5 minute interval for the media endpoint's microphone. */
     private _micGlitchRate?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Average energy level of received audio for audio classified as mono noise or left channel of stereo noise by the media endpoint. */
     private _receivedNoiseLevel?: number | undefined;
@@ -252,14 +251,14 @@ export class DeviceInfo implements AdditionalDataHolder, Parsable {
         this._micGlitchRate = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

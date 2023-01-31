@@ -1,8 +1,8 @@
-import {AppRoleAssignmentRequestBuilder} from './appRoleAssignment/appRoleAssignmentRequestBuilder';
-import {EndpointRequestBuilder} from './endpoint/endpointRequestBuilder';
+import {AppRoleAssignmentRequestBuilder} from './microsoftGraphAppRoleAssignment/appRoleAssignmentRequestBuilder';
+import {EndpointRequestBuilder} from './microsoftGraphEndpoint/endpointRequestBuilder';
+import {ServicePrincipalRequestBuilder} from './microsoftGraphServicePrincipal/servicePrincipalRequestBuilder';
+import {UserRequestBuilder} from './microsoftGraphUser/userRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {ServicePrincipalRequestBuilder} from './servicePrincipal/servicePrincipalRequestBuilder';
-import {UserRequestBuilder} from './user/userRequestBuilder';
 import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
 /**
@@ -10,12 +10,20 @@ import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
  */
 export class DirectoryObjectItemRequestBuilder {
     /** Casts the previous resource to appRoleAssignment. */
-    public get appRoleAssignment(): AppRoleAssignmentRequestBuilder {
+    public get microsoftGraphAppRoleAssignment(): AppRoleAssignmentRequestBuilder {
         return new AppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to endpoint. */
-    public get endpoint(): EndpointRequestBuilder {
+    public get microsoftGraphEndpoint(): EndpointRequestBuilder {
         return new EndpointRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Casts the previous resource to servicePrincipal. */
+    public get microsoftGraphServicePrincipal(): ServicePrincipalRequestBuilder {
+        return new ServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Casts the previous resource to user. */
+    public get microsoftGraphUser(): UserRequestBuilder {
+        return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -25,26 +33,20 @@ export class DirectoryObjectItemRequestBuilder {
     }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Casts the previous resource to servicePrincipal. */
-    public get servicePrincipal(): ServicePrincipalRequestBuilder {
-        return new ServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
-    /** Casts the previous resource to user. */
-    public get user(): UserRequestBuilder {
-        return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /**
      * Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
+     * @param directoryObjectId key: id of directoryObject
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, directoryObjectId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/applications/{application%2Did}/owners/{directoryObject%2Did}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["directoryObject%2Did"] = directoryObjectId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

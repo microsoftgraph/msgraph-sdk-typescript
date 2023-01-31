@@ -8,9 +8,7 @@ export class AlertEvidence implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The time the evidence was created and added to the alert. */
     private _createdDateTime?: Date | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The remediationStatus property */
     private _remediationStatus?: EvidenceRemediationStatus | undefined;
     /** Details about the remediation status. */
     private _remediationStatusDetails?: string | undefined;
@@ -18,7 +16,6 @@ export class AlertEvidence implements AdditionalDataHolder, Parsable {
     private _roles?: EvidenceRole[] | undefined;
     /** Array of custom tags associated with an evidence instance, for example to denote a group of devices, high value assets, etc. */
     private _tags?: string[] | undefined;
-    /** The verdict property */
     private _verdict?: EvidenceVerdict | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -70,28 +67,28 @@ export class AlertEvidence implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the remediationStatus property value. The remediationStatus property
+     * Gets the remediationStatus property value. 
      * @returns a evidenceRemediationStatus
      */
     public get remediationStatus() {
         return this._remediationStatus;
     };
     /**
-     * Sets the remediationStatus property value. The remediationStatus property
+     * Sets the remediationStatus property value. 
      * @param value Value to set for the remediationStatus property.
      */
     public set remediationStatus(value: EvidenceRemediationStatus | undefined) {
@@ -155,14 +152,14 @@ export class AlertEvidence implements AdditionalDataHolder, Parsable {
         this._tags = value;
     };
     /**
-     * Gets the verdict property value. The verdict property
+     * Gets the verdict property value. 
      * @returns a evidenceVerdict
      */
     public get verdict() {
         return this._verdict;
     };
     /**
-     * Sets the verdict property value. The verdict property
+     * Sets the verdict property value. 
      * @param value Value to set for the verdict property.
      */
     public set verdict(value: EvidenceVerdict | undefined) {

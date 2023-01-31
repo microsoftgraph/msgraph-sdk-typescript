@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, NamedLocation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class NamedLocationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: NamedLocation[] | undefined;
     /**
      * Instantiates a new NamedLocationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class NamedLocationCollectionResponse extends BaseCollectionPaginationCou
         writer.writeCollectionOfObjectValues<NamedLocation>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a namedLocation
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: NamedLocation[] | undefined) {

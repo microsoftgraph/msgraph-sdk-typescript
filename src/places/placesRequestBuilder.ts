@@ -4,9 +4,9 @@ import {createPlaceFromDiscriminatorValue} from '../models/createPlaceFromDiscri
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {RoomRequestBuilder} from './microsoftGraphRoom/roomRequestBuilder';
 import {PlacesRequestBuilderGetRequestConfiguration} from './placesRequestBuilderGetRequestConfiguration';
 import {PlacesRequestBuilderPostRequestConfiguration} from './placesRequestBuilderPostRequestConfiguration';
-import {RoomRequestBuilder} from './room/roomRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -17,14 +17,14 @@ export class PlacesRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Casts the previous resource to room. */
+    public get microsoftGraphRoom(): RoomRequestBuilder {
+        return new RoomRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Casts the previous resource to room. */
-    public get room(): RoomRequestBuilder {
-        return new RoomRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
@@ -58,7 +58,6 @@ export class PlacesRequestBuilder {
     };
     /**
      * Add new entity to places
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Place
@@ -94,7 +93,6 @@ export class PlacesRequestBuilder {
     };
     /**
      * Add new entity to places
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

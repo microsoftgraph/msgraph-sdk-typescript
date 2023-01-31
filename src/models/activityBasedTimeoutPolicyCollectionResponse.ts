@@ -3,7 +3,6 @@ import {ActivityBasedTimeoutPolicy, BaseCollectionPaginationCountResponse} from 
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ActivityBasedTimeoutPolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ActivityBasedTimeoutPolicy[] | undefined;
     /**
      * Instantiates a new ActivityBasedTimeoutPolicyCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ActivityBasedTimeoutPolicyCollectionResponse extends BaseCollection
         writer.writeCollectionOfObjectValues<ActivityBasedTimeoutPolicy>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a activityBasedTimeoutPolicy
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ActivityBasedTimeoutPolicy[] | undefined) {

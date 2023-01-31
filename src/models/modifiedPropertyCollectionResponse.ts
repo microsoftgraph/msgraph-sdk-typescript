@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, ModifiedProperty} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ModifiedPropertyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ModifiedProperty[] | undefined;
     /**
      * Instantiates a new ModifiedPropertyCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ModifiedPropertyCollectionResponse extends BaseCollectionPagination
         writer.writeCollectionOfObjectValues<ModifiedProperty>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a modifiedProperty
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ModifiedProperty[] | undefined) {

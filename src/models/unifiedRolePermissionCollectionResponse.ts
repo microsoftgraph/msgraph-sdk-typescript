@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, UnifiedRolePermission} from './in
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRolePermissionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: UnifiedRolePermission[] | undefined;
     /**
      * Instantiates a new UnifiedRolePermissionCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class UnifiedRolePermissionCollectionResponse extends BaseCollectionPagin
         writer.writeCollectionOfObjectValues<UnifiedRolePermission>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a unifiedRolePermission
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: UnifiedRolePermission[] | undefined) {

@@ -4,11 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class FailureInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Classification of why a call or portion of a call failed. */
     private _reason?: string | undefined;
-    /** The stage property */
     private _stage?: FailureStage | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -42,14 +40,14 @@ export class FailureInfo implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -81,14 +79,14 @@ export class FailureInfo implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the stage property value. The stage property
+     * Gets the stage property value. 
      * @returns a failureStage
      */
     public get stage() {
         return this._stage;
     };
     /**
-     * Sets the stage property value. The stage property
+     * Sets the stage property value. 
      * @param value Value to set for the stage property.
      */
     public set stage(value: FailureStage | undefined) {

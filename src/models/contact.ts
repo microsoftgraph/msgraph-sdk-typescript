@@ -40,47 +40,29 @@ export class Contact extends OutlookItem implements Parsable {
     private _homeAddress?: PhysicalAddress | undefined;
     /** The contact's home phone numbers. */
     private _homePhones?: string[] | undefined;
-    /** The imAddresses property */
     private _imAddresses?: string[] | undefined;
-    /** The initials property */
     private _initials?: string | undefined;
-    /** The jobTitle property */
     private _jobTitle?: string | undefined;
-    /** The manager property */
     private _manager?: string | undefined;
-    /** The middleName property */
     private _middleName?: string | undefined;
-    /** The mobilePhone property */
     private _mobilePhone?: string | undefined;
     /** The collection of multi-value extended properties defined for the contact. Read-only. Nullable. */
     private _multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
-    /** The nickName property */
     private _nickName?: string | undefined;
-    /** The officeLocation property */
     private _officeLocation?: string | undefined;
-    /** The otherAddress property */
     private _otherAddress?: PhysicalAddress | undefined;
-    /** The parentFolderId property */
     private _parentFolderId?: string | undefined;
-    /** The personalNotes property */
     private _personalNotes?: string | undefined;
     /** Optional contact picture. You can get or set a photo for a contact. */
     private _photo?: ProfilePhoto | undefined;
-    /** The profession property */
     private _profession?: string | undefined;
     /** The collection of single-value extended properties defined for the contact. Read-only. Nullable. */
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
-    /** The spouseName property */
     private _spouseName?: string | undefined;
-    /** The surname property */
     private _surname?: string | undefined;
-    /** The title property */
     private _title?: string | undefined;
-    /** The yomiCompanyName property */
     private _yomiCompanyName?: string | undefined;
-    /** The yomiGivenName property */
     private _yomiGivenName?: string | undefined;
-    /** The yomiSurname property */
     private _yomiSurname?: string | undefined;
     /**
      * Gets the assistantName property value. The name of the contact's assistant.
@@ -359,84 +341,84 @@ export class Contact extends OutlookItem implements Parsable {
         this._homePhones = value;
     };
     /**
-     * Gets the imAddresses property value. The imAddresses property
+     * Gets the imAddresses property value. 
      * @returns a string
      */
     public get imAddresses() {
         return this._imAddresses;
     };
     /**
-     * Sets the imAddresses property value. The imAddresses property
+     * Sets the imAddresses property value. 
      * @param value Value to set for the imAddresses property.
      */
     public set imAddresses(value: string[] | undefined) {
         this._imAddresses = value;
     };
     /**
-     * Gets the initials property value. The initials property
+     * Gets the initials property value. 
      * @returns a string
      */
     public get initials() {
         return this._initials;
     };
     /**
-     * Sets the initials property value. The initials property
+     * Sets the initials property value. 
      * @param value Value to set for the initials property.
      */
     public set initials(value: string | undefined) {
         this._initials = value;
     };
     /**
-     * Gets the jobTitle property value. The jobTitle property
+     * Gets the jobTitle property value. 
      * @returns a string
      */
     public get jobTitle() {
         return this._jobTitle;
     };
     /**
-     * Sets the jobTitle property value. The jobTitle property
+     * Sets the jobTitle property value. 
      * @param value Value to set for the jobTitle property.
      */
     public set jobTitle(value: string | undefined) {
         this._jobTitle = value;
     };
     /**
-     * Gets the manager property value. The manager property
+     * Gets the manager property value. 
      * @returns a string
      */
     public get manager() {
         return this._manager;
     };
     /**
-     * Sets the manager property value. The manager property
+     * Sets the manager property value. 
      * @param value Value to set for the manager property.
      */
     public set manager(value: string | undefined) {
         this._manager = value;
     };
     /**
-     * Gets the middleName property value. The middleName property
+     * Gets the middleName property value. 
      * @returns a string
      */
     public get middleName() {
         return this._middleName;
     };
     /**
-     * Sets the middleName property value. The middleName property
+     * Sets the middleName property value. 
      * @param value Value to set for the middleName property.
      */
     public set middleName(value: string | undefined) {
         this._middleName = value;
     };
     /**
-     * Gets the mobilePhone property value. The mobilePhone property
+     * Gets the mobilePhone property value. 
      * @returns a string
      */
     public get mobilePhone() {
         return this._mobilePhone;
     };
     /**
-     * Sets the mobilePhone property value. The mobilePhone property
+     * Sets the mobilePhone property value. 
      * @param value Value to set for the mobilePhone property.
      */
     public set mobilePhone(value: string | undefined) {
@@ -457,70 +439,70 @@ export class Contact extends OutlookItem implements Parsable {
         this._multiValueExtendedProperties = value;
     };
     /**
-     * Gets the nickName property value. The nickName property
+     * Gets the nickName property value. 
      * @returns a string
      */
     public get nickName() {
         return this._nickName;
     };
     /**
-     * Sets the nickName property value. The nickName property
+     * Sets the nickName property value. 
      * @param value Value to set for the nickName property.
      */
     public set nickName(value: string | undefined) {
         this._nickName = value;
     };
     /**
-     * Gets the officeLocation property value. The officeLocation property
+     * Gets the officeLocation property value. 
      * @returns a string
      */
     public get officeLocation() {
         return this._officeLocation;
     };
     /**
-     * Sets the officeLocation property value. The officeLocation property
+     * Sets the officeLocation property value. 
      * @param value Value to set for the officeLocation property.
      */
     public set officeLocation(value: string | undefined) {
         this._officeLocation = value;
     };
     /**
-     * Gets the otherAddress property value. The otherAddress property
+     * Gets the otherAddress property value. 
      * @returns a physicalAddress
      */
     public get otherAddress() {
         return this._otherAddress;
     };
     /**
-     * Sets the otherAddress property value. The otherAddress property
+     * Sets the otherAddress property value. 
      * @param value Value to set for the otherAddress property.
      */
     public set otherAddress(value: PhysicalAddress | undefined) {
         this._otherAddress = value;
     };
     /**
-     * Gets the parentFolderId property value. The parentFolderId property
+     * Gets the parentFolderId property value. 
      * @returns a string
      */
     public get parentFolderId() {
         return this._parentFolderId;
     };
     /**
-     * Sets the parentFolderId property value. The parentFolderId property
+     * Sets the parentFolderId property value. 
      * @param value Value to set for the parentFolderId property.
      */
     public set parentFolderId(value: string | undefined) {
         this._parentFolderId = value;
     };
     /**
-     * Gets the personalNotes property value. The personalNotes property
+     * Gets the personalNotes property value. 
      * @returns a string
      */
     public get personalNotes() {
         return this._personalNotes;
     };
     /**
-     * Sets the personalNotes property value. The personalNotes property
+     * Sets the personalNotes property value. 
      * @param value Value to set for the personalNotes property.
      */
     public set personalNotes(value: string | undefined) {
@@ -541,14 +523,14 @@ export class Contact extends OutlookItem implements Parsable {
         this._photo = value;
     };
     /**
-     * Gets the profession property value. The profession property
+     * Gets the profession property value. 
      * @returns a string
      */
     public get profession() {
         return this._profession;
     };
     /**
-     * Sets the profession property value. The profession property
+     * Sets the profession property value. 
      * @param value Value to set for the profession property.
      */
     public set profession(value: string | undefined) {
@@ -614,84 +596,84 @@ export class Contact extends OutlookItem implements Parsable {
         this._singleValueExtendedProperties = value;
     };
     /**
-     * Gets the spouseName property value. The spouseName property
+     * Gets the spouseName property value. 
      * @returns a string
      */
     public get spouseName() {
         return this._spouseName;
     };
     /**
-     * Sets the spouseName property value. The spouseName property
+     * Sets the spouseName property value. 
      * @param value Value to set for the spouseName property.
      */
     public set spouseName(value: string | undefined) {
         this._spouseName = value;
     };
     /**
-     * Gets the surname property value. The surname property
+     * Gets the surname property value. 
      * @returns a string
      */
     public get surname() {
         return this._surname;
     };
     /**
-     * Sets the surname property value. The surname property
+     * Sets the surname property value. 
      * @param value Value to set for the surname property.
      */
     public set surname(value: string | undefined) {
         this._surname = value;
     };
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. 
      * @returns a string
      */
     public get title() {
         return this._title;
     };
     /**
-     * Sets the title property value. The title property
+     * Sets the title property value. 
      * @param value Value to set for the title property.
      */
     public set title(value: string | undefined) {
         this._title = value;
     };
     /**
-     * Gets the yomiCompanyName property value. The yomiCompanyName property
+     * Gets the yomiCompanyName property value. 
      * @returns a string
      */
     public get yomiCompanyName() {
         return this._yomiCompanyName;
     };
     /**
-     * Sets the yomiCompanyName property value. The yomiCompanyName property
+     * Sets the yomiCompanyName property value. 
      * @param value Value to set for the yomiCompanyName property.
      */
     public set yomiCompanyName(value: string | undefined) {
         this._yomiCompanyName = value;
     };
     /**
-     * Gets the yomiGivenName property value. The yomiGivenName property
+     * Gets the yomiGivenName property value. 
      * @returns a string
      */
     public get yomiGivenName() {
         return this._yomiGivenName;
     };
     /**
-     * Sets the yomiGivenName property value. The yomiGivenName property
+     * Sets the yomiGivenName property value. 
      * @param value Value to set for the yomiGivenName property.
      */
     public set yomiGivenName(value: string | undefined) {
         this._yomiGivenName = value;
     };
     /**
-     * Gets the yomiSurname property value. The yomiSurname property
+     * Gets the yomiSurname property value. 
      * @returns a string
      */
     public get yomiSurname() {
         return this._yomiSurname;
     };
     /**
-     * Sets the yomiSurname property value. The yomiSurname property
+     * Sets the yomiSurname property value. 
      * @param value Value to set for the yomiSurname property.
      */
     public set yomiSurname(value: string | undefined) {

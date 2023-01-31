@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, FeatureRolloutPolicy} from './ind
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class FeatureRolloutPolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: FeatureRolloutPolicy[] | undefined;
     /**
      * Instantiates a new FeatureRolloutPolicyCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class FeatureRolloutPolicyCollectionResponse extends BaseCollectionPagina
         writer.writeCollectionOfObjectValues<FeatureRolloutPolicy>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a featureRolloutPolicy
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: FeatureRolloutPolicy[] | undefined) {

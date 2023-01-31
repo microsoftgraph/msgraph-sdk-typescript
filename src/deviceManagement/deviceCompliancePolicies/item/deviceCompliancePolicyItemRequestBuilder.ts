@@ -2,7 +2,6 @@ import {DeviceCompliancePolicy} from '../../../models/';
 import {createDeviceCompliancePolicyFromDiscriminatorValue} from '../../../models/createDeviceCompliancePolicyFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
 import {DeviceCompliancePolicyAssignmentItemRequestBuilder} from './assignments/item/deviceCompliancePolicyAssignmentItemRequestBuilder';
 import {DeviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration} from './deviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration';
@@ -13,7 +12,8 @@ import {SettingStateDeviceSummaryItemRequestBuilder} from './deviceSettingStateS
 import {DeviceStatusesRequestBuilder} from './deviceStatuses/deviceStatusesRequestBuilder';
 import {DeviceComplianceDeviceStatusItemRequestBuilder} from './deviceStatuses/item/deviceComplianceDeviceStatusItemRequestBuilder';
 import {DeviceStatusOverviewRequestBuilder} from './deviceStatusOverview/deviceStatusOverviewRequestBuilder';
-import {ScheduleActionsForRulesRequestBuilder} from './scheduleActionsForRules/scheduleActionsForRulesRequestBuilder';
+import {AssignRequestBuilder} from './microsoftGraphAssign/assignRequestBuilder';
+import {ScheduleActionsForRulesRequestBuilder} from './microsoftGraphScheduleActionsForRules/scheduleActionsForRulesRequestBuilder';
 import {DeviceComplianceScheduledActionForRuleItemRequestBuilder} from './scheduledActionsForRule/item/deviceComplianceScheduledActionForRuleItemRequestBuilder';
 import {ScheduledActionsForRuleRequestBuilder} from './scheduledActionsForRule/scheduledActionsForRuleRequestBuilder';
 import {DeviceComplianceUserStatusItemRequestBuilder} from './userStatuses/item/deviceComplianceUserStatusItemRequestBuilder';
@@ -25,10 +25,6 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
  */
 export class DeviceCompliancePolicyItemRequestBuilder {
-    /** Provides operations to call the assign method. */
-    public get assign(): AssignRequestBuilder {
-        return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the assignments property of the microsoft.graph.deviceCompliancePolicy entity. */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -45,14 +41,18 @@ export class DeviceCompliancePolicyItemRequestBuilder {
     public get deviceStatusOverview(): DeviceStatusOverviewRequestBuilder {
         return new DeviceStatusOverviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the assign method. */
+    public get microsoftGraphAssign(): AssignRequestBuilder {
+        return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the scheduleActionsForRules method. */
+    public get microsoftGraphScheduleActionsForRules(): ScheduleActionsForRulesRequestBuilder {
+        return new ScheduleActionsForRulesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the scheduleActionsForRules method. */
-    public get scheduleActionsForRules(): ScheduleActionsForRulesRequestBuilder {
-        return new ScheduleActionsForRulesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity. */
     public get scheduledActionsForRule(): ScheduledActionsForRuleRequestBuilder {
         return new ScheduledActionsForRuleRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -80,14 +80,16 @@ export class DeviceCompliancePolicyItemRequestBuilder {
     };
     /**
      * Instantiates a new DeviceCompliancePolicyItemRequestBuilder and sets the default values.
+     * @param deviceCompliancePolicyId key: id of deviceCompliancePolicy
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, deviceCompliancePolicyId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["deviceCompliancePolicy%2Did"] = deviceCompliancePolicyId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -146,7 +148,6 @@ export class DeviceCompliancePolicyItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceCompliancePolicies in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceCompliancePolicy
@@ -209,7 +210,6 @@ export class DeviceCompliancePolicyItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceCompliancePolicies in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

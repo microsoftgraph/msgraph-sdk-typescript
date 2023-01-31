@@ -35,13 +35,9 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
     private _service?: string | undefined;
     /** List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage, */
     private _threats?: string[] | undefined;
-    /** The tier property */
     private _tier?: string | undefined;
-    /** The title property */
     private _title?: string | undefined;
-    /** The userImpact property */
     private _userImpact?: string | undefined;
-    /** The vendorInformation property */
     private _vendorInformation?: SecurityVendorInformation | undefined;
     /**
      * Gets the actionType property value. Control action type (Config, Review, Behavior).
@@ -314,56 +310,56 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
         this._threats = value;
     };
     /**
-     * Gets the tier property value. The tier property
+     * Gets the tier property value. 
      * @returns a string
      */
     public get tier() {
         return this._tier;
     };
     /**
-     * Sets the tier property value. The tier property
+     * Sets the tier property value. 
      * @param value Value to set for the tier property.
      */
     public set tier(value: string | undefined) {
         this._tier = value;
     };
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. 
      * @returns a string
      */
     public get title() {
         return this._title;
     };
     /**
-     * Sets the title property value. The title property
+     * Sets the title property value. 
      * @param value Value to set for the title property.
      */
     public set title(value: string | undefined) {
         this._title = value;
     };
     /**
-     * Gets the userImpact property value. The userImpact property
+     * Gets the userImpact property value. 
      * @returns a string
      */
     public get userImpact() {
         return this._userImpact;
     };
     /**
-     * Sets the userImpact property value. The userImpact property
+     * Sets the userImpact property value. 
      * @param value Value to set for the userImpact property.
      */
     public set userImpact(value: string | undefined) {
         this._userImpact = value;
     };
     /**
-     * Gets the vendorInformation property value. The vendorInformation property
+     * Gets the vendorInformation property value. 
      * @returns a securityVendorInformation
      */
     public get vendorInformation() {
         return this._vendorInformation;
     };
     /**
-     * Sets the vendorInformation property value. The vendorInformation property
+     * Sets the vendorInformation property value. 
      * @param value Value to set for the vendorInformation property.
      */
     public set vendorInformation(value: SecurityVendorInformation | undefined) {

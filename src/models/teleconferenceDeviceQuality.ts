@@ -23,7 +23,6 @@ export class TeleconferenceDeviceQuality implements AdditionalDataHolder, Parsab
     private _mediaLegId?: string | undefined;
     /** The list of media qualities in a media session (call), such as audio quality, video quality, and/or screen sharing quality. */
     private _mediaQualityList?: TeleconferenceDeviceMediaQuality[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** A unique identifier for a specific participant in a conference. The CVI partner needs to copy over Call.MyParticipantId to this property. */
     private _participantId?: string | undefined;
@@ -193,14 +192,14 @@ export class TeleconferenceDeviceQuality implements AdditionalDataHolder, Parsab
         this._mediaQualityList = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -66,7 +66,6 @@ export class User extends DirectoryObject implements Parsable {
     private _assignedPlans?: AssignedPlan[] | undefined;
     /** The authentication methods that are supported for the user. */
     private _authentication?: Authentication | undefined;
-    /** The authorizationInfo property */
     private _authorizationInfo?: AuthorizationInfo | undefined;
     /** The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned only on $select. */
     private _birthday?: Date | undefined;
@@ -80,7 +79,6 @@ export class User extends DirectoryObject implements Parsable {
     private _calendars?: Calendar[] | undefined;
     /** The calendar view for the calendar. Read-only. Nullable. */
     private _calendarView?: Event[] | undefined;
-    /** The chats property */
     private _chats?: Chat[] | undefined;
     /** The city in which the user is located. Maximum length is 128 characters. Returned only on $select. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     private _city?: string | undefined;
@@ -132,7 +130,6 @@ export class User extends DirectoryObject implements Parsable {
     private _externalUserStateChangeDateTime?: Date | undefined;
     /** The fax number of the user. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values). */
     private _faxNumber?: string | undefined;
-    /** The followedSites property */
     private _followedSites?: Site[] | undefined;
     /** The given name (first name) of the user. Maximum length is 64 characters. Returned by default. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values). */
     private _givenName?: string | undefined;
@@ -144,7 +141,6 @@ export class User extends DirectoryObject implements Parsable {
     private _imAddresses?: string[] | undefined;
     /** Relevance classification of the user's messages based on explicit designations which override inferred relevance or importance. */
     private _inferenceClassification?: InferenceClassification | undefined;
-    /** The insights property */
     private _insights?: OfficeGraphInsights | undefined;
     /** A list for the user to describe their interests. Returned only on $select. */
     private _interests?: string[] | undefined;
@@ -152,7 +148,6 @@ export class User extends DirectoryObject implements Parsable {
     private _isResourceAccount?: boolean | undefined;
     /** The user's job title. Maximum length is 128 characters. Returned by default. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values). */
     private _jobTitle?: string | undefined;
-    /** The joinedTeams property */
     private _joinedTeams?: Team[] | undefined;
     /** The time when this Azure AD user last changed their password or when their password was created, whichever date the latest action was performed. The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned only on $select. */
     private _lastPasswordChangeDateTime?: Date | undefined;
@@ -184,13 +179,10 @@ export class User extends DirectoryObject implements Parsable {
     private _mobilePhone?: string | undefined;
     /** The URL for the user's personal site. Returned only on $select. */
     private _mySite?: string | undefined;
-    /** The oauth2PermissionGrants property */
     private _oauth2PermissionGrants?: OAuth2PermissionGrant[] | undefined;
     /** The office location in the user's place of business. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     private _officeLocation?: string | undefined;
-    /** The onenote property */
     private _onenote?: Onenote | undefined;
-    /** The onlineMeetings property */
     private _onlineMeetings?: OnlineMeeting[] | undefined;
     /** Contains the on-premises Active Directory distinguished name or DN. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. Read-only. Returned only on $select. */
     private _onPremisesDistinguishedName?: string | undefined;
@@ -214,7 +206,6 @@ export class User extends DirectoryObject implements Parsable {
     private _onPremisesUserPrincipalName?: string | undefined;
     /** A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com']. NOTE: This property cannot contain accent characters. Returned only on $select. Supports $filter (eq, not, ge, le, in, startsWith, endsWith, /$count eq 0, /$count ne 0). */
     private _otherMails?: string[] | undefined;
-    /** The outlook property */
     private _outlook?: OutlookUser | undefined;
     /** Devices that are owned by the user. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1). */
     private _ownedDevices?: DirectoryObject[] | undefined;
@@ -230,7 +221,6 @@ export class User extends DirectoryObject implements Parsable {
     private _people?: Person[] | undefined;
     /** The user's profile photo. Read-only. */
     private _photo?: ProfilePhoto | undefined;
-    /** The photos property */
     private _photos?: ProfilePhoto[] | undefined;
     /** Entry-point to the Planner resource that might exist for a user. Read-only. */
     private _planner?: PlannerUser | undefined;
@@ -242,7 +232,6 @@ export class User extends DirectoryObject implements Parsable {
     private _preferredLanguage?: string | undefined;
     /** The preferred name for the user. Not Supported. This attribute returns an empty string.Returned only on $select. */
     private _preferredName?: string | undefined;
-    /** The presence property */
     private _presence?: Presence | undefined;
     /** The plans that are provisioned for the user. Read-only. Not nullable. Returned only on $select. Supports $filter (eq, not, ge, le). */
     private _provisionedPlans?: ProvisionedPlan[] | undefined;
@@ -254,11 +243,9 @@ export class User extends DirectoryObject implements Parsable {
     private _responsibilities?: string[] | undefined;
     /** A list for the user to enumerate the schools they have attended. Returned only on $select. */
     private _schools?: string[] | undefined;
-    /** The scopedRoleMemberOf property */
     private _scopedRoleMemberOf?: ScopedRoleMembership[] | undefined;
     /** Security identifier (SID) of the user, used in Windows scenarios. Read-only. Returned by default. Supports $select and $filter (eq, not, ge, le, startsWith). */
     private _securityIdentifier?: string | undefined;
-    /** The settings property */
     private _settings?: UserSettings | undefined;
     /** Do not use in Microsoft Graph. Manage this property through the Microsoft 365 admin center instead. Represents whether the user should be included in the Outlook global address list. See Known issue. */
     private _showInAddressList?: boolean | undefined;
@@ -272,7 +259,6 @@ export class User extends DirectoryObject implements Parsable {
     private _streetAddress?: string | undefined;
     /** The user's surname (family name or last name). Maximum length is 64 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     private _surname?: string | undefined;
-    /** The teamwork property */
     private _teamwork?: UserTeamwork | undefined;
     /** Represents the To Do services available to a user. */
     private _todo?: Todo | undefined;
@@ -411,14 +397,14 @@ export class User extends DirectoryObject implements Parsable {
         this._authentication = value;
     };
     /**
-     * Gets the authorizationInfo property value. The authorizationInfo property
+     * Gets the authorizationInfo property value. 
      * @returns a authorizationInfo
      */
     public get authorizationInfo() {
         return this._authorizationInfo;
     };
     /**
-     * Sets the authorizationInfo property value. The authorizationInfo property
+     * Sets the authorizationInfo property value. 
      * @param value Value to set for the authorizationInfo property.
      */
     public set authorizationInfo(value: AuthorizationInfo | undefined) {
@@ -509,14 +495,14 @@ export class User extends DirectoryObject implements Parsable {
         this._calendarView = value;
     };
     /**
-     * Gets the chats property value. The chats property
+     * Gets the chats property value. 
      * @returns a chat
      */
     public get chats() {
         return this._chats;
     };
     /**
-     * Sets the chats property value. The chats property
+     * Sets the chats property value. 
      * @param value Value to set for the chats property.
      */
     public set chats(value: Chat[] | undefined) {
@@ -880,14 +866,14 @@ export class User extends DirectoryObject implements Parsable {
         this._faxNumber = value;
     };
     /**
-     * Gets the followedSites property value. The followedSites property
+     * Gets the followedSites property value. 
      * @returns a site
      */
     public get followedSites() {
         return this._followedSites;
     };
     /**
-     * Sets the followedSites property value. The followedSites property
+     * Sets the followedSites property value. 
      * @param value Value to set for the followedSites property.
      */
     public set followedSites(value: Site[] | undefined) {
@@ -1090,14 +1076,14 @@ export class User extends DirectoryObject implements Parsable {
         this._inferenceClassification = value;
     };
     /**
-     * Gets the insights property value. The insights property
+     * Gets the insights property value. 
      * @returns a officeGraphInsights
      */
     public get insights() {
         return this._insights;
     };
     /**
-     * Sets the insights property value. The insights property
+     * Sets the insights property value. 
      * @param value Value to set for the insights property.
      */
     public set insights(value: OfficeGraphInsights | undefined) {
@@ -1146,14 +1132,14 @@ export class User extends DirectoryObject implements Parsable {
         this._jobTitle = value;
     };
     /**
-     * Gets the joinedTeams property value. The joinedTeams property
+     * Gets the joinedTeams property value. 
      * @returns a team
      */
     public get joinedTeams() {
         return this._joinedTeams;
     };
     /**
-     * Sets the joinedTeams property value. The joinedTeams property
+     * Sets the joinedTeams property value. 
      * @param value Value to set for the joinedTeams property.
      */
     public set joinedTeams(value: Team[] | undefined) {
@@ -1370,14 +1356,14 @@ export class User extends DirectoryObject implements Parsable {
         this._mySite = value;
     };
     /**
-     * Gets the oauth2PermissionGrants property value. The oauth2PermissionGrants property
+     * Gets the oauth2PermissionGrants property value. 
      * @returns a oAuth2PermissionGrant
      */
     public get oauth2PermissionGrants() {
         return this._oauth2PermissionGrants;
     };
     /**
-     * Sets the oauth2PermissionGrants property value. The oauth2PermissionGrants property
+     * Sets the oauth2PermissionGrants property value. 
      * @param value Value to set for the oauth2PermissionGrants property.
      */
     public set oauth2PermissionGrants(value: OAuth2PermissionGrant[] | undefined) {
@@ -1398,28 +1384,28 @@ export class User extends DirectoryObject implements Parsable {
         this._officeLocation = value;
     };
     /**
-     * Gets the onenote property value. The onenote property
+     * Gets the onenote property value. 
      * @returns a onenote
      */
     public get onenote() {
         return this._onenote;
     };
     /**
-     * Sets the onenote property value. The onenote property
+     * Sets the onenote property value. 
      * @param value Value to set for the onenote property.
      */
     public set onenote(value: Onenote | undefined) {
         this._onenote = value;
     };
     /**
-     * Gets the onlineMeetings property value. The onlineMeetings property
+     * Gets the onlineMeetings property value. 
      * @returns a onlineMeeting
      */
     public get onlineMeetings() {
         return this._onlineMeetings;
     };
     /**
-     * Sets the onlineMeetings property value. The onlineMeetings property
+     * Sets the onlineMeetings property value. 
      * @param value Value to set for the onlineMeetings property.
      */
     public set onlineMeetings(value: OnlineMeeting[] | undefined) {
@@ -1580,14 +1566,14 @@ export class User extends DirectoryObject implements Parsable {
         this._otherMails = value;
     };
     /**
-     * Gets the outlook property value. The outlook property
+     * Gets the outlook property value. 
      * @returns a outlookUser
      */
     public get outlook() {
         return this._outlook;
     };
     /**
-     * Sets the outlook property value. The outlook property
+     * Sets the outlook property value. 
      * @param value Value to set for the outlook property.
      */
     public set outlook(value: OutlookUser | undefined) {
@@ -1692,14 +1678,14 @@ export class User extends DirectoryObject implements Parsable {
         this._photo = value;
     };
     /**
-     * Gets the photos property value. The photos property
+     * Gets the photos property value. 
      * @returns a profilePhoto
      */
     public get photos() {
         return this._photos;
     };
     /**
-     * Sets the photos property value. The photos property
+     * Sets the photos property value. 
      * @param value Value to set for the photos property.
      */
     public set photos(value: ProfilePhoto[] | undefined) {
@@ -1776,14 +1762,14 @@ export class User extends DirectoryObject implements Parsable {
         this._preferredName = value;
     };
     /**
-     * Gets the presence property value. The presence property
+     * Gets the presence property value. 
      * @returns a presence
      */
     public get presence() {
         return this._presence;
     };
     /**
-     * Sets the presence property value. The presence property
+     * Sets the presence property value. 
      * @param value Value to set for the presence property.
      */
     public set presence(value: Presence | undefined) {
@@ -1860,14 +1846,14 @@ export class User extends DirectoryObject implements Parsable {
         this._schools = value;
     };
     /**
-     * Gets the scopedRoleMemberOf property value. The scopedRoleMemberOf property
+     * Gets the scopedRoleMemberOf property value. 
      * @returns a scopedRoleMembership
      */
     public get scopedRoleMemberOf() {
         return this._scopedRoleMemberOf;
     };
     /**
-     * Sets the scopedRoleMemberOf property value. The scopedRoleMemberOf property
+     * Sets the scopedRoleMemberOf property value. 
      * @param value Value to set for the scopedRoleMemberOf property.
      */
     public set scopedRoleMemberOf(value: ScopedRoleMembership[] | undefined) {
@@ -2014,14 +2000,14 @@ export class User extends DirectoryObject implements Parsable {
         writer.writeStringValue("userType", this.userType);
     };
     /**
-     * Gets the settings property value. The settings property
+     * Gets the settings property value. 
      * @returns a userSettings
      */
     public get settings() {
         return this._settings;
     };
     /**
-     * Sets the settings property value. The settings property
+     * Sets the settings property value. 
      * @param value Value to set for the settings property.
      */
     public set settings(value: UserSettings | undefined) {
@@ -2112,14 +2098,14 @@ export class User extends DirectoryObject implements Parsable {
         this._surname = value;
     };
     /**
-     * Gets the teamwork property value. The teamwork property
+     * Gets the teamwork property value. 
      * @returns a userTeamwork
      */
     public get teamwork() {
         return this._teamwork;
     };
     /**
-     * Sets the teamwork property value. The teamwork property
+     * Sets the teamwork property value. 
      * @param value Value to set for the teamwork property.
      */
     public set teamwork(value: UserTeamwork | undefined) {

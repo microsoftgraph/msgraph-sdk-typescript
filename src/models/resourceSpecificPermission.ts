@@ -11,7 +11,6 @@ export class ResourceSpecificPermission implements AdditionalDataHolder, Parsabl
     private _id?: string | undefined;
     /** Indicates whether the permission is enabled. */
     private _isEnabled?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The value of the permission. */
     private _value?: string | undefined;
@@ -106,14 +105,14 @@ export class ResourceSpecificPermission implements AdditionalDataHolder, Parsabl
         this._isEnabled = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

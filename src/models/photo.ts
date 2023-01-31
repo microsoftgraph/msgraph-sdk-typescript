@@ -17,7 +17,6 @@ export class Photo implements AdditionalDataHolder, Parsable {
     private _focalLength?: number | undefined;
     /** The ISO value from the camera. Read-only. */
     private _iso?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The orientation value from the camera. Writable on OneDrive Personal. */
     private _orientation?: number | undefined;
@@ -160,14 +159,14 @@ export class Photo implements AdditionalDataHolder, Parsable {
         this._iso = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, TokenLifetimePolicy} from './inde
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TokenLifetimePolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: TokenLifetimePolicy[] | undefined;
     /**
      * Instantiates a new TokenLifetimePolicyCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class TokenLifetimePolicyCollectionResponse extends BaseCollectionPaginat
         writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a tokenLifetimePolicy
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: TokenLifetimePolicy[] | undefined) {

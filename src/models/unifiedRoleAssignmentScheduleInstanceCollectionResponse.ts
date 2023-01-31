@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, UnifiedRoleAssignmentScheduleInst
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleAssignmentScheduleInstanceCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: UnifiedRoleAssignmentScheduleInstance[] | undefined;
     /**
      * Instantiates a new UnifiedRoleAssignmentScheduleInstanceCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class UnifiedRoleAssignmentScheduleInstanceCollectionResponse extends Bas
         writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstance>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a unifiedRoleAssignmentScheduleInstance
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: UnifiedRoleAssignmentScheduleInstance[] | undefined) {

@@ -12,7 +12,6 @@ export class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Par
     private _enforcedSessionControls?: string[] | undefined;
     /** An identifier of the conditional access policy. */
     private _id?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue. */
     private _result?: AppliedConditionalAccessPolicyResult | undefined;
@@ -107,14 +106,14 @@ export class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Par
         this._id = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

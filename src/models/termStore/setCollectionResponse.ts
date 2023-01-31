@@ -4,7 +4,6 @@ import {Set} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SetCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: Set[] | undefined;
     /**
      * Instantiates a new SetCollectionResponse and sets the default values.
@@ -31,14 +30,14 @@ export class SetCollectionResponse extends BaseCollectionPaginationCountResponse
         writer.writeCollectionOfObjectValues<Set>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a set
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Set[] | undefined) {

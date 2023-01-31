@@ -6,23 +6,14 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The color property */
     private _color?: string | undefined;
-    /** The criterion1 property */
     private _criterion1?: string | undefined;
-    /** The criterion2 property */
     private _criterion2?: string | undefined;
-    /** The dynamicCriteria property */
     private _dynamicCriteria?: string | undefined;
-    /** The filterOn property */
     private _filterOn?: string | undefined;
-    /** The icon property */
     private _icon?: WorkbookIcon | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The operator property */
     private _operator?: string | undefined;
-    /** The values property */
     private _values?: Json | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -39,14 +30,14 @@ export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the color property value. The color property
+     * Gets the color property value. 
      * @returns a string
      */
     public get color() {
         return this._color;
     };
     /**
-     * Sets the color property value. The color property
+     * Sets the color property value. 
      * @param value Value to set for the color property.
      */
     public set color(value: string | undefined) {
@@ -59,56 +50,56 @@ export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the criterion1 property value. The criterion1 property
+     * Gets the criterion1 property value. 
      * @returns a string
      */
     public get criterion1() {
         return this._criterion1;
     };
     /**
-     * Sets the criterion1 property value. The criterion1 property
+     * Sets the criterion1 property value. 
      * @param value Value to set for the criterion1 property.
      */
     public set criterion1(value: string | undefined) {
         this._criterion1 = value;
     };
     /**
-     * Gets the criterion2 property value. The criterion2 property
+     * Gets the criterion2 property value. 
      * @returns a string
      */
     public get criterion2() {
         return this._criterion2;
     };
     /**
-     * Sets the criterion2 property value. The criterion2 property
+     * Sets the criterion2 property value. 
      * @param value Value to set for the criterion2 property.
      */
     public set criterion2(value: string | undefined) {
         this._criterion2 = value;
     };
     /**
-     * Gets the dynamicCriteria property value. The dynamicCriteria property
+     * Gets the dynamicCriteria property value. 
      * @returns a string
      */
     public get dynamicCriteria() {
         return this._dynamicCriteria;
     };
     /**
-     * Sets the dynamicCriteria property value. The dynamicCriteria property
+     * Sets the dynamicCriteria property value. 
      * @param value Value to set for the dynamicCriteria property.
      */
     public set dynamicCriteria(value: string | undefined) {
         this._dynamicCriteria = value;
     };
     /**
-     * Gets the filterOn property value. The filterOn property
+     * Gets the filterOn property value. 
      * @returns a string
      */
     public get filterOn() {
         return this._filterOn;
     };
     /**
-     * Sets the filterOn property value. The filterOn property
+     * Sets the filterOn property value. 
      * @param value Value to set for the filterOn property.
      */
     public set filterOn(value: string | undefined) {
@@ -132,42 +123,42 @@ export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the icon property value. The icon property
+     * Gets the icon property value. 
      * @returns a workbookIcon
      */
     public get icon() {
         return this._icon;
     };
     /**
-     * Sets the icon property value. The icon property
+     * Sets the icon property value. 
      * @param value Value to set for the icon property.
      */
     public set icon(value: WorkbookIcon | undefined) {
         this._icon = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the operator property value. The operator property
+     * Gets the operator property value. 
      * @returns a string
      */
     public get operator() {
         return this._operator;
     };
     /**
-     * Sets the operator property value. The operator property
+     * Sets the operator property value. 
      * @param value Value to set for the operator property.
      */
     public set operator(value: string | undefined) {
@@ -191,14 +182,14 @@ export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the values property value. The values property
+     * Gets the values property value. 
      * @returns a Json
      */
     public get values() {
         return this._values;
     };
     /**
-     * Sets the values property value. The values property
+     * Sets the values property value. 
      * @param value Value to set for the values property.
      */
     public set values(value: Json | undefined) {

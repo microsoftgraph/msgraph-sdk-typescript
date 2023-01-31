@@ -2,10 +2,10 @@ import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EdiscoveryReviewSetQuery} from '../../../../../../../../models/security/';
 import {createEdiscoveryReviewSetQueryFromDiscriminatorValue} from '../../../../../../../../models/security/createEdiscoveryReviewSetQueryFromDiscriminatorValue';
-import {ApplyTagsRequestBuilder} from './applyTags/applyTagsRequestBuilder';
 import {EdiscoveryReviewSetQueryItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryReviewSetQueryItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration} from './ediscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration} from './ediscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration';
+import {ApplyTagsRequestBuilder} from './microsoftGraphSecurityApplyTags/applyTagsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -13,7 +13,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class EdiscoveryReviewSetQueryItemRequestBuilder {
     /** Provides operations to call the applyTags method. */
-    public get applyTags(): ApplyTagsRequestBuilder {
+    public get microsoftGraphSecurityApplyTags(): ApplyTagsRequestBuilder {
         return new ApplyTagsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
@@ -24,14 +24,16 @@ export class EdiscoveryReviewSetQueryItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new EdiscoveryReviewSetQueryItemRequestBuilder and sets the default values.
+     * @param ediscoveryReviewSetQueryId key: id of ediscoveryReviewSetQuery
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, ediscoveryReviewSetQueryId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets/{ediscoveryReviewSet%2Did}/queries/{ediscoveryReviewSetQuery%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["ediscoveryReviewSetQuery%2Did"] = ediscoveryReviewSetQueryId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -68,7 +70,6 @@ export class EdiscoveryReviewSetQueryItemRequestBuilder {
     };
     /**
      * Update the navigation property queries in security
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryReviewSetQuery
@@ -120,7 +121,6 @@ export class EdiscoveryReviewSetQueryItemRequestBuilder {
     };
     /**
      * Update the navigation property queries in security
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

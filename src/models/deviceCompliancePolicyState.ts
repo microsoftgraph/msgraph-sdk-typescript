@@ -14,9 +14,7 @@ export class DeviceCompliancePolicyState extends Entity implements Parsable {
     private _platformType?: PolicyPlatformType | undefined;
     /** Count of how many setting a policy holds */
     private _settingCount?: number | undefined;
-    /** The settingStates property */
     private _settingStates?: DeviceCompliancePolicySettingState[] | undefined;
-    /** The state property */
     private _state?: ComplianceStatus | undefined;
     /** The version of the policy */
     private _version?: number | undefined;
@@ -97,28 +95,28 @@ export class DeviceCompliancePolicyState extends Entity implements Parsable {
         this._settingCount = value;
     };
     /**
-     * Gets the settingStates property value. The settingStates property
+     * Gets the settingStates property value. 
      * @returns a deviceCompliancePolicySettingState
      */
     public get settingStates() {
         return this._settingStates;
     };
     /**
-     * Sets the settingStates property value. The settingStates property
+     * Sets the settingStates property value. 
      * @param value Value to set for the settingStates property.
      */
     public set settingStates(value: DeviceCompliancePolicySettingState[] | undefined) {
         this._settingStates = value;
     };
     /**
-     * Gets the state property value. The state property
+     * Gets the state property value. 
      * @returns a complianceStatus
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The state property
+     * Sets the state property value. 
      * @param value Value to set for the state property.
      */
     public set state(value: ComplianceStatus | undefined) {

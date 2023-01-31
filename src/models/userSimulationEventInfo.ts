@@ -11,7 +11,6 @@ export class UserSimulationEventInfo implements AdditionalDataHolder, Parsable {
     private _eventName?: string | undefined;
     /** IP address from where the simulation event was initiated by a user in an attack simulation and training campaign. */
     private _ipAddress?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The operating system, platform, and device details from where the simulation event was initiated by a user in an attack simulation and training campaign. */
     private _osPlatformDeviceDetails?: string | undefined;
@@ -106,14 +105,14 @@ export class UserSimulationEventInfo implements AdditionalDataHolder, Parsable {
         this._ipAddress = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

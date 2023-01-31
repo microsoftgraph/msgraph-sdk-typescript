@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, TeamsAppDefinition} from './index
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamsAppDefinitionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: TeamsAppDefinition[] | undefined;
     /**
      * Instantiates a new TeamsAppDefinitionCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class TeamsAppDefinitionCollectionResponse extends BaseCollectionPaginati
         writer.writeCollectionOfObjectValues<TeamsAppDefinition>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a teamsAppDefinition
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: TeamsAppDefinition[] | undefined) {

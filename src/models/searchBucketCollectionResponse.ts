@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, SearchBucket} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchBucketCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: SearchBucket[] | undefined;
     /**
      * Instantiates a new SearchBucketCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class SearchBucketCollectionResponse extends BaseCollectionPaginationCoun
         writer.writeCollectionOfObjectValues<SearchBucket>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a searchBucket
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: SearchBucket[] | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, SettingValue} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SettingValueCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: SettingValue[] | undefined;
     /**
      * Instantiates a new SettingValueCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class SettingValueCollectionResponse extends BaseCollectionPaginationCoun
         writer.writeCollectionOfObjectValues<SettingValue>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a settingValue
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: SettingValue[] | undefined) {

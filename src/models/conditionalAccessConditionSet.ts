@@ -22,7 +22,6 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
     private _devices?: ConditionalAccessDevices | undefined;
     /** Locations included in and excluded from the policy. */
     private _locations?: ConditionalAccessLocations | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Platforms included in and excluded from the policy. */
     private _platforms?: ConditionalAccessPlatforms | undefined;
@@ -144,14 +143,14 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
         this._locations = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

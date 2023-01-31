@@ -4,9 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ConditionalAccessFilter implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The mode property */
     private _mode?: FilterMode | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Rule syntax is similar to that used for membership rules for groups in Azure Active Directory (Azure AD). For details, see rules with multiple expressions */
     private _rule?: string | undefined;
@@ -42,28 +40,28 @@ export class ConditionalAccessFilter implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the mode property value. The mode property
+     * Gets the mode property value. 
      * @returns a filterMode
      */
     public get mode() {
         return this._mode;
     };
     /**
-     * Sets the mode property value. The mode property
+     * Sets the mode property value. 
      * @param value Value to set for the mode property.
      */
     public set mode(value: FilterMode | undefined) {
         this._mode = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

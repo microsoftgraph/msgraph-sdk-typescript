@@ -3,19 +3,12 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The assignedByGroup property */
     private _assignedByGroup?: string | undefined;
-    /** The disabledPlans property */
     private _disabledPlans?: string[] | undefined;
-    /** The error property */
     private _error_escaped?: string | undefined;
-    /** The lastUpdatedDateTime property */
     private _lastUpdatedDateTime?: Date | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The skuId property */
     private _skuId?: string | undefined;
-    /** The state property */
     private _state?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -32,14 +25,14 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the assignedByGroup property value. The assignedByGroup property
+     * Gets the assignedByGroup property value. 
      * @returns a string
      */
     public get assignedByGroup() {
         return this._assignedByGroup;
     };
     /**
-     * Sets the assignedByGroup property value. The assignedByGroup property
+     * Sets the assignedByGroup property value. 
      * @param value Value to set for the assignedByGroup property.
      */
     public set assignedByGroup(value: string | undefined) {
@@ -52,28 +45,28 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the disabledPlans property value. The disabledPlans property
+     * Gets the disabledPlans property value. 
      * @returns a Guid
      */
     public get disabledPlans() {
         return this._disabledPlans;
     };
     /**
-     * Sets the disabledPlans property value. The disabledPlans property
+     * Sets the disabledPlans property value. 
      * @param value Value to set for the disabledPlans property.
      */
     public set disabledPlans(value: string[] | undefined) {
         this._disabledPlans = value;
     };
     /**
-     * Gets the error property value. The error property
+     * Gets the error property value. 
      * @returns a string
      */
     public get error_escaped() {
         return this._error_escaped;
     };
     /**
-     * Sets the error property value. The error property
+     * Sets the error property value. 
      * @param value Value to set for the error_escaped property.
      */
     public set error_escaped(value: string | undefined) {
@@ -95,28 +88,28 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Gets the lastUpdatedDateTime property value. 
      * @returns a Date
      */
     public get lastUpdatedDateTime() {
         return this._lastUpdatedDateTime;
     };
     /**
-     * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Sets the lastUpdatedDateTime property value. 
      * @param value Value to set for the lastUpdatedDateTime property.
      */
     public set lastUpdatedDateTime(value: Date | undefined) {
         this._lastUpdatedDateTime = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -138,28 +131,28 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the skuId property value. The skuId property
+     * Gets the skuId property value. 
      * @returns a Guid
      */
     public get skuId() {
         return this._skuId;
     };
     /**
-     * Sets the skuId property value. The skuId property
+     * Sets the skuId property value. 
      * @param value Value to set for the skuId property.
      */
     public set skuId(value: string | undefined) {
         this._skuId = value;
     };
     /**
-     * Gets the state property value. The state property
+     * Gets the state property value. 
      * @returns a string
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The state property
+     * Sets the state property value. 
      * @param value Value to set for the state property.
      */
     public set state(value: string | undefined) {

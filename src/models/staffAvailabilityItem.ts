@@ -7,7 +7,6 @@ export class StaffAvailabilityItem implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Each item in this collection indicates a slot and the status of the staff member. */
     private _availabilityItems?: AvailabilityItem[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The ID of the staff member. */
     private _staffId?: string | undefined;
@@ -57,14 +56,14 @@ export class StaffAvailabilityItem implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

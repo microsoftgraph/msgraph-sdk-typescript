@@ -2,19 +2,19 @@ import {OrgContact} from '../../models/';
 import {createOrgContactFromDiscriminatorValue} from '../../models/createOrgContactFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
-import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {DirectReportsRequestBuilder} from './directReports/directReportsRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as Iee145da274f90da30fe6820c5f8a64af13825c71ebf378b7d48b800d0777ebac} from './directReports/item/directoryObjectItemRequestBuilder';
-import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
-import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
 import {ManagerRequestBuilder} from './manager/managerRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as I4a5ee1c2bab055f2debd3cfee5a1f5655587fb5f30daf40163cad5ac6cadc4ed} from './memberOf/item/directoryObjectItemRequestBuilder';
 import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
+import {CheckMemberGroupsRequestBuilder} from './microsoftGraphCheckMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from './microsoftGraphCheckMemberObjects/checkMemberObjectsRequestBuilder';
+import {GetMemberGroupsRequestBuilder} from './microsoftGraphGetMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from './microsoftGraphGetMemberObjects/getMemberObjectsRequestBuilder';
+import {RestoreRequestBuilder} from './microsoftGraphRestore/restoreRequestBuilder';
 import {OrgContactItemRequestBuilderDeleteRequestConfiguration} from './orgContactItemRequestBuilderDeleteRequestConfiguration';
 import {OrgContactItemRequestBuilderGetRequestConfiguration} from './orgContactItemRequestBuilderGetRequestConfiguration';
 import {OrgContactItemRequestBuilderPatchRequestConfiguration} from './orgContactItemRequestBuilderPatchRequestConfiguration';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as I5e2e99a1b0622616292c222076de6d6be0dbe7361b4cbe754854c565683e630d} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -23,25 +23,9 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the collection of orgContact entities.
  */
 export class OrgContactItemRequestBuilder {
-    /** Provides operations to call the checkMemberGroups method. */
-    public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
-        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the checkMemberObjects method. */
-    public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
-        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the directReports property of the microsoft.graph.orgContact entity. */
     public get directReports(): DirectReportsRequestBuilder {
         return new DirectReportsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the getMemberGroups method. */
-    public get getMemberGroups(): GetMemberGroupsRequestBuilder {
-        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the getMemberObjects method. */
-    public get getMemberObjects(): GetMemberObjectsRequestBuilder {
-        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the manager property of the microsoft.graph.orgContact entity. */
     public get manager(): ManagerRequestBuilder {
@@ -51,14 +35,30 @@ export class OrgContactItemRequestBuilder {
     public get memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the checkMemberGroups method. */
+    public get microsoftGraphCheckMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the checkMemberObjects method. */
+    public get microsoftGraphCheckMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getMemberGroups method. */
+    public get microsoftGraphGetMemberGroups(): GetMemberGroupsRequestBuilder {
+        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getMemberObjects method. */
+    public get microsoftGraphGetMemberObjects(): GetMemberObjectsRequestBuilder {
+        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the restore method. */
+    public get microsoftGraphRestore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the restore method. */
-    public get restore(): RestoreRequestBuilder {
-        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the transitiveMemberOf property of the microsoft.graph.orgContact entity. */
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -67,19 +67,21 @@ export class OrgContactItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new OrgContactItemRequestBuilder and sets the default values.
+     * @param orgContactId key: id of orgContact
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, orgContactId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/contacts/{orgContact%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["orgContact%2Did"] = orgContactId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from contacts by key (id)
+     * Delete entity from contacts
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -133,8 +135,7 @@ export class OrgContactItemRequestBuilder {
         return new I4a5ee1c2bab055f2debd3cfee5a1f5655587fb5f30daf40163cad5ac6cadc4ed(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update entity in contacts by key (id)
-     * @param body The request body
+     * Update entity in contacts
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OrgContact
@@ -151,7 +152,7 @@ export class OrgContactItemRequestBuilder {
         return this.requestAdapter?.sendAsync<OrgContact>(requestInfo, createOrgContactFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from contacts by key (id)
+     * Delete entity from contacts
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -185,8 +186,7 @@ export class OrgContactItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in contacts by key (id)
-     * @param body The request body
+     * Update entity in contacts
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

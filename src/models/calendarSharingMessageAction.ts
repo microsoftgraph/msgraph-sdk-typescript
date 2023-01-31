@@ -4,39 +4,35 @@ import {CalendarSharingActionType} from './calendarSharingActionType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CalendarSharingMessageAction implements AdditionalDataHolder, Parsable {
-    /** The action property */
     private _action?: CalendarSharingAction | undefined;
-    /** The actionType property */
     private _actionType?: CalendarSharingActionType | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The importance property */
     private _importance?: CalendarSharingActionImportance | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
-     * Gets the action property value. The action property
+     * Gets the action property value. 
      * @returns a calendarSharingAction
      */
     public get action() {
         return this._action;
     };
     /**
-     * Sets the action property value. The action property
+     * Sets the action property value. 
      * @param value Value to set for the action property.
      */
     public set action(value: CalendarSharingAction | undefined) {
         this._action = value;
     };
     /**
-     * Gets the actionType property value. The actionType property
+     * Gets the actionType property value. 
      * @returns a calendarSharingActionType
      */
     public get actionType() {
         return this._actionType;
     };
     /**
-     * Sets the actionType property value. The actionType property
+     * Sets the actionType property value. 
      * @param value Value to set for the actionType property.
      */
     public set actionType(value: CalendarSharingActionType | undefined) {
@@ -75,28 +71,28 @@ export class CalendarSharingMessageAction implements AdditionalDataHolder, Parsa
         };
     };
     /**
-     * Gets the importance property value. The importance property
+     * Gets the importance property value. 
      * @returns a calendarSharingActionImportance
      */
     public get importance() {
         return this._importance;
     };
     /**
-     * Sets the importance property value. The importance property
+     * Sets the importance property value. 
      * @param value Value to set for the importance property.
      */
     public set importance(value: CalendarSharingActionImportance | undefined) {
         this._importance = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

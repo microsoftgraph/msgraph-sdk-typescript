@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, PreAuthorizedApplication} from '.
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PreAuthorizedApplicationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: PreAuthorizedApplication[] | undefined;
     /**
      * Instantiates a new PreAuthorizedApplicationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class PreAuthorizedApplicationCollectionResponse extends BaseCollectionPa
         writer.writeCollectionOfObjectValues<PreAuthorizedApplication>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a preAuthorizedApplication
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: PreAuthorizedApplication[] | undefined) {

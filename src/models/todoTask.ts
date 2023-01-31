@@ -12,9 +12,7 @@ import {TaskStatus} from './taskStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TodoTask extends Entity implements Parsable {
-    /** The attachments property */
     private _attachments?: AttachmentBase[] | undefined;
-    /** The attachmentSessions property */
     private _attachmentSessions?: AttachmentSession[] | undefined;
     /** The task body that typically contains information about the task. */
     private _body?: ItemBody | undefined;
@@ -32,9 +30,7 @@ export class TodoTask extends Entity implements Parsable {
     private _dueDateTime?: DateTimeTimeZone | undefined;
     /** The collection of open extensions defined for the task. Nullable. */
     private _extensions?: Extension[] | undefined;
-    /** The hasAttachments property */
     private _hasAttachments?: boolean | undefined;
-    /** The importance property */
     private _importance?: Importance | undefined;
     /** Set to true if an alert is set to remind the user of the task. */
     private _isReminderOn?: boolean | undefined;
@@ -46,35 +42,33 @@ export class TodoTask extends Entity implements Parsable {
     private _recurrence?: PatternedRecurrence | undefined;
     /** The date and time in the specified time zone for a reminder alert of the task to occur. */
     private _reminderDateTime?: DateTimeTimeZone | undefined;
-    /** The startDateTime property */
     private _startDateTime?: DateTimeTimeZone | undefined;
-    /** The status property */
     private _status?: TaskStatus | undefined;
     /** A brief description of the task. */
     private _title?: string | undefined;
     /**
-     * Gets the attachments property value. The attachments property
+     * Gets the attachments property value. 
      * @returns a attachmentBase
      */
     public get attachments() {
         return this._attachments;
     };
     /**
-     * Sets the attachments property value. The attachments property
+     * Sets the attachments property value. 
      * @param value Value to set for the attachments property.
      */
     public set attachments(value: AttachmentBase[] | undefined) {
         this._attachments = value;
     };
     /**
-     * Gets the attachmentSessions property value. The attachmentSessions property
+     * Gets the attachmentSessions property value. 
      * @returns a attachmentSession
      */
     public get attachmentSessions() {
         return this._attachmentSessions;
     };
     /**
-     * Sets the attachmentSessions property value. The attachmentSessions property
+     * Sets the attachmentSessions property value. 
      * @param value Value to set for the attachmentSessions property.
      */
     public set attachmentSessions(value: AttachmentSession[] | undefined) {
@@ -227,28 +221,28 @@ export class TodoTask extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the hasAttachments property value. The hasAttachments property
+     * Gets the hasAttachments property value. 
      * @returns a boolean
      */
     public get hasAttachments() {
         return this._hasAttachments;
     };
     /**
-     * Sets the hasAttachments property value. The hasAttachments property
+     * Sets the hasAttachments property value. 
      * @param value Value to set for the hasAttachments property.
      */
     public set hasAttachments(value: boolean | undefined) {
         this._hasAttachments = value;
     };
     /**
-     * Gets the importance property value. The importance property
+     * Gets the importance property value. 
      * @returns a importance
      */
     public get importance() {
         return this._importance;
     };
     /**
-     * Sets the importance property value. The importance property
+     * Sets the importance property value. 
      * @param value Value to set for the importance property.
      */
     public set importance(value: Importance | undefined) {
@@ -353,28 +347,28 @@ export class TodoTask extends Entity implements Parsable {
         writer.writeStringValue("title", this.title);
     };
     /**
-     * Gets the startDateTime property value. The startDateTime property
+     * Gets the startDateTime property value. 
      * @returns a dateTimeTimeZone
      */
     public get startDateTime() {
         return this._startDateTime;
     };
     /**
-     * Sets the startDateTime property value. The startDateTime property
+     * Sets the startDateTime property value. 
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: DateTimeTimeZone | undefined) {
         this._startDateTime = value;
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. 
      * @returns a taskStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. 
      * @param value Value to set for the status property.
      */
     public set status(value: TaskStatus | undefined) {

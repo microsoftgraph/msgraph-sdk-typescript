@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, IosCompliancePolicy} from './inde
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosCompliancePolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: IosCompliancePolicy[] | undefined;
     /**
      * Instantiates a new IosCompliancePolicyCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class IosCompliancePolicyCollectionResponse extends BaseCollectionPaginat
         writer.writeCollectionOfObjectValues<IosCompliancePolicy>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a iosCompliancePolicy
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: IosCompliancePolicy[] | undefined) {

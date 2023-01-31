@@ -4,11 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ToneInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** An incremental identifier used for ordering DTMF events. */
     private _sequenceId?: number | undefined;
-    /** The tone property */
     private _tone?: Tone | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -42,14 +40,14 @@ export class ToneInfo implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -81,14 +79,14 @@ export class ToneInfo implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the tone property value. The tone property
+     * Gets the tone property value. 
      * @returns a tone
      */
     public get tone() {
         return this._tone;
     };
     /**
-     * Sets the tone property value. The tone property
+     * Sets the tone property value. 
      * @param value Value to set for the tone property.
      */
     public set tone(value: Tone | undefined) {

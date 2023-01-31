@@ -7,7 +7,6 @@ export class SizeRange implements AdditionalDataHolder, Parsable {
     private _maximumSize?: number | undefined;
     /** The minimum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply. */
     private _minimumSize?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -69,14 +68,14 @@ export class SizeRange implements AdditionalDataHolder, Parsable {
         this._minimumSize = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

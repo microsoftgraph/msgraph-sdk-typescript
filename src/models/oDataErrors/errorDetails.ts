@@ -3,11 +3,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ErrorDetails implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The code property */
     private _code?: string | undefined;
-    /** The message property */
     private _message?: string | undefined;
-    /** The target property */
     private _target?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -24,14 +21,14 @@ export class ErrorDetails implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the code property value. The code property
+     * Gets the code property value. 
      * @returns a string
      */
     public get code() {
         return this._code;
     };
     /**
-     * Sets the code property value. The code property
+     * Sets the code property value. 
      * @param value Value to set for the code property.
      */
     public set code(value: string | undefined) {
@@ -55,14 +52,14 @@ export class ErrorDetails implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the message property value. The message property
+     * Gets the message property value. 
      * @returns a string
      */
     public get message() {
         return this._message;
     };
     /**
-     * Sets the message property value. The message property
+     * Sets the message property value. 
      * @param value Value to set for the message property.
      */
     public set message(value: string | undefined) {
@@ -80,14 +77,14 @@ export class ErrorDetails implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the target property value. The target property
+     * Gets the target property value. 
      * @returns a string
      */
     public get target() {
         return this._target;
     };
     /**
-     * Sets the target property value. The target property
+     * Sets the target property value. 
      * @param value Value to set for the target property.
      */
     public set target(value: string | undefined) {

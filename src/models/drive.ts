@@ -24,7 +24,6 @@ export class Drive extends BaseItem implements Parsable {
     private _quota?: Quota | undefined;
     /** The root folder of the drive. Read-only. */
     private _root?: DriveItem | undefined;
-    /** The sharePointIds property */
     private _sharePointIds?: SharepointIds | undefined;
     /** Collection of common folders available in OneDrive. Read-only. Nullable. */
     private _special?: DriveItem[] | undefined;
@@ -188,14 +187,14 @@ export class Drive extends BaseItem implements Parsable {
         writer.writeObjectValue<SystemFacet>("system", this.system);
     };
     /**
-     * Gets the sharePointIds property value. The sharePointIds property
+     * Gets the sharePointIds property value. 
      * @returns a sharepointIds
      */
     public get sharePointIds() {
         return this._sharePointIds;
     };
     /**
-     * Sets the sharePointIds property value. The sharePointIds property
+     * Sets the sharePointIds property value. 
      * @param value Value to set for the sharePointIds property.
      */
     public set sharePointIds(value: SharepointIds | undefined) {

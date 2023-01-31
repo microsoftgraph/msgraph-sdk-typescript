@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, MeetingParticipantInfo} from './i
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MeetingParticipantInfoCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: MeetingParticipantInfo[] | undefined;
     /**
      * Instantiates a new MeetingParticipantInfoCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class MeetingParticipantInfoCollectionResponse extends BaseCollectionPagi
         writer.writeCollectionOfObjectValues<MeetingParticipantInfo>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a meetingParticipantInfo
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: MeetingParticipantInfo[] | undefined) {

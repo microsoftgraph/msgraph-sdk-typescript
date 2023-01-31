@@ -2,16 +2,16 @@ import {DirectoryRole} from '../../models/';
 import {createDirectoryRoleFromDiscriminatorValue} from '../../models/createDirectoryRoleFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
-import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {DirectoryRoleItemRequestBuilderDeleteRequestConfiguration} from './directoryRoleItemRequestBuilderDeleteRequestConfiguration';
 import {DirectoryRoleItemRequestBuilderGetRequestConfiguration} from './directoryRoleItemRequestBuilderGetRequestConfiguration';
 import {DirectoryRoleItemRequestBuilderPatchRequestConfiguration} from './directoryRoleItemRequestBuilderPatchRequestConfiguration';
-import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
-import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './members/item/directoryObjectItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
+import {CheckMemberGroupsRequestBuilder} from './microsoftGraphCheckMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from './microsoftGraphCheckMemberObjects/checkMemberObjectsRequestBuilder';
+import {GetMemberGroupsRequestBuilder} from './microsoftGraphGetMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from './microsoftGraphGetMemberObjects/getMemberObjectsRequestBuilder';
+import {RestoreRequestBuilder} from './microsoftGraphRestore/restoreRequestBuilder';
 import {ScopedRoleMembershipItemRequestBuilder} from './scopedMembers/item/scopedRoleMembershipItemRequestBuilder';
 import {ScopedMembersRequestBuilder} from './scopedMembers/scopedMembersRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -20,34 +20,34 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the collection of directoryRole entities.
  */
 export class DirectoryRoleItemRequestBuilder {
-    /** Provides operations to call the checkMemberGroups method. */
-    public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
-        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the checkMemberObjects method. */
-    public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
-        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the getMemberGroups method. */
-    public get getMemberGroups(): GetMemberGroupsRequestBuilder {
-        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the getMemberObjects method. */
-    public get getMemberObjects(): GetMemberObjectsRequestBuilder {
-        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the members property of the microsoft.graph.directoryRole entity. */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the checkMemberGroups method. */
+    public get microsoftGraphCheckMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the checkMemberObjects method. */
+    public get microsoftGraphCheckMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getMemberGroups method. */
+    public get microsoftGraphGetMemberGroups(): GetMemberGroupsRequestBuilder {
+        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getMemberObjects method. */
+    public get microsoftGraphGetMemberObjects(): GetMemberObjectsRequestBuilder {
+        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the restore method. */
+    public get microsoftGraphRestore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the restore method. */
-    public get restore(): RestoreRequestBuilder {
-        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the scopedMembers property of the microsoft.graph.directoryRole entity. */
     public get scopedMembers(): ScopedMembersRequestBuilder {
         return new ScopedMembersRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -56,19 +56,21 @@ export class DirectoryRoleItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new DirectoryRoleItemRequestBuilder and sets the default values.
+     * @param directoryRoleId key: id of directoryRole
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, directoryRoleId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/directoryRoles/{directoryRole%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["directoryRole%2Did"] = directoryRoleId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from directoryRoles by key (id)
+     * Delete entity from directoryRoles
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -111,8 +113,7 @@ export class DirectoryRoleItemRequestBuilder {
         return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update entity in directoryRoles by key (id)
-     * @param body The request body
+     * Update entity in directoryRoles
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryRole
@@ -140,7 +141,7 @@ export class DirectoryRoleItemRequestBuilder {
         return new ScopedRoleMembershipItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Delete entity from directoryRoles by key (id)
+     * Delete entity from directoryRoles
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -174,8 +175,7 @@ export class DirectoryRoleItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in directoryRoles by key (id)
-     * @param body The request body
+     * Update entity in directoryRoles
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

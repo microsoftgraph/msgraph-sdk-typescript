@@ -4,7 +4,6 @@ import {DataSource} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SiteSource extends DataSource implements Parsable {
-    /** The site property */
     private _site?: Site | undefined;
     /**
      * Instantiates a new SiteSource and sets the default values.
@@ -32,14 +31,14 @@ export class SiteSource extends DataSource implements Parsable {
         writer.writeObjectValue<Site>("site", this.site);
     };
     /**
-     * Gets the site property value. The site property
+     * Gets the site property value. 
      * @returns a site
      */
     public get site() {
         return this._site;
     };
     /**
-     * Sets the site property value. The site property
+     * Sets the site property value. 
      * @param value Value to set for the site property.
      */
     public set site(value: Site | undefined) {

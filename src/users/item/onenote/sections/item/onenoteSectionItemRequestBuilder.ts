@@ -2,8 +2,8 @@ import {OnenoteSection} from '../../../../../models/';
 import {createOnenoteSectionFromDiscriminatorValue} from '../../../../../models/createOnenoteSectionFromDiscriminatorValue';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {CopyToNotebookRequestBuilder} from './copyToNotebook/copyToNotebookRequestBuilder';
-import {CopyToSectionGroupRequestBuilder} from './copyToSectionGroup/copyToSectionGroupRequestBuilder';
+import {CopyToNotebookRequestBuilder} from './microsoftGraphCopyToNotebook/copyToNotebookRequestBuilder';
+import {CopyToSectionGroupRequestBuilder} from './microsoftGraphCopyToSectionGroup/copyToSectionGroupRequestBuilder';
 import {OnenoteSectionItemRequestBuilderDeleteRequestConfiguration} from './onenoteSectionItemRequestBuilderDeleteRequestConfiguration';
 import {OnenoteSectionItemRequestBuilderGetRequestConfiguration} from './onenoteSectionItemRequestBuilderGetRequestConfiguration';
 import {OnenoteSectionItemRequestBuilderPatchRequestConfiguration} from './onenoteSectionItemRequestBuilderPatchRequestConfiguration';
@@ -18,11 +18,11 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class OnenoteSectionItemRequestBuilder {
     /** Provides operations to call the copyToNotebook method. */
-    public get copyToNotebook(): CopyToNotebookRequestBuilder {
+    public get microsoftGraphCopyToNotebook(): CopyToNotebookRequestBuilder {
         return new CopyToNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the copyToSectionGroup method. */
-    public get copyToSectionGroup(): CopyToSectionGroupRequestBuilder {
+    public get microsoftGraphCopyToSectionGroup(): CopyToSectionGroupRequestBuilder {
         return new CopyToSectionGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity. */
@@ -45,14 +45,16 @@ export class OnenoteSectionItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new OnenoteSectionItemRequestBuilder and sets the default values.
+     * @param onenoteSectionId key: id of onenoteSection
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, onenoteSectionId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/onenote/sections/{onenoteSection%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["onenoteSection%2Did"] = onenoteSectionId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -100,7 +102,6 @@ export class OnenoteSectionItemRequestBuilder {
     };
     /**
      * Update the navigation property sections in users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnenoteSection
@@ -152,7 +153,6 @@ export class OnenoteSectionItemRequestBuilder {
     };
     /**
      * Update the navigation property sections in users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

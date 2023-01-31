@@ -25,14 +25,16 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new DeviceComplianceScheduledActionForRuleItemRequestBuilder and sets the default values.
+     * @param deviceComplianceScheduledActionForRuleId key: id of deviceComplianceScheduledActionForRule
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, deviceComplianceScheduledActionForRuleId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduledActionsForRule/{deviceComplianceScheduledActionForRule%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["deviceComplianceScheduledActionForRule%2Did"] = deviceComplianceScheduledActionForRuleId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -69,7 +71,6 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder {
     };
     /**
      * Update the navigation property scheduledActionsForRule in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceComplianceScheduledActionForRule
@@ -132,7 +133,6 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder {
     };
     /**
      * Update the navigation property scheduledActionsForRule in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -10,7 +10,6 @@ export class WorkingHours implements AdditionalDataHolder, Parsable {
     private _daysOfWeek?: DayOfWeek[] | undefined;
     /** The time of the day that the user stops working. */
     private _endTime?: TimeOnly | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The time of the day that the user starts working. */
     private _startTime?: TimeOnly | undefined;
@@ -78,14 +77,14 @@ export class WorkingHours implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

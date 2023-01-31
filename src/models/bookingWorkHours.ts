@@ -9,9 +9,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class BookingWorkHours implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The day property */
     private _day?: DayOfWeek | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** A list of start/end times during a day. */
     private _timeSlots?: BookingWorkTimeSlot[] | undefined;
@@ -36,14 +34,14 @@ export class BookingWorkHours implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the day property value. The day property
+     * Gets the day property value. 
      * @returns a dayOfWeek
      */
     public get day() {
         return this._day;
     };
     /**
-     * Sets the day property value. The day property
+     * Sets the day property value. 
      * @param value Value to set for the day property.
      */
     public set day(value: DayOfWeek | undefined) {
@@ -61,14 +59,14 @@ export class BookingWorkHours implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

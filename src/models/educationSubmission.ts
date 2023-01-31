@@ -7,7 +7,6 @@ import {EducationOutcome, EducationSubmissionRecipient, EducationSubmissionResou
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationSubmission extends Entity implements Parsable {
-    /** The outcomes property */
     private _outcomes?: EducationOutcome[] | undefined;
     /** User who moved the status of this submission to reassigned. */
     private _reassignedBy?: IdentitySet | undefined;
@@ -15,7 +14,6 @@ export class EducationSubmission extends Entity implements Parsable {
     private _reassignedDateTime?: Date | undefined;
     /** Who this submission is assigned to. */
     private _recipient?: EducationSubmissionRecipient | undefined;
-    /** The resources property */
     private _resources?: EducationSubmissionResource[] | undefined;
     /** Folder where all file resources for this submission need to be stored. */
     private _resourcesFolderUrl?: string | undefined;
@@ -29,7 +27,6 @@ export class EducationSubmission extends Entity implements Parsable {
     private _submittedBy?: IdentitySet | undefined;
     /** Moment in time when the submission was moved into the submitted state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _submittedDateTime?: Date | undefined;
-    /** The submittedResources property */
     private _submittedResources?: EducationSubmissionResource[] | undefined;
     /** User who moved the resource from submitted into the working state. */
     private _unsubmittedBy?: IdentitySet | undefined;
@@ -64,14 +61,14 @@ export class EducationSubmission extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the outcomes property value. The outcomes property
+     * Gets the outcomes property value. 
      * @returns a educationOutcome
      */
     public get outcomes() {
         return this._outcomes;
     };
     /**
-     * Sets the outcomes property value. The outcomes property
+     * Sets the outcomes property value. 
      * @param value Value to set for the outcomes property.
      */
     public set outcomes(value: EducationOutcome[] | undefined) {
@@ -120,14 +117,14 @@ export class EducationSubmission extends Entity implements Parsable {
         this._recipient = value;
     };
     /**
-     * Gets the resources property value. The resources property
+     * Gets the resources property value. 
      * @returns a educationSubmissionResource
      */
     public get resources() {
         return this._resources;
     };
     /**
-     * Sets the resources property value. The resources property
+     * Sets the resources property value. 
      * @param value Value to set for the resources property.
      */
     public set resources(value: EducationSubmissionResource[] | undefined) {
@@ -230,14 +227,14 @@ export class EducationSubmission extends Entity implements Parsable {
         this._submittedDateTime = value;
     };
     /**
-     * Gets the submittedResources property value. The submittedResources property
+     * Gets the submittedResources property value. 
      * @returns a educationSubmissionResource
      */
     public get submittedResources() {
         return this._submittedResources;
     };
     /**
-     * Sets the submittedResources property value. The submittedResources property
+     * Sets the submittedResources property value. 
      * @param value Value to set for the submittedResources property.
      */
     public set submittedResources(value: EducationSubmissionResource[] | undefined) {

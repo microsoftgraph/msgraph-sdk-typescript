@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, UserFlowLanguageConfiguration} fr
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserFlowLanguageConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: UserFlowLanguageConfiguration[] | undefined;
     /**
      * Instantiates a new UserFlowLanguageConfigurationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class UserFlowLanguageConfigurationCollectionResponse extends BaseCollect
         writer.writeCollectionOfObjectValues<UserFlowLanguageConfiguration>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a userFlowLanguageConfiguration
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: UserFlowLanguageConfiguration[] | undefined) {

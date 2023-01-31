@@ -8,7 +8,6 @@ export class ConditionalAccessGrantControls implements AdditionalDataHolder, Par
     private _builtInControls?: ConditionalAccessGrantControl[] | undefined;
     /** List of custom controls IDs required by the policy. For more information, see Custom controls. */
     private _customAuthenticationFactors?: string[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Defines the relationship of the grant controls. Possible values: AND, OR. */
     private _operator?: string | undefined;
@@ -76,14 +75,14 @@ export class ConditionalAccessGrantControls implements AdditionalDataHolder, Par
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

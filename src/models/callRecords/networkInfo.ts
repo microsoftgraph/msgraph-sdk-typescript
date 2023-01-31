@@ -13,7 +13,6 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
     private _bandwidthLowEventRatio?: number | undefined;
     /** The wireless LAN basic service set identifier of the media endpoint used to connect to the network. */
     private _basicServiceSetIdentifier?: string | undefined;
-    /** The connectionType property */
     private _connectionType?: NetworkConnectionType | undefined;
     /** Fraction of the call that the media endpoint detected the network delay was significant enough to impact the ability to have real-time two-way communication. */
     private _delayEventRatio?: number | undefined;
@@ -25,9 +24,7 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
     private _linkSpeed?: number | undefined;
     /** The media access control (MAC) address of the media endpoint's network device. */
     private _macAddress?: string | undefined;
-    /** The networkTransportProtocol property */
     private _networkTransportProtocol?: NetworkTransportProtocol | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Network port number used by media endpoint. */
     private _port?: number | undefined;
@@ -45,7 +42,6 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
     private _subnet?: string | undefined;
     /** List of network trace route hops collected for this media stream.* */
     private _traceRouteHops?: TraceRouteHop[] | undefined;
-    /** The wifiBand property */
     private _wifiBand?: WifiBand | undefined;
     /** Estimated remaining battery charge in percentage reported by the media endpoint. */
     private _wifiBatteryCharge?: number | undefined;
@@ -55,7 +51,6 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
     private _wifiMicrosoftDriver?: string | undefined;
     /** Version of the Microsoft WiFi driver used by the media endpoint. */
     private _wifiMicrosoftDriverVersion?: string | undefined;
-    /** The wifiRadioType property */
     private _wifiRadioType?: WifiRadioType | undefined;
     /** WiFi signal strength in percentage reported by the media endpoint. */
     private _wifiSignalStrength?: number | undefined;
@@ -106,14 +101,14 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
         this._basicServiceSetIdentifier = value;
     };
     /**
-     * Gets the connectionType property value. The connectionType property
+     * Gets the connectionType property value. 
      * @returns a networkConnectionType
      */
     public get connectionType() {
         return this._connectionType;
     };
     /**
-     * Sets the connectionType property value. The connectionType property
+     * Sets the connectionType property value. 
      * @param value Value to set for the connectionType property.
      */
     public set connectionType(value: NetworkConnectionType | undefined) {
@@ -231,28 +226,28 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
         this._macAddress = value;
     };
     /**
-     * Gets the networkTransportProtocol property value. The networkTransportProtocol property
+     * Gets the networkTransportProtocol property value. 
      * @returns a networkTransportProtocol
      */
     public get networkTransportProtocol() {
         return this._networkTransportProtocol;
     };
     /**
-     * Sets the networkTransportProtocol property value. The networkTransportProtocol property
+     * Sets the networkTransportProtocol property value. 
      * @param value Value to set for the networkTransportProtocol property.
      */
     public set networkTransportProtocol(value: NetworkTransportProtocol | undefined) {
         this._networkTransportProtocol = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -406,14 +401,14 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
         this._traceRouteHops = value;
     };
     /**
-     * Gets the wifiBand property value. The wifiBand property
+     * Gets the wifiBand property value. 
      * @returns a wifiBand
      */
     public get wifiBand() {
         return this._wifiBand;
     };
     /**
-     * Sets the wifiBand property value. The wifiBand property
+     * Sets the wifiBand property value. 
      * @param value Value to set for the wifiBand property.
      */
     public set wifiBand(value: WifiBand | undefined) {
@@ -476,14 +471,14 @@ export class NetworkInfo implements AdditionalDataHolder, Parsable {
         this._wifiMicrosoftDriverVersion = value;
     };
     /**
-     * Gets the wifiRadioType property value. The wifiRadioType property
+     * Gets the wifiRadioType property value. 
      * @returns a wifiRadioType
      */
     public get wifiRadioType() {
         return this._wifiRadioType;
     };
     /**
-     * Sets the wifiRadioType property value. The wifiRadioType property
+     * Sets the wifiRadioType property value. 
      * @param value Value to set for the wifiRadioType property.
      */
     public set wifiRadioType(value: WifiRadioType | undefined) {

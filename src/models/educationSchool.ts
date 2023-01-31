@@ -19,7 +19,6 @@ export class EducationSchool extends EducationOrganization implements Parsable {
     private _externalId?: string | undefined;
     /** ID of principal in syncing system. */
     private _externalPrincipalId?: string | undefined;
-    /** The fax property */
     private _fax?: string | undefined;
     /** Highest grade taught. */
     private _highestGrade?: string | undefined;
@@ -127,14 +126,14 @@ export class EducationSchool extends EducationOrganization implements Parsable {
         this._externalPrincipalId = value;
     };
     /**
-     * Gets the fax property value. The fax property
+     * Gets the fax property value. 
      * @returns a string
      */
     public get fax() {
         return this._fax;
     };
     /**
-     * Sets the fax property value. The fax property
+     * Sets the fax property value. 
      * @param value Value to set for the fax property.
      */
     public set fax(value: string | undefined) {

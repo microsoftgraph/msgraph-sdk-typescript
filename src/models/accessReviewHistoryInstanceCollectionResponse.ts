@@ -3,7 +3,6 @@ import {AccessReviewHistoryInstance, BaseCollectionPaginationCountResponse} from
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewHistoryInstanceCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AccessReviewHistoryInstance[] | undefined;
     /**
      * Instantiates a new AccessReviewHistoryInstanceCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AccessReviewHistoryInstanceCollectionResponse extends BaseCollectio
         writer.writeCollectionOfObjectValues<AccessReviewHistoryInstance>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a accessReviewHistoryInstance
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AccessReviewHistoryInstance[] | undefined) {

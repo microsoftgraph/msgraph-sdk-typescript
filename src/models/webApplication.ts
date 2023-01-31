@@ -12,11 +12,9 @@ export class WebApplication implements AdditionalDataHolder, Parsable {
     private _implicitGrantSettings?: ImplicitGrantSettings | undefined;
     /** Specifies the URL that will be used by Microsoft's authorization service to logout an user using front-channel, back-channel or SAML logout protocols. */
     private _logoutUrl?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. */
     private _redirectUris?: string[] | undefined;
-    /** The redirectUriSettings property */
     private _redirectUriSettings?: RedirectUriSettings[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -95,14 +93,14 @@ export class WebApplication implements AdditionalDataHolder, Parsable {
         this._logoutUrl = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -123,14 +121,14 @@ export class WebApplication implements AdditionalDataHolder, Parsable {
         this._redirectUris = value;
     };
     /**
-     * Gets the redirectUriSettings property value. The redirectUriSettings property
+     * Gets the redirectUriSettings property value. 
      * @returns a redirectUriSettings
      */
     public get redirectUriSettings() {
         return this._redirectUriSettings;
     };
     /**
-     * Sets the redirectUriSettings property value. The redirectUriSettings property
+     * Sets the redirectUriSettings property value. 
      * @param value Value to set for the redirectUriSettings property.
      */
     public set redirectUriSettings(value: RedirectUriSettings[] | undefined) {

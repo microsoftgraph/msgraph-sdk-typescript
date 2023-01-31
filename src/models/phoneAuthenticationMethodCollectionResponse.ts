@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, PhoneAuthenticationMethod} from '
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PhoneAuthenticationMethodCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: PhoneAuthenticationMethod[] | undefined;
     /**
      * Instantiates a new PhoneAuthenticationMethodCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class PhoneAuthenticationMethodCollectionResponse extends BaseCollectionP
         writer.writeCollectionOfObjectValues<PhoneAuthenticationMethod>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a phoneAuthenticationMethod
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: PhoneAuthenticationMethod[] | undefined) {

@@ -3,8 +3,8 @@ import {createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue} from 
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppScopeRequestBuilder} from './appScope/appScopeRequestBuilder';
-import {CancelRequestBuilder} from './cancel/cancelRequestBuilder';
 import {DirectoryScopeRequestBuilder} from './directoryScope/directoryScopeRequestBuilder';
+import {CancelRequestBuilder} from './microsoftGraphCancel/cancelRequestBuilder';
 import {PrincipalRequestBuilder} from './principal/principalRequestBuilder';
 import {RoleDefinitionRequestBuilder} from './roleDefinition/roleDefinitionRequestBuilder';
 import {TargetScheduleRequestBuilder} from './targetSchedule/targetScheduleRequestBuilder';
@@ -21,13 +21,13 @@ export class UnifiedRoleEligibilityScheduleRequestItemRequestBuilder {
     public get appScope(): AppScopeRequestBuilder {
         return new AppScopeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the cancel method. */
-    public get cancel(): CancelRequestBuilder {
-        return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the directoryScope property of the microsoft.graph.unifiedRoleEligibilityScheduleRequest entity. */
     public get directoryScope(): DirectoryScopeRequestBuilder {
         return new DirectoryScopeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the cancel method. */
+    public get microsoftGraphCancel(): CancelRequestBuilder {
+        return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -51,12 +51,14 @@ export class UnifiedRoleEligibilityScheduleRequestItemRequestBuilder {
      * Instantiates a new UnifiedRoleEligibilityScheduleRequestItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param unifiedRoleEligibilityScheduleRequestId key: id of unifiedRoleEligibilityScheduleRequest
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, unifiedRoleEligibilityScheduleRequestId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleEligibilityScheduleRequests/{unifiedRoleEligibilityScheduleRequest%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["unifiedRoleEligibilityScheduleRequest%2Did"] = unifiedRoleEligibilityScheduleRequestId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -93,7 +95,6 @@ export class UnifiedRoleEligibilityScheduleRequestItemRequestBuilder {
     };
     /**
      * Update the navigation property roleEligibilityScheduleRequests in roleManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleEligibilityScheduleRequest
@@ -145,7 +146,6 @@ export class UnifiedRoleEligibilityScheduleRequestItemRequestBuilder {
     };
     /**
      * Update the navigation property roleEligibilityScheduleRequests in roleManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -4,21 +4,20 @@ import {CrossTenantAccessPolicyConfigurationDefault, CrossTenantAccessPolicyConf
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CrossTenantAccessPolicy extends PolicyBase implements Parsable {
-    /** The allowedCloudEndpoints property */
     private _allowedCloudEndpoints?: string[] | undefined;
     /** Defines the default configuration for how your organization interacts with external Azure Active Directory organizations. */
     private _default_escaped?: CrossTenantAccessPolicyConfigurationDefault | undefined;
     /** Defines partner-specific configurations for external Azure Active Directory organizations. */
     private _partners?: CrossTenantAccessPolicyConfigurationPartner[] | undefined;
     /**
-     * Gets the allowedCloudEndpoints property value. The allowedCloudEndpoints property
+     * Gets the allowedCloudEndpoints property value. 
      * @returns a string
      */
     public get allowedCloudEndpoints() {
         return this._allowedCloudEndpoints;
     };
     /**
-     * Sets the allowedCloudEndpoints property value. The allowedCloudEndpoints property
+     * Sets the allowedCloudEndpoints property value. 
      * @param value Value to set for the allowedCloudEndpoints property.
      */
     public set allowedCloudEndpoints(value: string[] | undefined) {

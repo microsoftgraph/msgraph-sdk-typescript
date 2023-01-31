@@ -8,7 +8,6 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ChangeNotification implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The changeType property */
     private _changeType?: ChangeType | undefined;
     /** Value of the clientState property sent in the subscription request (if any). The maximum length is 255 characters. The client can check whether the change notification came from the service by comparing the values of the clientState property. The value of the clientState property sent with the subscription is compared with the value of the clientState property received with each change notification. Optional. */
     private _clientState?: string | undefined;
@@ -18,7 +17,6 @@ export class ChangeNotification implements AdditionalDataHolder, Parsable {
     private _id?: string | undefined;
     /** The type of lifecycle notification if the current notification is a lifecycle notification. Optional. Supported values are missed, subscriptionRemoved, reauthorizationRequired. Optional. */
     private _lifecycleEvent?: LifecycleEventType | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The URI of the resource that emitted the change notification relative to https://graph.microsoft.com. Required. */
     private _resource?: string | undefined;
@@ -45,14 +43,14 @@ export class ChangeNotification implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the changeType property value. The changeType property
+     * Gets the changeType property value. 
      * @returns a changeType
      */
     public get changeType() {
         return this._changeType;
     };
     /**
-     * Sets the changeType property value. The changeType property
+     * Sets the changeType property value. 
      * @param value Value to set for the changeType property.
      */
     public set changeType(value: ChangeType | undefined) {
@@ -140,14 +138,14 @@ export class ChangeNotification implements AdditionalDataHolder, Parsable {
         this._lifecycleEvent = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

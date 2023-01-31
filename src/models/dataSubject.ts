@@ -9,7 +9,6 @@ export class DataSubject implements AdditionalDataHolder, Parsable {
     private _firstName?: string | undefined;
     /** Last Name of the data subject. */
     private _lastName?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The country/region of residency. The residency information is uesed only for internal reporting but not for the content search. */
     private _residency?: string | undefined;
@@ -89,14 +88,14 @@ export class DataSubject implements AdditionalDataHolder, Parsable {
         this._lastName = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

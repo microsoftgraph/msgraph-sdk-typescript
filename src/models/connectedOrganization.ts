@@ -11,11 +11,9 @@ export class ConnectedOrganization extends Entity implements Parsable {
     private _description?: string | undefined;
     /** The display name of the connected organization. Supports $filter (eq). */
     private _displayName?: string | undefined;
-    /** The externalSponsors property */
     private _externalSponsors?: DirectoryObject[] | undefined;
     /** The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource, externalDomainFederation or crossCloudAzureActiveDirectoryTenant. Nullable. */
     private _identitySources?: IdentitySource[] | undefined;
-    /** The internalSponsors property */
     private _internalSponsors?: DirectoryObject[] | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _modifiedDateTime?: Date | undefined;
@@ -70,14 +68,14 @@ export class ConnectedOrganization extends Entity implements Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the externalSponsors property value. The externalSponsors property
+     * Gets the externalSponsors property value. 
      * @returns a directoryObject
      */
     public get externalSponsors() {
         return this._externalSponsors;
     };
     /**
-     * Sets the externalSponsors property value. The externalSponsors property
+     * Sets the externalSponsors property value. 
      * @param value Value to set for the externalSponsors property.
      */
     public set externalSponsors(value: DirectoryObject[] | undefined) {
@@ -114,14 +112,14 @@ export class ConnectedOrganization extends Entity implements Parsable {
         this._identitySources = value;
     };
     /**
-     * Gets the internalSponsors property value. The internalSponsors property
+     * Gets the internalSponsors property value. 
      * @returns a directoryObject
      */
     public get internalSponsors() {
         return this._internalSponsors;
     };
     /**
-     * Sets the internalSponsors property value. The internalSponsors property
+     * Sets the internalSponsors property value. 
      * @param value Value to set for the internalSponsors property.
      */
     public set internalSponsors(value: DirectoryObject[] | undefined) {

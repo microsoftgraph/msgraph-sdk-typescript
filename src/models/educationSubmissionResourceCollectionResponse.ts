@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, EducationSubmissionResource} from
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationSubmissionResourceCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: EducationSubmissionResource[] | undefined;
     /**
      * Instantiates a new EducationSubmissionResourceCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class EducationSubmissionResourceCollectionResponse extends BaseCollectio
         writer.writeCollectionOfObjectValues<EducationSubmissionResource>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a educationSubmissionResource
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: EducationSubmissionResource[] | undefined) {

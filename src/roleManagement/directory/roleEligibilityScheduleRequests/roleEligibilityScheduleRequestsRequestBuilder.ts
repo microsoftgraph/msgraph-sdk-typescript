@@ -4,7 +4,7 @@ import {createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue} from 
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import {FilterByCurrentUserWithOnRequestBuilder} from './microsoftGraphFilterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {RoleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration} from './roleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration';
 import {RoleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration} from './roleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -37,15 +37,6 @@ export class RoleEligibilityScheduleRequestsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Provides operations to call the filterByCurrentUser method.
-     * @param on Usage: on='{on}'
-     * @returns a filterByCurrentUserWithOnRequestBuilder
-     */
-    public filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder {
-        if(!on) throw new Error("on cannot be undefined");
-        return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
-    };
-    /**
      * In PIM, retrieve the requests for role eligibilities for principals made through the unifiedRoleEligibilityScheduleRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -63,8 +54,16 @@ export class RoleEligibilityScheduleRequestsRequestBuilder {
         return this.requestAdapter?.sendAsync<UnifiedRoleEligibilityScheduleRequestCollectionResponse>(requestInfo, createUnifiedRoleEligibilityScheduleRequestCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
+     * Provides operations to call the filterByCurrentUser method.
+     * @param on Usage: on='{on}'
+     * @returns a filterByCurrentUserWithOnRequestBuilder
+     */
+    public microsoftGraphFilterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder {
+        if(!on) throw new Error("on cannot be undefined");
+        return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
+    };
+    /**
      * In PIM, request for a role eligibility for a principal through the unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleEligibilityScheduleRequest
@@ -101,7 +100,6 @@ export class RoleEligibilityScheduleRequestsRequestBuilder {
     };
     /**
      * In PIM, request for a role eligibility for a principal through the unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

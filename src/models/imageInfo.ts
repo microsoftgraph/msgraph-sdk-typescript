@@ -7,11 +7,9 @@ export class ImageInfo implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Optional; alt-text accessible content for the image */
     private _alternateText?: string | undefined;
-    /** The alternativeText property */
     private _alternativeText?: string | undefined;
     /** Optional; URI that points to an icon which represents the application used to generate the activity */
     private _iconUrl?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the addImageQuery property value. Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image
@@ -56,14 +54,14 @@ export class ImageInfo implements AdditionalDataHolder, Parsable {
         this._alternateText = value;
     };
     /**
-     * Gets the alternativeText property value. The alternativeText property
+     * Gets the alternativeText property value. 
      * @returns a string
      */
     public get alternativeText() {
         return this._alternativeText;
     };
     /**
-     * Sets the alternativeText property value. The alternativeText property
+     * Sets the alternativeText property value. 
      * @param value Value to set for the alternativeText property.
      */
     public set alternativeText(value: string | undefined) {
@@ -103,14 +101,14 @@ export class ImageInfo implements AdditionalDataHolder, Parsable {
         this._iconUrl = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

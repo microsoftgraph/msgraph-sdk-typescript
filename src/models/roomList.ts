@@ -5,7 +5,6 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class RoomList extends Place implements Parsable {
     /** The email address of the room list. */
     private _emailAddress?: string | undefined;
-    /** The rooms property */
     private _rooms?: Room[] | undefined;
     /**
      * Instantiates a new RoomList and sets the default values.
@@ -39,14 +38,14 @@ export class RoomList extends Place implements Parsable {
         };
     };
     /**
-     * Gets the rooms property value. The rooms property
+     * Gets the rooms property value. 
      * @returns a room
      */
     public get rooms() {
         return this._rooms;
     };
     /**
-     * Sets the rooms property value. The rooms property
+     * Sets the rooms property value. 
      * @param value Value to set for the rooms property.
      */
     public set rooms(value: Room[] | undefined) {

@@ -19,14 +19,16 @@ export class CalendarPermissionItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new CalendarPermissionItemRequestBuilder and sets the default values.
+     * @param calendarPermissionId key: id of calendarPermission
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, calendarPermissionId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars/{calendar%2Did}/calendarPermissions/{calendarPermission%2Did}{?%24select}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["calendarPermission%2Did"] = calendarPermissionId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -63,7 +65,6 @@ export class CalendarPermissionItemRequestBuilder {
     };
     /**
      * Update the navigation property calendarPermissions in users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CalendarPermission
@@ -115,7 +116,6 @@ export class CalendarPermissionItemRequestBuilder {
     };
     /**
      * Update the navigation property calendarPermissions in users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -14,13 +14,10 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class Schedule extends Entity implements Parsable {
     /** Indicates whether the schedule is enabled for the team. Required. */
     private _enabled?: boolean | undefined;
-    /** The offerShiftRequests property */
     private _offerShiftRequests?: OfferShiftRequest[] | undefined;
     /** Indicates whether offer shift requests are enabled for the schedule. */
     private _offerShiftRequestsEnabled?: boolean | undefined;
-    /** The openShiftChangeRequests property */
     private _openShiftChangeRequests?: OpenShiftChangeRequest[] | undefined;
-    /** The openShifts property */
     private _openShifts?: OpenShift[] | undefined;
     /** Indicates whether open shifts are enabled for the schedule. */
     private _openShiftsEnabled?: boolean | undefined;
@@ -32,7 +29,6 @@ export class Schedule extends Entity implements Parsable {
     private _schedulingGroups?: SchedulingGroup[] | undefined;
     /** The shifts in the schedule. */
     private _shifts?: Shift[] | undefined;
-    /** The swapShiftsChangeRequests property */
     private _swapShiftsChangeRequests?: SwapShiftsChangeRequest[] | undefined;
     /** Indicates whether swap shifts requests are enabled for the schedule. */
     private _swapShiftsRequestsEnabled?: boolean | undefined;
@@ -40,7 +36,6 @@ export class Schedule extends Entity implements Parsable {
     private _timeClockEnabled?: boolean | undefined;
     /** The set of reasons for a time off in the schedule. */
     private _timeOffReasons?: TimeOffReason[] | undefined;
-    /** The timeOffRequests property */
     private _timeOffRequests?: TimeOffRequest[] | undefined;
     /** Indicates whether time off requests are enabled for the schedule. */
     private _timeOffRequestsEnabled?: boolean | undefined;
@@ -48,7 +43,6 @@ export class Schedule extends Entity implements Parsable {
     private _timesOff?: TimeOff[] | undefined;
     /** Indicates the time zone of the schedule team using tz database format. Required. */
     private _timeZone?: string | undefined;
-    /** The workforceIntegrationIds property */
     private _workforceIntegrationIds?: string[] | undefined;
     /**
      * Instantiates a new schedule and sets the default values.
@@ -98,14 +92,14 @@ export class Schedule extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the offerShiftRequests property value. The offerShiftRequests property
+     * Gets the offerShiftRequests property value. 
      * @returns a offerShiftRequest
      */
     public get offerShiftRequests() {
         return this._offerShiftRequests;
     };
     /**
-     * Sets the offerShiftRequests property value. The offerShiftRequests property
+     * Sets the offerShiftRequests property value. 
      * @param value Value to set for the offerShiftRequests property.
      */
     public set offerShiftRequests(value: OfferShiftRequest[] | undefined) {
@@ -126,28 +120,28 @@ export class Schedule extends Entity implements Parsable {
         this._offerShiftRequestsEnabled = value;
     };
     /**
-     * Gets the openShiftChangeRequests property value. The openShiftChangeRequests property
+     * Gets the openShiftChangeRequests property value. 
      * @returns a openShiftChangeRequest
      */
     public get openShiftChangeRequests() {
         return this._openShiftChangeRequests;
     };
     /**
-     * Sets the openShiftChangeRequests property value. The openShiftChangeRequests property
+     * Sets the openShiftChangeRequests property value. 
      * @param value Value to set for the openShiftChangeRequests property.
      */
     public set openShiftChangeRequests(value: OpenShiftChangeRequest[] | undefined) {
         this._openShiftChangeRequests = value;
     };
     /**
-     * Gets the openShifts property value. The openShifts property
+     * Gets the openShifts property value. 
      * @returns a openShift
      */
     public get openShifts() {
         return this._openShifts;
     };
     /**
-     * Sets the openShifts property value. The openShifts property
+     * Sets the openShifts property value. 
      * @param value Value to set for the openShifts property.
      */
     public set openShifts(value: OpenShift[] | undefined) {
@@ -249,14 +243,14 @@ export class Schedule extends Entity implements Parsable {
         this._shifts = value;
     };
     /**
-     * Gets the swapShiftsChangeRequests property value. The swapShiftsChangeRequests property
+     * Gets the swapShiftsChangeRequests property value. 
      * @returns a swapShiftsChangeRequest
      */
     public get swapShiftsChangeRequests() {
         return this._swapShiftsChangeRequests;
     };
     /**
-     * Sets the swapShiftsChangeRequests property value. The swapShiftsChangeRequests property
+     * Sets the swapShiftsChangeRequests property value. 
      * @param value Value to set for the swapShiftsChangeRequests property.
      */
     public set swapShiftsChangeRequests(value: SwapShiftsChangeRequest[] | undefined) {
@@ -305,14 +299,14 @@ export class Schedule extends Entity implements Parsable {
         this._timeOffReasons = value;
     };
     /**
-     * Gets the timeOffRequests property value. The timeOffRequests property
+     * Gets the timeOffRequests property value. 
      * @returns a timeOffRequest
      */
     public get timeOffRequests() {
         return this._timeOffRequests;
     };
     /**
-     * Sets the timeOffRequests property value. The timeOffRequests property
+     * Sets the timeOffRequests property value. 
      * @param value Value to set for the timeOffRequests property.
      */
     public set timeOffRequests(value: TimeOffRequest[] | undefined) {
@@ -361,14 +355,14 @@ export class Schedule extends Entity implements Parsable {
         this._timeZone = value;
     };
     /**
-     * Gets the workforceIntegrationIds property value. The workforceIntegrationIds property
+     * Gets the workforceIntegrationIds property value. 
      * @returns a string
      */
     public get workforceIntegrationIds() {
         return this._workforceIntegrationIds;
     };
     /**
-     * Sets the workforceIntegrationIds property value. The workforceIntegrationIds property
+     * Sets the workforceIntegrationIds property value. 
      * @param value Value to set for the workforceIntegrationIds property.
      */
     public set workforceIntegrationIds(value: string[] | undefined) {

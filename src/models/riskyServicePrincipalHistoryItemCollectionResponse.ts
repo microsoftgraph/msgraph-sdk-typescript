@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, RiskyServicePrincipalHistoryItem}
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RiskyServicePrincipalHistoryItemCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: RiskyServicePrincipalHistoryItem[] | undefined;
     /**
      * Instantiates a new RiskyServicePrincipalHistoryItemCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class RiskyServicePrincipalHistoryItemCollectionResponse extends BaseColl
         writer.writeCollectionOfObjectValues<RiskyServicePrincipalHistoryItem>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a riskyServicePrincipalHistoryItem
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: RiskyServicePrincipalHistoryItem[] | undefined) {

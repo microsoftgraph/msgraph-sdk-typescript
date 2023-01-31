@@ -10,7 +10,6 @@ export class Win32LobAppRestartSettings implements AdditionalDataHolder, Parsabl
     private _countdownDisplayBeforeRestartInMinutes?: number | undefined;
     /** The number of minutes to wait before restarting the device after an app installation. */
     private _gracePeriodInMinutes?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The number of minutes to snooze the restart notification dialog when the snooze button is selected. */
     private _restartNotificationSnoozeDurationInMinutes?: number | undefined;
@@ -75,14 +74,14 @@ export class Win32LobAppRestartSettings implements AdditionalDataHolder, Parsabl
         this._gracePeriodInMinutes = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

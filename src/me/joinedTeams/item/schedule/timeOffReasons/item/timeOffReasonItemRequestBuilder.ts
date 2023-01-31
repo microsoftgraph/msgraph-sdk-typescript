@@ -21,12 +21,14 @@ export class TimeOffReasonItemRequestBuilder {
      * Instantiates a new TimeOffReasonItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param timeOffReasonId key: id of timeOffReason
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, timeOffReasonId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/joinedTeams/{team%2Did}/schedule/timeOffReasons/{timeOffReason%2Did}{?%24select}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["timeOffReason%2Did"] = timeOffReasonId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -63,7 +65,6 @@ export class TimeOffReasonItemRequestBuilder {
     };
     /**
      * Update the navigation property timeOffReasons in me
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TimeOffReason
@@ -115,7 +116,6 @@ export class TimeOffReasonItemRequestBuilder {
     };
     /**
      * Update the navigation property timeOffReasons in me
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

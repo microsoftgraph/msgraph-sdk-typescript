@@ -5,7 +5,6 @@ export class IncompleteData implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The service does not have source data before the specified time. */
     private _missingDataBeforeDateTime?: Date | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Some data was not recorded due to excessive activity. */
     private _wasThrottled?: boolean | undefined;
@@ -55,14 +54,14 @@ export class IncompleteData implements AdditionalDataHolder, Parsable {
         this._missingDataBeforeDateTime = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

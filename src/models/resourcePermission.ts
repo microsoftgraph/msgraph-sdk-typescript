@@ -3,11 +3,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ResourcePermission implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The type property */
     private _type?: string | undefined;
-    /** The value property */
     private _value?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -41,14 +38,14 @@ export class ResourcePermission implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -66,28 +63,28 @@ export class ResourcePermission implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. The type property
+     * Gets the type property value. 
      * @returns a string
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The type property
+     * Sets the type property value. 
      * @param value Value to set for the type property.
      */
     public set type(value: string | undefined) {
         this._type = value;
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a string
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: string | undefined) {

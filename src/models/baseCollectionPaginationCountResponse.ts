@@ -3,9 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class BaseCollectionPaginationCountResponse implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The OdataCount property */
     private _odataCount?: number | undefined;
-    /** The OdataNextLink property */
     private _odataNextLink?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -38,28 +36,28 @@ export class BaseCollectionPaginationCountResponse implements AdditionalDataHold
         };
     };
     /**
-     * Gets the @odata.count property value. The OdataCount property
+     * Gets the @odata.count property value. 
      * @returns a int64
      */
     public get odataCount() {
         return this._odataCount;
     };
     /**
-     * Sets the @odata.count property value. The OdataCount property
+     * Sets the @odata.count property value. 
      * @param value Value to set for the OdataCount property.
      */
     public set odataCount(value: number | undefined) {
         this._odataCount = value;
     };
     /**
-     * Gets the @odata.nextLink property value. The OdataNextLink property
+     * Gets the @odata.nextLink property value. 
      * @returns a string
      */
     public get odataNextLink() {
         return this._odataNextLink;
     };
     /**
-     * Sets the @odata.nextLink property value. The OdataNextLink property
+     * Sets the @odata.nextLink property value. 
      * @param value Value to set for the OdataNextLink property.
      */
     public set odataNextLink(value: string | undefined) {

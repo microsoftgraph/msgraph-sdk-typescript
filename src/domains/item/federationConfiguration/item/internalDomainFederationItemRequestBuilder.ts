@@ -19,14 +19,16 @@ export class InternalDomainFederationItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new InternalDomainFederationItemRequestBuilder and sets the default values.
+     * @param internalDomainFederationId key: id of internalDomainFederation
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, internalDomainFederationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/domains/{domain%2Did}/federationConfiguration/{internalDomainFederation%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["internalDomainFederation%2Did"] = internalDomainFederationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -63,7 +65,6 @@ export class InternalDomainFederationItemRequestBuilder {
     };
     /**
      * Update the navigation property federationConfiguration in domains
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InternalDomainFederation
@@ -115,7 +116,6 @@ export class InternalDomainFederationItemRequestBuilder {
     };
     /**
      * Update the navigation property federationConfiguration in domains
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

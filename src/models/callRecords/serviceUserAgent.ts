@@ -3,7 +3,6 @@ import {ServiceRole} from './serviceRole';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ServiceUserAgent extends UserAgent implements Parsable {
-    /** The role property */
     private _role?: ServiceRole | undefined;
     /**
      * Instantiates a new ServiceUserAgent and sets the default values.
@@ -22,14 +21,14 @@ export class ServiceUserAgent extends UserAgent implements Parsable {
         };
     };
     /**
-     * Gets the role property value. The role property
+     * Gets the role property value. 
      * @returns a serviceRole
      */
     public get role() {
         return this._role;
     };
     /**
-     * Sets the role property value. The role property
+     * Sets the role property value. 
      * @param value Value to set for the role property.
      */
     public set role(value: ServiceRole | undefined) {

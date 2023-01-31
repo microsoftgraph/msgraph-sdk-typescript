@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, WindowsInformationProtectionAppLo
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtectionAppLockerFileCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: WindowsInformationProtectionAppLockerFile[] | undefined;
     /**
      * Instantiates a new WindowsInformationProtectionAppLockerFileCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class WindowsInformationProtectionAppLockerFileCollectionResponse extends
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLockerFile>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a windowsInformationProtectionAppLockerFile
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: WindowsInformationProtectionAppLockerFile[] | undefined) {

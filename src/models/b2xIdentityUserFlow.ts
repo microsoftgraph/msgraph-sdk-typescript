@@ -15,7 +15,6 @@ export class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable {
     private _languages?: UserFlowLanguageConfiguration[] | undefined;
     /** The user attribute assignments included in the user flow. */
     private _userAttributeAssignments?: IdentityUserFlowAttributeAssignment[] | undefined;
-    /** The userFlowIdentityProviders property */
     private _userFlowIdentityProviders?: IdentityProviderBase[] | undefined;
     /**
      * Gets the apiConnectorConfiguration property value. Configuration for enabling an API connector for use as part of the self-service sign-up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
@@ -106,14 +105,14 @@ export class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable {
         this._userAttributeAssignments = value;
     };
     /**
-     * Gets the userFlowIdentityProviders property value. The userFlowIdentityProviders property
+     * Gets the userFlowIdentityProviders property value. 
      * @returns a identityProviderBase
      */
     public get userFlowIdentityProviders() {
         return this._userFlowIdentityProviders;
     };
     /**
-     * Sets the userFlowIdentityProviders property value. The userFlowIdentityProviders property
+     * Sets the userFlowIdentityProviders property value. 
      * @param value Value to set for the userFlowIdentityProviders property.
      */
     public set userFlowIdentityProviders(value: IdentityProviderBase[] | undefined) {

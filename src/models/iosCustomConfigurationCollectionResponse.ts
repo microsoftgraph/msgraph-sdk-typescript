@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, IosCustomConfiguration} from './i
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosCustomConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: IosCustomConfiguration[] | undefined;
     /**
      * Instantiates a new IosCustomConfigurationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class IosCustomConfigurationCollectionResponse extends BaseCollectionPagi
         writer.writeCollectionOfObjectValues<IosCustomConfiguration>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a iosCustomConfiguration
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: IosCustomConfiguration[] | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, UrlAssessmentRequest} from './ind
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UrlAssessmentRequestCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: UrlAssessmentRequest[] | undefined;
     /**
      * Instantiates a new UrlAssessmentRequestCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class UrlAssessmentRequestCollectionResponse extends BaseCollectionPagina
         writer.writeCollectionOfObjectValues<UrlAssessmentRequest>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a urlAssessmentRequest
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: UrlAssessmentRequest[] | undefined) {

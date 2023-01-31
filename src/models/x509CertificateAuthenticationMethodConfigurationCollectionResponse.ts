@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, X509CertificateAuthenticationMeth
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class X509CertificateAuthenticationMethodConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: X509CertificateAuthenticationMethodConfiguration[] | undefined;
     /**
      * Instantiates a new X509CertificateAuthenticationMethodConfigurationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class X509CertificateAuthenticationMethodConfigurationCollectionResponse 
         writer.writeCollectionOfObjectValues<X509CertificateAuthenticationMethodConfiguration>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a x509CertificateAuthenticationMethodConfiguration
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: X509CertificateAuthenticationMethodConfiguration[] | undefined) {

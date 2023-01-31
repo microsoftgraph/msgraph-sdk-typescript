@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, DelegatedPermissionClassification
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DelegatedPermissionClassificationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: DelegatedPermissionClassification[] | undefined;
     /**
      * Instantiates a new DelegatedPermissionClassificationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class DelegatedPermissionClassificationCollectionResponse extends BaseCol
         writer.writeCollectionOfObjectValues<DelegatedPermissionClassification>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a delegatedPermissionClassification
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: DelegatedPermissionClassification[] | undefined) {

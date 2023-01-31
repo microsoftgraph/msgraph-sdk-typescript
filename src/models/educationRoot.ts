@@ -7,15 +7,10 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class EducationRoot implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The classes property */
     private _classes?: EducationClass[] | undefined;
-    /** The me property */
     private _me?: EducationUser | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The schools property */
     private _schools?: EducationSchool[] | undefined;
-    /** The users property */
     private _users?: EducationUser[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -32,14 +27,14 @@ export class EducationRoot implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the classes property value. The classes property
+     * Gets the classes property value. 
      * @returns a educationClass
      */
     public get classes() {
         return this._classes;
     };
     /**
-     * Sets the classes property value. The classes property
+     * Sets the classes property value. 
      * @param value Value to set for the classes property.
      */
     public set classes(value: EducationClass[] | undefined) {
@@ -65,42 +60,42 @@ export class EducationRoot implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the me property value. The me property
+     * Gets the me property value. 
      * @returns a educationUser
      */
     public get me() {
         return this._me;
     };
     /**
-     * Sets the me property value. The me property
+     * Sets the me property value. 
      * @param value Value to set for the me property.
      */
     public set me(value: EducationUser | undefined) {
         this._me = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the schools property value. The schools property
+     * Gets the schools property value. 
      * @returns a educationSchool
      */
     public get schools() {
         return this._schools;
     };
     /**
-     * Sets the schools property value. The schools property
+     * Sets the schools property value. 
      * @param value Value to set for the schools property.
      */
     public set schools(value: EducationSchool[] | undefined) {
@@ -120,14 +115,14 @@ export class EducationRoot implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the users property value. The users property
+     * Gets the users property value. 
      * @returns a educationUser
      */
     public get users() {
         return this._users;
     };
     /**
-     * Sets the users property value. The users property
+     * Sets the users property value. 
      * @param value Value to set for the users property.
      */
     public set users(value: EducationUser[] | undefined) {

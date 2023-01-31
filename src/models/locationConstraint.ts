@@ -9,7 +9,6 @@ export class LocationConstraint implements AdditionalDataHolder, Parsable {
     private _isRequired?: boolean | undefined;
     /** Constraint information for one or more locations that the client requests for the meeting. */
     private _locations?: LocationConstraintItem[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The client requests the service to suggest one or more meeting locations. */
     private _suggestLocation?: boolean | undefined;
@@ -74,14 +73,14 @@ export class LocationConstraint implements AdditionalDataHolder, Parsable {
         this._locations = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

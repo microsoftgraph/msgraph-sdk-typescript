@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, Drive} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DriveCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: Drive[] | undefined;
     /**
      * Instantiates a new DriveCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class DriveCollectionResponse extends BaseCollectionPaginationCountRespon
         writer.writeCollectionOfObjectValues<Drive>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a drive
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Drive[] | undefined) {

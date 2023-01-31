@@ -21,7 +21,6 @@ import {Modality} from './modality';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Call extends Entity implements Parsable {
-    /** The audioRoutingGroups property */
     private _audioRoutingGroups?: AudioRoutingGroup[] | undefined;
     /** The callback URL on which callbacks will be delivered. Must be https. */
     private _callbackUri?: string | undefined;
@@ -33,7 +32,6 @@ export class Call extends Entity implements Parsable {
     private _callRoutes?: CallRoute[] | undefined;
     /** The chat information. Required information for joining a meeting. */
     private _chatInfo?: ChatInfo | undefined;
-    /** The contentSharingSessions property */
     private _contentSharingSessions?: ContentSharingSession[] | undefined;
     /** The direction of the call. The possible value are incoming or outgoing. Read-only. */
     private _direction?: CallDirection | undefined;
@@ -45,11 +43,8 @@ export class Call extends Entity implements Parsable {
     private _mediaState?: CallMediaState | undefined;
     /** The meeting information. Required information for meeting scenarios. */
     private _meetingInfo?: MeetingInfo | undefined;
-    /** The myParticipantId property */
     private _myParticipantId?: string | undefined;
-    /** The operations property */
     private _operations?: CommsOperation[] | undefined;
-    /** The participants property */
     private _participants?: Participant[] | undefined;
     /** The list of requested modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data. */
     private _requestedModalities?: Modality[] | undefined;
@@ -63,21 +58,19 @@ export class Call extends Entity implements Parsable {
     private _subject?: string | undefined;
     /** The targets of the call. Required information for creating peer to peer call. */
     private _targets?: InvitationParticipantInfo[] | undefined;
-    /** The tenantId property */
     private _tenantId?: string | undefined;
-    /** The toneInfo property */
     private _toneInfo?: ToneInfo | undefined;
     /** The transcription information for the call. Read-only. */
     private _transcription?: CallTranscriptionInfo | undefined;
     /**
-     * Gets the audioRoutingGroups property value. The audioRoutingGroups property
+     * Gets the audioRoutingGroups property value. 
      * @returns a audioRoutingGroup
      */
     public get audioRoutingGroups() {
         return this._audioRoutingGroups;
     };
     /**
-     * Sets the audioRoutingGroups property value. The audioRoutingGroups property
+     * Sets the audioRoutingGroups property value. 
      * @param value Value to set for the audioRoutingGroups property.
      */
     public set audioRoutingGroups(value: AudioRoutingGroup[] | undefined) {
@@ -160,14 +153,14 @@ export class Call extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the contentSharingSessions property value. The contentSharingSessions property
+     * Gets the contentSharingSessions property value. 
      * @returns a contentSharingSession
      */
     public get contentSharingSessions() {
         return this._contentSharingSessions;
     };
     /**
-     * Sets the contentSharingSessions property value. The contentSharingSessions property
+     * Sets the contentSharingSessions property value. 
      * @param value Value to set for the contentSharingSessions property.
      */
     public set contentSharingSessions(value: ContentSharingSession[] | undefined) {
@@ -276,42 +269,42 @@ export class Call extends Entity implements Parsable {
         this._meetingInfo = value;
     };
     /**
-     * Gets the myParticipantId property value. The myParticipantId property
+     * Gets the myParticipantId property value. 
      * @returns a string
      */
     public get myParticipantId() {
         return this._myParticipantId;
     };
     /**
-     * Sets the myParticipantId property value. The myParticipantId property
+     * Sets the myParticipantId property value. 
      * @param value Value to set for the myParticipantId property.
      */
     public set myParticipantId(value: string | undefined) {
         this._myParticipantId = value;
     };
     /**
-     * Gets the operations property value. The operations property
+     * Gets the operations property value. 
      * @returns a commsOperation
      */
     public get operations() {
         return this._operations;
     };
     /**
-     * Sets the operations property value. The operations property
+     * Sets the operations property value. 
      * @param value Value to set for the operations property.
      */
     public set operations(value: CommsOperation[] | undefined) {
         this._operations = value;
     };
     /**
-     * Gets the participants property value. The participants property
+     * Gets the participants property value. 
      * @returns a participant
      */
     public get participants() {
         return this._participants;
     };
     /**
-     * Sets the participants property value. The participants property
+     * Sets the participants property value. 
      * @param value Value to set for the participants property.
      */
     public set participants(value: Participant[] | undefined) {
@@ -434,28 +427,28 @@ export class Call extends Entity implements Parsable {
         this._targets = value;
     };
     /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. 
      * @returns a string
      */
     public get tenantId() {
         return this._tenantId;
     };
     /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. 
      * @param value Value to set for the tenantId property.
      */
     public set tenantId(value: string | undefined) {
         this._tenantId = value;
     };
     /**
-     * Gets the toneInfo property value. The toneInfo property
+     * Gets the toneInfo property value. 
      * @returns a toneInfo
      */
     public get toneInfo() {
         return this._toneInfo;
     };
     /**
-     * Sets the toneInfo property value. The toneInfo property
+     * Sets the toneInfo property value. 
      * @param value Value to set for the toneInfo property.
      */
     public set toneInfo(value: ToneInfo | undefined) {

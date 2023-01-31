@@ -10,29 +10,24 @@ import {createIncidentFromDiscriminatorValue} from './security/createIncidentFro
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Security extends Entity implements Parsable {
-    /** The alerts property */
     private _alerts?: If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3[] | undefined;
     /** A collection of alerts in Microsoft 365 Defender. */
     private _alerts_v2?: I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8[] | undefined;
-    /** The attackSimulation property */
     private _attackSimulation?: AttackSimulationRoot | undefined;
-    /** The cases property */
     private _cases?: CasesRoot | undefined;
     /** A collection of incidents in Microsoft 365 Defender, each of which is a set of correlated alerts and associated metadata that reflects the story of an attack. */
     private _incidents?: Incident[] | undefined;
-    /** The secureScoreControlProfiles property */
     private _secureScoreControlProfiles?: SecureScoreControlProfile[] | undefined;
-    /** The secureScores property */
     private _secureScores?: SecureScore[] | undefined;
     /**
-     * Gets the alerts property value. The alerts property
+     * Gets the alerts property value. 
      * @returns a alert
      */
     public get alerts() {
         return this._alerts;
     };
     /**
-     * Sets the alerts property value. The alerts property
+     * Sets the alerts property value. 
      * @param value Value to set for the alerts property.
      */
     public set alerts(value: If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3[] | undefined) {
@@ -53,28 +48,28 @@ export class Security extends Entity implements Parsable {
         this._alerts_v2 = value;
     };
     /**
-     * Gets the attackSimulation property value. The attackSimulation property
+     * Gets the attackSimulation property value. 
      * @returns a attackSimulationRoot
      */
     public get attackSimulation() {
         return this._attackSimulation;
     };
     /**
-     * Sets the attackSimulation property value. The attackSimulation property
+     * Sets the attackSimulation property value. 
      * @param value Value to set for the attackSimulation property.
      */
     public set attackSimulation(value: AttackSimulationRoot | undefined) {
         this._attackSimulation = value;
     };
     /**
-     * Gets the cases property value. The cases property
+     * Gets the cases property value. 
      * @returns a casesRoot
      */
     public get cases() {
         return this._cases;
     };
     /**
-     * Sets the cases property value. The cases property
+     * Sets the cases property value. 
      * @param value Value to set for the cases property.
      */
     public set cases(value: CasesRoot | undefined) {
@@ -116,28 +111,28 @@ export class Security extends Entity implements Parsable {
         this._incidents = value;
     };
     /**
-     * Gets the secureScoreControlProfiles property value. The secureScoreControlProfiles property
+     * Gets the secureScoreControlProfiles property value. 
      * @returns a secureScoreControlProfile
      */
     public get secureScoreControlProfiles() {
         return this._secureScoreControlProfiles;
     };
     /**
-     * Sets the secureScoreControlProfiles property value. The secureScoreControlProfiles property
+     * Sets the secureScoreControlProfiles property value. 
      * @param value Value to set for the secureScoreControlProfiles property.
      */
     public set secureScoreControlProfiles(value: SecureScoreControlProfile[] | undefined) {
         this._secureScoreControlProfiles = value;
     };
     /**
-     * Gets the secureScores property value. The secureScores property
+     * Gets the secureScores property value. 
      * @returns a secureScore
      */
     public get secureScores() {
         return this._secureScores;
     };
     /**
-     * Sets the secureScores property value. The secureScores property
+     * Sets the secureScores property value. 
      * @param value Value to set for the secureScores property.
      */
     public set secureScores(value: SecureScore[] | undefined) {

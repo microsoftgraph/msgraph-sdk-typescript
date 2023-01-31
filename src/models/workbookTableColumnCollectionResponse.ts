@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, WorkbookTableColumn} from './inde
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookTableColumnCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: WorkbookTableColumn[] | undefined;
     /**
      * Instantiates a new WorkbookTableColumnCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class WorkbookTableColumnCollectionResponse extends BaseCollectionPaginat
         writer.writeCollectionOfObjectValues<WorkbookTableColumn>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a workbookTableColumn
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: WorkbookTableColumn[] | undefined) {

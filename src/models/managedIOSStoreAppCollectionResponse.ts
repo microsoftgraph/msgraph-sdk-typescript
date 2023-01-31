@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, ManagedIOSStoreApp} from './index
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedIOSStoreAppCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ManagedIOSStoreApp[] | undefined;
     /**
      * Instantiates a new ManagedIOSStoreAppCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ManagedIOSStoreAppCollectionResponse extends BaseCollectionPaginati
         writer.writeCollectionOfObjectValues<ManagedIOSStoreApp>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a managedIOSStoreApp
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ManagedIOSStoreApp[] | undefined) {

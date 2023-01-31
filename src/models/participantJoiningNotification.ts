@@ -3,17 +3,16 @@ import {Call, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ParticipantJoiningNotification extends Entity implements Parsable {
-    /** The call property */
     private _call?: Call | undefined;
     /**
-     * Gets the call property value. The call property
+     * Gets the call property value. 
      * @returns a call
      */
     public get call() {
         return this._call;
     };
     /**
-     * Sets the call property value. The call property
+     * Sets the call property value. 
      * @param value Value to set for the call property.
      */
     public set call(value: Call | undefined) {

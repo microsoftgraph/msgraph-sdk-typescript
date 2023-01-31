@@ -2,41 +2,43 @@ import {Place} from '../../models/';
 import {createPlaceFromDiscriminatorValue} from '../../models/createPlaceFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {RoomRequestBuilder} from './microsoftGraphRoom/roomRequestBuilder';
 import {PlaceItemRequestBuilderDeleteRequestConfiguration} from './placeItemRequestBuilderDeleteRequestConfiguration';
 import {PlaceItemRequestBuilderGetRequestConfiguration} from './placeItemRequestBuilderGetRequestConfiguration';
 import {PlaceItemRequestBuilderPatchRequestConfiguration} from './placeItemRequestBuilderPatchRequestConfiguration';
-import {RoomRequestBuilder} from './room/roomRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of place entities.
  */
 export class PlaceItemRequestBuilder {
+    /** Casts the previous resource to room. */
+    public get microsoftGraphRoom(): RoomRequestBuilder {
+        return new RoomRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Casts the previous resource to room. */
-    public get room(): RoomRequestBuilder {
-        return new RoomRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new PlaceItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param placeId key: id of place
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, placeId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/places/{place%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["place%2Did"] = placeId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from places by key (id)
+     * Delete entity from places
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -69,7 +71,6 @@ export class PlaceItemRequestBuilder {
     };
     /**
      * Update the properties of place object, which can be a room or roomList. You can identify the **room** or **roomList** by specifying the **id** or **emailAddress** property.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Place
@@ -87,7 +88,7 @@ export class PlaceItemRequestBuilder {
         return this.requestAdapter?.sendAsync<Place>(requestInfo, createPlaceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from places by key (id)
+     * Delete entity from places
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -122,7 +123,6 @@ export class PlaceItemRequestBuilder {
     };
     /**
      * Update the properties of place object, which can be a room or roomList. You can identify the **room** or **roomList** by specifying the **id** or **emailAddress** property.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

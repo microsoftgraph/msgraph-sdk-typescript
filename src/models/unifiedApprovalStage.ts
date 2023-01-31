@@ -15,7 +15,6 @@ export class UnifiedApprovalStage implements AdditionalDataHolder, Parsable {
     private _isApproverJustificationRequired?: boolean | undefined;
     /** Indicates whether escalation if enabled. */
     private _isEscalationEnabled?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The primary approvers of this stage. */
     private _primaryApprovers?: SubjectSet[] | undefined;
@@ -125,14 +124,14 @@ export class UnifiedApprovalStage implements AdditionalDataHolder, Parsable {
         this._isEscalationEnabled = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

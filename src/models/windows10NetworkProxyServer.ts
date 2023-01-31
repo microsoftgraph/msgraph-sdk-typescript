@@ -10,7 +10,6 @@ export class Windows10NetworkProxyServer implements AdditionalDataHolder, Parsab
     private _address?: string | undefined;
     /** Addresses that should not use the proxy server. The system will not use the proxy server for addresses beginning with what is specified in this node. */
     private _exceptions?: string[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Specifies whether the proxy server should be used for local (intranet) addresses. */
     private _useForLocalAddresses?: boolean | undefined;
@@ -75,14 +74,14 @@ export class Windows10NetworkProxyServer implements AdditionalDataHolder, Parsab
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

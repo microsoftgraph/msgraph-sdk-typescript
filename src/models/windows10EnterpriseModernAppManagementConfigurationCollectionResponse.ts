@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, Windows10EnterpriseModernAppManag
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Windows10EnterpriseModernAppManagementConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: Windows10EnterpriseModernAppManagementConfiguration[] | undefined;
     /**
      * Instantiates a new Windows10EnterpriseModernAppManagementConfigurationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class Windows10EnterpriseModernAppManagementConfigurationCollectionRespon
         writer.writeCollectionOfObjectValues<Windows10EnterpriseModernAppManagementConfiguration>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a windows10EnterpriseModernAppManagementConfiguration
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Windows10EnterpriseModernAppManagementConfiguration[] | undefined) {

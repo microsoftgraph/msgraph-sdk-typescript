@@ -9,11 +9,8 @@ import {Entity, WorkbookApplication, WorkbookComment, WorkbookFunctions, Workboo
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Workbook extends Entity implements Parsable {
-    /** The application property */
     private _application?: WorkbookApplication | undefined;
-    /** The comments property */
     private _comments?: WorkbookComment[] | undefined;
-    /** The functions property */
     private _functions?: WorkbookFunctions | undefined;
     /** Represents a collection of workbooks scoped named items (named ranges and constants). Read-only. */
     private _names?: WorkbookNamedItem[] | undefined;
@@ -24,28 +21,28 @@ export class Workbook extends Entity implements Parsable {
     /** Represents a collection of worksheets associated with the workbook. Read-only. */
     private _worksheets?: WorkbookWorksheet[] | undefined;
     /**
-     * Gets the application property value. The application property
+     * Gets the application property value. 
      * @returns a workbookApplication
      */
     public get application() {
         return this._application;
     };
     /**
-     * Sets the application property value. The application property
+     * Sets the application property value. 
      * @param value Value to set for the application property.
      */
     public set application(value: WorkbookApplication | undefined) {
         this._application = value;
     };
     /**
-     * Gets the comments property value. The comments property
+     * Gets the comments property value. 
      * @returns a workbookComment
      */
     public get comments() {
         return this._comments;
     };
     /**
-     * Sets the comments property value. The comments property
+     * Sets the comments property value. 
      * @param value Value to set for the comments property.
      */
     public set comments(value: WorkbookComment[] | undefined) {
@@ -58,14 +55,14 @@ export class Workbook extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the functions property value. The functions property
+     * Gets the functions property value. 
      * @returns a workbookFunctions
      */
     public get functions() {
         return this._functions;
     };
     /**
-     * Sets the functions property value. The functions property
+     * Sets the functions property value. 
      * @param value Value to set for the functions property.
      */
     public set functions(value: WorkbookFunctions | undefined) {

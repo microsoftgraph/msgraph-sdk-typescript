@@ -2,7 +2,7 @@ import {Teamwork} from '../models/';
 import {createTeamworkFromDiscriminatorValue} from '../models/createTeamworkFromDiscriminatorValue';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {SendActivityNotificationToRecipientsRequestBuilder} from './sendActivityNotificationToRecipients/sendActivityNotificationToRecipientsRequestBuilder';
+import {SendActivityNotificationToRecipientsRequestBuilder} from './microsoftGraphSendActivityNotificationToRecipients/sendActivityNotificationToRecipientsRequestBuilder';
 import {TeamworkRequestBuilderGetRequestConfiguration} from './teamworkRequestBuilderGetRequestConfiguration';
 import {TeamworkRequestBuilderPatchRequestConfiguration} from './teamworkRequestBuilderPatchRequestConfiguration';
 import {WorkforceIntegrationItemRequestBuilder} from './workforceIntegrations/item/workforceIntegrationItemRequestBuilder';
@@ -13,14 +13,14 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the teamwork singleton.
  */
 export class TeamworkRequestBuilder {
+    /** Provides operations to call the sendActivityNotificationToRecipients method. */
+    public get microsoftGraphSendActivityNotificationToRecipients(): SendActivityNotificationToRecipientsRequestBuilder {
+        return new SendActivityNotificationToRecipientsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the sendActivityNotificationToRecipients method. */
-    public get sendActivityNotificationToRecipients(): SendActivityNotificationToRecipientsRequestBuilder {
-        return new SendActivityNotificationToRecipientsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /** Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity. */
@@ -58,7 +58,6 @@ export class TeamworkRequestBuilder {
     };
     /**
      * Update teamwork
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Teamwork
@@ -94,7 +93,6 @@ export class TeamworkRequestBuilder {
     };
     /**
      * Update teamwork
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, SearchHit} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchHitCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: SearchHit[] | undefined;
     /**
      * Instantiates a new SearchHitCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class SearchHitCollectionResponse extends BaseCollectionPaginationCountRe
         writer.writeCollectionOfObjectValues<SearchHit>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a searchHit
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: SearchHit[] | undefined) {

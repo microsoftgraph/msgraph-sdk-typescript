@@ -3,11 +3,8 @@ import {RoutingMode} from './routingMode';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AudioRoutingGroup extends Entity implements Parsable {
-    /** The receivers property */
     private _receivers?: string[] | undefined;
-    /** The routingMode property */
     private _routingMode?: RoutingMode | undefined;
-    /** The sources property */
     private _sources?: string[] | undefined;
     /**
      * Instantiates a new audioRoutingGroup and sets the default values.
@@ -27,28 +24,28 @@ export class AudioRoutingGroup extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the receivers property value. The receivers property
+     * Gets the receivers property value. 
      * @returns a string
      */
     public get receivers() {
         return this._receivers;
     };
     /**
-     * Sets the receivers property value. The receivers property
+     * Sets the receivers property value. 
      * @param value Value to set for the receivers property.
      */
     public set receivers(value: string[] | undefined) {
         this._receivers = value;
     };
     /**
-     * Gets the routingMode property value. The routingMode property
+     * Gets the routingMode property value. 
      * @returns a routingMode
      */
     public get routingMode() {
         return this._routingMode;
     };
     /**
-     * Sets the routingMode property value. The routingMode property
+     * Sets the routingMode property value. 
      * @param value Value to set for the routingMode property.
      */
     public set routingMode(value: RoutingMode | undefined) {
@@ -66,14 +63,14 @@ export class AudioRoutingGroup extends Entity implements Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("sources", this.sources);
     };
     /**
-     * Gets the sources property value. The sources property
+     * Gets the sources property value. 
      * @returns a string
      */
     public get sources() {
         return this._sources;
     };
     /**
-     * Sets the sources property value. The sources property
+     * Sets the sources property value. 
      * @param value Value to set for the sources property.
      */
     public set sources(value: string[] | undefined) {

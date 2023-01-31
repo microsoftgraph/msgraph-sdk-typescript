@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, ResourceSpecificPermissionGrant} 
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ResourceSpecificPermissionGrantCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ResourceSpecificPermissionGrant[] | undefined;
     /**
      * Instantiates a new ResourceSpecificPermissionGrantCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ResourceSpecificPermissionGrantCollectionResponse extends BaseColle
         writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a resourceSpecificPermissionGrant
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ResourceSpecificPermissionGrant[] | undefined) {

@@ -5,7 +5,6 @@ export class WorkbookIcon implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Represents the index of the icon in the given set. */
     private _index?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Represents the set that the icon is part of. The possible values are: Invalid, ThreeArrows, ThreeArrowsGray, ThreeFlags, ThreeTrafficLights1, ThreeTrafficLights2, ThreeSigns, ThreeSymbols, ThreeSymbols2, FourArrows, FourArrowsGray, FourRedToBlack, FourRating, FourTrafficLights, FiveArrows, FiveArrowsGray, FiveRating, FiveQuarters, ThreeStars, ThreeTriangles, FiveBoxes. */
     private _set?: string | undefined;
@@ -55,14 +54,14 @@ export class WorkbookIcon implements AdditionalDataHolder, Parsable {
         this._index = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

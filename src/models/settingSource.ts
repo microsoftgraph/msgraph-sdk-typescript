@@ -8,9 +8,7 @@ export class SettingSource implements AdditionalDataHolder, Parsable {
     private _displayName?: string | undefined;
     /** Not yet documented */
     private _id?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The sourceType property */
     private _sourceType?: SettingSourceType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -73,14 +71,14 @@ export class SettingSource implements AdditionalDataHolder, Parsable {
         this._id = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -99,14 +97,14 @@ export class SettingSource implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the sourceType property value. The sourceType property
+     * Gets the sourceType property value. 
      * @returns a settingSourceType
      */
     public get sourceType() {
         return this._sourceType;
     };
     /**
-     * Sets the sourceType property value. The sourceType property
+     * Sets the sourceType property value. 
      * @param value Value to set for the sourceType property.
      */
     public set sourceType(value: SettingSourceType | undefined) {

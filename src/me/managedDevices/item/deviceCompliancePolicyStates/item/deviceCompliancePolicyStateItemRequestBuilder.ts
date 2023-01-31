@@ -19,14 +19,16 @@ export class DeviceCompliancePolicyStateItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new DeviceCompliancePolicyStateItemRequestBuilder and sets the default values.
+     * @param deviceCompliancePolicyStateId key: id of deviceCompliancePolicyState
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, deviceCompliancePolicyStateId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/managedDevices/{managedDevice%2Did}/deviceCompliancePolicyStates/{deviceCompliancePolicyState%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["deviceCompliancePolicyState%2Did"] = deviceCompliancePolicyStateId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -63,7 +65,6 @@ export class DeviceCompliancePolicyStateItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceCompliancePolicyStates in me
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceCompliancePolicyState
@@ -115,7 +116,6 @@ export class DeviceCompliancePolicyStateItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceCompliancePolicyStates in me
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

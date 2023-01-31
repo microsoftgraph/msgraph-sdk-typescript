@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, ConditionalAccessPolicy} from './
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessPolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ConditionalAccessPolicy[] | undefined;
     /**
      * Instantiates a new ConditionalAccessPolicyCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ConditionalAccessPolicyCollectionResponse extends BaseCollectionPag
         writer.writeCollectionOfObjectValues<ConditionalAccessPolicy>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a conditionalAccessPolicy
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ConditionalAccessPolicy[] | undefined) {

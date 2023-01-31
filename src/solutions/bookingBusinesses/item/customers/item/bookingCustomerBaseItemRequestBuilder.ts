@@ -19,14 +19,16 @@ export class BookingCustomerBaseItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new BookingCustomerBaseItemRequestBuilder and sets the default values.
+     * @param bookingCustomerBaseId key: id of bookingCustomerBase
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, bookingCustomerBaseId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customers/{bookingCustomerBase%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["bookingCustomerBase%2Did"] = bookingCustomerBaseId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -63,7 +65,6 @@ export class BookingCustomerBaseItemRequestBuilder {
     };
     /**
      * Update the navigation property customers in solutions
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingCustomerBase
@@ -115,7 +116,6 @@ export class BookingCustomerBaseItemRequestBuilder {
     };
     /**
      * Update the navigation property customers in solutions
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

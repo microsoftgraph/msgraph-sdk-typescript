@@ -4,7 +4,7 @@ import {createOnlineMeetingFromDiscriminatorValue} from '../../models/createOnli
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CreateOrGetRequestBuilder} from './createOrGet/createOrGetRequestBuilder';
+import {CreateOrGetRequestBuilder} from './microsoftGraphCreateOrGet/createOrGetRequestBuilder';
 import {OnlineMeetingsRequestBuilderGetRequestConfiguration} from './onlineMeetingsRequestBuilderGetRequestConfiguration';
 import {OnlineMeetingsRequestBuilderPostRequestConfiguration} from './onlineMeetingsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -18,7 +18,7 @@ export class OnlineMeetingsRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the createOrGet method. */
-    public get createOrGet(): CreateOrGetRequestBuilder {
+    public get microsoftGraphCreateOrGet(): CreateOrGetRequestBuilder {
         return new CreateOrGetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
@@ -59,7 +59,6 @@ export class OnlineMeetingsRequestBuilder {
     };
     /**
      * Create an online meeting on behalf of a user.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnlineMeeting
@@ -96,7 +95,6 @@ export class OnlineMeetingsRequestBuilder {
     };
     /**
      * Create an online meeting on behalf of a user.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

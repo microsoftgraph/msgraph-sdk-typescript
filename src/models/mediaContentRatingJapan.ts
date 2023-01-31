@@ -7,7 +7,6 @@ export class MediaContentRatingJapan implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Movies rating labels in Japan */
     private _movieRating?: RatingJapanMoviesType | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** TV content rating labels in Japan */
     private _tvRating?: RatingJapanTelevisionType | undefined;
@@ -57,14 +56,14 @@ export class MediaContentRatingJapan implements AdditionalDataHolder, Parsable {
         this._movieRating = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

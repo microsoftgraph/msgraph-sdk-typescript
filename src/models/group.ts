@@ -94,13 +94,10 @@ export class Group extends DirectoryObject implements Parsable {
     private _membershipRuleProcessingState?: string | undefined;
     /** A list of group members with license errors from this group-based license assignment. Read-only. */
     private _membersWithLicenseErrors?: DirectoryObject[] | undefined;
-    /** The onenote property */
     private _onenote?: Onenote | undefined;
-    /** The onPremisesDomainName property */
     private _onPremisesDomainName?: string | undefined;
     /** Indicates the last time at which the group was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in). */
     private _onPremisesLastSyncDateTime?: Date | undefined;
-    /** The onPremisesNetBiosName property */
     private _onPremisesNetBiosName?: string | undefined;
     /** Errors when using Microsoft synchronization product during provisioning. Returned by default. Supports $filter (eq, not). */
     private _onPremisesProvisioningErrors?: OnPremisesProvisioningError[] | undefined;
@@ -737,28 +734,28 @@ export class Group extends DirectoryObject implements Parsable {
         this._membersWithLicenseErrors = value;
     };
     /**
-     * Gets the onenote property value. The onenote property
+     * Gets the onenote property value. 
      * @returns a onenote
      */
     public get onenote() {
         return this._onenote;
     };
     /**
-     * Sets the onenote property value. The onenote property
+     * Sets the onenote property value. 
      * @param value Value to set for the onenote property.
      */
     public set onenote(value: Onenote | undefined) {
         this._onenote = value;
     };
     /**
-     * Gets the onPremisesDomainName property value. The onPremisesDomainName property
+     * Gets the onPremisesDomainName property value. 
      * @returns a string
      */
     public get onPremisesDomainName() {
         return this._onPremisesDomainName;
     };
     /**
-     * Sets the onPremisesDomainName property value. The onPremisesDomainName property
+     * Sets the onPremisesDomainName property value. 
      * @param value Value to set for the onPremisesDomainName property.
      */
     public set onPremisesDomainName(value: string | undefined) {
@@ -779,14 +776,14 @@ export class Group extends DirectoryObject implements Parsable {
         this._onPremisesLastSyncDateTime = value;
     };
     /**
-     * Gets the onPremisesNetBiosName property value. The onPremisesNetBiosName property
+     * Gets the onPremisesNetBiosName property value. 
      * @returns a string
      */
     public get onPremisesNetBiosName() {
         return this._onPremisesNetBiosName;
     };
     /**
-     * Sets the onPremisesNetBiosName property value. The onPremisesNetBiosName property
+     * Sets the onPremisesNetBiosName property value. 
      * @param value Value to set for the onPremisesNetBiosName property.
      */
     public set onPremisesNetBiosName(value: string | undefined) {

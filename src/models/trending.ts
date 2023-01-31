@@ -5,7 +5,6 @@ import {Entity, ResourceReference, ResourceVisualization} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Trending extends Entity implements Parsable {
-    /** The lastModifiedDateTime property */
     private _lastModifiedDateTime?: Date | undefined;
     /** Used for navigating to the trending document. */
     private _resource?: Entity | undefined;
@@ -35,14 +34,14 @@ export class Trending extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. 
      * @returns a Date
      */
     public get lastModifiedDateTime() {
         return this._lastModifiedDateTime;
     };
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. 
      * @param value Value to set for the lastModifiedDateTime property.
      */
     public set lastModifiedDateTime(value: Date | undefined) {

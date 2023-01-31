@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, EnrollmentTroubleshootingEvent} f
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EnrollmentTroubleshootingEventCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: EnrollmentTroubleshootingEvent[] | undefined;
     /**
      * Instantiates a new EnrollmentTroubleshootingEventCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class EnrollmentTroubleshootingEventCollectionResponse extends BaseCollec
         writer.writeCollectionOfObjectValues<EnrollmentTroubleshootingEvent>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a enrollmentTroubleshootingEvent
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: EnrollmentTroubleshootingEvent[] | undefined) {

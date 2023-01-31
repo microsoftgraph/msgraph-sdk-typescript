@@ -3,31 +3,31 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {EdiscoveryCustodian, EdiscoveryCustodianCollectionResponse} from '../../../../../models/security/';
 import {createEdiscoveryCustodianCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryCustodianCollectionResponseFromDiscriminatorValue';
 import {createEdiscoveryCustodianFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryCustodianFromDiscriminatorValue';
-import {ApplyHoldRequestBuilder} from './applyHold/applyHoldRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustodiansRequestBuilderGetRequestConfiguration} from './custodiansRequestBuilderGetRequestConfiguration';
 import {CustodiansRequestBuilderPostRequestConfiguration} from './custodiansRequestBuilderPostRequestConfiguration';
-import {RemoveHoldRequestBuilder} from './removeHold/removeHoldRequestBuilder';
+import {ApplyHoldRequestBuilder} from './microsoftGraphSecurityApplyHold/applyHoldRequestBuilder';
+import {RemoveHoldRequestBuilder} from './microsoftGraphSecurityRemoveHold/removeHoldRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
  */
 export class CustodiansRequestBuilder {
-    /** Provides operations to call the applyHold method. */
-    public get applyHold(): ApplyHoldRequestBuilder {
-        return new ApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the applyHold method. */
+    public get microsoftGraphSecurityApplyHold(): ApplyHoldRequestBuilder {
+        return new ApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the removeHold method. */
-    public get removeHold(): RemoveHoldRequestBuilder {
+    public get microsoftGraphSecurityRemoveHold(): RemoveHoldRequestBuilder {
         return new RemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Path parameters for the request */
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
@@ -64,7 +64,6 @@ export class CustodiansRequestBuilder {
     };
     /**
      * Create a new ediscoveryCustodian object.After the custodian object is created, you will need to create the custodian's userSource to reference their mailbox and OneDrive for Business site.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCustodian
@@ -101,7 +100,6 @@ export class CustodiansRequestBuilder {
     };
     /**
      * Create a new ediscoveryCustodian object.After the custodian object is created, you will need to create the custodian's userSource to reference their mailbox and OneDrive for Business site.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

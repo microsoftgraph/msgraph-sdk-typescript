@@ -3,7 +3,6 @@ import {AttachmentBase, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AttachmentBaseCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AttachmentBase[] | undefined;
     /**
      * Instantiates a new AttachmentBaseCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AttachmentBaseCollectionResponse extends BaseCollectionPaginationCo
         writer.writeCollectionOfObjectValues<AttachmentBase>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a attachmentBase
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AttachmentBase[] | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, UnifiedRoleDefinition} from './in
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleDefinitionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: UnifiedRoleDefinition[] | undefined;
     /**
      * Instantiates a new UnifiedRoleDefinitionCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class UnifiedRoleDefinitionCollectionResponse extends BaseCollectionPagin
         writer.writeCollectionOfObjectValues<UnifiedRoleDefinition>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a unifiedRoleDefinition
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: UnifiedRoleDefinition[] | undefined) {

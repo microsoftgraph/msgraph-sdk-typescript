@@ -13,9 +13,7 @@ export class ServiceUpdateMessage extends ServiceAnnouncementBase implements Par
     private _attachments?: ServiceAnnouncementAttachment[] | undefined;
     /** The zip file that contains all attachments for a message. */
     private _attachmentsArchive?: string | undefined;
-    /** The body property */
     private _body?: ItemBody | undefined;
-    /** The category property */
     private _category?: ServiceUpdateCategory | undefined;
     /** Indicates whether the message has any attachment. */
     private _hasAttachments?: boolean | undefined;
@@ -23,7 +21,6 @@ export class ServiceUpdateMessage extends ServiceAnnouncementBase implements Par
     private _isMajorChange?: boolean | undefined;
     /** The affected services by the service message. */
     private _services?: string[] | undefined;
-    /** The severity property */
     private _severity?: ServiceUpdateSeverity | undefined;
     /** A collection of tags for the service message. Tags are provided by the service team/support team who post the message to tell whether this message contains privacy data, or whether this message is for a service new feature update, and so on. */
     private _tags?: string[] | undefined;
@@ -72,28 +69,28 @@ export class ServiceUpdateMessage extends ServiceAnnouncementBase implements Par
         this._attachmentsArchive = value;
     };
     /**
-     * Gets the body property value. The body property
+     * Gets the body property value. 
      * @returns a itemBody
      */
     public get body() {
         return this._body;
     };
     /**
-     * Sets the body property value. The body property
+     * Sets the body property value. 
      * @param value Value to set for the body property.
      */
     public set body(value: ItemBody | undefined) {
         this._body = value;
     };
     /**
-     * Gets the category property value. The category property
+     * Gets the category property value. 
      * @returns a serviceUpdateCategory
      */
     public get category() {
         return this._category;
     };
     /**
-     * Sets the category property value. The category property
+     * Sets the category property value. 
      * @param value Value to set for the category property.
      */
     public set category(value: ServiceUpdateCategory | undefined) {
@@ -187,14 +184,14 @@ export class ServiceUpdateMessage extends ServiceAnnouncementBase implements Par
         this._services = value;
     };
     /**
-     * Gets the severity property value. The severity property
+     * Gets the severity property value. 
      * @returns a serviceUpdateSeverity
      */
     public get severity() {
         return this._severity;
     };
     /**
-     * Sets the severity property value. The severity property
+     * Sets the severity property value. 
      * @param value Value to set for the severity property.
      */
     public set severity(value: ServiceUpdateSeverity | undefined) {

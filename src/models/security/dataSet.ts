@@ -3,11 +3,8 @@ import {createIdentitySetFromDiscriminatorValue} from '../createIdentitySetFromD
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DataSet extends Entity implements Parsable {
-    /** The createdBy property */
     private _createdBy?: IdentitySet | undefined;
-    /** The createdDateTime property */
     private _createdDateTime?: Date | undefined;
-    /** The displayName property */
     private _displayName?: string | undefined;
     /**
      * Instantiates a new dataSet and sets the default values.
@@ -16,42 +13,42 @@ export class DataSet extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. 
      * @returns a identitySet
      */
     public get createdBy() {
         return this._createdBy;
     };
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. 
      * @param value Value to set for the createdBy property.
      */
     public set createdBy(value: IdentitySet | undefined) {
         this._createdBy = value;
     };
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. 
      * @returns a Date
      */
     public get createdDateTime() {
         return this._createdDateTime;
     };
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. 
      * @param value Value to set for the createdDateTime property.
      */
     public set createdDateTime(value: Date | undefined) {
         this._createdDateTime = value;
     };
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. 
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. 
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {

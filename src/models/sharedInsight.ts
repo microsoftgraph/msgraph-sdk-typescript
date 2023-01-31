@@ -8,7 +8,6 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class SharedInsight extends Entity implements Parsable {
     /** Details about the shared item. Read only. */
     private _lastShared?: SharingDetail | undefined;
-    /** The lastSharedMethod property */
     private _lastSharedMethod?: Entity | undefined;
     /** Used for navigating to the item that was shared. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem. */
     private _resource?: Entity | undefined;
@@ -16,7 +15,6 @@ export class SharedInsight extends Entity implements Parsable {
     private _resourceReference?: ResourceReference | undefined;
     /** Properties that you can use to visualize the document in your experience. Read-only */
     private _resourceVisualization?: ResourceVisualization | undefined;
-    /** The sharingHistory property */
     private _sharingHistory?: SharingDetail[] | undefined;
     /**
      * Instantiates a new sharedInsight and sets the default values.
@@ -53,14 +51,14 @@ export class SharedInsight extends Entity implements Parsable {
         this._lastShared = value;
     };
     /**
-     * Gets the lastSharedMethod property value. The lastSharedMethod property
+     * Gets the lastSharedMethod property value. 
      * @returns a entity
      */
     public get lastSharedMethod() {
         return this._lastSharedMethod;
     };
     /**
-     * Sets the lastSharedMethod property value. The lastSharedMethod property
+     * Sets the lastSharedMethod property value. 
      * @param value Value to set for the lastSharedMethod property.
      */
     public set lastSharedMethod(value: Entity | undefined) {
@@ -121,14 +119,14 @@ export class SharedInsight extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<SharingDetail>("sharingHistory", this.sharingHistory);
     };
     /**
-     * Gets the sharingHistory property value. The sharingHistory property
+     * Gets the sharingHistory property value. 
      * @returns a sharingDetail
      */
     public get sharingHistory() {
         return this._sharingHistory;
     };
     /**
-     * Sets the sharingHistory property value. The sharingHistory property
+     * Sets the sharingHistory property value. 
      * @param value Value to set for the sharingHistory property.
      */
     public set sharingHistory(value: SharingDetail[] | undefined) {

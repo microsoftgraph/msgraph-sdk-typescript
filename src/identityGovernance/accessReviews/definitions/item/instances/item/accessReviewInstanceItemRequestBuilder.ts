@@ -2,39 +2,27 @@ import {AccessReviewInstance} from '../../../../../../models/';
 import {createAccessReviewInstanceFromDiscriminatorValue} from '../../../../../../models/createAccessReviewInstanceFromDiscriminatorValue';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AcceptRecommendationsRequestBuilder} from './acceptRecommendations/acceptRecommendationsRequestBuilder';
 import {AccessReviewInstanceItemRequestBuilderDeleteRequestConfiguration} from './accessReviewInstanceItemRequestBuilderDeleteRequestConfiguration';
 import {AccessReviewInstanceItemRequestBuilderGetRequestConfiguration} from './accessReviewInstanceItemRequestBuilderGetRequestConfiguration';
 import {AccessReviewInstanceItemRequestBuilderPatchRequestConfiguration} from './accessReviewInstanceItemRequestBuilderPatchRequestConfiguration';
-import {ApplyDecisionsRequestBuilder} from './applyDecisions/applyDecisionsRequestBuilder';
-import {BatchRecordDecisionsRequestBuilder} from './batchRecordDecisions/batchRecordDecisionsRequestBuilder';
 import {ContactedReviewersRequestBuilder} from './contactedReviewers/contactedReviewersRequestBuilder';
 import {AccessReviewReviewerItemRequestBuilder} from './contactedReviewers/item/accessReviewReviewerItemRequestBuilder';
 import {DecisionsRequestBuilder} from './decisions/decisionsRequestBuilder';
 import {AccessReviewInstanceDecisionItemItemRequestBuilder} from './decisions/item/accessReviewInstanceDecisionItemItemRequestBuilder';
-import {ResetDecisionsRequestBuilder} from './resetDecisions/resetDecisionsRequestBuilder';
-import {SendReminderRequestBuilder} from './sendReminder/sendReminderRequestBuilder';
+import {AcceptRecommendationsRequestBuilder} from './microsoftGraphAcceptRecommendations/acceptRecommendationsRequestBuilder';
+import {ApplyDecisionsRequestBuilder} from './microsoftGraphApplyDecisions/applyDecisionsRequestBuilder';
+import {BatchRecordDecisionsRequestBuilder} from './microsoftGraphBatchRecordDecisions/batchRecordDecisionsRequestBuilder';
+import {ResetDecisionsRequestBuilder} from './microsoftGraphResetDecisions/resetDecisionsRequestBuilder';
+import {SendReminderRequestBuilder} from './microsoftGraphSendReminder/sendReminderRequestBuilder';
+import {StopRequestBuilder} from './microsoftGraphStop/stopRequestBuilder';
 import {AccessReviewStageItemRequestBuilder} from './stages/item/accessReviewStageItemRequestBuilder';
 import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
-import {StopRequestBuilder} from './stop/stopRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.
  */
 export class AccessReviewInstanceItemRequestBuilder {
-    /** Provides operations to call the acceptRecommendations method. */
-    public get acceptRecommendations(): AcceptRecommendationsRequestBuilder {
-        return new AcceptRecommendationsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the applyDecisions method. */
-    public get applyDecisions(): ApplyDecisionsRequestBuilder {
-        return new ApplyDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the batchRecordDecisions method. */
-    public get batchRecordDecisions(): BatchRecordDecisionsRequestBuilder {
-        return new BatchRecordDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity. */
     public get contactedReviewers(): ContactedReviewersRequestBuilder {
         return new ContactedReviewersRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -43,38 +31,52 @@ export class AccessReviewInstanceItemRequestBuilder {
     public get decisions(): DecisionsRequestBuilder {
         return new DecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the acceptRecommendations method. */
+    public get microsoftGraphAcceptRecommendations(): AcceptRecommendationsRequestBuilder {
+        return new AcceptRecommendationsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the applyDecisions method. */
+    public get microsoftGraphApplyDecisions(): ApplyDecisionsRequestBuilder {
+        return new ApplyDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the batchRecordDecisions method. */
+    public get microsoftGraphBatchRecordDecisions(): BatchRecordDecisionsRequestBuilder {
+        return new BatchRecordDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the resetDecisions method. */
+    public get microsoftGraphResetDecisions(): ResetDecisionsRequestBuilder {
+        return new ResetDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sendReminder method. */
+    public get microsoftGraphSendReminder(): SendReminderRequestBuilder {
+        return new SendReminderRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the stop method. */
+    public get microsoftGraphStop(): StopRequestBuilder {
+        return new StopRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the resetDecisions method. */
-    public get resetDecisions(): ResetDecisionsRequestBuilder {
-        return new ResetDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sendReminder method. */
-    public get sendReminder(): SendReminderRequestBuilder {
-        return new SendReminderRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity. */
     public get stages(): StagesRequestBuilder {
         return new StagesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the stop method. */
-    public get stop(): StopRequestBuilder {
-        return new StopRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new AccessReviewInstanceItemRequestBuilder and sets the default values.
+     * @param accessReviewInstanceId key: id of accessReviewInstance
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, accessReviewInstanceId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["accessReviewInstance%2Did"] = accessReviewInstanceId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -133,7 +135,6 @@ export class AccessReviewInstanceItemRequestBuilder {
     };
     /**
      * Update the navigation property instances in identityGovernance
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewInstance
@@ -196,7 +197,6 @@ export class AccessReviewInstanceItemRequestBuilder {
     };
     /**
      * Update the navigation property instances in identityGovernance
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

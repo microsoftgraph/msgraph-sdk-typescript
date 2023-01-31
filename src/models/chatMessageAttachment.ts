@@ -13,9 +13,8 @@ export class ChatMessageAttachment implements AdditionalDataHolder, Parsable {
     private _id?: string | undefined;
     /** Name of the attachment. */
     private _name?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The teamsAppId property */
+    /** The ID of the Teams app that is associated with the attachment. The property is specifically used to attribute a Teams message card to the specified app. */
     private _teamsAppId?: string | undefined;
     /** URL to a thumbnail image that the channel can use if it supports using an alternative, smaller form of content or contentUrl. For example, if you set contentType to application/word and set contentUrl to the location of the Word document, you might include a thumbnail image that represents the document. The channel could display the thumbnail image instead of the document. When the user clicks the image, the channel would open the document. */
     private _thumbnailUrl?: string | undefined;
@@ -126,14 +125,14 @@ export class ChatMessageAttachment implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -156,14 +155,14 @@ export class ChatMessageAttachment implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the teamsAppId property value. The teamsAppId property
+     * Gets the teamsAppId property value. The ID of the Teams app that is associated with the attachment. The property is specifically used to attribute a Teams message card to the specified app.
      * @returns a string
      */
     public get teamsAppId() {
         return this._teamsAppId;
     };
     /**
-     * Sets the teamsAppId property value. The teamsAppId property
+     * Sets the teamsAppId property value. The ID of the Teams app that is associated with the attachment. The property is specifically used to attribute a Teams message card to the specified app.
      * @param value Value to set for the teamsAppId property.
      */
     public set teamsAppId(value: string | undefined) {

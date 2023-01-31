@@ -10,7 +10,7 @@ import {AttackSimulationRequestBuilder} from './attackSimulation/attackSimulatio
 import {CasesRequestBuilder} from './cases/casesRequestBuilder';
 import {IncidentsRequestBuilder} from './incidents/incidentsRequestBuilder';
 import {IncidentItemRequestBuilder} from './incidents/item/incidentItemRequestBuilder';
-import {RunHuntingQueryRequestBuilder} from './runHuntingQuery/runHuntingQueryRequestBuilder';
+import {RunHuntingQueryRequestBuilder} from './microsoftGraphSecurityRunHuntingQuery/runHuntingQueryRequestBuilder';
 import {SecureScoreControlProfileItemRequestBuilder} from './secureScoreControlProfiles/item/secureScoreControlProfileItemRequestBuilder';
 import {SecureScoreControlProfilesRequestBuilder} from './secureScoreControlProfiles/secureScoreControlProfilesRequestBuilder';
 import {SecureScoreItemRequestBuilder} from './secureScores/item/secureScoreItemRequestBuilder';
@@ -43,14 +43,14 @@ export class SecurityRequestBuilder {
     public get incidents(): IncidentsRequestBuilder {
         return new IncidentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the runHuntingQuery method. */
+    public get microsoftGraphSecurityRunHuntingQuery(): RunHuntingQueryRequestBuilder {
+        return new RunHuntingQueryRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the runHuntingQuery method. */
-    public get runHuntingQuery(): RunHuntingQueryRequestBuilder {
-        return new RunHuntingQueryRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity. */
     public get secureScoreControlProfiles(): SecureScoreControlProfilesRequestBuilder {
         return new SecureScoreControlProfilesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -125,7 +125,6 @@ export class SecurityRequestBuilder {
     };
     /**
      * Update security
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Security
@@ -183,7 +182,6 @@ export class SecurityRequestBuilder {
     };
     /**
      * Update security
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -35,7 +35,6 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
     private _lastModifiedDateTime?: Date | undefined;
     /** Optional. Filename of the remote item. Read-only. */
     private _name?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only. */
     private _package?: Package | undefined;
@@ -244,14 +243,14 @@ export class RemoteItem implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

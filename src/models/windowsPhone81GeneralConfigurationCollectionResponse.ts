@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, WindowsPhone81GeneralConfiguratio
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsPhone81GeneralConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: WindowsPhone81GeneralConfiguration[] | undefined;
     /**
      * Instantiates a new WindowsPhone81GeneralConfigurationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class WindowsPhone81GeneralConfigurationCollectionResponse extends BaseCo
         writer.writeCollectionOfObjectValues<WindowsPhone81GeneralConfiguration>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a windowsPhone81GeneralConfiguration
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: WindowsPhone81GeneralConfiguration[] | undefined) {

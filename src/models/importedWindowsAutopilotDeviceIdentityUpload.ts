@@ -8,7 +8,6 @@ export class ImportedWindowsAutopilotDeviceIdentityUpload extends Entity impleme
     private _createdDateTimeUtc?: Date | undefined;
     /** Collection of all Autopilot devices as a part of this upload. */
     private _deviceIdentities?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
-    /** The status property */
     private _status?: ImportedWindowsAutopilotDeviceIdentityUploadStatus | undefined;
     /**
      * Instantiates a new ImportedWindowsAutopilotDeviceIdentityUpload and sets the default values.
@@ -67,14 +66,14 @@ export class ImportedWindowsAutopilotDeviceIdentityUpload extends Entity impleme
         writer.writeEnumValue<ImportedWindowsAutopilotDeviceIdentityUploadStatus>("status", this.status);
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. 
      * @returns a importedWindowsAutopilotDeviceIdentityUploadStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. 
      * @param value Value to set for the status property.
      */
     public set status(value: ImportedWindowsAutopilotDeviceIdentityUploadStatus | undefined) {

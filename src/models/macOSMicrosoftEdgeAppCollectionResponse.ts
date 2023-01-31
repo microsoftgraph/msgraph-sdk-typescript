@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, MacOSMicrosoftEdgeApp} from './in
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MacOSMicrosoftEdgeAppCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: MacOSMicrosoftEdgeApp[] | undefined;
     /**
      * Instantiates a new MacOSMicrosoftEdgeAppCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class MacOSMicrosoftEdgeAppCollectionResponse extends BaseCollectionPagin
         writer.writeCollectionOfObjectValues<MacOSMicrosoftEdgeApp>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a macOSMicrosoftEdgeApp
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: MacOSMicrosoftEdgeApp[] | undefined) {

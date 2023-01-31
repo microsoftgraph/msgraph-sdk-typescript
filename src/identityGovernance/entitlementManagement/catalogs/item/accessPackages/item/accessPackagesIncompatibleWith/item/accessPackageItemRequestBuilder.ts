@@ -17,14 +17,16 @@ export class AccessPackageItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new AccessPackageItemRequestBuilder and sets the default values.
+     * @param accessPackageId1 key: id of accessPackage
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, accessPackageId1?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/catalogs/{accessPackageCatalog%2Did}/accessPackages/{accessPackage%2Did}/accessPackagesIncompatibleWith/{accessPackage%2Did1}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["accessPackage%2Did1"] = accessPackageId1
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

@@ -26,7 +26,6 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
     private _logonLocation?: string | undefined;
     /** Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service. */
     private _logonType?: LogonType | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Active Directory (on-premises) Security Identifier (SID) of the user. */
     private _onPremisesSecurityIdentifier?: string | undefined;
@@ -220,14 +219,14 @@ export class UserSecurityState implements AdditionalDataHolder, Parsable {
         this._logonType = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

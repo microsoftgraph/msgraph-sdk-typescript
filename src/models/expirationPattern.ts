@@ -8,7 +8,6 @@ export class ExpirationPattern implements AdditionalDataHolder, Parsable {
     private _duration?: Duration | undefined;
     /** Timestamp of date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _endDateTime?: Date | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The requestor's desired expiration pattern type. The possible values are: notSpecified, noExpiration, afterDateTime, afterDuration. */
     private _type?: ExpirationPatternType | undefined;
@@ -73,14 +72,14 @@ export class ExpirationPattern implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

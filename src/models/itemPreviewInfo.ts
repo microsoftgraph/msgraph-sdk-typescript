@@ -3,13 +3,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ItemPreviewInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The getUrl property */
     private _getUrl?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The postParameters property */
     private _postParameters?: string | undefined;
-    /** The postUrl property */
     private _postUrl?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -44,56 +40,56 @@ export class ItemPreviewInfo implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the getUrl property value. The getUrl property
+     * Gets the getUrl property value. 
      * @returns a string
      */
     public get getUrl() {
         return this._getUrl;
     };
     /**
-     * Sets the getUrl property value. The getUrl property
+     * Sets the getUrl property value. 
      * @param value Value to set for the getUrl property.
      */
     public set getUrl(value: string | undefined) {
         this._getUrl = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the postParameters property value. The postParameters property
+     * Gets the postParameters property value. 
      * @returns a string
      */
     public get postParameters() {
         return this._postParameters;
     };
     /**
-     * Sets the postParameters property value. The postParameters property
+     * Sets the postParameters property value. 
      * @param value Value to set for the postParameters property.
      */
     public set postParameters(value: string | undefined) {
         this._postParameters = value;
     };
     /**
-     * Gets the postUrl property value. The postUrl property
+     * Gets the postUrl property value. 
      * @returns a string
      */
     public get postUrl() {
         return this._postUrl;
     };
     /**
-     * Sets the postUrl property value. The postUrl property
+     * Sets the postUrl property value. 
      * @param value Value to set for the postUrl property.
      */
     public set postUrl(value: string | undefined) {

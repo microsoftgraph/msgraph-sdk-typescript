@@ -14,7 +14,6 @@ export class TargetResource implements AdditionalDataHolder, Parsable {
     private _id?: string | undefined;
     /** Indicates name, old value and new value of each attribute that changed. Property values depend on the operation type. */
     private _modifiedProperties?: ModifiedProperty[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Describes the resource type.  Example values include Application, Group, ServicePrincipal, and User. */
     private _type?: string | undefined;
@@ -112,14 +111,14 @@ export class TargetResource implements AdditionalDataHolder, Parsable {
         this._modifiedProperties = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

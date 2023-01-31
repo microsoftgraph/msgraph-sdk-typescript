@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, WorkbookSortField} from './index'
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookSortFieldCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: WorkbookSortField[] | undefined;
     /**
      * Instantiates a new WorkbookSortFieldCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class WorkbookSortFieldCollectionResponse extends BaseCollectionPaginatio
         writer.writeCollectionOfObjectValues<WorkbookSortField>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a workbookSortField
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: WorkbookSortField[] | undefined) {

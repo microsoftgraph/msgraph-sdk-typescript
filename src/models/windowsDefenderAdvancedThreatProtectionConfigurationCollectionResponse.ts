@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, WindowsDefenderAdvancedThreatProt
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsDefenderAdvancedThreatProtectionConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: WindowsDefenderAdvancedThreatProtectionConfiguration[] | undefined;
     /**
      * Instantiates a new WindowsDefenderAdvancedThreatProtectionConfigurationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class WindowsDefenderAdvancedThreatProtectionConfigurationCollectionRespo
         writer.writeCollectionOfObjectValues<WindowsDefenderAdvancedThreatProtectionConfiguration>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a windowsDefenderAdvancedThreatProtectionConfiguration
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: WindowsDefenderAdvancedThreatProtectionConfiguration[] | undefined) {

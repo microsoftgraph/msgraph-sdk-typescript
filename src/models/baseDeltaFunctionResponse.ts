@@ -3,9 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class BaseDeltaFunctionResponse implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The OdataDeltaLink property */
     private _odataDeltaLink?: string | undefined;
-    /** The OdataNextLink property */
     private _odataNextLink?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -38,28 +36,28 @@ export class BaseDeltaFunctionResponse implements AdditionalDataHolder, Parsable
         };
     };
     /**
-     * Gets the @odata.deltaLink property value. The OdataDeltaLink property
+     * Gets the @odata.deltaLink property value. 
      * @returns a string
      */
     public get odataDeltaLink() {
         return this._odataDeltaLink;
     };
     /**
-     * Sets the @odata.deltaLink property value. The OdataDeltaLink property
+     * Sets the @odata.deltaLink property value. 
      * @param value Value to set for the OdataDeltaLink property.
      */
     public set odataDeltaLink(value: string | undefined) {
         this._odataDeltaLink = value;
     };
     /**
-     * Gets the @odata.nextLink property value. The OdataNextLink property
+     * Gets the @odata.nextLink property value. 
      * @returns a string
      */
     public get odataNextLink() {
         return this._odataNextLink;
     };
     /**
-     * Sets the @odata.nextLink property value. The OdataNextLink property
+     * Sets the @odata.nextLink property value. 
      * @param value Value to set for the OdataNextLink property.
      */
     public set odataNextLink(value: string | undefined) {

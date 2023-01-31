@@ -3,11 +3,8 @@ import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter
 export class AccessPackageAutomaticRequestSettings implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The gracePeriodBeforeAccessRemoval property */
     private _gracePeriodBeforeAccessRemoval?: Duration | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The removeAccessWhenTargetLeavesAllowedTargets property */
     private _removeAccessWhenTargetLeavesAllowedTargets?: boolean | undefined;
     /** If set to true, automatic assignments will be created for targets in the allowed target scope. */
     private _requestAccessForAllowedTargets?: boolean | undefined;
@@ -44,42 +41,42 @@ export class AccessPackageAutomaticRequestSettings implements AdditionalDataHold
         };
     };
     /**
-     * Gets the gracePeriodBeforeAccessRemoval property value. The gracePeriodBeforeAccessRemoval property
+     * Gets the gracePeriodBeforeAccessRemoval property value. 
      * @returns a Duration
      */
     public get gracePeriodBeforeAccessRemoval() {
         return this._gracePeriodBeforeAccessRemoval;
     };
     /**
-     * Sets the gracePeriodBeforeAccessRemoval property value. The gracePeriodBeforeAccessRemoval property
+     * Sets the gracePeriodBeforeAccessRemoval property value. 
      * @param value Value to set for the gracePeriodBeforeAccessRemoval property.
      */
     public set gracePeriodBeforeAccessRemoval(value: Duration | undefined) {
         this._gracePeriodBeforeAccessRemoval = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the removeAccessWhenTargetLeavesAllowedTargets property value. The removeAccessWhenTargetLeavesAllowedTargets property
+     * Gets the removeAccessWhenTargetLeavesAllowedTargets property value. 
      * @returns a boolean
      */
     public get removeAccessWhenTargetLeavesAllowedTargets() {
         return this._removeAccessWhenTargetLeavesAllowedTargets;
     };
     /**
-     * Sets the removeAccessWhenTargetLeavesAllowedTargets property value. The removeAccessWhenTargetLeavesAllowedTargets property
+     * Sets the removeAccessWhenTargetLeavesAllowedTargets property value. 
      * @param value Value to set for the removeAccessWhenTargetLeavesAllowedTargets property.
      */
     public set removeAccessWhenTargetLeavesAllowedTargets(value: boolean | undefined) {

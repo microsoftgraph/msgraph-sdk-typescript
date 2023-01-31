@@ -3,7 +3,6 @@ import {AuthorizationPolicy, BaseCollectionPaginationCountResponse} from './inde
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AuthorizationPolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AuthorizationPolicy[] | undefined;
     /**
      * Instantiates a new AuthorizationPolicyCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AuthorizationPolicyCollectionResponse extends BaseCollectionPaginat
         writer.writeCollectionOfObjectValues<AuthorizationPolicy>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a authorizationPolicy
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AuthorizationPolicy[] | undefined) {

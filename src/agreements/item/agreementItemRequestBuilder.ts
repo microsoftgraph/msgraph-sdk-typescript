@@ -47,19 +47,21 @@ export class AgreementItemRequestBuilder {
     };
     /**
      * Instantiates a new AgreementItemRequestBuilder and sets the default values.
+     * @param agreementId key: id of agreement
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, agreementId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/agreements/{agreement%2Did}{?%24select}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["agreement%2Did"] = agreementId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from agreements by key (id)
+     * Delete entity from agreements
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -85,7 +87,7 @@ export class AgreementItemRequestBuilder {
         return new AgreementFileLocalizationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get entity from agreements by key (id)
+     * Get entity from agreements by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Agreement
@@ -101,8 +103,7 @@ export class AgreementItemRequestBuilder {
         return this.requestAdapter?.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update entity in agreements by key (id)
-     * @param body The request body
+     * Update entity in agreements
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Agreement
@@ -119,7 +120,7 @@ export class AgreementItemRequestBuilder {
         return this.requestAdapter?.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from agreements by key (id)
+     * Delete entity from agreements
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -135,7 +136,7 @@ export class AgreementItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from agreements by key (id)
+     * Get entity from agreements by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -153,8 +154,7 @@ export class AgreementItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in agreements by key (id)
-     * @param body The request body
+     * Update entity in agreements
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

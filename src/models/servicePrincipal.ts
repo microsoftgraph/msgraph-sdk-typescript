@@ -49,7 +49,6 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     private _claimsMappingPolicies?: ClaimsMappingPolicy[] | undefined;
     /** Directory objects created by this service principal. Read-only. Nullable. */
     private _createdObjects?: DirectoryObject[] | undefined;
-    /** The delegatedPermissionClassifications property */
     private _delegatedPermissionClassifications?: DelegatedPermissionClassification[] | undefined;
     /** Free text field to provide an internal end-user facing description of the service principal. End-user portals such MyApps will display the application description in this field. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search. */
     private _description?: string | undefined;
@@ -57,7 +56,6 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     private _disabledByMicrosoftStatus?: string | undefined;
     /** The display name for the service principal. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
     private _displayName?: string | undefined;
-    /** The endpoints property */
     private _endpoints?: Endpoint[] | undefined;
     /** Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (/$count eq 0, /$count ne 0). */
     private _federatedIdentityCredentials?: FederatedIdentityCredential[] | undefined;
@@ -113,7 +111,6 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     private _tokenIssuancePolicies?: TokenIssuancePolicy[] | undefined;
     /** The tokenLifetimePolicies assigned to this service principal. */
     private _tokenLifetimePolicies?: TokenLifetimePolicy[] | undefined;
-    /** The transitiveMemberOf property */
     private _transitiveMemberOf?: DirectoryObject[] | undefined;
     /** Specifies the verified publisher of the application which this service principal represents. */
     private _verifiedPublisher?: VerifiedPublisher | undefined;
@@ -321,14 +318,14 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._createdObjects = value;
     };
     /**
-     * Gets the delegatedPermissionClassifications property value. The delegatedPermissionClassifications property
+     * Gets the delegatedPermissionClassifications property value. 
      * @returns a delegatedPermissionClassification
      */
     public get delegatedPermissionClassifications() {
         return this._delegatedPermissionClassifications;
     };
     /**
-     * Sets the delegatedPermissionClassifications property value. The delegatedPermissionClassifications property
+     * Sets the delegatedPermissionClassifications property value. 
      * @param value Value to set for the delegatedPermissionClassifications property.
      */
     public set delegatedPermissionClassifications(value: DelegatedPermissionClassification[] | undefined) {
@@ -377,14 +374,14 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the endpoints property value. The endpoints property
+     * Gets the endpoints property value. 
      * @returns a endpoint
      */
     public get endpoints() {
         return this._endpoints;
     };
     /**
-     * Sets the endpoints property value. The endpoints property
+     * Sets the endpoints property value. 
      * @param value Value to set for the endpoints property.
      */
     public set endpoints(value: Endpoint[] | undefined) {
@@ -881,14 +878,14 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._tokenLifetimePolicies = value;
     };
     /**
-     * Gets the transitiveMemberOf property value. The transitiveMemberOf property
+     * Gets the transitiveMemberOf property value. 
      * @returns a directoryObject
      */
     public get transitiveMemberOf() {
         return this._transitiveMemberOf;
     };
     /**
-     * Sets the transitiveMemberOf property value. The transitiveMemberOf property
+     * Sets the transitiveMemberOf property value. 
      * @param value Value to set for the transitiveMemberOf property.
      */
     public set transitiveMemberOf(value: DirectoryObject[] | undefined) {

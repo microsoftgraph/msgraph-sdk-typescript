@@ -20,13 +20,11 @@ export class UserExperienceAnalyticsDevicePerformance extends Entity implements 
     private _deviceCount?: number | undefined;
     /** The user experience analytics device name. */
     private _deviceName?: string | undefined;
-    /** The diskType property */
     private _diskType?: DiskType | undefined;
     /** The user experience analytics device group policy boot time in milliseconds. */
     private _groupPolicyBootTimeInMs?: number | undefined;
     /** The user experience analytics device group policy login time in milliseconds. */
     private _groupPolicyLoginTimeInMs?: number | undefined;
-    /** The healthStatus property */
     private _healthStatus?: UserExperienceAnalyticsHealthState | undefined;
     /** The user experience analytics device login score. */
     private _loginScore?: number | undefined;
@@ -163,14 +161,14 @@ export class UserExperienceAnalyticsDevicePerformance extends Entity implements 
         this._deviceName = value;
     };
     /**
-     * Gets the diskType property value. The diskType property
+     * Gets the diskType property value. 
      * @returns a diskType
      */
     public get diskType() {
         return this._diskType;
     };
     /**
-     * Sets the diskType property value. The diskType property
+     * Sets the diskType property value. 
      * @param value Value to set for the diskType property.
      */
     public set diskType(value: DiskType | undefined) {
@@ -233,14 +231,14 @@ export class UserExperienceAnalyticsDevicePerformance extends Entity implements 
         this._groupPolicyLoginTimeInMs = value;
     };
     /**
-     * Gets the healthStatus property value. The healthStatus property
+     * Gets the healthStatus property value. 
      * @returns a userExperienceAnalyticsHealthState
      */
     public get healthStatus() {
         return this._healthStatus;
     };
     /**
-     * Sets the healthStatus property value. The healthStatus property
+     * Sets the healthStatus property value. 
      * @param value Value to set for the healthStatus property.
      */
     public set healthStatus(value: UserExperienceAnalyticsHealthState | undefined) {

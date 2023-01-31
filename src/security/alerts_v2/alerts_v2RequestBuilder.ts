@@ -54,7 +54,6 @@ export class Alerts_v2RequestBuilder {
     };
     /**
      * Create new navigation property to alerts_v2 for security
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Alert
@@ -90,7 +89,6 @@ export class Alerts_v2RequestBuilder {
     };
     /**
      * Create new navigation property to alerts_v2 for security
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

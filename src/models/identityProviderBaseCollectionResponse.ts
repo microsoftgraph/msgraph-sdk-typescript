@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, IdentityProviderBase} from './ind
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityProviderBaseCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: IdentityProviderBase[] | undefined;
     /**
      * Instantiates a new IdentityProviderBaseCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class IdentityProviderBaseCollectionResponse extends BaseCollectionPagina
         writer.writeCollectionOfObjectValues<IdentityProviderBase>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a identityProviderBase
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: IdentityProviderBase[] | undefined) {

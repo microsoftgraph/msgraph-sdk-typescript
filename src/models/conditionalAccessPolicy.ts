@@ -6,11 +6,9 @@ import {ConditionalAccessConditionSet, ConditionalAccessGrantControls, Condition
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessPolicy extends Entity implements Parsable {
-    /** The conditions property */
     private _conditions?: ConditionalAccessConditionSet | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly. */
     private _createdDateTime?: Date | undefined;
-    /** The description property */
     private _description?: string | undefined;
     /** Specifies a display name for the conditionalAccessPolicy object. */
     private _displayName?: string | undefined;
@@ -20,17 +18,16 @@ export class ConditionalAccessPolicy extends Entity implements Parsable {
     private _modifiedDateTime?: Date | undefined;
     /** Specifies the session controls that are enforced after sign-in. */
     private _sessionControls?: ConditionalAccessSessionControls | undefined;
-    /** The state property */
     private _state?: ConditionalAccessPolicyState | undefined;
     /**
-     * Gets the conditions property value. The conditions property
+     * Gets the conditions property value. 
      * @returns a conditionalAccessConditionSet
      */
     public get conditions() {
         return this._conditions;
     };
     /**
-     * Sets the conditions property value. The conditions property
+     * Sets the conditions property value. 
      * @param value Value to set for the conditions property.
      */
     public set conditions(value: ConditionalAccessConditionSet | undefined) {
@@ -57,14 +54,14 @@ export class ConditionalAccessPolicy extends Entity implements Parsable {
         this._createdDateTime = value;
     };
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. 
      * @returns a string
      */
     public get description() {
         return this._description;
     };
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. 
      * @param value Value to set for the description property.
      */
     public set description(value: string | undefined) {
@@ -159,14 +156,14 @@ export class ConditionalAccessPolicy extends Entity implements Parsable {
         this._sessionControls = value;
     };
     /**
-     * Gets the state property value. The state property
+     * Gets the state property value. 
      * @returns a conditionalAccessPolicyState
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The state property
+     * Sets the state property value. 
      * @param value Value to set for the state property.
      */
     public set state(value: ConditionalAccessPolicyState | undefined) {

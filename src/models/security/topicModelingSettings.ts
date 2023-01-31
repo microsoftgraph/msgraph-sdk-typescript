@@ -9,7 +9,6 @@ export class TopicModelingSettings implements AdditionalDataHolder, Parsable {
     private _ignoreNumbers?: boolean | undefined;
     /** Indicates whether themes model is enabled for the case. */
     private _isEnabled?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The total number of topics that the themes model will generate for a review set. To learn more, see Maximum number of themes. */
     private _topicCount?: number | undefined;
@@ -89,14 +88,14 @@ export class TopicModelingSettings implements AdditionalDataHolder, Parsable {
         this._isEnabled = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

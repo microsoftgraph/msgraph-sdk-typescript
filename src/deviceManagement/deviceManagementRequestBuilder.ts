@@ -28,7 +28,6 @@ import {DeviceManagementRequestBuilderGetRequestConfiguration} from './deviceMan
 import {DeviceManagementRequestBuilderPatchRequestConfiguration} from './deviceManagementRequestBuilderPatchRequestConfiguration';
 import {ExchangeConnectorsRequestBuilder} from './exchangeConnectors/exchangeConnectorsRequestBuilder';
 import {DeviceManagementExchangeConnectorItemRequestBuilder} from './exchangeConnectors/item/deviceManagementExchangeConnectorItemRequestBuilder';
-import {GetEffectivePermissionsWithScopeRequestBuilder} from './getEffectivePermissionsWithScope/getEffectivePermissionsWithScopeRequestBuilder';
 import {ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder} from './importedWindowsAutopilotDeviceIdentities/importedWindowsAutopilotDeviceIdentitiesRequestBuilder';
 import {ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder} from './importedWindowsAutopilotDeviceIdentities/item/importedWindowsAutopilotDeviceIdentityItemRequestBuilder';
 import {IosUpdateStatusesRequestBuilder} from './iosUpdateStatuses/iosUpdateStatusesRequestBuilder';
@@ -36,6 +35,8 @@ import {IosUpdateDeviceStatusItemRequestBuilder} from './iosUpdateStatuses/item/
 import {ManagedDeviceOverviewRequestBuilder} from './managedDeviceOverview/managedDeviceOverviewRequestBuilder';
 import {ManagedDeviceItemRequestBuilder} from './managedDevices/item/managedDeviceItemRequestBuilder';
 import {ManagedDevicesRequestBuilder} from './managedDevices/managedDevicesRequestBuilder';
+import {GetEffectivePermissionsWithScopeRequestBuilder} from './microsoftGraphGetEffectivePermissionsWithScope/getEffectivePermissionsWithScopeRequestBuilder';
+import {VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder} from './microsoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainName/verifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder';
 import {MobileThreatDefenseConnectorItemRequestBuilder} from './mobileThreatDefenseConnectors/item/mobileThreatDefenseConnectorItemRequestBuilder';
 import {MobileThreatDefenseConnectorsRequestBuilder} from './mobileThreatDefenseConnectors/mobileThreatDefenseConnectorsRequestBuilder';
 import {NotificationMessageTemplateItemRequestBuilder} from './notificationMessageTemplates/item/notificationMessageTemplateItemRequestBuilder';
@@ -56,7 +57,6 @@ import {TermsAndConditionsItemRequestBuilder} from './termsAndConditions/item/te
 import {TermsAndConditionsRequestBuilder} from './termsAndConditions/termsAndConditionsRequestBuilder';
 import {DeviceManagementTroubleshootingEventItemRequestBuilder} from './troubleshootingEvents/item/deviceManagementTroubleshootingEventItemRequestBuilder';
 import {TroubleshootingEventsRequestBuilder} from './troubleshootingEvents/troubleshootingEventsRequestBuilder';
-import {VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder} from './verifyWindowsEnrollmentAutoDiscoveryWithDomainName/verifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder';
 import {WindowsAutopilotDeviceIdentityItemRequestBuilder} from './windowsAutopilotDeviceIdentities/item/windowsAutopilotDeviceIdentityItemRequestBuilder';
 import {WindowsAutopilotDeviceIdentitiesRequestBuilder} from './windowsAutopilotDeviceIdentities/windowsAutopilotDeviceIdentitiesRequestBuilder';
 import {WindowsInformationProtectionAppLearningSummaryItemRequestBuilder} from './windowsInformationProtectionAppLearningSummaries/item/windowsInformationProtectionAppLearningSummaryItemRequestBuilder';
@@ -343,15 +343,6 @@ export class DeviceManagementRequestBuilder {
         return this.requestAdapter?.sendAsync<DeviceManagement>(requestInfo, createDeviceManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to call the getEffectivePermissions method.
-     * @param scope Usage: scope='{scope}'
-     * @returns a getEffectivePermissionsWithScopeRequestBuilder
-     */
-    public getEffectivePermissionsWithScope(scope: string | undefined) : GetEffectivePermissionsWithScopeRequestBuilder {
-        if(!scope) throw new Error("scope cannot be undefined");
-        return new GetEffectivePermissionsWithScopeRequestBuilder(this.pathParameters, this.requestAdapter, scope);
-    };
-    /**
      * Provides operations to manage the importedWindowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
      * @param id Unique identifier of the item
      * @returns a ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder
@@ -385,6 +376,24 @@ export class DeviceManagementRequestBuilder {
         return new ManagedDeviceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
+     * Provides operations to call the getEffectivePermissions method.
+     * @param scope Usage: scope='{scope}'
+     * @returns a getEffectivePermissionsWithScopeRequestBuilder
+     */
+    public microsoftGraphGetEffectivePermissionsWithScope(scope: string | undefined) : GetEffectivePermissionsWithScopeRequestBuilder {
+        if(!scope) throw new Error("scope cannot be undefined");
+        return new GetEffectivePermissionsWithScopeRequestBuilder(this.pathParameters, this.requestAdapter, scope);
+    };
+    /**
+     * Provides operations to call the verifyWindowsEnrollmentAutoDiscovery method.
+     * @param domainName Usage: domainName='{domainName}'
+     * @returns a verifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder
+     */
+    public microsoftGraphVerifyWindowsEnrollmentAutoDiscoveryWithDomainName(domainName: string | undefined) : VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder {
+        if(!domainName) throw new Error("domainName cannot be undefined");
+        return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder(this.pathParameters, this.requestAdapter, domainName);
+    };
+    /**
      * Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.
      * @param id Unique identifier of the item
      * @returns a MobileThreatDefenseConnectorItemRequestBuilder
@@ -408,7 +417,6 @@ export class DeviceManagementRequestBuilder {
     };
     /**
      * Update deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceManagement
@@ -510,7 +518,6 @@ export class DeviceManagementRequestBuilder {
     };
     /**
      * Update deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -538,15 +545,6 @@ export class DeviceManagementRequestBuilder {
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceManagementTroubleshootingEvent%2Did"] = id
         return new DeviceManagementTroubleshootingEventItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to call the verifyWindowsEnrollmentAutoDiscovery method.
-     * @param domainName Usage: domainName='{domainName}'
-     * @returns a verifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder
-     */
-    public verifyWindowsEnrollmentAutoDiscoveryWithDomainName(domainName: string | undefined) : VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder {
-        if(!domainName) throw new Error("domainName cannot be undefined");
-        return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder(this.pathParameters, this.requestAdapter, domainName);
     };
     /**
      * Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.

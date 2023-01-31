@@ -15,7 +15,6 @@ export class TodoTaskList extends Entity implements Parsable {
     private _isShared?: boolean | undefined;
     /** The tasks in this task list. Read-only. Nullable. */
     private _tasks?: TodoTask[] | undefined;
-    /** The wellknownListName property */
     private _wellknownListName?: WellknownListName | undefined;
     /**
      * Instantiates a new todoTaskList and sets the default values.
@@ -122,14 +121,14 @@ export class TodoTaskList extends Entity implements Parsable {
         this._tasks = value;
     };
     /**
-     * Gets the wellknownListName property value. The wellknownListName property
+     * Gets the wellknownListName property value. 
      * @returns a wellknownListName
      */
     public get wellknownListName() {
         return this._wellknownListName;
     };
     /**
-     * Sets the wellknownListName property value. The wellknownListName property
+     * Sets the wellknownListName property value. 
      * @param value Value to set for the wellknownListName property.
      */
     public set wellknownListName(value: WellknownListName | undefined) {

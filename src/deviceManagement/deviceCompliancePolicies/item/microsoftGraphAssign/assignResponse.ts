@@ -1,0 +1,45 @@
+import {BaseCollectionPaginationCountResponse, DeviceCompliancePolicyAssignment} from '../../../../models/';
+import {createDeviceCompliancePolicyAssignmentFromDiscriminatorValue} from '../../../../models/createDeviceCompliancePolicyAssignmentFromDiscriminatorValue';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export class AssignResponse extends BaseCollectionPaginationCountResponse implements Parsable {
+    private _value?: DeviceCompliancePolicyAssignment[] | undefined;
+    /**
+     * Instantiates a new assignResponse and sets the default values.
+     */
+    public constructor() {
+        super();
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (node: ParseNode) => void>
+     */
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
+        return {...super.getFieldDeserializers(),
+            "value": n => { this.value = n.getCollectionOfObjectValues<DeviceCompliancePolicyAssignment>(createDeviceCompliancePolicyAssignmentFromDiscriminatorValue); },
+        };
+    };
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public serialize(writer: SerializationWriter) : void {
+        if(!writer) throw new Error("writer cannot be undefined");
+        super.serialize(writer);
+        writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignment>("value", this.value);
+    };
+    /**
+     * Gets the value property value. 
+     * @returns a deviceCompliancePolicyAssignment
+     */
+    public get value() {
+        return this._value;
+    };
+    /**
+     * Sets the value property value. 
+     * @param value Value to set for the value property.
+     */
+    public set value(value: DeviceCompliancePolicyAssignment[] | undefined) {
+        this._value = value;
+    };
+}

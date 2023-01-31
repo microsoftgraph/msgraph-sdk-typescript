@@ -2,13 +2,31 @@ import {ItemAnalytics} from '../../../../../models/';
 import {createItemAnalyticsFromDiscriminatorValue} from '../../../../../models/createItemAnalyticsFromDiscriminatorValue';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AllTimeRequestBuilder} from './allTime/allTimeRequestBuilder';
+import {AnalyticsRequestBuilderDeleteRequestConfiguration} from './analyticsRequestBuilderDeleteRequestConfiguration';
 import {AnalyticsRequestBuilderGetRequestConfiguration} from './analyticsRequestBuilderGetRequestConfiguration';
+import {AnalyticsRequestBuilderPatchRequestConfiguration} from './analyticsRequestBuilderPatchRequestConfiguration';
+import {ItemActivityStatItemRequestBuilder} from './itemActivityStats/item/itemActivityStatItemRequestBuilder';
+import {ItemActivityStatsRequestBuilder} from './itemActivityStats/itemActivityStatsRequestBuilder';
+import {LastSevenDaysRequestBuilder} from './lastSevenDays/lastSevenDaysRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the analytics property of the microsoft.graph.driveItem entity.
  */
 export class AnalyticsRequestBuilder {
+    /** Provides operations to manage the allTime property of the microsoft.graph.itemAnalytics entity. */
+    public get allTime(): AllTimeRequestBuilder {
+        return new AllTimeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity. */
+    public get itemActivityStats(): ItemActivityStatsRequestBuilder {
+        return new ItemActivityStatsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the lastSevenDays property of the microsoft.graph.itemAnalytics entity. */
+    public get lastSevenDays(): LastSevenDaysRequestBuilder {
+        return new LastSevenDaysRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
@@ -29,6 +47,21 @@ export class AnalyticsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
+     * Delete navigation property analytics for drives
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     */
+    public delete(requestConfiguration?: AnalyticsRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+        const requestInfo = this.toDeleteRequestInformation(
+            requestConfiguration
+        );
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
      * Analytics about the view activities that took place on this item.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -43,6 +76,50 @@ export class AnalyticsRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<ItemAnalytics>(requestInfo, createItemAnalyticsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
+     * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
+     * @param id Unique identifier of the item
+     * @returns a ItemActivityStatItemRequestBuilder
+     */
+    public itemActivityStatsById(id: string) : ItemActivityStatItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["itemActivityStat%2Did"] = id
+        return new ItemActivityStatItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Update the navigation property analytics in drives
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ItemAnalytics
+     */
+    public patch(body: ItemAnalytics | undefined, requestConfiguration?: AnalyticsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ItemAnalytics | undefined> {
+        if(!body) throw new Error("body cannot be undefined");
+        const requestInfo = this.toPatchRequestInformation(
+            body, requestConfiguration
+        );
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ItemAnalytics>(requestInfo, createItemAnalyticsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
+     * Delete navigation property analytics for drives
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toDeleteRequestInformation(requestConfiguration?: AnalyticsRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.DELETE;
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        return requestInfo;
     };
     /**
      * Analytics about the view activities that took place on this item.
@@ -60,6 +137,25 @@ export class AnalyticsRequestBuilder {
             requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
+        return requestInfo;
+    };
+    /**
+     * Update the navigation property analytics in drives
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toPatchRequestInformation(body: ItemAnalytics | undefined, requestConfiguration?: AnalyticsRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+        if(!body) throw new Error("body cannot be undefined");
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.headers["Accept"] = ["application/json"];
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         return requestInfo;
     };
 }

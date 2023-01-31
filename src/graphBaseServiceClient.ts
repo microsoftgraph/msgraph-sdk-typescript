@@ -42,7 +42,6 @@ import {DomainDnsRecordsRequestBuilder} from './domainDnsRecords/domainDnsRecord
 import {DomainDnsRecordItemRequestBuilder} from './domainDnsRecords/item/domainDnsRecordItemRequestBuilder';
 import {DomainsRequestBuilder} from './domains/domainsRequestBuilder';
 import {DomainItemRequestBuilder} from './domains/item/domainItemRequestBuilder';
-import {DriveRequestBuilder} from './drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
 import {DriveItemRequestBuilder} from './drives/item/driveItemRequestBuilder';
 import {EducationRequestBuilder} from './education/educationRequestBuilder';
@@ -102,6 +101,7 @@ import {TeamsRequestBuilder} from './teams/teamsRequestBuilder';
 import {TeamsTemplateItemRequestBuilder} from './teamsTemplates/item/teamsTemplateItemRequestBuilder';
 import {TeamsTemplatesRequestBuilder} from './teamsTemplates/teamsTemplatesRequestBuilder';
 import {TeamworkRequestBuilder} from './teamwork/teamworkRequestBuilder';
+import {TenantRelationshipsRequestBuilder} from './tenantRelationships/tenantRelationshipsRequestBuilder';
 import {UserItemRequestBuilder} from './users/item/userItemRequestBuilder';
 import {UsersRequestBuilder} from './users/usersRequestBuilder';
 import {enableBackingStoreForSerializationWriterFactory, getPathParameters, ParseNodeFactoryRegistry, registerDefaultDeserializer, registerDefaultSerializer, RequestAdapter, SerializationWriterFactoryRegistry} from '@microsoft/kiota-abstractions';
@@ -220,10 +220,6 @@ export class GraphBaseServiceClient {
     /** Provides operations to manage the collection of domain entities. */
     public get domains(): DomainsRequestBuilder {
         return new DomainsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to manage the drive singleton. */
-    public get drive(): DriveRequestBuilder {
-        return new DriveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the collection of drive entities. */
     public get drives(): DrivesRequestBuilder {
@@ -380,6 +376,10 @@ export class GraphBaseServiceClient {
     /** Provides operations to manage the teamwork singleton. */
     public get teamwork(): TeamworkRequestBuilder {
         return new TeamworkRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the tenantRelationship singleton. */
+    public get tenantRelationships(): TenantRelationshipsRequestBuilder {
+        return new TenantRelationshipsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;

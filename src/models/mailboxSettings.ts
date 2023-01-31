@@ -19,13 +19,11 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
     private _delegateMeetingMessageDeliveryOptions?: DelegateMeetingMessageDeliveryOptions | undefined;
     /** The locale information for the user, including the preferred language and country/region. */
     private _language?: LocaleInfo | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The time format for the user's mailbox. */
     private _timeFormat?: string | undefined;
     /** The default time zone for the user's mailbox. */
     private _timeZone?: string | undefined;
-    /** The userPurpose property */
     private _userPurpose?: UserPurpose | undefined;
     /** The days of the week and hours in a specific time zone that the user works. */
     private _workingHours?: WorkingHours | undefined;
@@ -138,14 +136,14 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
         this._language = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -198,14 +196,14 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
         this._timeZone = value;
     };
     /**
-     * Gets the userPurpose property value. The userPurpose property
+     * Gets the userPurpose property value. 
      * @returns a userPurpose
      */
     public get userPurpose() {
         return this._userPurpose;
     };
     /**
-     * Sets the userPurpose property value. The userPurpose property
+     * Sets the userPurpose property value. 
      * @param value Value to set for the userPurpose property.
      */
     public set userPurpose(value: UserPurpose | undefined) {

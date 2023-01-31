@@ -3,7 +3,6 @@ import {AccessPackageAssignmentPolicy, BaseCollectionPaginationCountResponse} fr
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageAssignmentPolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AccessPackageAssignmentPolicy[] | undefined;
     /**
      * Instantiates a new AccessPackageAssignmentPolicyCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AccessPackageAssignmentPolicyCollectionResponse extends BaseCollect
         writer.writeCollectionOfObjectValues<AccessPackageAssignmentPolicy>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a accessPackageAssignmentPolicy
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AccessPackageAssignmentPolicy[] | undefined) {

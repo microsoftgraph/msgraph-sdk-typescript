@@ -2,10 +2,10 @@ import {DirectoryObject} from '../../../../models/';
 import {createDirectoryObjectFromDiscriminatorValue} from '../../../../models/createDirectoryObjectFromDiscriminatorValue';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {ApplicationRequestBuilder} from './application/applicationRequestBuilder';
 import {DirectoryObjectItemRequestBuilderGetRequestConfiguration} from './directoryObjectItemRequestBuilderGetRequestConfiguration';
-import {GroupRequestBuilder} from './group/groupRequestBuilder';
-import {ServicePrincipalRequestBuilder} from './servicePrincipal/servicePrincipalRequestBuilder';
+import {ApplicationRequestBuilder} from './microsoftGraphApplication/applicationRequestBuilder';
+import {GroupRequestBuilder} from './microsoftGraphGroup/groupRequestBuilder';
+import {ServicePrincipalRequestBuilder} from './microsoftGraphServicePrincipal/servicePrincipalRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -13,33 +13,35 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class DirectoryObjectItemRequestBuilder {
     /** Casts the previous resource to application. */
-    public get application(): ApplicationRequestBuilder {
+    public get microsoftGraphApplication(): ApplicationRequestBuilder {
         return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to group. */
-    public get group(): GroupRequestBuilder {
+    public get microsoftGraphGroup(): GroupRequestBuilder {
         return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Casts the previous resource to servicePrincipal. */
+    public get microsoftGraphServicePrincipal(): ServicePrincipalRequestBuilder {
+        return new ServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Casts the previous resource to servicePrincipal. */
-    public get servicePrincipal(): ServicePrincipalRequestBuilder {
-        return new ServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
+     * @param directoryObjectId key: id of directoryObject
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, directoryObjectId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/ownedObjects/{directoryObject%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["directoryObject%2Did"] = directoryObjectId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

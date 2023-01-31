@@ -3,7 +3,6 @@ import {AssignedLabel, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AssignedLabelCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AssignedLabel[] | undefined;
     /**
      * Instantiates a new AssignedLabelCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AssignedLabelCollectionResponse extends BaseCollectionPaginationCou
         writer.writeCollectionOfObjectValues<AssignedLabel>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a assignedLabel
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AssignedLabel[] | undefined) {

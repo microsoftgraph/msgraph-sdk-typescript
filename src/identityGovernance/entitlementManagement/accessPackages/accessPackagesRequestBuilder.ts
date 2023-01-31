@@ -6,7 +6,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {AccessPackagesRequestBuilderGetRequestConfiguration} from './accessPackagesRequestBuilderGetRequestConfiguration';
 import {AccessPackagesRequestBuilderPostRequestConfiguration} from './accessPackagesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import {FilterByCurrentUserWithOnRequestBuilder} from './microsoftGraphFilterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -37,15 +37,6 @@ export class AccessPackagesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Provides operations to call the filterByCurrentUser method.
-     * @param on Usage: on='{on}'
-     * @returns a filterByCurrentUserWithOnRequestBuilder
-     */
-    public filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder {
-        if(!on) throw new Error("on cannot be undefined");
-        return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
-    };
-    /**
      * Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -63,8 +54,16 @@ export class AccessPackagesRequestBuilder {
         return this.requestAdapter?.sendAsync<AccessPackageCollectionResponse>(requestInfo, createAccessPackageCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
+     * Provides operations to call the filterByCurrentUser method.
+     * @param on Usage: on='{on}'
+     * @returns a filterByCurrentUserWithOnRequestBuilder
+     */
+    public microsoftGraphFilterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder {
+        if(!on) throw new Error("on cannot be undefined");
+        return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
+    };
+    /**
      * Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackage
@@ -101,7 +100,6 @@ export class AccessPackagesRequestBuilder {
     };
     /**
      * Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

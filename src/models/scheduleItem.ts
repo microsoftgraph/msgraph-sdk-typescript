@@ -12,7 +12,6 @@ export class ScheduleItem implements AdditionalDataHolder, Parsable {
     private _isPrivate?: boolean | undefined;
     /** The location where the corresponding event is held or attended from. Optional. */
     private _location?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The date, time, and time zone that the corresponding event starts. */
     private _start?: DateTimeTimeZone | undefined;
@@ -98,14 +97,14 @@ export class ScheduleItem implements AdditionalDataHolder, Parsable {
         this._location = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

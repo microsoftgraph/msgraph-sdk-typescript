@@ -5,11 +5,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class MeetingParticipants implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The attendees property */
     private _attendees?: MeetingParticipantInfo[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The organizer property */
     private _organizer?: MeetingParticipantInfo | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -26,14 +23,14 @@ export class MeetingParticipants implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the attendees property value. The attendees property
+     * Gets the attendees property value. 
      * @returns a meetingParticipantInfo
      */
     public get attendees() {
         return this._attendees;
     };
     /**
-     * Sets the attendees property value. The attendees property
+     * Sets the attendees property value. 
      * @param value Value to set for the attendees property.
      */
     public set attendees(value: MeetingParticipantInfo[] | undefined) {
@@ -57,28 +54,28 @@ export class MeetingParticipants implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the organizer property value. The organizer property
+     * Gets the organizer property value. 
      * @returns a meetingParticipantInfo
      */
     public get organizer() {
         return this._organizer;
     };
     /**
-     * Sets the organizer property value. The organizer property
+     * Sets the organizer property value. 
      * @param value Value to set for the organizer property.
      */
     public set organizer(value: MeetingParticipantInfo | undefined) {

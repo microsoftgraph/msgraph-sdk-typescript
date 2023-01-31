@@ -3,11 +3,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class RedirectUriSettings implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The index property */
     private _index?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The uri property */
     private _uri?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -41,28 +38,28 @@ export class RedirectUriSettings implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the index property value. The index property
+     * Gets the index property value. 
      * @returns a integer
      */
     public get index() {
         return this._index;
     };
     /**
-     * Sets the index property value. The index property
+     * Sets the index property value. 
      * @param value Value to set for the index property.
      */
     public set index(value: number | undefined) {
         this._index = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -80,14 +77,14 @@ export class RedirectUriSettings implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the uri property value. The uri property
+     * Gets the uri property value. 
      * @returns a string
      */
     public get uri() {
         return this._uri;
     };
     /**
-     * Sets the uri property value. The uri property
+     * Sets the uri property value. 
      * @param value Value to set for the uri property.
      */
     public set uri(value: string | undefined) {

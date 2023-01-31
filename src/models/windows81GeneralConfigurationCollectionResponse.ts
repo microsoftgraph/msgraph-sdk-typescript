@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, Windows81GeneralConfiguration} fr
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Windows81GeneralConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: Windows81GeneralConfiguration[] | undefined;
     /**
      * Instantiates a new Windows81GeneralConfigurationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class Windows81GeneralConfigurationCollectionResponse extends BaseCollect
         writer.writeCollectionOfObjectValues<Windows81GeneralConfiguration>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a windows81GeneralConfiguration
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Windows81GeneralConfiguration[] | undefined) {

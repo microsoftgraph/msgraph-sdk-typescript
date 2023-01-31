@@ -2,14 +2,14 @@ import {GroupSettingTemplate} from '../../models/';
 import {createGroupSettingTemplateFromDiscriminatorValue} from '../../models/createGroupSettingTemplateFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
-import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
-import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
-import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
 import {GroupSettingTemplateItemRequestBuilderDeleteRequestConfiguration} from './groupSettingTemplateItemRequestBuilderDeleteRequestConfiguration';
 import {GroupSettingTemplateItemRequestBuilderGetRequestConfiguration} from './groupSettingTemplateItemRequestBuilderGetRequestConfiguration';
 import {GroupSettingTemplateItemRequestBuilderPatchRequestConfiguration} from './groupSettingTemplateItemRequestBuilderPatchRequestConfiguration';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
+import {CheckMemberGroupsRequestBuilder} from './microsoftGraphCheckMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from './microsoftGraphCheckMemberObjects/checkMemberObjectsRequestBuilder';
+import {GetMemberGroupsRequestBuilder} from './microsoftGraphGetMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from './microsoftGraphGetMemberObjects/getMemberObjectsRequestBuilder';
+import {RestoreRequestBuilder} from './microsoftGraphRestore/restoreRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -17,46 +17,48 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class GroupSettingTemplateItemRequestBuilder {
     /** Provides operations to call the checkMemberGroups method. */
-    public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
+    public get microsoftGraphCheckMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the checkMemberObjects method. */
-    public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
+    public get microsoftGraphCheckMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getMemberGroups method. */
-    public get getMemberGroups(): GetMemberGroupsRequestBuilder {
+    public get microsoftGraphGetMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getMemberObjects method. */
-    public get getMemberObjects(): GetMemberObjectsRequestBuilder {
+    public get microsoftGraphGetMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the restore method. */
+    public get microsoftGraphRestore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the restore method. */
-    public get restore(): RestoreRequestBuilder {
-        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new GroupSettingTemplateItemRequestBuilder and sets the default values.
+     * @param groupSettingTemplateId key: id of groupSettingTemplate
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, groupSettingTemplateId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/groupSettingTemplates/{groupSettingTemplate%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["groupSettingTemplate%2Did"] = groupSettingTemplateId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from groupSettingTemplates by key (id)
+     * Delete entity from groupSettingTemplates
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -88,8 +90,7 @@ export class GroupSettingTemplateItemRequestBuilder {
         return this.requestAdapter?.sendAsync<GroupSettingTemplate>(requestInfo, createGroupSettingTemplateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update entity in groupSettingTemplates by key (id)
-     * @param body The request body
+     * Update entity in groupSettingTemplates
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupSettingTemplate
@@ -106,7 +107,7 @@ export class GroupSettingTemplateItemRequestBuilder {
         return this.requestAdapter?.sendAsync<GroupSettingTemplate>(requestInfo, createGroupSettingTemplateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from groupSettingTemplates by key (id)
+     * Delete entity from groupSettingTemplates
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -140,8 +141,7 @@ export class GroupSettingTemplateItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in groupSettingTemplates by key (id)
-     * @param body The request body
+     * Update entity in groupSettingTemplates
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

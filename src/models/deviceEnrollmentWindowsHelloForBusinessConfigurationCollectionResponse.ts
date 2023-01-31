@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, DeviceEnrollmentWindowsHelloForBu
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceEnrollmentWindowsHelloForBusinessConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: DeviceEnrollmentWindowsHelloForBusinessConfiguration[] | undefined;
     /**
      * Instantiates a new DeviceEnrollmentWindowsHelloForBusinessConfigurationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class DeviceEnrollmentWindowsHelloForBusinessConfigurationCollectionRespo
         writer.writeCollectionOfObjectValues<DeviceEnrollmentWindowsHelloForBusinessConfiguration>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a deviceEnrollmentWindowsHelloForBusinessConfiguration
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: DeviceEnrollmentWindowsHelloForBusinessConfiguration[] | undefined) {

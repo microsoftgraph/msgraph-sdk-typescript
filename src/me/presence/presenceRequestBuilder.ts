@@ -2,13 +2,13 @@ import {Presence} from '../../models/';
 import {createPresenceFromDiscriminatorValue} from '../../models/createPresenceFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {ClearPresenceRequestBuilder} from './clearPresence/clearPresenceRequestBuilder';
-import {ClearUserPreferredPresenceRequestBuilder} from './clearUserPreferredPresence/clearUserPreferredPresenceRequestBuilder';
+import {ClearPresenceRequestBuilder} from './microsoftGraphClearPresence/clearPresenceRequestBuilder';
+import {ClearUserPreferredPresenceRequestBuilder} from './microsoftGraphClearUserPreferredPresence/clearUserPreferredPresenceRequestBuilder';
+import {SetPresenceRequestBuilder} from './microsoftGraphSetPresence/setPresenceRequestBuilder';
+import {SetUserPreferredPresenceRequestBuilder} from './microsoftGraphSetUserPreferredPresence/setUserPreferredPresenceRequestBuilder';
 import {PresenceRequestBuilderDeleteRequestConfiguration} from './presenceRequestBuilderDeleteRequestConfiguration';
 import {PresenceRequestBuilderGetRequestConfiguration} from './presenceRequestBuilderGetRequestConfiguration';
 import {PresenceRequestBuilderPatchRequestConfiguration} from './presenceRequestBuilderPatchRequestConfiguration';
-import {SetPresenceRequestBuilder} from './setPresence/setPresenceRequestBuilder';
-import {SetUserPreferredPresenceRequestBuilder} from './setUserPreferredPresence/setUserPreferredPresenceRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -16,25 +16,25 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class PresenceRequestBuilder {
     /** Provides operations to call the clearPresence method. */
-    public get clearPresence(): ClearPresenceRequestBuilder {
+    public get microsoftGraphClearPresence(): ClearPresenceRequestBuilder {
         return new ClearPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the clearUserPreferredPresence method. */
-    public get clearUserPreferredPresence(): ClearUserPreferredPresenceRequestBuilder {
+    public get microsoftGraphClearUserPreferredPresence(): ClearUserPreferredPresenceRequestBuilder {
         return new ClearUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the setPresence method. */
+    public get microsoftGraphSetPresence(): SetPresenceRequestBuilder {
+        return new SetPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the setUserPreferredPresence method. */
+    public get microsoftGraphSetUserPreferredPresence(): SetUserPreferredPresenceRequestBuilder {
+        return new SetUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the setPresence method. */
-    public get setPresence(): SetPresenceRequestBuilder {
-        return new SetPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the setUserPreferredPresence method. */
-    public get setUserPreferredPresence(): SetUserPreferredPresenceRequestBuilder {
-        return new SetUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
@@ -84,7 +84,6 @@ export class PresenceRequestBuilder {
     };
     /**
      * Update the navigation property presence in me
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Presence
@@ -136,7 +135,6 @@ export class PresenceRequestBuilder {
     };
     /**
      * Update the navigation property presence in me
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

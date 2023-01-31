@@ -12,7 +12,6 @@ export class FollowupFlag implements AdditionalDataHolder, Parsable {
     private _dueDateTime?: DateTimeTimeZone | undefined;
     /** The status for follow-up for an item. Possible values are notFlagged, complete, and flagged. */
     private _flagStatus?: FollowupFlagStatus | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The date and time that the follow-up is to begin. */
     private _startDateTime?: DateTimeTimeZone | undefined;
@@ -92,14 +91,14 @@ export class FollowupFlag implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -18,7 +18,6 @@ export class DeviceComplianceSettingState extends Entity implements Parsable {
     private _setting?: string | undefined;
     /** The Setting Name that is being reported */
     private _settingName?: string | undefined;
-    /** The state property */
     private _state?: ComplianceStatus | undefined;
     /** The User email address that is being reported */
     private _userEmail?: string | undefined;
@@ -157,14 +156,14 @@ export class DeviceComplianceSettingState extends Entity implements Parsable {
         this._settingName = value;
     };
     /**
-     * Gets the state property value. The state property
+     * Gets the state property value. 
      * @returns a complianceStatus
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The state property
+     * Sets the state property value. 
      * @param value Value to set for the state property.
      */
     public set state(value: ComplianceStatus | undefined) {

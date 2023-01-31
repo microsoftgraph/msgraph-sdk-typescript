@@ -7,7 +7,6 @@ export class ConditionalAccessClientApplications implements AdditionalDataHolder
     private _excludeServicePrincipals?: string[] | undefined;
     /** Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant. */
     private _includeServicePrincipals?: string[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -69,14 +68,14 @@ export class ConditionalAccessClientApplications implements AdditionalDataHolder
         this._includeServicePrincipals = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

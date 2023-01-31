@@ -13,7 +13,6 @@ export class DeviceDetail implements AdditionalDataHolder, Parsable {
     private _isCompliant?: boolean | undefined;
     /** Indicates whether the device is managed. */
     private _isManaged?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Indicates the operating system name and version used for signing in. */
     private _operatingSystem?: string | undefined;
@@ -126,14 +125,14 @@ export class DeviceDetail implements AdditionalDataHolder, Parsable {
         this._isManaged = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -8,7 +8,6 @@ export class ServiceHealth extends Entity implements Parsable {
     private _issues?: ServiceHealthIssue[] | undefined;
     /** The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant. */
     private _service?: string | undefined;
-    /** The status property */
     private _status?: ServiceHealthStatus | undefined;
     /**
      * Instantiates a new serviceHealth and sets the default values.
@@ -67,14 +66,14 @@ export class ServiceHealth extends Entity implements Parsable {
         this._service = value;
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. 
      * @returns a serviceHealthStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. 
      * @param value Value to set for the status property.
      */
     public set status(value: ServiceHealthStatus | undefined) {

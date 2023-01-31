@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, DeviceEnrollmentLimitConfiguratio
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceEnrollmentLimitConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: DeviceEnrollmentLimitConfiguration[] | undefined;
     /**
      * Instantiates a new DeviceEnrollmentLimitConfigurationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class DeviceEnrollmentLimitConfigurationCollectionResponse extends BaseCo
         writer.writeCollectionOfObjectValues<DeviceEnrollmentLimitConfiguration>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a deviceEnrollmentLimitConfiguration
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: DeviceEnrollmentLimitConfiguration[] | undefined) {

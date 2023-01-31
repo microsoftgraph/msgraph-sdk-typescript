@@ -5,7 +5,6 @@ export class FreeBusyError implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Describes the error. */
     private _message?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The response code from querying for the availability of the user, distribution list, or resource. */
     private _responseCode?: string | undefined;
@@ -55,14 +54,14 @@ export class FreeBusyError implements AdditionalDataHolder, Parsable {
         this._message = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -6,8 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CallRecordsRequestBuilderGetRequestConfiguration} from './callRecordsRequestBuilderGetRequestConfiguration';
 import {CallRecordsRequestBuilderPostRequestConfiguration} from './callRecordsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './getDirectRoutingCallsWithFromDateTimeWithToDateTime/getDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder';
-import {GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './getPstnCallsWithFromDateTimeWithToDateTime/getPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder';
+import {GetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime/getDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder';
+import {GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTime/getPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -59,7 +59,7 @@ export class CallRecordsRequestBuilder {
      * @param toDateTime Usage: toDateTime={toDateTime}
      * @returns a getDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder
      */
-    public getDirectRoutingCallsWithFromDateTimeWithToDateTime(fromDateTime: Date | undefined, toDateTime: Date | undefined) : GetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder {
+    public microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime(fromDateTime: Date | undefined, toDateTime: Date | undefined) : GetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder {
         if(!fromDateTime) throw new Error("fromDateTime cannot be undefined");
         if(!toDateTime) throw new Error("toDateTime cannot be undefined");
         return new GetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, fromDateTime, toDateTime);
@@ -70,14 +70,13 @@ export class CallRecordsRequestBuilder {
      * @param toDateTime Usage: toDateTime={toDateTime}
      * @returns a getPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder
      */
-    public getPstnCallsWithFromDateTimeWithToDateTime(fromDateTime: Date | undefined, toDateTime: Date | undefined) : GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder {
+    public microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTime(fromDateTime: Date | undefined, toDateTime: Date | undefined) : GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder {
         if(!fromDateTime) throw new Error("fromDateTime cannot be undefined");
         if(!toDateTime) throw new Error("toDateTime cannot be undefined");
         return new GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, fromDateTime, toDateTime);
     };
     /**
      * Create new navigation property to callRecords for communications
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CallRecord
@@ -113,7 +112,6 @@ export class CallRecordsRequestBuilder {
     };
     /**
      * Create new navigation property to callRecords for communications
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

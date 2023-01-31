@@ -5,7 +5,6 @@ import {SourceType} from './sourceType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedGroupSource extends DataSource implements Parsable {
-    /** The group property */
     private _group?: Group | undefined;
     /** Specifies which sources are included in this group. Possible values are: mailbox, site. */
     private _includedSources?: SourceType | undefined;
@@ -27,14 +26,14 @@ export class UnifiedGroupSource extends DataSource implements Parsable {
         };
     };
     /**
-     * Gets the group property value. The group property
+     * Gets the group property value. 
      * @returns a group
      */
     public get group() {
         return this._group;
     };
     /**
-     * Sets the group property value. The group property
+     * Sets the group property value. 
      * @param value Value to set for the group property.
      */
     public set group(value: Group | undefined) {

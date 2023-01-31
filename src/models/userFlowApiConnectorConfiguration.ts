@@ -5,11 +5,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class UserFlowApiConnectorConfiguration implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The postAttributeCollection property */
     private _postAttributeCollection?: IdentityApiConnector | undefined;
-    /** The postFederationSignup property */
     private _postFederationSignup?: IdentityApiConnector | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -43,42 +40,42 @@ export class UserFlowApiConnectorConfiguration implements AdditionalDataHolder, 
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the postAttributeCollection property value. The postAttributeCollection property
+     * Gets the postAttributeCollection property value. 
      * @returns a identityApiConnector
      */
     public get postAttributeCollection() {
         return this._postAttributeCollection;
     };
     /**
-     * Sets the postAttributeCollection property value. The postAttributeCollection property
+     * Sets the postAttributeCollection property value. 
      * @param value Value to set for the postAttributeCollection property.
      */
     public set postAttributeCollection(value: IdentityApiConnector | undefined) {
         this._postAttributeCollection = value;
     };
     /**
-     * Gets the postFederationSignup property value. The postFederationSignup property
+     * Gets the postFederationSignup property value. 
      * @returns a identityApiConnector
      */
     public get postFederationSignup() {
         return this._postFederationSignup;
     };
     /**
-     * Sets the postFederationSignup property value. The postFederationSignup property
+     * Sets the postFederationSignup property value. 
      * @param value Value to set for the postFederationSignup property.
      */
     public set postFederationSignup(value: IdentityApiConnector | undefined) {

@@ -8,7 +8,6 @@ export class RecurrenceRange implements AdditionalDataHolder, Parsable {
     private _endDate?: DateOnly | undefined;
     /** The number of times to repeat the event. Required and must be positive if type is numbered. */
     private _numberOfOccurrences?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Time zone for the startDate and endDate properties. Optional. If not specified, the time zone of the event is used. */
     private _recurrenceTimeZone?: string | undefined;
@@ -79,14 +78,14 @@ export class RecurrenceRange implements AdditionalDataHolder, Parsable {
         this._numberOfOccurrences = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

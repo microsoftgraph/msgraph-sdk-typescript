@@ -11,7 +11,6 @@ export class BitLockerRemovableDrivePolicy implements AdditionalDataHolder, Pars
     private _blockCrossOrganizationWriteAccess?: boolean | undefined;
     /** Select the encryption method for removable  drives. Possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256. */
     private _encryptionMethod?: BitLockerEncryptionMethod | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Indicates whether to block write access to devices configured in another organization.  If requireEncryptionForWriteAccess is false, this value does not affect. */
     private _requireEncryptionForWriteAccess?: boolean | undefined;
@@ -76,14 +75,14 @@ export class BitLockerRemovableDrivePolicy implements AdditionalDataHolder, Pars
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

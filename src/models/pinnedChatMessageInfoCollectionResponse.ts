@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, PinnedChatMessageInfo} from './in
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PinnedChatMessageInfoCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: PinnedChatMessageInfo[] | undefined;
     /**
      * Instantiates a new PinnedChatMessageInfoCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class PinnedChatMessageInfoCollectionResponse extends BaseCollectionPagin
         writer.writeCollectionOfObjectValues<PinnedChatMessageInfo>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a pinnedChatMessageInfo
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: PinnedChatMessageInfo[] | undefined) {

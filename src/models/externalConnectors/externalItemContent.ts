@@ -4,9 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ExternalItemContent implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The type property */
     private _type?: ExternalItemContentType | undefined;
     /** The content for the externalItem. Required. */
     private _value?: string | undefined;
@@ -42,14 +40,14 @@ export class ExternalItemContent implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -67,14 +65,14 @@ export class ExternalItemContent implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. The type property
+     * Gets the type property value. 
      * @returns a externalItemContentType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The type property
+     * Sets the type property value. 
      * @param value Value to set for the type property.
      */
     public set type(value: ExternalItemContentType | undefined) {

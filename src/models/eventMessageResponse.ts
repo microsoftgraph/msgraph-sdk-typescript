@@ -4,9 +4,7 @@ import {ResponseType} from './responseType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EventMessageResponse extends EventMessage implements Parsable {
-    /** The proposedNewTime property */
     private _proposedNewTime?: TimeSlot | undefined;
-    /** The responseType property */
     private _responseType?: ResponseType | undefined;
     /**
      * Instantiates a new EventMessageResponse and sets the default values.
@@ -26,28 +24,28 @@ export class EventMessageResponse extends EventMessage implements Parsable {
         };
     };
     /**
-     * Gets the proposedNewTime property value. The proposedNewTime property
+     * Gets the proposedNewTime property value. 
      * @returns a timeSlot
      */
     public get proposedNewTime() {
         return this._proposedNewTime;
     };
     /**
-     * Sets the proposedNewTime property value. The proposedNewTime property
+     * Sets the proposedNewTime property value. 
      * @param value Value to set for the proposedNewTime property.
      */
     public set proposedNewTime(value: TimeSlot | undefined) {
         this._proposedNewTime = value;
     };
     /**
-     * Gets the responseType property value. The responseType property
+     * Gets the responseType property value. 
      * @returns a responseType
      */
     public get responseType() {
         return this._responseType;
     };
     /**
-     * Sets the responseType property value. The responseType property
+     * Sets the responseType property value. 
      * @param value Value to set for the responseType property.
      */
     public set responseType(value: ResponseType | undefined) {

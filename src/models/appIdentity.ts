@@ -7,7 +7,6 @@ export class AppIdentity implements AdditionalDataHolder, Parsable {
     private _appId?: string | undefined;
     /** Refers to the Application Name displayed in the Azure Portal. */
     private _displayName?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App. */
     private _servicePrincipalId?: string | undefined;
@@ -75,14 +74,14 @@ export class AppIdentity implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

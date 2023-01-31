@@ -11,7 +11,6 @@ import {ChatMessage, ChatMessageInfo, ChatViewpoint, ConversationMember, Entity,
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Chat extends Entity implements Parsable {
-    /** The chatType property */
     private _chatType?: ChatType | undefined;
     /** Date and time at which the chat was created. Read-only. */
     private _createdDateTime?: Date | undefined;
@@ -40,14 +39,14 @@ export class Chat extends Entity implements Parsable {
     /** The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only. */
     private _webUrl?: string | undefined;
     /**
-     * Gets the chatType property value. The chatType property
+     * Gets the chatType property value. 
      * @returns a chatType
      */
     public get chatType() {
         return this._chatType;
     };
     /**
-     * Sets the chatType property value. The chatType property
+     * Sets the chatType property value. 
      * @param value Value to set for the chatType property.
      */
     public set chatType(value: ChatType | undefined) {

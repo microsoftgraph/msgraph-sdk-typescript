@@ -9,9 +9,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class Permission extends Entity implements Parsable {
     /** A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional. */
     private _expirationDateTime?: Date | undefined;
-    /** The grantedTo property */
     private _grantedTo?: IdentitySet | undefined;
-    /** The grantedToIdentities property */
     private _grantedToIdentities?: IdentitySet[] | undefined;
     /** For link type permissions, the details of the users to whom permission was granted. Read-only. */
     private _grantedToIdentitiesV2?: SharePointIdentitySet[] | undefined;
@@ -69,28 +67,28 @@ export class Permission extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the grantedTo property value. The grantedTo property
+     * Gets the grantedTo property value. 
      * @returns a identitySet
      */
     public get grantedTo() {
         return this._grantedTo;
     };
     /**
-     * Sets the grantedTo property value. The grantedTo property
+     * Sets the grantedTo property value. 
      * @param value Value to set for the grantedTo property.
      */
     public set grantedTo(value: IdentitySet | undefined) {
         this._grantedTo = value;
     };
     /**
-     * Gets the grantedToIdentities property value. The grantedToIdentities property
+     * Gets the grantedToIdentities property value. 
      * @returns a identitySet
      */
     public get grantedToIdentities() {
         return this._grantedToIdentities;
     };
     /**
-     * Sets the grantedToIdentities property value. The grantedToIdentities property
+     * Sets the grantedToIdentities property value. 
      * @param value Value to set for the grantedToIdentities property.
      */
     public set grantedToIdentities(value: IdentitySet[] | undefined) {

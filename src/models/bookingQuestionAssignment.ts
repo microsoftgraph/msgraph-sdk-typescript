@@ -5,7 +5,6 @@ export class BookingQuestionAssignment implements AdditionalDataHolder, Parsable
     private _additionalData: Record<string, unknown>;
     /** The ID of the custom question. */
     private _isRequired?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Indicates whether it is mandatory to answer the custom question. */
     private _questionId?: string | undefined;
@@ -55,14 +54,14 @@ export class BookingQuestionAssignment implements AdditionalDataHolder, Parsable
         this._isRequired = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -21,12 +21,14 @@ export class ShiftItemRequestBuilder {
      * Instantiates a new ShiftItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param shiftId key: id of shift
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, shiftId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/shifts/{shift%2Did}{?%24select}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["shift%2Did"] = shiftId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -63,7 +65,6 @@ export class ShiftItemRequestBuilder {
     };
     /**
      * Update the navigation property shifts in groups
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Shift
@@ -115,7 +116,6 @@ export class ShiftItemRequestBuilder {
     };
     /**
      * Update the navigation property shifts in groups
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

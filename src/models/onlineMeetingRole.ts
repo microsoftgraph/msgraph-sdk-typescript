@@ -3,4 +3,5 @@ export enum OnlineMeetingRole {
     Presenter = "presenter",
     UnknownFutureValue = "unknownFutureValue",
     Producer = "producer",
+    Coorganizer = "coorganizer",
 }

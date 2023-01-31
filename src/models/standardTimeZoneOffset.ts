@@ -10,7 +10,6 @@ export class StandardTimeZoneOffset implements AdditionalDataHolder, Parsable {
     private _dayOfWeek?: DayOfWeek | undefined;
     /** Represents the month of the year when the transition from daylight saving time to standard time occurs. */
     private _month?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Represents the time of day when the transition from daylight saving time to standard time occurs. */
     private _time?: TimeOnly | undefined;
@@ -93,14 +92,14 @@ export class StandardTimeZoneOffset implements AdditionalDataHolder, Parsable {
         this._month = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

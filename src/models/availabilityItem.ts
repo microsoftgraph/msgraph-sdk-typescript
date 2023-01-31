@@ -6,13 +6,10 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AvailabilityItem implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The endDateTime property */
     private _endDateTime?: DateTimeTimeZone | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Indicates the service ID in case of 1:n appointments. If the appointment is of type 1:n, this field will be present, otherwise, null. */
     private _serviceId?: string | undefined;
-    /** The startDateTime property */
     private _startDateTime?: DateTimeTimeZone | undefined;
     /** The status of the staff member. Possible values are: available, busy, slotsAvailable, outOfOffice, unknownFutureValue. */
     private _status?: BookingsAvailabilityStatus | undefined;
@@ -37,14 +34,14 @@ export class AvailabilityItem implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the endDateTime property value. The endDateTime property
+     * Gets the endDateTime property value. 
      * @returns a dateTimeTimeZone
      */
     public get endDateTime() {
         return this._endDateTime;
     };
     /**
-     * Sets the endDateTime property value. The endDateTime property
+     * Sets the endDateTime property value. 
      * @param value Value to set for the endDateTime property.
      */
     public set endDateTime(value: DateTimeTimeZone | undefined) {
@@ -64,14 +61,14 @@ export class AvailabilityItem implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -105,14 +102,14 @@ export class AvailabilityItem implements AdditionalDataHolder, Parsable {
         this._serviceId = value;
     };
     /**
-     * Gets the startDateTime property value. The startDateTime property
+     * Gets the startDateTime property value. 
      * @returns a dateTimeTimeZone
      */
     public get startDateTime() {
         return this._startDateTime;
     };
     /**
-     * Sets the startDateTime property value. The startDateTime property
+     * Sets the startDateTime property value. 
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: DateTimeTimeZone | undefined) {

@@ -10,7 +10,6 @@ export class UserTrainingEventInfo implements AdditionalDataHolder, Parsable {
     private _displayName?: string | undefined;
     /** Latest status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue. */
     private _latestTrainingStatus?: TrainingStatus | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Event details of the training when it was assigned to the user. */
     private _trainingAssignedProperties?: UserTrainingContentEventInfo | undefined;
@@ -81,14 +80,14 @@ export class UserTrainingEventInfo implements AdditionalDataHolder, Parsable {
         this._latestTrainingStatus = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

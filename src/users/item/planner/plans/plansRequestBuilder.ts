@@ -54,7 +54,6 @@ export class PlansRequestBuilder {
     };
     /**
      * Create new navigation property to plans for users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerPlan
@@ -90,7 +89,6 @@ export class PlansRequestBuilder {
     };
     /**
      * Create new navigation property to plans for users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

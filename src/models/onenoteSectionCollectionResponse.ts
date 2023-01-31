@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, OnenoteSection} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenoteSectionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: OnenoteSection[] | undefined;
     /**
      * Instantiates a new OnenoteSectionCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class OnenoteSectionCollectionResponse extends BaseCollectionPaginationCo
         writer.writeCollectionOfObjectValues<OnenoteSection>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a onenoteSection
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: OnenoteSection[] | undefined) {

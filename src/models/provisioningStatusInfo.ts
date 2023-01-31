@@ -6,9 +6,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ProvisioningStatusInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The errorInformation property */
     private _errorInformation?: ProvisioningErrorInfo | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Possible values are: success, warning, failure, skipped, unknownFutureValue. */
     private _status?: ProvisioningResult | undefined;
@@ -33,14 +31,14 @@ export class ProvisioningStatusInfo implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the errorInformation property value. The errorInformation property
+     * Gets the errorInformation property value. 
      * @returns a provisioningErrorInfo
      */
     public get errorInformation() {
         return this._errorInformation;
     };
     /**
-     * Sets the errorInformation property value. The errorInformation property
+     * Sets the errorInformation property value. 
      * @param value Value to set for the errorInformation property.
      */
     public set errorInformation(value: ProvisioningErrorInfo | undefined) {
@@ -58,14 +56,14 @@ export class ProvisioningStatusInfo implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -16,7 +16,6 @@ export class DirectoryAudit extends Entity implements Parsable {
     private _category?: string | undefined;
     /** Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services. */
     private _correlationId?: string | undefined;
-    /** The initiatedBy property */
     private _initiatedBy?: AuditActivityInitiator | undefined;
     /** Indicates information on which service initiated the activity (For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft Identity Manager, Privileged Identity Management. */
     private _loggedByService?: string | undefined;
@@ -124,14 +123,14 @@ export class DirectoryAudit extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the initiatedBy property value. The initiatedBy property
+     * Gets the initiatedBy property value. 
      * @returns a auditActivityInitiator
      */
     public get initiatedBy() {
         return this._initiatedBy;
     };
     /**
-     * Sets the initiatedBy property value. The initiatedBy property
+     * Sets the initiatedBy property value. 
      * @param value Value to set for the initiatedBy property.
      */
     public set initiatedBy(value: AuditActivityInitiator | undefined) {

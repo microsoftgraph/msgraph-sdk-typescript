@@ -24,7 +24,6 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
     private _finishings?: PrintFinishing[] | undefined;
     /** The default fitPdfToPage setting. True to fit each page of a PDF document to a physical sheet of media; false to let the printer decide how to lay out impressions. */
     private _fitPdfToPage?: boolean | undefined;
-    /** The inputBin property */
     private _inputBin?: string | undefined;
     /** The default media (such as paper) color to print the document on. */
     private _mediaColor?: string | undefined;
@@ -34,7 +33,6 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
     private _mediaType?: string | undefined;
     /** The default direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table. */
     private _multipageLayout?: PrintMultipageLayout | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The default orientation to use when printing the document. Valid values are described in the following table. */
     private _orientation?: PrintOrientation | undefined;
@@ -191,14 +189,14 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the inputBin property value. The inputBin property
+     * Gets the inputBin property value. 
      * @returns a string
      */
     public get inputBin() {
         return this._inputBin;
     };
     /**
-     * Sets the inputBin property value. The inputBin property
+     * Sets the inputBin property value. 
      * @param value Value to set for the inputBin property.
      */
     public set inputBin(value: string | undefined) {
@@ -261,14 +259,14 @@ export class PrinterDefaults implements AdditionalDataHolder, Parsable {
         this._multipageLayout = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

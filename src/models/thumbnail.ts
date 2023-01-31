@@ -7,7 +7,6 @@ export class Thumbnail implements AdditionalDataHolder, Parsable {
     private _content?: string | undefined;
     /** The height of the thumbnail, in pixels. */
     private _height?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The unique identifier of the item that provided the thumbnail. This is only available when a folder thumbnail is requested. */
     private _sourceItemId?: string | undefined;
@@ -78,14 +77,14 @@ export class Thumbnail implements AdditionalDataHolder, Parsable {
         this._height = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

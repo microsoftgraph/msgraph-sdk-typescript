@@ -4,7 +4,6 @@ import {Store} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class StoreCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: Store[] | undefined;
     /**
      * Instantiates a new StoreCollectionResponse and sets the default values.
@@ -31,14 +30,14 @@ export class StoreCollectionResponse extends BaseCollectionPaginationCountRespon
         writer.writeCollectionOfObjectValues<Store>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a store
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Store[] | undefined) {

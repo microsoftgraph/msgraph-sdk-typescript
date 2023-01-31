@@ -4,7 +4,6 @@ import {AppIdentity, Entity, PrintTask} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintTaskDefinition extends Entity implements Parsable {
-    /** The createdBy property */
     private _createdBy?: AppIdentity | undefined;
     /** The name of the printTaskDefinition. */
     private _displayName?: string | undefined;
@@ -17,14 +16,14 @@ export class PrintTaskDefinition extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. 
      * @returns a appIdentity
      */
     public get createdBy() {
         return this._createdBy;
     };
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. 
      * @param value Value to set for the createdBy property.
      */
     public set createdBy(value: AppIdentity | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, WindowsInformationProtectionProxi
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtectionProxiedDomainCollectionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: WindowsInformationProtectionProxiedDomainCollection[] | undefined;
     /**
      * Instantiates a new WindowsInformationProtectionProxiedDomainCollectionCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class WindowsInformationProtectionProxiedDomainCollectionCollectionRespon
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionProxiedDomainCollection>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a windowsInformationProtectionProxiedDomainCollection
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: WindowsInformationProtectionProxiedDomainCollection[] | undefined) {

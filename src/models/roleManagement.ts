@@ -5,11 +5,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class RoleManagement implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The directory property */
     private _directory?: RbacApplication | undefined;
     /** Container for roles and assignments for entitlement management resources. */
     private _entitlementManagement?: RbacApplication | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -32,14 +30,14 @@ export class RoleManagement implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the directory property value. The directory property
+     * Gets the directory property value. 
      * @returns a rbacApplication
      */
     public get directory() {
         return this._directory;
     };
     /**
-     * Sets the directory property value. The directory property
+     * Sets the directory property value. 
      * @param value Value to set for the directory property.
      */
     public set directory(value: RbacApplication | undefined) {
@@ -71,14 +69,14 @@ export class RoleManagement implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

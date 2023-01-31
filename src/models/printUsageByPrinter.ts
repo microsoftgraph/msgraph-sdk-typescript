@@ -2,7 +2,6 @@ import {PrintUsage} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintUsageByPrinter extends PrintUsage implements Parsable {
-    /** The printerId property */
     private _printerId?: string | undefined;
     /**
      * Instantiates a new PrintUsageByPrinter and sets the default values.
@@ -21,14 +20,14 @@ export class PrintUsageByPrinter extends PrintUsage implements Parsable {
         };
     };
     /**
-     * Gets the printerId property value. The printerId property
+     * Gets the printerId property value. 
      * @returns a string
      */
     public get printerId() {
         return this._printerId;
     };
     /**
-     * Sets the printerId property value. The printerId property
+     * Sets the printerId property value. 
      * @param value Value to set for the printerId property.
      */
     public set printerId(value: string | undefined) {

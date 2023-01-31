@@ -7,7 +7,6 @@ export class ScopedRoleMembership extends Entity implements Parsable {
     private _administrativeUnitId?: string | undefined;
     /** Unique identifier for the directory role that the member is in. */
     private _roleId?: string | undefined;
-    /** The roleMemberInfo property */
     private _roleMemberInfo?: Identity | undefined;
     /**
      * Gets the administrativeUnitId property value. Unique identifier for the administrative unit that the directory role is scoped to
@@ -55,14 +54,14 @@ export class ScopedRoleMembership extends Entity implements Parsable {
         this._roleId = value;
     };
     /**
-     * Gets the roleMemberInfo property value. The roleMemberInfo property
+     * Gets the roleMemberInfo property value. 
      * @returns a identity
      */
     public get roleMemberInfo() {
         return this._roleMemberInfo;
     };
     /**
-     * Sets the roleMemberInfo property value. The roleMemberInfo property
+     * Sets the roleMemberInfo property value. 
      * @param value Value to set for the roleMemberInfo property.
      */
     public set roleMemberInfo(value: Identity | undefined) {

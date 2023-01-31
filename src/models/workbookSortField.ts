@@ -15,7 +15,6 @@ export class WorkbookSortField implements AdditionalDataHolder, Parsable {
     private _icon?: WorkbookIcon | undefined;
     /** Represents the column (or row, depending on the sort orientation) that the condition is on. Represented as an offset from the first column (or row). */
     private _key?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Represents the type of sorting of this condition. The possible values are: Value, CellColor, FontColor, Icon. */
     private _sortOn?: string | undefined;
@@ -125,14 +124,14 @@ export class WorkbookSortField implements AdditionalDataHolder, Parsable {
         this._key = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

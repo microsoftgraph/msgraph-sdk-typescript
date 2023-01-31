@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, MobileThreatDefenseConnector} fro
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MobileThreatDefenseConnectorCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: MobileThreatDefenseConnector[] | undefined;
     /**
      * Instantiates a new MobileThreatDefenseConnectorCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class MobileThreatDefenseConnectorCollectionResponse extends BaseCollecti
         writer.writeCollectionOfObjectValues<MobileThreatDefenseConnector>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a mobileThreatDefenseConnector
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: MobileThreatDefenseConnector[] | undefined) {

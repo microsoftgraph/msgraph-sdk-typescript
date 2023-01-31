@@ -12,7 +12,6 @@ export class RubricQuality implements AdditionalDataHolder, Parsable {
     private _description?: EducationItemBody | undefined;
     /** The name of this rubric quality. */
     private _displayName?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The ID of this resource. */
     private _qualityId?: string | undefined;
@@ -95,14 +94,14 @@ export class RubricQuality implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

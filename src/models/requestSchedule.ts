@@ -8,7 +8,6 @@ export class RequestSchedule implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** When the eligible or active assignment expires. */
     private _expiration?: ExpirationPattern | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The frequency of the  eligible or active assignment. This property is currently unsupported in PIM. */
     private _recurrence?: PatternedRecurrence | undefined;
@@ -61,14 +60,14 @@ export class RequestSchedule implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

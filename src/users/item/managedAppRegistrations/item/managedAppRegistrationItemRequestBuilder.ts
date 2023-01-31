@@ -17,14 +17,16 @@ export class ManagedAppRegistrationItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ManagedAppRegistrationItemRequestBuilder and sets the default values.
+     * @param managedAppRegistrationId key: id of managedAppRegistration
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, managedAppRegistrationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/managedAppRegistrations/{managedAppRegistration%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["managedAppRegistration%2Did"] = managedAppRegistrationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

@@ -7,7 +7,6 @@ export class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, 
     private _additionalData: Record<string, unknown>;
     /** The list of applications targeted with your cross-tenant access policy. */
     private _applications?: CrossTenantAccessPolicyTargetConfiguration | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The list of users and groups targeted with your cross-tenant access policy. */
     private _usersAndGroups?: CrossTenantAccessPolicyTargetConfiguration | undefined;
@@ -57,14 +56,14 @@ export class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, 
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

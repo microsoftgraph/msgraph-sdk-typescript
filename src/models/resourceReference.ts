@@ -5,7 +5,6 @@ export class ResourceReference implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The item's unique identifier. */
     private _id?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** A string value that can be used to classify the item, such as 'microsoft.graph.driveItem' */
     private _type?: string | undefined;
@@ -58,14 +57,14 @@ export class ResourceReference implements AdditionalDataHolder, Parsable {
         this._id = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

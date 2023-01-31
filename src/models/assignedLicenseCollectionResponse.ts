@@ -3,7 +3,6 @@ import {AssignedLicense, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AssignedLicenseCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AssignedLicense[] | undefined;
     /**
      * Instantiates a new AssignedLicenseCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AssignedLicenseCollectionResponse extends BaseCollectionPaginationC
         writer.writeCollectionOfObjectValues<AssignedLicense>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a assignedLicense
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AssignedLicense[] | undefined) {

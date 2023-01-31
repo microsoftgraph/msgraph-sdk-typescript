@@ -8,25 +8,16 @@ import {MeetingMessageType} from './meetingMessageType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EventMessage extends Message implements Parsable {
-    /** The endDateTime property */
     private _endDateTime?: DateTimeTimeZone | undefined;
     /** The event associated with the event message. The assumption for attendees or room resources is that the Calendar Attendant is set to automatically update the calendar with an event when meeting request event messages arrive. Navigation property.  Read-only. */
     private _event?: Event | undefined;
-    /** The isAllDay property */
     private _isAllDay?: boolean | undefined;
-    /** The isDelegated property */
     private _isDelegated?: boolean | undefined;
-    /** The isOutOfDate property */
     private _isOutOfDate?: boolean | undefined;
-    /** The location property */
     private _location?: Location | undefined;
-    /** The meetingMessageType property */
     private _meetingMessageType?: MeetingMessageType | undefined;
-    /** The recurrence property */
     private _recurrence?: PatternedRecurrence | undefined;
-    /** The startDateTime property */
     private _startDateTime?: DateTimeTimeZone | undefined;
-    /** The type property */
     private _type?: EventType | undefined;
     /**
      * Instantiates a new EventMessage and sets the default values.
@@ -36,14 +27,14 @@ export class EventMessage extends Message implements Parsable {
         this.odataType = "#microsoft.graph.eventMessage";
     };
     /**
-     * Gets the endDateTime property value. The endDateTime property
+     * Gets the endDateTime property value. 
      * @returns a dateTimeTimeZone
      */
     public get endDateTime() {
         return this._endDateTime;
     };
     /**
-     * Sets the endDateTime property value. The endDateTime property
+     * Sets the endDateTime property value. 
      * @param value Value to set for the endDateTime property.
      */
     public set endDateTime(value: DateTimeTimeZone | undefined) {
@@ -82,84 +73,84 @@ export class EventMessage extends Message implements Parsable {
         };
     };
     /**
-     * Gets the isAllDay property value. The isAllDay property
+     * Gets the isAllDay property value. 
      * @returns a boolean
      */
     public get isAllDay() {
         return this._isAllDay;
     };
     /**
-     * Sets the isAllDay property value. The isAllDay property
+     * Sets the isAllDay property value. 
      * @param value Value to set for the isAllDay property.
      */
     public set isAllDay(value: boolean | undefined) {
         this._isAllDay = value;
     };
     /**
-     * Gets the isDelegated property value. The isDelegated property
+     * Gets the isDelegated property value. 
      * @returns a boolean
      */
     public get isDelegated() {
         return this._isDelegated;
     };
     /**
-     * Sets the isDelegated property value. The isDelegated property
+     * Sets the isDelegated property value. 
      * @param value Value to set for the isDelegated property.
      */
     public set isDelegated(value: boolean | undefined) {
         this._isDelegated = value;
     };
     /**
-     * Gets the isOutOfDate property value. The isOutOfDate property
+     * Gets the isOutOfDate property value. 
      * @returns a boolean
      */
     public get isOutOfDate() {
         return this._isOutOfDate;
     };
     /**
-     * Sets the isOutOfDate property value. The isOutOfDate property
+     * Sets the isOutOfDate property value. 
      * @param value Value to set for the isOutOfDate property.
      */
     public set isOutOfDate(value: boolean | undefined) {
         this._isOutOfDate = value;
     };
     /**
-     * Gets the location property value. The location property
+     * Gets the location property value. 
      * @returns a location
      */
     public get location() {
         return this._location;
     };
     /**
-     * Sets the location property value. The location property
+     * Sets the location property value. 
      * @param value Value to set for the location property.
      */
     public set location(value: Location | undefined) {
         this._location = value;
     };
     /**
-     * Gets the meetingMessageType property value. The meetingMessageType property
+     * Gets the meetingMessageType property value. 
      * @returns a meetingMessageType
      */
     public get meetingMessageType() {
         return this._meetingMessageType;
     };
     /**
-     * Sets the meetingMessageType property value. The meetingMessageType property
+     * Sets the meetingMessageType property value. 
      * @param value Value to set for the meetingMessageType property.
      */
     public set meetingMessageType(value: MeetingMessageType | undefined) {
         this._meetingMessageType = value;
     };
     /**
-     * Gets the recurrence property value. The recurrence property
+     * Gets the recurrence property value. 
      * @returns a patternedRecurrence
      */
     public get recurrence() {
         return this._recurrence;
     };
     /**
-     * Sets the recurrence property value. The recurrence property
+     * Sets the recurrence property value. 
      * @param value Value to set for the recurrence property.
      */
     public set recurrence(value: PatternedRecurrence | undefined) {
@@ -184,28 +175,28 @@ export class EventMessage extends Message implements Parsable {
         writer.writeEnumValue<EventType>("type", this.type);
     };
     /**
-     * Gets the startDateTime property value. The startDateTime property
+     * Gets the startDateTime property value. 
      * @returns a dateTimeTimeZone
      */
     public get startDateTime() {
         return this._startDateTime;
     };
     /**
-     * Sets the startDateTime property value. The startDateTime property
+     * Sets the startDateTime property value. 
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: DateTimeTimeZone | undefined) {
         this._startDateTime = value;
     };
     /**
-     * Gets the type property value. The type property
+     * Gets the type property value. 
      * @returns a eventType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The type property
+     * Sets the type property value. 
      * @param value Value to set for the type property.
      */
     public set type(value: EventType | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, NotificationMessageTemplate} from
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class NotificationMessageTemplateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: NotificationMessageTemplate[] | undefined;
     /**
      * Instantiates a new NotificationMessageTemplateCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class NotificationMessageTemplateCollectionResponse extends BaseCollectio
         writer.writeCollectionOfObjectValues<NotificationMessageTemplate>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a notificationMessageTemplate
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: NotificationMessageTemplate[] | undefined) {

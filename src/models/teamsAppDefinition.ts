@@ -7,13 +7,11 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class TeamsAppDefinition extends Entity implements Parsable {
     /** The details of the bot specified in the Teams app manifest. */
     private _bot?: TeamworkBot | undefined;
-    /** The createdBy property */
     private _createdBy?: IdentitySet | undefined;
     /** Verbose description of the application. */
     private _description?: string | undefined;
     /** The name of the app provided by the app developer. */
     private _displayName?: string | undefined;
-    /** The lastModifiedDateTime property */
     private _lastModifiedDateTime?: Date | undefined;
     /** The published status of a specific version of a Teams app. Possible values are:submitted — The specific version of the Teams app has been submitted and is under review. published  — The request to publish the specific version of the Teams app has been approved by the admin and the app is published.  rejected — The request to publish the specific version of the Teams app was rejected by the admin. */
     private _publishingState?: TeamsAppPublishingState | undefined;
@@ -44,14 +42,14 @@ export class TeamsAppDefinition extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. 
      * @returns a identitySet
      */
     public get createdBy() {
         return this._createdBy;
     };
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. 
      * @param value Value to set for the createdBy property.
      */
     public set createdBy(value: IdentitySet | undefined) {
@@ -103,14 +101,14 @@ export class TeamsAppDefinition extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. 
      * @returns a Date
      */
     public get lastModifiedDateTime() {
         return this._lastModifiedDateTime;
     };
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. 
      * @param value Value to set for the lastModifiedDateTime property.
      */
     public set lastModifiedDateTime(value: Date | undefined) {

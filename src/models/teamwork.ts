@@ -3,7 +3,6 @@ import {Entity, WorkforceIntegration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Teamwork extends Entity implements Parsable {
-    /** The workforceIntegrations property */
     private _workforceIntegrations?: WorkforceIntegration[] | undefined;
     /**
      * Instantiates a new Teamwork and sets the default values.
@@ -30,14 +29,14 @@ export class Teamwork extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<WorkforceIntegration>("workforceIntegrations", this.workforceIntegrations);
     };
     /**
-     * Gets the workforceIntegrations property value. The workforceIntegrations property
+     * Gets the workforceIntegrations property value. 
      * @returns a workforceIntegration
      */
     public get workforceIntegrations() {
         return this._workforceIntegrations;
     };
     /**
-     * Sets the workforceIntegrations property value. The workforceIntegrations property
+     * Sets the workforceIntegrations property value. 
      * @param value Value to set for the workforceIntegrations property.
      */
     public set workforceIntegrations(value: WorkforceIntegration[] | undefined) {

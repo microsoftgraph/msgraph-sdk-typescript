@@ -9,7 +9,6 @@ export class RedundancyDetectionSettings implements AdditionalDataHolder, Parsab
     private _maxWords?: number | undefined;
     /** Specifies the minimum number of words used for email threading and near duplicate detection. To learn more, see Minimum/maximum number of words. */
     private _minWords?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Specifies the similarity level for documents to be put in the same near duplicate set. To learn more, see Document and email similarity threshold. */
     private _similarityThreshold?: number | undefined;
@@ -89,14 +88,14 @@ export class RedundancyDetectionSettings implements AdditionalDataHolder, Parsab
         this._minWords = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

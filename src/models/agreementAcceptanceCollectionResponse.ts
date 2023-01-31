@@ -3,7 +3,6 @@ import {AgreementAcceptance, BaseCollectionPaginationCountResponse} from './inde
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AgreementAcceptanceCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AgreementAcceptance[] | undefined;
     /**
      * Instantiates a new AgreementAcceptanceCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AgreementAcceptanceCollectionResponse extends BaseCollectionPaginat
         writer.writeCollectionOfObjectValues<AgreementAcceptance>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a agreementAcceptance
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AgreementAcceptance[] | undefined) {

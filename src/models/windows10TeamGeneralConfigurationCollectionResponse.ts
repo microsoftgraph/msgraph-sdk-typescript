@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, Windows10TeamGeneralConfiguration
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Windows10TeamGeneralConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: Windows10TeamGeneralConfiguration[] | undefined;
     /**
      * Instantiates a new Windows10TeamGeneralConfigurationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class Windows10TeamGeneralConfigurationCollectionResponse extends BaseCol
         writer.writeCollectionOfObjectValues<Windows10TeamGeneralConfiguration>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a windows10TeamGeneralConfiguration
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Windows10TeamGeneralConfiguration[] | undefined) {

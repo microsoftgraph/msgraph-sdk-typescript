@@ -26,12 +26,14 @@ export class RoleAssignmentItemRequestBuilder {
      * Instantiates a new RoleAssignmentItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param roleAssignmentId key: id of roleAssignment
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, roleAssignmentId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/roleDefinitions/{roleDefinition%2Did}/roleAssignments/{roleAssignment%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["roleAssignment%2Did"] = roleAssignmentId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -68,7 +70,6 @@ export class RoleAssignmentItemRequestBuilder {
     };
     /**
      * Update the navigation property roleAssignments in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RoleAssignment
@@ -120,7 +121,6 @@ export class RoleAssignmentItemRequestBuilder {
     };
     /**
      * Update the navigation property roleAssignments in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -7,7 +7,6 @@ export class X509CertificateRule implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The identifier of the X.509 certificate. Required. */
     private _identifier?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required. */
     private _x509CertificateAuthenticationMode?: X509CertificateAuthenticationMode | undefined;
@@ -60,14 +59,14 @@ export class X509CertificateRule implements AdditionalDataHolder, Parsable {
         this._identifier = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

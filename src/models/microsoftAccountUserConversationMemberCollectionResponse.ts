@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, MicrosoftAccountUserConversationM
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MicrosoftAccountUserConversationMemberCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: MicrosoftAccountUserConversationMember[] | undefined;
     /**
      * Instantiates a new MicrosoftAccountUserConversationMemberCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class MicrosoftAccountUserConversationMemberCollectionResponse extends Ba
         writer.writeCollectionOfObjectValues<MicrosoftAccountUserConversationMember>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a microsoftAccountUserConversationMember
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: MicrosoftAccountUserConversationMember[] | undefined) {

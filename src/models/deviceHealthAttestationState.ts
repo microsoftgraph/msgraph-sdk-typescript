@@ -41,7 +41,6 @@ export class DeviceHealthAttestationState implements AdditionalDataHolder, Parsa
     private _issuedDateTime?: Date | undefined;
     /** The Timestamp of the last update. */
     private _lastUpdateDateTime?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** When operatingSystemKernelDebugging is enabled, the device is used in development and testing */
     private _operatingSystemKernelDebugging?: string | undefined;
@@ -397,14 +396,14 @@ export class DeviceHealthAttestationState implements AdditionalDataHolder, Parsa
         this._lastUpdateDateTime = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

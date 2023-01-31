@@ -12,7 +12,6 @@ export class RecentNotebook implements AdditionalDataHolder, Parsable {
     private _lastAccessedTime?: Date | undefined;
     /** Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote client, if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web. */
     private _links?: RecentNotebookLinks | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The backend store where the Notebook resides, either OneDriveForBusiness or OneDrive. */
     private _sourceService?: OnenoteSourceService | undefined;
@@ -92,14 +91,14 @@ export class RecentNotebook implements AdditionalDataHolder, Parsable {
         this._links = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

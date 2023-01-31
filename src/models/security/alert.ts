@@ -53,11 +53,8 @@ export class Alert extends Entity implements Parsable {
     private _recommendedActions?: string | undefined;
     /** Time when the alert was resolved. */
     private _resolvedDateTime?: Date | undefined;
-    /** The serviceSource property */
     private _serviceSource?: ServiceSource | undefined;
-    /** The severity property */
     private _severity?: AlertSeverity | undefined;
-    /** The status property */
     private _status?: AlertStatus | undefined;
     /** The Azure Active Directory tenant the alert was created in. */
     private _tenantId?: string | undefined;
@@ -440,42 +437,42 @@ export class Alert extends Entity implements Parsable {
         writer.writeStringValue("title", this.title);
     };
     /**
-     * Gets the serviceSource property value. The serviceSource property
+     * Gets the serviceSource property value. 
      * @returns a serviceSource
      */
     public get serviceSource() {
         return this._serviceSource;
     };
     /**
-     * Sets the serviceSource property value. The serviceSource property
+     * Sets the serviceSource property value. 
      * @param value Value to set for the serviceSource property.
      */
     public set serviceSource(value: ServiceSource | undefined) {
         this._serviceSource = value;
     };
     /**
-     * Gets the severity property value. The severity property
+     * Gets the severity property value. 
      * @returns a alertSeverity
      */
     public get severity() {
         return this._severity;
     };
     /**
-     * Sets the severity property value. The severity property
+     * Sets the severity property value. 
      * @param value Value to set for the severity property.
      */
     public set severity(value: AlertSeverity | undefined) {
         this._severity = value;
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. 
      * @returns a alertStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. 
      * @param value Value to set for the status property.
      */
     public set status(value: AlertStatus | undefined) {

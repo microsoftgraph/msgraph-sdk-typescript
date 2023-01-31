@@ -6,7 +6,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CallsRequestBuilderGetRequestConfiguration} from './callsRequestBuilderGetRequestConfiguration';
 import {CallsRequestBuilderPostRequestConfiguration} from './callsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {LogTeleconferenceDeviceQualityRequestBuilder} from './logTeleconferenceDeviceQuality/logTeleconferenceDeviceQualityRequestBuilder';
+import {LogTeleconferenceDeviceQualityRequestBuilder} from './microsoftGraphLogTeleconferenceDeviceQuality/logTeleconferenceDeviceQualityRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,7 +18,7 @@ export class CallsRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the logTeleconferenceDeviceQuality method. */
-    public get logTeleconferenceDeviceQuality(): LogTeleconferenceDeviceQualityRequestBuilder {
+    public get microsoftGraphLogTeleconferenceDeviceQuality(): LogTeleconferenceDeviceQualityRequestBuilder {
         return new LogTeleconferenceDeviceQualityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
@@ -58,7 +58,6 @@ export class CallsRequestBuilder {
     };
     /**
      * Create call enables your bot to create a new outgoing peer-to-peer or group call, or join an existing meeting. You will need to register the calling bot and go through the list of permissions needed as mentioned below.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Call
@@ -95,7 +94,6 @@ export class CallsRequestBuilder {
     };
     /**
      * Create call enables your bot to create a new outgoing peer-to-peer or group call, or join an existing meeting. You will need to register the calling bot and go through the list of permissions needed as mentioned below.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

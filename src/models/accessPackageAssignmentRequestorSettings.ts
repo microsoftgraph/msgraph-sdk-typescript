@@ -19,7 +19,6 @@ export class AccessPackageAssignmentRequestorSettings implements AdditionalDataH
     private _enableTargetsToSelfRemoveAccess?: boolean | undefined;
     /** If true, allows requestors to create a request to update their access. */
     private _enableTargetsToSelfUpdateAccess?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The principals who can request on-behalf-of others. */
     private _onBehalfRequestors?: SubjectSet[] | undefined;
@@ -159,14 +158,14 @@ export class AccessPackageAssignmentRequestorSettings implements AdditionalDataH
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

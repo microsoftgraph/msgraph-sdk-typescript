@@ -32,7 +32,6 @@ export class UserActivity extends Entity implements Parsable {
     private _status?: Status | undefined;
     /** Optional. The timezone in which the user's device used to generate the activity was located at activity creation time; values supplied as Olson IDs in order to support cross-platform representation. */
     private _userTimezone?: string | undefined;
-    /** The visualElements property */
     private _visualElements?: VisualInfo | undefined;
     /**
      * Gets the activationUrl property value. Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.
@@ -267,14 +266,14 @@ export class UserActivity extends Entity implements Parsable {
         this._userTimezone = value;
     };
     /**
-     * Gets the visualElements property value. The visualElements property
+     * Gets the visualElements property value. 
      * @returns a visualInfo
      */
     public get visualElements() {
         return this._visualElements;
     };
     /**
-     * Sets the visualElements property value. The visualElements property
+     * Sets the visualElements property value. 
      * @param value Value to set for the visualElements property.
      */
     public set visualElements(value: VisualInfo | undefined) {

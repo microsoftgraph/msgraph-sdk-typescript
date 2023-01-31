@@ -18,7 +18,6 @@ export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable 
     private _isRecordingEnabled?: boolean | undefined;
     /** Indicates whether video on demand is enabled for this Teams live event. Default value is false. */
     private _isVideoOnDemandEnabled?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -140,14 +139,14 @@ export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable 
         this._isVideoOnDemandEnabled = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

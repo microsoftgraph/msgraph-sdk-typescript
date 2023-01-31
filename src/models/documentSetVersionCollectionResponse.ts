@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, DocumentSetVersion} from './index
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DocumentSetVersionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: DocumentSetVersion[] | undefined;
     /**
      * Instantiates a new DocumentSetVersionCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class DocumentSetVersionCollectionResponse extends BaseCollectionPaginati
         writer.writeCollectionOfObjectValues<DocumentSetVersion>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a documentSetVersion
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: DocumentSetVersion[] | undefined) {

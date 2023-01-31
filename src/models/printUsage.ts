@@ -2,37 +2,33 @@ import {Entity} from './index';
 import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintUsage extends Entity implements Parsable {
-    /** The completedBlackAndWhiteJobCount property */
     private _completedBlackAndWhiteJobCount?: number | undefined;
-    /** The completedColorJobCount property */
     private _completedColorJobCount?: number | undefined;
-    /** The incompleteJobCount property */
     private _incompleteJobCount?: number | undefined;
-    /** The usageDate property */
     private _usageDate?: DateOnly | undefined;
     /**
-     * Gets the completedBlackAndWhiteJobCount property value. The completedBlackAndWhiteJobCount property
+     * Gets the completedBlackAndWhiteJobCount property value. 
      * @returns a int64
      */
     public get completedBlackAndWhiteJobCount() {
         return this._completedBlackAndWhiteJobCount;
     };
     /**
-     * Sets the completedBlackAndWhiteJobCount property value. The completedBlackAndWhiteJobCount property
+     * Sets the completedBlackAndWhiteJobCount property value. 
      * @param value Value to set for the completedBlackAndWhiteJobCount property.
      */
     public set completedBlackAndWhiteJobCount(value: number | undefined) {
         this._completedBlackAndWhiteJobCount = value;
     };
     /**
-     * Gets the completedColorJobCount property value. The completedColorJobCount property
+     * Gets the completedColorJobCount property value. 
      * @returns a int64
      */
     public get completedColorJobCount() {
         return this._completedColorJobCount;
     };
     /**
-     * Sets the completedColorJobCount property value. The completedColorJobCount property
+     * Sets the completedColorJobCount property value. 
      * @param value Value to set for the completedColorJobCount property.
      */
     public set completedColorJobCount(value: number | undefined) {
@@ -57,14 +53,14 @@ export class PrintUsage extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the incompleteJobCount property value. The incompleteJobCount property
+     * Gets the incompleteJobCount property value. 
      * @returns a int64
      */
     public get incompleteJobCount() {
         return this._incompleteJobCount;
     };
     /**
-     * Sets the incompleteJobCount property value. The incompleteJobCount property
+     * Sets the incompleteJobCount property value. 
      * @param value Value to set for the incompleteJobCount property.
      */
     public set incompleteJobCount(value: number | undefined) {
@@ -83,14 +79,14 @@ export class PrintUsage extends Entity implements Parsable {
         writer.writeDateOnlyValue("usageDate", this.usageDate);
     };
     /**
-     * Gets the usageDate property value. The usageDate property
+     * Gets the usageDate property value. 
      * @returns a DateOnly
      */
     public get usageDate() {
         return this._usageDate;
     };
     /**
-     * Sets the usageDate property value. The usageDate property
+     * Sets the usageDate property value. 
      * @param value Value to set for the usageDate property.
      */
     public set usageDate(value: DateOnly | undefined) {

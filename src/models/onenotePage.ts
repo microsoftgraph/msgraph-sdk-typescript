@@ -25,7 +25,6 @@ export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsa
     private _parentSection?: OnenoteSection | undefined;
     /** The title of the page. */
     private _title?: string | undefined;
-    /** The userTags property */
     private _userTags?: string[] | undefined;
     /**
      * Instantiates a new onenotePage and sets the default values.
@@ -213,14 +212,14 @@ export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsa
         this._title = value;
     };
     /**
-     * Gets the userTags property value. The userTags property
+     * Gets the userTags property value. 
      * @returns a string
      */
     public get userTags() {
         return this._userTags;
     };
     /**
-     * Sets the userTags property value. The userTags property
+     * Sets the userTags property value. 
      * @param value Value to set for the userTags property.
      */
     public set userTags(value: string[] | undefined) {

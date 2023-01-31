@@ -35,13 +35,15 @@ export class RelationItemRequestBuilder {
     /**
      * Instantiates a new RelationItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param relationId key: id of relation
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, relationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStore/sets/{set%2Did}/children/{term%2Did}/children/{term%2Did1}/relations/{relation%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["relation%2Did"] = relationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -78,7 +80,6 @@ export class RelationItemRequestBuilder {
     };
     /**
      * Update the navigation property relations in groups
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Relation
@@ -130,7 +131,6 @@ export class RelationItemRequestBuilder {
     };
     /**
      * Update the navigation property relations in groups
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

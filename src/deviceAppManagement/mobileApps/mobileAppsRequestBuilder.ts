@@ -4,10 +4,10 @@ import {createMobileAppFromDiscriminatorValue} from '../../models/createMobileAp
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ManagedMobileLobAppRequestBuilder} from './managedMobileLobApp/managedMobileLobAppRequestBuilder';
+import {ManagedMobileLobAppRequestBuilder} from './microsoftGraphManagedMobileLobApp/managedMobileLobAppRequestBuilder';
+import {MobileLobAppRequestBuilder} from './microsoftGraphMobileLobApp/mobileLobAppRequestBuilder';
 import {MobileAppsRequestBuilderGetRequestConfiguration} from './mobileAppsRequestBuilderGetRequestConfiguration';
 import {MobileAppsRequestBuilderPostRequestConfiguration} from './mobileAppsRequestBuilderPostRequestConfiguration';
-import {MobileLobAppRequestBuilder} from './mobileLobApp/mobileLobAppRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -19,11 +19,11 @@ export class MobileAppsRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to managedMobileLobApp. */
-    public get managedMobileLobApp(): ManagedMobileLobAppRequestBuilder {
+    public get microsoftGraphManagedMobileLobApp(): ManagedMobileLobAppRequestBuilder {
         return new ManagedMobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to mobileLobApp. */
-    public get mobileLobApp(): MobileLobAppRequestBuilder {
+    public get microsoftGraphMobileLobApp(): MobileLobAppRequestBuilder {
         return new MobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
@@ -63,7 +63,6 @@ export class MobileAppsRequestBuilder {
     };
     /**
      * Create new navigation property to mobileApps for deviceAppManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MobileApp
@@ -99,7 +98,6 @@ export class MobileAppsRequestBuilder {
     };
     /**
      * Create new navigation property to mobileApps for deviceAppManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

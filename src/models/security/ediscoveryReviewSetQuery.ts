@@ -3,7 +3,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class EdiscoveryReviewSetQuery extends Search implements Parsable {
     /**
-     * Instantiates a new ediscoveryReviewSetQuery and sets the default values.
+     * Instantiates a new EdiscoveryReviewSetQuery and sets the default values.
      */
     public constructor() {
         super();

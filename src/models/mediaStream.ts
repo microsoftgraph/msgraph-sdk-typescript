@@ -5,13 +5,10 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class MediaStream implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The direction property */
     private _direction?: MediaDirection | undefined;
     /** The media stream label. */
     private _label?: string | undefined;
-    /** The mediaType property */
     private _mediaType?: Modality | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** If the media is muted by the server. */
     private _serverMuted?: boolean | undefined;
@@ -38,14 +35,14 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the direction property value. The direction property
+     * Gets the direction property value. 
      * @returns a mediaDirection
      */
     public get direction() {
         return this._direction;
     };
     /**
-     * Sets the direction property value. The direction property
+     * Sets the direction property value. 
      * @param value Value to set for the direction property.
      */
     public set direction(value: MediaDirection | undefined) {
@@ -80,28 +77,28 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
         this._label = value;
     };
     /**
-     * Gets the mediaType property value. The mediaType property
+     * Gets the mediaType property value. 
      * @returns a modality
      */
     public get mediaType() {
         return this._mediaType;
     };
     /**
-     * Sets the mediaType property value. The mediaType property
+     * Sets the mediaType property value. 
      * @param value Value to set for the mediaType property.
      */
     public set mediaType(value: Modality | undefined) {
         this._mediaType = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

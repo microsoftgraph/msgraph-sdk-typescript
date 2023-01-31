@@ -4,13 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ScheduleEntity implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The endDateTime property */
     private _endDateTime?: Date | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The startDateTime property */
     private _startDateTime?: Date | undefined;
-    /** The theme property */
     private _theme?: ScheduleEntityTheme | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -33,14 +29,14 @@ export class ScheduleEntity implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the endDateTime property value. The endDateTime property
+     * Gets the endDateTime property value. 
      * @returns a Date
      */
     public get endDateTime() {
         return this._endDateTime;
     };
     /**
-     * Sets the endDateTime property value. The endDateTime property
+     * Sets the endDateTime property value. 
      * @param value Value to set for the endDateTime property.
      */
     public set endDateTime(value: Date | undefined) {
@@ -59,14 +55,14 @@ export class ScheduleEntity implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -85,28 +81,28 @@ export class ScheduleEntity implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the startDateTime property value. The startDateTime property
+     * Gets the startDateTime property value. 
      * @returns a Date
      */
     public get startDateTime() {
         return this._startDateTime;
     };
     /**
-     * Sets the startDateTime property value. The startDateTime property
+     * Sets the startDateTime property value. 
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: Date | undefined) {
         this._startDateTime = value;
     };
     /**
-     * Gets the theme property value. The theme property
+     * Gets the theme property value. 
      * @returns a scheduleEntityTheme
      */
     public get theme() {
         return this._theme;
     };
     /**
-     * Sets the theme property value. The theme property
+     * Sets the theme property value. 
      * @param value Value to set for the theme property.
      */
     public set theme(value: ScheduleEntityTheme | undefined) {

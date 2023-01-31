@@ -7,13 +7,10 @@ import {Entity, PrintDocument, PrintJobConfiguration, PrintJobStatus, PrintTask,
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintJob extends Entity implements Parsable {
-    /** The configuration property */
     private _configuration?: PrintJobConfiguration | undefined;
-    /** The createdBy property */
     private _createdBy?: UserIdentity | undefined;
     /** The DateTimeOffset when the job was created. Read-only. */
     private _createdDateTime?: Date | undefined;
-    /** The documents property */
     private _documents?: PrintDocument[] | undefined;
     /** If true, document can be fetched by printer. */
     private _isFetchable?: boolean | undefined;
@@ -21,19 +18,18 @@ export class PrintJob extends Entity implements Parsable {
     private _redirectedFrom?: string | undefined;
     /** Contains the destination job URL, if the job has been redirected to another printer. */
     private _redirectedTo?: string | undefined;
-    /** The status property */
     private _status?: PrintJobStatus | undefined;
     /** A list of printTasks that were triggered by this print job. */
     private _tasks?: PrintTask[] | undefined;
     /**
-     * Gets the configuration property value. The configuration property
+     * Gets the configuration property value. 
      * @returns a printJobConfiguration
      */
     public get configuration() {
         return this._configuration;
     };
     /**
-     * Sets the configuration property value. The configuration property
+     * Sets the configuration property value. 
      * @param value Value to set for the configuration property.
      */
     public set configuration(value: PrintJobConfiguration | undefined) {
@@ -46,14 +42,14 @@ export class PrintJob extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. 
      * @returns a userIdentity
      */
     public get createdBy() {
         return this._createdBy;
     };
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. 
      * @param value Value to set for the createdBy property.
      */
     public set createdBy(value: UserIdentity | undefined) {
@@ -74,14 +70,14 @@ export class PrintJob extends Entity implements Parsable {
         this._createdDateTime = value;
     };
     /**
-     * Gets the documents property value. The documents property
+     * Gets the documents property value. 
      * @returns a printDocument
      */
     public get documents() {
         return this._documents;
     };
     /**
-     * Sets the documents property value. The documents property
+     * Sets the documents property value. 
      * @param value Value to set for the documents property.
      */
     public set documents(value: PrintDocument[] | undefined) {
@@ -164,14 +160,14 @@ export class PrintJob extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<PrintTask>("tasks", this.tasks);
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. 
      * @returns a printJobStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. 
      * @param value Value to set for the status property.
      */
     public set status(value: PrintJobStatus | undefined) {

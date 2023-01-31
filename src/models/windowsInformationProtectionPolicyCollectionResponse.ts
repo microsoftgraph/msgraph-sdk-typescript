@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, WindowsInformationProtectionPolic
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtectionPolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: WindowsInformationProtectionPolicy[] | undefined;
     /**
      * Instantiates a new WindowsInformationProtectionPolicyCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class WindowsInformationProtectionPolicyCollectionResponse extends BaseCo
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionPolicy>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a windowsInformationProtectionPolicy
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: WindowsInformationProtectionPolicy[] | undefined) {

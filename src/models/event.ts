@@ -43,67 +43,39 @@ export class Event extends OutlookItem implements Parsable {
     private _hideAttendees?: boolean | undefined;
     /** A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only. */
     private _iCalUId?: string | undefined;
-    /** The importance property */
     private _importance?: Importance | undefined;
     /** The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable. */
     private _instances?: Event[] | undefined;
-    /** The isAllDay property */
     private _isAllDay?: boolean | undefined;
-    /** The isCancelled property */
     private _isCancelled?: boolean | undefined;
-    /** The isDraft property */
     private _isDraft?: boolean | undefined;
-    /** The isOnlineMeeting property */
     private _isOnlineMeeting?: boolean | undefined;
-    /** The isOrganizer property */
     private _isOrganizer?: boolean | undefined;
-    /** The isReminderOn property */
     private _isReminderOn?: boolean | undefined;
-    /** The location property */
     private _location?: Location | undefined;
-    /** The locations property */
     private _locations?: Location[] | undefined;
     /** The collection of multi-value extended properties defined for the event. Read-only. Nullable. */
     private _multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
-    /** The onlineMeeting property */
     private _onlineMeeting?: OnlineMeetingInfo | undefined;
-    /** The onlineMeetingProvider property */
     private _onlineMeetingProvider?: OnlineMeetingProviderType | undefined;
-    /** The onlineMeetingUrl property */
     private _onlineMeetingUrl?: string | undefined;
-    /** The organizer property */
     private _organizer?: Recipient | undefined;
-    /** The originalEndTimeZone property */
     private _originalEndTimeZone?: string | undefined;
-    /** The originalStart property */
     private _originalStart?: Date | undefined;
-    /** The originalStartTimeZone property */
     private _originalStartTimeZone?: string | undefined;
-    /** The recurrence property */
     private _recurrence?: PatternedRecurrence | undefined;
-    /** The reminderMinutesBeforeStart property */
     private _reminderMinutesBeforeStart?: number | undefined;
-    /** The responseRequested property */
     private _responseRequested?: boolean | undefined;
-    /** The responseStatus property */
     private _responseStatus?: ResponseStatus | undefined;
-    /** The sensitivity property */
     private _sensitivity?: Sensitivity | undefined;
-    /** The seriesMasterId property */
     private _seriesMasterId?: string | undefined;
-    /** The showAs property */
     private _showAs?: FreeBusyStatus | undefined;
     /** The collection of single-value extended properties defined for the event. Read-only. Nullable. */
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
-    /** The start property */
     private _start?: DateTimeTimeZone | undefined;
-    /** The subject property */
     private _subject?: string | undefined;
-    /** The transactionId property */
     private _transactionId?: string | undefined;
-    /** The type property */
     private _type?: EventType | undefined;
-    /** The webLink property */
     private _webLink?: string | undefined;
     /**
      * Gets the allowNewTimeProposals property value. true if the meeting organizer allows invitees to propose a new time when responding; otherwise, false. Optional. Default is true.
@@ -317,14 +289,14 @@ export class Event extends OutlookItem implements Parsable {
         this._iCalUId = value;
     };
     /**
-     * Gets the importance property value. The importance property
+     * Gets the importance property value. 
      * @returns a importance
      */
     public get importance() {
         return this._importance;
     };
     /**
-     * Sets the importance property value. The importance property
+     * Sets the importance property value. 
      * @param value Value to set for the importance property.
      */
     public set importance(value: Importance | undefined) {
@@ -345,112 +317,112 @@ export class Event extends OutlookItem implements Parsable {
         this._instances = value;
     };
     /**
-     * Gets the isAllDay property value. The isAllDay property
+     * Gets the isAllDay property value. 
      * @returns a boolean
      */
     public get isAllDay() {
         return this._isAllDay;
     };
     /**
-     * Sets the isAllDay property value. The isAllDay property
+     * Sets the isAllDay property value. 
      * @param value Value to set for the isAllDay property.
      */
     public set isAllDay(value: boolean | undefined) {
         this._isAllDay = value;
     };
     /**
-     * Gets the isCancelled property value. The isCancelled property
+     * Gets the isCancelled property value. 
      * @returns a boolean
      */
     public get isCancelled() {
         return this._isCancelled;
     };
     /**
-     * Sets the isCancelled property value. The isCancelled property
+     * Sets the isCancelled property value. 
      * @param value Value to set for the isCancelled property.
      */
     public set isCancelled(value: boolean | undefined) {
         this._isCancelled = value;
     };
     /**
-     * Gets the isDraft property value. The isDraft property
+     * Gets the isDraft property value. 
      * @returns a boolean
      */
     public get isDraft() {
         return this._isDraft;
     };
     /**
-     * Sets the isDraft property value. The isDraft property
+     * Sets the isDraft property value. 
      * @param value Value to set for the isDraft property.
      */
     public set isDraft(value: boolean | undefined) {
         this._isDraft = value;
     };
     /**
-     * Gets the isOnlineMeeting property value. The isOnlineMeeting property
+     * Gets the isOnlineMeeting property value. 
      * @returns a boolean
      */
     public get isOnlineMeeting() {
         return this._isOnlineMeeting;
     };
     /**
-     * Sets the isOnlineMeeting property value. The isOnlineMeeting property
+     * Sets the isOnlineMeeting property value. 
      * @param value Value to set for the isOnlineMeeting property.
      */
     public set isOnlineMeeting(value: boolean | undefined) {
         this._isOnlineMeeting = value;
     };
     /**
-     * Gets the isOrganizer property value. The isOrganizer property
+     * Gets the isOrganizer property value. 
      * @returns a boolean
      */
     public get isOrganizer() {
         return this._isOrganizer;
     };
     /**
-     * Sets the isOrganizer property value. The isOrganizer property
+     * Sets the isOrganizer property value. 
      * @param value Value to set for the isOrganizer property.
      */
     public set isOrganizer(value: boolean | undefined) {
         this._isOrganizer = value;
     };
     /**
-     * Gets the isReminderOn property value. The isReminderOn property
+     * Gets the isReminderOn property value. 
      * @returns a boolean
      */
     public get isReminderOn() {
         return this._isReminderOn;
     };
     /**
-     * Sets the isReminderOn property value. The isReminderOn property
+     * Sets the isReminderOn property value. 
      * @param value Value to set for the isReminderOn property.
      */
     public set isReminderOn(value: boolean | undefined) {
         this._isReminderOn = value;
     };
     /**
-     * Gets the location property value. The location property
+     * Gets the location property value. 
      * @returns a location
      */
     public get location() {
         return this._location;
     };
     /**
-     * Sets the location property value. The location property
+     * Sets the location property value. 
      * @param value Value to set for the location property.
      */
     public set location(value: Location | undefined) {
         this._location = value;
     };
     /**
-     * Gets the locations property value. The locations property
+     * Gets the locations property value. 
      * @returns a location
      */
     public get locations() {
         return this._locations;
     };
     /**
-     * Sets the locations property value. The locations property
+     * Sets the locations property value. 
      * @param value Value to set for the locations property.
      */
     public set locations(value: Location[] | undefined) {
@@ -471,168 +443,168 @@ export class Event extends OutlookItem implements Parsable {
         this._multiValueExtendedProperties = value;
     };
     /**
-     * Gets the onlineMeeting property value. The onlineMeeting property
+     * Gets the onlineMeeting property value. 
      * @returns a onlineMeetingInfo
      */
     public get onlineMeeting() {
         return this._onlineMeeting;
     };
     /**
-     * Sets the onlineMeeting property value. The onlineMeeting property
+     * Sets the onlineMeeting property value. 
      * @param value Value to set for the onlineMeeting property.
      */
     public set onlineMeeting(value: OnlineMeetingInfo | undefined) {
         this._onlineMeeting = value;
     };
     /**
-     * Gets the onlineMeetingProvider property value. The onlineMeetingProvider property
+     * Gets the onlineMeetingProvider property value. 
      * @returns a onlineMeetingProviderType
      */
     public get onlineMeetingProvider() {
         return this._onlineMeetingProvider;
     };
     /**
-     * Sets the onlineMeetingProvider property value. The onlineMeetingProvider property
+     * Sets the onlineMeetingProvider property value. 
      * @param value Value to set for the onlineMeetingProvider property.
      */
     public set onlineMeetingProvider(value: OnlineMeetingProviderType | undefined) {
         this._onlineMeetingProvider = value;
     };
     /**
-     * Gets the onlineMeetingUrl property value. The onlineMeetingUrl property
+     * Gets the onlineMeetingUrl property value. 
      * @returns a string
      */
     public get onlineMeetingUrl() {
         return this._onlineMeetingUrl;
     };
     /**
-     * Sets the onlineMeetingUrl property value. The onlineMeetingUrl property
+     * Sets the onlineMeetingUrl property value. 
      * @param value Value to set for the onlineMeetingUrl property.
      */
     public set onlineMeetingUrl(value: string | undefined) {
         this._onlineMeetingUrl = value;
     };
     /**
-     * Gets the organizer property value. The organizer property
+     * Gets the organizer property value. 
      * @returns a recipient
      */
     public get organizer() {
         return this._organizer;
     };
     /**
-     * Sets the organizer property value. The organizer property
+     * Sets the organizer property value. 
      * @param value Value to set for the organizer property.
      */
     public set organizer(value: Recipient | undefined) {
         this._organizer = value;
     };
     /**
-     * Gets the originalEndTimeZone property value. The originalEndTimeZone property
+     * Gets the originalEndTimeZone property value. 
      * @returns a string
      */
     public get originalEndTimeZone() {
         return this._originalEndTimeZone;
     };
     /**
-     * Sets the originalEndTimeZone property value. The originalEndTimeZone property
+     * Sets the originalEndTimeZone property value. 
      * @param value Value to set for the originalEndTimeZone property.
      */
     public set originalEndTimeZone(value: string | undefined) {
         this._originalEndTimeZone = value;
     };
     /**
-     * Gets the originalStart property value. The originalStart property
+     * Gets the originalStart property value. 
      * @returns a Date
      */
     public get originalStart() {
         return this._originalStart;
     };
     /**
-     * Sets the originalStart property value. The originalStart property
+     * Sets the originalStart property value. 
      * @param value Value to set for the originalStart property.
      */
     public set originalStart(value: Date | undefined) {
         this._originalStart = value;
     };
     /**
-     * Gets the originalStartTimeZone property value. The originalStartTimeZone property
+     * Gets the originalStartTimeZone property value. 
      * @returns a string
      */
     public get originalStartTimeZone() {
         return this._originalStartTimeZone;
     };
     /**
-     * Sets the originalStartTimeZone property value. The originalStartTimeZone property
+     * Sets the originalStartTimeZone property value. 
      * @param value Value to set for the originalStartTimeZone property.
      */
     public set originalStartTimeZone(value: string | undefined) {
         this._originalStartTimeZone = value;
     };
     /**
-     * Gets the recurrence property value. The recurrence property
+     * Gets the recurrence property value. 
      * @returns a patternedRecurrence
      */
     public get recurrence() {
         return this._recurrence;
     };
     /**
-     * Sets the recurrence property value. The recurrence property
+     * Sets the recurrence property value. 
      * @param value Value to set for the recurrence property.
      */
     public set recurrence(value: PatternedRecurrence | undefined) {
         this._recurrence = value;
     };
     /**
-     * Gets the reminderMinutesBeforeStart property value. The reminderMinutesBeforeStart property
+     * Gets the reminderMinutesBeforeStart property value. 
      * @returns a integer
      */
     public get reminderMinutesBeforeStart() {
         return this._reminderMinutesBeforeStart;
     };
     /**
-     * Sets the reminderMinutesBeforeStart property value. The reminderMinutesBeforeStart property
+     * Sets the reminderMinutesBeforeStart property value. 
      * @param value Value to set for the reminderMinutesBeforeStart property.
      */
     public set reminderMinutesBeforeStart(value: number | undefined) {
         this._reminderMinutesBeforeStart = value;
     };
     /**
-     * Gets the responseRequested property value. The responseRequested property
+     * Gets the responseRequested property value. 
      * @returns a boolean
      */
     public get responseRequested() {
         return this._responseRequested;
     };
     /**
-     * Sets the responseRequested property value. The responseRequested property
+     * Sets the responseRequested property value. 
      * @param value Value to set for the responseRequested property.
      */
     public set responseRequested(value: boolean | undefined) {
         this._responseRequested = value;
     };
     /**
-     * Gets the responseStatus property value. The responseStatus property
+     * Gets the responseStatus property value. 
      * @returns a responseStatus
      */
     public get responseStatus() {
         return this._responseStatus;
     };
     /**
-     * Sets the responseStatus property value. The responseStatus property
+     * Sets the responseStatus property value. 
      * @param value Value to set for the responseStatus property.
      */
     public set responseStatus(value: ResponseStatus | undefined) {
         this._responseStatus = value;
     };
     /**
-     * Gets the sensitivity property value. The sensitivity property
+     * Gets the sensitivity property value. 
      * @returns a sensitivity
      */
     public get sensitivity() {
         return this._sensitivity;
     };
     /**
-     * Sets the sensitivity property value. The sensitivity property
+     * Sets the sensitivity property value. 
      * @param value Value to set for the sensitivity property.
      */
     public set sensitivity(value: Sensitivity | undefined) {
@@ -689,28 +661,28 @@ export class Event extends OutlookItem implements Parsable {
         writer.writeStringValue("webLink", this.webLink);
     };
     /**
-     * Gets the seriesMasterId property value. The seriesMasterId property
+     * Gets the seriesMasterId property value. 
      * @returns a string
      */
     public get seriesMasterId() {
         return this._seriesMasterId;
     };
     /**
-     * Sets the seriesMasterId property value. The seriesMasterId property
+     * Sets the seriesMasterId property value. 
      * @param value Value to set for the seriesMasterId property.
      */
     public set seriesMasterId(value: string | undefined) {
         this._seriesMasterId = value;
     };
     /**
-     * Gets the showAs property value. The showAs property
+     * Gets the showAs property value. 
      * @returns a freeBusyStatus
      */
     public get showAs() {
         return this._showAs;
     };
     /**
-     * Sets the showAs property value. The showAs property
+     * Sets the showAs property value. 
      * @param value Value to set for the showAs property.
      */
     public set showAs(value: FreeBusyStatus | undefined) {
@@ -731,70 +703,70 @@ export class Event extends OutlookItem implements Parsable {
         this._singleValueExtendedProperties = value;
     };
     /**
-     * Gets the start property value. The start property
+     * Gets the start property value. 
      * @returns a dateTimeTimeZone
      */
     public get start() {
         return this._start;
     };
     /**
-     * Sets the start property value. The start property
+     * Sets the start property value. 
      * @param value Value to set for the start property.
      */
     public set start(value: DateTimeTimeZone | undefined) {
         this._start = value;
     };
     /**
-     * Gets the subject property value. The subject property
+     * Gets the subject property value. 
      * @returns a string
      */
     public get subject() {
         return this._subject;
     };
     /**
-     * Sets the subject property value. The subject property
+     * Sets the subject property value. 
      * @param value Value to set for the subject property.
      */
     public set subject(value: string | undefined) {
         this._subject = value;
     };
     /**
-     * Gets the transactionId property value. The transactionId property
+     * Gets the transactionId property value. 
      * @returns a string
      */
     public get transactionId() {
         return this._transactionId;
     };
     /**
-     * Sets the transactionId property value. The transactionId property
+     * Sets the transactionId property value. 
      * @param value Value to set for the transactionId property.
      */
     public set transactionId(value: string | undefined) {
         this._transactionId = value;
     };
     /**
-     * Gets the type property value. The type property
+     * Gets the type property value. 
      * @returns a eventType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The type property
+     * Sets the type property value. 
      * @param value Value to set for the type property.
      */
     public set type(value: EventType | undefined) {
         this._type = value;
     };
     /**
-     * Gets the webLink property value. The webLink property
+     * Gets the webLink property value. 
      * @returns a string
      */
     public get webLink() {
         return this._webLink;
     };
     /**
-     * Sets the webLink property value. The webLink property
+     * Sets the webLink property value. 
      * @param value Value to set for the webLink property.
      */
     public set webLink(value: string | undefined) {

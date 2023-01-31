@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, UriClickSecurityState} from './in
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UriClickSecurityStateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: UriClickSecurityState[] | undefined;
     /**
      * Instantiates a new UriClickSecurityStateCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class UriClickSecurityStateCollectionResponse extends BaseCollectionPagin
         writer.writeCollectionOfObjectValues<UriClickSecurityState>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a uriClickSecurityState
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: UriClickSecurityState[] | undefined) {

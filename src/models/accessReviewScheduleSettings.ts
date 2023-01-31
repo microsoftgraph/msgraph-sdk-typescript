@@ -22,7 +22,6 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
     private _justificationRequiredOnApproval?: boolean | undefined;
     /** Indicates whether emails are enabled or disabled. Default value is false. */
     private _mailNotificationsEnabled?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Indicates whether decision recommendations are enabled or disabled. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationsEnabled setting will be used instead of the value of this property. */
     private _recommendationsEnabled?: boolean | undefined;
@@ -183,14 +182,14 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
         this._mailNotificationsEnabled = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

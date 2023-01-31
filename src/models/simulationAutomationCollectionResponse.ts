@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, SimulationAutomation} from './ind
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SimulationAutomationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: SimulationAutomation[] | undefined;
     /**
      * Instantiates a new SimulationAutomationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class SimulationAutomationCollectionResponse extends BaseCollectionPagina
         writer.writeCollectionOfObjectValues<SimulationAutomation>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a simulationAutomation
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: SimulationAutomation[] | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, ThreatAssessmentResult} from './i
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ThreatAssessmentResultCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ThreatAssessmentResult[] | undefined;
     /**
      * Instantiates a new ThreatAssessmentResultCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ThreatAssessmentResultCollectionResponse extends BaseCollectionPagi
         writer.writeCollectionOfObjectValues<ThreatAssessmentResult>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a threatAssessmentResult
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ThreatAssessmentResult[] | undefined) {

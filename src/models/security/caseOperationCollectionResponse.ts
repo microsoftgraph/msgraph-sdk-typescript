@@ -4,7 +4,6 @@ import {CaseOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CaseOperationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: CaseOperation[] | undefined;
     /**
      * Instantiates a new CaseOperationCollectionResponse and sets the default values.
@@ -31,14 +30,14 @@ export class CaseOperationCollectionResponse extends BaseCollectionPaginationCou
         writer.writeCollectionOfObjectValues<CaseOperation>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a caseOperation
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: CaseOperation[] | undefined) {

@@ -3,7 +3,6 @@ import {AlternativeSecurityId, BaseCollectionPaginationCountResponse} from './in
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AlternativeSecurityIdCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AlternativeSecurityId[] | undefined;
     /**
      * Instantiates a new AlternativeSecurityIdCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AlternativeSecurityIdCollectionResponse extends BaseCollectionPagin
         writer.writeCollectionOfObjectValues<AlternativeSecurityId>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a alternativeSecurityId
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AlternativeSecurityId[] | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, IdentityUserFlowAttributeAssignme
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityUserFlowAttributeAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: IdentityUserFlowAttributeAssignment[] | undefined;
     /**
      * Instantiates a new IdentityUserFlowAttributeAssignmentCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class IdentityUserFlowAttributeAssignmentCollectionResponse extends BaseC
         writer.writeCollectionOfObjectValues<IdentityUserFlowAttributeAssignment>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a identityUserFlowAttributeAssignment
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: IdentityUserFlowAttributeAssignment[] | undefined) {

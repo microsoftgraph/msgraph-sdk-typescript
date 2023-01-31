@@ -81,7 +81,6 @@ export class InsightsRequestBuilder {
     };
     /**
      * Update the navigation property insights in users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OfficeGraphInsights
@@ -144,7 +143,6 @@ export class InsightsRequestBuilder {
     };
     /**
      * Update the navigation property insights in users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

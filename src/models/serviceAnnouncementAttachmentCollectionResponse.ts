@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, ServiceAnnouncementAttachment} fr
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ServiceAnnouncementAttachmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ServiceAnnouncementAttachment[] | undefined;
     /**
      * Instantiates a new ServiceAnnouncementAttachmentCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ServiceAnnouncementAttachmentCollectionResponse extends BaseCollect
         writer.writeCollectionOfObjectValues<ServiceAnnouncementAttachment>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a serviceAnnouncementAttachment
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ServiceAnnouncementAttachment[] | undefined) {

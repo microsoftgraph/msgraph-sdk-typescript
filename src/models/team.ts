@@ -32,7 +32,6 @@ export class Team extends Entity implements Parsable {
     private _displayName?: string | undefined;
     /** Settings to configure use of Giphy, memes, and stickers in the team. */
     private _funSettings?: TeamFunSettings | undefined;
-    /** The group property */
     private _group?: Group | undefined;
     /** Settings to configure whether guests can create, update, or delete channels in the team. */
     private _guestSettings?: TeamGuestSettings | undefined;
@@ -212,14 +211,14 @@ export class Team extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the group property value. The group property
+     * Gets the group property value. 
      * @returns a group
      */
     public get group() {
         return this._group;
     };
     /**
-     * Sets the group property value. The group property
+     * Sets the group property value. 
      * @param value Value to set for the group property.
      */
     public set group(value: Group | undefined) {

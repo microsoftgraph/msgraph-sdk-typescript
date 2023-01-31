@@ -5,7 +5,6 @@ export class DefaultColumnValue implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The formula used to compute the default value for this column. */
     private _formula?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The direct value to use as the default value for this column. */
     private _value?: string | undefined;
@@ -55,14 +54,14 @@ export class DefaultColumnValue implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

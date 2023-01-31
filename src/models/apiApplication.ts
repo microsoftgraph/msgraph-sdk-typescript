@@ -12,7 +12,6 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
     private _knownClientApplications?: string[] | undefined;
     /** The definition of the delegated permissions exposed by the web API represented by this application registration. These delegated permissions may be requested by a client application, and may be granted by users or administrators during consent. Delegated permissions are sometimes referred to as OAuth 2.0 scopes. */
     private _oauth2PermissionScopes?: PermissionScope[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Lists the client applications that are pre-authorized with the specified delegated permissions to access this application's APIs. Users are not required to consent to any pre-authorized application (for the permissions specified). However, any additional permissions not listed in preAuthorizedApplications (requested through incremental consent for example) will require user consent. */
     private _preAuthorizedApplications?: PreAuthorizedApplication[] | undefined;
@@ -95,14 +94,14 @@ export class ApiApplication implements AdditionalDataHolder, Parsable {
         this._oauth2PermissionScopes = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

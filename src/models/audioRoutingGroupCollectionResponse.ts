@@ -3,7 +3,6 @@ import {AudioRoutingGroup, BaseCollectionPaginationCountResponse} from './index'
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AudioRoutingGroupCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AudioRoutingGroup[] | undefined;
     /**
      * Instantiates a new AudioRoutingGroupCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AudioRoutingGroupCollectionResponse extends BaseCollectionPaginatio
         writer.writeCollectionOfObjectValues<AudioRoutingGroup>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a audioRoutingGroup
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AudioRoutingGroup[] | undefined) {

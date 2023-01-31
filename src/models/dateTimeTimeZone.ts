@@ -5,7 +5,6 @@ export class DateTimeTimeZone implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** A single point of time in a combined date and time representation ({date}T{time}; for example, 2017-08-29T04:00:00.0000000). */
     private _dateTime?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible values. */
     private _timeZone?: string | undefined;
@@ -55,14 +54,14 @@ export class DateTimeTimeZone implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

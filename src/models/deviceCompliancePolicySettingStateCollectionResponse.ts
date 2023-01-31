@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, DeviceCompliancePolicySettingStat
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceCompliancePolicySettingStateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: DeviceCompliancePolicySettingState[] | undefined;
     /**
      * Instantiates a new DeviceCompliancePolicySettingStateCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class DeviceCompliancePolicySettingStateCollectionResponse extends BaseCo
         writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingState>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a deviceCompliancePolicySettingState
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: DeviceCompliancePolicySettingState[] | undefined) {

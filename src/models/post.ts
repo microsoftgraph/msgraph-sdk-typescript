@@ -19,7 +19,6 @@ export class Post extends OutlookItem implements Parsable {
     private _conversationThreadId?: string | undefined;
     /** The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand. */
     private _extensions?: Extension[] | undefined;
-    /** The from property */
     private _from?: Recipient | undefined;
     /** Indicates whether the post has at least one attachment. This is a default property. */
     private _hasAttachments?: boolean | undefined;
@@ -113,14 +112,14 @@ export class Post extends OutlookItem implements Parsable {
         this._extensions = value;
     };
     /**
-     * Gets the from property value. The from property
+     * Gets the from property value. 
      * @returns a recipient
      */
     public get from() {
         return this._from;
     };
     /**
-     * Sets the from property value. The from property
+     * Sets the from property value. 
      * @param value Value to set for the from property.
      */
     public set from(value: Recipient | undefined) {

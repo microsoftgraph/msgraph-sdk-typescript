@@ -21,7 +21,6 @@ export class WindowsFirewallNetworkProfile implements AdditionalDataHolder, Pars
     private _inboundNotificationsBlocked?: boolean | undefined;
     /** Configures the firewall to block all incoming traffic regardless of other policy settings. When IncomingTrafficRequired and IncomingTrafficBlocked are both true, IncomingTrafficBlocked takes priority. */
     private _incomingTrafficBlocked?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Configures the firewall to block all outgoing connections by default. When OutboundConnectionsRequired and OutboundConnectionsBlocked are both true, OutboundConnectionsBlocked takes priority. This setting will get applied to Windows releases version 1809 and above. */
     private _outboundConnectionsBlocked?: boolean | undefined;
@@ -173,14 +172,14 @@ export class WindowsFirewallNetworkProfile implements AdditionalDataHolder, Pars
         this._incomingTrafficBlocked = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, EmailAuthenticationMethod} from '
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EmailAuthenticationMethodCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: EmailAuthenticationMethod[] | undefined;
     /**
      * Instantiates a new EmailAuthenticationMethodCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class EmailAuthenticationMethodCollectionResponse extends BaseCollectionP
         writer.writeCollectionOfObjectValues<EmailAuthenticationMethod>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a emailAuthenticationMethod
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: EmailAuthenticationMethod[] | undefined) {

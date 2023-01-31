@@ -14,7 +14,6 @@ export class AuditActor implements AdditionalDataHolder, Parsable {
     private _auditActorType?: string | undefined;
     /** IPAddress. */
     private _ipAddress?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Service Principal Name (SPN). */
     private _servicePrincipalName?: string | undefined;
@@ -118,14 +117,14 @@ export class AuditActor implements AdditionalDataHolder, Parsable {
         this._ipAddress = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

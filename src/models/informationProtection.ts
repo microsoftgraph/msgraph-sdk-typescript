@@ -6,11 +6,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class InformationProtection implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The bitlocker property */
     private _bitlocker?: Bitlocker | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The threatAssessmentRequests property */
     private _threatAssessmentRequests?: ThreatAssessmentRequest[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -27,14 +24,14 @@ export class InformationProtection implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the bitlocker property value. The bitlocker property
+     * Gets the bitlocker property value. 
      * @returns a bitlocker
      */
     public get bitlocker() {
         return this._bitlocker;
     };
     /**
-     * Sets the bitlocker property value. The bitlocker property
+     * Sets the bitlocker property value. 
      * @param value Value to set for the bitlocker property.
      */
     public set bitlocker(value: Bitlocker | undefined) {
@@ -58,14 +55,14 @@ export class InformationProtection implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -83,14 +80,14 @@ export class InformationProtection implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the threatAssessmentRequests property value. The threatAssessmentRequests property
+     * Gets the threatAssessmentRequests property value. 
      * @returns a threatAssessmentRequest
      */
     public get threatAssessmentRequests() {
         return this._threatAssessmentRequests;
     };
     /**
-     * Sets the threatAssessmentRequests property value. The threatAssessmentRequests property
+     * Sets the threatAssessmentRequests property value. 
      * @param value Value to set for the threatAssessmentRequests property.
      */
     public set threatAssessmentRequests(value: ThreatAssessmentRequest[] | undefined) {

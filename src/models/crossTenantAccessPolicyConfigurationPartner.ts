@@ -18,7 +18,6 @@ export class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDa
     private _inboundTrust?: CrossTenantAccessPolicyInboundTrust | undefined;
     /** Identifies whether the partner-specific configuration is a Cloud Service Provider for your organization. */
     private _isServiceProvider?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The tenant identifier for the partner Azure AD organization. Read-only. Key. */
     private _tenantId?: string | undefined;
@@ -143,14 +142,14 @@ export class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDa
         this._isServiceProvider = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

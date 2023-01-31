@@ -4,7 +4,6 @@ import {EdiscoveryEstimateOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EdiscoveryEstimateOperationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: EdiscoveryEstimateOperation[] | undefined;
     /**
      * Instantiates a new EdiscoveryEstimateOperationCollectionResponse and sets the default values.
@@ -31,14 +30,14 @@ export class EdiscoveryEstimateOperationCollectionResponse extends BaseCollectio
         writer.writeCollectionOfObjectValues<EdiscoveryEstimateOperation>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a ediscoveryEstimateOperation
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: EdiscoveryEstimateOperation[] | undefined) {

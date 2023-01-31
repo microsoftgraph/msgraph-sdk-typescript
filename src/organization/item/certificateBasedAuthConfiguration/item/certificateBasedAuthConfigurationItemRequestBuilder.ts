@@ -17,14 +17,16 @@ export class CertificateBasedAuthConfigurationItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new CertificateBasedAuthConfigurationItemRequestBuilder and sets the default values.
+     * @param certificateBasedAuthConfigurationId key: id of certificateBasedAuthConfiguration
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, certificateBasedAuthConfigurationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/organization/{organization%2Did}/certificateBasedAuthConfiguration/{certificateBasedAuthConfiguration%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["certificateBasedAuthConfiguration%2Did"] = certificateBasedAuthConfigurationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

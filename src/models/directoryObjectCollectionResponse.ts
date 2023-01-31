@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, DirectoryObject} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DirectoryObjectCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: DirectoryObject[] | undefined;
     /**
      * Instantiates a new DirectoryObjectCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class DirectoryObjectCollectionResponse extends BaseCollectionPaginationC
         writer.writeCollectionOfObjectValues<DirectoryObject>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a directoryObject
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: DirectoryObject[] | undefined) {

@@ -3,40 +3,48 @@ import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../
 import {createDirectoryObjectFromDiscriminatorValue} from '../../models/createDirectoryObjectFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {ApplicationRequestBuilder} from './application/applicationRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeletedItemsRequestBuilderGetRequestConfiguration} from './deletedItemsRequestBuilderGetRequestConfiguration';
 import {DeletedItemsRequestBuilderPostRequestConfiguration} from './deletedItemsRequestBuilderPostRequestConfiguration';
-import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
-import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
-import {GroupRequestBuilder} from './group/groupRequestBuilder';
-import {UserRequestBuilder} from './user/userRequestBuilder';
-import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
+import {ApplicationRequestBuilder} from './microsoftGraphApplication/applicationRequestBuilder';
+import {GetAvailableExtensionPropertiesRequestBuilder} from './microsoftGraphGetAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
+import {GetByIdsRequestBuilder} from './microsoftGraphGetByIds/getByIdsRequestBuilder';
+import {GroupRequestBuilder} from './microsoftGraphGroup/groupRequestBuilder';
+import {UserRequestBuilder} from './microsoftGraphUser/userRequestBuilder';
+import {ValidatePropertiesRequestBuilder} from './microsoftGraphValidateProperties/validatePropertiesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
  */
 export class DeletedItemsRequestBuilder {
-    /** Casts the previous resource to application. */
-    public get application(): ApplicationRequestBuilder {
-        return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Casts the previous resource to application. */
+    public get microsoftGraphApplication(): ApplicationRequestBuilder {
+        return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the getAvailableExtensionProperties method. */
-    public get getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {
+    public get microsoftGraphGetAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {
         return new GetAvailableExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getByIds method. */
-    public get getByIds(): GetByIdsRequestBuilder {
+    public get microsoftGraphGetByIds(): GetByIdsRequestBuilder {
         return new GetByIdsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to group. */
-    public get group(): GroupRequestBuilder {
+    public get microsoftGraphGroup(): GroupRequestBuilder {
         return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Casts the previous resource to user. */
+    public get microsoftGraphUser(): UserRequestBuilder {
+        return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the validateProperties method. */
+    public get microsoftGraphValidateProperties(): ValidatePropertiesRequestBuilder {
+        return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -44,14 +52,6 @@ export class DeletedItemsRequestBuilder {
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
-    /** Casts the previous resource to user. */
-    public get user(): UserRequestBuilder {
-        return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the validateProperties method. */
-    public get validateProperties(): ValidatePropertiesRequestBuilder {
-        return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /**
      * Instantiates a new DeletedItemsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -83,7 +83,6 @@ export class DeletedItemsRequestBuilder {
     };
     /**
      * Create new navigation property to deletedItems for directory
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryObject
@@ -119,7 +118,6 @@ export class DeletedItemsRequestBuilder {
     };
     /**
      * Create new navigation property to deletedItems for directory
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

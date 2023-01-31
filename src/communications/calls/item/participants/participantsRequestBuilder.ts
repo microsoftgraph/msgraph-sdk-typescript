@@ -4,7 +4,7 @@ import {createParticipantFromDiscriminatorValue} from '../../../../models/create
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {InviteRequestBuilder} from './invite/inviteRequestBuilder';
+import {InviteRequestBuilder} from './microsoftGraphInvite/inviteRequestBuilder';
 import {ParticipantsRequestBuilderGetRequestConfiguration} from './participantsRequestBuilderGetRequestConfiguration';
 import {ParticipantsRequestBuilderPostRequestConfiguration} from './participantsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -18,7 +18,7 @@ export class ParticipantsRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the invite method. */
-    public get invite(): InviteRequestBuilder {
+    public get microsoftGraphInvite(): InviteRequestBuilder {
         return new InviteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
@@ -59,7 +59,6 @@ export class ParticipantsRequestBuilder {
     };
     /**
      * Create new navigation property to participants for communications
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Participant
@@ -95,7 +94,6 @@ export class ParticipantsRequestBuilder {
     };
     /**
      * Create new navigation property to participants for communications
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

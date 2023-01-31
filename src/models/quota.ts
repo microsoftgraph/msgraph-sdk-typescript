@@ -7,7 +7,6 @@ export class Quota implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Total space consumed by files in the recycle bin, in bytes. Read-only. */
     private _deleted?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Total space remaining before reaching the quota limit, in bytes. Read-only. */
     private _remaining?: number | undefined;
@@ -69,14 +68,14 @@ export class Quota implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

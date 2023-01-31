@@ -3,13 +3,9 @@ import {createIdentitySetFromDiscriminatorValue} from '../createIdentitySetFromD
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Tag extends Entity implements Parsable {
-    /** The createdBy property */
     private _createdBy?: IdentitySet | undefined;
-    /** The description property */
     private _description?: string | undefined;
-    /** The displayName property */
     private _displayName?: string | undefined;
-    /** The lastModifiedDateTime property */
     private _lastModifiedDateTime?: Date | undefined;
     /**
      * Instantiates a new tag and sets the default values.
@@ -18,42 +14,42 @@ export class Tag extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. 
      * @returns a identitySet
      */
     public get createdBy() {
         return this._createdBy;
     };
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. 
      * @param value Value to set for the createdBy property.
      */
     public set createdBy(value: IdentitySet | undefined) {
         this._createdBy = value;
     };
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. 
      * @returns a string
      */
     public get description() {
         return this._description;
     };
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. 
      * @param value Value to set for the description property.
      */
     public set description(value: string | undefined) {
         this._description = value;
     };
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. 
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. 
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -72,14 +68,14 @@ export class Tag extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. 
      * @returns a Date
      */
     public get lastModifiedDateTime() {
         return this._lastModifiedDateTime;
     };
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. 
      * @param value Value to set for the lastModifiedDateTime property.
      */
     public set lastModifiedDateTime(value: Date | undefined) {

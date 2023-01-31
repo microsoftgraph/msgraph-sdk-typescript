@@ -9,11 +9,9 @@ export class SearchHit implements AdditionalDataHolder, Parsable {
     private _contentSource?: string | undefined;
     /** The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format. */
     private _hitId?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The rank or the order of the result. */
     private _rank?: number | undefined;
-    /** The resource property */
     private _resource?: Entity | undefined;
     /** ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse. */
     private _resultTemplateId?: string | undefined;
@@ -83,14 +81,14 @@ export class SearchHit implements AdditionalDataHolder, Parsable {
         this._hitId = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -111,14 +109,14 @@ export class SearchHit implements AdditionalDataHolder, Parsable {
         this._rank = value;
     };
     /**
-     * Gets the resource property value. The resource property
+     * Gets the resource property value. 
      * @returns a entity
      */
     public get resource() {
         return this._resource;
     };
     /**
-     * Sets the resource property value. The resource property
+     * Sets the resource property value. 
      * @param value Value to set for the resource property.
      */
     public set resource(value: Entity | undefined) {

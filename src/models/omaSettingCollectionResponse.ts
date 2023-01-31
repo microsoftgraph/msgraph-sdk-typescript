@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, OmaSetting} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OmaSettingCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: OmaSetting[] | undefined;
     /**
      * Instantiates a new OmaSettingCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class OmaSettingCollectionResponse extends BaseCollectionPaginationCountR
         writer.writeCollectionOfObjectValues<OmaSetting>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a omaSetting
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: OmaSetting[] | undefined) {

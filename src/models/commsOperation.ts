@@ -8,7 +8,6 @@ export class CommsOperation extends Entity implements Parsable {
     private _clientContext?: string | undefined;
     /** The result information. Read-only. */
     private _resultInfo?: ResultInfo | undefined;
-    /** The status property */
     private _status?: OperationStatus | undefined;
     /**
      * Gets the clientContext property value. Unique Client Context string. Max limit is 256 chars.
@@ -67,14 +66,14 @@ export class CommsOperation extends Entity implements Parsable {
         writer.writeEnumValue<OperationStatus>("status", this.status);
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. 
      * @returns a operationStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. 
      * @param value Value to set for the status property.
      */
     public set status(value: OperationStatus | undefined) {

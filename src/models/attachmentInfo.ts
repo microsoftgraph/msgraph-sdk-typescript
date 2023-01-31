@@ -4,15 +4,10 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AttachmentInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The attachmentType property */
     private _attachmentType?: AttachmentType | undefined;
-    /** The contentType property */
     private _contentType?: string | undefined;
-    /** The name property */
     private _name?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The size property */
     private _size?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,14 +24,14 @@ export class AttachmentInfo implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the attachmentType property value. The attachmentType property
+     * Gets the attachmentType property value. 
      * @returns a attachmentType
      */
     public get attachmentType() {
         return this._attachmentType;
     };
     /**
-     * Sets the attachmentType property value. The attachmentType property
+     * Sets the attachmentType property value. 
      * @param value Value to set for the attachmentType property.
      */
     public set attachmentType(value: AttachmentType | undefined) {
@@ -49,14 +44,14 @@ export class AttachmentInfo implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the contentType property value. The contentType property
+     * Gets the contentType property value. 
      * @returns a string
      */
     public get contentType() {
         return this._contentType;
     };
     /**
-     * Sets the contentType property value. The contentType property
+     * Sets the contentType property value. 
      * @param value Value to set for the contentType property.
      */
     public set contentType(value: string | undefined) {
@@ -76,28 +71,28 @@ export class AttachmentInfo implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. 
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. 
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {
         this._name = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -117,14 +112,14 @@ export class AttachmentInfo implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the size property value. The size property
+     * Gets the size property value. 
      * @returns a int64
      */
     public get size() {
         return this._size;
     };
     /**
-     * Sets the size property value. The size property
+     * Sets the size property value. 
      * @param value Value to set for the size property.
      */
     public set size(value: number | undefined) {

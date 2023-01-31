@@ -7,10 +7,10 @@ import {ChatMessageItemRequestBuilderGetRequestConfiguration} from './chatMessag
 import {ChatMessageItemRequestBuilderPatchRequestConfiguration} from './chatMessageItemRequestBuilderPatchRequestConfiguration';
 import {HostedContentsRequestBuilder} from './hostedContents/hostedContentsRequestBuilder';
 import {ChatMessageHostedContentItemRequestBuilder} from './hostedContents/item/chatMessageHostedContentItemRequestBuilder';
+import {SoftDeleteRequestBuilder} from './microsoftGraphSoftDelete/softDeleteRequestBuilder';
+import {UndoSoftDeleteRequestBuilder} from './microsoftGraphUndoSoftDelete/undoSoftDeleteRequestBuilder';
 import {ChatMessageItemRequestBuilder as I62a6ac2517fafde401867e60462105c94875dfcbe3a9cd3ff4d908d53e2e806e} from './replies/item/chatMessageItemRequestBuilder';
 import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
-import {SoftDeleteRequestBuilder} from './softDelete/softDeleteRequestBuilder';
-import {UndoSoftDeleteRequestBuilder} from './undoSoftDelete/undoSoftDeleteRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -21,6 +21,14 @@ export class ChatMessageItemRequestBuilder {
     public get hostedContents(): HostedContentsRequestBuilder {
         return new HostedContentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the softDelete method. */
+    public get microsoftGraphSoftDelete(): SoftDeleteRequestBuilder {
+        return new SoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the undoSoftDelete method. */
+    public get microsoftGraphUndoSoftDelete(): UndoSoftDeleteRequestBuilder {
+        return new UndoSoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the replies property of the microsoft.graph.chatMessage entity. */
@@ -29,26 +37,20 @@ export class ChatMessageItemRequestBuilder {
     }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the softDelete method. */
-    public get softDelete(): SoftDeleteRequestBuilder {
-        return new SoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the undoSoftDelete method. */
-    public get undoSoftDelete(): UndoSoftDeleteRequestBuilder {
-        return new UndoSoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new ChatMessageItemRequestBuilder and sets the default values.
+     * @param chatMessageId key: id of chatMessage
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, chatMessageId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/messages/{chatMessage%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["chatMessage%2Did"] = chatMessageId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -96,7 +98,6 @@ export class ChatMessageItemRequestBuilder {
     };
     /**
      * Update the navigation property messages in users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessage
@@ -159,7 +160,6 @@ export class ChatMessageItemRequestBuilder {
     };
     /**
      * Update the navigation property messages in users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

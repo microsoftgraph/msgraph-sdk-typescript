@@ -19,12 +19,14 @@ export class TokenIssuancePolicyItemRequestBuilder {
      * Instantiates a new TokenIssuancePolicyItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param tokenIssuancePolicyId key: id of tokenIssuancePolicy
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, tokenIssuancePolicyId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/applications/{application%2Did}/tokenIssuancePolicies/{tokenIssuancePolicy%2Did}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["tokenIssuancePolicy%2Did"] = tokenIssuancePolicyId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

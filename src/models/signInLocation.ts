@@ -11,7 +11,6 @@ export class SignInLocation implements AdditionalDataHolder, Parsable {
     private _countryOrRegion?: string | undefined;
     /** Provides the latitude, longitude and altitude where the sign-in originated. */
     private _geoCoordinates?: GeoCoordinates | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity. */
     private _state?: string | undefined;
@@ -91,14 +90,14 @@ export class SignInLocation implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

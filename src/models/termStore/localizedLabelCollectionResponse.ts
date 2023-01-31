@@ -4,7 +4,6 @@ import {LocalizedLabel} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LocalizedLabelCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: LocalizedLabel[] | undefined;
     /**
      * Instantiates a new LocalizedLabelCollectionResponse and sets the default values.
@@ -31,14 +30,14 @@ export class LocalizedLabelCollectionResponse extends BaseCollectionPaginationCo
         writer.writeCollectionOfObjectValues<LocalizedLabel>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a localizedLabel
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: LocalizedLabel[] | undefined) {

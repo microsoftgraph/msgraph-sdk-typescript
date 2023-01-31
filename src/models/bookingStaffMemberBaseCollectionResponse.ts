@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, BookingStaffMemberBase} from './i
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BookingStaffMemberBaseCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: BookingStaffMemberBase[] | undefined;
     /**
      * Instantiates a new BookingStaffMemberBaseCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class BookingStaffMemberBaseCollectionResponse extends BaseCollectionPagi
         writer.writeCollectionOfObjectValues<BookingStaffMemberBase>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a bookingStaffMemberBase
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: BookingStaffMemberBase[] | undefined) {

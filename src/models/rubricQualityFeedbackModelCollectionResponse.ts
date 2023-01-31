@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, RubricQualityFeedbackModel} from 
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RubricQualityFeedbackModelCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: RubricQualityFeedbackModel[] | undefined;
     /**
      * Instantiates a new RubricQualityFeedbackModelCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class RubricQualityFeedbackModelCollectionResponse extends BaseCollection
         writer.writeCollectionOfObjectValues<RubricQualityFeedbackModel>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a rubricQualityFeedbackModel
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: RubricQualityFeedbackModel[] | undefined) {

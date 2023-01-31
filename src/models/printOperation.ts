@@ -5,7 +5,6 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class PrintOperation extends Entity implements Parsable {
     /** The DateTimeOffset when the operation was created. Read-only. */
     private _createdDateTime?: Date | undefined;
-    /** The status property */
     private _status?: PrintOperationStatus | undefined;
     /**
      * Instantiates a new PrintOperation and sets the default values.
@@ -48,14 +47,14 @@ export class PrintOperation extends Entity implements Parsable {
         writer.writeObjectValue<PrintOperationStatus>("status", this.status);
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. 
      * @returns a printOperationStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. 
      * @param value Value to set for the status property.
      */
     public set status(value: PrintOperationStatus | undefined) {

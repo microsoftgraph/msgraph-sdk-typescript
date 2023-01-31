@@ -9,7 +9,6 @@ export class SubjectRightsRequestStageDetail implements AdditionalDataHolder, Pa
     private _additionalData: Record<string, unknown>;
     /** Describes the error, if any, for the current stage. */
     private _error_escaped?: PublicError | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue. */
     private _stage?: SubjectRightsRequestStage | undefined;
@@ -62,14 +61,14 @@ export class SubjectRightsRequestStageDetail implements AdditionalDataHolder, Pa
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

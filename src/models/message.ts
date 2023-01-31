@@ -34,43 +34,26 @@ export class Message extends OutlookItem implements Parsable {
     private _from?: Recipient | undefined;
     /** Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>. */
     private _hasAttachments?: boolean | undefined;
-    /** The importance property */
     private _importance?: Importance | undefined;
-    /** The inferenceClassification property */
     private _inferenceClassification?: InferenceClassificationType | undefined;
-    /** The internetMessageHeaders property */
     private _internetMessageHeaders?: InternetMessageHeader[] | undefined;
-    /** The internetMessageId property */
     private _internetMessageId?: string | undefined;
-    /** The isDeliveryReceiptRequested property */
     private _isDeliveryReceiptRequested?: boolean | undefined;
-    /** The isDraft property */
     private _isDraft?: boolean | undefined;
-    /** The isRead property */
     private _isRead?: boolean | undefined;
-    /** The isReadReceiptRequested property */
     private _isReadReceiptRequested?: boolean | undefined;
     /** The collection of multi-value extended properties defined for the message. Nullable. */
     private _multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
-    /** The parentFolderId property */
     private _parentFolderId?: string | undefined;
-    /** The receivedDateTime property */
     private _receivedDateTime?: Date | undefined;
-    /** The replyTo property */
     private _replyTo?: Recipient[] | undefined;
-    /** The sender property */
     private _sender?: Recipient | undefined;
-    /** The sentDateTime property */
     private _sentDateTime?: Date | undefined;
     /** The collection of single-value extended properties defined for the message. Nullable. */
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
-    /** The subject property */
     private _subject?: string | undefined;
-    /** The toRecipients property */
     private _toRecipients?: Recipient[] | undefined;
-    /** The uniqueBody property */
     private _uniqueBody?: ItemBody | undefined;
-    /** The webLink property */
     private _webLink?: string | undefined;
     /**
      * Gets the attachments property value. The fileAttachment and itemAttachment attachments for the message.
@@ -272,112 +255,112 @@ export class Message extends OutlookItem implements Parsable {
         this._hasAttachments = value;
     };
     /**
-     * Gets the importance property value. The importance property
+     * Gets the importance property value. 
      * @returns a importance
      */
     public get importance() {
         return this._importance;
     };
     /**
-     * Sets the importance property value. The importance property
+     * Sets the importance property value. 
      * @param value Value to set for the importance property.
      */
     public set importance(value: Importance | undefined) {
         this._importance = value;
     };
     /**
-     * Gets the inferenceClassification property value. The inferenceClassification property
+     * Gets the inferenceClassification property value. 
      * @returns a inferenceClassificationType
      */
     public get inferenceClassification() {
         return this._inferenceClassification;
     };
     /**
-     * Sets the inferenceClassification property value. The inferenceClassification property
+     * Sets the inferenceClassification property value. 
      * @param value Value to set for the inferenceClassification property.
      */
     public set inferenceClassification(value: InferenceClassificationType | undefined) {
         this._inferenceClassification = value;
     };
     /**
-     * Gets the internetMessageHeaders property value. The internetMessageHeaders property
+     * Gets the internetMessageHeaders property value. 
      * @returns a internetMessageHeader
      */
     public get internetMessageHeaders() {
         return this._internetMessageHeaders;
     };
     /**
-     * Sets the internetMessageHeaders property value. The internetMessageHeaders property
+     * Sets the internetMessageHeaders property value. 
      * @param value Value to set for the internetMessageHeaders property.
      */
     public set internetMessageHeaders(value: InternetMessageHeader[] | undefined) {
         this._internetMessageHeaders = value;
     };
     /**
-     * Gets the internetMessageId property value. The internetMessageId property
+     * Gets the internetMessageId property value. 
      * @returns a string
      */
     public get internetMessageId() {
         return this._internetMessageId;
     };
     /**
-     * Sets the internetMessageId property value. The internetMessageId property
+     * Sets the internetMessageId property value. 
      * @param value Value to set for the internetMessageId property.
      */
     public set internetMessageId(value: string | undefined) {
         this._internetMessageId = value;
     };
     /**
-     * Gets the isDeliveryReceiptRequested property value. The isDeliveryReceiptRequested property
+     * Gets the isDeliveryReceiptRequested property value. 
      * @returns a boolean
      */
     public get isDeliveryReceiptRequested() {
         return this._isDeliveryReceiptRequested;
     };
     /**
-     * Sets the isDeliveryReceiptRequested property value. The isDeliveryReceiptRequested property
+     * Sets the isDeliveryReceiptRequested property value. 
      * @param value Value to set for the isDeliveryReceiptRequested property.
      */
     public set isDeliveryReceiptRequested(value: boolean | undefined) {
         this._isDeliveryReceiptRequested = value;
     };
     /**
-     * Gets the isDraft property value. The isDraft property
+     * Gets the isDraft property value. 
      * @returns a boolean
      */
     public get isDraft() {
         return this._isDraft;
     };
     /**
-     * Sets the isDraft property value. The isDraft property
+     * Sets the isDraft property value. 
      * @param value Value to set for the isDraft property.
      */
     public set isDraft(value: boolean | undefined) {
         this._isDraft = value;
     };
     /**
-     * Gets the isRead property value. The isRead property
+     * Gets the isRead property value. 
      * @returns a boolean
      */
     public get isRead() {
         return this._isRead;
     };
     /**
-     * Sets the isRead property value. The isRead property
+     * Sets the isRead property value. 
      * @param value Value to set for the isRead property.
      */
     public set isRead(value: boolean | undefined) {
         this._isRead = value;
     };
     /**
-     * Gets the isReadReceiptRequested property value. The isReadReceiptRequested property
+     * Gets the isReadReceiptRequested property value. 
      * @returns a boolean
      */
     public get isReadReceiptRequested() {
         return this._isReadReceiptRequested;
     };
     /**
-     * Sets the isReadReceiptRequested property value. The isReadReceiptRequested property
+     * Sets the isReadReceiptRequested property value. 
      * @param value Value to set for the isReadReceiptRequested property.
      */
     public set isReadReceiptRequested(value: boolean | undefined) {
@@ -398,70 +381,70 @@ export class Message extends OutlookItem implements Parsable {
         this._multiValueExtendedProperties = value;
     };
     /**
-     * Gets the parentFolderId property value. The parentFolderId property
+     * Gets the parentFolderId property value. 
      * @returns a string
      */
     public get parentFolderId() {
         return this._parentFolderId;
     };
     /**
-     * Sets the parentFolderId property value. The parentFolderId property
+     * Sets the parentFolderId property value. 
      * @param value Value to set for the parentFolderId property.
      */
     public set parentFolderId(value: string | undefined) {
         this._parentFolderId = value;
     };
     /**
-     * Gets the receivedDateTime property value. The receivedDateTime property
+     * Gets the receivedDateTime property value. 
      * @returns a Date
      */
     public get receivedDateTime() {
         return this._receivedDateTime;
     };
     /**
-     * Sets the receivedDateTime property value. The receivedDateTime property
+     * Sets the receivedDateTime property value. 
      * @param value Value to set for the receivedDateTime property.
      */
     public set receivedDateTime(value: Date | undefined) {
         this._receivedDateTime = value;
     };
     /**
-     * Gets the replyTo property value. The replyTo property
+     * Gets the replyTo property value. 
      * @returns a recipient
      */
     public get replyTo() {
         return this._replyTo;
     };
     /**
-     * Sets the replyTo property value. The replyTo property
+     * Sets the replyTo property value. 
      * @param value Value to set for the replyTo property.
      */
     public set replyTo(value: Recipient[] | undefined) {
         this._replyTo = value;
     };
     /**
-     * Gets the sender property value. The sender property
+     * Gets the sender property value. 
      * @returns a recipient
      */
     public get sender() {
         return this._sender;
     };
     /**
-     * Sets the sender property value. The sender property
+     * Sets the sender property value. 
      * @param value Value to set for the sender property.
      */
     public set sender(value: Recipient | undefined) {
         this._sender = value;
     };
     /**
-     * Gets the sentDateTime property value. The sentDateTime property
+     * Gets the sentDateTime property value. 
      * @returns a Date
      */
     public get sentDateTime() {
         return this._sentDateTime;
     };
     /**
-     * Sets the sentDateTime property value. The sentDateTime property
+     * Sets the sentDateTime property value. 
      * @param value Value to set for the sentDateTime property.
      */
     public set sentDateTime(value: Date | undefined) {
@@ -520,56 +503,56 @@ export class Message extends OutlookItem implements Parsable {
         this._singleValueExtendedProperties = value;
     };
     /**
-     * Gets the subject property value. The subject property
+     * Gets the subject property value. 
      * @returns a string
      */
     public get subject() {
         return this._subject;
     };
     /**
-     * Sets the subject property value. The subject property
+     * Sets the subject property value. 
      * @param value Value to set for the subject property.
      */
     public set subject(value: string | undefined) {
         this._subject = value;
     };
     /**
-     * Gets the toRecipients property value. The toRecipients property
+     * Gets the toRecipients property value. 
      * @returns a recipient
      */
     public get toRecipients() {
         return this._toRecipients;
     };
     /**
-     * Sets the toRecipients property value. The toRecipients property
+     * Sets the toRecipients property value. 
      * @param value Value to set for the toRecipients property.
      */
     public set toRecipients(value: Recipient[] | undefined) {
         this._toRecipients = value;
     };
     /**
-     * Gets the uniqueBody property value. The uniqueBody property
+     * Gets the uniqueBody property value. 
      * @returns a itemBody
      */
     public get uniqueBody() {
         return this._uniqueBody;
     };
     /**
-     * Sets the uniqueBody property value. The uniqueBody property
+     * Sets the uniqueBody property value. 
      * @param value Value to set for the uniqueBody property.
      */
     public set uniqueBody(value: ItemBody | undefined) {
         this._uniqueBody = value;
     };
     /**
-     * Gets the webLink property value. The webLink property
+     * Gets the webLink property value. 
      * @returns a string
      */
     public get webLink() {
         return this._webLink;
     };
     /**
-     * Sets the webLink property value. The webLink property
+     * Sets the webLink property value. 
      * @param value Value to set for the webLink property.
      */
     public set webLink(value: string | undefined) {

@@ -3,7 +3,6 @@ import {AttendanceInterval, BaseCollectionPaginationCountResponse} from './index
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AttendanceIntervalCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AttendanceInterval[] | undefined;
     /**
      * Instantiates a new AttendanceIntervalCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AttendanceIntervalCollectionResponse extends BaseCollectionPaginati
         writer.writeCollectionOfObjectValues<AttendanceInterval>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a attendanceInterval
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AttendanceInterval[] | undefined) {

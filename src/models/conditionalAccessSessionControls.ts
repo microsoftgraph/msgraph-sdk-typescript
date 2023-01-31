@@ -14,7 +14,6 @@ export class ConditionalAccessSessionControls implements AdditionalDataHolder, P
     private _cloudAppSecurity?: CloudAppSecuritySessionControl | undefined;
     /** Session control that determines whether it is acceptable for Azure AD to extend existing sessions based on information collected prior to an outage or not. */
     private _disableResilienceDefaults?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly. */
     private _persistentBrowser?: PersistentBrowserSessionControl | undefined;
@@ -97,14 +96,14 @@ export class ConditionalAccessSessionControls implements AdditionalDataHolder, P
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

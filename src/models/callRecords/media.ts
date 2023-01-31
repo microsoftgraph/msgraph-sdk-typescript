@@ -17,7 +17,6 @@ export class Media implements AdditionalDataHolder, Parsable {
     private _callerNetwork?: NetworkInfo | undefined;
     /** How the media was identified during media negotiation stage. */
     private _label?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Network streams associated with this media. */
     private _streams?: MediaStream[] | undefined;
@@ -127,14 +126,14 @@ export class Media implements AdditionalDataHolder, Parsable {
         this._label = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -8,7 +8,6 @@ export class AttackSimulationTrainingUserCoverage implements AdditionalDataHolde
     private _additionalData: Record<string, unknown>;
     /** User in an attack simulation and training campaign. */
     private _attackSimulationUser?: AttackSimulationUser | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** List of assigned trainings and their statuses for the user. */
     private _userTrainings?: UserTrainingStatusInfo[] | undefined;
@@ -58,14 +57,14 @@ export class AttackSimulationTrainingUserCoverage implements AdditionalDataHolde
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

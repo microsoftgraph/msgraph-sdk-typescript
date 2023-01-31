@@ -6,11 +6,9 @@ export class AuthenticationMethodsRegistrationCampaignIncludeTarget implements A
     private _additionalData: Record<string, unknown>;
     /** The object identifier of an Azure Active Directory user or group. */
     private _id?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The authentication method that the user is prompted to register. The value must be microsoftAuthenticator. */
     private _targetedAuthenticationMethod?: string | undefined;
-    /** The targetType property */
     private _targetType?: AuthenticationMethodTargetType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -59,14 +57,14 @@ export class AuthenticationMethodsRegistrationCampaignIncludeTarget implements A
         this._id = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -99,14 +97,14 @@ export class AuthenticationMethodsRegistrationCampaignIncludeTarget implements A
         this._targetedAuthenticationMethod = value;
     };
     /**
-     * Gets the targetType property value. The targetType property
+     * Gets the targetType property value. 
      * @returns a authenticationMethodTargetType
      */
     public get targetType() {
         return this._targetType;
     };
     /**
-     * Sets the targetType property value. The targetType property
+     * Sets the targetType property value. 
      * @param value Value to set for the targetType property.
      */
     public set targetType(value: AuthenticationMethodTargetType | undefined) {

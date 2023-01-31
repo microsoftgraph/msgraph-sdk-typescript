@@ -10,11 +10,9 @@ export class ParticipantInfo implements AdditionalDataHolder, Parsable {
     private _countryCode?: string | undefined;
     /** The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only. */
     private _endpointType?: EndpointType | undefined;
-    /** The identity property */
     private _identity?: IdentitySet | undefined;
     /** The language culture string. Read-only. */
     private _languageId?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The participant ID of the participant. Read-only. */
     private _participantId?: string | undefined;
@@ -84,14 +82,14 @@ export class ParticipantInfo implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the identity property value. The identity property
+     * Gets the identity property value. 
      * @returns a identitySet
      */
     public get identity() {
         return this._identity;
     };
     /**
-     * Sets the identity property value. The identity property
+     * Sets the identity property value. 
      * @param value Value to set for the identity property.
      */
     public set identity(value: IdentitySet | undefined) {
@@ -112,14 +110,14 @@ export class ParticipantInfo implements AdditionalDataHolder, Parsable {
         this._languageId = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

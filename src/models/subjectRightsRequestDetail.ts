@@ -13,7 +13,6 @@ export class SubjectRightsRequestDetail implements AdditionalDataHolder, Parsabl
     private _itemCount?: number | undefined;
     /** Count of item that need review. */
     private _itemNeedReview?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Count of items per product, such as Exchange, SharePoint, OneDrive, and Teams. */
     private _productItemCounts?: KeyValuePair[] | undefined;
@@ -114,14 +113,14 @@ export class SubjectRightsRequestDetail implements AdditionalDataHolder, Parsabl
         this._itemNeedReview = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

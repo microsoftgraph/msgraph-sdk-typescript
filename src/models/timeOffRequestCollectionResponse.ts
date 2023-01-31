@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, TimeOffRequest} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TimeOffRequestCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: TimeOffRequest[] | undefined;
     /**
      * Instantiates a new TimeOffRequestCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class TimeOffRequestCollectionResponse extends BaseCollectionPaginationCo
         writer.writeCollectionOfObjectValues<TimeOffRequest>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a timeOffRequest
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: TimeOffRequest[] | undefined) {

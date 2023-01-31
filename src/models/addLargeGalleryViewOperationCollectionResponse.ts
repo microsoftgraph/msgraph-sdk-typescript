@@ -3,7 +3,6 @@ import {AddLargeGalleryViewOperation, BaseCollectionPaginationCountResponse} fro
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AddLargeGalleryViewOperationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AddLargeGalleryViewOperation[] | undefined;
     /**
      * Instantiates a new AddLargeGalleryViewOperationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AddLargeGalleryViewOperationCollectionResponse extends BaseCollecti
         writer.writeCollectionOfObjectValues<AddLargeGalleryViewOperation>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a addLargeGalleryViewOperation
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AddLargeGalleryViewOperation[] | undefined) {

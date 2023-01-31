@@ -10,13 +10,11 @@ export class BucketAggregationDefinition implements AdditionalDataHolder, Parsab
     private _isDescending?: boolean | undefined;
     /** The minimum number of items that should be present in the aggregation to be returned in a bucket. Optional. */
     private _minimumCount?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** A filter to define a matching criteria. The key should start with the specified prefix to be returned in the response. Optional. */
     private _prefixFilter?: string | undefined;
     /** Specifies the manual ranges to compute the aggregations. This is only valid for non-string refiners of date or numeric type. Optional. */
     private _ranges?: BucketAggregationRange[] | undefined;
-    /** The sortBy property */
     private _sortBy?: BucketAggregationSortProperty | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -81,14 +79,14 @@ export class BucketAggregationDefinition implements AdditionalDataHolder, Parsab
         this._minimumCount = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -137,14 +135,14 @@ export class BucketAggregationDefinition implements AdditionalDataHolder, Parsab
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the sortBy property value. The sortBy property
+     * Gets the sortBy property value. 
      * @returns a bucketAggregationSortProperty
      */
     public get sortBy() {
         return this._sortBy;
     };
     /**
-     * Sets the sortBy property value. The sortBy property
+     * Sets the sortBy property value. 
      * @param value Value to set for the sortBy property.
      */
     public set sortBy(value: BucketAggregationSortProperty | undefined) {

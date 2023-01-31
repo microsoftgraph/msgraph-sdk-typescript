@@ -5,7 +5,6 @@ export class Hashes implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The CRC32 value of the file in little endian (if available). Read-only. */
     private _crc32Hash?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** A proprietary hash of the file that can be used to determine if the contents of the file have changed (if available). Read-only. */
     private _quickXorHash?: string | undefined;
@@ -61,14 +60,14 @@ export class Hashes implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

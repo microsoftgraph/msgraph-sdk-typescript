@@ -6,7 +6,7 @@ import {AssociatedTeamsRequestBuilder} from './associatedTeams/associatedTeamsRe
 import {AssociatedTeamInfoItemRequestBuilder} from './associatedTeams/item/associatedTeamInfoItemRequestBuilder';
 import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
 import {UserScopeTeamsAppInstallationItemRequestBuilder} from './installedApps/item/userScopeTeamsAppInstallationItemRequestBuilder';
-import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
+import {SendActivityNotificationRequestBuilder} from './microsoftGraphSendActivityNotification/sendActivityNotificationRequestBuilder';
 import {TeamworkRequestBuilderDeleteRequestConfiguration} from './teamworkRequestBuilderDeleteRequestConfiguration';
 import {TeamworkRequestBuilderGetRequestConfiguration} from './teamworkRequestBuilderGetRequestConfiguration';
 import {TeamworkRequestBuilderPatchRequestConfiguration} from './teamworkRequestBuilderPatchRequestConfiguration';
@@ -24,14 +24,14 @@ export class TeamworkRequestBuilder {
     public get installedApps(): InstalledAppsRequestBuilder {
         return new InstalledAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the sendActivityNotification method. */
+    public get microsoftGraphSendActivityNotification(): SendActivityNotificationRequestBuilder {
+        return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the sendActivityNotification method. */
-    public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
-        return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
@@ -102,7 +102,6 @@ export class TeamworkRequestBuilder {
     };
     /**
      * Update the navigation property teamwork in users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserTeamwork
@@ -154,7 +153,6 @@ export class TeamworkRequestBuilder {
     };
     /**
      * Update the navigation property teamwork in users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

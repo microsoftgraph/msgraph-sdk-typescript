@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, Domain} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DomainCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: Domain[] | undefined;
     /**
      * Instantiates a new DomainCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class DomainCollectionResponse extends BaseCollectionPaginationCountRespo
         writer.writeCollectionOfObjectValues<Domain>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a domain
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Domain[] | undefined) {

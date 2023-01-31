@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, UnifiedApprovalStage} from './ind
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedApprovalStageCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: UnifiedApprovalStage[] | undefined;
     /**
      * Instantiates a new UnifiedApprovalStageCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class UnifiedApprovalStageCollectionResponse extends BaseCollectionPagina
         writer.writeCollectionOfObjectValues<UnifiedApprovalStage>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a unifiedApprovalStage
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: UnifiedApprovalStage[] | undefined) {

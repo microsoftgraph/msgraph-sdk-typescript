@@ -12,13 +12,14 @@ import {createOptionalClaimsFromDiscriminatorValue} from './createOptionalClaims
 import {createParentalControlSettingsFromDiscriminatorValue} from './createParentalControlSettingsFromDiscriminatorValue';
 import {createPasswordCredentialFromDiscriminatorValue} from './createPasswordCredentialFromDiscriminatorValue';
 import {createPublicClientApplicationFromDiscriminatorValue} from './createPublicClientApplicationFromDiscriminatorValue';
+import {createRequestSignatureVerificationFromDiscriminatorValue} from './createRequestSignatureVerificationFromDiscriminatorValue';
 import {createRequiredResourceAccessFromDiscriminatorValue} from './createRequiredResourceAccessFromDiscriminatorValue';
 import {createSpaApplicationFromDiscriminatorValue} from './createSpaApplicationFromDiscriminatorValue';
 import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssuancePolicyFromDiscriminatorValue';
 import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
 import {createVerifiedPublisherFromDiscriminatorValue} from './createVerifiedPublisherFromDiscriminatorValue';
 import {createWebApplicationFromDiscriminatorValue} from './createWebApplicationFromDiscriminatorValue';
-import {AddIn, ApiApplication, AppRole, Certification, DirectoryObject, ExtensionProperty, FederatedIdentityCredential, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OptionalClaims, ParentalControlSettings, PasswordCredential, PublicClientApplication, RequiredResourceAccess, SpaApplication, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher, WebApplication} from './index';
+import {AddIn, ApiApplication, AppRole, Certification, DirectoryObject, ExtensionProperty, FederatedIdentityCredential, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OptionalClaims, ParentalControlSettings, PasswordCredential, PublicClientApplication, RequestSignatureVerification, RequiredResourceAccess, SpaApplication, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher, WebApplication} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Application extends DirectoryObject implements Parsable {
@@ -38,7 +39,6 @@ export class Application extends DirectoryObject implements Parsable {
     private _createdDateTime?: Date | undefined;
     /** Supports $filter (/$count eq 0, /$count ne 0). Read-only. */
     private _createdOnBehalfOf?: DirectoryObject | undefined;
-    /** The defaultRedirectUri property */
     private _defaultRedirectUri?: string | undefined;
     /** Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search. */
     private _description?: string | undefined;
@@ -52,7 +52,6 @@ export class Application extends DirectoryObject implements Parsable {
     private _federatedIdentityCredentials?: FederatedIdentityCredential[] | undefined;
     /** Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following valid string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of). */
     private _groupMembershipClaims?: string | undefined;
-    /** The homeRealmDiscoveryPolicies property */
     private _homeRealmDiscoveryPolicies?: HomeRealmDiscoveryPolicy[] | undefined;
     /** Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form api://<application-client-id>, or specify a more readable URI like https://contoso.com/api. For more information on valid identifierUris patterns and best practices, see Azure AD application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith). */
     private _identifierUris?: string[] | undefined;
@@ -68,7 +67,6 @@ export class Application extends DirectoryObject implements Parsable {
     private _logo?: string | undefined;
     /** Notes relevant for the management of the application. */
     private _notes?: string | undefined;
-    /** The oauth2RequirePostResponse property */
     private _oauth2RequirePostResponse?: boolean | undefined;
     /** Application developers can configure optional claims in their Azure AD applications to specify the claims that are sent to their application by the Microsoft security token service. For more information, see How to: Provide optional claims to your app. */
     private _optionalClaims?: OptionalClaims | undefined;
@@ -82,6 +80,7 @@ export class Application extends DirectoryObject implements Parsable {
     private _publicClient?: PublicClientApplication | undefined;
     /** The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application's publisher domain. Supports $filter (eq, ne, ge, le, startsWith). */
     private _publisherDomain?: string | undefined;
+    private _requestSignatureVerification?: RequestSignatureVerification | undefined;
     /** Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. For more information, see Limits on requested permissions per app. Not nullable. Supports $filter (eq, not, ge, le). */
     private _requiredResourceAccess?: RequiredResourceAccess[] | undefined;
     /** The URL where the service exposes SAML metadata for federation. This property is valid only for single-tenant applications. Nullable. */
@@ -96,9 +95,7 @@ export class Application extends DirectoryObject implements Parsable {
     private _tags?: string[] | undefined;
     /** Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key this property points to. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user. */
     private _tokenEncryptionKeyId?: string | undefined;
-    /** The tokenIssuancePolicies property */
     private _tokenIssuancePolicies?: TokenIssuancePolicy[] | undefined;
-    /** The tokenLifetimePolicies property */
     private _tokenLifetimePolicies?: TokenLifetimePolicy[] | undefined;
     /** Specifies the verified publisher of the application. For more information about how publisher verification helps support application security, trustworthiness, and compliance, see Publisher verification. */
     private _verifiedPublisher?: VerifiedPublisher | undefined;
@@ -224,14 +221,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._createdOnBehalfOf = value;
     };
     /**
-     * Gets the defaultRedirectUri property value. The defaultRedirectUri property
+     * Gets the defaultRedirectUri property value. 
      * @returns a string
      */
     public get defaultRedirectUri() {
         return this._defaultRedirectUri;
     };
     /**
-     * Sets the defaultRedirectUri property value. The defaultRedirectUri property
+     * Sets the defaultRedirectUri property value. 
      * @param value Value to set for the defaultRedirectUri property.
      */
     public set defaultRedirectUri(value: string | undefined) {
@@ -343,6 +340,7 @@ export class Application extends DirectoryObject implements Parsable {
             "passwordCredentials": n => { this.passwordCredentials = n.getCollectionOfObjectValues<PasswordCredential>(createPasswordCredentialFromDiscriminatorValue); },
             "publicClient": n => { this.publicClient = n.getObjectValue<PublicClientApplication>(createPublicClientApplicationFromDiscriminatorValue); },
             "publisherDomain": n => { this.publisherDomain = n.getStringValue(); },
+            "requestSignatureVerification": n => { this.requestSignatureVerification = n.getObjectValue<RequestSignatureVerification>(createRequestSignatureVerificationFromDiscriminatorValue); },
             "requiredResourceAccess": n => { this.requiredResourceAccess = n.getCollectionOfObjectValues<RequiredResourceAccess>(createRequiredResourceAccessFromDiscriminatorValue); },
             "samlMetadataUrl": n => { this.samlMetadataUrl = n.getStringValue(); },
             "serviceManagementReference": n => { this.serviceManagementReference = n.getStringValue(); },
@@ -371,14 +369,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._groupMembershipClaims = value;
     };
     /**
-     * Gets the homeRealmDiscoveryPolicies property value. The homeRealmDiscoveryPolicies property
+     * Gets the homeRealmDiscoveryPolicies property value. 
      * @returns a homeRealmDiscoveryPolicy
      */
     public get homeRealmDiscoveryPolicies() {
         return this._homeRealmDiscoveryPolicies;
     };
     /**
-     * Sets the homeRealmDiscoveryPolicies property value. The homeRealmDiscoveryPolicies property
+     * Sets the homeRealmDiscoveryPolicies property value. 
      * @param value Value to set for the homeRealmDiscoveryPolicies property.
      */
     public set homeRealmDiscoveryPolicies(value: HomeRealmDiscoveryPolicy[] | undefined) {
@@ -483,14 +481,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._notes = value;
     };
     /**
-     * Gets the oauth2RequirePostResponse property value. The oauth2RequirePostResponse property
+     * Gets the oauth2RequirePostResponse property value. 
      * @returns a boolean
      */
     public get oauth2RequirePostResponse() {
         return this._oauth2RequirePostResponse;
     };
     /**
-     * Sets the oauth2RequirePostResponse property value. The oauth2RequirePostResponse property
+     * Sets the oauth2RequirePostResponse property value. 
      * @param value Value to set for the oauth2RequirePostResponse property.
      */
     public set oauth2RequirePostResponse(value: boolean | undefined) {
@@ -581,6 +579,20 @@ export class Application extends DirectoryObject implements Parsable {
         this._publisherDomain = value;
     };
     /**
+     * Gets the requestSignatureVerification property value. 
+     * @returns a requestSignatureVerification
+     */
+    public get requestSignatureVerification() {
+        return this._requestSignatureVerification;
+    };
+    /**
+     * Sets the requestSignatureVerification property value. 
+     * @param value Value to set for the requestSignatureVerification property.
+     */
+    public set requestSignatureVerification(value: RequestSignatureVerification | undefined) {
+        this._requestSignatureVerification = value;
+    };
+    /**
      * Gets the requiredResourceAccess property value. Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. For more information, see Limits on requested permissions per app. Not nullable. Supports $filter (eq, not, ge, le).
      * @returns a requiredResourceAccess
      */
@@ -645,6 +657,7 @@ export class Application extends DirectoryObject implements Parsable {
         writer.writeCollectionOfObjectValues<PasswordCredential>("passwordCredentials", this.passwordCredentials);
         writer.writeObjectValue<PublicClientApplication>("publicClient", this.publicClient);
         writer.writeStringValue("publisherDomain", this.publisherDomain);
+        writer.writeObjectValue<RequestSignatureVerification>("requestSignatureVerification", this.requestSignatureVerification);
         writer.writeCollectionOfObjectValues<RequiredResourceAccess>("requiredResourceAccess", this.requiredResourceAccess);
         writer.writeStringValue("samlMetadataUrl", this.samlMetadataUrl);
         writer.writeStringValue("serviceManagementReference", this.serviceManagementReference);
@@ -728,28 +741,28 @@ export class Application extends DirectoryObject implements Parsable {
         this._tokenEncryptionKeyId = value;
     };
     /**
-     * Gets the tokenIssuancePolicies property value. The tokenIssuancePolicies property
+     * Gets the tokenIssuancePolicies property value. 
      * @returns a tokenIssuancePolicy
      */
     public get tokenIssuancePolicies() {
         return this._tokenIssuancePolicies;
     };
     /**
-     * Sets the tokenIssuancePolicies property value. The tokenIssuancePolicies property
+     * Sets the tokenIssuancePolicies property value. 
      * @param value Value to set for the tokenIssuancePolicies property.
      */
     public set tokenIssuancePolicies(value: TokenIssuancePolicy[] | undefined) {
         this._tokenIssuancePolicies = value;
     };
     /**
-     * Gets the tokenLifetimePolicies property value. The tokenLifetimePolicies property
+     * Gets the tokenLifetimePolicies property value. 
      * @returns a tokenLifetimePolicy
      */
     public get tokenLifetimePolicies() {
         return this._tokenLifetimePolicies;
     };
     /**
-     * Sets the tokenLifetimePolicies property value. The tokenLifetimePolicies property
+     * Sets the tokenLifetimePolicies property value. 
      * @param value Value to set for the tokenLifetimePolicies property.
      */
     public set tokenLifetimePolicies(value: TokenLifetimePolicy[] | undefined) {

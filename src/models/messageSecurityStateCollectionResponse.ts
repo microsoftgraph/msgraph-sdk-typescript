@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, MessageSecurityState} from './ind
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MessageSecurityStateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: MessageSecurityState[] | undefined;
     /**
      * Instantiates a new MessageSecurityStateCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class MessageSecurityStateCollectionResponse extends BaseCollectionPagina
         writer.writeCollectionOfObjectValues<MessageSecurityState>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a messageSecurityState
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: MessageSecurityState[] | undefined) {

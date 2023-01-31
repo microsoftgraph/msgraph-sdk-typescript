@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, SocialIdentityProvider} from './i
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SocialIdentityProviderCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: SocialIdentityProvider[] | undefined;
     /**
      * Instantiates a new SocialIdentityProviderCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class SocialIdentityProviderCollectionResponse extends BaseCollectionPagi
         writer.writeCollectionOfObjectValues<SocialIdentityProvider>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a socialIdentityProvider
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: SocialIdentityProvider[] | undefined) {

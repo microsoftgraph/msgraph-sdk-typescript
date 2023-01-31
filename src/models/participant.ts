@@ -5,7 +5,6 @@ import {Entity, MediaStream, ParticipantInfo, RecordingInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Participant extends Entity implements Parsable {
-    /** The info property */
     private _info?: ParticipantInfo | undefined;
     /** true if the participant is in lobby. */
     private _isInLobby?: boolean | undefined;
@@ -38,14 +37,14 @@ export class Participant extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the info property value. The info property
+     * Gets the info property value. 
      * @returns a participantInfo
      */
     public get info() {
         return this._info;
     };
     /**
-     * Sets the info property value. The info property
+     * Sets the info property value. 
      * @param value Value to set for the info property.
      */
     public set info(value: ParticipantInfo | undefined) {

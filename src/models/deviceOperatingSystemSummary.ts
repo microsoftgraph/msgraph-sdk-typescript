@@ -24,7 +24,6 @@ export class DeviceOperatingSystemSummary implements AdditionalDataHolder, Parsa
     private _iosCount?: number | undefined;
     /** Number of Mac OS X device count. */
     private _macOSCount?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Number of unknown device count. */
     private _unknownCount?: number | undefined;
@@ -200,14 +199,14 @@ export class DeviceOperatingSystemSummary implements AdditionalDataHolder, Parsa
         this._macOSCount = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

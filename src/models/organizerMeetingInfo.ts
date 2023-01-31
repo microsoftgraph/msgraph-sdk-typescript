@@ -3,7 +3,6 @@ import {IdentitySet, MeetingInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OrganizerMeetingInfo extends MeetingInfo implements Parsable {
-    /** The organizer property */
     private _organizer?: IdentitySet | undefined;
     /**
      * Instantiates a new OrganizerMeetingInfo and sets the default values.
@@ -22,14 +21,14 @@ export class OrganizerMeetingInfo extends MeetingInfo implements Parsable {
         };
     };
     /**
-     * Gets the organizer property value. The organizer property
+     * Gets the organizer property value. 
      * @returns a identitySet
      */
     public get organizer() {
         return this._organizer;
     };
     /**
-     * Sets the organizer property value. The organizer property
+     * Sets the organizer property value. 
      * @param value Value to set for the organizer property.
      */
     public set organizer(value: IdentitySet | undefined) {

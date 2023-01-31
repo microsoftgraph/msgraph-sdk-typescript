@@ -46,7 +46,6 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
     private _maxRatioOfConcealedSamples?: number | undefined;
     /** Maximum network propagation round-trip time computed as specified in [RFC 3550][], denoted in [ISO 8601][] format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator. */
     private _maxRoundTripTime?: Duration | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Packet count for the stream. */
     private _packetUtilization?: number | undefined;
@@ -54,7 +53,6 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
     private _postForwardErrorCorrectionPacketLossRate?: number | undefined;
     /** UTC time when the stream started. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _startDateTime?: Date | undefined;
-    /** The streamDirection property */
     private _streamDirection?: MediaStreamDirection | undefined;
     /** Unique identifier for the stream. */
     private _streamId?: string | undefined;
@@ -399,14 +397,14 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
         this._maxRoundTripTime = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -491,14 +489,14 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
         this._startDateTime = value;
     };
     /**
-     * Gets the streamDirection property value. The streamDirection property
+     * Gets the streamDirection property value. 
      * @returns a mediaStreamDirection
      */
     public get streamDirection() {
         return this._streamDirection;
     };
     /**
-     * Sets the streamDirection property value. The streamDirection property
+     * Sets the streamDirection property value. 
      * @param value Value to set for the streamDirection property.
      */
     public set streamDirection(value: MediaStreamDirection | undefined) {

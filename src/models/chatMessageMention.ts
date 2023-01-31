@@ -11,7 +11,6 @@ export class ChatMessageMention implements AdditionalDataHolder, Parsable {
     private _mentioned?: ChatMessageMentionedIdentitySet | undefined;
     /** String used to represent the mention. For example, a user's display name, a team name. */
     private _mentionText?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -88,14 +87,14 @@ export class ChatMessageMention implements AdditionalDataHolder, Parsable {
         this._mentionText = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

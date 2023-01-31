@@ -3,53 +3,53 @@ import {createServiceUpdateMessageCollectionResponseFromDiscriminatorValue} from
 import {createServiceUpdateMessageFromDiscriminatorValue} from '../../../models/createServiceUpdateMessageFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {ArchiveRequestBuilder} from './archive/archiveRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {FavoriteRequestBuilder} from './favorite/favoriteRequestBuilder';
-import {MarkReadRequestBuilder} from './markRead/markReadRequestBuilder';
-import {MarkUnreadRequestBuilder} from './markUnread/markUnreadRequestBuilder';
 import {MessagesRequestBuilderGetRequestConfiguration} from './messagesRequestBuilderGetRequestConfiguration';
 import {MessagesRequestBuilderPostRequestConfiguration} from './messagesRequestBuilderPostRequestConfiguration';
-import {UnarchiveRequestBuilder} from './unarchive/unarchiveRequestBuilder';
-import {UnfavoriteRequestBuilder} from './unfavorite/unfavoriteRequestBuilder';
+import {ArchiveRequestBuilder} from './microsoftGraphArchive/archiveRequestBuilder';
+import {FavoriteRequestBuilder} from './microsoftGraphFavorite/favoriteRequestBuilder';
+import {MarkReadRequestBuilder} from './microsoftGraphMarkRead/markReadRequestBuilder';
+import {MarkUnreadRequestBuilder} from './microsoftGraphMarkUnread/markUnreadRequestBuilder';
+import {UnarchiveRequestBuilder} from './microsoftGraphUnarchive/unarchiveRequestBuilder';
+import {UnfavoriteRequestBuilder} from './microsoftGraphUnfavorite/unfavoriteRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
  */
 export class MessagesRequestBuilder {
-    /** Provides operations to call the archive method. */
-    public get archive(): ArchiveRequestBuilder {
-        return new ArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the archive method. */
+    public get microsoftGraphArchive(): ArchiveRequestBuilder {
+        return new ArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the favorite method. */
-    public get favorite(): FavoriteRequestBuilder {
+    public get microsoftGraphFavorite(): FavoriteRequestBuilder {
         return new FavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the markRead method. */
-    public get markRead(): MarkReadRequestBuilder {
+    public get microsoftGraphMarkRead(): MarkReadRequestBuilder {
         return new MarkReadRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the markUnread method. */
-    public get markUnread(): MarkUnreadRequestBuilder {
+    public get microsoftGraphMarkUnread(): MarkUnreadRequestBuilder {
         return new MarkUnreadRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the unarchive method. */
+    public get microsoftGraphUnarchive(): UnarchiveRequestBuilder {
+        return new UnarchiveRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the unfavorite method. */
+    public get microsoftGraphUnfavorite(): UnfavoriteRequestBuilder {
+        return new UnfavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the unarchive method. */
-    public get unarchive(): UnarchiveRequestBuilder {
-        return new UnarchiveRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the unfavorite method. */
-    public get unfavorite(): UnfavoriteRequestBuilder {
-        return new UnfavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
@@ -84,7 +84,6 @@ export class MessagesRequestBuilder {
     };
     /**
      * Create new navigation property to messages for admin
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServiceUpdateMessage
@@ -120,7 +119,6 @@ export class MessagesRequestBuilder {
     };
     /**
      * Create new navigation property to messages for admin
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -5,33 +5,35 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {DeviceManagementPartnerItemRequestBuilderDeleteRequestConfiguration} from './deviceManagementPartnerItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceManagementPartnerItemRequestBuilderGetRequestConfiguration} from './deviceManagementPartnerItemRequestBuilderGetRequestConfiguration';
 import {DeviceManagementPartnerItemRequestBuilderPatchRequestConfiguration} from './deviceManagementPartnerItemRequestBuilderPatchRequestConfiguration';
-import {TerminateRequestBuilder} from './terminate/terminateRequestBuilder';
+import {TerminateRequestBuilder} from './microsoftGraphTerminate/terminateRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.
  */
 export class DeviceManagementPartnerItemRequestBuilder {
+    /** Provides operations to call the terminate method. */
+    public get microsoftGraphTerminate(): TerminateRequestBuilder {
+        return new TerminateRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the terminate method. */
-    public get terminate(): TerminateRequestBuilder {
-        return new TerminateRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new DeviceManagementPartnerItemRequestBuilder and sets the default values.
+     * @param deviceManagementPartnerId key: id of deviceManagementPartner
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, deviceManagementPartnerId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/deviceManagementPartners/{deviceManagementPartner%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["deviceManagementPartner%2Did"] = deviceManagementPartnerId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -68,7 +70,6 @@ export class DeviceManagementPartnerItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceManagementPartners in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceManagementPartner
@@ -120,7 +121,6 @@ export class DeviceManagementPartnerItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceManagementPartners in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

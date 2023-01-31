@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, RequiredResourceAccess} from './i
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RequiredResourceAccessCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: RequiredResourceAccess[] | undefined;
     /**
      * Instantiates a new RequiredResourceAccessCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class RequiredResourceAccessCollectionResponse extends BaseCollectionPagi
         writer.writeCollectionOfObjectValues<RequiredResourceAccess>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a requiredResourceAccess
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: RequiredResourceAccess[] | undefined) {

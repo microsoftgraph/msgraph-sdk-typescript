@@ -42,14 +42,16 @@ export class ContactItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ContactItemRequestBuilder and sets the default values.
+     * @param contactId key: id of contact
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, contactId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}/childFolders/{contactFolder%2Did1}/contacts/{contact%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["contact%2Did"] = contactId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -108,7 +110,6 @@ export class ContactItemRequestBuilder {
     };
     /**
      * Update the navigation property contacts in users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Contact
@@ -171,7 +172,6 @@ export class ContactItemRequestBuilder {
     };
     /**
      * Update the navigation property contacts in users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

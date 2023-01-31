@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {ApplicationTemplateItemRequestBuilderDeleteRequestConfiguration} from './applicationTemplateItemRequestBuilderDeleteRequestConfiguration';
 import {ApplicationTemplateItemRequestBuilderGetRequestConfiguration} from './applicationTemplateItemRequestBuilderGetRequestConfiguration';
 import {ApplicationTemplateItemRequestBuilderPatchRequestConfiguration} from './applicationTemplateItemRequestBuilderPatchRequestConfiguration';
-import {InstantiateRequestBuilder} from './instantiate/instantiateRequestBuilder';
+import {InstantiateRequestBuilder} from './microsoftGraphInstantiate/instantiateRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -13,7 +13,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class ApplicationTemplateItemRequestBuilder {
     /** Provides operations to call the instantiate method. */
-    public get instantiate(): InstantiateRequestBuilder {
+    public get microsoftGraphInstantiate(): InstantiateRequestBuilder {
         return new InstantiateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
@@ -24,19 +24,21 @@ export class ApplicationTemplateItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ApplicationTemplateItemRequestBuilder and sets the default values.
+     * @param applicationTemplateId key: id of applicationTemplate
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, applicationTemplateId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/applicationTemplates/{applicationTemplate%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["applicationTemplate%2Did"] = applicationTemplateId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from applicationTemplates by key (id)
+     * Delete entity from applicationTemplates
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -68,8 +70,7 @@ export class ApplicationTemplateItemRequestBuilder {
         return this.requestAdapter?.sendAsync<ApplicationTemplate>(requestInfo, createApplicationTemplateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update entity in applicationTemplates by key (id)
-     * @param body The request body
+     * Update entity in applicationTemplates
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApplicationTemplate
@@ -86,7 +87,7 @@ export class ApplicationTemplateItemRequestBuilder {
         return this.requestAdapter?.sendAsync<ApplicationTemplate>(requestInfo, createApplicationTemplateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from applicationTemplates by key (id)
+     * Delete entity from applicationTemplates
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -120,8 +121,7 @@ export class ApplicationTemplateItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in applicationTemplates by key (id)
-     * @param body The request body
+     * Update entity in applicationTemplates
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

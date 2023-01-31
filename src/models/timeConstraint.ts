@@ -8,9 +8,7 @@ export class TimeConstraint implements AdditionalDataHolder, Parsable {
     private _activityDomain?: ActivityDomain | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The timeSlots property */
     private _timeSlots?: TimeSlot[] | undefined;
     /**
      * Gets the activityDomain property value. The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
@@ -58,14 +56,14 @@ export class TimeConstraint implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -83,14 +81,14 @@ export class TimeConstraint implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the timeSlots property value. The timeSlots property
+     * Gets the timeSlots property value. 
      * @returns a timeSlot
      */
     public get timeSlots() {
         return this._timeSlots;
     };
     /**
-     * Sets the timeSlots property value. The timeSlots property
+     * Sets the timeSlots property value. 
      * @param value Value to set for the timeSlots property.
      */
     public set timeSlots(value: TimeSlot[] | undefined) {

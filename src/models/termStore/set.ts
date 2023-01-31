@@ -16,7 +16,6 @@ export class Set extends Entity implements Parsable {
     private _description?: string | undefined;
     /** Name of the set for each languageTag. */
     private _localizedNames?: LocalizedName[] | undefined;
-    /** The parentGroup property */
     private _parentGroup?: Group | undefined;
     /** Custom properties for the set. */
     private _properties?: KeyValue[] | undefined;
@@ -103,14 +102,14 @@ export class Set extends Entity implements Parsable {
         this._localizedNames = value;
     };
     /**
-     * Gets the parentGroup property value. The parentGroup property
+     * Gets the parentGroup property value. 
      * @returns a group
      */
     public get parentGroup() {
         return this._parentGroup;
     };
     /**
-     * Sets the parentGroup property value. The parentGroup property
+     * Sets the parentGroup property value. 
      * @param value Value to set for the parentGroup property.
      */
     public set parentGroup(value: Group | undefined) {

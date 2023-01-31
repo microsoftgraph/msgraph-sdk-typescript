@@ -17,14 +17,16 @@ export class GroupItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new GroupItemRequestBuilder and sets the default values.
+     * @param groupId key: id of group
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, groupId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/incompatibleGroups/{group%2Did}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["group%2Did"] = groupId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

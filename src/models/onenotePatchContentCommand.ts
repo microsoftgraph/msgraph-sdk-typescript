@@ -3,27 +3,25 @@ import {OnenotePatchInsertPosition} from './onenotePatchInsertPosition';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenotePatchContentCommand implements AdditionalDataHolder, Parsable {
-    /** The action property */
     private _action?: OnenotePatchActionType | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** A string of well-formed HTML to add to the page, and any image or file binary data. If the content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' part. */
     private _content?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The location to add the supplied content, relative to the target element. The possible values are: after (default) or before. */
     private _position?: OnenotePatchInsertPosition | undefined;
     /** The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or title keyword. */
     private _target?: string | undefined;
     /**
-     * Gets the action property value. The action property
+     * Gets the action property value. 
      * @returns a onenotePatchActionType
      */
     public get action() {
         return this._action;
     };
     /**
-     * Sets the action property value. The action property
+     * Sets the action property value. 
      * @param value Value to set for the action property.
      */
     public set action(value: OnenotePatchActionType | undefined) {
@@ -77,14 +75,14 @@ export class OnenotePatchContentCommand implements AdditionalDataHolder, Parsabl
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

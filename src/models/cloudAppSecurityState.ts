@@ -7,7 +7,6 @@ export class CloudAppSecurityState implements AdditionalDataHolder, Parsable {
     private _destinationServiceIp?: string | undefined;
     /** Cloud application/service name (for example 'Salesforce', 'DropBox', etc.). */
     private _destinationServiceName?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Provider-generated/calculated risk score of the Cloud Application/Service. Recommended value range of 0-1, which equates to a percentage. */
     private _riskScore?: string | undefined;
@@ -72,14 +71,14 @@ export class CloudAppSecurityState implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

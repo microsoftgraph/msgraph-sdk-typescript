@@ -12,7 +12,6 @@ export class AppListItem implements AdditionalDataHolder, Parsable {
     private _appStoreUrl?: string | undefined;
     /** The application name */
     private _name?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The publisher of the application */
     private _publisher?: string | undefined;
@@ -92,14 +91,14 @@ export class AppListItem implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

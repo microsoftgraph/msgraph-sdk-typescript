@@ -17,14 +17,16 @@ export class EducationCategoryItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new EducationCategoryItemRequestBuilder and sets the default values.
+     * @param educationCategoryId key: id of educationCategory
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, educationCategoryId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/categories/{educationCategory%2Did}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["educationCategory%2Did"] = educationCategoryId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

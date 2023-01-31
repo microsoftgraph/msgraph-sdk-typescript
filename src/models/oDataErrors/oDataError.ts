@@ -5,7 +5,6 @@ import {AdditionalDataHolder, ApiError, Parsable, ParseNode, SerializationWriter
 export class ODataError extends ApiError implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The error property */
     private _error_escaped?: MainError | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,14 +28,14 @@ export class ODataError extends ApiError implements AdditionalDataHolder, Parsab
         this._additionalData = {};
     };
     /**
-     * Gets the error property value. The error property
+     * Gets the error property value. 
      * @returns a MainError
      */
     public get error_escaped() {
         return this._error_escaped;
     };
     /**
-     * Sets the error property value. The error property
+     * Sets the error property value. 
      * @param value Value to set for the error_escaped property.
      */
     public set error_escaped(value: MainError | undefined) {

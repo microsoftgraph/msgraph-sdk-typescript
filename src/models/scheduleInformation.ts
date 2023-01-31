@@ -11,7 +11,6 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
     private _availabilityView?: string | undefined;
     /** Error information from attempting to get the availability of the user, distribution list, or resource. */
     private _error_escaped?: FreeBusyError | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** An SMTP address of the user, distribution list, or resource, identifying an instance of scheduleInformation. */
     private _scheduleId?: string | undefined;
@@ -82,14 +81,14 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

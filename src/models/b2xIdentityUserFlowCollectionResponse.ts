@@ -3,7 +3,6 @@ import {B2xIdentityUserFlow, BaseCollectionPaginationCountResponse} from './inde
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class B2xIdentityUserFlowCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: B2xIdentityUserFlow[] | undefined;
     /**
      * Instantiates a new B2xIdentityUserFlowCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class B2xIdentityUserFlowCollectionResponse extends BaseCollectionPaginat
         writer.writeCollectionOfObjectValues<B2xIdentityUserFlow>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a b2xIdentityUserFlow
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: B2xIdentityUserFlow[] | undefined) {

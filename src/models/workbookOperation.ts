@@ -8,7 +8,6 @@ export class WorkbookOperation extends Entity implements Parsable {
     private _error_escaped?: WorkbookOperationError | undefined;
     /** The resource URI for the result. */
     private _resourceLocation?: string | undefined;
-    /** The status property */
     private _status?: WorkbookOperationStatus | undefined;
     /**
      * Instantiates a new workbookOperation and sets the default values.
@@ -67,14 +66,14 @@ export class WorkbookOperation extends Entity implements Parsable {
         writer.writeEnumValue<WorkbookOperationStatus>("status", this.status);
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. 
      * @returns a workbookOperationStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. 
      * @param value Value to set for the status property.
      */
     public set status(value: WorkbookOperationStatus | undefined) {

@@ -4,11 +4,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class EducationItemBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The content property */
     private _content?: string | undefined;
-    /** The contentType property */
     private _contentType?: BodyType | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -31,28 +28,28 @@ export class EducationItemBody implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the content property value. The content property
+     * Gets the content property value. 
      * @returns a string
      */
     public get content() {
         return this._content;
     };
     /**
-     * Sets the content property value. The content property
+     * Sets the content property value. 
      * @param value Value to set for the content property.
      */
     public set content(value: string | undefined) {
         this._content = value;
     };
     /**
-     * Gets the contentType property value. The contentType property
+     * Gets the contentType property value. 
      * @returns a bodyType
      */
     public get contentType() {
         return this._contentType;
     };
     /**
-     * Sets the contentType property value. The contentType property
+     * Sets the contentType property value. 
      * @param value Value to set for the contentType property.
      */
     public set contentType(value: BodyType | undefined) {
@@ -70,14 +67,14 @@ export class EducationItemBody implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

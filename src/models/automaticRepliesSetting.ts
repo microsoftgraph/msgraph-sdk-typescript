@@ -13,7 +13,6 @@ export class AutomaticRepliesSetting implements AdditionalDataHolder, Parsable {
     private _externalReplyMessage?: string | undefined;
     /** The automatic reply to send to the audience internal to the signed-in user's organization, if Status is AlwaysEnabled or Scheduled. */
     private _internalReplyMessage?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The date and time that automatic replies are set to end, if Status is set to Scheduled. */
     private _scheduledEndDateTime?: DateTimeTimeZone | undefined;
@@ -99,14 +98,14 @@ export class AutomaticRepliesSetting implements AdditionalDataHolder, Parsable {
         this._internalReplyMessage = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

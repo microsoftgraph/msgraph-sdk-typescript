@@ -19,14 +19,16 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder and sets the default values.
+     * @param managedDeviceMobileAppConfigurationDeviceStatusId key: id of managedDeviceMobileAppConfigurationDeviceStatus
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, managedDeviceMobileAppConfigurationDeviceStatusId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}/deviceStatuses/{managedDeviceMobileAppConfigurationDeviceStatus%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["managedDeviceMobileAppConfigurationDeviceStatus%2Did"] = managedDeviceMobileAppConfigurationDeviceStatusId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -63,7 +65,6 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceStatuses in deviceAppManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDeviceMobileAppConfigurationDeviceStatus
@@ -115,7 +116,6 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceStatuses in deviceAppManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -6,11 +6,9 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class ConditionalAccessTemplate extends Entity implements Parsable {
     /** The user-friendly name of the template. */
     private _description?: string | undefined;
-    /** The details property */
     private _details?: ConditionalAccessPolicyDetail | undefined;
     /** The user-friendly name of the template. */
     private _name?: string | undefined;
-    /** The scenarios property */
     private _scenarios?: TemplateScenarios | undefined;
     /**
      * Instantiates a new conditionalAccessTemplate and sets the default values.
@@ -33,14 +31,14 @@ export class ConditionalAccessTemplate extends Entity implements Parsable {
         this._description = value;
     };
     /**
-     * Gets the details property value. The details property
+     * Gets the details property value. 
      * @returns a conditionalAccessPolicyDetail
      */
     public get details() {
         return this._details;
     };
     /**
-     * Sets the details property value. The details property
+     * Sets the details property value. 
      * @param value Value to set for the details property.
      */
     public set details(value: ConditionalAccessPolicyDetail | undefined) {
@@ -73,14 +71,14 @@ export class ConditionalAccessTemplate extends Entity implements Parsable {
         this._name = value;
     };
     /**
-     * Gets the scenarios property value. The scenarios property
+     * Gets the scenarios property value. 
      * @returns a templateScenarios
      */
     public get scenarios() {
         return this._scenarios;
     };
     /**
-     * Sets the scenarios property value. The scenarios property
+     * Sets the scenarios property value. 
      * @param value Value to set for the scenarios property.
      */
     public set scenarios(value: TemplateScenarios | undefined) {

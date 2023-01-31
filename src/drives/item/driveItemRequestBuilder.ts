@@ -12,10 +12,10 @@ import {DriveItemItemRequestBuilder as I7f5f4145310d9edad52ec20c81824966b63d1306
 import {DriveItemItemRequestBuilder as Ic919f0371ab1a51b15716e78a986527bb8d26e115e43915d5fba38e698a04897} from './items/item/driveItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListRequestBuilder} from './list/listRequestBuilder';
-import {RecentRequestBuilder} from './recent/recentRequestBuilder';
+import {RecentRequestBuilder} from './microsoftGraphRecent/recentRequestBuilder';
+import {SearchWithQRequestBuilder} from './microsoftGraphSearchWithQ/searchWithQRequestBuilder';
+import {SharedWithMeRequestBuilder} from './microsoftGraphSharedWithMe/sharedWithMeRequestBuilder';
 import {RootRequestBuilder} from './root/rootRequestBuilder';
-import {SearchWithQRequestBuilder} from './searchWithQ/searchWithQRequestBuilder';
-import {SharedWithMeRequestBuilder} from './sharedWithMe/sharedWithMeRequestBuilder';
 import {DriveItemItemRequestBuilder as I1ef832aeaa20ced832dac75e4dfcfda159a73096b13d18aa63497da50840af3a} from './special/item/driveItemItemRequestBuilder';
 import {SpecialRequestBuilder} from './special/specialRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -39,6 +39,14 @@ export class DriveItemRequestBuilder {
     /** Provides operations to manage the list property of the microsoft.graph.drive entity. */
     public get list(): ListRequestBuilder {
         return new ListRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the recent method. */
+    public get microsoftGraphRecent(): RecentRequestBuilder {
+        return new RecentRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sharedWithMe method. */
+    public get microsoftGraphSharedWithMe(): SharedWithMeRequestBuilder {
+        return new SharedWithMeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -67,19 +75,21 @@ export class DriveItemRequestBuilder {
     };
     /**
      * Instantiates a new DriveItemRequestBuilder and sets the default values.
+     * @param driveId key: id of drive
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, driveId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/drives/{drive%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["drive%2Did"] = driveId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from drives by key (id)
+     * Delete entity from drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -133,8 +143,16 @@ export class DriveItemRequestBuilder {
         return new Ic919f0371ab1a51b15716e78a986527bb8d26e115e43915d5fba38e698a04897(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update entity in drives by key (id)
-     * @param body The request body
+     * Provides operations to call the search method.
+     * @param q Usage: q='{q}'
+     * @returns a searchWithQRequestBuilder
+     */
+    public microsoftGraphSearchWithQ(q: string | undefined) : SearchWithQRequestBuilder {
+        if(!q) throw new Error("q cannot be undefined");
+        return new SearchWithQRequestBuilder(this.pathParameters, this.requestAdapter, q);
+    };
+    /**
+     * Update entity in drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Drive
@@ -151,29 +169,6 @@ export class DriveItemRequestBuilder {
         return this.requestAdapter?.sendAsync<Drive>(requestInfo, createDriveFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to call the recent method.
-     * @returns a recentRequestBuilder
-     */
-    public recent() : RecentRequestBuilder {
-        return new RecentRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
-     * Provides operations to call the search method.
-     * @param q Usage: q='{q}'
-     * @returns a searchWithQRequestBuilder
-     */
-    public searchWithQ(q: string | undefined) : SearchWithQRequestBuilder {
-        if(!q) throw new Error("q cannot be undefined");
-        return new SearchWithQRequestBuilder(this.pathParameters, this.requestAdapter, q);
-    };
-    /**
-     * Provides operations to call the sharedWithMe method.
-     * @returns a sharedWithMeRequestBuilder
-     */
-    public sharedWithMe() : SharedWithMeRequestBuilder {
-        return new SharedWithMeRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
      * Provides operations to manage the special property of the microsoft.graph.drive entity.
      * @param id Unique identifier of the item
      * @returns a DriveItemItemRequestBuilder
@@ -185,7 +180,7 @@ export class DriveItemRequestBuilder {
         return new I1ef832aeaa20ced832dac75e4dfcfda159a73096b13d18aa63497da50840af3a(urlTplParams, this.requestAdapter);
     };
     /**
-     * Delete entity from drives by key (id)
+     * Delete entity from drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -219,8 +214,7 @@ export class DriveItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in drives by key (id)
-     * @param body The request body
+     * Update entity in drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

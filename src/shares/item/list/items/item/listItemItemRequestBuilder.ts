@@ -7,11 +7,11 @@ import {DocumentSetVersionsRequestBuilder} from './documentSetVersions/documentS
 import {DocumentSetVersionItemRequestBuilder} from './documentSetVersions/item/documentSetVersionItemRequestBuilder';
 import {DriveItemRequestBuilder} from './driveItem/driveItemRequestBuilder';
 import {FieldsRequestBuilder} from './fields/fieldsRequestBuilder';
-import {GetActivitiesByIntervalRequestBuilder} from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
-import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
 import {ListItemItemRequestBuilderDeleteRequestConfiguration} from './listItemItemRequestBuilderDeleteRequestConfiguration';
 import {ListItemItemRequestBuilderGetRequestConfiguration} from './listItemItemRequestBuilderGetRequestConfiguration';
 import {ListItemItemRequestBuilderPatchRequestConfiguration} from './listItemItemRequestBuilderPatchRequestConfiguration';
+import {GetActivitiesByIntervalRequestBuilder} from './microsoftGraphGetActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
+import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from './microsoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
 import {ListItemVersionItemRequestBuilder} from './versions/item/listItemVersionItemRequestBuilder';
 import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -36,6 +36,10 @@ export class ListItemItemRequestBuilder {
     public get fields(): FieldsRequestBuilder {
         return new FieldsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the getActivitiesByInterval method. */
+    public get microsoftGraphGetActivitiesByInterval(): GetActivitiesByIntervalRequestBuilder {
+        return new GetActivitiesByIntervalRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
@@ -48,14 +52,16 @@ export class ListItemItemRequestBuilder {
     }
     /**
      * Instantiates a new ListItemItemRequestBuilder and sets the default values.
+     * @param listItemId key: id of listItem
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, listItemId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["listItem%2Did"] = listItemId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -103,19 +109,12 @@ export class ListItemItemRequestBuilder {
     };
     /**
      * Provides operations to call the getActivitiesByInterval method.
-     * @returns a getActivitiesByIntervalRequestBuilder
-     */
-    public getActivitiesByInterval() : GetActivitiesByIntervalRequestBuilder {
-        return new GetActivitiesByIntervalRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
-     * Provides operations to call the getActivitiesByInterval method.
      * @param endDateTime Usage: endDateTime='{endDateTime}'
      * @param interval Usage: interval='{interval}'
      * @param startDateTime Usage: startDateTime='{startDateTime}'
      * @returns a getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder
      */
-    public getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(endDateTime: string | undefined, interval: string | undefined, startDateTime: string | undefined) : GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
+    public microsoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(endDateTime: string | undefined, interval: string | undefined, startDateTime: string | undefined) : GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
         if(!endDateTime) throw new Error("endDateTime cannot be undefined");
         if(!interval) throw new Error("interval cannot be undefined");
         if(!startDateTime) throw new Error("startDateTime cannot be undefined");
@@ -123,7 +122,6 @@ export class ListItemItemRequestBuilder {
     };
     /**
      * Update the navigation property items in shares
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ListItem
@@ -175,7 +173,6 @@ export class ListItemItemRequestBuilder {
     };
     /**
      * Update the navigation property items in shares
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

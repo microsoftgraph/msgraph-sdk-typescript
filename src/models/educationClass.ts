@@ -23,7 +23,6 @@ export class EducationClass extends Entity implements Parsable {
     private _assignmentSettings?: EducationAssignmentSettings | undefined;
     /** Class code used by the school to identify the class. */
     private _classCode?: string | undefined;
-    /** The course property */
     private _course?: EducationCourse | undefined;
     /** Entity who created the class */
     private _createdBy?: IdentitySet | undefined;
@@ -124,20 +123,20 @@ export class EducationClass extends Entity implements Parsable {
         this._classCode = value;
     };
     /**
-     * Instantiates a new educationClass and sets the default values.
+     * Instantiates a new EducationClass and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
-     * Gets the course property value. The course property
+     * Gets the course property value. 
      * @returns a educationCourse
      */
     public get course() {
         return this._course;
     };
     /**
-     * Sets the course property value. The course property
+     * Sets the course property value. 
      * @param value Value to set for the course property.
      */
     public set course(value: EducationCourse | undefined) {

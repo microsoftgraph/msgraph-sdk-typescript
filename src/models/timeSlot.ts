@@ -5,11 +5,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class TimeSlot implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The end property */
     private _end?: DateTimeTimeZone | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The start property */
     private _start?: DateTimeTimeZone | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -32,14 +29,14 @@ export class TimeSlot implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the end property value. The end property
+     * Gets the end property value. 
      * @returns a dateTimeTimeZone
      */
     public get end() {
         return this._end;
     };
     /**
-     * Sets the end property value. The end property
+     * Sets the end property value. 
      * @param value Value to set for the end property.
      */
     public set end(value: DateTimeTimeZone | undefined) {
@@ -57,14 +54,14 @@ export class TimeSlot implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -82,14 +79,14 @@ export class TimeSlot implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the start property value. The start property
+     * Gets the start property value. 
      * @returns a dateTimeTimeZone
      */
     public get start() {
         return this._start;
     };
     /**
-     * Sets the start property value. The start property
+     * Sets the start property value. 
      * @param value Value to set for the start property.
      */
     public set start(value: DateTimeTimeZone | undefined) {

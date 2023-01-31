@@ -7,7 +7,6 @@ export class TeamsTabConfiguration implements AdditionalDataHolder, Parsable {
     private _contentUrl?: string | undefined;
     /** Identifier for the entity hosted by the tab provider. */
     private _entityId?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Url called by Teams client when a Tab is removed using the Teams Client. */
     private _removeUrl?: string | undefined;
@@ -75,14 +74,14 @@ export class TeamsTabConfiguration implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

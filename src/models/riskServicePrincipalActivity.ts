@@ -6,9 +6,7 @@ export class RiskServicePrincipalActivity implements AdditionalDataHolder, Parsa
     private _additionalData: Record<string, unknown>;
     /** Details of the detected risk. Note: Details for this property are only available for Workload Identities Premium customers. Events in tenants without this license will be returned hidden. The possible values are: none, hidden, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal. */
     private _detail?: RiskDetail | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The riskEventTypes property */
     private _riskEventTypes?: string[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -56,28 +54,28 @@ export class RiskServicePrincipalActivity implements AdditionalDataHolder, Parsa
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the riskEventTypes property value. The riskEventTypes property
+     * Gets the riskEventTypes property value. 
      * @returns a string
      */
     public get riskEventTypes() {
         return this._riskEventTypes;
     };
     /**
-     * Sets the riskEventTypes property value. The riskEventTypes property
+     * Sets the riskEventTypes property value. 
      * @param value Value to set for the riskEventTypes property.
      */
     public set riskEventTypes(value: string[] | undefined) {

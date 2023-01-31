@@ -8,7 +8,6 @@ export class EntitlementManagementSchedule implements AdditionalDataHolder, Pars
     private _additionalData: Record<string, unknown>;
     /** When the access should expire. */
     private _expiration?: ExpirationPattern | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** For recurring access reviews.  Not used in access requests. */
     private _recurrence?: PatternedRecurrence | undefined;
@@ -61,14 +60,14 @@ export class EntitlementManagementSchedule implements AdditionalDataHolder, Pars
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

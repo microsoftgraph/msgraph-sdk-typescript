@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, LongRunningOperation} from './ind
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LongRunningOperationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: LongRunningOperation[] | undefined;
     /**
      * Instantiates a new LongRunningOperationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class LongRunningOperationCollectionResponse extends BaseCollectionPagina
         writer.writeCollectionOfObjectValues<LongRunningOperation>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a longRunningOperation
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: LongRunningOperation[] | undefined) {

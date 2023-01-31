@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, IosUpdateDeviceStatus} from './in
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosUpdateDeviceStatusCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: IosUpdateDeviceStatus[] | undefined;
     /**
      * Instantiates a new IosUpdateDeviceStatusCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class IosUpdateDeviceStatusCollectionResponse extends BaseCollectionPagin
         writer.writeCollectionOfObjectValues<IosUpdateDeviceStatus>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a iosUpdateDeviceStatus
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: IosUpdateDeviceStatus[] | undefined) {

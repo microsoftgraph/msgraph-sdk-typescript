@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, ManagedAppStatusRaw} from './inde
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppStatusRawCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ManagedAppStatusRaw[] | undefined;
     /**
      * Instantiates a new ManagedAppStatusRawCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ManagedAppStatusRawCollectionResponse extends BaseCollectionPaginat
         writer.writeCollectionOfObjectValues<ManagedAppStatusRaw>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a managedAppStatusRaw
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ManagedAppStatusRaw[] | undefined) {

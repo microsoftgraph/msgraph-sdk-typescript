@@ -32,7 +32,6 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
     private _natSourceAddress?: string | undefined;
     /** Network Address Translation source port. */
     private _natSourcePort?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Network protocol. Possible values are: unknown, ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII. */
     private _protocol?: SecurityNetworkProtocol | undefined;
@@ -280,14 +279,14 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
         this._natSourcePort = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

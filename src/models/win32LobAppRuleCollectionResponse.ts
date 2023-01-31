@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, Win32LobAppRule} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Win32LobAppRuleCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: Win32LobAppRule[] | undefined;
     /**
      * Instantiates a new Win32LobAppRuleCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class Win32LobAppRuleCollectionResponse extends BaseCollectionPaginationC
         writer.writeCollectionOfObjectValues<Win32LobAppRule>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a win32LobAppRule
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Win32LobAppRule[] | undefined) {

@@ -7,9 +7,7 @@ export class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
     private _additionalData: Record<string, unknown>;
     /** Optional. Whether to hide the participant from the roster. */
     private _hidden?: boolean | undefined;
-    /** The identity property */
     private _identity?: IdentitySet | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Optional. The ID of the target participant. */
     private _participantId?: string | undefined;
@@ -66,28 +64,28 @@ export class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
         this._hidden = value;
     };
     /**
-     * Gets the identity property value. The identity property
+     * Gets the identity property value. 
      * @returns a identitySet
      */
     public get identity() {
         return this._identity;
     };
     /**
-     * Sets the identity property value. The identity property
+     * Sets the identity property value. 
      * @param value Value to set for the identity property.
      */
     public set identity(value: IdentitySet | undefined) {
         this._identity = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

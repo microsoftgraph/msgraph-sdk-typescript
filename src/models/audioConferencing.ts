@@ -7,13 +7,10 @@ export class AudioConferencing implements AdditionalDataHolder, Parsable {
     private _conferenceId?: string | undefined;
     /** A URL to the externally-accessible web page that contains dial-in information. */
     private _dialinUrl?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The tollFreeNumber property */
     private _tollFreeNumber?: string | undefined;
     /** List of toll-free numbers that are displayed in the meeting invite. */
     private _tollFreeNumbers?: string[] | undefined;
-    /** The tollNumber property */
     private _tollNumber?: string | undefined;
     /** List of toll numbers that are displayed in the meeting invite. */
     private _tollNumbers?: string[] | undefined;
@@ -81,14 +78,14 @@ export class AudioConferencing implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -110,14 +107,14 @@ export class AudioConferencing implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the tollFreeNumber property value. The tollFreeNumber property
+     * Gets the tollFreeNumber property value. 
      * @returns a string
      */
     public get tollFreeNumber() {
         return this._tollFreeNumber;
     };
     /**
-     * Sets the tollFreeNumber property value. The tollFreeNumber property
+     * Sets the tollFreeNumber property value. 
      * @param value Value to set for the tollFreeNumber property.
      */
     public set tollFreeNumber(value: string | undefined) {
@@ -138,14 +135,14 @@ export class AudioConferencing implements AdditionalDataHolder, Parsable {
         this._tollFreeNumbers = value;
     };
     /**
-     * Gets the tollNumber property value. The tollNumber property
+     * Gets the tollNumber property value. 
      * @returns a string
      */
     public get tollNumber() {
         return this._tollNumber;
     };
     /**
-     * Sets the tollNumber property value. The tollNumber property
+     * Sets the tollNumber property value. 
      * @param value Value to set for the tollNumber property.
      */
     public set tollNumber(value: string | undefined) {

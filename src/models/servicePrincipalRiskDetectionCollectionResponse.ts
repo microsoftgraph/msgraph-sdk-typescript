@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, ServicePrincipalRiskDetection} fr
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ServicePrincipalRiskDetectionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ServicePrincipalRiskDetection[] | undefined;
     /**
      * Instantiates a new ServicePrincipalRiskDetectionCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ServicePrincipalRiskDetectionCollectionResponse extends BaseCollect
         writer.writeCollectionOfObjectValues<ServicePrincipalRiskDetection>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a servicePrincipalRiskDetection
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ServicePrincipalRiskDetection[] | undefined) {

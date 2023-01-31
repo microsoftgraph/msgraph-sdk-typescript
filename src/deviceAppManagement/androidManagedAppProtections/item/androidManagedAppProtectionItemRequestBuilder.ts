@@ -41,14 +41,16 @@ export class AndroidManagedAppProtectionItemRequestBuilder {
     };
     /**
      * Instantiates a new AndroidManagedAppProtectionItemRequestBuilder and sets the default values.
+     * @param androidManagedAppProtectionId key: id of androidManagedAppProtection
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, androidManagedAppProtectionId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceAppManagement/androidManagedAppProtections/{androidManagedAppProtection%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["androidManagedAppProtection%2Did"] = androidManagedAppProtectionId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -85,7 +87,6 @@ export class AndroidManagedAppProtectionItemRequestBuilder {
     };
     /**
      * Update the navigation property androidManagedAppProtections in deviceAppManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AndroidManagedAppProtection
@@ -137,7 +138,6 @@ export class AndroidManagedAppProtectionItemRequestBuilder {
     };
     /**
      * Update the navigation property androidManagedAppProtections in deviceAppManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

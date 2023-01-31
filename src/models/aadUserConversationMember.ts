@@ -7,7 +7,6 @@ export class AadUserConversationMember extends ConversationMember implements Par
     private _email?: string | undefined;
     /** TenantId which the Azure AD user belongs to. */
     private _tenantId?: string | undefined;
-    /** The user property */
     private _user?: User | undefined;
     /** The guid of the user. */
     private _userId?: string | undefined;
@@ -71,14 +70,14 @@ export class AadUserConversationMember extends ConversationMember implements Par
         this._tenantId = value;
     };
     /**
-     * Gets the user property value. The user property
+     * Gets the user property value. 
      * @returns a user
      */
     public get user() {
         return this._user;
     };
     /**
-     * Sets the user property value. The user property
+     * Sets the user property value. 
      * @param value Value to set for the user property.
      */
     public set user(value: User | undefined) {

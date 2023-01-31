@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, InternetMessageHeader} from './in
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InternetMessageHeaderCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: InternetMessageHeader[] | undefined;
     /**
      * Instantiates a new InternetMessageHeaderCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class InternetMessageHeaderCollectionResponse extends BaseCollectionPagin
         writer.writeCollectionOfObjectValues<InternetMessageHeader>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a internetMessageHeader
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: InternetMessageHeader[] | undefined) {

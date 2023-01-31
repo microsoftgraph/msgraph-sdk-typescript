@@ -36,7 +36,6 @@ export class OnlineMeeting extends Entity implements Parsable {
     private _creationDateTime?: Date | undefined;
     /** The meeting end time in UTC. */
     private _endDateTime?: Date | undefined;
-    /** The externalId property */
     private _externalId?: string | undefined;
     /** Indicates if this is a Teams live event. */
     private _isBroadcast?: boolean | undefined;
@@ -235,14 +234,14 @@ export class OnlineMeeting extends Entity implements Parsable {
         this._endDateTime = value;
     };
     /**
-     * Gets the externalId property value. The externalId property
+     * Gets the externalId property value. 
      * @returns a string
      */
     public get externalId() {
         return this._externalId;
     };
     /**
-     * Sets the externalId property value. The externalId property
+     * Sets the externalId property value. 
      * @param value Value to set for the externalId property.
      */
     public set externalId(value: string | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, MobileLobApp} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MobileLobAppCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: MobileLobApp[] | undefined;
     /**
      * Instantiates a new MobileLobAppCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class MobileLobAppCollectionResponse extends BaseCollectionPaginationCoun
         writer.writeCollectionOfObjectValues<MobileLobApp>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a mobileLobApp
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: MobileLobApp[] | undefined) {

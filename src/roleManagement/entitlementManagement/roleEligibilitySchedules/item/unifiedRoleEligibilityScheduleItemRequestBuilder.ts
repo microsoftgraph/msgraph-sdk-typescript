@@ -21,12 +21,14 @@ export class UnifiedRoleEligibilityScheduleItemRequestBuilder {
      * Instantiates a new UnifiedRoleEligibilityScheduleItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param unifiedRoleEligibilityScheduleId key: id of unifiedRoleEligibilitySchedule
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, unifiedRoleEligibilityScheduleId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleEligibilitySchedules/{unifiedRoleEligibilitySchedule%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["unifiedRoleEligibilitySchedule%2Did"] = unifiedRoleEligibilityScheduleId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -63,7 +65,6 @@ export class UnifiedRoleEligibilityScheduleItemRequestBuilder {
     };
     /**
      * Update the navigation property roleEligibilitySchedules in roleManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleEligibilitySchedule
@@ -115,7 +116,6 @@ export class UnifiedRoleEligibilityScheduleItemRequestBuilder {
     };
     /**
      * Update the navigation property roleEligibilitySchedules in roleManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

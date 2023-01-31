@@ -12,9 +12,7 @@ export class RelatedContact implements AdditionalDataHolder, Parsable {
     private _emailAddress?: string | undefined;
     /** Mobile phone number of the contact. */
     private _mobilePhone?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The relationship property */
     private _relationship?: ContactRelationship | undefined;
     /**
      * Gets the accessConsent property value. Indicates whether the user has been consented to access student data.
@@ -107,28 +105,28 @@ export class RelatedContact implements AdditionalDataHolder, Parsable {
         this._mobilePhone = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the relationship property value. The relationship property
+     * Gets the relationship property value. 
      * @returns a contactRelationship
      */
     public get relationship() {
         return this._relationship;
     };
     /**
-     * Sets the relationship property value. The relationship property
+     * Sets the relationship property value. 
      * @param value Value to set for the relationship property.
      */
     public set relationship(value: ContactRelationship | undefined) {

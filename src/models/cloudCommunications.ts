@@ -7,37 +7,33 @@ import {Call, Entity, OnlineMeeting, Presence} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CloudCommunications extends Entity implements Parsable {
-    /** The callRecords property */
     private _callRecords?: CallRecord[] | undefined;
-    /** The calls property */
     private _calls?: Call[] | undefined;
-    /** The onlineMeetings property */
     private _onlineMeetings?: OnlineMeeting[] | undefined;
-    /** The presences property */
     private _presences?: Presence[] | undefined;
     /**
-     * Gets the callRecords property value. The callRecords property
+     * Gets the callRecords property value. 
      * @returns a callRecord
      */
     public get callRecords() {
         return this._callRecords;
     };
     /**
-     * Sets the callRecords property value. The callRecords property
+     * Sets the callRecords property value. 
      * @param value Value to set for the callRecords property.
      */
     public set callRecords(value: CallRecord[] | undefined) {
         this._callRecords = value;
     };
     /**
-     * Gets the calls property value. The calls property
+     * Gets the calls property value. 
      * @returns a call
      */
     public get calls() {
         return this._calls;
     };
     /**
-     * Sets the calls property value. The calls property
+     * Sets the calls property value. 
      * @param value Value to set for the calls property.
      */
     public set calls(value: Call[] | undefined) {
@@ -62,28 +58,28 @@ export class CloudCommunications extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the onlineMeetings property value. The onlineMeetings property
+     * Gets the onlineMeetings property value. 
      * @returns a onlineMeeting
      */
     public get onlineMeetings() {
         return this._onlineMeetings;
     };
     /**
-     * Sets the onlineMeetings property value. The onlineMeetings property
+     * Sets the onlineMeetings property value. 
      * @param value Value to set for the onlineMeetings property.
      */
     public set onlineMeetings(value: OnlineMeeting[] | undefined) {
         this._onlineMeetings = value;
     };
     /**
-     * Gets the presences property value. The presences property
+     * Gets the presences property value. 
      * @returns a presence
      */
     public get presences() {
         return this._presences;
     };
     /**
-     * Sets the presences property value. The presences property
+     * Sets the presences property value. 
      * @param value Value to set for the presences property.
      */
     public set presences(value: Presence[] | undefined) {

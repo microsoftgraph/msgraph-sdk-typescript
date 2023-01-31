@@ -8,13 +8,10 @@ export class TermColumn implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Specifies whether the column will allow more than one value. */
     private _allowMultipleValues?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The parentTerm property */
     private _parentTerm?: Term | undefined;
     /** Specifies whether to display the entire term path or only the term label. */
     private _showFullyQualifiedName?: boolean | undefined;
-    /** The termSet property */
     private _termSet?: Set | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -64,28 +61,28 @@ export class TermColumn implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the parentTerm property value. The parentTerm property
+     * Gets the parentTerm property value. 
      * @returns a term
      */
     public get parentTerm() {
         return this._parentTerm;
     };
     /**
-     * Sets the parentTerm property value. The parentTerm property
+     * Sets the parentTerm property value. 
      * @param value Value to set for the parentTerm property.
      */
     public set parentTerm(value: Term | undefined) {
@@ -119,14 +116,14 @@ export class TermColumn implements AdditionalDataHolder, Parsable {
         this._showFullyQualifiedName = value;
     };
     /**
-     * Gets the termSet property value. The termSet property
+     * Gets the termSet property value. 
      * @returns a set
      */
     public get termSet() {
         return this._termSet;
     };
     /**
-     * Sets the termSet property value. The termSet property
+     * Sets the termSet property value. 
      * @param value Value to set for the termSet property.
      */
     public set termSet(value: Set | undefined) {

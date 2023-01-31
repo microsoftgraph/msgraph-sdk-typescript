@@ -6,7 +6,6 @@ export class FeatureTarget implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The ID of the entity that's targeted in the include or exclude rule, or all_users to target all users. */
     private _id?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The kind of entity that's targeted. The possible values are: group, administrativeUnit, role, unknownFutureValue. */
     private _targetType?: FeatureTargetType | undefined;
@@ -56,14 +55,14 @@ export class FeatureTarget implements AdditionalDataHolder, Parsable {
         this._id = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

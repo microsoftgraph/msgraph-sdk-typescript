@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, ImportedWindowsAutopilotDeviceIde
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ImportedWindowsAutopilotDeviceIdentityCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
     /**
      * Instantiates a new ImportedWindowsAutopilotDeviceIdentityCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ImportedWindowsAutopilotDeviceIdentityCollectionResponse extends Ba
         writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a importedWindowsAutopilotDeviceIdentity
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ImportedWindowsAutopilotDeviceIdentity[] | undefined) {

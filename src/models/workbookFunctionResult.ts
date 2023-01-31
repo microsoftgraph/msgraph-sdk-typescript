@@ -3,9 +3,7 @@ import {Entity, Json} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookFunctionResult extends Entity implements Parsable {
-    /** The error property */
     private _error_escaped?: string | undefined;
-    /** The value property */
     private _value?: Json | undefined;
     /**
      * Instantiates a new WorkbookFunctionResult and sets the default values.
@@ -14,14 +12,14 @@ export class WorkbookFunctionResult extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the error property value. The error property
+     * Gets the error property value. 
      * @returns a string
      */
     public get error_escaped() {
         return this._error_escaped;
     };
     /**
-     * Sets the error property value. The error property
+     * Sets the error property value. 
      * @param value Value to set for the error_escaped property.
      */
     public set error_escaped(value: string | undefined) {
@@ -48,14 +46,14 @@ export class WorkbookFunctionResult extends Entity implements Parsable {
         writer.writeObjectValue<Json>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a Json
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Json | undefined) {

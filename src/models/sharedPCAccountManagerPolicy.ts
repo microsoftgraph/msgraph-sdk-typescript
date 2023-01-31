@@ -13,7 +13,6 @@ export class SharedPCAccountManagerPolicy implements AdditionalDataHolder, Parsa
     private _cacheAccountsAboveDiskFreePercentage?: number | undefined;
     /** Specifies when the accounts will start being deleted when they have not been logged on during the specified period, given as number of days. Only applies when AccountDeletionPolicy is DiskSpaceThreshold or DiskSpaceThresholdOrInactiveThreshold. */
     private _inactiveThresholdDays?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Sets the percentage of disk space remaining on a PC before cached accounts will be deleted to free disk space. Accounts that have been inactive the longest will be deleted first. Only applies when AccountDeletionPolicy is DiskSpaceThresholdOrInactiveThreshold. Valid values 0 to 100 */
     private _removeAccountsBelowDiskFreePercentage?: number | undefined;
@@ -93,14 +92,14 @@ export class SharedPCAccountManagerPolicy implements AdditionalDataHolder, Parsa
         this._inactiveThresholdDays = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

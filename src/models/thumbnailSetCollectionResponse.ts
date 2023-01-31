@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, ThumbnailSet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ThumbnailSetCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ThumbnailSet[] | undefined;
     /**
      * Instantiates a new ThumbnailSetCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ThumbnailSetCollectionResponse extends BaseCollectionPaginationCoun
         writer.writeCollectionOfObjectValues<ThumbnailSet>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a thumbnailSet
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ThumbnailSet[] | undefined) {

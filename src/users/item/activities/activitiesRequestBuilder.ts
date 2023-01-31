@@ -6,7 +6,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {ActivitiesRequestBuilderGetRequestConfiguration} from './activitiesRequestBuilderGetRequestConfiguration';
 import {ActivitiesRequestBuilderPostRequestConfiguration} from './activitiesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {RecentRequestBuilder} from './recent/recentRequestBuilder';
+import {RecentRequestBuilder} from './microsoftGraphRecent/recentRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -16,6 +16,10 @@ export class ActivitiesRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the recent method. */
+    public get microsoftGraphRecent(): RecentRequestBuilder {
+        return new RecentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -54,7 +58,6 @@ export class ActivitiesRequestBuilder {
     };
     /**
      * Create new navigation property to activities for users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserActivity
@@ -69,13 +72,6 @@ export class ActivitiesRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<UserActivity>(requestInfo, createUserActivityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to call the recent method.
-     * @returns a recentRequestBuilder
-     */
-    public recent() : RecentRequestBuilder {
-        return new RecentRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * The user's activities across devices. Read-only. Nullable.
@@ -97,7 +93,6 @@ export class ActivitiesRequestBuilder {
     };
     /**
      * Create new navigation property to activities for users
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

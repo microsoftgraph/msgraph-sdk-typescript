@@ -12,7 +12,6 @@ export class BookingStaffMember extends BookingStaffMemberBase implements Parsab
     private _emailAddress?: string | undefined;
     /** True indicates that a staff member will be notified via email when a booking assigned to them is created or changed. */
     private _isEmailNotificationEnabled?: boolean | undefined;
-    /** The role property */
     private _role?: BookingStaffRole | undefined;
     /** The time zone of the staff member. For a list of possible values, see dateTimeTimeZone. */
     private _timeZone?: string | undefined;
@@ -100,14 +99,14 @@ export class BookingStaffMember extends BookingStaffMemberBase implements Parsab
         this._isEmailNotificationEnabled = value;
     };
     /**
-     * Gets the role property value. The role property
+     * Gets the role property value. 
      * @returns a bookingStaffRole
      */
     public get role() {
         return this._role;
     };
     /**
-     * Sets the role property value. The role property
+     * Sets the role property value. 
      * @param value Value to set for the role property.
      */
     public set role(value: BookingStaffRole | undefined) {

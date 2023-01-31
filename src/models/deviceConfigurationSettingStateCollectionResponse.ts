@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, DeviceConfigurationSettingState} 
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceConfigurationSettingStateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: DeviceConfigurationSettingState[] | undefined;
     /**
      * Instantiates a new DeviceConfigurationSettingStateCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class DeviceConfigurationSettingStateCollectionResponse extends BaseColle
         writer.writeCollectionOfObjectValues<DeviceConfigurationSettingState>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a deviceConfigurationSettingState
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: DeviceConfigurationSettingState[] | undefined) {

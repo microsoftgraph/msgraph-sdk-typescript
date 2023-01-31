@@ -42,19 +42,21 @@ export class ExternalConnectionItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ExternalConnectionItemRequestBuilder and sets the default values.
+     * @param externalConnectionId key: id of externalConnection
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, externalConnectionId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/connections/{externalConnection%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["externalConnection%2Did"] = externalConnectionId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from connections by key (id)
+     * Delete entity from connections
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -69,7 +71,7 @@ export class ExternalConnectionItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get entity from connections by key (id)
+     * Get entity from connections by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalConnection
@@ -118,8 +120,7 @@ export class ExternalConnectionItemRequestBuilder {
         return new ConnectionOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update entity in connections by key (id)
-     * @param body The request body
+     * Update entity in connections
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalConnection
@@ -136,7 +137,7 @@ export class ExternalConnectionItemRequestBuilder {
         return this.requestAdapter?.sendAsync<ExternalConnection>(requestInfo, createExternalConnectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from connections by key (id)
+     * Delete entity from connections
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -152,7 +153,7 @@ export class ExternalConnectionItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from connections by key (id)
+     * Get entity from connections by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -170,8 +171,7 @@ export class ExternalConnectionItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in connections by key (id)
-     * @param body The request body
+     * Update entity in connections
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

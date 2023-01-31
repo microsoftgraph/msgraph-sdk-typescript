@@ -54,7 +54,6 @@ export class SiteSourcesRequestBuilder {
     };
     /**
      * Create a new siteSource object associated with an eDiscovery custodian.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SiteSource
@@ -91,7 +90,6 @@ export class SiteSourcesRequestBuilder {
     };
     /**
      * Create a new siteSource object associated with an eDiscovery custodian.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

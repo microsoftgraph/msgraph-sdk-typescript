@@ -16,7 +16,6 @@ export class ChatMessageInfo extends Entity implements Parsable {
     private _from?: ChatMessageFromIdentitySet | undefined;
     /** If set to true, the original message has been deleted. */
     private _isDeleted?: boolean | undefined;
-    /** The messageType property */
     private _messageType?: ChatMessageType | undefined;
     /**
      * Gets the body property value. Body of the chatMessage. This will still contain markers for @mentions and attachments even though the object does not return @mentions and attachments.
@@ -109,14 +108,14 @@ export class ChatMessageInfo extends Entity implements Parsable {
         this._isDeleted = value;
     };
     /**
-     * Gets the messageType property value. The messageType property
+     * Gets the messageType property value. 
      * @returns a chatMessageType
      */
     public get messageType() {
         return this._messageType;
     };
     /**
-     * Sets the messageType property value. The messageType property
+     * Sets the messageType property value. 
      * @param value Value to set for the messageType property.
      */
     public set messageType(value: ChatMessageType | undefined) {

@@ -11,7 +11,6 @@ export class EducationCourse implements AdditionalDataHolder, Parsable {
     private _displayName?: string | undefined;
     /** ID of the course from the syncing system. */
     private _externalId?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Subject of the course. */
     private _subject?: string | undefined;
@@ -106,14 +105,14 @@ export class EducationCourse implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

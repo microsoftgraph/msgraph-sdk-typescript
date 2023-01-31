@@ -9,7 +9,6 @@ export class UnifiedRoleAssignment extends Entity implements Parsable {
     private _appScope?: AppScope | undefined;
     /** Identifier of the app-specific scope when the assignment scope is app-specific.  Either this property or directoryScopeId is required. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. Supports $filter (eq, in). */
     private _appScopeId?: string | undefined;
-    /** The condition property */
     private _condition?: string | undefined;
     /** The directory object that is the scope of the assignment. Read-only. Supports $expand. */
     private _directoryScope?: DirectoryObject | undefined;
@@ -52,14 +51,14 @@ export class UnifiedRoleAssignment extends Entity implements Parsable {
         this._appScopeId = value;
     };
     /**
-     * Gets the condition property value. The condition property
+     * Gets the condition property value. 
      * @returns a string
      */
     public get condition() {
         return this._condition;
     };
     /**
-     * Sets the condition property value. The condition property
+     * Sets the condition property value. 
      * @param value Value to set for the condition property.
      */
     public set condition(value: string | undefined) {

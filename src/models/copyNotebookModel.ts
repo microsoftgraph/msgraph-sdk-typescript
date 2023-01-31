@@ -7,37 +7,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The createdBy property */
     private _createdBy?: string | undefined;
-    /** The createdByIdentity property */
     private _createdByIdentity?: IdentitySet | undefined;
-    /** The createdTime property */
     private _createdTime?: Date | undefined;
-    /** The id property */
     private _id?: string | undefined;
-    /** The isDefault property */
     private _isDefault?: boolean | undefined;
-    /** The isShared property */
     private _isShared?: boolean | undefined;
-    /** The lastModifiedBy property */
     private _lastModifiedBy?: string | undefined;
-    /** The lastModifiedByIdentity property */
     private _lastModifiedByIdentity?: IdentitySet | undefined;
-    /** The lastModifiedTime property */
     private _lastModifiedTime?: Date | undefined;
-    /** The links property */
     private _links?: NotebookLinks | undefined;
-    /** The name property */
     private _name?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The sectionGroupsUrl property */
     private _sectionGroupsUrl?: string | undefined;
-    /** The sectionsUrl property */
     private _sectionsUrl?: string | undefined;
-    /** The self property */
     private _self?: string | undefined;
-    /** The userRole property */
     private _userRole?: OnenoteUserRole | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -60,42 +44,42 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. 
      * @returns a string
      */
     public get createdBy() {
         return this._createdBy;
     };
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. 
      * @param value Value to set for the createdBy property.
      */
     public set createdBy(value: string | undefined) {
         this._createdBy = value;
     };
     /**
-     * Gets the createdByIdentity property value. The createdByIdentity property
+     * Gets the createdByIdentity property value. 
      * @returns a identitySet
      */
     public get createdByIdentity() {
         return this._createdByIdentity;
     };
     /**
-     * Sets the createdByIdentity property value. The createdByIdentity property
+     * Sets the createdByIdentity property value. 
      * @param value Value to set for the createdByIdentity property.
      */
     public set createdByIdentity(value: IdentitySet | undefined) {
         this._createdByIdentity = value;
     };
     /**
-     * Gets the createdTime property value. The createdTime property
+     * Gets the createdTime property value. 
      * @returns a Date
      */
     public get createdTime() {
         return this._createdTime;
     };
     /**
-     * Sets the createdTime property value. The createdTime property
+     * Sets the createdTime property value. 
      * @param value Value to set for the createdTime property.
      */
     public set createdTime(value: Date | undefined) {
@@ -126,168 +110,168 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. 
      * @returns a string
      */
     public get id() {
         return this._id;
     };
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. 
      * @param value Value to set for the id property.
      */
     public set id(value: string | undefined) {
         this._id = value;
     };
     /**
-     * Gets the isDefault property value. The isDefault property
+     * Gets the isDefault property value. 
      * @returns a boolean
      */
     public get isDefault() {
         return this._isDefault;
     };
     /**
-     * Sets the isDefault property value. The isDefault property
+     * Sets the isDefault property value. 
      * @param value Value to set for the isDefault property.
      */
     public set isDefault(value: boolean | undefined) {
         this._isDefault = value;
     };
     /**
-     * Gets the isShared property value. The isShared property
+     * Gets the isShared property value. 
      * @returns a boolean
      */
     public get isShared() {
         return this._isShared;
     };
     /**
-     * Sets the isShared property value. The isShared property
+     * Sets the isShared property value. 
      * @param value Value to set for the isShared property.
      */
     public set isShared(value: boolean | undefined) {
         this._isShared = value;
     };
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. 
      * @returns a string
      */
     public get lastModifiedBy() {
         return this._lastModifiedBy;
     };
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * Sets the lastModifiedBy property value. 
      * @param value Value to set for the lastModifiedBy property.
      */
     public set lastModifiedBy(value: string | undefined) {
         this._lastModifiedBy = value;
     };
     /**
-     * Gets the lastModifiedByIdentity property value. The lastModifiedByIdentity property
+     * Gets the lastModifiedByIdentity property value. 
      * @returns a identitySet
      */
     public get lastModifiedByIdentity() {
         return this._lastModifiedByIdentity;
     };
     /**
-     * Sets the lastModifiedByIdentity property value. The lastModifiedByIdentity property
+     * Sets the lastModifiedByIdentity property value. 
      * @param value Value to set for the lastModifiedByIdentity property.
      */
     public set lastModifiedByIdentity(value: IdentitySet | undefined) {
         this._lastModifiedByIdentity = value;
     };
     /**
-     * Gets the lastModifiedTime property value. The lastModifiedTime property
+     * Gets the lastModifiedTime property value. 
      * @returns a Date
      */
     public get lastModifiedTime() {
         return this._lastModifiedTime;
     };
     /**
-     * Sets the lastModifiedTime property value. The lastModifiedTime property
+     * Sets the lastModifiedTime property value. 
      * @param value Value to set for the lastModifiedTime property.
      */
     public set lastModifiedTime(value: Date | undefined) {
         this._lastModifiedTime = value;
     };
     /**
-     * Gets the links property value. The links property
+     * Gets the links property value. 
      * @returns a notebookLinks
      */
     public get links() {
         return this._links;
     };
     /**
-     * Sets the links property value. The links property
+     * Sets the links property value. 
      * @param value Value to set for the links property.
      */
     public set links(value: NotebookLinks | undefined) {
         this._links = value;
     };
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. 
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. 
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {
         this._name = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the sectionGroupsUrl property value. The sectionGroupsUrl property
+     * Gets the sectionGroupsUrl property value. 
      * @returns a string
      */
     public get sectionGroupsUrl() {
         return this._sectionGroupsUrl;
     };
     /**
-     * Sets the sectionGroupsUrl property value. The sectionGroupsUrl property
+     * Sets the sectionGroupsUrl property value. 
      * @param value Value to set for the sectionGroupsUrl property.
      */
     public set sectionGroupsUrl(value: string | undefined) {
         this._sectionGroupsUrl = value;
     };
     /**
-     * Gets the sectionsUrl property value. The sectionsUrl property
+     * Gets the sectionsUrl property value. 
      * @returns a string
      */
     public get sectionsUrl() {
         return this._sectionsUrl;
     };
     /**
-     * Sets the sectionsUrl property value. The sectionsUrl property
+     * Sets the sectionsUrl property value. 
      * @param value Value to set for the sectionsUrl property.
      */
     public set sectionsUrl(value: string | undefined) {
         this._sectionsUrl = value;
     };
     /**
-     * Gets the self property value. The self property
+     * Gets the self property value. 
      * @returns a string
      */
     public get self() {
         return this._self;
     };
     /**
-     * Sets the self property value. The self property
+     * Sets the self property value. 
      * @param value Value to set for the self property.
      */
     public set self(value: string | undefined) {
@@ -318,14 +302,14 @@ export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the userRole property value. The userRole property
+     * Gets the userRole property value. 
      * @returns a onenoteUserRole
      */
     public get userRole() {
         return this._userRole;
     };
     /**
-     * Sets the userRole property value. The userRole property
+     * Sets the userRole property value. 
      * @param value Value to set for the userRole property.
      */
     public set userRole(value: OnenoteUserRole | undefined) {

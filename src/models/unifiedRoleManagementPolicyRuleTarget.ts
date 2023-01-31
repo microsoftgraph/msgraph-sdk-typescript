@@ -14,11 +14,9 @@ export class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHold
     private _inheritableSettings?: string[] | undefined;
     /** The role assignment type that's the target of policy rule. Allowed values are: Eligibility, Assignment. */
     private _level?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The role management operations that are the target of the policy rule. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew. */
     private _operations?: UnifiedRoleManagementPolicyRuleTargetOperations[] | undefined;
-    /** The targetObjects property */
     private _targetObjects?: DirectoryObject[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -112,14 +110,14 @@ export class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHold
         this._level = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -155,14 +153,14 @@ export class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHold
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the targetObjects property value. The targetObjects property
+     * Gets the targetObjects property value. 
      * @returns a directoryObject
      */
     public get targetObjects() {
         return this._targetObjects;
     };
     /**
-     * Sets the targetObjects property value. The targetObjects property
+     * Sets the targetObjects property value. 
      * @param value Value to set for the targetObjects property.
      */
     public set targetObjects(value: DirectoryObject[] | undefined) {

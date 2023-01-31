@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, IpNamedLocation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IpNamedLocationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: IpNamedLocation[] | undefined;
     /**
      * Instantiates a new IpNamedLocationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class IpNamedLocationCollectionResponse extends BaseCollectionPaginationC
         writer.writeCollectionOfObjectValues<IpNamedLocation>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a ipNamedLocation
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: IpNamedLocation[] | undefined) {

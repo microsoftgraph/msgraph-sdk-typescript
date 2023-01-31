@@ -30,9 +30,7 @@ export class Site extends BaseItem implements Parsable {
     private _drive?: Drive | undefined;
     /** The collection of drives (document libraries) under this site. */
     private _drives?: Drive[] | undefined;
-    /** The error property */
     private _error_escaped?: PublicError | undefined;
-    /** The externalColumns property */
     private _externalColumns?: ColumnDefinition[] | undefined;
     /** Used to address any item contained in this site. This collection can't be enumerated. */
     private _items?: BaseItem[] | undefined;
@@ -85,7 +83,7 @@ export class Site extends BaseItem implements Parsable {
         this._columns = value;
     };
     /**
-     * Instantiates a new Site and sets the default values.
+     * Instantiates a new site and sets the default values.
      */
     public constructor() {
         super();
@@ -148,28 +146,28 @@ export class Site extends BaseItem implements Parsable {
         this._drives = value;
     };
     /**
-     * Gets the error property value. The error property
+     * Gets the error property value. 
      * @returns a publicError
      */
     public get error_escaped() {
         return this._error_escaped;
     };
     /**
-     * Sets the error property value. The error property
+     * Sets the error property value. 
      * @param value Value to set for the error_escaped property.
      */
     public set error_escaped(value: PublicError | undefined) {
         this._error_escaped = value;
     };
     /**
-     * Gets the externalColumns property value. The externalColumns property
+     * Gets the externalColumns property value. 
      * @returns a columnDefinition
      */
     public get externalColumns() {
         return this._externalColumns;
     };
     /**
-     * Sets the externalColumns property value. The externalColumns property
+     * Sets the externalColumns property value. 
      * @param value Value to set for the externalColumns property.
      */
     public set externalColumns(value: ColumnDefinition[] | undefined) {

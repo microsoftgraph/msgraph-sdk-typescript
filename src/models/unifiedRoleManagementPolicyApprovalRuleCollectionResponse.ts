@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, UnifiedRoleManagementPolicyApprov
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleManagementPolicyApprovalRuleCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: UnifiedRoleManagementPolicyApprovalRule[] | undefined;
     /**
      * Instantiates a new UnifiedRoleManagementPolicyApprovalRuleCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class UnifiedRoleManagementPolicyApprovalRuleCollectionResponse extends B
         writer.writeCollectionOfObjectValues<UnifiedRoleManagementPolicyApprovalRule>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a unifiedRoleManagementPolicyApprovalRule
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: UnifiedRoleManagementPolicyApprovalRule[] | undefined) {

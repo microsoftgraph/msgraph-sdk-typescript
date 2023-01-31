@@ -6,13 +6,10 @@ export class ScoredEmailAddress implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The email address. */
     private _address?: string | undefined;
-    /** The itemId property */
     private _itemId?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The relevance score of the email address. A relevance score is used as a sort key, in relation to the other returned results. A higher relevance score value corresponds to a more relevant result. Relevance is determined by the user’s communication and collaboration patterns and business relationships. */
     private _relevanceScore?: number | undefined;
-    /** The selectionLikelihood property */
     private _selectionLikelihood?: SelectionLikelihoodInfo | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -62,28 +59,28 @@ export class ScoredEmailAddress implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the itemId property value. The itemId property
+     * Gets the itemId property value. 
      * @returns a string
      */
     public get itemId() {
         return this._itemId;
     };
     /**
-     * Sets the itemId property value. The itemId property
+     * Sets the itemId property value. 
      * @param value Value to set for the itemId property.
      */
     public set itemId(value: string | undefined) {
         this._itemId = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -104,14 +101,14 @@ export class ScoredEmailAddress implements AdditionalDataHolder, Parsable {
         this._relevanceScore = value;
     };
     /**
-     * Gets the selectionLikelihood property value. The selectionLikelihood property
+     * Gets the selectionLikelihood property value. 
      * @returns a selectionLikelihoodInfo
      */
     public get selectionLikelihood() {
         return this._selectionLikelihood;
     };
     /**
-     * Sets the selectionLikelihood property value. The selectionLikelihood property
+     * Sets the selectionLikelihood property value. 
      * @param value Value to set for the selectionLikelihood property.
      */
     public set selectionLikelihood(value: SelectionLikelihoodInfo | undefined) {

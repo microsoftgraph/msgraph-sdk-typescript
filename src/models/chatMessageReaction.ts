@@ -7,11 +7,9 @@ export class ChatMessageReaction implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _createdDateTime?: Date | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Supported values are like, angry, sad, laugh, heart, surprised. */
     private _reactionType?: string | undefined;
-    /** The user property */
     private _user?: ChatMessageReactionIdentitySet | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -60,14 +58,14 @@ export class ChatMessageReaction implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -100,14 +98,14 @@ export class ChatMessageReaction implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the user property value. The user property
+     * Gets the user property value. 
      * @returns a chatMessageReactionIdentitySet
      */
     public get user() {
         return this._user;
     };
     /**
-     * Sets the user property value. The user property
+     * Sets the user property value. 
      * @param value Value to set for the user property.
      */
     public set user(value: ChatMessageReactionIdentitySet | undefined) {

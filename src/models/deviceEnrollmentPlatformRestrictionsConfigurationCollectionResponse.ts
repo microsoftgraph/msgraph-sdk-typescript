@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, DeviceEnrollmentPlatformRestricti
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceEnrollmentPlatformRestrictionsConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: DeviceEnrollmentPlatformRestrictionsConfiguration[] | undefined;
     /**
      * Instantiates a new DeviceEnrollmentPlatformRestrictionsConfigurationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class DeviceEnrollmentPlatformRestrictionsConfigurationCollectionResponse
         writer.writeCollectionOfObjectValues<DeviceEnrollmentPlatformRestrictionsConfiguration>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a deviceEnrollmentPlatformRestrictionsConfiguration
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: DeviceEnrollmentPlatformRestrictionsConfiguration[] | undefined) {

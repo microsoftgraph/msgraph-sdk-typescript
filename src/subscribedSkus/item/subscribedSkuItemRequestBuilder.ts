@@ -21,17 +21,19 @@ export class SubscribedSkuItemRequestBuilder {
      * Instantiates a new SubscribedSkuItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param subscribedSkuId key: id of subscribedSku
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, subscribedSkuId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/subscribedSkus/{subscribedSku%2Did}{?%24select}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["subscribedSku%2Did"] = subscribedSkuId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from subscribedSkus by key (id)
+     * Delete entity from subscribedSkus
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -63,8 +65,7 @@ export class SubscribedSkuItemRequestBuilder {
         return this.requestAdapter?.sendAsync<SubscribedSku>(requestInfo, createSubscribedSkuFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update entity in subscribedSkus by key (id)
-     * @param body The request body
+     * Update entity in subscribedSkus
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SubscribedSku
@@ -81,7 +82,7 @@ export class SubscribedSkuItemRequestBuilder {
         return this.requestAdapter?.sendAsync<SubscribedSku>(requestInfo, createSubscribedSkuFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from subscribedSkus by key (id)
+     * Delete entity from subscribedSkus
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -115,8 +116,7 @@ export class SubscribedSkuItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in subscribedSkus by key (id)
-     * @param body The request body
+     * Update entity in subscribedSkus
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

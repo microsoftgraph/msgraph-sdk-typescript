@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, StsPolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class StsPolicyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: StsPolicy[] | undefined;
     /**
      * Instantiates a new StsPolicyCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class StsPolicyCollectionResponse extends BaseCollectionPaginationCountRe
         writer.writeCollectionOfObjectValues<StsPolicy>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a stsPolicy
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: StsPolicy[] | undefined) {

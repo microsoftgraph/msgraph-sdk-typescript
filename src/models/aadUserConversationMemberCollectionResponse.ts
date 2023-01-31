@@ -3,7 +3,6 @@ import {AadUserConversationMember, BaseCollectionPaginationCountResponse} from '
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AadUserConversationMemberCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AadUserConversationMember[] | undefined;
     /**
      * Instantiates a new AadUserConversationMemberCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AadUserConversationMemberCollectionResponse extends BaseCollectionP
         writer.writeCollectionOfObjectValues<AadUserConversationMember>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a aadUserConversationMember
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AadUserConversationMember[] | undefined) {

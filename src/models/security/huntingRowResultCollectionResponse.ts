@@ -4,7 +4,6 @@ import {HuntingRowResult} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class HuntingRowResultCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: HuntingRowResult[] | undefined;
     /**
      * Instantiates a new HuntingRowResultCollectionResponse and sets the default values.
@@ -31,14 +30,14 @@ export class HuntingRowResultCollectionResponse extends BaseCollectionPagination
         writer.writeCollectionOfObjectValues<HuntingRowResult>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a huntingRowResult
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: HuntingRowResult[] | undefined) {

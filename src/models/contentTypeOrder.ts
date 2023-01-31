@@ -5,7 +5,6 @@ export class ContentTypeOrder implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Whether this is the default Content Type */
     private _default_escaped?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Specifies the position in which the Content Type appears in the selection UI. */
     private _position?: number | undefined;
@@ -55,14 +54,14 @@ export class ContentTypeOrder implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -12,7 +12,6 @@ export class ConversationThread extends Entity implements Parsable {
     private _isLocked?: boolean | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.Returned by default. */
     private _lastDeliveredDateTime?: Date | undefined;
-    /** The posts property */
     private _posts?: Post[] | undefined;
     /** A short summary from the body of the latest post in this conversation. Returned by default. */
     private _preview?: string | undefined;
@@ -102,14 +101,14 @@ export class ConversationThread extends Entity implements Parsable {
         this._lastDeliveredDateTime = value;
     };
     /**
-     * Gets the posts property value. The posts property
+     * Gets the posts property value. 
      * @returns a post
      */
     public get posts() {
         return this._posts;
     };
     /**
-     * Sets the posts property value. The posts property
+     * Sets the posts property value. 
      * @param value Value to set for the posts property.
      */
     public set posts(value: Post[] | undefined) {

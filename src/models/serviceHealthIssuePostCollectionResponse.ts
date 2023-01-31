@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, ServiceHealthIssuePost} from './i
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ServiceHealthIssuePostCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ServiceHealthIssuePost[] | undefined;
     /**
      * Instantiates a new ServiceHealthIssuePostCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ServiceHealthIssuePostCollectionResponse extends BaseCollectionPagi
         writer.writeCollectionOfObjectValues<ServiceHealthIssuePost>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a serviceHealthIssuePost
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ServiceHealthIssuePost[] | undefined) {

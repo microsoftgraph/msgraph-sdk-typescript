@@ -3,7 +3,6 @@ import {AppConsentRequestScope, BaseCollectionPaginationCountResponse} from './i
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AppConsentRequestScopeCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AppConsentRequestScope[] | undefined;
     /**
      * Instantiates a new AppConsentRequestScopeCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AppConsentRequestScopeCollectionResponse extends BaseCollectionPagi
         writer.writeCollectionOfObjectValues<AppConsentRequestScope>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a appConsentRequestScope
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AppConsentRequestScope[] | undefined) {

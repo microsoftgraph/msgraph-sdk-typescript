@@ -3,10 +3,9 @@ import {Entity, TeamsApp} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AppCatalogs extends Entity implements Parsable {
-    /** The teamsApps property */
     private _teamsApps?: TeamsApp[] | undefined;
     /**
-     * Instantiates a new appCatalogs and sets the default values.
+     * Instantiates a new AppCatalogs and sets the default values.
      */
     public constructor() {
         super();
@@ -30,14 +29,14 @@ export class AppCatalogs extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<TeamsApp>("teamsApps", this.teamsApps);
     };
     /**
-     * Gets the teamsApps property value. The teamsApps property
+     * Gets the teamsApps property value. 
      * @returns a teamsApp
      */
     public get teamsApps() {
         return this._teamsApps;
     };
     /**
-     * Sets the teamsApps property value. The teamsApps property
+     * Sets the teamsApps property value. 
      * @param value Value to set for the teamsApps property.
      */
     public set teamsApps(value: TeamsApp[] | undefined) {

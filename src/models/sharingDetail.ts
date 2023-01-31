@@ -6,13 +6,11 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class SharingDetail implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The user who shared the document. */
     private _sharedBy?: InsightIdentity | undefined;
     /** The date and time the file was last shared. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _sharedDateTime?: Date | undefined;
-    /** The sharingReference property */
     private _sharingReference?: ResourceReference | undefined;
     /** The subject with which the document was shared. */
     private _sharingSubject?: string | undefined;
@@ -53,14 +51,14 @@ export class SharingDetail implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -108,14 +106,14 @@ export class SharingDetail implements AdditionalDataHolder, Parsable {
         this._sharedDateTime = value;
     };
     /**
-     * Gets the sharingReference property value. The sharingReference property
+     * Gets the sharingReference property value. 
      * @returns a resourceReference
      */
     public get sharingReference() {
         return this._sharingReference;
     };
     /**
-     * Sets the sharingReference property value. The sharingReference property
+     * Sets the sharingReference property value. 
      * @param value Value to set for the sharingReference property.
      */
     public set sharingReference(value: ResourceReference | undefined) {

@@ -8,7 +8,6 @@ export class AuditActivityInitiator implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** If the resource initiating the activity is an app, this property indicates all the app related information like appId, Name, servicePrincipalId, Name. */
     private _app?: AppIdentity | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** If the resource initiating the activity is a user, this property Indicates all the user related information like userId, Name, UserPrinicpalName. */
     private _user?: UserIdentity | undefined;
@@ -58,14 +57,14 @@ export class AuditActivityInitiator implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, ChangeNotification} from './index
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ChangeNotificationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ChangeNotification[] | undefined;
     /**
      * Instantiates a new ChangeNotificationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ChangeNotificationCollectionResponse extends BaseCollectionPaginati
         writer.writeCollectionOfObjectValues<ChangeNotification>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a changeNotification
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ChangeNotification[] | undefined) {

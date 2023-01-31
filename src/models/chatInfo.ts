@@ -5,7 +5,6 @@ export class ChatInfo implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The unique identifier of a message in a Microsoft Teams channel. */
     private _messageId?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The ID of the reply message. */
     private _replyChainMessageId?: string | undefined;
@@ -58,14 +57,14 @@ export class ChatInfo implements AdditionalDataHolder, Parsable {
         this._messageId = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

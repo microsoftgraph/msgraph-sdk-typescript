@@ -47,7 +47,6 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
     private _mediaTypes?: string[] | undefined;
     /** The presentation directions supported by the printer. Supported values are described in the following table. */
     private _multipageLayouts?: PrintMultipageLayout[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The print orientations supported by the printer. Valid values are described in the following table. */
     private _orientations?: PrintOrientation[] | undefined;
@@ -358,14 +357,14 @@ export class PrinterCapabilities implements AdditionalDataHolder, Parsable {
         this._multipageLayouts = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

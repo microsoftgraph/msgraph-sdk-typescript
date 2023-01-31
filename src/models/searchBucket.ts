@@ -9,7 +9,6 @@ export class SearchBucket implements AdditionalDataHolder, Parsable {
     private _count?: number | undefined;
     /** The discrete value of the field that an aggregation was computed on. */
     private _key?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -86,14 +85,14 @@ export class SearchBucket implements AdditionalDataHolder, Parsable {
         this._key = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

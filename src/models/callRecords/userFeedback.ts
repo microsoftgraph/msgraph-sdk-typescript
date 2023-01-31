@@ -6,9 +6,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class UserFeedback implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The rating property */
     private _rating?: UserFeedbackRating | undefined;
     /** The feedback text provided by the user of this endpoint for the session. */
     private _text?: string | undefined;
@@ -47,28 +45,28 @@ export class UserFeedback implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the rating property value. The rating property
+     * Gets the rating property value. 
      * @returns a userFeedbackRating
      */
     public get rating() {
         return this._rating;
     };
     /**
-     * Sets the rating property value. The rating property
+     * Sets the rating property value. 
      * @param value Value to set for the rating property.
      */
     public set rating(value: UserFeedbackRating | undefined) {

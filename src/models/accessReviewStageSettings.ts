@@ -13,7 +13,6 @@ export class AccessReviewStageSettings implements AdditionalDataHolder, Parsable
     private _durationInDays?: number | undefined;
     /** If provided, the fallback reviewers are asked to complete a review if the primary reviewers do not exist. For example, if managers are selected as reviewers and a principal under review does not have a manager in Azure AD, the fallback reviewers are asked to review that principal. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition object. */
     private _fallbackReviewers?: AccessReviewReviewerScope[] | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Indicates whether showing recommendations to reviewers is enabled. Required. NOTE: The value of this property will override override the corresponding setting on the accessReviewScheduleDefinition object. */
     private _recommendationsEnabled?: boolean | undefined;
@@ -114,14 +113,14 @@ export class AccessReviewStageSettings implements AdditionalDataHolder, Parsable
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

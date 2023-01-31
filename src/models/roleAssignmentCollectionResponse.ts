@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, RoleAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RoleAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: RoleAssignment[] | undefined;
     /**
      * Instantiates a new RoleAssignmentCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class RoleAssignmentCollectionResponse extends BaseCollectionPaginationCo
         writer.writeCollectionOfObjectValues<RoleAssignment>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a roleAssignment
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: RoleAssignment[] | undefined) {

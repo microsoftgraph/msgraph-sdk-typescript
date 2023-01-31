@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, SortProperty} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SortPropertyCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: SortProperty[] | undefined;
     /**
      * Instantiates a new SortPropertyCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class SortPropertyCollectionResponse extends BaseCollectionPaginationCoun
         writer.writeCollectionOfObjectValues<SortProperty>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a sortProperty
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: SortProperty[] | undefined) {

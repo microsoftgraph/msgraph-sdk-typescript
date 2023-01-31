@@ -2,12 +2,12 @@ import {Participant} from '../../../../../models/';
 import {createParticipantFromDiscriminatorValue} from '../../../../../models/createParticipantFromDiscriminatorValue';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {MuteRequestBuilder} from './mute/muteRequestBuilder';
+import {MuteRequestBuilder} from './microsoftGraphMute/muteRequestBuilder';
+import {StartHoldMusicRequestBuilder} from './microsoftGraphStartHoldMusic/startHoldMusicRequestBuilder';
+import {StopHoldMusicRequestBuilder} from './microsoftGraphStopHoldMusic/stopHoldMusicRequestBuilder';
 import {ParticipantItemRequestBuilderDeleteRequestConfiguration} from './participantItemRequestBuilderDeleteRequestConfiguration';
 import {ParticipantItemRequestBuilderGetRequestConfiguration} from './participantItemRequestBuilderGetRequestConfiguration';
 import {ParticipantItemRequestBuilderPatchRequestConfiguration} from './participantItemRequestBuilderPatchRequestConfiguration';
-import {StartHoldMusicRequestBuilder} from './startHoldMusic/startHoldMusicRequestBuilder';
-import {StopHoldMusicRequestBuilder} from './stopHoldMusic/stopHoldMusicRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -15,33 +15,35 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class ParticipantItemRequestBuilder {
     /** Provides operations to call the mute method. */
-    public get mute(): MuteRequestBuilder {
+    public get microsoftGraphMute(): MuteRequestBuilder {
         return new MuteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the startHoldMusic method. */
+    public get microsoftGraphStartHoldMusic(): StartHoldMusicRequestBuilder {
+        return new StartHoldMusicRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the stopHoldMusic method. */
+    public get microsoftGraphStopHoldMusic(): StopHoldMusicRequestBuilder {
+        return new StopHoldMusicRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the startHoldMusic method. */
-    public get startHoldMusic(): StartHoldMusicRequestBuilder {
-        return new StartHoldMusicRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the stopHoldMusic method. */
-    public get stopHoldMusic(): StopHoldMusicRequestBuilder {
-        return new StopHoldMusicRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new ParticipantItemRequestBuilder and sets the default values.
+     * @param participantId key: id of participant
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, participantId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/communications/calls/{call%2Did}/participants/{participant%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["participant%2Did"] = participantId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -78,7 +80,6 @@ export class ParticipantItemRequestBuilder {
     };
     /**
      * Update the navigation property participants in communications
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Participant
@@ -130,7 +131,6 @@ export class ParticipantItemRequestBuilder {
     };
     /**
      * Update the navigation property participants in communications
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

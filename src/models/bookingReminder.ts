@@ -9,11 +9,9 @@ export class BookingReminder implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The message in the reminder. */
     private _message?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format. */
     private _offset?: Duration | undefined;
-    /** The recipients property */
     private _recipients?: BookingReminderRecipients | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -62,14 +60,14 @@ export class BookingReminder implements AdditionalDataHolder, Parsable {
         this._message = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -90,14 +88,14 @@ export class BookingReminder implements AdditionalDataHolder, Parsable {
         this._offset = value;
     };
     /**
-     * Gets the recipients property value. The recipients property
+     * Gets the recipients property value. 
      * @returns a bookingReminderRecipients
      */
     public get recipients() {
         return this._recipients;
     };
     /**
-     * Sets the recipients property value. The recipients property
+     * Sets the recipients property value. 
      * @param value Value to set for the recipients property.
      */
     public set recipients(value: BookingReminderRecipients | undefined) {

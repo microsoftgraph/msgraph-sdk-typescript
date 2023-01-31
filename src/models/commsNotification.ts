@@ -4,9 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class CommsNotification implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The changeType property */
     private _changeType?: ChangeType | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** URI of the resource that was changed. */
     private _resourceUrl?: string | undefined;
@@ -25,14 +23,14 @@ export class CommsNotification implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the changeType property value. The changeType property
+     * Gets the changeType property value. 
      * @returns a changeType
      */
     public get changeType() {
         return this._changeType;
     };
     /**
-     * Sets the changeType property value. The changeType property
+     * Sets the changeType property value. 
      * @param value Value to set for the changeType property.
      */
     public set changeType(value: ChangeType | undefined) {
@@ -56,14 +54,14 @@ export class CommsNotification implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

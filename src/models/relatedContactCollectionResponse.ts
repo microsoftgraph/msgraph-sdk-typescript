@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, RelatedContact} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RelatedContactCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: RelatedContact[] | undefined;
     /**
      * Instantiates a new RelatedContactCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class RelatedContactCollectionResponse extends BaseCollectionPaginationCo
         writer.writeCollectionOfObjectValues<RelatedContact>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a relatedContact
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: RelatedContact[] | undefined) {

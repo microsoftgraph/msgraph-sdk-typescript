@@ -3,7 +3,6 @@ import {MicrosoftStoreForBusinessLicenseType} from './microsoftStoreForBusinessL
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable {
-    /** The licenseType property */
     private _licenseType?: MicrosoftStoreForBusinessLicenseType | undefined;
     /** The app package identifier */
     private _packageIdentityName?: string | undefined;
@@ -34,14 +33,14 @@ export class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable 
         };
     };
     /**
-     * Gets the licenseType property value. The licenseType property
+     * Gets the licenseType property value. 
      * @returns a microsoftStoreForBusinessLicenseType
      */
     public get licenseType() {
         return this._licenseType;
     };
     /**
-     * Sets the licenseType property value. The licenseType property
+     * Sets the licenseType property value. 
      * @param value Value to set for the licenseType property.
      */
     public set licenseType(value: MicrosoftStoreForBusinessLicenseType | undefined) {

@@ -10,7 +10,6 @@ export class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable {
     private _createdDateTime?: Date | undefined;
     /** The content of the service issue post. The supported value for the contentType property is html. */
     private _description?: ItemBody | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue. */
     private _postType?: PostType | undefined;
@@ -75,14 +74,14 @@ export class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

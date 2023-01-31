@@ -88,7 +88,6 @@ export class ManagedDevice extends Entity implements Parsable {
     private _managedDeviceName?: string | undefined;
     /** Owner type of device. */
     private _managedDeviceOwnerType?: ManagedDeviceOwnerType | undefined;
-    /** The managementAgent property */
     private _managementAgent?: ManagementAgentType | undefined;
     /** Reports device management certificate expiration date. This property is read-only. */
     private _managementCertificateExpirationDate?: Date | undefined;
@@ -682,14 +681,14 @@ export class ManagedDevice extends Entity implements Parsable {
         this._managedDeviceOwnerType = value;
     };
     /**
-     * Gets the managementAgent property value. The managementAgent property
+     * Gets the managementAgent property value. 
      * @returns a managementAgentType
      */
     public get managementAgent() {
         return this._managementAgent;
     };
     /**
-     * Sets the managementAgent property value. The managementAgent property
+     * Sets the managementAgent property value. 
      * @param value Value to set for the managementAgent property.
      */
     public set managementAgent(value: ManagementAgentType | undefined) {

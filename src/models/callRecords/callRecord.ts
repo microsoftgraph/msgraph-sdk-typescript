@@ -23,7 +23,6 @@ export class CallRecord extends Entity implements Parsable {
     private _sessions?: Session[] | undefined;
     /** UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _startDateTime?: Date | undefined;
-    /** The type property */
     private _type?: CallType | undefined;
     /** Monotonically increasing version of the call record. Higher version call records with the same id includes additional data compared to the lower version. */
     private _version?: number | undefined;
@@ -182,14 +181,14 @@ export class CallRecord extends Entity implements Parsable {
         this._startDateTime = value;
     };
     /**
-     * Gets the type property value. The type property
+     * Gets the type property value. 
      * @returns a callType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The type property
+     * Sets the type property value. 
      * @param value Value to set for the type property.
      */
     public set type(value: CallType | undefined) {

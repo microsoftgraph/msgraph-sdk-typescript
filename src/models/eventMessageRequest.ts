@@ -7,7 +7,6 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class EventMessageRequest extends EventMessage implements Parsable {
     /** True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true. */
     private _allowNewTimeProposals?: boolean | undefined;
-    /** The meetingRequestType property */
     private _meetingRequestType?: MeetingRequestType | undefined;
     /** If the meeting update changes the meeting end time, this property specifies the previous meeting end time. */
     private _previousEndDateTime?: DateTimeTimeZone | undefined;
@@ -53,14 +52,14 @@ export class EventMessageRequest extends EventMessage implements Parsable {
         };
     };
     /**
-     * Gets the meetingRequestType property value. The meetingRequestType property
+     * Gets the meetingRequestType property value. 
      * @returns a meetingRequestType
      */
     public get meetingRequestType() {
         return this._meetingRequestType;
     };
     /**
-     * Sets the meetingRequestType property value. The meetingRequestType property
+     * Sets the meetingRequestType property value. 
      * @param value Value to set for the meetingRequestType property.
      */
     public set meetingRequestType(value: MeetingRequestType | undefined) {

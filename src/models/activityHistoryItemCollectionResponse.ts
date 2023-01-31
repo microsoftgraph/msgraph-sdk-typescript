@@ -3,7 +3,6 @@ import {ActivityHistoryItem, BaseCollectionPaginationCountResponse} from './inde
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ActivityHistoryItemCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ActivityHistoryItem[] | undefined;
     /**
      * Instantiates a new ActivityHistoryItemCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ActivityHistoryItemCollectionResponse extends BaseCollectionPaginat
         writer.writeCollectionOfObjectValues<ActivityHistoryItem>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a activityHistoryItem
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ActivityHistoryItem[] | undefined) {

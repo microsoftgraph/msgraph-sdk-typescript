@@ -12,7 +12,6 @@ export class BookingSchedulingPolicy implements AdditionalDataHolder, Parsable {
     private _maximumAdvance?: Duration | undefined;
     /** The minimum amount of time before which bookings and cancellations must be made. It follows the ISO 8601 format. */
     private _minimumLeadTime?: Duration | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** True to notify the business via email when a booking is created or changed. Use the email address specified in the email property of the bookingBusiness entity for the business. */
     private _sendConfirmationsToOwner?: boolean | undefined;
@@ -95,14 +94,14 @@ export class BookingSchedulingPolicy implements AdditionalDataHolder, Parsable {
         this._minimumLeadTime = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -3,7 +3,6 @@ import {AuditResource, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AuditResourceCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AuditResource[] | undefined;
     /**
      * Instantiates a new AuditResourceCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AuditResourceCollectionResponse extends BaseCollectionPaginationCou
         writer.writeCollectionOfObjectValues<AuditResource>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a auditResource
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AuditResource[] | undefined) {

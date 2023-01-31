@@ -12,13 +12,11 @@ export class IosUpdateDeviceStatus extends Entity implements Parsable {
     private _deviceId?: string | undefined;
     /** The device model that is being reported */
     private _deviceModel?: string | undefined;
-    /** The installStatus property */
     private _installStatus?: IosUpdatesInstallStatus | undefined;
     /** Last modified date time of the policy report. */
     private _lastReportedDateTime?: Date | undefined;
     /** The device version that is being reported. */
     private _osVersion?: string | undefined;
-    /** The status property */
     private _status?: ComplianceStatus | undefined;
     /** The User id that is being reported. */
     private _userId?: string | undefined;
@@ -108,14 +106,14 @@ export class IosUpdateDeviceStatus extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the installStatus property value. The installStatus property
+     * Gets the installStatus property value. 
      * @returns a iosUpdatesInstallStatus
      */
     public get installStatus() {
         return this._installStatus;
     };
     /**
-     * Sets the installStatus property value. The installStatus property
+     * Sets the installStatus property value. 
      * @param value Value to set for the installStatus property.
      */
     public set installStatus(value: IosUpdatesInstallStatus | undefined) {
@@ -169,14 +167,14 @@ export class IosUpdateDeviceStatus extends Entity implements Parsable {
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. 
      * @returns a complianceStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. 
      * @param value Value to set for the status property.
      */
     public set status(value: ComplianceStatus | undefined) {

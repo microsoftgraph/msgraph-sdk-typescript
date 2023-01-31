@@ -3,13 +3,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AlertDetection implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The detectionType property */
     private _detectionType?: string | undefined;
-    /** The method property */
     private _method?: string | undefined;
-    /** The name property */
     private _name?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -32,14 +28,14 @@ export class AlertDetection implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the detectionType property value. The detectionType property
+     * Gets the detectionType property value. 
      * @returns a string
      */
     public get detectionType() {
         return this._detectionType;
     };
     /**
-     * Sets the detectionType property value. The detectionType property
+     * Sets the detectionType property value. 
      * @param value Value to set for the detectionType property.
      */
     public set detectionType(value: string | undefined) {
@@ -58,42 +54,42 @@ export class AlertDetection implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the method property value. The method property
+     * Gets the method property value. 
      * @returns a string
      */
     public get method() {
         return this._method;
     };
     /**
-     * Sets the method property value. The method property
+     * Sets the method property value. 
      * @param value Value to set for the method property.
      */
     public set method(value: string | undefined) {
         this._method = value;
     };
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. 
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. 
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {
         this._name = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

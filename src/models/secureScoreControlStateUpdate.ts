@@ -7,7 +7,6 @@ export class SecureScoreControlStateUpdate implements AdditionalDataHolder, Pars
     private _assignedTo?: string | undefined;
     /** Provides optional comment about the control. */
     private _comment?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty). */
     private _state?: string | undefined;
@@ -78,14 +77,14 @@ export class SecureScoreControlStateUpdate implements AdditionalDataHolder, Pars
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, MobileContainedApp} from './index
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MobileContainedAppCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: MobileContainedApp[] | undefined;
     /**
      * Instantiates a new MobileContainedAppCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class MobileContainedAppCollectionResponse extends BaseCollectionPaginati
         writer.writeCollectionOfObjectValues<MobileContainedApp>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a mobileContainedApp
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: MobileContainedApp[] | undefined) {

@@ -2,7 +2,7 @@ import {Permission} from '../../../models/';
 import {createPermissionFromDiscriminatorValue} from '../../../models/createPermissionFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {GrantRequestBuilder} from './grant/grantRequestBuilder';
+import {GrantRequestBuilder} from './microsoftGraphGrant/grantRequestBuilder';
 import {PermissionRequestBuilderDeleteRequestConfiguration} from './permissionRequestBuilderDeleteRequestConfiguration';
 import {PermissionRequestBuilderGetRequestConfiguration} from './permissionRequestBuilderGetRequestConfiguration';
 import {PermissionRequestBuilderPatchRequestConfiguration} from './permissionRequestBuilderPatchRequestConfiguration';
@@ -13,7 +13,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class PermissionRequestBuilder {
     /** Provides operations to call the grant method. */
-    public get grant(): GrantRequestBuilder {
+    public get microsoftGraphGrant(): GrantRequestBuilder {
         return new GrantRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
@@ -68,7 +68,6 @@ export class PermissionRequestBuilder {
     };
     /**
      * Update the navigation property permission in shares
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Permission
@@ -120,7 +119,6 @@ export class PermissionRequestBuilder {
     };
     /**
      * Update the navigation property permission in shares
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

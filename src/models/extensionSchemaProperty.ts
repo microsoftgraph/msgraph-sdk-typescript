@@ -5,7 +5,6 @@ export class ExtensionSchemaProperty implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The name of the strongly-typed property defined as part of a schema extension. */
     private _name?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The type of the property that is defined as part of a schema extension.  Allowed values are Binary, Boolean, DateTime, Integer or String. See the table below for more details. */
     private _type?: string | undefined;
@@ -55,14 +54,14 @@ export class ExtensionSchemaProperty implements AdditionalDataHolder, Parsable {
         this._name = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

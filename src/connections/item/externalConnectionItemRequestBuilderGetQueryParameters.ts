@@ -1,6 +1,6 @@
 
 /**
- * Get entity from connections by key (id)
+ * Get entity from connections by key
  */
 export class ExternalConnectionItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

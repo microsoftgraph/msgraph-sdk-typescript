@@ -2,7 +2,6 @@ import {ActionResultPart} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AadUserConversationMemberResult extends ActionResultPart implements Parsable {
-    /** The userId property */
     private _userId?: string | undefined;
     /**
      * Instantiates a new AadUserConversationMemberResult and sets the default values.
@@ -30,14 +29,14 @@ export class AadUserConversationMemberResult extends ActionResultPart implements
         writer.writeStringValue("userId", this.userId);
     };
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. 
      * @returns a string
      */
     public get userId() {
         return this._userId;
     };
     /**
-     * Sets the userId property value. The userId property
+     * Sets the userId property value. 
      * @param value Value to set for the userId property.
      */
     public set userId(value: string | undefined) {

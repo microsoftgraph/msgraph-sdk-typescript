@@ -2,25 +2,21 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EdiscoveryNoncustodialDataSource} from '../../../../../../models/security/';
 import {createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue} from '../../../../../../models/security/createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue';
-import {ApplyHoldRequestBuilder} from './applyHold/applyHoldRequestBuilder';
 import {DataSourceRequestBuilder} from './dataSource/dataSourceRequestBuilder';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration';
 import {LastIndexOperationRequestBuilder} from './lastIndexOperation/lastIndexOperationRequestBuilder';
-import {ReleaseRequestBuilder} from './release/releaseRequestBuilder';
-import {RemoveHoldRequestBuilder} from './removeHold/removeHoldRequestBuilder';
-import {UpdateIndexRequestBuilder} from './updateIndex/updateIndexRequestBuilder';
+import {ApplyHoldRequestBuilder} from './microsoftGraphSecurityApplyHold/applyHoldRequestBuilder';
+import {ReleaseRequestBuilder} from './microsoftGraphSecurityRelease/releaseRequestBuilder';
+import {RemoveHoldRequestBuilder} from './microsoftGraphSecurityRemoveHold/removeHoldRequestBuilder';
+import {UpdateIndexRequestBuilder} from './microsoftGraphSecurityUpdateIndex/updateIndexRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity.
  */
 export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
-    /** Provides operations to call the applyHold method. */
-    public get applyHold(): ApplyHoldRequestBuilder {
-        return new ApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the dataSource property of the microsoft.graph.security.ediscoveryNoncustodialDataSource entity. */
     public get dataSource(): DataSourceRequestBuilder {
         return new DataSourceRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -29,34 +25,40 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
     public get lastIndexOperation(): LastIndexOperationRequestBuilder {
         return new LastIndexOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the applyHold method. */
+    public get microsoftGraphSecurityApplyHold(): ApplyHoldRequestBuilder {
+        return new ApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the release method. */
-    public get release(): ReleaseRequestBuilder {
+    public get microsoftGraphSecurityRelease(): ReleaseRequestBuilder {
         return new ReleaseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the removeHold method. */
-    public get removeHold(): RemoveHoldRequestBuilder {
+    public get microsoftGraphSecurityRemoveHold(): RemoveHoldRequestBuilder {
         return new RemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the updateIndex method. */
-    public get updateIndex(): UpdateIndexRequestBuilder {
+    public get microsoftGraphSecurityUpdateIndex(): UpdateIndexRequestBuilder {
         return new UpdateIndexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Path parameters for the request */
+    private pathParameters: Record<string, unknown>;
+    /** The request adapter to use to execute the requests. */
+    private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new EdiscoveryNoncustodialDataSourceItemRequestBuilder and sets the default values.
+     * @param ediscoveryNoncustodialDataSourceId key: id of ediscoveryNoncustodialDataSource
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, ediscoveryNoncustodialDataSourceId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/noncustodialDataSources/{ediscoveryNoncustodialDataSource%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["ediscoveryNoncustodialDataSource%2Did"] = ediscoveryNoncustodialDataSourceId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -93,7 +95,6 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
     };
     /**
      * Update the navigation property noncustodialDataSources in security
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryNoncustodialDataSource
@@ -145,7 +146,6 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
     };
     /**
      * Update the navigation property noncustodialDataSources in security
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

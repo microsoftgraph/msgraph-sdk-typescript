@@ -6,8 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {AuditEventsRequestBuilderGetRequestConfiguration} from './auditEventsRequestBuilderGetRequestConfiguration';
 import {AuditEventsRequestBuilderPostRequestConfiguration} from './auditEventsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetAuditActivityTypesWithCategoryRequestBuilder} from './getAuditActivityTypesWithCategory/getAuditActivityTypesWithCategoryRequestBuilder';
-import {GetAuditCategoriesRequestBuilder} from './getAuditCategories/getAuditCategoriesRequestBuilder';
+import {GetAuditActivityTypesWithCategoryRequestBuilder} from './microsoftGraphGetAuditActivityTypesWithCategory/getAuditActivityTypesWithCategoryRequestBuilder';
+import {GetAuditCategoriesRequestBuilder} from './microsoftGraphGetAuditCategories/getAuditCategoriesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -17,6 +17,10 @@ export class AuditEventsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getAuditCategories method. */
+    public get microsoftGraphGetAuditCategories(): GetAuditCategoriesRequestBuilder {
+        return new GetAuditCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -58,20 +62,12 @@ export class AuditEventsRequestBuilder {
      * @param category Usage: category='{category}'
      * @returns a getAuditActivityTypesWithCategoryRequestBuilder
      */
-    public getAuditActivityTypesWithCategory(category: string | undefined) : GetAuditActivityTypesWithCategoryRequestBuilder {
+    public microsoftGraphGetAuditActivityTypesWithCategory(category: string | undefined) : GetAuditActivityTypesWithCategoryRequestBuilder {
         if(!category) throw new Error("category cannot be undefined");
         return new GetAuditActivityTypesWithCategoryRequestBuilder(this.pathParameters, this.requestAdapter, category);
     };
     /**
-     * Provides operations to call the getAuditCategories method.
-     * @returns a getAuditCategoriesRequestBuilder
-     */
-    public getAuditCategories() : GetAuditCategoriesRequestBuilder {
-        return new GetAuditCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
      * Create new navigation property to auditEvents for deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuditEvent
@@ -107,7 +103,6 @@ export class AuditEventsRequestBuilder {
     };
     /**
      * Create new navigation property to auditEvents for deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

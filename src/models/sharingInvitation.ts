@@ -9,9 +9,7 @@ export class SharingInvitation implements AdditionalDataHolder, Parsable {
     private _email?: string | undefined;
     /** Provides information about who sent the invitation that created this permission, if that information is available. Read-only. */
     private _invitedBy?: IdentitySet | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The redeemedBy property */
     private _redeemedBy?: string | undefined;
     /** If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only. */
     private _signInRequired?: boolean | undefined;
@@ -77,28 +75,28 @@ export class SharingInvitation implements AdditionalDataHolder, Parsable {
         this._invitedBy = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
         this._odataType = value;
     };
     /**
-     * Gets the redeemedBy property value. The redeemedBy property
+     * Gets the redeemedBy property value. 
      * @returns a string
      */
     public get redeemedBy() {
         return this._redeemedBy;
     };
     /**
-     * Sets the redeemedBy property value. The redeemedBy property
+     * Sets the redeemedBy property value. 
      * @param value Value to set for the redeemedBy property.
      */
     public set redeemedBy(value: string | undefined) {

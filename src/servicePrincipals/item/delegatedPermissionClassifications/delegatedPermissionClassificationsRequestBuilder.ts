@@ -54,7 +54,6 @@ export class DelegatedPermissionClassificationsRequestBuilder {
     };
     /**
      * Classify a delegated permission by adding a delegatedPermissionClassification to the servicePrincipal representing the API.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedPermissionClassification
@@ -91,7 +90,6 @@ export class DelegatedPermissionClassificationsRequestBuilder {
     };
     /**
      * Classify a delegated permission by adding a delegatedPermissionClassification to the servicePrincipal representing the API.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

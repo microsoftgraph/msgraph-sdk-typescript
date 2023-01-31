@@ -2,7 +2,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EdiscoveryCaseSettings} from '../../../../../models/security/';
 import {createEdiscoveryCaseSettingsFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryCaseSettingsFromDiscriminatorValue';
-import {ResetToDefaultRequestBuilder} from './resetToDefault/resetToDefaultRequestBuilder';
+import {ResetToDefaultRequestBuilder} from './microsoftGraphSecurityResetToDefault/resetToDefaultRequestBuilder';
 import {SettingsRequestBuilderDeleteRequestConfiguration} from './settingsRequestBuilderDeleteRequestConfiguration';
 import {SettingsRequestBuilderGetRequestConfiguration} from './settingsRequestBuilderGetRequestConfiguration';
 import {SettingsRequestBuilderPatchRequestConfiguration} from './settingsRequestBuilderPatchRequestConfiguration';
@@ -12,14 +12,14 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the settings property of the microsoft.graph.security.ediscoveryCase entity.
  */
 export class SettingsRequestBuilder {
+    /** Provides operations to call the resetToDefault method. */
+    public get microsoftGraphSecurityResetToDefault(): ResetToDefaultRequestBuilder {
+        return new ResetToDefaultRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the resetToDefault method. */
-    public get resetToDefault(): ResetToDefaultRequestBuilder {
-        return new ResetToDefaultRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
@@ -69,7 +69,6 @@ export class SettingsRequestBuilder {
     };
     /**
      * Update the properties of an ediscoveryCaseSettings object.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCaseSettings
@@ -122,7 +121,6 @@ export class SettingsRequestBuilder {
     };
     /**
      * Update the properties of an ediscoveryCaseSettings object.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

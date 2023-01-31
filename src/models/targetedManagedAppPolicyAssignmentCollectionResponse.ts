@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, TargetedManagedAppPolicyAssignmen
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TargetedManagedAppPolicyAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: TargetedManagedAppPolicyAssignment[] | undefined;
     /**
      * Instantiates a new TargetedManagedAppPolicyAssignmentCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class TargetedManagedAppPolicyAssignmentCollectionResponse extends BaseCo
         writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a targetedManagedAppPolicyAssignment
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: TargetedManagedAppPolicyAssignment[] | undefined) {

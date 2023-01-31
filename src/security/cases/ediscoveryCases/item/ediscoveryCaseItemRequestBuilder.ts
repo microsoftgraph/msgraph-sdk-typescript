@@ -2,17 +2,17 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EdiscoveryCase} from '../../../../models/security/';
 import {createEdiscoveryCaseFromDiscriminatorValue} from '../../../../models/security/createEdiscoveryCaseFromDiscriminatorValue';
-import {CloseRequestBuilder} from './close/closeRequestBuilder';
 import {CustodiansRequestBuilder} from './custodians/custodiansRequestBuilder';
 import {EdiscoveryCustodianItemRequestBuilder} from './custodians/item/ediscoveryCustodianItemRequestBuilder';
 import {EdiscoveryCaseItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryCaseItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoveryCaseItemRequestBuilderGetRequestConfiguration} from './ediscoveryCaseItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryCaseItemRequestBuilderPatchRequestConfiguration} from './ediscoveryCaseItemRequestBuilderPatchRequestConfiguration';
+import {CloseRequestBuilder} from './microsoftGraphSecurityClose/closeRequestBuilder';
+import {ReopenRequestBuilder} from './microsoftGraphSecurityReopen/reopenRequestBuilder';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilder} from './noncustodialDataSources/item/ediscoveryNoncustodialDataSourceItemRequestBuilder';
 import {NoncustodialDataSourcesRequestBuilder} from './noncustodialDataSources/noncustodialDataSourcesRequestBuilder';
 import {CaseOperationItemRequestBuilder} from './operations/item/caseOperationItemRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {ReopenRequestBuilder} from './reopen/reopenRequestBuilder';
 import {EdiscoveryReviewSetItemRequestBuilder} from './reviewSets/item/ediscoveryReviewSetItemRequestBuilder';
 import {ReviewSetsRequestBuilder} from './reviewSets/reviewSetsRequestBuilder';
 import {EdiscoverySearchItemRequestBuilder} from './searches/item/ediscoverySearchItemRequestBuilder';
@@ -26,13 +26,17 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
  */
 export class EdiscoveryCaseItemRequestBuilder {
-    /** Provides operations to call the close method. */
-    public get close(): CloseRequestBuilder {
-        return new CloseRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity. */
     public get custodians(): CustodiansRequestBuilder {
         return new CustodiansRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the close method. */
+    public get microsoftGraphSecurityClose(): CloseRequestBuilder {
+        return new CloseRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the reopen method. */
+    public get microsoftGraphSecurityReopen(): ReopenRequestBuilder {
+        return new ReopenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity. */
     public get noncustodialDataSources(): NoncustodialDataSourcesRequestBuilder {
@@ -44,10 +48,6 @@ export class EdiscoveryCaseItemRequestBuilder {
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
-    /** Provides operations to call the reopen method. */
-    public get reopen(): ReopenRequestBuilder {
-        return new ReopenRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity. */
@@ -70,14 +70,16 @@ export class EdiscoveryCaseItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new EdiscoveryCaseItemRequestBuilder and sets the default values.
+     * @param ediscoveryCaseId key: id of ediscoveryCase
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, ediscoveryCaseId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["ediscoveryCase%2Did"] = ediscoveryCaseId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -147,7 +149,6 @@ export class EdiscoveryCaseItemRequestBuilder {
     };
     /**
      * Update the navigation property ediscoveryCases in security
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCase
@@ -232,7 +233,6 @@ export class EdiscoveryCaseItemRequestBuilder {
     };
     /**
      * Update the navigation property ediscoveryCases in security
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

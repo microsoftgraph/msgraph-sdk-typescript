@@ -19,7 +19,6 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
     private _isReviewerJustificationRequired?: boolean | undefined;
     /** Specifies whether the principals can review their own assignments. */
     private _isSelfReview?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** This collection specifies the users or group of users who will review the access package assignments. */
     private _primaryReviewers?: SubjectSet[] | undefined;
@@ -147,14 +146,14 @@ export class AccessPackageAssignmentReviewSettings implements AdditionalDataHold
         this._isSelfReview = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

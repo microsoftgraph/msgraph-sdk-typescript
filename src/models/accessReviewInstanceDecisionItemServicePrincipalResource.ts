@@ -2,17 +2,16 @@ import {AccessReviewInstanceDecisionItemResource} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewInstanceDecisionItemServicePrincipalResource extends AccessReviewInstanceDecisionItemResource implements Parsable {
-    /** The appId property */
     private _appId?: string | undefined;
     /**
-     * Gets the appId property value. The appId property
+     * Gets the appId property value. 
      * @returns a string
      */
     public get appId() {
         return this._appId;
     };
     /**
-     * Sets the appId property value. The appId property
+     * Sets the appId property value. 
      * @param value Value to set for the appId property.
      */
     public set appId(value: string | undefined) {

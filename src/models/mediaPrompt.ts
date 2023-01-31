@@ -3,7 +3,6 @@ import {MediaInfo, Prompt} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MediaPrompt extends Prompt implements Parsable {
-    /** The mediaInfo property */
     private _mediaInfo?: MediaInfo | undefined;
     /**
      * Instantiates a new MediaPrompt and sets the default values.
@@ -22,14 +21,14 @@ export class MediaPrompt extends Prompt implements Parsable {
         };
     };
     /**
-     * Gets the mediaInfo property value. The mediaInfo property
+     * Gets the mediaInfo property value. 
      * @returns a mediaInfo
      */
     public get mediaInfo() {
         return this._mediaInfo;
     };
     /**
-     * Sets the mediaInfo property value. The mediaInfo property
+     * Sets the mediaInfo property value. 
      * @param value Value to set for the mediaInfo property.
      */
     public set mediaInfo(value: MediaInfo | undefined) {

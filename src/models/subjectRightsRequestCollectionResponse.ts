@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, SubjectRightsRequest} from './ind
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SubjectRightsRequestCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: SubjectRightsRequest[] | undefined;
     /**
      * Instantiates a new SubjectRightsRequestCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class SubjectRightsRequestCollectionResponse extends BaseCollectionPagina
         writer.writeCollectionOfObjectValues<SubjectRightsRequest>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a subjectRightsRequest
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: SubjectRightsRequest[] | undefined) {

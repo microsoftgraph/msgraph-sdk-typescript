@@ -3,11 +3,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class InvestigationSecurityState implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The name property */
     private _name?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The status property */
     private _status?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -41,28 +38,28 @@ export class InvestigationSecurityState implements AdditionalDataHolder, Parsabl
         };
     };
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. 
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. 
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {
         this._name = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -80,14 +77,14 @@ export class InvestigationSecurityState implements AdditionalDataHolder, Parsabl
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. 
      * @returns a string
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. 
      * @param value Value to set for the status property.
      */
     public set status(value: string | undefined) {

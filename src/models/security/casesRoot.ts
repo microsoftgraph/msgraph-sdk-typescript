@@ -4,7 +4,6 @@ import {EdiscoveryCase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CasesRoot extends Entity implements Parsable {
-    /** The ediscoveryCases property */
     private _ediscoveryCases?: EdiscoveryCase[] | undefined;
     /**
      * Instantiates a new casesRoot and sets the default values.
@@ -13,14 +12,14 @@ export class CasesRoot extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the ediscoveryCases property value. The ediscoveryCases property
+     * Gets the ediscoveryCases property value. 
      * @returns a ediscoveryCase
      */
     public get ediscoveryCases() {
         return this._ediscoveryCases;
     };
     /**
-     * Sets the ediscoveryCases property value. The ediscoveryCases property
+     * Sets the ediscoveryCases property value. 
      * @param value Value to set for the ediscoveryCases property.
      */
     public set ediscoveryCases(value: EdiscoveryCase[] | undefined) {

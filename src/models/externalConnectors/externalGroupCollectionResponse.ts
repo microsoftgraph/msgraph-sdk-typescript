@@ -4,7 +4,6 @@ import {ExternalGroup} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ExternalGroupCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: ExternalGroup[] | undefined;
     /**
      * Instantiates a new ExternalGroupCollectionResponse and sets the default values.
@@ -31,14 +30,14 @@ export class ExternalGroupCollectionResponse extends BaseCollectionPaginationCou
         writer.writeCollectionOfObjectValues<ExternalGroup>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a externalGroup
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: ExternalGroup[] | undefined) {

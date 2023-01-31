@@ -6,11 +6,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ApplicationServicePrincipal implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The application property */
     private _application?: Application | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The servicePrincipal property */
     private _servicePrincipal?: ServicePrincipal | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -27,14 +24,14 @@ export class ApplicationServicePrincipal implements AdditionalDataHolder, Parsab
         this._additionalData = value;
     };
     /**
-     * Gets the application property value. The application property
+     * Gets the application property value. 
      * @returns a application
      */
     public get application() {
         return this._application;
     };
     /**
-     * Sets the application property value. The application property
+     * Sets the application property value. 
      * @param value Value to set for the application property.
      */
     public set application(value: Application | undefined) {
@@ -58,14 +55,14 @@ export class ApplicationServicePrincipal implements AdditionalDataHolder, Parsab
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -83,14 +80,14 @@ export class ApplicationServicePrincipal implements AdditionalDataHolder, Parsab
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the servicePrincipal property value. The servicePrincipal property
+     * Gets the servicePrincipal property value. 
      * @returns a servicePrincipal
      */
     public get servicePrincipal() {
         return this._servicePrincipal;
     };
     /**
-     * Sets the servicePrincipal property value. The servicePrincipal property
+     * Sets the servicePrincipal property value. 
      * @param value Value to set for the servicePrincipal property.
      */
     public set servicePrincipal(value: ServicePrincipal | undefined) {

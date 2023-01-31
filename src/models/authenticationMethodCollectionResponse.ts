@@ -3,7 +3,6 @@ import {AuthenticationMethod, BaseCollectionPaginationCountResponse} from './ind
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AuthenticationMethodCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AuthenticationMethod[] | undefined;
     /**
      * Instantiates a new AuthenticationMethodCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AuthenticationMethodCollectionResponse extends BaseCollectionPagina
         writer.writeCollectionOfObjectValues<AuthenticationMethod>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a authenticationMethod
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AuthenticationMethod[] | undefined) {

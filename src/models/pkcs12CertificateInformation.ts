@@ -9,7 +9,6 @@ export class Pkcs12CertificateInformation implements AdditionalDataHolder, Parsa
     private _notAfter?: number | undefined;
     /** The certificate's issue time (not before). This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.) */
     private _notBefore?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The certificate thumbprint. */
     private _thumbprint?: string | undefined;
@@ -89,14 +88,14 @@ export class Pkcs12CertificateInformation implements AdditionalDataHolder, Parsa
         this._notBefore = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

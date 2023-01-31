@@ -3,25 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class MessageSecurityState implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The connectingIP property */
     private _connectingIP?: string | undefined;
-    /** The deliveryAction property */
     private _deliveryAction?: string | undefined;
-    /** The deliveryLocation property */
     private _deliveryLocation?: string | undefined;
-    /** The directionality property */
     private _directionality?: string | undefined;
-    /** The internetMessageId property */
     private _internetMessageId?: string | undefined;
-    /** The messageFingerprint property */
     private _messageFingerprint?: string | undefined;
-    /** The messageReceivedDateTime property */
     private _messageReceivedDateTime?: Date | undefined;
-    /** The messageSubject property */
     private _messageSubject?: string | undefined;
-    /** The networkMessageId property */
     private _networkMessageId?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -38,14 +28,14 @@ export class MessageSecurityState implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the connectingIP property value. The connectingIP property
+     * Gets the connectingIP property value. 
      * @returns a string
      */
     public get connectingIP() {
         return this._connectingIP;
     };
     /**
-     * Sets the connectingIP property value. The connectingIP property
+     * Sets the connectingIP property value. 
      * @param value Value to set for the connectingIP property.
      */
     public set connectingIP(value: string | undefined) {
@@ -58,42 +48,42 @@ export class MessageSecurityState implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the deliveryAction property value. The deliveryAction property
+     * Gets the deliveryAction property value. 
      * @returns a string
      */
     public get deliveryAction() {
         return this._deliveryAction;
     };
     /**
-     * Sets the deliveryAction property value. The deliveryAction property
+     * Sets the deliveryAction property value. 
      * @param value Value to set for the deliveryAction property.
      */
     public set deliveryAction(value: string | undefined) {
         this._deliveryAction = value;
     };
     /**
-     * Gets the deliveryLocation property value. The deliveryLocation property
+     * Gets the deliveryLocation property value. 
      * @returns a string
      */
     public get deliveryLocation() {
         return this._deliveryLocation;
     };
     /**
-     * Sets the deliveryLocation property value. The deliveryLocation property
+     * Sets the deliveryLocation property value. 
      * @param value Value to set for the deliveryLocation property.
      */
     public set deliveryLocation(value: string | undefined) {
         this._deliveryLocation = value;
     };
     /**
-     * Gets the directionality property value. The directionality property
+     * Gets the directionality property value. 
      * @returns a string
      */
     public get directionality() {
         return this._directionality;
     };
     /**
-     * Sets the directionality property value. The directionality property
+     * Sets the directionality property value. 
      * @param value Value to set for the directionality property.
      */
     public set directionality(value: string | undefined) {
@@ -118,84 +108,84 @@ export class MessageSecurityState implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the internetMessageId property value. The internetMessageId property
+     * Gets the internetMessageId property value. 
      * @returns a string
      */
     public get internetMessageId() {
         return this._internetMessageId;
     };
     /**
-     * Sets the internetMessageId property value. The internetMessageId property
+     * Sets the internetMessageId property value. 
      * @param value Value to set for the internetMessageId property.
      */
     public set internetMessageId(value: string | undefined) {
         this._internetMessageId = value;
     };
     /**
-     * Gets the messageFingerprint property value. The messageFingerprint property
+     * Gets the messageFingerprint property value. 
      * @returns a string
      */
     public get messageFingerprint() {
         return this._messageFingerprint;
     };
     /**
-     * Sets the messageFingerprint property value. The messageFingerprint property
+     * Sets the messageFingerprint property value. 
      * @param value Value to set for the messageFingerprint property.
      */
     public set messageFingerprint(value: string | undefined) {
         this._messageFingerprint = value;
     };
     /**
-     * Gets the messageReceivedDateTime property value. The messageReceivedDateTime property
+     * Gets the messageReceivedDateTime property value. 
      * @returns a Date
      */
     public get messageReceivedDateTime() {
         return this._messageReceivedDateTime;
     };
     /**
-     * Sets the messageReceivedDateTime property value. The messageReceivedDateTime property
+     * Sets the messageReceivedDateTime property value. 
      * @param value Value to set for the messageReceivedDateTime property.
      */
     public set messageReceivedDateTime(value: Date | undefined) {
         this._messageReceivedDateTime = value;
     };
     /**
-     * Gets the messageSubject property value. The messageSubject property
+     * Gets the messageSubject property value. 
      * @returns a string
      */
     public get messageSubject() {
         return this._messageSubject;
     };
     /**
-     * Sets the messageSubject property value. The messageSubject property
+     * Sets the messageSubject property value. 
      * @param value Value to set for the messageSubject property.
      */
     public set messageSubject(value: string | undefined) {
         this._messageSubject = value;
     };
     /**
-     * Gets the networkMessageId property value. The networkMessageId property
+     * Gets the networkMessageId property value. 
      * @returns a string
      */
     public get networkMessageId() {
         return this._networkMessageId;
     };
     /**
-     * Sets the networkMessageId property value. The networkMessageId property
+     * Sets the networkMessageId property value. 
      * @param value Value to set for the networkMessageId property.
      */
     public set networkMessageId(value: string | undefined) {
         this._networkMessageId = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

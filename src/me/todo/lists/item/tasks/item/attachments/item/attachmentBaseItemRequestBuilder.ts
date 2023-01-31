@@ -23,14 +23,16 @@ export class AttachmentBaseItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new AttachmentBaseItemRequestBuilder and sets the default values.
+     * @param attachmentBaseId key: id of attachmentBase
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, attachmentBaseId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments/{attachmentBase%2Did}{?%24select}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["attachmentBase%2Did"] = attachmentBaseId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

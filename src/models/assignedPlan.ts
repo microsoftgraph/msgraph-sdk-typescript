@@ -7,7 +7,6 @@ export class AssignedPlan implements AdditionalDataHolder, Parsable {
     private _assignedDateTime?: Date | undefined;
     /** Condition of the capability assignment. The possible values are Enabled, Warning, Suspended, Deleted, LockedOut. See a detailed description of each value. */
     private _capabilityStatus?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The name of the service; for example, exchange. */
     private _service?: string | undefined;
@@ -75,14 +74,14 @@ export class AssignedPlan implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

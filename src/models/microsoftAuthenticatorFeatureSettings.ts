@@ -9,7 +9,6 @@ export class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHold
     private _displayAppInformationRequiredState?: AuthenticationMethodFeatureConfiguration | undefined;
     /** Determines whether the user's Authenticator app will show them the geographic location of where the authentication request originated from. */
     private _displayLocationInformationRequiredState?: AuthenticationMethodFeatureConfiguration | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -71,14 +70,14 @@ export class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHold
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

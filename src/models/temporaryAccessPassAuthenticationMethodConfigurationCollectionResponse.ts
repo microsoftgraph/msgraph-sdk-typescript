@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, TemporaryAccessPassAuthentication
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TemporaryAccessPassAuthenticationMethodConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: TemporaryAccessPassAuthenticationMethodConfiguration[] | undefined;
     /**
      * Instantiates a new TemporaryAccessPassAuthenticationMethodConfigurationCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class TemporaryAccessPassAuthenticationMethodConfigurationCollectionRespo
         writer.writeCollectionOfObjectValues<TemporaryAccessPassAuthenticationMethodConfiguration>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a temporaryAccessPassAuthenticationMethodConfiguration
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: TemporaryAccessPassAuthenticationMethodConfiguration[] | undefined) {

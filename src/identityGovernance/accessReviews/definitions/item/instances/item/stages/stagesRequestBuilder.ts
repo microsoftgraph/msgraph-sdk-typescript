@@ -4,7 +4,7 @@ import {createAccessReviewStageFromDiscriminatorValue} from '../../../../../../.
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import {FilterByCurrentUserWithOnRequestBuilder} from './microsoftGraphFilterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {StagesRequestBuilderGetRequestConfiguration} from './stagesRequestBuilderGetRequestConfiguration';
 import {StagesRequestBuilderPostRequestConfiguration} from './stagesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -37,15 +37,6 @@ export class StagesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Provides operations to call the filterByCurrentUser method.
-     * @param on Usage: on='{on}'
-     * @returns a filterByCurrentUserWithOnRequestBuilder
-     */
-    public filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder {
-        if(!on) throw new Error("on cannot be undefined");
-        return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
-    };
-    /**
      * Retrieve the stages in a multi-stage access review instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -63,8 +54,16 @@ export class StagesRequestBuilder {
         return this.requestAdapter?.sendAsync<AccessReviewStageCollectionResponse>(requestInfo, createAccessReviewStageCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
+     * Provides operations to call the filterByCurrentUser method.
+     * @param on Usage: on='{on}'
+     * @returns a filterByCurrentUserWithOnRequestBuilder
+     */
+    public microsoftGraphFilterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder {
+        if(!on) throw new Error("on cannot be undefined");
+        return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
+    };
+    /**
      * Create new navigation property to stages for identityGovernance
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewStage
@@ -100,7 +99,6 @@ export class StagesRequestBuilder {
     };
     /**
      * Create new navigation property to stages for identityGovernance
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

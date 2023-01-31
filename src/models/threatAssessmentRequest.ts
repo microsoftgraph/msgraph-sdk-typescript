@@ -9,7 +9,6 @@ import {ThreatExpectedAssessment} from './threatExpectedAssessment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ThreatAssessmentRequest extends Entity implements Parsable {
-    /** The category property */
     private _category?: ThreatCategory | undefined;
     /** The content type of threat assessment. Possible values are: mail, url, file. */
     private _contentType?: ThreatAssessmentContentType | undefined;
@@ -17,7 +16,6 @@ export class ThreatAssessmentRequest extends Entity implements Parsable {
     private _createdBy?: IdentitySet | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _createdDateTime?: Date | undefined;
-    /** The expectedAssessment property */
     private _expectedAssessment?: ThreatExpectedAssessment | undefined;
     /** The source of the threat assessment request. Possible values are: administrator. */
     private _requestSource?: ThreatAssessmentRequestSource | undefined;
@@ -26,21 +24,21 @@ export class ThreatAssessmentRequest extends Entity implements Parsable {
     /** The assessment process status. Possible values are: pending, completed. */
     private _status?: ThreatAssessmentStatus | undefined;
     /**
-     * Gets the category property value. The category property
+     * Gets the category property value. 
      * @returns a threatCategory
      */
     public get category() {
         return this._category;
     };
     /**
-     * Sets the category property value. The category property
+     * Sets the category property value. 
      * @param value Value to set for the category property.
      */
     public set category(value: ThreatCategory | undefined) {
         this._category = value;
     };
     /**
-     * Instantiates a new threatAssessmentRequest and sets the default values.
+     * Instantiates a new ThreatAssessmentRequest and sets the default values.
      */
     public constructor() {
         super();
@@ -88,14 +86,14 @@ export class ThreatAssessmentRequest extends Entity implements Parsable {
         this._createdDateTime = value;
     };
     /**
-     * Gets the expectedAssessment property value. The expectedAssessment property
+     * Gets the expectedAssessment property value. 
      * @returns a threatExpectedAssessment
      */
     public get expectedAssessment() {
         return this._expectedAssessment;
     };
     /**
-     * Sets the expectedAssessment property value. The expectedAssessment property
+     * Sets the expectedAssessment property value. 
      * @param value Value to set for the expectedAssessment property.
      */
     public set expectedAssessment(value: ThreatExpectedAssessment | undefined) {

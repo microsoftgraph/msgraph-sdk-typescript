@@ -3,17 +3,16 @@ import {MicrosoftAuthenticatorAuthenticationMode} from './microsoftAuthenticator
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MicrosoftAuthenticatorAuthenticationMethodTarget extends AuthenticationMethodTarget implements Parsable {
-    /** The authenticationMode property */
     private _authenticationMode?: MicrosoftAuthenticatorAuthenticationMode | undefined;
     /**
-     * Gets the authenticationMode property value. The authenticationMode property
+     * Gets the authenticationMode property value. 
      * @returns a microsoftAuthenticatorAuthenticationMode
      */
     public get authenticationMode() {
         return this._authenticationMode;
     };
     /**
-     * Sets the authenticationMode property value. The authenticationMode property
+     * Sets the authenticationMode property value. 
      * @param value Value to set for the authenticationMode property.
      */
     public set authenticationMode(value: MicrosoftAuthenticatorAuthenticationMode | undefined) {

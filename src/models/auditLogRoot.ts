@@ -5,11 +5,8 @@ import {DirectoryAudit, Entity, ProvisioningObjectSummary, SignIn} from './index
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AuditLogRoot extends Entity implements Parsable {
-    /** The directoryAudits property */
     private _directoryAudits?: DirectoryAudit[] | undefined;
-    /** The provisioning property */
     private _provisioning?: ProvisioningObjectSummary[] | undefined;
-    /** The signIns property */
     private _signIns?: SignIn[] | undefined;
     /**
      * Instantiates a new AuditLogRoot and sets the default values.
@@ -18,14 +15,14 @@ export class AuditLogRoot extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the directoryAudits property value. The directoryAudits property
+     * Gets the directoryAudits property value. 
      * @returns a directoryAudit
      */
     public get directoryAudits() {
         return this._directoryAudits;
     };
     /**
-     * Sets the directoryAudits property value. The directoryAudits property
+     * Sets the directoryAudits property value. 
      * @param value Value to set for the directoryAudits property.
      */
     public set directoryAudits(value: DirectoryAudit[] | undefined) {
@@ -43,14 +40,14 @@ export class AuditLogRoot extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the provisioning property value. The provisioning property
+     * Gets the provisioning property value. 
      * @returns a provisioningObjectSummary
      */
     public get provisioning() {
         return this._provisioning;
     };
     /**
-     * Sets the provisioning property value. The provisioning property
+     * Sets the provisioning property value. 
      * @param value Value to set for the provisioning property.
      */
     public set provisioning(value: ProvisioningObjectSummary[] | undefined) {
@@ -68,14 +65,14 @@ export class AuditLogRoot extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<SignIn>("signIns", this.signIns);
     };
     /**
-     * Gets the signIns property value. The signIns property
+     * Gets the signIns property value. 
      * @returns a signIn
      */
     public get signIns() {
         return this._signIns;
     };
     /**
-     * Sets the signIns property value. The signIns property
+     * Sets the signIns property value. 
      * @param value Value to set for the signIns property.
      */
     public set signIns(value: SignIn[] | undefined) {

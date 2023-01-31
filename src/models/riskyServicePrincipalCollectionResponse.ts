@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, RiskyServicePrincipal} from './in
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RiskyServicePrincipalCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: RiskyServicePrincipal[] | undefined;
     /**
      * Instantiates a new RiskyServicePrincipalCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class RiskyServicePrincipalCollectionResponse extends BaseCollectionPagin
         writer.writeCollectionOfObjectValues<RiskyServicePrincipal>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a riskyServicePrincipal
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: RiskyServicePrincipal[] | undefined) {

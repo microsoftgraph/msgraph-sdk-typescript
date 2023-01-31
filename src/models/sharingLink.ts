@@ -7,7 +7,6 @@ export class SharingLink implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The app the link is associated with. */
     private _application?: Identity | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint. */
     private _preventsDownload?: boolean | undefined;
@@ -69,14 +68,14 @@ export class SharingLink implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

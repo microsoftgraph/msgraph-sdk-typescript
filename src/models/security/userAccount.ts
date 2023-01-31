@@ -9,7 +9,6 @@ export class UserAccount implements AdditionalDataHolder, Parsable {
     private _azureAdUserId?: string | undefined;
     /** The name of the Active Directory domain of which the user is a member. */
     private _domainName?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The user principal name of the account in Azure AD. */
     private _userPrincipalName?: string | undefined;
@@ -92,14 +91,14 @@ export class UserAccount implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

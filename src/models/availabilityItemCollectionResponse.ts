@@ -3,7 +3,6 @@ import {AvailabilityItem, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AvailabilityItemCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AvailabilityItem[] | undefined;
     /**
      * Instantiates a new AvailabilityItemCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AvailabilityItemCollectionResponse extends BaseCollectionPagination
         writer.writeCollectionOfObjectValues<AvailabilityItem>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a availabilityItem
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AvailabilityItem[] | undefined) {

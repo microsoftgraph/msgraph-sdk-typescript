@@ -2,7 +2,7 @@ import {Notebook} from '../../../../../models/';
 import {createNotebookFromDiscriminatorValue} from '../../../../../models/createNotebookFromDiscriminatorValue';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {CopyNotebookRequestBuilder} from './copyNotebook/copyNotebookRequestBuilder';
+import {CopyNotebookRequestBuilder} from './microsoftGraphCopyNotebook/copyNotebookRequestBuilder';
 import {NotebookItemRequestBuilderDeleteRequestConfiguration} from './notebookItemRequestBuilderDeleteRequestConfiguration';
 import {NotebookItemRequestBuilderGetRequestConfiguration} from './notebookItemRequestBuilderGetRequestConfiguration';
 import {NotebookItemRequestBuilderPatchRequestConfiguration} from './notebookItemRequestBuilderPatchRequestConfiguration';
@@ -17,7 +17,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class NotebookItemRequestBuilder {
     /** Provides operations to call the copyNotebook method. */
-    public get copyNotebook(): CopyNotebookRequestBuilder {
+    public get microsoftGraphCopyNotebook(): CopyNotebookRequestBuilder {
         return new CopyNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
@@ -36,14 +36,16 @@ export class NotebookItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new NotebookItemRequestBuilder and sets the default values.
+     * @param notebookId key: id of notebook
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, notebookId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/sites/{site%2Did}/onenote/notebooks/{notebook%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["notebook%2Did"] = notebookId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -80,7 +82,6 @@ export class NotebookItemRequestBuilder {
     };
     /**
      * Update the navigation property notebooks in sites
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Notebook
@@ -154,7 +155,6 @@ export class NotebookItemRequestBuilder {
     };
     /**
      * Update the navigation property notebooks in sites
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

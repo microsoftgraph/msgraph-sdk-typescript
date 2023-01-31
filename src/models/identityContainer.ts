@@ -13,7 +13,6 @@ export class IdentityContainer extends Entity implements Parsable {
     private _b2xUserFlows?: B2xIdentityUserFlow[] | undefined;
     /** the entry point for the Conditional Access (CA) object model. */
     private _conditionalAccess?: ConditionalAccessRoot | undefined;
-    /** The identityProviders property */
     private _identityProviders?: IdentityProviderBase[] | undefined;
     /** Represents entry point for identity userflow attributes. */
     private _userFlowAttributes?: IdentityUserFlowAttribute[] | undefined;
@@ -79,14 +78,14 @@ export class IdentityContainer extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the identityProviders property value. The identityProviders property
+     * Gets the identityProviders property value. 
      * @returns a identityProviderBase
      */
     public get identityProviders() {
         return this._identityProviders;
     };
     /**
-     * Sets the identityProviders property value. The identityProviders property
+     * Sets the identityProviders property value. 
      * @param value Value to set for the identityProviders property.
      */
     public set identityProviders(value: IdentityProviderBase[] | undefined) {

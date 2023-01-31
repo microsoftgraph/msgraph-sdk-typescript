@@ -3,7 +3,6 @@ import {AppRole, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AppRoleCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AppRole[] | undefined;
     /**
      * Instantiates a new AppRoleCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AppRoleCollectionResponse extends BaseCollectionPaginationCountResp
         writer.writeCollectionOfObjectValues<AppRole>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a appRole
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AppRole[] | undefined) {

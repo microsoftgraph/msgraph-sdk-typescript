@@ -15,7 +15,6 @@ export class IdentityUserFlowAttributeAssignment extends Entity implements Parsa
     private _userAttribute?: IdentityUserFlowAttribute | undefined;
     /** The input options for the user flow attribute. Only applicable when the userInputType is radioSingleSelect, dropdownSingleSelect, or checkboxMultiSelect. */
     private _userAttributeValues?: UserAttributeValuesItem[] | undefined;
-    /** The userInputType property */
     private _userInputType?: IdentityUserFlowAttributeInputType | undefined;
     /**
      * Instantiates a new identityUserFlowAttributeAssignment and sets the default values.
@@ -122,14 +121,14 @@ export class IdentityUserFlowAttributeAssignment extends Entity implements Parsa
         this._userAttributeValues = value;
     };
     /**
-     * Gets the userInputType property value. The userInputType property
+     * Gets the userInputType property value. 
      * @returns a identityUserFlowAttributeInputType
      */
     public get userInputType() {
         return this._userInputType;
     };
     /**
-     * Sets the userInputType property value. The userInputType property
+     * Sets the userInputType property value. 
      * @param value Value to set for the userInputType property.
      */
     public set userInputType(value: IdentityUserFlowAttributeInputType | undefined) {

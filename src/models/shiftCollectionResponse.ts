@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, Shift} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ShiftCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: Shift[] | undefined;
     /**
      * Instantiates a new ShiftCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class ShiftCollectionResponse extends BaseCollectionPaginationCountRespon
         writer.writeCollectionOfObjectValues<Shift>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a shift
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: Shift[] | undefined) {

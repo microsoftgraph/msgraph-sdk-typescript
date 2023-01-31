@@ -20,13 +20,15 @@ export class PrintUsageByPrinterItemRequestBuilder {
     /**
      * Instantiates a new PrintUsageByPrinterItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param printUsageByPrinterId key: id of printUsageByPrinter
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, printUsageByPrinterId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/reports/dailyPrintUsageByPrinter/{printUsageByPrinter%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["printUsageByPrinter%2Did"] = printUsageByPrinterId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -63,7 +65,6 @@ export class PrintUsageByPrinterItemRequestBuilder {
     };
     /**
      * Update the navigation property dailyPrintUsageByPrinter in reports
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintUsageByPrinter
@@ -115,7 +116,6 @@ export class PrintUsageByPrinterItemRequestBuilder {
     };
     /**
      * Update the navigation property dailyPrintUsageByPrinter in reports
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

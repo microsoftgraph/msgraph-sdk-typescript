@@ -17,7 +17,6 @@ export class UserSimulationDetails implements AdditionalDataHolder, Parsable {
     private _inProgressTrainingsCount?: number | undefined;
     /** Indicates whether a user was compromised in an attack simulation and training campaign. */
     private _isCompromised?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Date and time when a user reported the delivered payload as phishing in the attack simulation and training campaign. */
     private _reportedPhishDateTime?: Date | undefined;
@@ -136,14 +135,14 @@ export class UserSimulationDetails implements AdditionalDataHolder, Parsable {
         this._isCompromised = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

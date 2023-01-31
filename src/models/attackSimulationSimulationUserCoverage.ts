@@ -13,7 +13,6 @@ export class AttackSimulationSimulationUserCoverage implements AdditionalDataHol
     private _compromisedCount?: number | undefined;
     /** Date and time of the latest attack simulation and training campaign that the user was included in. */
     private _latestSimulationDateTime?: Date | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Number of attack simulation and training campaigns that the user was included in. */
     private _simulationCount?: number | undefined;
@@ -108,14 +107,14 @@ export class AttackSimulationSimulationUserCoverage implements AdditionalDataHol
         this._latestSimulationDateTime = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

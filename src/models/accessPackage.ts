@@ -8,9 +8,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class AccessPackage extends Entity implements Parsable {
     /** The access packages that are incompatible with this package. Read-only. */
     private _accessPackagesIncompatibleWith?: AccessPackage[] | undefined;
-    /** The assignmentPolicies property */
     private _assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
-    /** The catalog property */
     private _catalog?: AccessPackageCatalog | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _createdDateTime?: Date | undefined;
@@ -41,28 +39,28 @@ export class AccessPackage extends Entity implements Parsable {
         this._accessPackagesIncompatibleWith = value;
     };
     /**
-     * Gets the assignmentPolicies property value. The assignmentPolicies property
+     * Gets the assignmentPolicies property value. 
      * @returns a accessPackageAssignmentPolicy
      */
     public get assignmentPolicies() {
         return this._assignmentPolicies;
     };
     /**
-     * Sets the assignmentPolicies property value. The assignmentPolicies property
+     * Sets the assignmentPolicies property value. 
      * @param value Value to set for the assignmentPolicies property.
      */
     public set assignmentPolicies(value: AccessPackageAssignmentPolicy[] | undefined) {
         this._assignmentPolicies = value;
     };
     /**
-     * Gets the catalog property value. The catalog property
+     * Gets the catalog property value. 
      * @returns a accessPackageCatalog
      */
     public get catalog() {
         return this._catalog;
     };
     /**
-     * Sets the catalog property value. The catalog property
+     * Sets the catalog property value. 
      * @param value Value to set for the catalog property.
      */
     public set catalog(value: AccessPackageCatalog | undefined) {

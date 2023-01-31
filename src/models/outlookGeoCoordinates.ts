@@ -13,7 +13,6 @@ export class OutlookGeoCoordinates implements AdditionalDataHolder, Parsable {
     private _latitude?: number | undefined;
     /** The longitude of the location. */
     private _longitude?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the accuracy property value. The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters.
@@ -120,14 +119,14 @@ export class OutlookGeoCoordinates implements AdditionalDataHolder, Parsable {
         this._longitude = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

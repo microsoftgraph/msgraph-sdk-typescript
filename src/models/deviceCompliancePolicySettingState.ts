@@ -17,7 +17,6 @@ export class DeviceCompliancePolicySettingState implements AdditionalDataHolder,
     private _errorDescription?: string | undefined;
     /** Name of setting instance that is being reported. */
     private _instanceDisplayName?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The setting that is being reported */
     private _setting?: string | undefined;
@@ -25,7 +24,6 @@ export class DeviceCompliancePolicySettingState implements AdditionalDataHolder,
     private _settingName?: string | undefined;
     /** Contributing policies */
     private _sources?: SettingSource[] | undefined;
-    /** The state property */
     private _state?: ComplianceStatus | undefined;
     /** UserEmail */
     private _userEmail?: string | undefined;
@@ -133,14 +131,14 @@ export class DeviceCompliancePolicySettingState implements AdditionalDataHolder,
         this._instanceDisplayName = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -210,14 +208,14 @@ export class DeviceCompliancePolicySettingState implements AdditionalDataHolder,
         this._sources = value;
     };
     /**
-     * Gets the state property value. The state property
+     * Gets the state property value. 
      * @returns a complianceStatus
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. The state property
+     * Sets the state property value. 
      * @param value Value to set for the state property.
      */
     public set state(value: ComplianceStatus | undefined) {

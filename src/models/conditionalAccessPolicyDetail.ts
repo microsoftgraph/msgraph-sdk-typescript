@@ -7,11 +7,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ConditionalAccessPolicyDetail implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The conditions property */
     private _conditions?: ConditionalAccessConditionSet | undefined;
     /** Represents grant controls that must be fulfilled for the policy. */
     private _grantControls?: ConditionalAccessGrantControls | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Represents a complex type of session controls that is enforced after sign-in. */
     private _sessionControls?: ConditionalAccessSessionControls | undefined;
@@ -30,14 +28,14 @@ export class ConditionalAccessPolicyDetail implements AdditionalDataHolder, Pars
         this._additionalData = value;
     };
     /**
-     * Gets the conditions property value. The conditions property
+     * Gets the conditions property value. 
      * @returns a conditionalAccessConditionSet
      */
     public get conditions() {
         return this._conditions;
     };
     /**
-     * Sets the conditions property value. The conditions property
+     * Sets the conditions property value. 
      * @param value Value to set for the conditions property.
      */
     public set conditions(value: ConditionalAccessConditionSet | undefined) {
@@ -76,14 +74,14 @@ export class ConditionalAccessPolicyDetail implements AdditionalDataHolder, Pars
         this._grantControls = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

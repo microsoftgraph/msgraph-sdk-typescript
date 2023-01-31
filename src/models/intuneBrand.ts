@@ -23,7 +23,6 @@ export class IntuneBrand implements AdditionalDataHolder, Parsable {
     private _displayName?: string | undefined;
     /** Logo image displayed in Company Portal apps which have a light background behind the logo. */
     private _lightBackgroundLogo?: MimeContent | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Display name of the company/organization’s IT helpdesk site. */
     private _onlineSupportSiteName?: string | undefined;
@@ -181,14 +180,14 @@ export class IntuneBrand implements AdditionalDataHolder, Parsable {
         this._lightBackgroundLogo = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

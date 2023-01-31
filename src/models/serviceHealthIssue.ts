@@ -6,7 +6,6 @@ import {ServiceHealthStatus} from './serviceHealthStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ServiceHealthIssue extends ServiceAnnouncementBase implements Parsable {
-    /** The classification property */
     private _classification?: ServiceHealthClassificationType | undefined;
     /** The feature name of the service issue. */
     private _feature?: string | undefined;
@@ -16,23 +15,21 @@ export class ServiceHealthIssue extends ServiceAnnouncementBase implements Parsa
     private _impactDescription?: string | undefined;
     /** Indicates whether the issue is resolved. */
     private _isResolved?: boolean | undefined;
-    /** The origin property */
     private _origin?: ServiceHealthOrigin | undefined;
     /** Collection of historical posts for the service issue. */
     private _posts?: ServiceHealthIssuePost[] | undefined;
     /** Indicates the service affected by the issue. */
     private _service?: string | undefined;
-    /** The status property */
     private _status?: ServiceHealthStatus | undefined;
     /**
-     * Gets the classification property value. The classification property
+     * Gets the classification property value. 
      * @returns a serviceHealthClassificationType
      */
     public get classification() {
         return this._classification;
     };
     /**
-     * Sets the classification property value. The classification property
+     * Sets the classification property value. 
      * @param value Value to set for the classification property.
      */
     public set classification(value: ServiceHealthClassificationType | undefined) {
@@ -119,14 +116,14 @@ export class ServiceHealthIssue extends ServiceAnnouncementBase implements Parsa
         this._isResolved = value;
     };
     /**
-     * Gets the origin property value. The origin property
+     * Gets the origin property value. 
      * @returns a serviceHealthOrigin
      */
     public get origin() {
         return this._origin;
     };
     /**
-     * Sets the origin property value. The origin property
+     * Sets the origin property value. 
      * @param value Value to set for the origin property.
      */
     public set origin(value: ServiceHealthOrigin | undefined) {
@@ -178,14 +175,14 @@ export class ServiceHealthIssue extends ServiceAnnouncementBase implements Parsa
         this._service = value;
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. 
      * @returns a serviceHealthStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. 
      * @param value Value to set for the status property.
      */
     public set status(value: ServiceHealthStatus | undefined) {

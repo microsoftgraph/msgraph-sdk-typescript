@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, EducationPointsOutcome} from './i
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationPointsOutcomeCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: EducationPointsOutcome[] | undefined;
     /**
      * Instantiates a new EducationPointsOutcomeCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class EducationPointsOutcomeCollectionResponse extends BaseCollectionPagi
         writer.writeCollectionOfObjectValues<EducationPointsOutcome>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a educationPointsOutcome
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: EducationPointsOutcome[] | undefined) {

@@ -3,10 +3,10 @@ import {createIdentityProviderBaseCollectionResponseFromDiscriminatorValue} from
 import {createIdentityProviderBaseFromDiscriminatorValue} from '../../models/createIdentityProviderBaseFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AvailableProviderTypesRequestBuilder} from './availableProviderTypes/availableProviderTypesRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IdentityProvidersRequestBuilderGetRequestConfiguration} from './identityProvidersRequestBuilderGetRequestConfiguration';
 import {IdentityProvidersRequestBuilderPostRequestConfiguration} from './identityProvidersRequestBuilderPostRequestConfiguration';
+import {AvailableProviderTypesRequestBuilder} from './microsoftGraphAvailableProviderTypes/availableProviderTypesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -17,19 +17,16 @@ export class IdentityProvidersRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the availableProviderTypes method. */
+    public get microsoftGraphAvailableProviderTypes(): AvailableProviderTypesRequestBuilder {
+        return new AvailableProviderTypesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
-    /**
-     * Provides operations to call the availableProviderTypes method.
-     * @returns a availableProviderTypesRequestBuilder
-     */
-    public availableProviderTypes() : AvailableProviderTypesRequestBuilder {
-        return new AvailableProviderTypesRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
     /**
      * Instantiates a new IdentityProvidersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -62,7 +59,6 @@ export class IdentityProvidersRequestBuilder {
     };
     /**
      * Create an identity provider resource that is of the type specified in the request body. Among the types of providers derived from identityProviderBase, you can currently create a socialIdentityProvider resource in Azure AD. In Azure AD B2C, this operation can currently create a socialIdentityProvider, or an appleManagedIdentityProvider resource.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityProviderBase
@@ -99,7 +95,6 @@ export class IdentityProvidersRequestBuilder {
     };
     /**
      * Create an identity provider resource that is of the type specified in the request body. Among the types of providers derived from identityProviderBase, you can currently create a socialIdentityProvider resource in Azure AD. In Azure AD B2C, this operation can currently create a socialIdentityProvider, or an appleManagedIdentityProvider resource.
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

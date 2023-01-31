@@ -24,19 +24,21 @@ export class InvitationItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new InvitationItemRequestBuilder and sets the default values.
+     * @param invitationId key: id of invitation
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, invitationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/invitations/{invitation%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["invitation%2Did"] = invitationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from invitations by key (id)
+     * Delete entity from invitations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -51,7 +53,7 @@ export class InvitationItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get entity from invitations by key (id)
+     * Get entity from invitations by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Invitation
@@ -67,8 +69,7 @@ export class InvitationItemRequestBuilder {
         return this.requestAdapter?.sendAsync<Invitation>(requestInfo, createInvitationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update entity in invitations by key (id)
-     * @param body The request body
+     * Update entity in invitations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Invitation
@@ -85,7 +86,7 @@ export class InvitationItemRequestBuilder {
         return this.requestAdapter?.sendAsync<Invitation>(requestInfo, createInvitationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from invitations by key (id)
+     * Delete entity from invitations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -101,7 +102,7 @@ export class InvitationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from invitations by key (id)
+     * Get entity from invitations by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -119,8 +120,7 @@ export class InvitationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in invitations by key (id)
-     * @param body The request body
+     * Update entity in invitations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

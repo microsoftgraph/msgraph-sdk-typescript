@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, CrossTenantAccessPolicyTarget} fr
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CrossTenantAccessPolicyTargetCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: CrossTenantAccessPolicyTarget[] | undefined;
     /**
      * Instantiates a new CrossTenantAccessPolicyTargetCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class CrossTenantAccessPolicyTargetCollectionResponse extends BaseCollect
         writer.writeCollectionOfObjectValues<CrossTenantAccessPolicyTarget>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a crossTenantAccessPolicyTarget
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: CrossTenantAccessPolicyTarget[] | undefined) {

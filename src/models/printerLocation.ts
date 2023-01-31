@@ -19,7 +19,6 @@ export class PrinterLocation implements AdditionalDataHolder, Parsable {
     private _latitude?: number | undefined;
     /** The longitude that the printer is located at. */
     private _longitude?: number | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** The organizational hierarchy that the printer belongs to. The elements should be in hierarchical order. */
     private _organization?: string[] | undefined;
@@ -37,7 +36,6 @@ export class PrinterLocation implements AdditionalDataHolder, Parsable {
     private _streetAddress?: string | undefined;
     /** The subdivision that the printer is located in. The elements should be in hierarchical order. */
     private _subdivision?: string[] | undefined;
-    /** The subunit property */
     private _subunit?: string[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -198,14 +196,14 @@ export class PrinterLocation implements AdditionalDataHolder, Parsable {
         this._longitude = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -350,14 +348,14 @@ export class PrinterLocation implements AdditionalDataHolder, Parsable {
         this._subdivision = value;
     };
     /**
-     * Gets the subunit property value. The subunit property
+     * Gets the subunit property value. 
      * @returns a string
      */
     public get subunit() {
         return this._subunit;
     };
     /**
-     * Sets the subunit property value. The subunit property
+     * Sets the subunit property value. 
      * @param value Value to set for the subunit property.
      */
     public set subunit(value: string[] | undefined) {

@@ -19,14 +19,16 @@ export class EnrollmentConfigurationAssignmentItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new EnrollmentConfigurationAssignmentItemRequestBuilder and sets the default values.
+     * @param enrollmentConfigurationAssignmentId key: id of enrollmentConfigurationAssignment
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, enrollmentConfigurationAssignmentId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations/{deviceEnrollmentConfiguration%2Did}/assignments/{enrollmentConfigurationAssignment%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["enrollmentConfigurationAssignment%2Did"] = enrollmentConfigurationAssignmentId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -63,7 +65,6 @@ export class EnrollmentConfigurationAssignmentItemRequestBuilder {
     };
     /**
      * Update the navigation property assignments in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EnrollmentConfigurationAssignment
@@ -115,7 +116,6 @@ export class EnrollmentConfigurationAssignmentItemRequestBuilder {
     };
     /**
      * Update the navigation property assignments in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

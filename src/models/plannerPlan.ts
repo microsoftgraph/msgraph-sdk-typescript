@@ -17,7 +17,6 @@ export class PlannerPlan extends Entity implements Parsable {
     private _createdDateTime?: Date | undefined;
     /** Read-only. Nullable. Additional details about the plan. */
     private _details?: PlannerPlanDetails | undefined;
-    /** The owner property */
     private _owner?: string | undefined;
     /** Read-only. Nullable. Collection of tasks in the plan. */
     private _tasks?: PlannerTask[] | undefined;
@@ -116,14 +115,14 @@ export class PlannerPlan extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the owner property value. The owner property
+     * Gets the owner property value. 
      * @returns a string
      */
     public get owner() {
         return this._owner;
     };
     /**
-     * Sets the owner property value. The owner property
+     * Sets the owner property value. 
      * @param value Value to set for the owner property.
      */
     public set owner(value: string | undefined) {

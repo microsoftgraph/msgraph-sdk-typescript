@@ -3,7 +3,6 @@ import {AppleManagedIdentityProvider, BaseCollectionPaginationCountResponse} fro
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AppleManagedIdentityProviderCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AppleManagedIdentityProvider[] | undefined;
     /**
      * Instantiates a new AppleManagedIdentityProviderCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AppleManagedIdentityProviderCollectionResponse extends BaseCollecti
         writer.writeCollectionOfObjectValues<AppleManagedIdentityProvider>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a appleManagedIdentityProvider
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AppleManagedIdentityProvider[] | undefined) {

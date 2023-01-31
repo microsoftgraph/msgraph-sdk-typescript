@@ -2,25 +2,20 @@ import {DirectoryObject} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Endpoint extends DirectoryObject implements Parsable {
-    /** The capability property */
     private _capability?: string | undefined;
-    /** The providerId property */
     private _providerId?: string | undefined;
-    /** The providerName property */
     private _providerName?: string | undefined;
-    /** The providerResourceId property */
     private _providerResourceId?: string | undefined;
-    /** The uri property */
     private _uri?: string | undefined;
     /**
-     * Gets the capability property value. The capability property
+     * Gets the capability property value. 
      * @returns a string
      */
     public get capability() {
         return this._capability;
     };
     /**
-     * Sets the capability property value. The capability property
+     * Sets the capability property value. 
      * @param value Value to set for the capability property.
      */
     public set capability(value: string | undefined) {
@@ -47,42 +42,42 @@ export class Endpoint extends DirectoryObject implements Parsable {
         };
     };
     /**
-     * Gets the providerId property value. The providerId property
+     * Gets the providerId property value. 
      * @returns a string
      */
     public get providerId() {
         return this._providerId;
     };
     /**
-     * Sets the providerId property value. The providerId property
+     * Sets the providerId property value. 
      * @param value Value to set for the providerId property.
      */
     public set providerId(value: string | undefined) {
         this._providerId = value;
     };
     /**
-     * Gets the providerName property value. The providerName property
+     * Gets the providerName property value. 
      * @returns a string
      */
     public get providerName() {
         return this._providerName;
     };
     /**
-     * Sets the providerName property value. The providerName property
+     * Sets the providerName property value. 
      * @param value Value to set for the providerName property.
      */
     public set providerName(value: string | undefined) {
         this._providerName = value;
     };
     /**
-     * Gets the providerResourceId property value. The providerResourceId property
+     * Gets the providerResourceId property value. 
      * @returns a string
      */
     public get providerResourceId() {
         return this._providerResourceId;
     };
     /**
-     * Sets the providerResourceId property value. The providerResourceId property
+     * Sets the providerResourceId property value. 
      * @param value Value to set for the providerResourceId property.
      */
     public set providerResourceId(value: string | undefined) {
@@ -102,14 +97,14 @@ export class Endpoint extends DirectoryObject implements Parsable {
         writer.writeStringValue("uri", this.uri);
     };
     /**
-     * Gets the uri property value. The uri property
+     * Gets the uri property value. 
      * @returns a string
      */
     public get uri() {
         return this._uri;
     };
     /**
-     * Sets the uri property value. The uri property
+     * Sets the uri property value. 
      * @param value Value to set for the uri property.
      */
     public set uri(value: string | undefined) {

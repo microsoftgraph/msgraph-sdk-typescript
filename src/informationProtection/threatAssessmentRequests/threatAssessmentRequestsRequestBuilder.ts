@@ -54,7 +54,6 @@ export class ThreatAssessmentRequestsRequestBuilder {
     };
     /**
      * Create a new threat assessment request. A threat assessment request can be one of the following types:
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ThreatAssessmentRequest
@@ -91,7 +90,6 @@ export class ThreatAssessmentRequestsRequestBuilder {
     };
     /**
      * Create a new threat assessment request. A threat assessment request can be one of the following types:
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

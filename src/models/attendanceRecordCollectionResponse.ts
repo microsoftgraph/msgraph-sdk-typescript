@@ -3,7 +3,6 @@ import {AttendanceRecord, BaseCollectionPaginationCountResponse} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AttendanceRecordCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: AttendanceRecord[] | undefined;
     /**
      * Instantiates a new AttendanceRecordCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class AttendanceRecordCollectionResponse extends BaseCollectionPagination
         writer.writeCollectionOfObjectValues<AttendanceRecord>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a attendanceRecord
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: AttendanceRecord[] | undefined) {

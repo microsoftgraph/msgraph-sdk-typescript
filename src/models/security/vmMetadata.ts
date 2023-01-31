@@ -4,9 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class VmMetadata implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The cloudProvider property */
     private _cloudProvider?: VmCloudProvider | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /** Unique identifier of the Azure resource. */
     private _resourceId?: string | undefined;
@@ -29,14 +27,14 @@ export class VmMetadata implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the cloudProvider property value. The cloudProvider property
+     * Gets the cloudProvider property value. 
      * @returns a vmCloudProvider
      */
     public get cloudProvider() {
         return this._cloudProvider;
     };
     /**
-     * Sets the cloudProvider property value. The cloudProvider property
+     * Sets the cloudProvider property value. 
      * @param value Value to set for the cloudProvider property.
      */
     public set cloudProvider(value: VmCloudProvider | undefined) {
@@ -62,14 +60,14 @@ export class VmMetadata implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

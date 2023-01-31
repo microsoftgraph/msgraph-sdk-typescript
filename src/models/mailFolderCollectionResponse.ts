@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, MailFolder} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MailFolderCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: MailFolder[] | undefined;
     /**
      * Instantiates a new MailFolderCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class MailFolderCollectionResponse extends BaseCollectionPaginationCountR
         writer.writeCollectionOfObjectValues<MailFolder>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a mailFolder
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: MailFolder[] | undefined) {

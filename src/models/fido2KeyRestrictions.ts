@@ -10,7 +10,6 @@ export class Fido2KeyRestrictions implements AdditionalDataHolder, Parsable {
     private _enforcementType?: Fido2RestrictionEnforcementType | undefined;
     /** Determines if the configured key enforcement is enabled. */
     private _isEnforced?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the aaGuids property value. A collection of Authenticator Attestation GUIDs. AADGUIDs define key types and manufacturers.
@@ -87,14 +86,14 @@ export class Fido2KeyRestrictions implements AdditionalDataHolder, Parsable {
         this._isEnforced = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

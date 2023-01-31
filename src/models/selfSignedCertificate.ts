@@ -3,25 +3,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class SelfSignedCertificate implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The customKeyIdentifier property */
     private _customKeyIdentifier?: string | undefined;
-    /** The displayName property */
     private _displayName?: string | undefined;
-    /** The endDateTime property */
     private _endDateTime?: Date | undefined;
-    /** The key property */
     private _key?: string | undefined;
-    /** The keyId property */
     private _keyId?: string | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The startDateTime property */
     private _startDateTime?: Date | undefined;
-    /** The thumbprint property */
     private _thumbprint?: string | undefined;
-    /** The type property */
     private _type?: string | undefined;
-    /** The usage property */
     private _usage?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -44,42 +34,42 @@ export class SelfSignedCertificate implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the customKeyIdentifier property value. The customKeyIdentifier property
+     * Gets the customKeyIdentifier property value. 
      * @returns a binary
      */
     public get customKeyIdentifier() {
         return this._customKeyIdentifier;
     };
     /**
-     * Sets the customKeyIdentifier property value. The customKeyIdentifier property
+     * Sets the customKeyIdentifier property value. 
      * @param value Value to set for the customKeyIdentifier property.
      */
     public set customKeyIdentifier(value: string | undefined) {
         this._customKeyIdentifier = value;
     };
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. 
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. 
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
         this._displayName = value;
     };
     /**
-     * Gets the endDateTime property value. The endDateTime property
+     * Gets the endDateTime property value. 
      * @returns a Date
      */
     public get endDateTime() {
         return this._endDateTime;
     };
     /**
-     * Sets the endDateTime property value. The endDateTime property
+     * Sets the endDateTime property value. 
      * @param value Value to set for the endDateTime property.
      */
     public set endDateTime(value: Date | undefined) {
@@ -104,42 +94,42 @@ export class SelfSignedCertificate implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the key property value. The key property
+     * Gets the key property value. 
      * @returns a binary
      */
     public get key() {
         return this._key;
     };
     /**
-     * Sets the key property value. The key property
+     * Sets the key property value. 
      * @param value Value to set for the key property.
      */
     public set key(value: string | undefined) {
         this._key = value;
     };
     /**
-     * Gets the keyId property value. The keyId property
+     * Gets the keyId property value. 
      * @returns a Guid
      */
     public get keyId() {
         return this._keyId;
     };
     /**
-     * Sets the keyId property value. The keyId property
+     * Sets the keyId property value. 
      * @param value Value to set for the keyId property.
      */
     public set keyId(value: string | undefined) {
         this._keyId = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {
@@ -164,56 +154,56 @@ export class SelfSignedCertificate implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the startDateTime property value. The startDateTime property
+     * Gets the startDateTime property value. 
      * @returns a Date
      */
     public get startDateTime() {
         return this._startDateTime;
     };
     /**
-     * Sets the startDateTime property value. The startDateTime property
+     * Sets the startDateTime property value. 
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: Date | undefined) {
         this._startDateTime = value;
     };
     /**
-     * Gets the thumbprint property value. The thumbprint property
+     * Gets the thumbprint property value. 
      * @returns a string
      */
     public get thumbprint() {
         return this._thumbprint;
     };
     /**
-     * Sets the thumbprint property value. The thumbprint property
+     * Sets the thumbprint property value. 
      * @param value Value to set for the thumbprint property.
      */
     public set thumbprint(value: string | undefined) {
         this._thumbprint = value;
     };
     /**
-     * Gets the type property value. The type property
+     * Gets the type property value. 
      * @returns a string
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The type property
+     * Sets the type property value. 
      * @param value Value to set for the type property.
      */
     public set type(value: string | undefined) {
         this._type = value;
     };
     /**
-     * Gets the usage property value. The usage property
+     * Gets the usage property value. 
      * @returns a string
      */
     public get usage() {
         return this._usage;
     };
     /**
-     * Sets the usage property value. The usage property
+     * Sets the usage property value. 
      * @param value Value to set for the usage property.
      */
     public set usage(value: string | undefined) {

@@ -13,15 +13,11 @@ export class ExternalConnection extends Entity implements Parsable {
     private _configuration?: Configuration | undefined;
     /** Description of the connection displayed in the Microsoft 365 admin center. Optional. */
     private _description?: string | undefined;
-    /** The groups property */
     private _groups?: ExternalGroup[] | undefined;
-    /** The items property */
     private _items?: ExternalItem[] | undefined;
     /** The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required. */
     private _name?: string | undefined;
-    /** The operations property */
     private _operations?: ConnectionOperation[] | undefined;
-    /** The schema property */
     private _schema?: Schema | undefined;
     /** Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue. */
     private _state?: ConnectionState | undefined;
@@ -40,7 +36,7 @@ export class ExternalConnection extends Entity implements Parsable {
         this._configuration = value;
     };
     /**
-     * Instantiates a new externalConnection and sets the default values.
+     * Instantiates a new ExternalConnection and sets the default values.
      */
     public constructor() {
         super();
@@ -76,28 +72,28 @@ export class ExternalConnection extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the groups property value. The groups property
+     * Gets the groups property value. 
      * @returns a externalGroup
      */
     public get groups() {
         return this._groups;
     };
     /**
-     * Sets the groups property value. The groups property
+     * Sets the groups property value. 
      * @param value Value to set for the groups property.
      */
     public set groups(value: ExternalGroup[] | undefined) {
         this._groups = value;
     };
     /**
-     * Gets the items property value. The items property
+     * Gets the items property value. 
      * @returns a externalItem
      */
     public get items() {
         return this._items;
     };
     /**
-     * Sets the items property value. The items property
+     * Sets the items property value. 
      * @param value Value to set for the items property.
      */
     public set items(value: ExternalItem[] | undefined) {
@@ -118,28 +114,28 @@ export class ExternalConnection extends Entity implements Parsable {
         this._name = value;
     };
     /**
-     * Gets the operations property value. The operations property
+     * Gets the operations property value. 
      * @returns a connectionOperation
      */
     public get operations() {
         return this._operations;
     };
     /**
-     * Sets the operations property value. The operations property
+     * Sets the operations property value. 
      * @param value Value to set for the operations property.
      */
     public set operations(value: ConnectionOperation[] | undefined) {
         this._operations = value;
     };
     /**
-     * Gets the schema property value. The schema property
+     * Gets the schema property value. 
      * @returns a schema
      */
     public get schema() {
         return this._schema;
     };
     /**
-     * Sets the schema property value. The schema property
+     * Sets the schema property value. 
      * @param value Value to set for the schema property.
      */
     public set schema(value: Schema | undefined) {

@@ -5,71 +5,73 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {EducationSubmissionItemRequestBuilderDeleteRequestConfiguration} from './educationSubmissionItemRequestBuilderDeleteRequestConfiguration';
 import {EducationSubmissionItemRequestBuilderGetRequestConfiguration} from './educationSubmissionItemRequestBuilderGetRequestConfiguration';
 import {EducationSubmissionItemRequestBuilderPatchRequestConfiguration} from './educationSubmissionItemRequestBuilderPatchRequestConfiguration';
+import {ReassignRequestBuilder} from './microsoftGraphReassign/reassignRequestBuilder';
+import {ReturnRequestBuilder} from './microsoftGraphReturn/returnRequestBuilder';
+import {SetUpResourcesFolderRequestBuilder} from './microsoftGraphSetUpResourcesFolder/setUpResourcesFolderRequestBuilder';
+import {SubmitRequestBuilder} from './microsoftGraphSubmit/submitRequestBuilder';
+import {UnsubmitRequestBuilder} from './microsoftGraphUnsubmit/unsubmitRequestBuilder';
 import {EducationOutcomeItemRequestBuilder} from './outcomes/item/educationOutcomeItemRequestBuilder';
 import {OutcomesRequestBuilder} from './outcomes/outcomesRequestBuilder';
-import {ReassignRequestBuilder} from './reassign/reassignRequestBuilder';
 import {EducationSubmissionResourceItemRequestBuilder as Ie6e240bf6d2125d4ac92291b6d932203325a569b5806e7039f13fd9954c22f62} from './resources/item/educationSubmissionResourceItemRequestBuilder';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
-import {ReturnRequestBuilder} from './return_escaped/returnRequestBuilder';
-import {SetUpResourcesFolderRequestBuilder} from './setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
-import {SubmitRequestBuilder} from './submit/submitRequestBuilder';
 import {EducationSubmissionResourceItemRequestBuilder as I2613a71cf08facb0dc7897f83d5c2867ab86bf3e35f7eb4c0a1ad857df67e052} from './submittedResources/item/educationSubmissionResourceItemRequestBuilder';
 import {SubmittedResourcesRequestBuilder} from './submittedResources/submittedResourcesRequestBuilder';
-import {UnsubmitRequestBuilder} from './unsubmit/unsubmitRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
  */
 export class EducationSubmissionItemRequestBuilder {
+    /** Provides operations to call the reassign method. */
+    public get microsoftGraphReassign(): ReassignRequestBuilder {
+        return new ReassignRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the return method. */
+    public get microsoftGraphReturn(): ReturnRequestBuilder {
+        return new ReturnRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the setUpResourcesFolder method. */
+    public get microsoftGraphSetUpResourcesFolder(): SetUpResourcesFolderRequestBuilder {
+        return new SetUpResourcesFolderRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the submit method. */
+    public get microsoftGraphSubmit(): SubmitRequestBuilder {
+        return new SubmitRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the unsubmit method. */
+    public get microsoftGraphUnsubmit(): UnsubmitRequestBuilder {
+        return new UnsubmitRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity. */
     public get outcomes(): OutcomesRequestBuilder {
         return new OutcomesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
-    /** Provides operations to call the reassign method. */
-    public get reassign(): ReassignRequestBuilder {
-        return new ReassignRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the resources property of the microsoft.graph.educationSubmission entity. */
     public get resources(): ResourcesRequestBuilder {
         return new ResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the return method. */
-    public get return_escaped(): ReturnRequestBuilder {
-        return new ReturnRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the setUpResourcesFolder method. */
-    public get setUpResourcesFolder(): SetUpResourcesFolderRequestBuilder {
-        return new SetUpResourcesFolderRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the submit method. */
-    public get submit(): SubmitRequestBuilder {
-        return new SubmitRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity. */
     public get submittedResources(): SubmittedResourcesRequestBuilder {
         return new SubmittedResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the unsubmit method. */
-    public get unsubmit(): UnsubmitRequestBuilder {
-        return new UnsubmitRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new EducationSubmissionItemRequestBuilder and sets the default values.
+     * @param educationSubmissionId key: id of educationSubmission
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, educationSubmissionId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/submissions/{educationSubmission%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["educationSubmission%2Did"] = educationSubmissionId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -117,7 +119,6 @@ export class EducationSubmissionItemRequestBuilder {
     };
     /**
      * Update the navigation property submissions in education
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationSubmission
@@ -191,7 +192,6 @@ export class EducationSubmissionItemRequestBuilder {
     };
     /**
      * Update the navigation property submissions in education
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

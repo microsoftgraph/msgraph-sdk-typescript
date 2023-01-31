@@ -5,7 +5,6 @@ export class SelfServiceSignUpAuthenticationFlowConfiguration implements Additio
     private _additionalData: Record<string, unknown>;
     /** Indicates whether self-service sign-up flow is enabled or disabled. The default value is false. This property is not a key. Required. */
     private _isEnabled?: boolean | undefined;
-    /** The OdataType property */
     private _odataType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -52,14 +51,14 @@ export class SelfServiceSignUpAuthenticationFlowConfiguration implements Additio
         this._isEnabled = value;
     };
     /**
-     * Gets the @odata.type property value. The OdataType property
+     * Gets the @odata.type property value. 
      * @returns a string
      */
     public get odataType() {
         return this._odataType;
     };
     /**
-     * Sets the @odata.type property value. The OdataType property
+     * Sets the @odata.type property value. 
      * @param value Value to set for the OdataType property.
      */
     public set odataType(value: string | undefined) {

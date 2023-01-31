@@ -5,7 +5,6 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class TeamInfo extends Entity implements Parsable {
     /** The name of the team. */
     private _displayName?: string | undefined;
-    /** The team property */
     private _team?: Team | undefined;
     /** The ID of the Azure Active Directory tenant. */
     private _tenantId?: string | undefined;
@@ -52,14 +51,14 @@ export class TeamInfo extends Entity implements Parsable {
         writer.writeStringValue("tenantId", this.tenantId);
     };
     /**
-     * Gets the team property value. The team property
+     * Gets the team property value. 
      * @returns a team
      */
     public get team() {
         return this._team;
     };
     /**
-     * Sets the team property value. The team property
+     * Sets the team property value. 
      * @param value Value to set for the team property.
      */
     public set team(value: Team | undefined) {

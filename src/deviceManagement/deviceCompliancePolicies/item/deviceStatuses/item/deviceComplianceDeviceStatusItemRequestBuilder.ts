@@ -19,14 +19,16 @@ export class DeviceComplianceDeviceStatusItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new DeviceComplianceDeviceStatusItemRequestBuilder and sets the default values.
+     * @param deviceComplianceDeviceStatusId key: id of deviceComplianceDeviceStatus
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, deviceComplianceDeviceStatusId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/deviceStatuses/{deviceComplianceDeviceStatus%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["deviceComplianceDeviceStatus%2Did"] = deviceComplianceDeviceStatusId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -63,7 +65,6 @@ export class DeviceComplianceDeviceStatusItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceStatuses in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceComplianceDeviceStatus
@@ -115,7 +116,6 @@ export class DeviceComplianceDeviceStatusItemRequestBuilder {
     };
     /**
      * Update the navigation property deviceStatuses in deviceManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

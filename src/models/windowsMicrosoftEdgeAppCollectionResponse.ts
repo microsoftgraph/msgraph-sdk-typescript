@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, WindowsMicrosoftEdgeApp} from './
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsMicrosoftEdgeAppCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: WindowsMicrosoftEdgeApp[] | undefined;
     /**
      * Instantiates a new WindowsMicrosoftEdgeAppCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class WindowsMicrosoftEdgeAppCollectionResponse extends BaseCollectionPag
         writer.writeCollectionOfObjectValues<WindowsMicrosoftEdgeApp>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a windowsMicrosoftEdgeApp
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: WindowsMicrosoftEdgeApp[] | undefined) {

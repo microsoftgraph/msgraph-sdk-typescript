@@ -5,13 +5,10 @@ import {Entity, PrintTaskDefinition, PrintTaskStatus, PrintTaskTrigger} from './
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintTask extends Entity implements Parsable {
-    /** The definition property */
     private _definition?: PrintTaskDefinition | undefined;
     /** The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/v1.0/print/printers/{printerId}/jobs/{jobId}. Read-only. */
     private _parentUrl?: string | undefined;
-    /** The status property */
     private _status?: PrintTaskStatus | undefined;
-    /** The trigger property */
     private _trigger?: PrintTaskTrigger | undefined;
     /**
      * Instantiates a new printTask and sets the default values.
@@ -20,14 +17,14 @@ export class PrintTask extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the definition property value. The definition property
+     * Gets the definition property value. 
      * @returns a printTaskDefinition
      */
     public get definition() {
         return this._definition;
     };
     /**
-     * Sets the definition property value. The definition property
+     * Sets the definition property value. 
      * @param value Value to set for the definition property.
      */
     public set definition(value: PrintTaskDefinition | undefined) {
@@ -72,28 +69,28 @@ export class PrintTask extends Entity implements Parsable {
         writer.writeObjectValue<PrintTaskTrigger>("trigger", this.trigger);
     };
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. 
      * @returns a printTaskStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. 
      * @param value Value to set for the status property.
      */
     public set status(value: PrintTaskStatus | undefined) {
         this._status = value;
     };
     /**
-     * Gets the trigger property value. The trigger property
+     * Gets the trigger property value. 
      * @returns a printTaskTrigger
      */
     public get trigger() {
         return this._trigger;
     };
     /**
-     * Sets the trigger property value. The trigger property
+     * Sets the trigger property value. 
      * @param value Value to set for the trigger property.
      */
     public set trigger(value: PrintTaskTrigger | undefined) {

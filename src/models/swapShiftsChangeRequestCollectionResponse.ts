@@ -3,7 +3,6 @@ import {BaseCollectionPaginationCountResponse, SwapShiftsChangeRequest} from './
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SwapShiftsChangeRequestCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
-    /** The value property */
     private _value?: SwapShiftsChangeRequest[] | undefined;
     /**
      * Instantiates a new SwapShiftsChangeRequestCollectionResponse and sets the default values.
@@ -30,14 +29,14 @@ export class SwapShiftsChangeRequestCollectionResponse extends BaseCollectionPag
         writer.writeCollectionOfObjectValues<SwapShiftsChangeRequest>("value", this.value);
     };
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. 
      * @returns a swapShiftsChangeRequest
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. 
      * @param value Value to set for the value property.
      */
     public set value(value: SwapShiftsChangeRequest[] | undefined) {

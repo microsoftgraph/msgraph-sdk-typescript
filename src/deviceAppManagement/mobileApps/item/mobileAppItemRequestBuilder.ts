@@ -2,26 +2,22 @@ import {MobileApp} from '../../../models/';
 import {createMobileAppFromDiscriminatorValue} from '../../../models/createMobileAppFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
 import {MobileAppAssignmentItemRequestBuilder} from './assignments/item/mobileAppAssignmentItemRequestBuilder';
 import {CategoriesRequestBuilder} from './categories/categoriesRequestBuilder';
 import {MobileAppCategoryItemRequestBuilder} from './categories/item/mobileAppCategoryItemRequestBuilder';
-import {ManagedMobileLobAppRequestBuilder} from './managedMobileLobApp/managedMobileLobAppRequestBuilder';
+import {AssignRequestBuilder} from './microsoftGraphAssign/assignRequestBuilder';
+import {ManagedMobileLobAppRequestBuilder} from './microsoftGraphManagedMobileLobApp/managedMobileLobAppRequestBuilder';
+import {MobileLobAppRequestBuilder} from './microsoftGraphMobileLobApp/mobileLobAppRequestBuilder';
 import {MobileAppItemRequestBuilderDeleteRequestConfiguration} from './mobileAppItemRequestBuilderDeleteRequestConfiguration';
 import {MobileAppItemRequestBuilderGetRequestConfiguration} from './mobileAppItemRequestBuilderGetRequestConfiguration';
 import {MobileAppItemRequestBuilderPatchRequestConfiguration} from './mobileAppItemRequestBuilderPatchRequestConfiguration';
-import {MobileLobAppRequestBuilder} from './mobileLobApp/mobileLobAppRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
  */
 export class MobileAppItemRequestBuilder {
-    /** Provides operations to call the assign method. */
-    public get assign(): AssignRequestBuilder {
-        return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity. */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -30,12 +26,16 @@ export class MobileAppItemRequestBuilder {
     public get categories(): CategoriesRequestBuilder {
         return new CategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the assign method. */
+    public get microsoftGraphAssign(): AssignRequestBuilder {
+        return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Casts the previous resource to managedMobileLobApp. */
-    public get managedMobileLobApp(): ManagedMobileLobAppRequestBuilder {
+    public get microsoftGraphManagedMobileLobApp(): ManagedMobileLobAppRequestBuilder {
         return new ManagedMobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to mobileLobApp. */
-    public get mobileLobApp(): MobileLobAppRequestBuilder {
+    public get microsoftGraphMobileLobApp(): MobileLobAppRequestBuilder {
         return new MobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
@@ -68,14 +68,16 @@ export class MobileAppItemRequestBuilder {
     };
     /**
      * Instantiates a new MobileAppItemRequestBuilder and sets the default values.
+     * @param mobileAppId key: id of mobileApp
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, mobileAppId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["mobileApp%2Did"] = mobileAppId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -112,7 +114,6 @@ export class MobileAppItemRequestBuilder {
     };
     /**
      * Update the navigation property mobileApps in deviceAppManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MobileApp
@@ -164,7 +165,6 @@ export class MobileAppItemRequestBuilder {
     };
     /**
      * Update the navigation property mobileApps in deviceAppManagement
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
