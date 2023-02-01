@@ -26,13 +26,15 @@ export class PlannerBucketItemRequestBuilder {
     /**
      * Instantiates a new PlannerBucketItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param plannerBucketId key: id of plannerBucket
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, plannerBucketId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/planner/buckets/{plannerBucket%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["plannerBucket%2Did"] = plannerBucketId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

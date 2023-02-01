@@ -19,14 +19,16 @@ export class AgreementAcceptanceItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new AgreementAcceptanceItemRequestBuilder and sets the default values.
+     * @param agreementAcceptanceId key: id of agreementAcceptance
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, agreementAcceptanceId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/agreements/{agreement%2Did}/acceptances/{agreementAcceptance%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["agreementAcceptance%2Did"] = agreementAcceptanceId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

@@ -17,14 +17,16 @@ export class BaseItemItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new BaseItemItemRequestBuilder and sets the default values.
+     * @param baseItemId key: id of baseItem
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, baseItemId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/items/{baseItem%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["baseItem%2Did"] = baseItemId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

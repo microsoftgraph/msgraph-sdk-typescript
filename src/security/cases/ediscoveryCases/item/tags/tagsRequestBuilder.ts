@@ -3,8 +3,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {EdiscoveryReviewTag, EdiscoveryReviewTagCollectionResponse} from '../../../../../models/security/';
 import {createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue';
 import {createEdiscoveryReviewTagFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryReviewTagFromDiscriminatorValue';
-import {AsHierarchyRequestBuilder} from './asHierarchy/asHierarchyRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {AsHierarchyRequestBuilder} from './microsoftGraphSecurityAsHierarchy/asHierarchyRequestBuilder';
 import {TagsRequestBuilderGetRequestConfiguration} from './tagsRequestBuilderGetRequestConfiguration';
 import {TagsRequestBuilderPostRequestConfiguration} from './tagsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -17,19 +17,16 @@ export class TagsRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the asHierarchy method. */
+    public get microsoftGraphSecurityAsHierarchy(): AsHierarchyRequestBuilder {
+        return new AsHierarchyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
-    /**
-     * Provides operations to call the asHierarchy method.
-     * @returns a asHierarchyRequestBuilder
-     */
-    public asHierarchy() : AsHierarchyRequestBuilder {
-        return new AsHierarchyRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
     /**
      * Instantiates a new TagsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

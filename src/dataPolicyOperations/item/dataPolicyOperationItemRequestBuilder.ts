@@ -19,19 +19,21 @@ export class DataPolicyOperationItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new DataPolicyOperationItemRequestBuilder and sets the default values.
+     * @param dataPolicyOperationId key: id of dataPolicyOperation
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, dataPolicyOperationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/dataPolicyOperations/{dataPolicyOperation%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["dataPolicyOperation%2Did"] = dataPolicyOperationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from dataPolicyOperations by key (id)
+     * Delete entity from dataPolicyOperations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -63,7 +65,7 @@ export class DataPolicyOperationItemRequestBuilder {
         return this.requestAdapter?.sendAsync<DataPolicyOperation>(requestInfo, createDataPolicyOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update entity in dataPolicyOperations by key (id)
+     * Update entity in dataPolicyOperations
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -81,7 +83,7 @@ export class DataPolicyOperationItemRequestBuilder {
         return this.requestAdapter?.sendAsync<DataPolicyOperation>(requestInfo, createDataPolicyOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from dataPolicyOperations by key (id)
+     * Delete entity from dataPolicyOperations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -115,7 +117,7 @@ export class DataPolicyOperationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in dataPolicyOperations by key (id)
+     * Update entity in dataPolicyOperations
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

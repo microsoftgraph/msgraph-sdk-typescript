@@ -19,14 +19,16 @@ export class MessageRuleItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new MessageRuleItemRequestBuilder and sets the default values.
+     * @param messageRuleId key: id of messageRule
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, messageRuleId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/mailFolders/{mailFolder%2Did}/messageRules/{messageRule%2Did}{?%24select}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["messageRule%2Did"] = messageRuleId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

@@ -19,14 +19,16 @@ export class ContentSharingSessionItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ContentSharingSessionItemRequestBuilder and sets the default values.
+     * @param contentSharingSessionId key: id of contentSharingSession
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, contentSharingSessionId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/communications/calls/{call%2Did}/contentSharingSessions/{contentSharingSession%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["contentSharingSession%2Did"] = contentSharingSessionId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

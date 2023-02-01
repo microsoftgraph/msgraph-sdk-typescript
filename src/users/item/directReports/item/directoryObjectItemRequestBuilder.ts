@@ -3,8 +3,8 @@ import {createDirectoryObjectFromDiscriminatorValue} from '../../../../models/cr
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DirectoryObjectItemRequestBuilderGetRequestConfiguration} from './directoryObjectItemRequestBuilderGetRequestConfiguration';
-import {OrgContactRequestBuilder} from './orgContact/orgContactRequestBuilder';
-import {UserRequestBuilder} from './user/userRequestBuilder';
+import {OrgContactRequestBuilder} from './microsoftGraphOrgContact/orgContactRequestBuilder';
+import {UserRequestBuilder} from './microsoftGraphUser/userRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -12,8 +12,12 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class DirectoryObjectItemRequestBuilder {
     /** Casts the previous resource to orgContact. */
-    public get orgContact(): OrgContactRequestBuilder {
+    public get microsoftGraphOrgContact(): OrgContactRequestBuilder {
         return new OrgContactRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Casts the previous resource to user. */
+    public get microsoftGraphUser(): UserRequestBuilder {
+        return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -21,20 +25,18 @@ export class DirectoryObjectItemRequestBuilder {
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
-    /** Casts the previous resource to user. */
-    public get user(): UserRequestBuilder {
-        return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /**
      * Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
+     * @param directoryObjectId key: id of directoryObject
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, directoryObjectId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/directReports/{directoryObject%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["directoryObject%2Did"] = directoryObjectId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

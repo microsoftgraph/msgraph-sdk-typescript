@@ -2,15 +2,10 @@ import {ServicePrincipal} from '../../models/';
 import {createServicePrincipalFromDiscriminatorValue} from '../../models/createServicePrincipalFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AddKeyRequestBuilder} from './addKey/addKeyRequestBuilder';
-import {AddPasswordRequestBuilder} from './addPassword/addPasswordRequestBuilder';
-import {AddTokenSigningCertificateRequestBuilder} from './addTokenSigningCertificate/addTokenSigningCertificateRequestBuilder';
 import {AppRoleAssignedToRequestBuilder} from './appRoleAssignedTo/appRoleAssignedToRequestBuilder';
 import {AppRoleAssignmentItemRequestBuilder as I93168b8558556722da9cecc35d7553892e9e7c2bde1e1fb43b3db6857cf15658} from './appRoleAssignedTo/item/appRoleAssignmentItemRequestBuilder';
 import {AppRoleAssignmentsRequestBuilder} from './appRoleAssignments/appRoleAssignmentsRequestBuilder';
 import {AppRoleAssignmentItemRequestBuilder as I0f96074f1bfce1552adeec4df64587124a7f4fef296a83e3a7d09766250b6d14} from './appRoleAssignments/item/appRoleAssignmentItemRequestBuilder';
-import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
-import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {ClaimsMappingPoliciesRequestBuilder} from './claimsMappingPolicies/claimsMappingPoliciesRequestBuilder';
 import {ClaimsMappingPolicyItemRequestBuilder} from './claimsMappingPolicies/item/claimsMappingPolicyItemRequestBuilder';
 import {CreatedObjectsRequestBuilder} from './createdObjects/createdObjectsRequestBuilder';
@@ -21,21 +16,26 @@ import {EndpointsRequestBuilder} from './endpoints/endpointsRequestBuilder';
 import {EndpointItemRequestBuilder} from './endpoints/item/endpointItemRequestBuilder';
 import {FederatedIdentityCredentialsRequestBuilder} from './federatedIdentityCredentials/federatedIdentityCredentialsRequestBuilder';
 import {FederatedIdentityCredentialItemRequestBuilder} from './federatedIdentityCredentials/item/federatedIdentityCredentialItemRequestBuilder';
-import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
-import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
 import {HomeRealmDiscoveryPoliciesRequestBuilder} from './homeRealmDiscoveryPolicies/homeRealmDiscoveryPoliciesRequestBuilder';
 import {HomeRealmDiscoveryPolicyItemRequestBuilder} from './homeRealmDiscoveryPolicies/item/homeRealmDiscoveryPolicyItemRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as If04f7937796df91a9e5b988ef3bf59350050b50c9239bd5559c64c4c55486c2a} from './memberOf/item/directoryObjectItemRequestBuilder';
 import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
+import {AddKeyRequestBuilder} from './microsoftGraphAddKey/addKeyRequestBuilder';
+import {AddPasswordRequestBuilder} from './microsoftGraphAddPassword/addPasswordRequestBuilder';
+import {AddTokenSigningCertificateRequestBuilder} from './microsoftGraphAddTokenSigningCertificate/addTokenSigningCertificateRequestBuilder';
+import {CheckMemberGroupsRequestBuilder} from './microsoftGraphCheckMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from './microsoftGraphCheckMemberObjects/checkMemberObjectsRequestBuilder';
+import {GetMemberGroupsRequestBuilder} from './microsoftGraphGetMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from './microsoftGraphGetMemberObjects/getMemberObjectsRequestBuilder';
+import {RemoveKeyRequestBuilder} from './microsoftGraphRemoveKey/removeKeyRequestBuilder';
+import {RemovePasswordRequestBuilder} from './microsoftGraphRemovePassword/removePasswordRequestBuilder';
+import {RestoreRequestBuilder} from './microsoftGraphRestore/restoreRequestBuilder';
 import {OAuth2PermissionGrantItemRequestBuilder} from './oauth2PermissionGrants/item/oAuth2PermissionGrantItemRequestBuilder';
 import {Oauth2PermissionGrantsRequestBuilder} from './oauth2PermissionGrants/oauth2PermissionGrantsRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as Ia867b6ae3f11225ff7b901f1fce150f9e21290a6d6c449c35e70db3ddcd52411} from './ownedObjects/item/directoryObjectItemRequestBuilder';
 import {OwnedObjectsRequestBuilder} from './ownedObjects/ownedObjectsRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as I0835d8d8ef8d42e8d6c78b47f39ee556ddd6a1be84094c5c876147cb74186e0f} from './owners/item/directoryObjectItemRequestBuilder';
 import {OwnersRequestBuilder} from './owners/ownersRequestBuilder';
-import {RemoveKeyRequestBuilder} from './removeKey/removeKeyRequestBuilder';
-import {RemovePasswordRequestBuilder} from './removePassword/removePasswordRequestBuilder';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {ServicePrincipalItemRequestBuilderDeleteRequestConfiguration} from './servicePrincipalItemRequestBuilderDeleteRequestConfiguration';
 import {ServicePrincipalItemRequestBuilderGetRequestConfiguration} from './servicePrincipalItemRequestBuilderGetRequestConfiguration';
 import {ServicePrincipalItemRequestBuilderPatchRequestConfiguration} from './servicePrincipalItemRequestBuilderPatchRequestConfiguration';
@@ -51,18 +51,6 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the collection of servicePrincipal entities.
  */
 export class ServicePrincipalItemRequestBuilder {
-    /** Provides operations to call the addKey method. */
-    public get addKey(): AddKeyRequestBuilder {
-        return new AddKeyRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the addPassword method. */
-    public get addPassword(): AddPasswordRequestBuilder {
-        return new AddPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the addTokenSigningCertificate method. */
-    public get addTokenSigningCertificate(): AddTokenSigningCertificateRequestBuilder {
-        return new AddTokenSigningCertificateRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the appRoleAssignedTo property of the microsoft.graph.servicePrincipal entity. */
     public get appRoleAssignedTo(): AppRoleAssignedToRequestBuilder {
         return new AppRoleAssignedToRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -70,14 +58,6 @@ export class ServicePrincipalItemRequestBuilder {
     /** Provides operations to manage the appRoleAssignments property of the microsoft.graph.servicePrincipal entity. */
     public get appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
         return new AppRoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the checkMemberGroups method. */
-    public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
-        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the checkMemberObjects method. */
-    public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
-        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.servicePrincipal entity. */
     public get claimsMappingPolicies(): ClaimsMappingPoliciesRequestBuilder {
@@ -99,14 +79,6 @@ export class ServicePrincipalItemRequestBuilder {
     public get federatedIdentityCredentials(): FederatedIdentityCredentialsRequestBuilder {
         return new FederatedIdentityCredentialsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getMemberGroups method. */
-    public get getMemberGroups(): GetMemberGroupsRequestBuilder {
-        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the getMemberObjects method. */
-    public get getMemberObjects(): GetMemberObjectsRequestBuilder {
-        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.servicePrincipal entity. */
     public get homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
         return new HomeRealmDiscoveryPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -114,6 +86,46 @@ export class ServicePrincipalItemRequestBuilder {
     /** Provides operations to manage the memberOf property of the microsoft.graph.servicePrincipal entity. */
     public get memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the addKey method. */
+    public get microsoftGraphAddKey(): AddKeyRequestBuilder {
+        return new AddKeyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the addPassword method. */
+    public get microsoftGraphAddPassword(): AddPasswordRequestBuilder {
+        return new AddPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the addTokenSigningCertificate method. */
+    public get microsoftGraphAddTokenSigningCertificate(): AddTokenSigningCertificateRequestBuilder {
+        return new AddTokenSigningCertificateRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the checkMemberGroups method. */
+    public get microsoftGraphCheckMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the checkMemberObjects method. */
+    public get microsoftGraphCheckMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getMemberGroups method. */
+    public get microsoftGraphGetMemberGroups(): GetMemberGroupsRequestBuilder {
+        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getMemberObjects method. */
+    public get microsoftGraphGetMemberObjects(): GetMemberObjectsRequestBuilder {
+        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the removeKey method. */
+    public get microsoftGraphRemoveKey(): RemoveKeyRequestBuilder {
+        return new RemoveKeyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the removePassword method. */
+    public get microsoftGraphRemovePassword(): RemovePasswordRequestBuilder {
+        return new RemovePasswordRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the restore method. */
+    public get microsoftGraphRestore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.servicePrincipal entity. */
     public get oauth2PermissionGrants(): Oauth2PermissionGrantsRequestBuilder {
@@ -129,20 +141,8 @@ export class ServicePrincipalItemRequestBuilder {
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
-    /** Provides operations to call the removeKey method. */
-    public get removeKey(): RemoveKeyRequestBuilder {
-        return new RemoveKeyRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the removePassword method. */
-    public get removePassword(): RemovePasswordRequestBuilder {
-        return new RemovePasswordRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the restore method. */
-    public get restore(): RestoreRequestBuilder {
-        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.servicePrincipal entity. */
     public get tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {
         return new TokenIssuancePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -194,12 +194,14 @@ export class ServicePrincipalItemRequestBuilder {
      * Instantiates a new ServicePrincipalItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param servicePrincipalId key: id of servicePrincipal
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, servicePrincipalId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["servicePrincipal%2Did"] = servicePrincipalId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -336,7 +338,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new I0835d8d8ef8d42e8d6c78b47f39ee556ddd6a1be84094c5c876147cb74186e0f(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update entity in servicePrincipals by key (id)
+     * Update entity in servicePrincipals
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -410,7 +412,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new TokenLifetimePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update entity in servicePrincipals by key (id)
+     * Update entity in servicePrincipals
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -19,14 +19,16 @@ export class DeviceManagementTroubleshootingEventItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new DeviceManagementTroubleshootingEventItemRequestBuilder and sets the default values.
+     * @param deviceManagementTroubleshootingEventId key: id of deviceManagementTroubleshootingEvent
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, deviceManagementTroubleshootingEventId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/deviceManagementTroubleshootingEvents/{deviceManagementTroubleshootingEvent%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["deviceManagementTroubleshootingEvent%2Did"] = deviceManagementTroubleshootingEventId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

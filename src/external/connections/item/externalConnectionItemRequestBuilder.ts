@@ -42,14 +42,16 @@ export class ExternalConnectionItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ExternalConnectionItemRequestBuilder and sets the default values.
+     * @param externalConnectionId key: id of externalConnection
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, externalConnectionId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/external/connections/{externalConnection%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["externalConnection%2Did"] = externalConnectionId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

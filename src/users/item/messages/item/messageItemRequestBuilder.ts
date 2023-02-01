@@ -4,22 +4,22 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
 import {AttachmentItemRequestBuilder} from './attachments/item/attachmentItemRequestBuilder';
-import {CopyRequestBuilder} from './copy/copyRequestBuilder';
-import {CreateForwardRequestBuilder} from './createForward/createForwardRequestBuilder';
-import {CreateReplyRequestBuilder} from './createReply/createReplyRequestBuilder';
-import {CreateReplyAllRequestBuilder} from './createReplyAll/createReplyAllRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
-import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
 import {MessageItemRequestBuilderDeleteRequestConfiguration} from './messageItemRequestBuilderDeleteRequestConfiguration';
 import {MessageItemRequestBuilderGetRequestConfiguration} from './messageItemRequestBuilderGetRequestConfiguration';
 import {MessageItemRequestBuilderPatchRequestConfiguration} from './messageItemRequestBuilderPatchRequestConfiguration';
-import {MoveRequestBuilder} from './move/moveRequestBuilder';
+import {CopyRequestBuilder} from './microsoftGraphCopy/copyRequestBuilder';
+import {CreateForwardRequestBuilder} from './microsoftGraphCreateForward/createForwardRequestBuilder';
+import {CreateReplyRequestBuilder} from './microsoftGraphCreateReply/createReplyRequestBuilder';
+import {CreateReplyAllRequestBuilder} from './microsoftGraphCreateReplyAll/createReplyAllRequestBuilder';
+import {ForwardRequestBuilder} from './microsoftGraphForward/forwardRequestBuilder';
+import {MoveRequestBuilder} from './microsoftGraphMove/moveRequestBuilder';
+import {ReplyRequestBuilder} from './microsoftGraphReply/replyRequestBuilder';
+import {ReplyAllRequestBuilder} from './microsoftGraphReplyAll/replyAllRequestBuilder';
+import {SendRequestBuilder} from './microsoftGraphSend/sendRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
-import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
-import {ReplyAllRequestBuilder} from './replyAll/replyAllRequestBuilder';
-import {SendRequestBuilder} from './send/sendRequestBuilder';
 import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyItemRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
 import {ContentRequestBuilder} from './value/contentRequestBuilder';
@@ -37,33 +37,45 @@ export class MessageItemRequestBuilder {
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the copy method. */
-    public get copy(): CopyRequestBuilder {
-        return new CopyRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the createForward method. */
-    public get createForward(): CreateForwardRequestBuilder {
-        return new CreateForwardRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the createReply method. */
-    public get createReply(): CreateReplyRequestBuilder {
-        return new CreateReplyRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the createReplyAll method. */
-    public get createReplyAll(): CreateReplyAllRequestBuilder {
-        return new CreateReplyAllRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the extensions property of the microsoft.graph.message entity. */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the copy method. */
+    public get microsoftGraphCopy(): CopyRequestBuilder {
+        return new CopyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the createForward method. */
+    public get microsoftGraphCreateForward(): CreateForwardRequestBuilder {
+        return new CreateForwardRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the createReply method. */
+    public get microsoftGraphCreateReply(): CreateReplyRequestBuilder {
+        return new CreateReplyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the createReplyAll method. */
+    public get microsoftGraphCreateReplyAll(): CreateReplyAllRequestBuilder {
+        return new CreateReplyAllRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the forward method. */
-    public get forward(): ForwardRequestBuilder {
+    public get microsoftGraphForward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the move method. */
-    public get move(): MoveRequestBuilder {
+    public get microsoftGraphMove(): MoveRequestBuilder {
         return new MoveRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the reply method. */
+    public get microsoftGraphReply(): ReplyRequestBuilder {
+        return new ReplyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the replyAll method. */
+    public get microsoftGraphReplyAll(): ReplyAllRequestBuilder {
+        return new ReplyAllRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the send method. */
+    public get microsoftGraphSend(): SendRequestBuilder {
+        return new SendRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.message entity. */
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
@@ -71,20 +83,8 @@ export class MessageItemRequestBuilder {
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
-    /** Provides operations to call the reply method. */
-    public get reply(): ReplyRequestBuilder {
-        return new ReplyRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the replyAll method. */
-    public get replyAll(): ReplyAllRequestBuilder {
-        return new ReplyAllRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the send method. */
-    public get send(): SendRequestBuilder {
-        return new SendRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.message entity. */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -104,14 +104,16 @@ export class MessageItemRequestBuilder {
     };
     /**
      * Instantiates a new MessageItemRequestBuilder and sets the default values.
+     * @param messageId key: id of message
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, messageId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/messages/{message%2Did}{?%24select}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["message%2Did"] = messageId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

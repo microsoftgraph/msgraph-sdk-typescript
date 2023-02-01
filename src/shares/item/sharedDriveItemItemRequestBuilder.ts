@@ -57,17 +57,19 @@ export class SharedDriveItemItemRequestBuilder {
      * Instantiates a new SharedDriveItemItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param sharedDriveItemId key: id of sharedDriveItem
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, sharedDriveItemId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["sharedDriveItem%2Did"] = sharedDriveItemId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from shares by key (id)
+     * Delete entity from shares
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -110,7 +112,7 @@ export class SharedDriveItemItemRequestBuilder {
         return new DriveItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update entity in shares by key (id)
+     * Update entity in shares
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -128,7 +130,7 @@ export class SharedDriveItemItemRequestBuilder {
         return this.requestAdapter?.sendAsync<SharedDriveItem>(requestInfo, createSharedDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from shares by key (id)
+     * Delete entity from shares
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -162,7 +164,7 @@ export class SharedDriveItemItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in shares by key (id)
+     * Update entity in shares
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

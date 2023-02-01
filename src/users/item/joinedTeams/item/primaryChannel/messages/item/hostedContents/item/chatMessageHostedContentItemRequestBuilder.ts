@@ -19,14 +19,16 @@ export class ChatMessageHostedContentItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ChatMessageHostedContentItemRequestBuilder and sets the default values.
+     * @param chatMessageHostedContentId key: id of chatMessageHostedContent
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, chatMessageHostedContentId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/primaryChannel/messages/{chatMessage%2Did}/hostedContents/{chatMessageHostedContent%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["chatMessageHostedContent%2Did"] = chatMessageHostedContentId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

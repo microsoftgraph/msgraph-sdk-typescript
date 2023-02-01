@@ -36,14 +36,16 @@ export class CalendarGroupItemRequestBuilder {
     };
     /**
      * Instantiates a new CalendarGroupItemRequestBuilder and sets the default values.
+     * @param calendarGroupId key: id of calendarGroup
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, calendarGroupId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/calendarGroups/{calendarGroup%2Did}{?%24select}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["calendarGroup%2Did"] = calendarGroupId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

@@ -24,14 +24,16 @@ export class ActivityHistoryItemItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ActivityHistoryItemItemRequestBuilder and sets the default values.
+     * @param activityHistoryItemId key: id of activityHistoryItem
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, activityHistoryItemId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/activities/{userActivity%2Did}/historyItems/{activityHistoryItem%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["activityHistoryItem%2Did"] = activityHistoryItemId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

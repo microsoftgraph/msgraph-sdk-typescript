@@ -2,7 +2,7 @@ import {Permission} from '../../../../../../models/';
 import {createPermissionFromDiscriminatorValue} from '../../../../../../models/createPermissionFromDiscriminatorValue';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {GrantRequestBuilder} from './grant/grantRequestBuilder';
+import {GrantRequestBuilder} from './microsoftGraphGrant/grantRequestBuilder';
 import {PermissionItemRequestBuilderDeleteRequestConfiguration} from './permissionItemRequestBuilderDeleteRequestConfiguration';
 import {PermissionItemRequestBuilderGetRequestConfiguration} from './permissionItemRequestBuilderGetRequestConfiguration';
 import {PermissionItemRequestBuilderPatchRequestConfiguration} from './permissionItemRequestBuilderPatchRequestConfiguration';
@@ -13,7 +13,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class PermissionItemRequestBuilder {
     /** Provides operations to call the grant method. */
-    public get grant(): GrantRequestBuilder {
+    public get microsoftGraphGrant(): GrantRequestBuilder {
         return new GrantRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
@@ -25,13 +25,15 @@ export class PermissionItemRequestBuilder {
     /**
      * Instantiates a new PermissionItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param permissionId key: id of permission
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, permissionId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/permissions/{permission%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["permission%2Did"] = permissionId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

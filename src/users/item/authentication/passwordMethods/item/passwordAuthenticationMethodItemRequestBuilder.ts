@@ -17,14 +17,16 @@ export class PasswordAuthenticationMethodItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new PasswordAuthenticationMethodItemRequestBuilder and sets the default values.
+     * @param passwordAuthenticationMethodId key: id of passwordAuthenticationMethod
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, passwordAuthenticationMethodId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/authentication/passwordMethods/{passwordAuthenticationMethod%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["passwordAuthenticationMethod%2Did"] = passwordAuthenticationMethodId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

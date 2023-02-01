@@ -19,14 +19,16 @@ export class AuditEventItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new AuditEventItemRequestBuilder and sets the default values.
+     * @param auditEventId key: id of auditEvent
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, auditEventId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/auditEvents/{auditEvent%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["auditEvent%2Did"] = auditEventId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

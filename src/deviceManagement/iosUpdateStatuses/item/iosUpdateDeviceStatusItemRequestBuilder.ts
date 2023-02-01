@@ -19,14 +19,16 @@ export class IosUpdateDeviceStatusItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new IosUpdateDeviceStatusItemRequestBuilder and sets the default values.
+     * @param iosUpdateDeviceStatusId key: id of iosUpdateDeviceStatus
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, iosUpdateDeviceStatusId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/iosUpdateStatuses/{iosUpdateDeviceStatus%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["iosUpdateDeviceStatus%2Did"] = iosUpdateDeviceStatusId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

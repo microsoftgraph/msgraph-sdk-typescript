@@ -19,14 +19,16 @@ export class BookingServiceItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new BookingServiceItemRequestBuilder and sets the default values.
+     * @param bookingServiceId key: id of bookingService
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, bookingServiceId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/services/{bookingService%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["bookingService%2Did"] = bookingServiceId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

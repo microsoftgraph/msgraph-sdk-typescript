@@ -19,14 +19,16 @@ export class ManagedAppOperationItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ManagedAppOperationItemRequestBuilder and sets the default values.
+     * @param managedAppOperationId key: id of managedAppOperation
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, managedAppOperationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}/operations/{managedAppOperation%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["managedAppOperation%2Did"] = managedAppOperationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

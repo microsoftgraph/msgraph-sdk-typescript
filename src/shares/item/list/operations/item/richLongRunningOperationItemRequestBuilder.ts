@@ -21,12 +21,14 @@ export class RichLongRunningOperationItemRequestBuilder {
      * Instantiates a new RichLongRunningOperationItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param richLongRunningOperationId key: id of richLongRunningOperation
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, richLongRunningOperationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list/operations/{richLongRunningOperation%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["richLongRunningOperation%2Did"] = richLongRunningOperationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

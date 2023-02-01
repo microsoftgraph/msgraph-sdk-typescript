@@ -69,7 +69,7 @@ export class Domain extends Entity implements Parsable {
         this._availabilityStatus = value;
     };
     /**
-     * Instantiates a new domain and sets the default values.
+     * Instantiates a new Domain and sets the default values.
      */
     public constructor() {
         super();

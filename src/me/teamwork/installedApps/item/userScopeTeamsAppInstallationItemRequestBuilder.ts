@@ -26,12 +26,14 @@ export class UserScopeTeamsAppInstallationItemRequestBuilder {
      * Instantiates a new UserScopeTeamsAppInstallationItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param userScopeTeamsAppInstallationId key: id of userScopeTeamsAppInstallation
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, userScopeTeamsAppInstallationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/teamwork/installedApps/{userScopeTeamsAppInstallation%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["userScopeTeamsAppInstallation%2Did"] = userScopeTeamsAppInstallationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

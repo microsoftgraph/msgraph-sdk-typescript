@@ -42,14 +42,16 @@ export class ContactItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ContactItemRequestBuilder and sets the default values.
+     * @param contactId key: id of contact
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, contactId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/contacts/{contact%2Did}{?%24select}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["contact%2Did"] = contactId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

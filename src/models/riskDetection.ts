@@ -90,7 +90,7 @@ export class RiskDetection extends Entity implements Parsable {
         this._additionalInfo = value;
     };
     /**
-     * Instantiates a new RiskDetection and sets the default values.
+     * Instantiates a new riskDetection and sets the default values.
      */
     public constructor() {
         super();

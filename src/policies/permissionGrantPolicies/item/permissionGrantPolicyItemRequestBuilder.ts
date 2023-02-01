@@ -32,13 +32,15 @@ export class PermissionGrantPolicyItemRequestBuilder {
     /**
      * Instantiates a new PermissionGrantPolicyItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param permissionGrantPolicyId key: id of permissionGrantPolicy
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, permissionGrantPolicyId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/policies/permissionGrantPolicies/{permissionGrantPolicy%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["permissionGrantPolicy%2Did"] = permissionGrantPolicyId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

@@ -4,7 +4,6 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ChildFoldersRequestBuilder} from './childFolders/childFoldersRequestBuilder';
 import {MailFolderItemRequestBuilder as I367d46967f0d2f5279ef6b800a7ff7ea45865a3d90922c7daf148f70708b640f} from './childFolders/item/mailFolderItemRequestBuilder';
-import {CopyRequestBuilder} from './copy/copyRequestBuilder';
 import {MailFolderItemRequestBuilderDeleteRequestConfiguration} from './mailFolderItemRequestBuilderDeleteRequestConfiguration';
 import {MailFolderItemRequestBuilderGetRequestConfiguration} from './mailFolderItemRequestBuilderGetRequestConfiguration';
 import {MailFolderItemRequestBuilderPatchRequestConfiguration} from './mailFolderItemRequestBuilderPatchRequestConfiguration';
@@ -12,7 +11,8 @@ import {MessageRuleItemRequestBuilder} from './messageRules/item/messageRuleItem
 import {MessageRulesRequestBuilder} from './messageRules/messageRulesRequestBuilder';
 import {MessageItemRequestBuilder} from './messages/item/messageItemRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
-import {MoveRequestBuilder} from './move/moveRequestBuilder';
+import {CopyRequestBuilder} from './microsoftGraphCopy/copyRequestBuilder';
+import {MoveRequestBuilder} from './microsoftGraphMove/moveRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
 import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyItemRequestBuilder';
@@ -27,10 +27,6 @@ export class MailFolderItemRequestBuilder {
     public get childFolders(): ChildFoldersRequestBuilder {
         return new ChildFoldersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the copy method. */
-    public get copy(): CopyRequestBuilder {
-        return new CopyRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity. */
     public get messageRules(): MessageRulesRequestBuilder {
         return new MessageRulesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -39,8 +35,12 @@ export class MailFolderItemRequestBuilder {
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the copy method. */
+    public get microsoftGraphCopy(): CopyRequestBuilder {
+        return new CopyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the move method. */
-    public get move(): MoveRequestBuilder {
+    public get microsoftGraphMove(): MoveRequestBuilder {
         return new MoveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.mailFolder entity. */
@@ -70,14 +70,16 @@ export class MailFolderItemRequestBuilder {
     };
     /**
      * Instantiates a new MailFolderItemRequestBuilder and sets the default values.
+     * @param mailFolderId key: id of mailFolder
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, mailFolderId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}{?%24select}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["mailFolder%2Did"] = mailFolderId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

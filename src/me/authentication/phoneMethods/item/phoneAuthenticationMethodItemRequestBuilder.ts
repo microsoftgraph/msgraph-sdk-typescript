@@ -2,8 +2,8 @@ import {PhoneAuthenticationMethod} from '../../../../models/';
 import {createPhoneAuthenticationMethodFromDiscriminatorValue} from '../../../../models/createPhoneAuthenticationMethodFromDiscriminatorValue';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {DisableSmsSignInRequestBuilder} from './disableSmsSignIn/disableSmsSignInRequestBuilder';
-import {EnableSmsSignInRequestBuilder} from './enableSmsSignIn/enableSmsSignInRequestBuilder';
+import {DisableSmsSignInRequestBuilder} from './microsoftGraphDisableSmsSignIn/disableSmsSignInRequestBuilder';
+import {EnableSmsSignInRequestBuilder} from './microsoftGraphEnableSmsSignIn/enableSmsSignInRequestBuilder';
 import {PhoneAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration} from './phoneAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
 import {PhoneAuthenticationMethodItemRequestBuilderGetRequestConfiguration} from './phoneAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
 import {PhoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration} from './phoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration';
@@ -14,11 +14,11 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class PhoneAuthenticationMethodItemRequestBuilder {
     /** Provides operations to call the disableSmsSignIn method. */
-    public get disableSmsSignIn(): DisableSmsSignInRequestBuilder {
+    public get microsoftGraphDisableSmsSignIn(): DisableSmsSignInRequestBuilder {
         return new DisableSmsSignInRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the enableSmsSignIn method. */
-    public get enableSmsSignIn(): EnableSmsSignInRequestBuilder {
+    public get microsoftGraphEnableSmsSignIn(): EnableSmsSignInRequestBuilder {
         return new EnableSmsSignInRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
@@ -30,13 +30,15 @@ export class PhoneAuthenticationMethodItemRequestBuilder {
     /**
      * Instantiates a new PhoneAuthenticationMethodItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param phoneAuthenticationMethodId key: id of phoneAuthenticationMethod
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, phoneAuthenticationMethodId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/authentication/phoneMethods/{phoneAuthenticationMethod%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["phoneAuthenticationMethod%2Did"] = phoneAuthenticationMethodId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

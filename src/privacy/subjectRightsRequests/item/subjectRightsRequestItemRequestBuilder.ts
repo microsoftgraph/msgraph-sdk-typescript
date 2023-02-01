@@ -2,8 +2,8 @@ import {SubjectRightsRequest} from '../../../models/';
 import {createSubjectRightsRequestFromDiscriminatorValue} from '../../../models/createSubjectRightsRequestFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {GetFinalAttachmentRequestBuilder} from './getFinalAttachment/getFinalAttachmentRequestBuilder';
-import {GetFinalReportRequestBuilder} from './getFinalReport/getFinalReportRequestBuilder';
+import {GetFinalAttachmentRequestBuilder} from './microsoftGraphGetFinalAttachment/getFinalAttachmentRequestBuilder';
+import {GetFinalReportRequestBuilder} from './microsoftGraphGetFinalReport/getFinalReportRequestBuilder';
 import {AuthoredNoteItemRequestBuilder} from './notes/item/authoredNoteItemRequestBuilder';
 import {NotesRequestBuilder} from './notes/notesRequestBuilder';
 import {SubjectRightsRequestItemRequestBuilderDeleteRequestConfiguration} from './subjectRightsRequestItemRequestBuilderDeleteRequestConfiguration';
@@ -16,6 +16,14 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
  */
 export class SubjectRightsRequestItemRequestBuilder {
+    /** Provides operations to call the getFinalAttachment method. */
+    public get microsoftGraphGetFinalAttachment(): GetFinalAttachmentRequestBuilder {
+        return new GetFinalAttachmentRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getFinalReport method. */
+    public get microsoftGraphGetFinalReport(): GetFinalReportRequestBuilder {
+        return new GetFinalReportRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity. */
     public get notes(): NotesRequestBuilder {
         return new NotesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -34,12 +42,14 @@ export class SubjectRightsRequestItemRequestBuilder {
      * Instantiates a new SubjectRightsRequestItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param subjectRightsRequestId key: id of subjectRightsRequest
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, subjectRightsRequestId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/privacy/subjectRightsRequests/{subjectRightsRequest%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["subjectRightsRequest%2Did"] = subjectRightsRequestId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -73,20 +83,6 @@ export class SubjectRightsRequestItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<SubjectRightsRequest>(requestInfo, createSubjectRightsRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to call the getFinalAttachment method.
-     * @returns a getFinalAttachmentRequestBuilder
-     */
-    public getFinalAttachment() : GetFinalAttachmentRequestBuilder {
-        return new GetFinalAttachmentRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
-     * Provides operations to call the getFinalReport method.
-     * @returns a getFinalReportRequestBuilder
-     */
-    public getFinalReport() : GetFinalReportRequestBuilder {
-        return new GetFinalReportRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity.

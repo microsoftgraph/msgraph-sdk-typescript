@@ -10,11 +10,11 @@ import {DataSourceItemRequestBuilder as I816d4625b66c6d2c4612002c52b267d5854146b
 import {EdiscoverySearchItemRequestBuilderDeleteRequestConfiguration} from './ediscoverySearchItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoverySearchItemRequestBuilderGetRequestConfiguration} from './ediscoverySearchItemRequestBuilderGetRequestConfiguration';
 import {EdiscoverySearchItemRequestBuilderPatchRequestConfiguration} from './ediscoverySearchItemRequestBuilderPatchRequestConfiguration';
-import {EstimateStatisticsRequestBuilder} from './estimateStatistics/estimateStatisticsRequestBuilder';
 import {LastEstimateStatisticsOperationRequestBuilder} from './lastEstimateStatisticsOperation/lastEstimateStatisticsOperationRequestBuilder';
+import {EstimateStatisticsRequestBuilder} from './microsoftGraphSecurityEstimateStatistics/estimateStatisticsRequestBuilder';
+import {PurgeDataRequestBuilder} from './microsoftGraphSecurityPurgeData/purgeDataRequestBuilder';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilder} from './noncustodialSources/item/ediscoveryNoncustodialDataSourceItemRequestBuilder';
 import {NoncustodialSourcesRequestBuilder} from './noncustodialSources/noncustodialSourcesRequestBuilder';
-import {PurgeDataRequestBuilder} from './purgeData/purgeDataRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -33,13 +33,17 @@ export class EdiscoverySearchItemRequestBuilder {
     public get custodianSources(): CustodianSourcesRequestBuilder {
         return new CustodianSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the estimateStatistics method. */
-    public get estimateStatistics(): EstimateStatisticsRequestBuilder {
-        return new EstimateStatisticsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the lastEstimateStatisticsOperation property of the microsoft.graph.security.ediscoverySearch entity. */
     public get lastEstimateStatisticsOperation(): LastEstimateStatisticsOperationRequestBuilder {
         return new LastEstimateStatisticsOperationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the estimateStatistics method. */
+    public get microsoftGraphSecurityEstimateStatistics(): EstimateStatisticsRequestBuilder {
+        return new EstimateStatisticsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the purgeData method. */
+    public get microsoftGraphSecurityPurgeData(): PurgeDataRequestBuilder {
+        return new PurgeDataRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the noncustodialSources property of the microsoft.graph.security.ediscoverySearch entity. */
     public get noncustodialSources(): NoncustodialSourcesRequestBuilder {
@@ -47,10 +51,6 @@ export class EdiscoverySearchItemRequestBuilder {
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
-    /** Provides operations to call the purgeData method. */
-    public get purgeData(): PurgeDataRequestBuilder {
-        return new PurgeDataRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
@@ -68,14 +68,16 @@ export class EdiscoverySearchItemRequestBuilder {
     };
     /**
      * Instantiates a new EdiscoverySearchItemRequestBuilder and sets the default values.
+     * @param ediscoverySearchId key: id of ediscoverySearch
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, ediscoverySearchId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["ediscoverySearch%2Did"] = ediscoverySearchId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

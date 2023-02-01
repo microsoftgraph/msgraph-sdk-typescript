@@ -36,14 +36,16 @@ export class IncidentItemRequestBuilder {
     };
     /**
      * Instantiates a new IncidentItemRequestBuilder and sets the default values.
+     * @param incidentId key: id of incident
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, incidentId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/security/incidents/{incident%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["incident%2Did"] = incidentId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

@@ -19,14 +19,16 @@ export class OnenoteOperationItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new OnenoteOperationItemRequestBuilder and sets the default values.
+     * @param onenoteOperationId key: id of onenoteOperation
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, onenoteOperationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/onenote/operations/{onenoteOperation%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["onenoteOperation%2Did"] = onenoteOperationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

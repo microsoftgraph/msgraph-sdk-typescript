@@ -29,14 +29,16 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new AccessPackageAssignmentPolicyItemRequestBuilder and sets the default values.
+     * @param accessPackageAssignmentPolicyId key: id of accessPackageAssignmentPolicy
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, accessPackageAssignmentPolicyId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/catalogs/{accessPackageCatalog%2Did}/accessPackages/{accessPackage%2Did}/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["accessPackageAssignmentPolicy%2Did"] = accessPackageAssignmentPolicyId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

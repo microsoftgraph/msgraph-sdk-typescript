@@ -25,13 +25,15 @@ export class PinnedChatMessageInfoItemRequestBuilder {
     /**
      * Instantiates a new PinnedChatMessageInfoItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param pinnedChatMessageInfoId key: id of pinnedChatMessageInfo
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, pinnedChatMessageInfoId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/chats/{chat%2Did}/pinnedMessages/{pinnedChatMessageInfo%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["pinnedChatMessageInfo%2Did"] = pinnedChatMessageInfoId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

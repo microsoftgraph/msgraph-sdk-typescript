@@ -19,14 +19,16 @@ export class AuthoredNoteItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new AuthoredNoteItemRequestBuilder and sets the default values.
+     * @param authoredNoteId key: id of authoredNote
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, authoredNoteId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/privacy/subjectRightsRequests/{subjectRightsRequest%2Did}/notes/{authoredNote%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["authoredNote%2Did"] = authoredNoteId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

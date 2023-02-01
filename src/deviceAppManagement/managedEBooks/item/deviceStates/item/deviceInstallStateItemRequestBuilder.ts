@@ -19,14 +19,16 @@ export class DeviceInstallStateItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new DeviceInstallStateItemRequestBuilder and sets the default values.
+     * @param deviceInstallStateId key: id of deviceInstallState
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, deviceInstallStateId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}/deviceStates/{deviceInstallState%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["deviceInstallState%2Did"] = deviceInstallStateId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

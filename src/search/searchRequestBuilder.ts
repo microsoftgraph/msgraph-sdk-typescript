@@ -2,7 +2,7 @@ import {SearchEntity} from '../models/';
 import {createSearchEntityFromDiscriminatorValue} from '../models/createSearchEntityFromDiscriminatorValue';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {QueryRequestBuilder} from './query/queryRequestBuilder';
+import {QueryRequestBuilder} from './microsoftGraphQuery/queryRequestBuilder';
 import {SearchRequestBuilderGetRequestConfiguration} from './searchRequestBuilderGetRequestConfiguration';
 import {SearchRequestBuilderPatchRequestConfiguration} from './searchRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -11,12 +11,12 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the searchEntity singleton.
  */
 export class SearchRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the query method. */
-    public get query(): QueryRequestBuilder {
+    public get microsoftGraphQuery(): QueryRequestBuilder {
         return new QueryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Path parameters for the request */
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */

@@ -19,14 +19,16 @@ export class InferenceClassificationOverrideItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new InferenceClassificationOverrideItemRequestBuilder and sets the default values.
+     * @param inferenceClassificationOverrideId key: id of inferenceClassificationOverride
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, inferenceClassificationOverrideId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/inferenceClassification/overrides/{inferenceClassificationOverride%2Did}{?%24select}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["inferenceClassificationOverride%2Did"] = inferenceClassificationOverrideId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

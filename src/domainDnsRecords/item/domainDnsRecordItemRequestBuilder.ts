@@ -19,19 +19,21 @@ export class DomainDnsRecordItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new DomainDnsRecordItemRequestBuilder and sets the default values.
+     * @param domainDnsRecordId key: id of domainDnsRecord
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, domainDnsRecordId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/domainDnsRecords/{domainDnsRecord%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["domainDnsRecord%2Did"] = domainDnsRecordId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from domainDnsRecords by key (id)
+     * Delete entity from domainDnsRecords
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -46,7 +48,7 @@ export class DomainDnsRecordItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get entity from domainDnsRecords by key (id)
+     * Get entity from domainDnsRecords by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DomainDnsRecord
@@ -62,7 +64,7 @@ export class DomainDnsRecordItemRequestBuilder {
         return this.requestAdapter?.sendAsync<DomainDnsRecord>(requestInfo, createDomainDnsRecordFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update entity in domainDnsRecords by key (id)
+     * Update entity in domainDnsRecords
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -80,7 +82,7 @@ export class DomainDnsRecordItemRequestBuilder {
         return this.requestAdapter?.sendAsync<DomainDnsRecord>(requestInfo, createDomainDnsRecordFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from domainDnsRecords by key (id)
+     * Delete entity from domainDnsRecords
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -96,7 +98,7 @@ export class DomainDnsRecordItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from domainDnsRecords by key (id)
+     * Get entity from domainDnsRecords by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -114,7 +116,7 @@ export class DomainDnsRecordItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in domainDnsRecords by key (id)
+     * Update entity in domainDnsRecords
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

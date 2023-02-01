@@ -19,14 +19,16 @@ export class NamedLocationItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new NamedLocationItemRequestBuilder and sets the default values.
+     * @param namedLocationId key: id of namedLocation
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, namedLocationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/identity/conditionalAccess/namedLocations/{namedLocation%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["namedLocation%2Did"] = namedLocationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

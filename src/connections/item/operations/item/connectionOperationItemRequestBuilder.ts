@@ -19,14 +19,16 @@ export class ConnectionOperationItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ConnectionOperationItemRequestBuilder and sets the default values.
+     * @param connectionOperationId key: id of connectionOperation
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, connectionOperationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/connections/{externalConnection%2Did}/operations/{connectionOperation%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["connectionOperation%2Did"] = connectionOperationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

@@ -19,14 +19,16 @@ export class AccessReviewInstanceDecisionItemItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new AccessReviewInstanceDecisionItemItemRequestBuilder and sets the default values.
+     * @param accessReviewInstanceDecisionItemId key: id of accessReviewInstanceDecisionItem
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, accessReviewInstanceDecisionItemId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}/decisions/{accessReviewInstanceDecisionItem%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["accessReviewInstanceDecisionItem%2Did"] = accessReviewInstanceDecisionItemId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

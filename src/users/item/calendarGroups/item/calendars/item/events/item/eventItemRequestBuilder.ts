@@ -2,37 +2,33 @@ import {Event} from '../../../../../../../../models/';
 import {createEventFromDiscriminatorValue} from '../../../../../../../../models/createEventFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AcceptRequestBuilder} from './accept/acceptRequestBuilder';
 import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
 import {AttachmentItemRequestBuilder} from './attachments/item/attachmentItemRequestBuilder';
 import {CalendarRequestBuilder} from './calendar/calendarRequestBuilder';
-import {CancelRequestBuilder} from './cancel/cancelRequestBuilder';
-import {DeclineRequestBuilder} from './decline/declineRequestBuilder';
-import {DismissReminderRequestBuilder} from './dismissReminder/dismissReminderRequestBuilder';
 import {EventItemRequestBuilderDeleteRequestConfiguration} from './eventItemRequestBuilderDeleteRequestConfiguration';
 import {EventItemRequestBuilderGetRequestConfiguration} from './eventItemRequestBuilderGetRequestConfiguration';
 import {EventItemRequestBuilderPatchRequestConfiguration} from './eventItemRequestBuilderPatchRequestConfiguration';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
-import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
 import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
 import {EventItemRequestBuilder as Ieba346f7a0992d3ae58a92b1e945092b32918cb59ff996498e1cc4371768dc95} from './instances/item/eventItemRequestBuilder';
+import {AcceptRequestBuilder} from './microsoftGraphAccept/acceptRequestBuilder';
+import {CancelRequestBuilder} from './microsoftGraphCancel/cancelRequestBuilder';
+import {DeclineRequestBuilder} from './microsoftGraphDecline/declineRequestBuilder';
+import {DismissReminderRequestBuilder} from './microsoftGraphDismissReminder/dismissReminderRequestBuilder';
+import {ForwardRequestBuilder} from './microsoftGraphForward/forwardRequestBuilder';
+import {SnoozeReminderRequestBuilder} from './microsoftGraphSnoozeReminder/snoozeReminderRequestBuilder';
+import {TentativelyAcceptRequestBuilder} from './microsoftGraphTentativelyAccept/tentativelyAcceptRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
 import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyItemRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
-import {SnoozeReminderRequestBuilder} from './snoozeReminder/snoozeReminderRequestBuilder';
-import {TentativelyAcceptRequestBuilder} from './tentativelyAccept/tentativelyAcceptRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the events property of the microsoft.graph.calendar entity.
  */
 export class EventItemRequestBuilder {
-    /** Provides operations to call the accept method. */
-    public get accept(): AcceptRequestBuilder {
-        return new AcceptRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the attachments property of the microsoft.graph.event entity. */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -41,29 +37,41 @@ export class EventItemRequestBuilder {
     public get calendar(): CalendarRequestBuilder {
         return new CalendarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the cancel method. */
-    public get cancel(): CancelRequestBuilder {
-        return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the decline method. */
-    public get decline(): DeclineRequestBuilder {
-        return new DeclineRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the dismissReminder method. */
-    public get dismissReminder(): DismissReminderRequestBuilder {
-        return new DismissReminderRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the extensions property of the microsoft.graph.event entity. */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the forward method. */
-    public get forward(): ForwardRequestBuilder {
-        return new ForwardRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the instances property of the microsoft.graph.event entity. */
     public get instances(): InstancesRequestBuilder {
         return new InstancesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the accept method. */
+    public get microsoftGraphAccept(): AcceptRequestBuilder {
+        return new AcceptRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the cancel method. */
+    public get microsoftGraphCancel(): CancelRequestBuilder {
+        return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the decline method. */
+    public get microsoftGraphDecline(): DeclineRequestBuilder {
+        return new DeclineRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the dismissReminder method. */
+    public get microsoftGraphDismissReminder(): DismissReminderRequestBuilder {
+        return new DismissReminderRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the forward method. */
+    public get microsoftGraphForward(): ForwardRequestBuilder {
+        return new ForwardRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the snoozeReminder method. */
+    public get microsoftGraphSnoozeReminder(): SnoozeReminderRequestBuilder {
+        return new SnoozeReminderRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the tentativelyAccept method. */
+    public get microsoftGraphTentativelyAccept(): TentativelyAcceptRequestBuilder {
+        return new TentativelyAcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.event entity. */
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
@@ -76,14 +84,6 @@ export class EventItemRequestBuilder {
     /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.event entity. */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the snoozeReminder method. */
-    public get snoozeReminder(): SnoozeReminderRequestBuilder {
-        return new SnoozeReminderRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the tentativelyAccept method. */
-    public get tentativelyAccept(): TentativelyAcceptRequestBuilder {
-        return new TentativelyAcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
@@ -100,14 +100,16 @@ export class EventItemRequestBuilder {
     };
     /**
      * Instantiates a new EventItemRequestBuilder and sets the default values.
+     * @param eventId key: id of event
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, eventId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars/{calendar%2Did}/events/{event%2Did}{?%24select}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["event%2Did"] = eventId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

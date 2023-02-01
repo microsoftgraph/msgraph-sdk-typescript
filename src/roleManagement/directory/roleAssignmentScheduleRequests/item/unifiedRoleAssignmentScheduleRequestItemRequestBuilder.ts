@@ -4,8 +4,8 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ActivatedUsingRequestBuilder} from './activatedUsing/activatedUsingRequestBuilder';
 import {AppScopeRequestBuilder} from './appScope/appScopeRequestBuilder';
-import {CancelRequestBuilder} from './cancel/cancelRequestBuilder';
 import {DirectoryScopeRequestBuilder} from './directoryScope/directoryScopeRequestBuilder';
+import {CancelRequestBuilder} from './microsoftGraphCancel/cancelRequestBuilder';
 import {PrincipalRequestBuilder} from './principal/principalRequestBuilder';
 import {RoleDefinitionRequestBuilder} from './roleDefinition/roleDefinitionRequestBuilder';
 import {TargetScheduleRequestBuilder} from './targetSchedule/targetScheduleRequestBuilder';
@@ -26,13 +26,13 @@ export class UnifiedRoleAssignmentScheduleRequestItemRequestBuilder {
     public get appScope(): AppScopeRequestBuilder {
         return new AppScopeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the cancel method. */
-    public get cancel(): CancelRequestBuilder {
-        return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the directoryScope property of the microsoft.graph.unifiedRoleAssignmentScheduleRequest entity. */
     public get directoryScope(): DirectoryScopeRequestBuilder {
         return new DirectoryScopeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the cancel method. */
+    public get microsoftGraphCancel(): CancelRequestBuilder {
+        return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -56,12 +56,14 @@ export class UnifiedRoleAssignmentScheduleRequestItemRequestBuilder {
      * Instantiates a new UnifiedRoleAssignmentScheduleRequestItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param unifiedRoleAssignmentScheduleRequestId key: id of unifiedRoleAssignmentScheduleRequest
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, unifiedRoleAssignmentScheduleRequestId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/roleManagement/directory/roleAssignmentScheduleRequests/{unifiedRoleAssignmentScheduleRequest%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["unifiedRoleAssignmentScheduleRequest%2Did"] = unifiedRoleAssignmentScheduleRequestId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

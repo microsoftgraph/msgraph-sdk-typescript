@@ -2,7 +2,6 @@ import {ManagedEBook} from '../../../models/';
 import {createManagedEBookFromDiscriminatorValue} from '../../../models/createManagedEBookFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
 import {ManagedEBookAssignmentItemRequestBuilder} from './assignments/item/managedEBookAssignmentItemRequestBuilder';
 import {DeviceStatesRequestBuilder} from './deviceStates/deviceStatesRequestBuilder';
@@ -11,6 +10,7 @@ import {InstallSummaryRequestBuilder} from './installSummary/installSummaryReque
 import {ManagedEBookItemRequestBuilderDeleteRequestConfiguration} from './managedEBookItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedEBookItemRequestBuilderGetRequestConfiguration} from './managedEBookItemRequestBuilderGetRequestConfiguration';
 import {ManagedEBookItemRequestBuilderPatchRequestConfiguration} from './managedEBookItemRequestBuilderPatchRequestConfiguration';
+import {AssignRequestBuilder} from './microsoftGraphAssign/assignRequestBuilder';
 import {UserInstallStateSummaryItemRequestBuilder} from './userStateSummary/item/userInstallStateSummaryItemRequestBuilder';
 import {UserStateSummaryRequestBuilder} from './userStateSummary/userStateSummaryRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -19,10 +19,6 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.
  */
 export class ManagedEBookItemRequestBuilder {
-    /** Provides operations to call the assign method. */
-    public get assign(): AssignRequestBuilder {
-        return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the assignments property of the microsoft.graph.managedEBook entity. */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -34,6 +30,10 @@ export class ManagedEBookItemRequestBuilder {
     /** Provides operations to manage the installSummary property of the microsoft.graph.managedEBook entity. */
     public get installSummary(): InstallSummaryRequestBuilder {
         return new InstallSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the assign method. */
+    public get microsoftGraphAssign(): AssignRequestBuilder {
+        return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -58,14 +58,16 @@ export class ManagedEBookItemRequestBuilder {
     };
     /**
      * Instantiates a new ManagedEBookItemRequestBuilder and sets the default values.
+     * @param managedEBookId key: id of managedEBook
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, managedEBookId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["managedEBook%2Did"] = managedEBookId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

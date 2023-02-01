@@ -36,14 +36,16 @@ export class AccessPackageCatalogItemRequestBuilder {
     };
     /**
      * Instantiates a new AccessPackageCatalogItemRequestBuilder and sets the default values.
+     * @param accessPackageCatalogId key: id of accessPackageCatalog
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, accessPackageCatalogId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/catalogs/{accessPackageCatalog%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["accessPackageCatalog%2Did"] = accessPackageCatalogId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

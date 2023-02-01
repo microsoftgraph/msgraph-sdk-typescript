@@ -24,14 +24,16 @@ export class ColumnDefinitionItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ColumnDefinitionItemRequestBuilder and sets the default values.
+     * @param columnDefinitionId key: id of columnDefinition
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, columnDefinitionId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["columnDefinition%2Did"] = columnDefinitionId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

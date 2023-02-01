@@ -2,9 +2,9 @@ import {SiteCollectionResponse} from '../models/';
 import {createSiteCollectionResponseFromDiscriminatorValue} from '../models/createSiteCollectionResponseFromDiscriminatorValue';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AddRequestBuilder} from './add/addRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {RemoveRequestBuilder} from './remove/removeRequestBuilder';
+import {AddRequestBuilder} from './microsoftGraphAdd/addRequestBuilder';
+import {RemoveRequestBuilder} from './microsoftGraphRemove/removeRequestBuilder';
 import {SitesRequestBuilderGetRequestConfiguration} from './sitesRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -12,20 +12,20 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the collection of site entities.
  */
 export class SitesRequestBuilder {
-    /** Provides operations to call the add method. */
-    public get add(): AddRequestBuilder {
-        return new AddRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the add method. */
+    public get microsoftGraphAdd(): AddRequestBuilder {
+        return new AddRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the remove method. */
-    public get remove(): RemoveRequestBuilder {
+    public get microsoftGraphRemove(): RemoveRequestBuilder {
         return new RemoveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Path parameters for the request */
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */

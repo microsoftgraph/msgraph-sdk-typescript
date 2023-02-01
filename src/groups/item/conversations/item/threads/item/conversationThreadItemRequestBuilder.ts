@@ -5,24 +5,24 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {ConversationThreadItemRequestBuilderDeleteRequestConfiguration} from './conversationThreadItemRequestBuilderDeleteRequestConfiguration';
 import {ConversationThreadItemRequestBuilderGetRequestConfiguration} from './conversationThreadItemRequestBuilderGetRequestConfiguration';
 import {ConversationThreadItemRequestBuilderPatchRequestConfiguration} from './conversationThreadItemRequestBuilderPatchRequestConfiguration';
+import {ReplyRequestBuilder} from './microsoftGraphReply/replyRequestBuilder';
 import {PostItemRequestBuilder} from './posts/item/postItemRequestBuilder';
 import {PostsRequestBuilder} from './posts/postsRequestBuilder';
-import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the threads property of the microsoft.graph.conversation entity.
  */
 export class ConversationThreadItemRequestBuilder {
+    /** Provides operations to call the reply method. */
+    public get microsoftGraphReply(): ReplyRequestBuilder {
+        return new ReplyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the posts property of the microsoft.graph.conversationThread entity. */
     public get posts(): PostsRequestBuilder {
         return new PostsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the reply method. */
-    public get reply(): ReplyRequestBuilder {
-        return new ReplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
@@ -30,14 +30,16 @@ export class ConversationThreadItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ConversationThreadItemRequestBuilder and sets the default values.
+     * @param conversationThreadId key: id of conversationThread
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, conversationThreadId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}/threads/{conversationThread%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["conversationThread%2Did"] = conversationThreadId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

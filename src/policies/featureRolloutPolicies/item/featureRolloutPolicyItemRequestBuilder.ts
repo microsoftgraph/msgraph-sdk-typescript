@@ -36,14 +36,16 @@ export class FeatureRolloutPolicyItemRequestBuilder {
     };
     /**
      * Instantiates a new FeatureRolloutPolicyItemRequestBuilder and sets the default values.
+     * @param featureRolloutPolicyId key: id of featureRolloutPolicy
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, featureRolloutPolicyId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/policies/featureRolloutPolicies/{featureRolloutPolicy%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["featureRolloutPolicy%2Did"] = featureRolloutPolicyId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

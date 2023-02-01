@@ -4,33 +4,35 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AuthenticationMethodItemRequestBuilderGetRequestConfiguration} from './authenticationMethodItemRequestBuilderGetRequestConfiguration';
 import {AuthenticationMethodItemRequestBuilderPatchRequestConfiguration} from './authenticationMethodItemRequestBuilderPatchRequestConfiguration';
-import {ResetPasswordRequestBuilder} from './resetPassword/resetPasswordRequestBuilder';
+import {ResetPasswordRequestBuilder} from './microsoftGraphResetPassword/resetPasswordRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the methods property of the microsoft.graph.authentication entity.
  */
 export class AuthenticationMethodItemRequestBuilder {
+    /** Provides operations to call the resetPassword method. */
+    public get microsoftGraphResetPassword(): ResetPasswordRequestBuilder {
+        return new ResetPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the resetPassword method. */
-    public get resetPassword(): ResetPasswordRequestBuilder {
-        return new ResetPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new AuthenticationMethodItemRequestBuilder and sets the default values.
+     * @param authenticationMethodId key: id of authenticationMethod
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, authenticationMethodId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/authentication/methods/{authenticationMethod%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["authenticationMethod%2Did"] = authenticationMethodId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

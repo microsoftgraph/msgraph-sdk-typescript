@@ -19,14 +19,16 @@ export class AccessReviewReviewerItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new AccessReviewReviewerItemRequestBuilder and sets the default values.
+     * @param accessReviewReviewerId key: id of accessReviewReviewer
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, accessReviewReviewerId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}/contactedReviewers/{accessReviewReviewer%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["accessReviewReviewer%2Did"] = accessReviewReviewerId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

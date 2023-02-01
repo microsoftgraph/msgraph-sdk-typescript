@@ -2,9 +2,9 @@ import {WindowsAutopilotDeviceIdentity} from '../../../models/';
 import {createWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from '../../../models/createWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AssignUserToDeviceRequestBuilder} from './assignUserToDevice/assignUserToDeviceRequestBuilder';
-import {UnassignUserFromDeviceRequestBuilder} from './unassignUserFromDevice/unassignUserFromDeviceRequestBuilder';
-import {UpdateDevicePropertiesRequestBuilder} from './updateDeviceProperties/updateDevicePropertiesRequestBuilder';
+import {AssignUserToDeviceRequestBuilder} from './microsoftGraphAssignUserToDevice/assignUserToDeviceRequestBuilder';
+import {UnassignUserFromDeviceRequestBuilder} from './microsoftGraphUnassignUserFromDevice/unassignUserFromDeviceRequestBuilder';
+import {UpdateDevicePropertiesRequestBuilder} from './microsoftGraphUpdateDeviceProperties/updateDevicePropertiesRequestBuilder';
 import {WindowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration} from './windowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration';
 import {WindowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration} from './windowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration';
 import {WindowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration} from './windowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration';
@@ -15,33 +15,35 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class WindowsAutopilotDeviceIdentityItemRequestBuilder {
     /** Provides operations to call the assignUserToDevice method. */
-    public get assignUserToDevice(): AssignUserToDeviceRequestBuilder {
+    public get microsoftGraphAssignUserToDevice(): AssignUserToDeviceRequestBuilder {
         return new AssignUserToDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the unassignUserFromDevice method. */
+    public get microsoftGraphUnassignUserFromDevice(): UnassignUserFromDeviceRequestBuilder {
+        return new UnassignUserFromDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the updateDeviceProperties method. */
+    public get microsoftGraphUpdateDeviceProperties(): UpdateDevicePropertiesRequestBuilder {
+        return new UpdateDevicePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the unassignUserFromDevice method. */
-    public get unassignUserFromDevice(): UnassignUserFromDeviceRequestBuilder {
-        return new UnassignUserFromDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the updateDeviceProperties method. */
-    public get updateDeviceProperties(): UpdateDevicePropertiesRequestBuilder {
-        return new UpdateDevicePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new WindowsAutopilotDeviceIdentityItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param windowsAutopilotDeviceIdentityId key: id of windowsAutopilotDeviceIdentity
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, windowsAutopilotDeviceIdentityId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/windowsAutopilotDeviceIdentities/{windowsAutopilotDeviceIdentity%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["windowsAutopilotDeviceIdentity%2Did"] = windowsAutopilotDeviceIdentityId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

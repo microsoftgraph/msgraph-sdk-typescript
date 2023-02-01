@@ -17,14 +17,16 @@ export class ClaimsMappingPolicyItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ClaimsMappingPolicyItemRequestBuilder and sets the default values.
+     * @param claimsMappingPolicyId key: id of claimsMappingPolicy
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, claimsMappingPolicyId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/claimsMappingPolicies/{claimsMappingPolicy%2Did}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["claimsMappingPolicy%2Did"] = claimsMappingPolicyId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

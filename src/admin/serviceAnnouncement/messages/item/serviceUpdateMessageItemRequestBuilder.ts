@@ -43,12 +43,14 @@ export class ServiceUpdateMessageItemRequestBuilder {
      * Instantiates a new ServiceUpdateMessageItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param serviceUpdateMessageId key: id of serviceUpdateMessage
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, serviceUpdateMessageId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["serviceUpdateMessage%2Did"] = serviceUpdateMessageId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

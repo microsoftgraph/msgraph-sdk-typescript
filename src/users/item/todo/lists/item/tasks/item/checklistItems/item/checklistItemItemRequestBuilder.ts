@@ -19,14 +19,16 @@ export class ChecklistItemItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ChecklistItemItemRequestBuilder and sets the default values.
+     * @param checklistItemId key: id of checklistItem
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, checklistItemId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/checklistItems/{checklistItem%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["checklistItem%2Did"] = checklistItemId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

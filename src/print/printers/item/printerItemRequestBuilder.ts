@@ -4,10 +4,10 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ConnectorsRequestBuilder} from './connectors/connectorsRequestBuilder';
 import {PrintConnectorItemRequestBuilder} from './connectors/item/printConnectorItemRequestBuilder';
+import {RestoreFactoryDefaultsRequestBuilder} from './microsoftGraphRestoreFactoryDefaults/restoreFactoryDefaultsRequestBuilder';
 import {PrinterItemRequestBuilderDeleteRequestConfiguration} from './printerItemRequestBuilderDeleteRequestConfiguration';
 import {PrinterItemRequestBuilderGetRequestConfiguration} from './printerItemRequestBuilderGetRequestConfiguration';
 import {PrinterItemRequestBuilderPatchRequestConfiguration} from './printerItemRequestBuilderPatchRequestConfiguration';
-import {RestoreFactoryDefaultsRequestBuilder} from './restoreFactoryDefaults/restoreFactoryDefaultsRequestBuilder';
 import {PrinterShareItemRequestBuilder} from './shares/item/printerShareItemRequestBuilder';
 import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
 import {PrintTaskTriggerItemRequestBuilder} from './taskTriggers/item/printTaskTriggerItemRequestBuilder';
@@ -22,14 +22,14 @@ export class PrinterItemRequestBuilder {
     public get connectors(): ConnectorsRequestBuilder {
         return new ConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the restoreFactoryDefaults method. */
+    public get microsoftGraphRestoreFactoryDefaults(): RestoreFactoryDefaultsRequestBuilder {
+        return new RestoreFactoryDefaultsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the restoreFactoryDefaults method. */
-    public get restoreFactoryDefaults(): RestoreFactoryDefaultsRequestBuilder {
-        return new RestoreFactoryDefaultsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the shares property of the microsoft.graph.printer entity. */
     public get shares(): SharesRequestBuilder {
         return new SharesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -54,13 +54,15 @@ export class PrinterItemRequestBuilder {
     /**
      * Instantiates a new PrinterItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param printerId key: id of printer
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, printerId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/print/printers/{printer%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["printer%2Did"] = printerId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

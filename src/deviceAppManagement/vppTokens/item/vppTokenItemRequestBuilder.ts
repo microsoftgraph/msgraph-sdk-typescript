@@ -2,7 +2,7 @@ import {VppToken} from '../../../models/';
 import {createVppTokenFromDiscriminatorValue} from '../../../models/createVppTokenFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {SyncLicensesRequestBuilder} from './syncLicenses/syncLicensesRequestBuilder';
+import {SyncLicensesRequestBuilder} from './microsoftGraphSyncLicenses/syncLicensesRequestBuilder';
 import {VppTokenItemRequestBuilderDeleteRequestConfiguration} from './vppTokenItemRequestBuilderDeleteRequestConfiguration';
 import {VppTokenItemRequestBuilderGetRequestConfiguration} from './vppTokenItemRequestBuilderGetRequestConfiguration';
 import {VppTokenItemRequestBuilderPatchRequestConfiguration} from './vppTokenItemRequestBuilderPatchRequestConfiguration';
@@ -12,26 +12,28 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity.
  */
 export class VppTokenItemRequestBuilder {
+    /** Provides operations to call the syncLicenses method. */
+    public get microsoftGraphSyncLicenses(): SyncLicensesRequestBuilder {
+        return new SyncLicensesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the syncLicenses method. */
-    public get syncLicenses(): SyncLicensesRequestBuilder {
-        return new SyncLicensesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new VppTokenItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param vppTokenId key: id of vppToken
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, vppTokenId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceAppManagement/vppTokens/{vppToken%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["vppToken%2Did"] = vppTokenId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

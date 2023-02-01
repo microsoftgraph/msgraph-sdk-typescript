@@ -34,14 +34,16 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new OrganizationalBrandingLocalizationItemRequestBuilder and sets the default values.
+     * @param organizationalBrandingLocalizationId key: id of organizationalBrandingLocalization
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, organizationalBrandingLocalizationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/organization/{organization%2Did}/branding/localizations/{organizationalBrandingLocalization%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["organizationalBrandingLocalization%2Did"] = organizationalBrandingLocalizationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

@@ -9,13 +9,13 @@ import {DomainNameReferencesRequestBuilder} from './domainNameReferences/domainN
 import {DirectoryObjectItemRequestBuilder} from './domainNameReferences/item/directoryObjectItemRequestBuilder';
 import {FederationConfigurationRequestBuilder} from './federationConfiguration/federationConfigurationRequestBuilder';
 import {InternalDomainFederationItemRequestBuilder} from './federationConfiguration/item/internalDomainFederationItemRequestBuilder';
-import {ForceDeleteRequestBuilder} from './forceDelete/forceDeleteRequestBuilder';
-import {PromoteRequestBuilder} from './promote/promoteRequestBuilder';
+import {ForceDeleteRequestBuilder} from './microsoftGraphForceDelete/forceDeleteRequestBuilder';
+import {PromoteRequestBuilder} from './microsoftGraphPromote/promoteRequestBuilder';
+import {VerifyRequestBuilder} from './microsoftGraphVerify/verifyRequestBuilder';
 import {DomainDnsRecordItemRequestBuilder as I645b7a6c2b2e75703879ecf7aedd6400ebb0b1e58a2b8a9feaf4bbea098347da} from './serviceConfigurationRecords/item/domainDnsRecordItemRequestBuilder';
 import {ServiceConfigurationRecordsRequestBuilder} from './serviceConfigurationRecords/serviceConfigurationRecordsRequestBuilder';
 import {DomainDnsRecordItemRequestBuilder as Ib1b6b04364f5e14b4cb6820dc9f0e89b24894aa2bef616b4a1220973381758c2} from './verificationDnsRecords/item/domainDnsRecordItemRequestBuilder';
 import {VerificationDnsRecordsRequestBuilder} from './verificationDnsRecords/verificationDnsRecordsRequestBuilder';
-import {VerifyRequestBuilder} from './verify/verifyRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -31,15 +31,19 @@ export class DomainItemRequestBuilder {
         return new FederationConfigurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the forceDelete method. */
-    public get forceDelete(): ForceDeleteRequestBuilder {
+    public get microsoftGraphForceDelete(): ForceDeleteRequestBuilder {
         return new ForceDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the promote method. */
+    public get microsoftGraphPromote(): PromoteRequestBuilder {
+        return new PromoteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the verify method. */
+    public get microsoftGraphVerify(): VerifyRequestBuilder {
+        return new VerifyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
-    /** Provides operations to call the promote method. */
-    public get promote(): PromoteRequestBuilder {
-        return new PromoteRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity. */
@@ -52,20 +56,18 @@ export class DomainItemRequestBuilder {
     public get verificationDnsRecords(): VerificationDnsRecordsRequestBuilder {
         return new VerificationDnsRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the verify method. */
-    public get verify(): VerifyRequestBuilder {
-        return new VerifyRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /**
      * Instantiates a new DomainItemRequestBuilder and sets the default values.
+     * @param domainId key: id of domain
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, domainId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/domains/{domain%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["domain%2Did"] = domainId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

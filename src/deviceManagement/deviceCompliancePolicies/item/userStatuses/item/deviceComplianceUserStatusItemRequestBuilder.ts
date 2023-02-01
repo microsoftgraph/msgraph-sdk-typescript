@@ -19,14 +19,16 @@ export class DeviceComplianceUserStatusItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new DeviceComplianceUserStatusItemRequestBuilder and sets the default values.
+     * @param deviceComplianceUserStatusId key: id of deviceComplianceUserStatus
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, deviceComplianceUserStatusId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/userStatuses/{deviceComplianceUserStatus%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["deviceComplianceUserStatus%2Did"] = deviceComplianceUserStatusId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

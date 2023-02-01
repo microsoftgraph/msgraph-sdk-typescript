@@ -21,12 +21,14 @@ export class ShiftItemRequestBuilder {
      * Instantiates a new ShiftItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param shiftId key: id of shift
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, shiftId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/joinedTeams/{team%2Did}/schedule/shifts/{shift%2Did}{?%24select}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["shift%2Did"] = shiftId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

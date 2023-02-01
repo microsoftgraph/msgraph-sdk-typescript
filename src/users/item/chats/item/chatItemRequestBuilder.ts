@@ -5,32 +5,28 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {ChatItemRequestBuilderDeleteRequestConfiguration} from './chatItemRequestBuilderDeleteRequestConfiguration';
 import {ChatItemRequestBuilderGetRequestConfiguration} from './chatItemRequestBuilderGetRequestConfiguration';
 import {ChatItemRequestBuilderPatchRequestConfiguration} from './chatItemRequestBuilderPatchRequestConfiguration';
-import {HideForUserRequestBuilder} from './hideForUser/hideForUserRequestBuilder';
 import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
 import {TeamsAppInstallationItemRequestBuilder} from './installedApps/item/teamsAppInstallationItemRequestBuilder';
 import {LastMessagePreviewRequestBuilder} from './lastMessagePreview/lastMessagePreviewRequestBuilder';
-import {MarkChatReadForUserRequestBuilder} from './markChatReadForUser/markChatReadForUserRequestBuilder';
-import {MarkChatUnreadForUserRequestBuilder} from './markChatUnreadForUser/markChatUnreadForUserRequestBuilder';
 import {ConversationMemberItemRequestBuilder} from './members/item/conversationMemberItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {ChatMessageItemRequestBuilder} from './messages/item/chatMessageItemRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
+import {HideForUserRequestBuilder} from './microsoftGraphHideForUser/hideForUserRequestBuilder';
+import {MarkChatReadForUserRequestBuilder} from './microsoftGraphMarkChatReadForUser/markChatReadForUserRequestBuilder';
+import {MarkChatUnreadForUserRequestBuilder} from './microsoftGraphMarkChatUnreadForUser/markChatUnreadForUserRequestBuilder';
+import {SendActivityNotificationRequestBuilder} from './microsoftGraphSendActivityNotification/sendActivityNotificationRequestBuilder';
+import {UnhideForUserRequestBuilder} from './microsoftGraphUnhideForUser/unhideForUserRequestBuilder';
 import {PinnedChatMessageInfoItemRequestBuilder} from './pinnedMessages/item/pinnedChatMessageInfoItemRequestBuilder';
 import {PinnedMessagesRequestBuilder} from './pinnedMessages/pinnedMessagesRequestBuilder';
-import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
 import {TeamsTabItemRequestBuilder} from './tabs/item/teamsTabItemRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
-import {UnhideForUserRequestBuilder} from './unhideForUser/unhideForUserRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the chats property of the microsoft.graph.user entity.
  */
 export class ChatItemRequestBuilder {
-    /** Provides operations to call the hideForUser method. */
-    public get hideForUser(): HideForUserRequestBuilder {
-        return new HideForUserRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the installedApps property of the microsoft.graph.chat entity. */
     public get installedApps(): InstalledAppsRequestBuilder {
         return new InstalledAppsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -38,14 +34,6 @@ export class ChatItemRequestBuilder {
     /** Provides operations to manage the lastMessagePreview property of the microsoft.graph.chat entity. */
     public get lastMessagePreview(): LastMessagePreviewRequestBuilder {
         return new LastMessagePreviewRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the markChatReadForUser method. */
-    public get markChatReadForUser(): MarkChatReadForUserRequestBuilder {
-        return new MarkChatReadForUserRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the markChatUnreadForUser method. */
-    public get markChatUnreadForUser(): MarkChatUnreadForUserRequestBuilder {
-        return new MarkChatUnreadForUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the members property of the microsoft.graph.chat entity. */
     public get members(): MembersRequestBuilder {
@@ -55,6 +43,26 @@ export class ChatItemRequestBuilder {
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the hideForUser method. */
+    public get microsoftGraphHideForUser(): HideForUserRequestBuilder {
+        return new HideForUserRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the markChatReadForUser method. */
+    public get microsoftGraphMarkChatReadForUser(): MarkChatReadForUserRequestBuilder {
+        return new MarkChatReadForUserRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the markChatUnreadForUser method. */
+    public get microsoftGraphMarkChatUnreadForUser(): MarkChatUnreadForUserRequestBuilder {
+        return new MarkChatUnreadForUserRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sendActivityNotification method. */
+    public get microsoftGraphSendActivityNotification(): SendActivityNotificationRequestBuilder {
+        return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the unhideForUser method. */
+    public get microsoftGraphUnhideForUser(): UnhideForUserRequestBuilder {
+        return new UnhideForUserRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity. */
@@ -63,30 +71,24 @@ export class ChatItemRequestBuilder {
     }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the sendActivityNotification method. */
-    public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
-        return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the tabs property of the microsoft.graph.chat entity. */
     public get tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the unhideForUser method. */
-    public get unhideForUser(): UnhideForUserRequestBuilder {
-        return new UnhideForUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new ChatItemRequestBuilder and sets the default values.
+     * @param chatId key: id of chat
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, chatId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["chat%2Did"] = chatId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

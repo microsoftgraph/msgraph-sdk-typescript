@@ -19,14 +19,16 @@ export class AgreementFileVersionItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new AgreementFileVersionItemRequestBuilder and sets the default values.
+     * @param agreementFileVersionId key: id of agreementFileVersion
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, agreementFileVersionId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}/files/{agreementFileLocalization%2Did}/versions/{agreementFileVersion%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["agreementFileVersion%2Did"] = agreementFileVersionId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

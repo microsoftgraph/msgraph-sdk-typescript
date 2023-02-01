@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {BookingAppointmentItemRequestBuilderDeleteRequestConfiguration} from './bookingAppointmentItemRequestBuilderDeleteRequestConfiguration';
 import {BookingAppointmentItemRequestBuilderGetRequestConfiguration} from './bookingAppointmentItemRequestBuilderGetRequestConfiguration';
 import {BookingAppointmentItemRequestBuilderPatchRequestConfiguration} from './bookingAppointmentItemRequestBuilderPatchRequestConfiguration';
-import {CancelRequestBuilder} from './cancel/cancelRequestBuilder';
+import {CancelRequestBuilder} from './microsoftGraphCancel/cancelRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -13,7 +13,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class BookingAppointmentItemRequestBuilder {
     /** Provides operations to call the cancel method. */
-    public get cancel(): CancelRequestBuilder {
+    public get microsoftGraphCancel(): CancelRequestBuilder {
         return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
@@ -24,14 +24,16 @@ export class BookingAppointmentItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new BookingAppointmentItemRequestBuilder and sets the default values.
+     * @param bookingAppointmentId key: id of bookingAppointment
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, bookingAppointmentId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/calendarView/{bookingAppointment%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["bookingAppointment%2Did"] = bookingAppointmentId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

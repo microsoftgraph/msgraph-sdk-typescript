@@ -27,12 +27,14 @@ export class UserInstallStateSummaryItemRequestBuilder {
      * Instantiates a new UserInstallStateSummaryItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param userInstallStateSummaryId key: id of userInstallStateSummary
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, userInstallStateSummaryId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}/userStateSummary/{userInstallStateSummary%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["userInstallStateSummary%2Did"] = userInstallStateSummaryId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

@@ -19,12 +19,14 @@ export class UserItemRequestBuilder {
      * Instantiates a new UserItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param userId key: id of user
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, userId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/print/shares/{printerShare%2Did}/allowedUsers/{user%2Did}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["user%2Did"] = userId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

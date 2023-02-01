@@ -19,14 +19,16 @@ export class EducationAssignmentResourceItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new EducationAssignmentResourceItemRequestBuilder and sets the default values.
+     * @param educationAssignmentResourceId key: id of educationAssignmentResource
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, educationAssignmentResourceId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}/resources/{educationAssignmentResource%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["educationAssignmentResource%2Did"] = educationAssignmentResourceId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

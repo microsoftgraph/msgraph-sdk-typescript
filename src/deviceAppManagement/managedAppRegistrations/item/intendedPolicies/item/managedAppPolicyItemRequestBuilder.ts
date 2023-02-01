@@ -5,33 +5,35 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {ManagedAppPolicyItemRequestBuilderDeleteRequestConfiguration} from './managedAppPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedAppPolicyItemRequestBuilderGetRequestConfiguration} from './managedAppPolicyItemRequestBuilderGetRequestConfiguration';
 import {ManagedAppPolicyItemRequestBuilderPatchRequestConfiguration} from './managedAppPolicyItemRequestBuilderPatchRequestConfiguration';
-import {TargetAppsRequestBuilder} from './targetApps/targetAppsRequestBuilder';
+import {TargetAppsRequestBuilder} from './microsoftGraphTargetApps/targetAppsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the intendedPolicies property of the microsoft.graph.managedAppRegistration entity.
  */
 export class ManagedAppPolicyItemRequestBuilder {
+    /** Provides operations to call the targetApps method. */
+    public get microsoftGraphTargetApps(): TargetAppsRequestBuilder {
+        return new TargetAppsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the targetApps method. */
-    public get targetApps(): TargetAppsRequestBuilder {
-        return new TargetAppsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new ManagedAppPolicyItemRequestBuilder and sets the default values.
+     * @param managedAppPolicyId key: id of managedAppPolicy
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, managedAppPolicyId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}/intendedPolicies/{managedAppPolicy%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["managedAppPolicy%2Did"] = managedAppPolicyId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

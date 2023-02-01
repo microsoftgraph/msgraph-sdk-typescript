@@ -24,14 +24,16 @@ export class ConversationItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ConversationItemRequestBuilder and sets the default values.
+     * @param conversationId key: id of conversation
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, conversationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}{?%24select}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["conversation%2Did"] = conversationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

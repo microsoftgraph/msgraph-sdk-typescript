@@ -5,33 +5,35 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {DeviceManagementExchangeConnectorItemRequestBuilderDeleteRequestConfiguration} from './deviceManagementExchangeConnectorItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration} from './deviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration';
 import {DeviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration} from './deviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration';
-import {SyncRequestBuilder} from './sync/syncRequestBuilder';
+import {SyncRequestBuilder} from './microsoftGraphSync/syncRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
  */
 export class DeviceManagementExchangeConnectorItemRequestBuilder {
+    /** Provides operations to call the sync method. */
+    public get microsoftGraphSync(): SyncRequestBuilder {
+        return new SyncRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the sync method. */
-    public get sync(): SyncRequestBuilder {
-        return new SyncRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new DeviceManagementExchangeConnectorItemRequestBuilder and sets the default values.
+     * @param deviceManagementExchangeConnectorId key: id of deviceManagementExchangeConnector
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, deviceManagementExchangeConnectorId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/exchangeConnectors/{deviceManagementExchangeConnector%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["deviceManagementExchangeConnector%2Did"] = deviceManagementExchangeConnectorId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

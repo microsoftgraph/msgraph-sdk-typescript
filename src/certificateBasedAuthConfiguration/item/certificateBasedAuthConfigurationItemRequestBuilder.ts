@@ -19,19 +19,21 @@ export class CertificateBasedAuthConfigurationItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new CertificateBasedAuthConfigurationItemRequestBuilder and sets the default values.
+     * @param certificateBasedAuthConfigurationId key: id of certificateBasedAuthConfiguration
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, certificateBasedAuthConfigurationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/certificateBasedAuthConfiguration/{certificateBasedAuthConfiguration%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["certificateBasedAuthConfiguration%2Did"] = certificateBasedAuthConfigurationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from certificateBasedAuthConfiguration by key (id)
+     * Delete entity from certificateBasedAuthConfiguration
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -46,7 +48,7 @@ export class CertificateBasedAuthConfigurationItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get entity from certificateBasedAuthConfiguration by key (id)
+     * Get entity from certificateBasedAuthConfiguration by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CertificateBasedAuthConfiguration
@@ -62,7 +64,7 @@ export class CertificateBasedAuthConfigurationItemRequestBuilder {
         return this.requestAdapter?.sendAsync<CertificateBasedAuthConfiguration>(requestInfo, createCertificateBasedAuthConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update entity in certificateBasedAuthConfiguration by key (id)
+     * Update entity in certificateBasedAuthConfiguration
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -80,7 +82,7 @@ export class CertificateBasedAuthConfigurationItemRequestBuilder {
         return this.requestAdapter?.sendAsync<CertificateBasedAuthConfiguration>(requestInfo, createCertificateBasedAuthConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from certificateBasedAuthConfiguration by key (id)
+     * Delete entity from certificateBasedAuthConfiguration
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -96,7 +98,7 @@ export class CertificateBasedAuthConfigurationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from certificateBasedAuthConfiguration by key (id)
+     * Get entity from certificateBasedAuthConfiguration by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -114,7 +116,7 @@ export class CertificateBasedAuthConfigurationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in certificateBasedAuthConfiguration by key (id)
+     * Update entity in certificateBasedAuthConfiguration
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

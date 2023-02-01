@@ -19,14 +19,16 @@ export class ColumnLinkItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ColumnLinkItemRequestBuilder and sets the default values.
+     * @param columnLinkId key: id of columnLink
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, columnLinkId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list/contentTypes/{contentType%2Did}/columnLinks/{columnLink%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["columnLink%2Did"] = columnLinkId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

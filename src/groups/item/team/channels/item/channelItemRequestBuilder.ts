@@ -5,15 +5,15 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {ChannelItemRequestBuilderDeleteRequestConfiguration} from './channelItemRequestBuilderDeleteRequestConfiguration';
 import {ChannelItemRequestBuilderGetRequestConfiguration} from './channelItemRequestBuilderGetRequestConfiguration';
 import {ChannelItemRequestBuilderPatchRequestConfiguration} from './channelItemRequestBuilderPatchRequestConfiguration';
-import {CompleteMigrationRequestBuilder} from './completeMigration/completeMigrationRequestBuilder';
-import {DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder} from './doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName/doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder';
 import {FilesFolderRequestBuilder} from './filesFolder/filesFolderRequestBuilder';
 import {ConversationMemberItemRequestBuilder} from './members/item/conversationMemberItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {ChatMessageItemRequestBuilder} from './messages/item/chatMessageItemRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
-import {ProvisionEmailRequestBuilder} from './provisionEmail/provisionEmailRequestBuilder';
-import {RemoveEmailRequestBuilder} from './removeEmail/removeEmailRequestBuilder';
+import {CompleteMigrationRequestBuilder} from './microsoftGraphCompleteMigration/completeMigrationRequestBuilder';
+import {DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder} from './microsoftGraphDoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName/doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder';
+import {ProvisionEmailRequestBuilder} from './microsoftGraphProvisionEmail/provisionEmailRequestBuilder';
+import {RemoveEmailRequestBuilder} from './microsoftGraphRemoveEmail/removeEmailRequestBuilder';
 import {SharedWithChannelTeamInfoItemRequestBuilder} from './sharedWithTeams/item/sharedWithChannelTeamInfoItemRequestBuilder';
 import {SharedWithTeamsRequestBuilder} from './sharedWithTeams/sharedWithTeamsRequestBuilder';
 import {TeamsTabItemRequestBuilder} from './tabs/item/teamsTabItemRequestBuilder';
@@ -24,10 +24,6 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the channels property of the microsoft.graph.team entity.
  */
 export class ChannelItemRequestBuilder {
-    /** Provides operations to call the completeMigration method. */
-    public get completeMigration(): CompleteMigrationRequestBuilder {
-        return new CompleteMigrationRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the filesFolder property of the microsoft.graph.channel entity. */
     public get filesFolder(): FilesFolderRequestBuilder {
         return new FilesFolderRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -40,16 +36,24 @@ export class ChannelItemRequestBuilder {
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the completeMigration method. */
+    public get microsoftGraphCompleteMigration(): CompleteMigrationRequestBuilder {
+        return new CompleteMigrationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the doesUserHaveAccess method. */
+    public get microsoftGraphDoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName(): DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder {
+        return new DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the provisionEmail method. */
-    public get provisionEmail(): ProvisionEmailRequestBuilder {
+    public get microsoftGraphProvisionEmail(): ProvisionEmailRequestBuilder {
         return new ProvisionEmailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the removeEmail method. */
-    public get removeEmail(): RemoveEmailRequestBuilder {
+    public get microsoftGraphRemoveEmail(): RemoveEmailRequestBuilder {
         return new RemoveEmailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Path parameters for the request */
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity. */
@@ -64,14 +68,16 @@ export class ChannelItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new ChannelItemRequestBuilder and sets the default values.
+     * @param channelId key: id of channel
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, channelId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/groups/{group%2Did}/team/channels/{channel%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["channel%2Did"] = channelId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -89,13 +95,6 @@ export class ChannelItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to call the doesUserHaveAccess method.
-     * @returns a doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder
-     */
-    public doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName() : DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder {
-        return new DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * The collection of channels and messages associated with the team.

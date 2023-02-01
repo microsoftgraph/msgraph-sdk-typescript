@@ -47,14 +47,16 @@ export class AgreementItemRequestBuilder {
     };
     /**
      * Instantiates a new AgreementItemRequestBuilder and sets the default values.
+     * @param agreementId key: id of agreement
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, agreementId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["agreement%2Did"] = agreementId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

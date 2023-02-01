@@ -19,14 +19,16 @@ export class OAuth2PermissionGrantItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new OAuth2PermissionGrantItemRequestBuilder and sets the default values.
+     * @param oAuth2PermissionGrantId key: id of oAuth2PermissionGrant
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, oAuth2PermissionGrantId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/oauth2PermissionGrants/{oAuth2PermissionGrant%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["oAuth2PermissionGrant%2Did"] = oAuth2PermissionGrantId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

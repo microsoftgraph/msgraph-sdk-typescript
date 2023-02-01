@@ -4,10 +4,10 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {LocalizedNotificationMessageItemRequestBuilder} from './localizedNotificationMessages/item/localizedNotificationMessageItemRequestBuilder';
 import {LocalizedNotificationMessagesRequestBuilder} from './localizedNotificationMessages/localizedNotificationMessagesRequestBuilder';
+import {SendTestMessageRequestBuilder} from './microsoftGraphSendTestMessage/sendTestMessageRequestBuilder';
 import {NotificationMessageTemplateItemRequestBuilderDeleteRequestConfiguration} from './notificationMessageTemplateItemRequestBuilderDeleteRequestConfiguration';
 import {NotificationMessageTemplateItemRequestBuilderGetRequestConfiguration} from './notificationMessageTemplateItemRequestBuilderGetRequestConfiguration';
 import {NotificationMessageTemplateItemRequestBuilderPatchRequestConfiguration} from './notificationMessageTemplateItemRequestBuilderPatchRequestConfiguration';
-import {SendTestMessageRequestBuilder} from './sendTestMessage/sendTestMessageRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,26 +18,28 @@ export class NotificationMessageTemplateItemRequestBuilder {
     public get localizedNotificationMessages(): LocalizedNotificationMessagesRequestBuilder {
         return new LocalizedNotificationMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the sendTestMessage method. */
+    public get microsoftGraphSendTestMessage(): SendTestMessageRequestBuilder {
+        return new SendTestMessageRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the sendTestMessage method. */
-    public get sendTestMessage(): SendTestMessageRequestBuilder {
-        return new SendTestMessageRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new NotificationMessageTemplateItemRequestBuilder and sets the default values.
+     * @param notificationMessageTemplateId key: id of notificationMessageTemplate
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, notificationMessageTemplateId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["notificationMessageTemplate%2Did"] = notificationMessageTemplateId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

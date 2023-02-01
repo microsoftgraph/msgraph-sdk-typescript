@@ -21,12 +21,14 @@ export class UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder {
      * Instantiates a new UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param unifiedRoleEligibilityScheduleInstanceId key: id of unifiedRoleEligibilityScheduleInstance
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, unifiedRoleEligibilityScheduleInstanceId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstance%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["unifiedRoleEligibilityScheduleInstance%2Did"] = unifiedRoleEligibilityScheduleInstanceId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

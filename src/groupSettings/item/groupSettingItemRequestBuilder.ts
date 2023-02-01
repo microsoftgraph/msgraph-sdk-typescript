@@ -19,14 +19,16 @@ export class GroupSettingItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new GroupSettingItemRequestBuilder and sets the default values.
+     * @param groupSettingId key: id of groupSetting
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, groupSettingId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/groupSettings/{groupSetting%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["groupSetting%2Did"] = groupSettingId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

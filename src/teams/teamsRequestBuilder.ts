@@ -4,7 +4,7 @@ import {createTeamFromDiscriminatorValue} from '../models/createTeamFromDiscrimi
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
+import {GetAllMessagesRequestBuilder} from './microsoftGraphGetAllMessages/getAllMessagesRequestBuilder';
 import {TeamsRequestBuilderGetRequestConfiguration} from './teamsRequestBuilderGetRequestConfiguration';
 import {TeamsRequestBuilderPostRequestConfiguration} from './teamsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -16,6 +16,10 @@ export class TeamsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getAllMessages method. */
+    public get microsoftGraphGetAllMessages(): GetAllMessagesRequestBuilder {
+        return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -51,13 +55,6 @@ export class TeamsRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<TeamCollectionResponse>(requestInfo, createTeamCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to call the getAllMessages method.
-     * @returns a getAllMessagesRequestBuilder
-     */
-    public getAllMessages() : GetAllMessagesRequestBuilder {
-        return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Create a new team.

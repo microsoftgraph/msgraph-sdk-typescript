@@ -19,14 +19,16 @@ export class DeviceManagementExportJobItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new DeviceManagementExportJobItemRequestBuilder and sets the default values.
+     * @param deviceManagementExportJobId key: id of deviceManagementExportJob
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, deviceManagementExportJobId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/reports/exportJobs/{deviceManagementExportJob%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["deviceManagementExportJob%2Did"] = deviceManagementExportJobId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

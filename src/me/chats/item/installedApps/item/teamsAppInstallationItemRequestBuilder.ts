@@ -2,18 +2,22 @@ import {TeamsAppInstallation} from '../../../../../models/';
 import {createTeamsAppInstallationFromDiscriminatorValue} from '../../../../../models/createTeamsAppInstallationFromDiscriminatorValue';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {UpgradeRequestBuilder} from './microsoftGraphUpgrade/upgradeRequestBuilder';
 import {TeamsAppRequestBuilder} from './teamsApp/teamsAppRequestBuilder';
 import {TeamsAppDefinitionRequestBuilder} from './teamsAppDefinition/teamsAppDefinitionRequestBuilder';
 import {TeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration} from './teamsAppInstallationItemRequestBuilderDeleteRequestConfiguration';
 import {TeamsAppInstallationItemRequestBuilderGetRequestConfiguration} from './teamsAppInstallationItemRequestBuilderGetRequestConfiguration';
 import {TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration} from './teamsAppInstallationItemRequestBuilderPatchRequestConfiguration';
-import {UpgradeRequestBuilder} from './upgrade/upgradeRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the installedApps property of the microsoft.graph.chat entity.
  */
 export class TeamsAppInstallationItemRequestBuilder {
+    /** Provides operations to call the upgrade method. */
+    public get microsoftGraphUpgrade(): UpgradeRequestBuilder {
+        return new UpgradeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
@@ -26,22 +30,20 @@ export class TeamsAppInstallationItemRequestBuilder {
     public get teamsAppDefinition(): TeamsAppDefinitionRequestBuilder {
         return new TeamsAppDefinitionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the upgrade method. */
-    public get upgrade(): UpgradeRequestBuilder {
-        return new UpgradeRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
      * Instantiates a new TeamsAppInstallationItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
+     * @param teamsAppInstallationId key: id of teamsAppInstallation
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, teamsAppInstallationId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/me/chats/{chat%2Did}/installedApps/{teamsAppInstallation%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["teamsAppInstallation%2Did"] = teamsAppInstallationId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

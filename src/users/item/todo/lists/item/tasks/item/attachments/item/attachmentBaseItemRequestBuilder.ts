@@ -23,14 +23,16 @@ export class AttachmentBaseItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new AttachmentBaseItemRequestBuilder and sets the default values.
+     * @param attachmentBaseId key: id of attachmentBase
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, attachmentBaseId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments/{attachmentBase%2Did}{?%24select}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["attachmentBase%2Did"] = attachmentBaseId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -50,7 +52,7 @@ export class AttachmentBaseItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get attachments from users
+     * A collection of file attachments for the task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttachmentBase
@@ -82,7 +84,7 @@ export class AttachmentBaseItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get attachments from users
+     * A collection of file attachments for the task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

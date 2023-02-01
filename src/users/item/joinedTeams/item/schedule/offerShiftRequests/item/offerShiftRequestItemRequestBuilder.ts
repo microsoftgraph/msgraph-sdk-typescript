@@ -19,14 +19,16 @@ export class OfferShiftRequestItemRequestBuilder {
     private urlTemplate: string;
     /**
      * Instantiates a new OfferShiftRequestItemRequestBuilder and sets the default values.
+     * @param offerShiftRequestId key: id of offerShiftRequest
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, offerShiftRequestId?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/offerShiftRequests/{offerShiftRequest%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
+        urlTplParams["offerShiftRequest%2Did"] = offerShiftRequestId
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };

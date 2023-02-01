@@ -4,7 +4,7 @@ import {createPrinterFromDiscriminatorValue} from '../../models/createPrinterFro
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CreateRequestBuilder} from './create/createRequestBuilder';
+import {CreateRequestBuilder} from './microsoftGraphCreate/createRequestBuilder';
 import {PrintersRequestBuilderGetRequestConfiguration} from './printersRequestBuilderGetRequestConfiguration';
 import {PrintersRequestBuilderPostRequestConfiguration} from './printersRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -18,7 +18,7 @@ export class PrintersRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the create method. */
-    public get create(): CreateRequestBuilder {
+    public get microsoftGraphCreate(): CreateRequestBuilder {
         return new CreateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
