@@ -12,13 +12,14 @@ import {createOptionalClaimsFromDiscriminatorValue} from './createOptionalClaims
 import {createParentalControlSettingsFromDiscriminatorValue} from './createParentalControlSettingsFromDiscriminatorValue';
 import {createPasswordCredentialFromDiscriminatorValue} from './createPasswordCredentialFromDiscriminatorValue';
 import {createPublicClientApplicationFromDiscriminatorValue} from './createPublicClientApplicationFromDiscriminatorValue';
+import {createRequestSignatureVerificationFromDiscriminatorValue} from './createRequestSignatureVerificationFromDiscriminatorValue';
 import {createRequiredResourceAccessFromDiscriminatorValue} from './createRequiredResourceAccessFromDiscriminatorValue';
 import {createSpaApplicationFromDiscriminatorValue} from './createSpaApplicationFromDiscriminatorValue';
 import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssuancePolicyFromDiscriminatorValue';
 import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
 import {createVerifiedPublisherFromDiscriminatorValue} from './createVerifiedPublisherFromDiscriminatorValue';
 import {createWebApplicationFromDiscriminatorValue} from './createWebApplicationFromDiscriminatorValue';
-import {AddIn, ApiApplication, AppRole, Certification, DirectoryObject, ExtensionProperty, FederatedIdentityCredential, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OptionalClaims, ParentalControlSettings, PasswordCredential, PublicClientApplication, RequiredResourceAccess, SpaApplication, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher, WebApplication} from './index';
+import {AddIn, ApiApplication, AppRole, Certification, DirectoryObject, ExtensionProperty, FederatedIdentityCredential, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OptionalClaims, ParentalControlSettings, PasswordCredential, PublicClientApplication, RequestSignatureVerification, RequiredResourceAccess, SpaApplication, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher, WebApplication} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Application extends DirectoryObject implements Parsable {
@@ -82,6 +83,8 @@ export class Application extends DirectoryObject implements Parsable {
     private _publicClient?: PublicClientApplication | undefined;
     /** The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application's publisher domain. Supports $filter (eq, ne, ge, le, startsWith). */
     private _publisherDomain?: string | undefined;
+    /** The requestSignatureVerification property */
+    private _requestSignatureVerification?: RequestSignatureVerification | undefined;
     /** Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. For more information, see Limits on requested permissions per app. Not nullable. Supports $filter (eq, not, ge, le). */
     private _requiredResourceAccess?: RequiredResourceAccess[] | undefined;
     /** The URL where the service exposes SAML metadata for federation. This property is valid only for single-tenant applications. Nullable. */
@@ -189,7 +192,7 @@ export class Application extends DirectoryObject implements Parsable {
         this._certification = value;
     };
     /**
-     * Instantiates a new application and sets the default values.
+     * Instantiates a new Application and sets the default values.
      */
     public constructor() {
         super();
@@ -343,6 +346,7 @@ export class Application extends DirectoryObject implements Parsable {
             "passwordCredentials": n => { this.passwordCredentials = n.getCollectionOfObjectValues<PasswordCredential>(createPasswordCredentialFromDiscriminatorValue); },
             "publicClient": n => { this.publicClient = n.getObjectValue<PublicClientApplication>(createPublicClientApplicationFromDiscriminatorValue); },
             "publisherDomain": n => { this.publisherDomain = n.getStringValue(); },
+            "requestSignatureVerification": n => { this.requestSignatureVerification = n.getObjectValue<RequestSignatureVerification>(createRequestSignatureVerificationFromDiscriminatorValue); },
             "requiredResourceAccess": n => { this.requiredResourceAccess = n.getCollectionOfObjectValues<RequiredResourceAccess>(createRequiredResourceAccessFromDiscriminatorValue); },
             "samlMetadataUrl": n => { this.samlMetadataUrl = n.getStringValue(); },
             "serviceManagementReference": n => { this.serviceManagementReference = n.getStringValue(); },
@@ -581,6 +585,20 @@ export class Application extends DirectoryObject implements Parsable {
         this._publisherDomain = value;
     };
     /**
+     * Gets the requestSignatureVerification property value. The requestSignatureVerification property
+     * @returns a requestSignatureVerification
+     */
+    public get requestSignatureVerification() {
+        return this._requestSignatureVerification;
+    };
+    /**
+     * Sets the requestSignatureVerification property value. The requestSignatureVerification property
+     * @param value Value to set for the requestSignatureVerification property.
+     */
+    public set requestSignatureVerification(value: RequestSignatureVerification | undefined) {
+        this._requestSignatureVerification = value;
+    };
+    /**
      * Gets the requiredResourceAccess property value. Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. For more information, see Limits on requested permissions per app. Not nullable. Supports $filter (eq, not, ge, le).
      * @returns a requiredResourceAccess
      */
@@ -645,6 +663,7 @@ export class Application extends DirectoryObject implements Parsable {
         writer.writeCollectionOfObjectValues<PasswordCredential>("passwordCredentials", this.passwordCredentials);
         writer.writeObjectValue<PublicClientApplication>("publicClient", this.publicClient);
         writer.writeStringValue("publisherDomain", this.publisherDomain);
+        writer.writeObjectValue<RequestSignatureVerification>("requestSignatureVerification", this.requestSignatureVerification);
         writer.writeCollectionOfObjectValues<RequiredResourceAccess>("requiredResourceAccess", this.requiredResourceAccess);
         writer.writeStringValue("samlMetadataUrl", this.samlMetadataUrl);
         writer.writeStringValue("serviceManagementReference", this.serviceManagementReference);

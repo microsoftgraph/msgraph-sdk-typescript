@@ -10,7 +10,7 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
     /** Represents a merged view of availability of all the items in scheduleItems. The view consists of time slots. Availability during each time slot is indicated with: 0= free, 1= tentative, 2= busy, 3= out of office, 4= working elsewhere. */
     private _availabilityView?: string | undefined;
     /** Error information from attempting to get the availability of the user, distribution list, or resource. */
-    private _error_escaped?: FreeBusyError | undefined;
+    private _errorEscaped?: FreeBusyError | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /** An SMTP address of the user, distribution list, or resource, identifying an instance of scheduleInformation. */
@@ -57,15 +57,15 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
      * Gets the error property value. Error information from attempting to get the availability of the user, distribution list, or resource.
      * @returns a freeBusyError
      */
-    public get error_escaped() {
-        return this._error_escaped;
+    public get errorEscaped() {
+        return this._errorEscaped;
     };
     /**
      * Sets the error property value. Error information from attempting to get the availability of the user, distribution list, or resource.
-     * @param value Value to set for the error_escaped property.
+     * @param value Value to set for the errorEscaped property.
      */
-    public set error_escaped(value: FreeBusyError | undefined) {
-        this._error_escaped = value;
+    public set errorEscaped(value: FreeBusyError | undefined) {
+        this._errorEscaped = value;
     };
     /**
      * The deserialization information for the current model
@@ -74,7 +74,7 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "availabilityView": n => { this.availabilityView = n.getStringValue(); },
-            "error": n => { this.error_escaped = n.getObjectValue<FreeBusyError>(createFreeBusyErrorFromDiscriminatorValue); },
+            "error": n => { this.errorEscaped = n.getObjectValue<FreeBusyError>(createFreeBusyErrorFromDiscriminatorValue); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "scheduleId": n => { this.scheduleId = n.getStringValue(); },
             "scheduleItems": n => { this.scheduleItems = n.getCollectionOfObjectValues<ScheduleItem>(createScheduleItemFromDiscriminatorValue); },
@@ -130,7 +130,7 @@ export class ScheduleInformation implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("availabilityView", this.availabilityView);
-        writer.writeObjectValue<FreeBusyError>("error", this.error_escaped);
+        writer.writeObjectValue<FreeBusyError>("error", this.errorEscaped);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("scheduleId", this.scheduleId);
         writer.writeCollectionOfObjectValues<ScheduleItem>("scheduleItems", this.scheduleItems);

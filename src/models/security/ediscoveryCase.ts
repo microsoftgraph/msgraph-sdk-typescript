@@ -7,10 +7,10 @@ import {createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue} from './cr
 import {createEdiscoveryReviewSetFromDiscriminatorValue} from './createEdiscoveryReviewSetFromDiscriminatorValue';
 import {createEdiscoveryReviewTagFromDiscriminatorValue} from './createEdiscoveryReviewTagFromDiscriminatorValue';
 import {createEdiscoverySearchFromDiscriminatorValue} from './createEdiscoverySearchFromDiscriminatorValue';
-import {Case_escaped, CaseOperation, EdiscoveryCaseSettings, EdiscoveryCustodian, EdiscoveryNoncustodialDataSource, EdiscoveryReviewSet, EdiscoveryReviewTag, EdiscoverySearch} from './index';
+import {CaseEscaped, CaseOperation, EdiscoveryCaseSettings, EdiscoveryCustodian, EdiscoveryNoncustodialDataSource, EdiscoveryReviewSet, EdiscoveryReviewTag, EdiscoverySearch} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EdiscoveryCase extends Case_escaped implements Parsable {
+export class EdiscoveryCase extends CaseEscaped implements Parsable {
     /** The user who closed the case. */
     private _closedBy?: IdentitySet | undefined;
     /** The date and time when the case was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */

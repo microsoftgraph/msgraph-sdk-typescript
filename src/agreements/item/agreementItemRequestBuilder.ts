@@ -59,7 +59,7 @@ export class AgreementItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from agreements by key (id)
+     * Delete entity from agreements
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -85,7 +85,7 @@ export class AgreementItemRequestBuilder {
         return new AgreementFileLocalizationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get entity from agreements by key (id)
+     * Get entity from agreements by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Agreement
@@ -101,7 +101,7 @@ export class AgreementItemRequestBuilder {
         return this.requestAdapter?.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update entity in agreements by key (id)
+     * Update entity in agreements
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -119,7 +119,7 @@ export class AgreementItemRequestBuilder {
         return this.requestAdapter?.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from agreements by key (id)
+     * Delete entity from agreements
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -135,7 +135,7 @@ export class AgreementItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from agreements by key (id)
+     * Get entity from agreements by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -153,7 +153,7 @@ export class AgreementItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in agreements by key (id)
+     * Update entity in agreements
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

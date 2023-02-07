@@ -7,10 +7,10 @@ import {ChatMessageItemRequestBuilderGetRequestConfiguration} from './chatMessag
 import {ChatMessageItemRequestBuilderPatchRequestConfiguration} from './chatMessageItemRequestBuilderPatchRequestConfiguration';
 import {HostedContentsRequestBuilder} from './hostedContents/hostedContentsRequestBuilder';
 import {ChatMessageHostedContentItemRequestBuilder} from './hostedContents/item/chatMessageHostedContentItemRequestBuilder';
+import {MicrosoftGraphSoftDeleteRequestBuilder} from './microsoftGraphSoftDelete/microsoftGraphSoftDeleteRequestBuilder';
+import {MicrosoftGraphUndoSoftDeleteRequestBuilder} from './microsoftGraphUndoSoftDelete/microsoftGraphUndoSoftDeleteRequestBuilder';
 import {ChatMessageItemRequestBuilder as I2325b972043d9e90fa0161c1244198042cac0f0949dc9c618e37c6169579f9be} from './replies/item/chatMessageItemRequestBuilder';
 import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
-import {SoftDeleteRequestBuilder} from './softDelete/softDeleteRequestBuilder';
-import {UndoSoftDeleteRequestBuilder} from './undoSoftDelete/undoSoftDeleteRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -21,6 +21,14 @@ export class ChatMessageItemRequestBuilder {
     public get hostedContents(): HostedContentsRequestBuilder {
         return new HostedContentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the softDelete method. */
+    public get microsoftGraphSoftDelete(): MicrosoftGraphSoftDeleteRequestBuilder {
+        return new MicrosoftGraphSoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the undoSoftDelete method. */
+    public get microsoftGraphUndoSoftDelete(): MicrosoftGraphUndoSoftDeleteRequestBuilder {
+        return new MicrosoftGraphUndoSoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the replies property of the microsoft.graph.chatMessage entity. */
@@ -29,14 +37,6 @@ export class ChatMessageItemRequestBuilder {
     }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the softDelete method. */
-    public get softDelete(): SoftDeleteRequestBuilder {
-        return new SoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the undoSoftDelete method. */
-    public get undoSoftDelete(): UndoSoftDeleteRequestBuilder {
-        return new UndoSoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

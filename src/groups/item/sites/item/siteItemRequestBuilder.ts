@@ -12,14 +12,14 @@ import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
 import {DriveItemRequestBuilder} from './drives/item/driveItemRequestBuilder';
 import {ExternalColumnsRequestBuilder} from './externalColumns/externalColumnsRequestBuilder';
 import {ColumnDefinitionItemRequestBuilder as Ic16ad1c309947404cf477a119b524103aa2aae0a2aacef74a4a4efed10eed7f9} from './externalColumns/item/columnDefinitionItemRequestBuilder';
-import {GetActivitiesByIntervalRequestBuilder} from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
-import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
-import {GetApplicableContentTypesForListWithListIdRequestBuilder} from './getApplicableContentTypesForListWithListId/getApplicableContentTypesForListWithListIdRequestBuilder';
-import {GetByPathWithPathRequestBuilder} from './getByPathWithPath/getByPathWithPathRequestBuilder';
 import {BaseItemItemRequestBuilder} from './items/item/baseItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListItemRequestBuilder} from './lists/item/listItemRequestBuilder';
 import {ListsRequestBuilder} from './lists/listsRequestBuilder';
+import {MicrosoftGraphGetActivitiesByIntervalRequestBuilder} from './microsoftGraphGetActivitiesByInterval/microsoftGraphGetActivitiesByIntervalRequestBuilder';
+import {MicrosoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from './microsoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/microsoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
+import {MicrosoftGraphGetApplicableContentTypesForListWithListIdRequestBuilder} from './microsoftGraphGetApplicableContentTypesForListWithListId/microsoftGraphGetApplicableContentTypesForListWithListIdRequestBuilder';
+import {MicrosoftGraphGetByPathWithPathRequestBuilder} from './microsoftGraphGetByPathWithPath/microsoftGraphGetByPathWithPathRequestBuilder';
 import {OnenoteRequestBuilder} from './onenote/onenoteRequestBuilder';
 import {RichLongRunningOperationItemRequestBuilder} from './operations/item/richLongRunningOperationItemRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
@@ -69,6 +69,10 @@ export class SiteItemRequestBuilder {
     /** Provides operations to manage the lists property of the microsoft.graph.site entity. */
     public get lists(): ListsRequestBuilder {
         return new ListsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getActivitiesByInterval method. */
+    public get microsoftGraphGetActivitiesByInterval(): MicrosoftGraphGetActivitiesByIntervalRequestBuilder {
+        return new MicrosoftGraphGetActivitiesByIntervalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the onenote property of the microsoft.graph.site entity. */
     public get onenote(): OnenoteRequestBuilder {
@@ -174,44 +178,6 @@ export class SiteItemRequestBuilder {
         return this.requestAdapter?.sendAsync<Site>(requestInfo, createSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to call the getActivitiesByInterval method.
-     * @returns a getActivitiesByIntervalRequestBuilder
-     */
-    public getActivitiesByInterval() : GetActivitiesByIntervalRequestBuilder {
-        return new GetActivitiesByIntervalRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
-     * Provides operations to call the getActivitiesByInterval method.
-     * @param endDateTime Usage: endDateTime='{endDateTime}'
-     * @param interval Usage: interval='{interval}'
-     * @param startDateTime Usage: startDateTime='{startDateTime}'
-     * @returns a getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder
-     */
-    public getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(endDateTime: string | undefined, interval: string | undefined, startDateTime: string | undefined) : GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
-        if(!endDateTime) throw new Error("endDateTime cannot be undefined");
-        if(!interval) throw new Error("interval cannot be undefined");
-        if(!startDateTime) throw new Error("startDateTime cannot be undefined");
-        return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, interval, startDateTime);
-    };
-    /**
-     * Provides operations to call the getApplicableContentTypesForList method.
-     * @param listId Usage: listId='{listId}'
-     * @returns a getApplicableContentTypesForListWithListIdRequestBuilder
-     */
-    public getApplicableContentTypesForListWithListId(listId: string | undefined) : GetApplicableContentTypesForListWithListIdRequestBuilder {
-        if(!listId) throw new Error("listId cannot be undefined");
-        return new GetApplicableContentTypesForListWithListIdRequestBuilder(this.pathParameters, this.requestAdapter, listId);
-    };
-    /**
-     * Provides operations to call the getByPath method.
-     * @param path Usage: path='{path}'
-     * @returns a getByPathWithPathRequestBuilder
-     */
-    public getByPathWithPath(path: string | undefined) : GetByPathWithPathRequestBuilder {
-        if(!path) throw new Error("path cannot be undefined");
-        return new GetByPathWithPathRequestBuilder(this.pathParameters, this.requestAdapter, path);
-    };
-    /**
      * Provides operations to manage the items property of the microsoft.graph.site entity.
      * @param id Unique identifier of the item
      * @returns a BaseItemItemRequestBuilder
@@ -232,6 +198,37 @@ export class SiteItemRequestBuilder {
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["list%2Did"] = id
         return new ListItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Provides operations to call the getActivitiesByInterval method.
+     * @param endDateTime Usage: endDateTime='{endDateTime}'
+     * @param interval Usage: interval='{interval}'
+     * @param startDateTime Usage: startDateTime='{startDateTime}'
+     * @returns a microsoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder
+     */
+    public microsoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(endDateTime: string | undefined, interval: string | undefined, startDateTime: string | undefined) : MicrosoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
+        if(!endDateTime) throw new Error("endDateTime cannot be undefined");
+        if(!interval) throw new Error("interval cannot be undefined");
+        if(!startDateTime) throw new Error("startDateTime cannot be undefined");
+        return new MicrosoftGraphGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, interval, startDateTime);
+    };
+    /**
+     * Provides operations to call the getApplicableContentTypesForList method.
+     * @param listId Usage: listId='{listId}'
+     * @returns a microsoftGraphGetApplicableContentTypesForListWithListIdRequestBuilder
+     */
+    public microsoftGraphGetApplicableContentTypesForListWithListId(listId: string | undefined) : MicrosoftGraphGetApplicableContentTypesForListWithListIdRequestBuilder {
+        if(!listId) throw new Error("listId cannot be undefined");
+        return new MicrosoftGraphGetApplicableContentTypesForListWithListIdRequestBuilder(this.pathParameters, this.requestAdapter, listId);
+    };
+    /**
+     * Provides operations to call the getByPath method.
+     * @param path Usage: path='{path}'
+     * @returns a microsoftGraphGetByPathWithPathRequestBuilder
+     */
+    public microsoftGraphGetByPathWithPath(path: string | undefined) : MicrosoftGraphGetByPathWithPathRequestBuilder {
+        if(!path) throw new Error("path cannot be undefined");
+        return new MicrosoftGraphGetByPathWithPathRequestBuilder(this.pathParameters, this.requestAdapter, path);
     };
     /**
      * Provides operations to manage the operations property of the microsoft.graph.site entity.

@@ -3,7 +3,7 @@ import {IpRange, NamedLocation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IpNamedLocation extends NamedLocation implements Parsable {
-    /** List of IP address ranges in IPv4 CIDR format (e.g. 1.2.3.4/32) or any allowable IPv6 format from IETF RFC596. Required. */
+    /** List of IP address ranges in IPv4 CIDR format (e.g. 1.2.3.4/32) or any allowable IPv6 format from IETF RFC5969. Required. */
     private _ipRanges?: IpRange[] | undefined;
     /** true if this location is explicitly trusted. Optional. Default value is false. */
     private _isTrusted?: boolean | undefined;
@@ -24,14 +24,14 @@ export class IpNamedLocation extends NamedLocation implements Parsable {
         };
     };
     /**
-     * Gets the ipRanges property value. List of IP address ranges in IPv4 CIDR format (e.g. 1.2.3.4/32) or any allowable IPv6 format from IETF RFC596. Required.
+     * Gets the ipRanges property value. List of IP address ranges in IPv4 CIDR format (e.g. 1.2.3.4/32) or any allowable IPv6 format from IETF RFC5969. Required.
      * @returns a ipRange
      */
     public get ipRanges() {
         return this._ipRanges;
     };
     /**
-     * Sets the ipRanges property value. List of IP address ranges in IPv4 CIDR format (e.g. 1.2.3.4/32) or any allowable IPv6 format from IETF RFC596. Required.
+     * Sets the ipRanges property value. List of IP address ranges in IPv4 CIDR format (e.g. 1.2.3.4/32) or any allowable IPv6 format from IETF RFC5969. Required.
      * @param value Value to set for the ipRanges property.
      */
     public set ipRanges(value: IpRange[] | undefined) {

@@ -5,21 +5,21 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../mo
 import {DocumentSetVersionItemRequestBuilderDeleteRequestConfiguration} from './documentSetVersionItemRequestBuilderDeleteRequestConfiguration';
 import {DocumentSetVersionItemRequestBuilderGetRequestConfiguration} from './documentSetVersionItemRequestBuilderGetRequestConfiguration';
 import {DocumentSetVersionItemRequestBuilderPatchRequestConfiguration} from './documentSetVersionItemRequestBuilderPatchRequestConfiguration';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
+import {MicrosoftGraphRestoreRequestBuilder} from './microsoftGraphRestore/microsoftGraphRestoreRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
  */
 export class DocumentSetVersionItemRequestBuilder {
+    /** Provides operations to call the restore method. */
+    public get microsoftGraphRestore(): MicrosoftGraphRestoreRequestBuilder {
+        return new MicrosoftGraphRestoreRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the restore method. */
-    public get restore(): RestoreRequestBuilder {
-        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

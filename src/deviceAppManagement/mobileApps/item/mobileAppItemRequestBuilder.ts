@@ -2,26 +2,22 @@ import {MobileApp} from '../../../models/';
 import {createMobileAppFromDiscriminatorValue} from '../../../models/createMobileAppFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
 import {MobileAppAssignmentItemRequestBuilder} from './assignments/item/mobileAppAssignmentItemRequestBuilder';
 import {CategoriesRequestBuilder} from './categories/categoriesRequestBuilder';
 import {MobileAppCategoryItemRequestBuilder} from './categories/item/mobileAppCategoryItemRequestBuilder';
-import {ManagedMobileLobAppRequestBuilder} from './managedMobileLobApp/managedMobileLobAppRequestBuilder';
+import {MicrosoftGraphAssignRequestBuilder} from './microsoftGraphAssign/microsoftGraphAssignRequestBuilder';
+import {MicrosoftGraphManagedMobileLobAppRequestBuilder} from './microsoftGraphManagedMobileLobApp/microsoftGraphManagedMobileLobAppRequestBuilder';
+import {MicrosoftGraphMobileLobAppRequestBuilder} from './microsoftGraphMobileLobApp/microsoftGraphMobileLobAppRequestBuilder';
 import {MobileAppItemRequestBuilderDeleteRequestConfiguration} from './mobileAppItemRequestBuilderDeleteRequestConfiguration';
 import {MobileAppItemRequestBuilderGetRequestConfiguration} from './mobileAppItemRequestBuilderGetRequestConfiguration';
 import {MobileAppItemRequestBuilderPatchRequestConfiguration} from './mobileAppItemRequestBuilderPatchRequestConfiguration';
-import {MobileLobAppRequestBuilder} from './mobileLobApp/mobileLobAppRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
  */
 export class MobileAppItemRequestBuilder {
-    /** Provides operations to call the assign method. */
-    public get assign(): AssignRequestBuilder {
-        return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity. */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -30,13 +26,17 @@ export class MobileAppItemRequestBuilder {
     public get categories(): CategoriesRequestBuilder {
         return new CategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the assign method. */
+    public get microsoftGraphAssign(): MicrosoftGraphAssignRequestBuilder {
+        return new MicrosoftGraphAssignRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Casts the previous resource to managedMobileLobApp. */
-    public get managedMobileLobApp(): ManagedMobileLobAppRequestBuilder {
-        return new ManagedMobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphManagedMobileLobApp(): MicrosoftGraphManagedMobileLobAppRequestBuilder {
+        return new MicrosoftGraphManagedMobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to mobileLobApp. */
-    public get mobileLobApp(): MobileLobAppRequestBuilder {
-        return new MobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphMobileLobApp(): MicrosoftGraphMobileLobAppRequestBuilder {
+        return new MicrosoftGraphMobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

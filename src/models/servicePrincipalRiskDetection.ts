@@ -106,7 +106,7 @@ export class ServicePrincipalRiskDetection extends Entity implements Parsable {
         this._appId = value;
     };
     /**
-     * Instantiates a new servicePrincipalRiskDetection and sets the default values.
+     * Instantiates a new ServicePrincipalRiskDetection and sets the default values.
      */
     public constructor() {
         super();

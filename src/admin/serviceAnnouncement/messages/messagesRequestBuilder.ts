@@ -3,53 +3,53 @@ import {createServiceUpdateMessageCollectionResponseFromDiscriminatorValue} from
 import {createServiceUpdateMessageFromDiscriminatorValue} from '../../../models/createServiceUpdateMessageFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {ArchiveRequestBuilder} from './archive/archiveRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {FavoriteRequestBuilder} from './favorite/favoriteRequestBuilder';
-import {MarkReadRequestBuilder} from './markRead/markReadRequestBuilder';
-import {MarkUnreadRequestBuilder} from './markUnread/markUnreadRequestBuilder';
 import {MessagesRequestBuilderGetRequestConfiguration} from './messagesRequestBuilderGetRequestConfiguration';
 import {MessagesRequestBuilderPostRequestConfiguration} from './messagesRequestBuilderPostRequestConfiguration';
-import {UnarchiveRequestBuilder} from './unarchive/unarchiveRequestBuilder';
-import {UnfavoriteRequestBuilder} from './unfavorite/unfavoriteRequestBuilder';
+import {MicrosoftGraphArchiveRequestBuilder} from './microsoftGraphArchive/microsoftGraphArchiveRequestBuilder';
+import {MicrosoftGraphFavoriteRequestBuilder} from './microsoftGraphFavorite/microsoftGraphFavoriteRequestBuilder';
+import {MicrosoftGraphMarkReadRequestBuilder} from './microsoftGraphMarkRead/microsoftGraphMarkReadRequestBuilder';
+import {MicrosoftGraphMarkUnreadRequestBuilder} from './microsoftGraphMarkUnread/microsoftGraphMarkUnreadRequestBuilder';
+import {MicrosoftGraphUnarchiveRequestBuilder} from './microsoftGraphUnarchive/microsoftGraphUnarchiveRequestBuilder';
+import {MicrosoftGraphUnfavoriteRequestBuilder} from './microsoftGraphUnfavorite/microsoftGraphUnfavoriteRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
  */
 export class MessagesRequestBuilder {
-    /** Provides operations to call the archive method. */
-    public get archive(): ArchiveRequestBuilder {
-        return new ArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the archive method. */
+    public get microsoftGraphArchive(): MicrosoftGraphArchiveRequestBuilder {
+        return new MicrosoftGraphArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the favorite method. */
-    public get favorite(): FavoriteRequestBuilder {
-        return new FavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphFavorite(): MicrosoftGraphFavoriteRequestBuilder {
+        return new MicrosoftGraphFavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the markRead method. */
-    public get markRead(): MarkReadRequestBuilder {
-        return new MarkReadRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphMarkRead(): MicrosoftGraphMarkReadRequestBuilder {
+        return new MicrosoftGraphMarkReadRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the markUnread method. */
-    public get markUnread(): MarkUnreadRequestBuilder {
-        return new MarkUnreadRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphMarkUnread(): MicrosoftGraphMarkUnreadRequestBuilder {
+        return new MicrosoftGraphMarkUnreadRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the unarchive method. */
+    public get microsoftGraphUnarchive(): MicrosoftGraphUnarchiveRequestBuilder {
+        return new MicrosoftGraphUnarchiveRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the unfavorite method. */
+    public get microsoftGraphUnfavorite(): MicrosoftGraphUnfavoriteRequestBuilder {
+        return new MicrosoftGraphUnfavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the unarchive method. */
-    public get unarchive(): UnarchiveRequestBuilder {
-        return new UnarchiveRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the unfavorite method. */
-    public get unfavorite(): UnfavoriteRequestBuilder {
-        return new UnfavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

@@ -31,7 +31,7 @@ export class AgreementAcceptanceItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from agreementAcceptances by key (id)
+     * Delete entity from agreementAcceptances
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -46,7 +46,7 @@ export class AgreementAcceptanceItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get entity from agreementAcceptances by key (id)
+     * Get entity from agreementAcceptances by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AgreementAcceptance
@@ -62,7 +62,7 @@ export class AgreementAcceptanceItemRequestBuilder {
         return this.requestAdapter?.sendAsync<AgreementAcceptance>(requestInfo, createAgreementAcceptanceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update entity in agreementAcceptances by key (id)
+     * Update entity in agreementAcceptances
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -80,7 +80,7 @@ export class AgreementAcceptanceItemRequestBuilder {
         return this.requestAdapter?.sendAsync<AgreementAcceptance>(requestInfo, createAgreementAcceptanceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from agreementAcceptances by key (id)
+     * Delete entity from agreementAcceptances
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -96,7 +96,7 @@ export class AgreementAcceptanceItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from agreementAcceptances by key (id)
+     * Get entity from agreementAcceptances by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -114,7 +114,7 @@ export class AgreementAcceptanceItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in agreementAcceptances by key (id)
+     * Update entity in agreementAcceptances
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

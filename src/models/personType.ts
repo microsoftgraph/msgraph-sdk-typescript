@@ -4,7 +4,7 @@ export class PersonType implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The type of data source, such as Person. */
-    private _class_escaped?: string | undefined;
+    private _classEscaped?: string | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /** The secondary type of data source, such as OrganizationUser. */
@@ -27,15 +27,15 @@ export class PersonType implements AdditionalDataHolder, Parsable {
      * Gets the class property value. The type of data source, such as Person.
      * @returns a string
      */
-    public get class_escaped() {
-        return this._class_escaped;
+    public get classEscaped() {
+        return this._classEscaped;
     };
     /**
      * Sets the class property value. The type of data source, such as Person.
-     * @param value Value to set for the class_escaped property.
+     * @param value Value to set for the classEscaped property.
      */
-    public set class_escaped(value: string | undefined) {
-        this._class_escaped = value;
+    public set classEscaped(value: string | undefined) {
+        this._classEscaped = value;
     };
     /**
      * Instantiates a new personType and sets the default values.
@@ -49,7 +49,7 @@ export class PersonType implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "class": n => { this.class_escaped = n.getStringValue(); },
+            "class": n => { this.classEscaped = n.getStringValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "subclass": n => { this.subclass = n.getStringValue(); },
         };
@@ -74,7 +74,7 @@ export class PersonType implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeStringValue("class", this.class_escaped);
+        writer.writeStringValue("class", this.classEscaped);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("subclass", this.subclass);
         writer.writeAdditionalData(this.additionalData);

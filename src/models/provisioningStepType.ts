@@ -1,9 +1,9 @@
 export enum ProvisioningStepType {
-    Import_escaped = "import",
+    ImportEscaped = "import",
     Scoping = "scoping",
     Matching = "matching",
     Processing = "processing",
     ReferenceResolution = "referenceResolution",
-    Export_escaped = "export",
+    ExportEscaped = "export",
     UnknownFutureValue = "unknownFutureValue",
 }

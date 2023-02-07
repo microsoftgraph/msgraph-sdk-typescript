@@ -6,7 +6,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {AttachmentsRequestBuilderGetRequestConfiguration} from './attachmentsRequestBuilderGetRequestConfiguration';
 import {AttachmentsRequestBuilderPostRequestConfiguration} from './attachmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CreateUploadSessionRequestBuilder} from './createUploadSession/createUploadSessionRequestBuilder';
+import {MicrosoftGraphCreateUploadSessionRequestBuilder} from './microsoftGraphCreateUploadSession/microsoftGraphCreateUploadSessionRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,8 +18,8 @@ export class AttachmentsRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the createUploadSession method. */
-    public get createUploadSession(): CreateUploadSessionRequestBuilder {
-        return new CreateUploadSessionRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphCreateUploadSession(): MicrosoftGraphCreateUploadSessionRequestBuilder {
+        return new MicrosoftGraphCreateUploadSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -41,11 +41,11 @@ export class AttachmentsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Retrieve a list of attachment objects.
+     * Retrieve a list of attachment objects attached to a message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttachmentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/eventmessage-list-attachments?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/message-list-attachments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttachmentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttachmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -77,7 +77,7 @@ export class AttachmentsRequestBuilder {
         return this.requestAdapter?.sendAsync<Attachment>(requestInfo, createAttachmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of attachment objects.
+     * Retrieve a list of attachment objects attached to a message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

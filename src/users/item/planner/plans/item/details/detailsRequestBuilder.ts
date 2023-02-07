@@ -63,7 +63,7 @@ export class DetailsRequestBuilder {
         return this.requestAdapter?.sendAsync<PlannerPlanDetails>(requestInfo, createPlannerPlanDetailsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the properties of **plannerplandetails** object.
+     * Update the navigation property details in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -116,7 +116,7 @@ export class DetailsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of **plannerplandetails** object.
+     * Update the navigation property details in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

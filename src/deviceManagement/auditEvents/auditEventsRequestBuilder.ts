@@ -6,8 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {AuditEventsRequestBuilderGetRequestConfiguration} from './auditEventsRequestBuilderGetRequestConfiguration';
 import {AuditEventsRequestBuilderPostRequestConfiguration} from './auditEventsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetAuditActivityTypesWithCategoryRequestBuilder} from './getAuditActivityTypesWithCategory/getAuditActivityTypesWithCategoryRequestBuilder';
-import {GetAuditCategoriesRequestBuilder} from './getAuditCategories/getAuditCategoriesRequestBuilder';
+import {MicrosoftGraphGetAuditActivityTypesWithCategoryRequestBuilder} from './microsoftGraphGetAuditActivityTypesWithCategory/microsoftGraphGetAuditActivityTypesWithCategoryRequestBuilder';
+import {MicrosoftGraphGetAuditCategoriesRequestBuilder} from './microsoftGraphGetAuditCategories/microsoftGraphGetAuditCategoriesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -17,6 +17,10 @@ export class AuditEventsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getAuditCategories method. */
+    public get microsoftGraphGetAuditCategories(): MicrosoftGraphGetAuditCategoriesRequestBuilder {
+        return new MicrosoftGraphGetAuditCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -56,18 +60,11 @@ export class AuditEventsRequestBuilder {
     /**
      * Provides operations to call the getAuditActivityTypes method.
      * @param category Usage: category='{category}'
-     * @returns a getAuditActivityTypesWithCategoryRequestBuilder
+     * @returns a microsoftGraphGetAuditActivityTypesWithCategoryRequestBuilder
      */
-    public getAuditActivityTypesWithCategory(category: string | undefined) : GetAuditActivityTypesWithCategoryRequestBuilder {
+    public microsoftGraphGetAuditActivityTypesWithCategory(category: string | undefined) : MicrosoftGraphGetAuditActivityTypesWithCategoryRequestBuilder {
         if(!category) throw new Error("category cannot be undefined");
-        return new GetAuditActivityTypesWithCategoryRequestBuilder(this.pathParameters, this.requestAdapter, category);
-    };
-    /**
-     * Provides operations to call the getAuditCategories method.
-     * @returns a getAuditCategoriesRequestBuilder
-     */
-    public getAuditCategories() : GetAuditCategoriesRequestBuilder {
-        return new GetAuditCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
+        return new MicrosoftGraphGetAuditActivityTypesWithCategoryRequestBuilder(this.pathParameters, this.requestAdapter, category);
     };
     /**
      * Create new navigation property to auditEvents for deviceManagement

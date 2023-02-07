@@ -1,7 +1,7 @@
 export enum AccessReviewHistoryStatus {
     Done = "done",
     Inprogress = "inprogress",
-    Error_escaped = "error",
+    ErrorEscaped = "error",
     Requested = "requested",
     UnknownFutureValue = "unknownFutureValue",
 }

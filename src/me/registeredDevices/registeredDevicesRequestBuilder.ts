@@ -2,10 +2,10 @@ import {DirectoryObjectCollectionResponse} from '../../models/';
 import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AppRoleAssignmentRequestBuilder} from './appRoleAssignment/appRoleAssignmentRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeviceRequestBuilder} from './device/deviceRequestBuilder';
-import {EndpointRequestBuilder} from './endpoint/endpointRequestBuilder';
+import {MicrosoftGraphAppRoleAssignmentRequestBuilder} from './microsoftGraphAppRoleAssignment/microsoftGraphAppRoleAssignmentRequestBuilder';
+import {MicrosoftGraphDeviceRequestBuilder} from './microsoftGraphDevice/microsoftGraphDeviceRequestBuilder';
+import {MicrosoftGraphEndpointRequestBuilder} from './microsoftGraphEndpoint/microsoftGraphEndpointRequestBuilder';
 import {RegisteredDevicesRequestBuilderGetRequestConfiguration} from './registeredDevicesRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -13,21 +13,21 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the registeredDevices property of the microsoft.graph.user entity.
  */
 export class RegisteredDevicesRequestBuilder {
-    /** Casts the previous resource to appRoleAssignment. */
-    public get appRoleAssignment(): AppRoleAssignmentRequestBuilder {
-        return new AppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Casts the previous resource to appRoleAssignment. */
+    public get microsoftGraphAppRoleAssignment(): MicrosoftGraphAppRoleAssignmentRequestBuilder {
+        return new MicrosoftGraphAppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Casts the previous resource to device. */
-    public get device(): DeviceRequestBuilder {
-        return new DeviceRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphDevice(): MicrosoftGraphDeviceRequestBuilder {
+        return new MicrosoftGraphDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to endpoint. */
-    public get endpoint(): EndpointRequestBuilder {
-        return new EndpointRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphEndpoint(): MicrosoftGraphEndpointRequestBuilder {
+        return new MicrosoftGraphEndpointRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

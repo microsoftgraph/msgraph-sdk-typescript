@@ -4,7 +4,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class RichLongRunningOperation extends LongRunningOperation implements Parsable {
     /** Error that caused the operation to fail. */
-    private _error_escaped?: PublicError | undefined;
+    private _errorEscaped?: PublicError | undefined;
     /** A value between 0 and 100 that indicates the progress of the operation. */
     private _percentageComplete?: number | undefined;
     /** The unique identifier for the result. */
@@ -21,15 +21,15 @@ export class RichLongRunningOperation extends LongRunningOperation implements Pa
      * Gets the error property value. Error that caused the operation to fail.
      * @returns a publicError
      */
-    public get error_escaped() {
-        return this._error_escaped;
+    public get errorEscaped() {
+        return this._errorEscaped;
     };
     /**
      * Sets the error property value. Error that caused the operation to fail.
-     * @param value Value to set for the error_escaped property.
+     * @param value Value to set for the errorEscaped property.
      */
-    public set error_escaped(value: PublicError | undefined) {
-        this._error_escaped = value;
+    public set errorEscaped(value: PublicError | undefined) {
+        this._errorEscaped = value;
     };
     /**
      * The deserialization information for the current model
@@ -37,7 +37,7 @@ export class RichLongRunningOperation extends LongRunningOperation implements Pa
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "error": n => { this.error_escaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); },
+            "error": n => { this.errorEscaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); },
             "percentageComplete": n => { this.percentageComplete = n.getNumberValue(); },
             "resourceId": n => { this.resourceId = n.getStringValue(); },
             "type": n => { this.type = n.getStringValue(); },
@@ -78,7 +78,7 @@ export class RichLongRunningOperation extends LongRunningOperation implements Pa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<PublicError>("error", this.error_escaped);
+        writer.writeObjectValue<PublicError>("error", this.errorEscaped);
         writer.writeNumberValue("percentageComplete", this.percentageComplete);
         writer.writeStringValue("resourceId", this.resourceId);
         writer.writeStringValue("type", this.type);

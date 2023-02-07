@@ -2,7 +2,7 @@ import {Subscription} from '../../models/';
 import {createSubscriptionFromDiscriminatorValue} from '../../models/createSubscriptionFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {ReauthorizeRequestBuilder} from './reauthorize/reauthorizeRequestBuilder';
+import {MicrosoftGraphReauthorizeRequestBuilder} from './microsoftGraphReauthorize/microsoftGraphReauthorizeRequestBuilder';
 import {SubscriptionItemRequestBuilderDeleteRequestConfiguration} from './subscriptionItemRequestBuilderDeleteRequestConfiguration';
 import {SubscriptionItemRequestBuilderGetRequestConfiguration} from './subscriptionItemRequestBuilderGetRequestConfiguration';
 import {SubscriptionItemRequestBuilderPatchRequestConfiguration} from './subscriptionItemRequestBuilderPatchRequestConfiguration';
@@ -12,12 +12,12 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the collection of subscription entities.
  */
 export class SubscriptionItemRequestBuilder {
+    /** Provides operations to call the reauthorize method. */
+    public get microsoftGraphReauthorize(): MicrosoftGraphReauthorizeRequestBuilder {
+        return new MicrosoftGraphReauthorizeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
-    /** Provides operations to call the reauthorize method. */
-    public get reauthorize(): ReauthorizeRequestBuilder {
-        return new ReauthorizeRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */

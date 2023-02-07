@@ -34,11 +34,10 @@ export class BundlesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get a list of all the [bundles][bundle] in a user's drive.
+     * Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveItemCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/bundle-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BundlesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -51,7 +50,7 @@ export class BundlesRequestBuilder {
         return this.requestAdapter?.sendAsync<DriveItemCollectionResponse>(requestInfo, createDriveItemCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of all the [bundles][bundle] in a user's drive.
+     * Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

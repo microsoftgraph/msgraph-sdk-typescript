@@ -5,6 +5,9 @@ import {SiteSecurityLevel} from './siteSecurityLevel';
 import {WindowsUserAccountControlSettings} from './windowsUserAccountControlSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * This topic provides descriptions of the declared methods, properties and relationships exposed by the windows81GeneralConfiguration resource.
+ */
 export class Windows81GeneralConfiguration extends DeviceConfiguration implements Parsable {
     /** Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account. */
     private _accountsBlockAddingNonMicrosoftAccountEmail?: boolean | undefined;
@@ -353,7 +356,7 @@ export class Windows81GeneralConfiguration extends DeviceConfiguration implement
         this._cellularBlockDataRoaming = value;
     };
     /**
-     * Instantiates a new Windows81GeneralConfiguration and sets the default values.
+     * Instantiates a new windows81GeneralConfiguration and sets the default values.
      */
     public constructor() {
         super();

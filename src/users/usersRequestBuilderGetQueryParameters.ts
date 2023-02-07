@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of user objects.
+ * Retrieve the properties and relationships of user object.
  */
 export class UsersRequestBuilderGetQueryParameters {
     /** Include count of items */

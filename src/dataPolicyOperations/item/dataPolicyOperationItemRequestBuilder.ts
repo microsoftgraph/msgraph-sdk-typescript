@@ -31,7 +31,7 @@ export class DataPolicyOperationItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from dataPolicyOperations by key (id)
+     * Delete entity from dataPolicyOperations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -63,7 +63,7 @@ export class DataPolicyOperationItemRequestBuilder {
         return this.requestAdapter?.sendAsync<DataPolicyOperation>(requestInfo, createDataPolicyOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update entity in dataPolicyOperations by key (id)
+     * Update entity in dataPolicyOperations
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -81,7 +81,7 @@ export class DataPolicyOperationItemRequestBuilder {
         return this.requestAdapter?.sendAsync<DataPolicyOperation>(requestInfo, createDataPolicyOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from dataPolicyOperations by key (id)
+     * Delete entity from dataPolicyOperations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -115,7 +115,7 @@ export class DataPolicyOperationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in dataPolicyOperations by key (id)
+     * Update entity in dataPolicyOperations
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

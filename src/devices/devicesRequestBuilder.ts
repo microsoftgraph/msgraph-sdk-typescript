@@ -4,12 +4,12 @@ import {createDeviceFromDiscriminatorValue} from '../models/createDeviceFromDisc
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {DevicesRequestBuilderGetRequestConfiguration} from './devicesRequestBuilderGetRequestConfiguration';
 import {DevicesRequestBuilderPostRequestConfiguration} from './devicesRequestBuilderPostRequestConfiguration';
-import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
-import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
-import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
+import {MicrosoftGraphDeltaRequestBuilder} from './microsoftGraphDelta/microsoftGraphDeltaRequestBuilder';
+import {MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder} from './microsoftGraphGetAvailableExtensionProperties/microsoftGraphGetAvailableExtensionPropertiesRequestBuilder';
+import {MicrosoftGraphGetByIdsRequestBuilder} from './microsoftGraphGetByIds/microsoftGraphGetByIdsRequestBuilder';
+import {MicrosoftGraphValidatePropertiesRequestBuilder} from './microsoftGraphValidateProperties/microsoftGraphValidatePropertiesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -20,13 +20,21 @@ export class DevicesRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the delta method. */
+    public get microsoftGraphDelta(): MicrosoftGraphDeltaRequestBuilder {
+        return new MicrosoftGraphDeltaRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the getAvailableExtensionProperties method. */
-    public get getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {
-        return new GetAvailableExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphGetAvailableExtensionProperties(): MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder {
+        return new MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getByIds method. */
-    public get getByIds(): GetByIdsRequestBuilder {
-        return new GetByIdsRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphGetByIds(): MicrosoftGraphGetByIdsRequestBuilder {
+        return new MicrosoftGraphGetByIdsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the validateProperties method. */
+    public get microsoftGraphValidateProperties(): MicrosoftGraphValidatePropertiesRequestBuilder {
+        return new MicrosoftGraphValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -34,10 +42,6 @@ export class DevicesRequestBuilder {
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
-    /** Provides operations to call the validateProperties method. */
-    public get validateProperties(): ValidatePropertiesRequestBuilder {
-        return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /**
      * Instantiates a new DevicesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -50,13 +54,6 @@ export class DevicesRequestBuilder {
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
-    };
-    /**
-     * Provides operations to call the delta method.
-     * @returns a deltaRequestBuilder
-     */
-    public delta() : DeltaRequestBuilder {
-        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Retrieve a list of device objects registered in the organization.

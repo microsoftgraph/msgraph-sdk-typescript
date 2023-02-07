@@ -12,7 +12,7 @@ import {TaskStatus} from './taskStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TodoTask extends Entity implements Parsable {
-    /** The attachments property */
+    /** A collection of file attachments for the task. */
     private _attachments?: AttachmentBase[] | undefined;
     /** The attachmentSessions property */
     private _attachmentSessions?: AttachmentSession[] | undefined;
@@ -32,7 +32,7 @@ export class TodoTask extends Entity implements Parsable {
     private _dueDateTime?: DateTimeTimeZone | undefined;
     /** The collection of open extensions defined for the task. Nullable. */
     private _extensions?: Extension[] | undefined;
-    /** The hasAttachments property */
+    /** Indicates whether the task has attachments. */
     private _hasAttachments?: boolean | undefined;
     /** The importance property */
     private _importance?: Importance | undefined;
@@ -46,21 +46,21 @@ export class TodoTask extends Entity implements Parsable {
     private _recurrence?: PatternedRecurrence | undefined;
     /** The date and time in the specified time zone for a reminder alert of the task to occur. */
     private _reminderDateTime?: DateTimeTimeZone | undefined;
-    /** The startDateTime property */
+    /** The date and time in the specified time zone at which the task is scheduled to start. */
     private _startDateTime?: DateTimeTimeZone | undefined;
     /** The status property */
     private _status?: TaskStatus | undefined;
     /** A brief description of the task. */
     private _title?: string | undefined;
     /**
-     * Gets the attachments property value. The attachments property
+     * Gets the attachments property value. A collection of file attachments for the task.
      * @returns a attachmentBase
      */
     public get attachments() {
         return this._attachments;
     };
     /**
-     * Sets the attachments property value. The attachments property
+     * Sets the attachments property value. A collection of file attachments for the task.
      * @param value Value to set for the attachments property.
      */
     public set attachments(value: AttachmentBase[] | undefined) {
@@ -227,14 +227,14 @@ export class TodoTask extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the hasAttachments property value. The hasAttachments property
+     * Gets the hasAttachments property value. Indicates whether the task has attachments.
      * @returns a boolean
      */
     public get hasAttachments() {
         return this._hasAttachments;
     };
     /**
-     * Sets the hasAttachments property value. The hasAttachments property
+     * Sets the hasAttachments property value. Indicates whether the task has attachments.
      * @param value Value to set for the hasAttachments property.
      */
     public set hasAttachments(value: boolean | undefined) {
@@ -353,14 +353,14 @@ export class TodoTask extends Entity implements Parsable {
         writer.writeStringValue("title", this.title);
     };
     /**
-     * Gets the startDateTime property value. The startDateTime property
+     * Gets the startDateTime property value. The date and time in the specified time zone at which the task is scheduled to start.
      * @returns a dateTimeTimeZone
      */
     public get startDateTime() {
         return this._startDateTime;
     };
     /**
-     * Sets the startDateTime property value. The startDateTime property
+     * Sets the startDateTime property value. The date and time in the specified time zone at which the task is scheduled to start.
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: DateTimeTimeZone | undefined) {

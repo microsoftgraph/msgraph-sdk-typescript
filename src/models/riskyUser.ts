@@ -25,7 +25,7 @@ export class RiskyUser extends Entity implements Parsable {
     /** Risky user principal name. */
     private _userPrincipalName?: string | undefined;
     /**
-     * Instantiates a new RiskyUser and sets the default values.
+     * Instantiates a new riskyUser and sets the default values.
      */
     public constructor() {
         super();

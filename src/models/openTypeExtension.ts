@@ -2,7 +2,7 @@ import {Extension} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OpenTypeExtension extends Extension implements Parsable {
-    /** A unique text identifier for an open type data extension. Required. */
+    /** A unique text identifier for an open type data extension. Optional. */
     private _extensionName?: string | undefined;
     /**
      * Instantiates a new OpenTypeExtension and sets the default values.
@@ -12,14 +12,14 @@ export class OpenTypeExtension extends Extension implements Parsable {
         this.odataType = "#microsoft.graph.openTypeExtension";
     };
     /**
-     * Gets the extensionName property value. A unique text identifier for an open type data extension. Required.
+     * Gets the extensionName property value. A unique text identifier for an open type data extension. Optional.
      * @returns a string
      */
     public get extensionName() {
         return this._extensionName;
     };
     /**
-     * Sets the extensionName property value. A unique text identifier for an open type data extension. Required.
+     * Sets the extensionName property value. A unique text identifier for an open type data extension. Optional.
      * @param value Value to set for the extensionName property.
      */
     public set extensionName(value: string | undefined) {

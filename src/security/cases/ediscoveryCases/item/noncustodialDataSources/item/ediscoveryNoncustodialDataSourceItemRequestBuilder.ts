@@ -2,25 +2,21 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EdiscoveryNoncustodialDataSource} from '../../../../../../models/security/';
 import {createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue} from '../../../../../../models/security/createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue';
-import {ApplyHoldRequestBuilder} from './applyHold/applyHoldRequestBuilder';
 import {DataSourceRequestBuilder} from './dataSource/dataSourceRequestBuilder';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration';
 import {LastIndexOperationRequestBuilder} from './lastIndexOperation/lastIndexOperationRequestBuilder';
-import {ReleaseRequestBuilder} from './release/releaseRequestBuilder';
-import {RemoveHoldRequestBuilder} from './removeHold/removeHoldRequestBuilder';
-import {UpdateIndexRequestBuilder} from './updateIndex/updateIndexRequestBuilder';
+import {MicrosoftGraphSecurityApplyHoldRequestBuilder} from './microsoftGraphSecurityApplyHold/microsoftGraphSecurityApplyHoldRequestBuilder';
+import {MicrosoftGraphSecurityReleaseRequestBuilder} from './microsoftGraphSecurityRelease/microsoftGraphSecurityReleaseRequestBuilder';
+import {MicrosoftGraphSecurityRemoveHoldRequestBuilder} from './microsoftGraphSecurityRemoveHold/microsoftGraphSecurityRemoveHoldRequestBuilder';
+import {MicrosoftGraphSecurityUpdateIndexRequestBuilder} from './microsoftGraphSecurityUpdateIndex/microsoftGraphSecurityUpdateIndexRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity.
  */
 export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
-    /** Provides operations to call the applyHold method. */
-    public get applyHold(): ApplyHoldRequestBuilder {
-        return new ApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the dataSource property of the microsoft.graph.security.ediscoveryNoncustodialDataSource entity. */
     public get dataSource(): DataSourceRequestBuilder {
         return new DataSourceRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -29,22 +25,26 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
     public get lastIndexOperation(): LastIndexOperationRequestBuilder {
         return new LastIndexOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the applyHold method. */
+    public get microsoftGraphSecurityApplyHold(): MicrosoftGraphSecurityApplyHoldRequestBuilder {
+        return new MicrosoftGraphSecurityApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the release method. */
-    public get release(): ReleaseRequestBuilder {
-        return new ReleaseRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphSecurityRelease(): MicrosoftGraphSecurityReleaseRequestBuilder {
+        return new MicrosoftGraphSecurityReleaseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the removeHold method. */
-    public get removeHold(): RemoveHoldRequestBuilder {
-        return new RemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphSecurityRemoveHold(): MicrosoftGraphSecurityRemoveHoldRequestBuilder {
+        return new MicrosoftGraphSecurityRemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the updateIndex method. */
+    public get microsoftGraphSecurityUpdateIndex(): MicrosoftGraphSecurityUpdateIndexRequestBuilder {
+        return new MicrosoftGraphSecurityUpdateIndexRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Path parameters for the request */
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the updateIndex method. */
-    public get updateIndex(): UpdateIndexRequestBuilder {
-        return new UpdateIndexRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

@@ -300,7 +300,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._claimsMappingPolicies = value;
     };
     /**
-     * Instantiates a new servicePrincipal and sets the default values.
+     * Instantiates a new ServicePrincipal and sets the default values.
      */
     public constructor() {
         super();

@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {BookingAppointmentItemRequestBuilderDeleteRequestConfiguration} from './bookingAppointmentItemRequestBuilderDeleteRequestConfiguration';
 import {BookingAppointmentItemRequestBuilderGetRequestConfiguration} from './bookingAppointmentItemRequestBuilderGetRequestConfiguration';
 import {BookingAppointmentItemRequestBuilderPatchRequestConfiguration} from './bookingAppointmentItemRequestBuilderPatchRequestConfiguration';
-import {CancelRequestBuilder} from './cancel/cancelRequestBuilder';
+import {MicrosoftGraphCancelRequestBuilder} from './microsoftGraphCancel/microsoftGraphCancelRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -13,8 +13,8 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class BookingAppointmentItemRequestBuilder {
     /** Provides operations to call the cancel method. */
-    public get cancel(): CancelRequestBuilder {
-        return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphCancel(): MicrosoftGraphCancelRequestBuilder {
+        return new MicrosoftGraphCancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

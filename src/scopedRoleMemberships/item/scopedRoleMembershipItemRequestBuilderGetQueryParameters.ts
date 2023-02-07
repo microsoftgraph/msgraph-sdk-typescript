@@ -1,6 +1,6 @@
 
 /**
- * Get entity from scopedRoleMemberships by key (id)
+ * Get entity from scopedRoleMemberships by key
  */
 export class ScopedRoleMembershipItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

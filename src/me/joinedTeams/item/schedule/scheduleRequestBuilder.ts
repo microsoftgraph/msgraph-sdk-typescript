@@ -2,6 +2,7 @@ import {Schedule} from '../../../../models/';
 import {createScheduleFromDiscriminatorValue} from '../../../../models/createScheduleFromDiscriminatorValue';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {MicrosoftGraphShareRequestBuilder} from './microsoftGraphShare/microsoftGraphShareRequestBuilder';
 import {OfferShiftRequestItemRequestBuilder} from './offerShiftRequests/item/offerShiftRequestItemRequestBuilder';
 import {OfferShiftRequestsRequestBuilder} from './offerShiftRequests/offerShiftRequestsRequestBuilder';
 import {OpenShiftChangeRequestItemRequestBuilder} from './openShiftChangeRequests/item/openShiftChangeRequestItemRequestBuilder';
@@ -13,7 +14,6 @@ import {ScheduleRequestBuilderGetRequestConfiguration} from './scheduleRequestBu
 import {ScheduleRequestBuilderPutRequestConfiguration} from './scheduleRequestBuilderPutRequestConfiguration';
 import {SchedulingGroupItemRequestBuilder} from './schedulingGroups/item/schedulingGroupItemRequestBuilder';
 import {SchedulingGroupsRequestBuilder} from './schedulingGroups/schedulingGroupsRequestBuilder';
-import {ShareRequestBuilder} from './share/shareRequestBuilder';
 import {ShiftItemRequestBuilder} from './shifts/item/shiftItemRequestBuilder';
 import {ShiftsRequestBuilder} from './shifts/shiftsRequestBuilder';
 import {SwapShiftsChangeRequestItemRequestBuilder} from './swapShiftsChangeRequests/item/swapShiftsChangeRequestItemRequestBuilder';
@@ -30,6 +30,10 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the schedule property of the microsoft.graph.team entity.
  */
 export class ScheduleRequestBuilder {
+    /** Provides operations to call the share method. */
+    public get microsoftGraphShare(): MicrosoftGraphShareRequestBuilder {
+        return new MicrosoftGraphShareRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity. */
     public get offerShiftRequests(): OfferShiftRequestsRequestBuilder {
         return new OfferShiftRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -49,10 +53,6 @@ export class ScheduleRequestBuilder {
     /** Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity. */
     public get schedulingGroups(): SchedulingGroupsRequestBuilder {
         return new SchedulingGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the share method. */
-    public get share(): ShareRequestBuilder {
-        return new ShareRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the shifts property of the microsoft.graph.schedule entity. */
     public get shifts(): ShiftsRequestBuilder {

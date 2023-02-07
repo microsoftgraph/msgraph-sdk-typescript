@@ -8,7 +8,7 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
     /** The disabledPlans property */
     private _disabledPlans?: string[] | undefined;
     /** The error property */
-    private _error_escaped?: string | undefined;
+    private _errorEscaped?: string | undefined;
     /** The lastUpdatedDateTime property */
     private _lastUpdatedDateTime?: Date | undefined;
     /** The OdataType property */
@@ -69,15 +69,15 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
      * Gets the error property value. The error property
      * @returns a string
      */
-    public get error_escaped() {
-        return this._error_escaped;
+    public get errorEscaped() {
+        return this._errorEscaped;
     };
     /**
      * Sets the error property value. The error property
-     * @param value Value to set for the error_escaped property.
+     * @param value Value to set for the errorEscaped property.
      */
-    public set error_escaped(value: string | undefined) {
-        this._error_escaped = value;
+    public set errorEscaped(value: string | undefined) {
+        this._errorEscaped = value;
     };
     /**
      * The deserialization information for the current model
@@ -87,7 +87,7 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
         return {
             "assignedByGroup": n => { this.assignedByGroup = n.getStringValue(); },
             "disabledPlans": n => { this.disabledPlans = n.getCollectionOfPrimitiveValues<string>(); },
-            "error": n => { this.error_escaped = n.getStringValue(); },
+            "error": n => { this.errorEscaped = n.getStringValue(); },
             "lastUpdatedDateTime": n => { this.lastUpdatedDateTime = n.getDateValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "skuId": n => { this.skuId = n.getStringValue(); },
@@ -130,7 +130,7 @@ export class LicenseAssignmentState implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("assignedByGroup", this.assignedByGroup);
         writer.writeCollectionOfPrimitiveValues<string>("disabledPlans", this.disabledPlans);
-        writer.writeStringValue("error", this.error_escaped);
+        writer.writeStringValue("error", this.errorEscaped);
         writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("skuId", this.skuId);

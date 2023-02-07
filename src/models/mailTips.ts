@@ -18,7 +18,7 @@ export class MailTips implements AdditionalDataHolder, Parsable {
     /** The email address of the recipient to get mailtips for. */
     private _emailAddress?: EmailAddress | undefined;
     /** Errors that occur during the getMailTips action. */
-    private _error_escaped?: MailTipsError | undefined;
+    private _errorEscaped?: MailTipsError | undefined;
     /** The number of external members if the recipient is a distribution list. */
     private _externalMemberCount?: number | undefined;
     /** Whether sending messages to the recipient requires approval. For example, if the recipient is a large distribution list and a moderator has been set up to approve messages sent to that distribution list, or if sending messages to a recipient requires approval of the recipient's manager. */
@@ -115,15 +115,15 @@ export class MailTips implements AdditionalDataHolder, Parsable {
      * Gets the error property value. Errors that occur during the getMailTips action.
      * @returns a mailTipsError
      */
-    public get error_escaped() {
-        return this._error_escaped;
+    public get errorEscaped() {
+        return this._errorEscaped;
     };
     /**
      * Sets the error property value. Errors that occur during the getMailTips action.
-     * @param value Value to set for the error_escaped property.
+     * @param value Value to set for the errorEscaped property.
      */
-    public set error_escaped(value: MailTipsError | undefined) {
-        this._error_escaped = value;
+    public set errorEscaped(value: MailTipsError | undefined) {
+        this._errorEscaped = value;
     };
     /**
      * Gets the externalMemberCount property value. The number of external members if the recipient is a distribution list.
@@ -149,7 +149,7 @@ export class MailTips implements AdditionalDataHolder, Parsable {
             "customMailTip": n => { this.customMailTip = n.getStringValue(); },
             "deliveryRestricted": n => { this.deliveryRestricted = n.getBooleanValue(); },
             "emailAddress": n => { this.emailAddress = n.getObjectValue<EmailAddress>(createEmailAddressFromDiscriminatorValue); },
-            "error": n => { this.error_escaped = n.getObjectValue<MailTipsError>(createMailTipsErrorFromDiscriminatorValue); },
+            "error": n => { this.errorEscaped = n.getObjectValue<MailTipsError>(createMailTipsErrorFromDiscriminatorValue); },
             "externalMemberCount": n => { this.externalMemberCount = n.getNumberValue(); },
             "isModerated": n => { this.isModerated = n.getBooleanValue(); },
             "mailboxFull": n => { this.mailboxFull = n.getBooleanValue(); },
@@ -254,7 +254,7 @@ export class MailTips implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("customMailTip", this.customMailTip);
         writer.writeBooleanValue("deliveryRestricted", this.deliveryRestricted);
         writer.writeObjectValue<EmailAddress>("emailAddress", this.emailAddress);
-        writer.writeObjectValue<MailTipsError>("error", this.error_escaped);
+        writer.writeObjectValue<MailTipsError>("error", this.errorEscaped);
         writer.writeNumberValue("externalMemberCount", this.externalMemberCount);
         writer.writeBooleanValue("isModerated", this.isModerated);
         writer.writeBooleanValue("mailboxFull", this.mailboxFull);

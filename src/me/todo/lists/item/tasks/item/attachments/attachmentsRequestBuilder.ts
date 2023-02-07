@@ -6,7 +6,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {AttachmentsRequestBuilderGetRequestConfiguration} from './attachmentsRequestBuilderGetRequestConfiguration';
 import {AttachmentsRequestBuilderPostRequestConfiguration} from './attachmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CreateUploadSessionRequestBuilder} from './createUploadSession/createUploadSessionRequestBuilder';
+import {MicrosoftGraphCreateUploadSessionRequestBuilder} from './microsoftGraphCreateUploadSession/microsoftGraphCreateUploadSessionRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,8 +18,8 @@ export class AttachmentsRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the createUploadSession method. */
-    public get createUploadSession(): CreateUploadSessionRequestBuilder {
-        return new CreateUploadSessionRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphCreateUploadSession(): MicrosoftGraphCreateUploadSessionRequestBuilder {
+        return new MicrosoftGraphCreateUploadSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -41,10 +41,11 @@ export class AttachmentsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get attachments from me
+     * Get a list of the taskFileAttachment objects and their properties. The **contentBytes** property will not be returned in the response. Use the Get attachment API to view the **contentBytes**.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttachmentBaseCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/todotask-list-attachments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttachmentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttachmentBaseCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -57,11 +58,12 @@ export class AttachmentsRequestBuilder {
         return this.requestAdapter?.sendAsync<AttachmentBaseCollectionResponse>(requestInfo, createAttachmentBaseCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to attachments for me
+     * Add a new taskFileAttachment object to a todoTask. This operation limits the size of the attachment you can add to under 3 MB. If the size of the file attachments is more than 3 MB, create an upload session to upload the attachments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttachmentBase
+     * @see {@link https://docs.microsoft.com/graph/api/todotask-post-attachments?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AttachmentBase | undefined, requestConfiguration?: AttachmentsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttachmentBase | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -75,7 +77,7 @@ export class AttachmentsRequestBuilder {
         return this.requestAdapter?.sendAsync<AttachmentBase>(requestInfo, createAttachmentBaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get attachments from me
+     * Get a list of the taskFileAttachment objects and their properties. The **contentBytes** property will not be returned in the response. Use the Get attachment API to view the **contentBytes**.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -93,7 +95,7 @@ export class AttachmentsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to attachments for me
+     * Add a new taskFileAttachment object to a todoTask. This operation limits the size of the attachment you can add to under 3 MB. If the size of the file attachments is more than 3 MB, create an upload session to upload the attachments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

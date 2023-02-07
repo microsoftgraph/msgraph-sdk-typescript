@@ -3,10 +3,10 @@ import {createIdentityProviderCollectionResponseFromDiscriminatorValue} from '..
 import {createIdentityProviderFromDiscriminatorValue} from '../models/createIdentityProviderFromDiscriminatorValue';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AvailableProviderTypesRequestBuilder} from './availableProviderTypes/availableProviderTypesRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IdentityProvidersRequestBuilderGetRequestConfiguration} from './identityProvidersRequestBuilderGetRequestConfiguration';
 import {IdentityProvidersRequestBuilderPostRequestConfiguration} from './identityProvidersRequestBuilderPostRequestConfiguration';
+import {MicrosoftGraphAvailableProviderTypesRequestBuilder} from './microsoftGraphAvailableProviderTypes/microsoftGraphAvailableProviderTypesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -17,19 +17,16 @@ export class IdentityProvidersRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the availableProviderTypes method. */
+    public get microsoftGraphAvailableProviderTypes(): MicrosoftGraphAvailableProviderTypesRequestBuilder {
+        return new MicrosoftGraphAvailableProviderTypesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
-    /**
-     * Provides operations to call the availableProviderTypes method.
-     * @returns a availableProviderTypesRequestBuilder
-     */
-    public availableProviderTypes() : AvailableProviderTypesRequestBuilder {
-        return new AvailableProviderTypesRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
     /**
      * Instantiates a new IdentityProvidersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -6,7 +6,7 @@ export class ODataError extends ApiError implements AdditionalDataHolder, Parsab
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The error property */
-    private _error_escaped?: MainError | undefined;
+    private _errorEscaped?: MainError | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -32,15 +32,15 @@ export class ODataError extends ApiError implements AdditionalDataHolder, Parsab
      * Gets the error property value. The error property
      * @returns a MainError
      */
-    public get error_escaped() {
-        return this._error_escaped;
+    public get errorEscaped() {
+        return this._errorEscaped;
     };
     /**
      * Sets the error property value. The error property
-     * @param value Value to set for the error_escaped property.
+     * @param value Value to set for the errorEscaped property.
      */
-    public set error_escaped(value: MainError | undefined) {
-        this._error_escaped = value;
+    public set errorEscaped(value: MainError | undefined) {
+        this._errorEscaped = value;
     };
     /**
      * The deserialization information for the current model
@@ -48,7 +48,7 @@ export class ODataError extends ApiError implements AdditionalDataHolder, Parsab
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "error": n => { this.error_escaped = n.getObjectValue<MainError>(createMainErrorFromDiscriminatorValue); },
+            "error": n => { this.errorEscaped = n.getObjectValue<MainError>(createMainErrorFromDiscriminatorValue); },
         };
     };
     /**
@@ -57,7 +57,7 @@ export class ODataError extends ApiError implements AdditionalDataHolder, Parsab
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<MainError>("error", this.error_escaped);
+        writer.writeObjectValue<MainError>("error", this.errorEscaped);
         writer.writeAdditionalData(this.additionalData);
     };
 }
