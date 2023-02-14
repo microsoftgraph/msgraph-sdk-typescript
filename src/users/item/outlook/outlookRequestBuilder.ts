@@ -4,10 +4,10 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {OutlookCategoryItemRequestBuilder} from './masterCategories/item/outlookCategoryItemRequestBuilder';
 import {MasterCategoriesRequestBuilder} from './masterCategories/masterCategoriesRequestBuilder';
+import {MicrosoftGraphSupportedLanguagesRequestBuilder} from './microsoftGraphSupportedLanguages/microsoftGraphSupportedLanguagesRequestBuilder';
+import {MicrosoftGraphSupportedTimeZonesRequestBuilder} from './microsoftGraphSupportedTimeZones/microsoftGraphSupportedTimeZonesRequestBuilder';
+import {MicrosoftGraphSupportedTimeZonesWithTimeZoneStandardRequestBuilder} from './microsoftGraphSupportedTimeZonesWithTimeZoneStandard/microsoftGraphSupportedTimeZonesWithTimeZoneStandardRequestBuilder';
 import {OutlookRequestBuilderGetRequestConfiguration} from './outlookRequestBuilderGetRequestConfiguration';
-import {SupportedLanguagesRequestBuilder} from './supportedLanguages/supportedLanguagesRequestBuilder';
-import {SupportedTimeZonesRequestBuilder} from './supportedTimeZones/supportedTimeZonesRequestBuilder';
-import {SupportedTimeZonesWithTimeZoneStandardRequestBuilder} from './supportedTimeZonesWithTimeZoneStandard/supportedTimeZonesWithTimeZoneStandardRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -17,6 +17,14 @@ export class OutlookRequestBuilder {
     /** Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity. */
     public get masterCategories(): MasterCategoriesRequestBuilder {
         return new MasterCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the supportedLanguages method. */
+    public get microsoftGraphSupportedLanguages(): MicrosoftGraphSupportedLanguagesRequestBuilder {
+        return new MicrosoftGraphSupportedLanguagesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the supportedTimeZones method. */
+    public get microsoftGraphSupportedTimeZones(): MicrosoftGraphSupportedTimeZonesRequestBuilder {
+        return new MicrosoftGraphSupportedTimeZonesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -65,27 +73,13 @@ export class OutlookRequestBuilder {
         return new OutlookCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Provides operations to call the supportedLanguages method.
-     * @returns a supportedLanguagesRequestBuilder
-     */
-    public supportedLanguages() : SupportedLanguagesRequestBuilder {
-        return new SupportedLanguagesRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
-     * Provides operations to call the supportedTimeZones method.
-     * @returns a supportedTimeZonesRequestBuilder
-     */
-    public supportedTimeZones() : SupportedTimeZonesRequestBuilder {
-        return new SupportedTimeZonesRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
      * Provides operations to call the supportedTimeZones method.
      * @param TimeZoneStandard Usage: TimeZoneStandard='{TimeZoneStandard}'
-     * @returns a supportedTimeZonesWithTimeZoneStandardRequestBuilder
+     * @returns a microsoftGraphSupportedTimeZonesWithTimeZoneStandardRequestBuilder
      */
-    public supportedTimeZonesWithTimeZoneStandard(timeZoneStandard: string | undefined) : SupportedTimeZonesWithTimeZoneStandardRequestBuilder {
+    public microsoftGraphSupportedTimeZonesWithTimeZoneStandard(timeZoneStandard: string | undefined) : MicrosoftGraphSupportedTimeZonesWithTimeZoneStandardRequestBuilder {
         if(!timeZoneStandard) throw new Error("timeZoneStandard cannot be undefined");
-        return new SupportedTimeZonesWithTimeZoneStandardRequestBuilder(this.pathParameters, this.requestAdapter, timeZoneStandard);
+        return new MicrosoftGraphSupportedTimeZonesWithTimeZoneStandardRequestBuilder(this.pathParameters, this.requestAdapter, timeZoneStandard);
     };
     /**
      * Get outlook from users

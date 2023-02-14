@@ -8,5 +8,5 @@ export enum ImportedWindowsAutopilotDeviceIdentityImportStatus {
     /** Complete status. */
     Complete = "complete",
     /** Error status. */
-    Error_escaped = "error",
+    ErrorEscaped = "error",
 }

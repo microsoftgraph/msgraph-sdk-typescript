@@ -1,6 +1,6 @@
 export enum AlertStatus {
     Unknown = "unknown",
-    New_escaped = "new",
+    NewEscaped = "new",
     InProgress = "inProgress",
     Resolved = "resolved",
     UnknownFutureValue = "unknownFutureValue",

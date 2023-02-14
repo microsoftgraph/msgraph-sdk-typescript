@@ -2,7 +2,7 @@ import {ServiceHealthIssue} from '../../../../models/';
 import {createServiceHealthIssueFromDiscriminatorValue} from '../../../../models/createServiceHealthIssueFromDiscriminatorValue';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {IncidentReportRequestBuilder} from './incidentReport/incidentReportRequestBuilder';
+import {MicrosoftGraphIncidentReportRequestBuilder} from './microsoftGraphIncidentReport/microsoftGraphIncidentReportRequestBuilder';
 import {ServiceHealthIssueItemRequestBuilderDeleteRequestConfiguration} from './serviceHealthIssueItemRequestBuilderDeleteRequestConfiguration';
 import {ServiceHealthIssueItemRequestBuilderGetRequestConfiguration} from './serviceHealthIssueItemRequestBuilderGetRequestConfiguration';
 import {ServiceHealthIssueItemRequestBuilderPatchRequestConfiguration} from './serviceHealthIssueItemRequestBuilderPatchRequestConfiguration';
@@ -12,6 +12,10 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the issues property of the microsoft.graph.serviceAnnouncement entity.
  */
 export class ServiceHealthIssueItemRequestBuilder {
+    /** Provides operations to call the incidentReport method. */
+    public get microsoftGraphIncidentReport(): MicrosoftGraphIncidentReportRequestBuilder {
+        return new MicrosoftGraphIncidentReportRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
@@ -61,13 +65,6 @@ export class ServiceHealthIssueItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<ServiceHealthIssue>(requestInfo, createServiceHealthIssueFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to call the incidentReport method.
-     * @returns a incidentReportRequestBuilder
-     */
-    public incidentReport() : IncidentReportRequestBuilder {
-        return new IncidentReportRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Update the navigation property issues in admin

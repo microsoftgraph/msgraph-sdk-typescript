@@ -1,6 +1,6 @@
 
 /**
- * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
+ * Retrieve the properties and relationships of user object.
  */
 export class MeRequestBuilderGetQueryParameters {
     /** Expand related entities */

@@ -3,9 +3,9 @@ import {createRiskyServicePrincipalCollectionResponseFromDiscriminatorValue} fro
 import {createRiskyServicePrincipalFromDiscriminatorValue} from '../../models/createRiskyServicePrincipalFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {ConfirmCompromisedRequestBuilder} from './confirmCompromised/confirmCompromisedRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DismissRequestBuilder} from './dismiss/dismissRequestBuilder';
+import {MicrosoftGraphConfirmCompromisedRequestBuilder} from './microsoftGraphConfirmCompromised/microsoftGraphConfirmCompromisedRequestBuilder';
+import {MicrosoftGraphDismissRequestBuilder} from './microsoftGraphDismiss/microsoftGraphDismissRequestBuilder';
 import {RiskyServicePrincipalsRequestBuilderGetRequestConfiguration} from './riskyServicePrincipalsRequestBuilderGetRequestConfiguration';
 import {RiskyServicePrincipalsRequestBuilderPostRequestConfiguration} from './riskyServicePrincipalsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -14,17 +14,17 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
  */
 export class RiskyServicePrincipalsRequestBuilder {
-    /** Provides operations to call the confirmCompromised method. */
-    public get confirmCompromised(): ConfirmCompromisedRequestBuilder {
-        return new ConfirmCompromisedRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the confirmCompromised method. */
+    public get microsoftGraphConfirmCompromised(): MicrosoftGraphConfirmCompromisedRequestBuilder {
+        return new MicrosoftGraphConfirmCompromisedRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the dismiss method. */
-    public get dismiss(): DismissRequestBuilder {
-        return new DismissRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphDismiss(): MicrosoftGraphDismissRequestBuilder {
+        return new MicrosoftGraphDismissRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

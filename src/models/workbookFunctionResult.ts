@@ -4,7 +4,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class WorkbookFunctionResult extends Entity implements Parsable {
     /** The error property */
-    private _error_escaped?: string | undefined;
+    private _errorEscaped?: string | undefined;
     /** The value property */
     private _value?: Json | undefined;
     /**
@@ -17,15 +17,15 @@ export class WorkbookFunctionResult extends Entity implements Parsable {
      * Gets the error property value. The error property
      * @returns a string
      */
-    public get error_escaped() {
-        return this._error_escaped;
+    public get errorEscaped() {
+        return this._errorEscaped;
     };
     /**
      * Sets the error property value. The error property
-     * @param value Value to set for the error_escaped property.
+     * @param value Value to set for the errorEscaped property.
      */
-    public set error_escaped(value: string | undefined) {
-        this._error_escaped = value;
+    public set errorEscaped(value: string | undefined) {
+        this._errorEscaped = value;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +33,7 @@ export class WorkbookFunctionResult extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "error": n => { this.error_escaped = n.getStringValue(); },
+            "error": n => { this.errorEscaped = n.getStringValue(); },
             "value": n => { this.value = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
         };
     };
@@ -44,7 +44,7 @@ export class WorkbookFunctionResult extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeStringValue("error", this.error_escaped);
+        writer.writeStringValue("error", this.errorEscaped);
         writer.writeObjectValue<Json>("value", this.value);
     };
     /**

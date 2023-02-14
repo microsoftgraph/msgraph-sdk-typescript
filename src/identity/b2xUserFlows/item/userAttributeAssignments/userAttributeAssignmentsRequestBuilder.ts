@@ -4,8 +4,8 @@ import {createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue} from '.
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetOrderRequestBuilder} from './getOrder/getOrderRequestBuilder';
-import {SetOrderRequestBuilder} from './setOrder/setOrderRequestBuilder';
+import {MicrosoftGraphGetOrderRequestBuilder} from './microsoftGraphGetOrder/microsoftGraphGetOrderRequestBuilder';
+import {MicrosoftGraphSetOrderRequestBuilder} from './microsoftGraphSetOrder/microsoftGraphSetOrderRequestBuilder';
 import {UserAttributeAssignmentsRequestBuilderGetRequestConfiguration} from './userAttributeAssignmentsRequestBuilderGetRequestConfiguration';
 import {UserAttributeAssignmentsRequestBuilderPostRequestConfiguration} from './userAttributeAssignmentsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -18,14 +18,18 @@ export class UserAttributeAssignmentsRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the getOrder method. */
+    public get microsoftGraphGetOrder(): MicrosoftGraphGetOrderRequestBuilder {
+        return new MicrosoftGraphGetOrderRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the setOrder method. */
+    public get microsoftGraphSetOrder(): MicrosoftGraphSetOrderRequestBuilder {
+        return new MicrosoftGraphSetOrderRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the setOrder method. */
-    public get setOrder(): SetOrderRequestBuilder {
-        return new SetOrderRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
@@ -57,13 +61,6 @@ export class UserAttributeAssignmentsRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<IdentityUserFlowAttributeAssignmentCollectionResponse>(requestInfo, createIdentityUserFlowAttributeAssignmentCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to call the getOrder method.
-     * @returns a getOrderRequestBuilder
-     */
-    public getOrder() : GetOrderRequestBuilder {
-        return new GetOrderRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Create a new identityUserFlowAttributeAssignment object in a b2xIdentityUserFlow.

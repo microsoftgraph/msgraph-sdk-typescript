@@ -67,7 +67,7 @@ export class SharedDriveItemItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from shares by key (id)
+     * Delete entity from shares
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -110,7 +110,7 @@ export class SharedDriveItemItemRequestBuilder {
         return new DriveItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update entity in shares by key (id)
+     * Update entity in shares
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -128,7 +128,7 @@ export class SharedDriveItemItemRequestBuilder {
         return this.requestAdapter?.sendAsync<SharedDriveItem>(requestInfo, createSharedDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from shares by key (id)
+     * Delete entity from shares
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -162,7 +162,7 @@ export class SharedDriveItemItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in shares by key (id)
+     * Update entity in shares
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

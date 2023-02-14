@@ -2,7 +2,7 @@
 export enum MobileAppContentFileUploadState {
     Success = "success",
     TransientError = "transientError",
-    Error_escaped = "error",
+    ErrorEscaped = "error",
     Unknown = "unknown",
     AzureStorageUriRequestSuccess = "azureStorageUriRequestSuccess",
     AzureStorageUriRequestPending = "azureStorageUriRequestPending",

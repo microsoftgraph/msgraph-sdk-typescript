@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CrossTenantAccessPolicyRequestBuilderDeleteRequestConfiguration} from './crossTenantAccessPolicyRequestBuilderDeleteRequestConfiguration';
 import {CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration} from './crossTenantAccessPolicyRequestBuilderGetRequestConfiguration';
 import {CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration} from './crossTenantAccessPolicyRequestBuilderPatchRequestConfiguration';
-import {DefaultRequestBuilder} from './default_escaped/defaultRequestBuilder';
+import {DefaultRequestBuilder} from './defaultEscaped/defaultRequestBuilder';
 import {CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder} from './partners/item/crossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder';
 import {PartnersRequestBuilder} from './partners/partnersRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -15,7 +15,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class CrossTenantAccessPolicyRequestBuilder {
     /** Provides operations to manage the default property of the microsoft.graph.crossTenantAccessPolicy entity. */
-    public get default_escaped(): DefaultRequestBuilder {
+    public get defaultEscaped(): DefaultRequestBuilder {
         return new DefaultRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity. */

@@ -1,5 +1,5 @@
 export enum TemplateScenarios {
-    New_escaped = "new",
+    NewEscaped = "new",
     SecureFoundation = "secureFoundation",
     ZeroTrust = "zeroTrust",
     RemoteWork = "remoteWork",

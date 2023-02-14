@@ -13,13 +13,13 @@ import {CustomersRequestBuilder} from './customers/customersRequestBuilder';
 import {BookingCustomerBaseItemRequestBuilder} from './customers/item/bookingCustomerBaseItemRequestBuilder';
 import {CustomQuestionsRequestBuilder} from './customQuestions/customQuestionsRequestBuilder';
 import {BookingCustomQuestionItemRequestBuilder} from './customQuestions/item/bookingCustomQuestionItemRequestBuilder';
-import {GetStaffAvailabilityRequestBuilder} from './getStaffAvailability/getStaffAvailabilityRequestBuilder';
-import {PublishRequestBuilder} from './publish/publishRequestBuilder';
+import {MicrosoftGraphGetStaffAvailabilityRequestBuilder} from './microsoftGraphGetStaffAvailability/microsoftGraphGetStaffAvailabilityRequestBuilder';
+import {MicrosoftGraphPublishRequestBuilder} from './microsoftGraphPublish/microsoftGraphPublishRequestBuilder';
+import {MicrosoftGraphUnpublishRequestBuilder} from './microsoftGraphUnpublish/microsoftGraphUnpublishRequestBuilder';
 import {BookingServiceItemRequestBuilder} from './services/item/bookingServiceItemRequestBuilder';
 import {ServicesRequestBuilder} from './services/servicesRequestBuilder';
 import {BookingStaffMemberBaseItemRequestBuilder} from './staffMembers/item/bookingStaffMemberBaseItemRequestBuilder';
 import {StaffMembersRequestBuilder} from './staffMembers/staffMembersRequestBuilder';
-import {UnpublishRequestBuilder} from './unpublish/unpublishRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -43,15 +43,19 @@ export class BookingBusinessItemRequestBuilder {
         return new CustomQuestionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getStaffAvailability method. */
-    public get getStaffAvailability(): GetStaffAvailabilityRequestBuilder {
-        return new GetStaffAvailabilityRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphGetStaffAvailability(): MicrosoftGraphGetStaffAvailabilityRequestBuilder {
+        return new MicrosoftGraphGetStaffAvailabilityRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the publish method. */
+    public get microsoftGraphPublish(): MicrosoftGraphPublishRequestBuilder {
+        return new MicrosoftGraphPublishRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the unpublish method. */
+    public get microsoftGraphUnpublish(): MicrosoftGraphUnpublishRequestBuilder {
+        return new MicrosoftGraphUnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
-    /** Provides operations to call the publish method. */
-    public get publish(): PublishRequestBuilder {
-        return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity. */
@@ -61,10 +65,6 @@ export class BookingBusinessItemRequestBuilder {
     /** Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity. */
     public get staffMembers(): StaffMembersRequestBuilder {
         return new StaffMembersRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the unpublish method. */
-    public get unpublish(): UnpublishRequestBuilder {
-        return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;

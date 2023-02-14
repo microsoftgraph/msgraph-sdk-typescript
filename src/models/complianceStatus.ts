@@ -4,7 +4,7 @@ export enum ComplianceStatus {
     Compliant = "compliant",
     Remediated = "remediated",
     NonCompliant = "nonCompliant",
-    Error_escaped = "error",
+    ErrorEscaped = "error",
     Conflict = "conflict",
     NotAssigned = "notAssigned",
 }

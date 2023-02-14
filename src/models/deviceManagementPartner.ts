@@ -1,6 +1,7 @@
+import {createDeviceManagementPartnerAssignmentFromDiscriminatorValue} from './createDeviceManagementPartnerAssignmentFromDiscriminatorValue';
 import {DeviceManagementPartnerAppType} from './deviceManagementPartnerAppType';
 import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
-import {Entity} from './index';
+import {DeviceManagementPartnerAssignment, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /**
@@ -9,6 +10,8 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class DeviceManagementPartner extends Entity implements Parsable {
     /** Partner display name */
     private _displayName?: string | undefined;
+    /** User groups that specifies whether enrollment is through partner. */
+    private _groupsRequiringPartnerEnrollment?: DeviceManagementPartnerAssignment[] | undefined;
     /** Whether device management partner is configured or not */
     private _isConfigured?: boolean | undefined;
     /** Timestamp of last heartbeat after admin enabled option Connect to Device management Partner */
@@ -50,6 +53,7 @@ export class DeviceManagementPartner extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "displayName": n => { this.displayName = n.getStringValue(); },
+            "groupsRequiringPartnerEnrollment": n => { this.groupsRequiringPartnerEnrollment = n.getCollectionOfObjectValues<DeviceManagementPartnerAssignment>(createDeviceManagementPartnerAssignmentFromDiscriminatorValue); },
             "isConfigured": n => { this.isConfigured = n.getBooleanValue(); },
             "lastHeartbeatDateTime": n => { this.lastHeartbeatDateTime = n.getDateValue(); },
             "partnerAppType": n => { this.partnerAppType = n.getEnumValue<DeviceManagementPartnerAppType>(DeviceManagementPartnerAppType); },
@@ -58,6 +62,20 @@ export class DeviceManagementPartner extends Entity implements Parsable {
             "whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime": n => { this.whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime = n.getDateValue(); },
             "whenPartnerDevicesWillBeRemovedDateTime": n => { this.whenPartnerDevicesWillBeRemovedDateTime = n.getDateValue(); },
         };
+    };
+    /**
+     * Gets the groupsRequiringPartnerEnrollment property value. User groups that specifies whether enrollment is through partner.
+     * @returns a deviceManagementPartnerAssignment
+     */
+    public get groupsRequiringPartnerEnrollment() {
+        return this._groupsRequiringPartnerEnrollment;
+    };
+    /**
+     * Sets the groupsRequiringPartnerEnrollment property value. User groups that specifies whether enrollment is through partner.
+     * @param value Value to set for the groupsRequiringPartnerEnrollment property.
+     */
+    public set groupsRequiringPartnerEnrollment(value: DeviceManagementPartnerAssignment[] | undefined) {
+        this._groupsRequiringPartnerEnrollment = value;
     };
     /**
      * Gets the isConfigured property value. Whether device management partner is configured or not
@@ -123,6 +141,7 @@ export class DeviceManagementPartner extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("displayName", this.displayName);
+        writer.writeCollectionOfObjectValues<DeviceManagementPartnerAssignment>("groupsRequiringPartnerEnrollment", this.groupsRequiringPartnerEnrollment);
         writer.writeBooleanValue("isConfigured", this.isConfigured);
         writer.writeDateValue("lastHeartbeatDateTime", this.lastHeartbeatDateTime);
         writer.writeEnumValue<DeviceManagementPartnerAppType>("partnerAppType", this.partnerAppType);

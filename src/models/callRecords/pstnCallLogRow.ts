@@ -20,7 +20,7 @@ export class PstnCallLogRow implements AdditionalDataHolder, Parsable {
     private _conferenceId?: string | undefined;
     /** Connection fee price. */
     private _connectionCharge?: number | undefined;
-    /** Type of currency used to calculate the cost of the call (ISO 4217). */
+    /** Type of currency used to calculate the cost of the call. For details, see (ISO 4217. */
     private _currency?: string | undefined;
     /** Whether the call was domestic (within a country or region) or international (outside a country or region) based on the user's location. */
     private _destinationContext?: string | undefined;
@@ -42,15 +42,15 @@ export class PstnCallLogRow implements AdditionalDataHolder, Parsable {
     private _operator?: string | undefined;
     /** Call start time. */
     private _startDateTime?: Date | undefined;
-    /** Country code of the tenant, ISO 3166-1 alpha-2. */
+    /** Country code of the tenant. For details, see ISO 3166-1 alpha-2. */
     private _tenantCountryCode?: string | undefined;
-    /** Country code of the user, ISO 3166-1 alpha-2. */
+    /** Country code of the user. For details, see ISO 3166-1 alpha-2. */
     private _usageCountryCode?: string | undefined;
     /** Display name of the user. */
     private _userDisplayName?: string | undefined;
     /** Calling user's ID in Graph. GUID. This and other user info will be null/empty for bot call types (ucap_in, ucap_out). */
     private _userId?: string | undefined;
-    /** UserPrincipalName (sign-in name) in Azure Active Directory. This is usually the same as user's SIP Address, and can be same as user's e-mail address. */
+    /** The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address. */
     private _userPrincipalName?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -185,14 +185,14 @@ export class PstnCallLogRow implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the currency property value. Type of currency used to calculate the cost of the call (ISO 4217).
+     * Gets the currency property value. Type of currency used to calculate the cost of the call. For details, see (ISO 4217.
      * @returns a string
      */
     public get currency() {
         return this._currency;
     };
     /**
-     * Sets the currency property value. Type of currency used to calculate the cost of the call (ISO 4217).
+     * Sets the currency property value. Type of currency used to calculate the cost of the call. For details, see (ISO 4217.
      * @param value Value to set for the currency property.
      */
     public set currency(value: string | undefined) {
@@ -403,28 +403,28 @@ export class PstnCallLogRow implements AdditionalDataHolder, Parsable {
         this._startDateTime = value;
     };
     /**
-     * Gets the tenantCountryCode property value. Country code of the tenant, ISO 3166-1 alpha-2.
+     * Gets the tenantCountryCode property value. Country code of the tenant. For details, see ISO 3166-1 alpha-2.
      * @returns a string
      */
     public get tenantCountryCode() {
         return this._tenantCountryCode;
     };
     /**
-     * Sets the tenantCountryCode property value. Country code of the tenant, ISO 3166-1 alpha-2.
+     * Sets the tenantCountryCode property value. Country code of the tenant. For details, see ISO 3166-1 alpha-2.
      * @param value Value to set for the tenantCountryCode property.
      */
     public set tenantCountryCode(value: string | undefined) {
         this._tenantCountryCode = value;
     };
     /**
-     * Gets the usageCountryCode property value. Country code of the user, ISO 3166-1 alpha-2.
+     * Gets the usageCountryCode property value. Country code of the user. For details, see ISO 3166-1 alpha-2.
      * @returns a string
      */
     public get usageCountryCode() {
         return this._usageCountryCode;
     };
     /**
-     * Sets the usageCountryCode property value. Country code of the user, ISO 3166-1 alpha-2.
+     * Sets the usageCountryCode property value. Country code of the user. For details, see ISO 3166-1 alpha-2.
      * @param value Value to set for the usageCountryCode property.
      */
     public set usageCountryCode(value: string | undefined) {
@@ -459,14 +459,14 @@ export class PstnCallLogRow implements AdditionalDataHolder, Parsable {
         this._userId = value;
     };
     /**
-     * Gets the userPrincipalName property value. UserPrincipalName (sign-in name) in Azure Active Directory. This is usually the same as user's SIP Address, and can be same as user's e-mail address.
+     * Gets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @returns a string
      */
     public get userPrincipalName() {
         return this._userPrincipalName;
     };
     /**
-     * Sets the userPrincipalName property value. UserPrincipalName (sign-in name) in Azure Active Directory. This is usually the same as user's SIP Address, and can be same as user's e-mail address.
+     * Sets the userPrincipalName property value. The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
      * @param value Value to set for the userPrincipalName property.
      */
     public set userPrincipalName(value: string | undefined) {

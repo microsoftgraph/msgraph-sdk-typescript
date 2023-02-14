@@ -1,5 +1,5 @@
 export enum SubjectRightsRequestType {
-    Export_escaped = "export",
+    ExportEscaped = "export",
     Delete = "delete",
     Access = "access",
     TagForAction = "tagForAction",

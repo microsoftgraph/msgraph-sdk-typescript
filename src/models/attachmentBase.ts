@@ -2,13 +2,13 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AttachmentBase extends Entity implements Parsable {
-    /** The contentType property */
+    /** The MIME type. */
     private _contentType?: string | undefined;
-    /** The lastModifiedDateTime property */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The name property */
+    /** The display name of the attachment. This does not need to be the actual file name. */
     private _name?: string | undefined;
-    /** The size property */
+    /** The length of the attachment in bytes. */
     private _size?: number | undefined;
     /**
      * Instantiates a new attachmentBase and sets the default values.
@@ -17,14 +17,14 @@ export class AttachmentBase extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the contentType property value. The contentType property
+     * Gets the contentType property value. The MIME type.
      * @returns a string
      */
     public get contentType() {
         return this._contentType;
     };
     /**
-     * Sets the contentType property value. The contentType property
+     * Sets the contentType property value. The MIME type.
      * @param value Value to set for the contentType property.
      */
     public set contentType(value: string | undefined) {
@@ -43,28 +43,28 @@ export class AttachmentBase extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @returns a Date
      */
     public get lastModifiedDateTime() {
         return this._lastModifiedDateTime;
     };
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param value Value to set for the lastModifiedDateTime property.
      */
     public set lastModifiedDateTime(value: Date | undefined) {
         this._lastModifiedDateTime = value;
     };
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The display name of the attachment. This does not need to be the actual file name.
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The display name of the attachment. This does not need to be the actual file name.
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {
@@ -83,14 +83,14 @@ export class AttachmentBase extends Entity implements Parsable {
         writer.writeNumberValue("size", this.size);
     };
     /**
-     * Gets the size property value. The size property
+     * Gets the size property value. The length of the attachment in bytes.
      * @returns a integer
      */
     public get size() {
         return this._size;
     };
     /**
-     * Sets the size property value. The size property
+     * Sets the size property value. The length of the attachment in bytes.
      * @param value Value to set for the size property.
      */
     public set size(value: number | undefined) {

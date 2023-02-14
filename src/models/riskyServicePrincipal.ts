@@ -41,7 +41,7 @@ export class RiskyServicePrincipal extends Entity implements Parsable {
         this._appId = value;
     };
     /**
-     * Instantiates a new riskyServicePrincipal and sets the default values.
+     * Instantiates a new RiskyServicePrincipal and sets the default values.
      */
     public constructor() {
         super();

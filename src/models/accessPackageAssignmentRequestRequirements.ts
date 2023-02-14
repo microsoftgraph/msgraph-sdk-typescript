@@ -1,5 +1,6 @@
+import {createAccessPackageQuestionFromDiscriminatorValue} from './createAccessPackageQuestionFromDiscriminatorValue';
 import {createEntitlementManagementScheduleFromDiscriminatorValue} from './createEntitlementManagementScheduleFromDiscriminatorValue';
-import {EntitlementManagementSchedule} from './index';
+import {AccessPackageQuestion, EntitlementManagementSchedule} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder, Parsable {
@@ -19,6 +20,8 @@ export class AccessPackageAssignmentRequestRequirements implements AdditionalDat
     private _policyDisplayName?: string | undefined;
     /** The identifier of the policy that these requirements are associated with. This identifier can be used when creating a new assignment request. */
     private _policyId?: string | undefined;
+    /** The questions property */
+    private _questions?: AccessPackageQuestion[] | undefined;
     /** Schedule restrictions enforced, if any. */
     private _schedule?: EntitlementManagementSchedule | undefined;
     /**
@@ -68,6 +71,7 @@ export class AccessPackageAssignmentRequestRequirements implements AdditionalDat
             "policyDescription": n => { this.policyDescription = n.getStringValue(); },
             "policyDisplayName": n => { this.policyDisplayName = n.getStringValue(); },
             "policyId": n => { this.policyId = n.getStringValue(); },
+            "questions": n => { this.questions = n.getCollectionOfObjectValues<AccessPackageQuestion>(createAccessPackageQuestionFromDiscriminatorValue); },
             "schedule": n => { this.schedule = n.getObjectValue<EntitlementManagementSchedule>(createEntitlementManagementScheduleFromDiscriminatorValue); },
         };
     };
@@ -156,6 +160,20 @@ export class AccessPackageAssignmentRequestRequirements implements AdditionalDat
         this._policyId = value;
     };
     /**
+     * Gets the questions property value. The questions property
+     * @returns a accessPackageQuestion
+     */
+    public get questions() {
+        return this._questions;
+    };
+    /**
+     * Sets the questions property value. The questions property
+     * @param value Value to set for the questions property.
+     */
+    public set questions(value: AccessPackageQuestion[] | undefined) {
+        this._questions = value;
+    };
+    /**
      * Gets the schedule property value. Schedule restrictions enforced, if any.
      * @returns a entitlementManagementSchedule
      */
@@ -182,6 +200,7 @@ export class AccessPackageAssignmentRequestRequirements implements AdditionalDat
         writer.writeStringValue("policyDescription", this.policyDescription);
         writer.writeStringValue("policyDisplayName", this.policyDisplayName);
         writer.writeStringValue("policyId", this.policyId);
+        writer.writeCollectionOfObjectValues<AccessPackageQuestion>("questions", this.questions);
         writer.writeObjectValue<EntitlementManagementSchedule>("schedule", this.schedule);
         writer.writeAdditionalData(this.additionalData);
     };

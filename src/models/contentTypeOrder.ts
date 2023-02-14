@@ -4,7 +4,7 @@ export class ContentTypeOrder implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** Whether this is the default Content Type */
-    private _default_escaped?: boolean | undefined;
+    private _defaultEscaped?: boolean | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /** Specifies the position in which the Content Type appears in the selection UI. */
@@ -33,15 +33,15 @@ export class ContentTypeOrder implements AdditionalDataHolder, Parsable {
      * Gets the default property value. Whether this is the default Content Type
      * @returns a boolean
      */
-    public get default_escaped() {
-        return this._default_escaped;
+    public get defaultEscaped() {
+        return this._defaultEscaped;
     };
     /**
      * Sets the default property value. Whether this is the default Content Type
-     * @param value Value to set for the default_escaped property.
+     * @param value Value to set for the defaultEscaped property.
      */
-    public set default_escaped(value: boolean | undefined) {
-        this._default_escaped = value;
+    public set defaultEscaped(value: boolean | undefined) {
+        this._defaultEscaped = value;
     };
     /**
      * The deserialization information for the current model
@@ -49,7 +49,7 @@ export class ContentTypeOrder implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "default": n => { this.default_escaped = n.getBooleanValue(); },
+            "default": n => { this.defaultEscaped = n.getBooleanValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "position": n => { this.position = n.getNumberValue(); },
         };
@@ -88,7 +88,7 @@ export class ContentTypeOrder implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeBooleanValue("default", this.default_escaped);
+        writer.writeBooleanValue("default", this.defaultEscaped);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeNumberValue("position", this.position);
         writer.writeAdditionalData(this.additionalData);

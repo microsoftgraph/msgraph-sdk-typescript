@@ -118,6 +118,8 @@ export class User extends DirectoryObject implements Parsable {
     private _employeeHireDate?: Date | undefined;
     /** The employee identifier assigned to the user by the organization. The maximum length is 16 characters. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values). */
     private _employeeId?: string | undefined;
+    /** The employeeLeaveDateTime property */
+    private _employeeLeaveDateTime?: Date | undefined;
     /** Represents organization data (e.g. division and costCenter) associated with a user. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in). */
     private _employeeOrgData?: EmployeeOrgData | undefined;
     /** Captures enterprise worker type. For example, Employee, Contractor, Consultant, or Vendor. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in, startsWith). */
@@ -782,6 +784,20 @@ export class User extends DirectoryObject implements Parsable {
         this._employeeId = value;
     };
     /**
+     * Gets the employeeLeaveDateTime property value. The employeeLeaveDateTime property
+     * @returns a Date
+     */
+    public get employeeLeaveDateTime() {
+        return this._employeeLeaveDateTime;
+    };
+    /**
+     * Sets the employeeLeaveDateTime property value. The employeeLeaveDateTime property
+     * @param value Value to set for the employeeLeaveDateTime property.
+     */
+    public set employeeLeaveDateTime(value: Date | undefined) {
+        this._employeeLeaveDateTime = value;
+    };
+    /**
      * Gets the employeeOrgData property value. Represents organization data (e.g. division and costCenter) associated with a user. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in).
      * @returns a employeeOrgData
      */
@@ -934,6 +950,7 @@ export class User extends DirectoryObject implements Parsable {
             "drives": n => { this.drives = n.getCollectionOfObjectValues<Drive>(createDriveFromDiscriminatorValue); },
             "employeeHireDate": n => { this.employeeHireDate = n.getDateValue(); },
             "employeeId": n => { this.employeeId = n.getStringValue(); },
+            "employeeLeaveDateTime": n => { this.employeeLeaveDateTime = n.getDateValue(); },
             "employeeOrgData": n => { this.employeeOrgData = n.getObjectValue<EmployeeOrgData>(createEmployeeOrgDataFromDiscriminatorValue); },
             "employeeType": n => { this.employeeType = n.getStringValue(); },
             "events": n => { this.events = n.getCollectionOfObjectValues<Event>(createEventFromDiscriminatorValue); },
@@ -1929,6 +1946,7 @@ export class User extends DirectoryObject implements Parsable {
         writer.writeCollectionOfObjectValues<Drive>("drives", this.drives);
         writer.writeDateValue("employeeHireDate", this.employeeHireDate);
         writer.writeStringValue("employeeId", this.employeeId);
+        writer.writeDateValue("employeeLeaveDateTime", this.employeeLeaveDateTime);
         writer.writeObjectValue<EmployeeOrgData>("employeeOrgData", this.employeeOrgData);
         writer.writeStringValue("employeeType", this.employeeType);
         writer.writeCollectionOfObjectValues<Event>("events", this.events);

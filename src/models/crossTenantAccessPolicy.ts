@@ -7,7 +7,7 @@ export class CrossTenantAccessPolicy extends PolicyBase implements Parsable {
     /** The allowedCloudEndpoints property */
     private _allowedCloudEndpoints?: string[] | undefined;
     /** Defines the default configuration for how your organization interacts with external Azure Active Directory organizations. */
-    private _default_escaped?: CrossTenantAccessPolicyConfigurationDefault | undefined;
+    private _defaultEscaped?: CrossTenantAccessPolicyConfigurationDefault | undefined;
     /** Defines partner-specific configurations for external Azure Active Directory organizations. */
     private _partners?: CrossTenantAccessPolicyConfigurationPartner[] | undefined;
     /**
@@ -35,15 +35,15 @@ export class CrossTenantAccessPolicy extends PolicyBase implements Parsable {
      * Gets the default property value. Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
      * @returns a crossTenantAccessPolicyConfigurationDefault
      */
-    public get default_escaped() {
-        return this._default_escaped;
+    public get defaultEscaped() {
+        return this._defaultEscaped;
     };
     /**
      * Sets the default property value. Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
-     * @param value Value to set for the default_escaped property.
+     * @param value Value to set for the defaultEscaped property.
      */
-    public set default_escaped(value: CrossTenantAccessPolicyConfigurationDefault | undefined) {
-        this._default_escaped = value;
+    public set defaultEscaped(value: CrossTenantAccessPolicyConfigurationDefault | undefined) {
+        this._defaultEscaped = value;
     };
     /**
      * The deserialization information for the current model
@@ -52,7 +52,7 @@ export class CrossTenantAccessPolicy extends PolicyBase implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "allowedCloudEndpoints": n => { this.allowedCloudEndpoints = n.getCollectionOfPrimitiveValues<string>(); },
-            "default": n => { this.default_escaped = n.getObjectValue<CrossTenantAccessPolicyConfigurationDefault>(createCrossTenantAccessPolicyConfigurationDefaultFromDiscriminatorValue); },
+            "default": n => { this.defaultEscaped = n.getObjectValue<CrossTenantAccessPolicyConfigurationDefault>(createCrossTenantAccessPolicyConfigurationDefaultFromDiscriminatorValue); },
             "partners": n => { this.partners = n.getCollectionOfObjectValues<CrossTenantAccessPolicyConfigurationPartner>(createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue); },
         };
     };
@@ -78,7 +78,7 @@ export class CrossTenantAccessPolicy extends PolicyBase implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfPrimitiveValues<string>("allowedCloudEndpoints", this.allowedCloudEndpoints);
-        writer.writeObjectValue<CrossTenantAccessPolicyConfigurationDefault>("default", this.default_escaped);
+        writer.writeObjectValue<CrossTenantAccessPolicyConfigurationDefault>("default", this.defaultEscaped);
         writer.writeCollectionOfObjectValues<CrossTenantAccessPolicyConfigurationPartner>("partners", this.partners);
     };
 }

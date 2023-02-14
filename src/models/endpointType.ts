@@ -1,5 +1,5 @@
 export enum EndpointType {
-    Default_escaped = "default",
+    DefaultEscaped = "default",
     Voicemail = "voicemail",
     SkypeForBusiness = "skypeForBusiness",
     SkypeForBusinessVoipPhone = "skypeForBusinessVoipPhone",

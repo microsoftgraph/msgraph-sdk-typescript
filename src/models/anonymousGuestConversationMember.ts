@@ -2,17 +2,17 @@ import {ConversationMember} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AnonymousGuestConversationMember extends ConversationMember implements Parsable {
-    /** The anonymousGuestId property */
+    /** Unique ID that represents the user. Note: This ID can change if the user leaves and rejoins the meeting, or joins from a different device. */
     private _anonymousGuestId?: string | undefined;
     /**
-     * Gets the anonymousGuestId property value. The anonymousGuestId property
+     * Gets the anonymousGuestId property value. Unique ID that represents the user. Note: This ID can change if the user leaves and rejoins the meeting, or joins from a different device.
      * @returns a string
      */
     public get anonymousGuestId() {
         return this._anonymousGuestId;
     };
     /**
-     * Sets the anonymousGuestId property value. The anonymousGuestId property
+     * Sets the anonymousGuestId property value. Unique ID that represents the user. Note: This ID can change if the user leaves and rejoins the meeting, or joins from a different device.
      * @param value Value to set for the anonymousGuestId property.
      */
     public set anonymousGuestId(value: string | undefined) {

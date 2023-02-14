@@ -4,15 +4,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AttachmentInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The attachmentType property */
+    /** The type of the attachment. The possible values are: file, item, reference. Required. */
     private _attachmentType?: AttachmentType | undefined;
-    /** The contentType property */
+    /** The nature of the data in the attachment. Optional. */
     private _contentType?: string | undefined;
-    /** The name property */
+    /** The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required. */
     private _name?: string | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The size property */
+    /** The length of the attachment in bytes. Required. */
     private _size?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,14 +29,14 @@ export class AttachmentInfo implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the attachmentType property value. The attachmentType property
+     * Gets the attachmentType property value. The type of the attachment. The possible values are: file, item, reference. Required.
      * @returns a attachmentType
      */
     public get attachmentType() {
         return this._attachmentType;
     };
     /**
-     * Sets the attachmentType property value. The attachmentType property
+     * Sets the attachmentType property value. The type of the attachment. The possible values are: file, item, reference. Required.
      * @param value Value to set for the attachmentType property.
      */
     public set attachmentType(value: AttachmentType | undefined) {
@@ -49,14 +49,14 @@ export class AttachmentInfo implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the contentType property value. The contentType property
+     * Gets the contentType property value. The nature of the data in the attachment. Optional.
      * @returns a string
      */
     public get contentType() {
         return this._contentType;
     };
     /**
-     * Sets the contentType property value. The contentType property
+     * Sets the contentType property value. The nature of the data in the attachment. Optional.
      * @param value Value to set for the contentType property.
      */
     public set contentType(value: string | undefined) {
@@ -76,14 +76,14 @@ export class AttachmentInfo implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {
@@ -117,14 +117,14 @@ export class AttachmentInfo implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the size property value. The size property
+     * Gets the size property value. The length of the attachment in bytes. Required.
      * @returns a int64
      */
     public get size() {
         return this._size;
     };
     /**
-     * Sets the size property value. The size property
+     * Sets the size property value. The length of the attachment in bytes. Required.
      * @param value Value to set for the size property.
      */
     public set size(value: number | undefined) {

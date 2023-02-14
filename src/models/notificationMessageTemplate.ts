@@ -17,6 +17,8 @@ export class NotificationMessageTemplate extends Entity implements Parsable {
     private _lastModifiedDateTime?: Date | undefined;
     /** The list of localized messages for this Notification Message Template. */
     private _localizedNotificationMessages?: LocalizedNotificationMessage[] | undefined;
+    /** List of Scope Tags for this Entity instance. */
+    private _roleScopeTagIds?: string[] | undefined;
     /**
      * Gets the brandingOptions property value. Branding Options for the Message Template. Branding is defined in the Intune Admin Console.
      * @returns a notificationTemplateBrandingOptions
@@ -76,6 +78,7 @@ export class NotificationMessageTemplate extends Entity implements Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "localizedNotificationMessages": n => { this.localizedNotificationMessages = n.getCollectionOfObjectValues<LocalizedNotificationMessage>(createLocalizedNotificationMessageFromDiscriminatorValue); },
+            "roleScopeTagIds": n => { this.roleScopeTagIds = n.getCollectionOfPrimitiveValues<string>(); },
         };
     };
     /**
@@ -107,6 +110,20 @@ export class NotificationMessageTemplate extends Entity implements Parsable {
         this._localizedNotificationMessages = value;
     };
     /**
+     * Gets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
+     * @returns a string
+     */
+    public get roleScopeTagIds() {
+        return this._roleScopeTagIds;
+    };
+    /**
+     * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
+     * @param value Value to set for the roleScopeTagIds property.
+     */
+    public set roleScopeTagIds(value: string[] | undefined) {
+        this._roleScopeTagIds = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -118,5 +135,6 @@ export class NotificationMessageTemplate extends Entity implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeCollectionOfObjectValues<LocalizedNotificationMessage>("localizedNotificationMessages", this.localizedNotificationMessages);
+        writer.writeCollectionOfPrimitiveValues<string>("roleScopeTagIds", this.roleScopeTagIds);
     };
 }

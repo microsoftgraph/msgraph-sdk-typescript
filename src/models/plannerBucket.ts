@@ -5,7 +5,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class PlannerBucket extends Entity implements Parsable {
     /** Name of the bucket. */
     private _name?: string | undefined;
-    /** Hint used to order items of this type in a list view. The format is defined as outlined here. */
+    /** Hint used to order items of this type in a list view. For details about the supported format, see Using order hints in Planner. */
     private _orderHint?: string | undefined;
     /** Plan ID to which the bucket belongs. */
     private _planId?: string | undefined;
@@ -44,14 +44,14 @@ export class PlannerBucket extends Entity implements Parsable {
         this._name = value;
     };
     /**
-     * Gets the orderHint property value. Hint used to order items of this type in a list view. The format is defined as outlined here.
+     * Gets the orderHint property value. Hint used to order items of this type in a list view. For details about the supported format, see Using order hints in Planner.
      * @returns a string
      */
     public get orderHint() {
         return this._orderHint;
     };
     /**
-     * Sets the orderHint property value. Hint used to order items of this type in a list view. The format is defined as outlined here.
+     * Sets the orderHint property value. Hint used to order items of this type in a list view. For details about the supported format, see Using order hints in Planner.
      * @param value Value to set for the orderHint property.
      */
     public set orderHint(value: string | undefined) {

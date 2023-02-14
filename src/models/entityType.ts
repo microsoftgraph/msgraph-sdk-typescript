@@ -8,4 +8,5 @@ export enum EntityType {
     ListItem = "listItem",
     Drive = "drive",
     UnknownFutureValue = "unknownFutureValue",
+    ChatMessage = "chatMessage",
 }

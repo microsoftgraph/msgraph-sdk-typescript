@@ -31,7 +31,7 @@ export class SubscribedSkuItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from subscribedSkus by key (id)
+     * Delete entity from subscribedSkus
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -63,7 +63,7 @@ export class SubscribedSkuItemRequestBuilder {
         return this.requestAdapter?.sendAsync<SubscribedSku>(requestInfo, createSubscribedSkuFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update entity in subscribedSkus by key (id)
+     * Update entity in subscribedSkus
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -81,7 +81,7 @@ export class SubscribedSkuItemRequestBuilder {
         return this.requestAdapter?.sendAsync<SubscribedSku>(requestInfo, createSubscribedSkuFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from subscribedSkus by key (id)
+     * Delete entity from subscribedSkus
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -115,7 +115,7 @@ export class SubscribedSkuItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in subscribedSkus by key (id)
+     * Update entity in subscribedSkus
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

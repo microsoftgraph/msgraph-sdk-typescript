@@ -2,18 +2,22 @@ import {TeamsAppInstallation} from '../../../../models/';
 import {createTeamsAppInstallationFromDiscriminatorValue} from '../../../../models/createTeamsAppInstallationFromDiscriminatorValue';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {MicrosoftGraphUpgradeRequestBuilder} from './microsoftGraphUpgrade/microsoftGraphUpgradeRequestBuilder';
 import {TeamsAppRequestBuilder} from './teamsApp/teamsAppRequestBuilder';
 import {TeamsAppDefinitionRequestBuilder} from './teamsAppDefinition/teamsAppDefinitionRequestBuilder';
 import {TeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration} from './teamsAppInstallationItemRequestBuilderDeleteRequestConfiguration';
 import {TeamsAppInstallationItemRequestBuilderGetRequestConfiguration} from './teamsAppInstallationItemRequestBuilderGetRequestConfiguration';
 import {TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration} from './teamsAppInstallationItemRequestBuilderPatchRequestConfiguration';
-import {UpgradeRequestBuilder} from './upgrade/upgradeRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the installedApps property of the microsoft.graph.chat entity.
  */
 export class TeamsAppInstallationItemRequestBuilder {
+    /** Provides operations to call the upgrade method. */
+    public get microsoftGraphUpgrade(): MicrosoftGraphUpgradeRequestBuilder {
+        return new MicrosoftGraphUpgradeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
@@ -25,10 +29,6 @@ export class TeamsAppInstallationItemRequestBuilder {
     /** Provides operations to manage the teamsAppDefinition property of the microsoft.graph.teamsAppInstallation entity. */
     public get teamsAppDefinition(): TeamsAppDefinitionRequestBuilder {
         return new TeamsAppDefinitionRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the upgrade method. */
-    public get upgrade(): UpgradeRequestBuilder {
-        return new UpgradeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;

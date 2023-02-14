@@ -44,7 +44,7 @@ export class CloudCommunications extends Entity implements Parsable {
         this._calls = value;
     };
     /**
-     * Instantiates a new cloudCommunications and sets the default values.
+     * Instantiates a new CloudCommunications and sets the default values.
      */
     public constructor() {
         super();

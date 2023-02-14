@@ -2,7 +2,7 @@ import {Permission} from '../../../../models/';
 import {createPermissionFromDiscriminatorValue} from '../../../../models/createPermissionFromDiscriminatorValue';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {GrantRequestBuilder} from './grant/grantRequestBuilder';
+import {MicrosoftGraphGrantRequestBuilder} from './microsoftGraphGrant/microsoftGraphGrantRequestBuilder';
 import {PermissionItemRequestBuilderDeleteRequestConfiguration} from './permissionItemRequestBuilderDeleteRequestConfiguration';
 import {PermissionItemRequestBuilderGetRequestConfiguration} from './permissionItemRequestBuilderGetRequestConfiguration';
 import {PermissionItemRequestBuilderPatchRequestConfiguration} from './permissionItemRequestBuilderPatchRequestConfiguration';
@@ -13,8 +13,8 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class PermissionItemRequestBuilder {
     /** Provides operations to call the grant method. */
-    public get grant(): GrantRequestBuilder {
-        return new GrantRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphGrant(): MicrosoftGraphGrantRequestBuilder {
+        return new MicrosoftGraphGrantRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

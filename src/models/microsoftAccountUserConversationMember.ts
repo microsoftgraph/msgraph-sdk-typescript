@@ -2,7 +2,7 @@ import {ConversationMember} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MicrosoftAccountUserConversationMember extends ConversationMember implements Parsable {
-    /** The userId property */
+    /** Microsoft Account ID of the user. */
     private _userId?: string | undefined;
     /**
      * Instantiates a new MicrosoftAccountUserConversationMember and sets the default values.
@@ -30,14 +30,14 @@ export class MicrosoftAccountUserConversationMember extends ConversationMember i
         writer.writeStringValue("userId", this.userId);
     };
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. Microsoft Account ID of the user.
      * @returns a string
      */
     public get userId() {
         return this._userId;
     };
     /**
-     * Sets the userId property value. The userId property
+     * Sets the userId property value. Microsoft Account ID of the user.
      * @param value Value to set for the userId property.
      */
     public set userId(value: string | undefined) {

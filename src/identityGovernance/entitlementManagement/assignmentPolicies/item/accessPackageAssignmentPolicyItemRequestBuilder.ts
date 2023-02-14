@@ -7,6 +7,8 @@ import {AccessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguratio
 import {AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration} from './accessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration';
 import {AccessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration} from './accessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration';
 import {CatalogRequestBuilder} from './catalog/catalogRequestBuilder';
+import {AccessPackageQuestionItemRequestBuilder} from './questions/item/accessPackageQuestionItemRequestBuilder';
+import {QuestionsRequestBuilder} from './questions/questionsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -23,6 +25,10 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder {
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity. */
+    public get questions(): QuestionsRequestBuilder {
+        return new QuestionsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
@@ -88,6 +94,17 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<AccessPackageAssignmentPolicy>(requestInfo, createAccessPackageAssignmentPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
+     * Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity.
+     * @param id Unique identifier of the item
+     * @returns a AccessPackageQuestionItemRequestBuilder
+     */
+    public questionsById(id: string) : AccessPackageQuestionItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessPackageQuestion%2Did"] = id
+        return new AccessPackageQuestionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property assignmentPolicies for identityGovernance

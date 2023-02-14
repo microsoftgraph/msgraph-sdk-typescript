@@ -2,68 +2,100 @@ import {Call} from '../../../models/';
 import {createCallFromDiscriminatorValue} from '../../../models/createCallFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AddLargeGalleryViewRequestBuilder} from './addLargeGalleryView/addLargeGalleryViewRequestBuilder';
-import {AnswerRequestBuilder} from './answer/answerRequestBuilder';
 import {AudioRoutingGroupsRequestBuilder} from './audioRoutingGroups/audioRoutingGroupsRequestBuilder';
 import {AudioRoutingGroupItemRequestBuilder} from './audioRoutingGroups/item/audioRoutingGroupItemRequestBuilder';
 import {CallItemRequestBuilderDeleteRequestConfiguration} from './callItemRequestBuilderDeleteRequestConfiguration';
 import {CallItemRequestBuilderGetRequestConfiguration} from './callItemRequestBuilderGetRequestConfiguration';
 import {CallItemRequestBuilderPatchRequestConfiguration} from './callItemRequestBuilderPatchRequestConfiguration';
-import {CancelMediaProcessingRequestBuilder} from './cancelMediaProcessing/cancelMediaProcessingRequestBuilder';
-import {ChangeScreenSharingRoleRequestBuilder} from './changeScreenSharingRole/changeScreenSharingRoleRequestBuilder';
 import {ContentSharingSessionsRequestBuilder} from './contentSharingSessions/contentSharingSessionsRequestBuilder';
 import {ContentSharingSessionItemRequestBuilder} from './contentSharingSessions/item/contentSharingSessionItemRequestBuilder';
-import {KeepAliveRequestBuilder} from './keepAlive/keepAliveRequestBuilder';
-import {MuteRequestBuilder} from './mute/muteRequestBuilder';
+import {MicrosoftGraphAddLargeGalleryViewRequestBuilder} from './microsoftGraphAddLargeGalleryView/microsoftGraphAddLargeGalleryViewRequestBuilder';
+import {MicrosoftGraphAnswerRequestBuilder} from './microsoftGraphAnswer/microsoftGraphAnswerRequestBuilder';
+import {MicrosoftGraphCancelMediaProcessingRequestBuilder} from './microsoftGraphCancelMediaProcessing/microsoftGraphCancelMediaProcessingRequestBuilder';
+import {MicrosoftGraphChangeScreenSharingRoleRequestBuilder} from './microsoftGraphChangeScreenSharingRole/microsoftGraphChangeScreenSharingRoleRequestBuilder';
+import {MicrosoftGraphKeepAliveRequestBuilder} from './microsoftGraphKeepAlive/microsoftGraphKeepAliveRequestBuilder';
+import {MicrosoftGraphMuteRequestBuilder} from './microsoftGraphMute/microsoftGraphMuteRequestBuilder';
+import {MicrosoftGraphPlayPromptRequestBuilder} from './microsoftGraphPlayPrompt/microsoftGraphPlayPromptRequestBuilder';
+import {MicrosoftGraphRecordResponseRequestBuilder} from './microsoftGraphRecordResponse/microsoftGraphRecordResponseRequestBuilder';
+import {MicrosoftGraphRedirectRequestBuilder} from './microsoftGraphRedirect/microsoftGraphRedirectRequestBuilder';
+import {MicrosoftGraphRejectRequestBuilder} from './microsoftGraphReject/microsoftGraphRejectRequestBuilder';
+import {MicrosoftGraphSubscribeToToneRequestBuilder} from './microsoftGraphSubscribeToTone/microsoftGraphSubscribeToToneRequestBuilder';
+import {MicrosoftGraphTransferRequestBuilder} from './microsoftGraphTransfer/microsoftGraphTransferRequestBuilder';
+import {MicrosoftGraphUnmuteRequestBuilder} from './microsoftGraphUnmute/microsoftGraphUnmuteRequestBuilder';
+import {MicrosoftGraphUpdateRecordingStatusRequestBuilder} from './microsoftGraphUpdateRecordingStatus/microsoftGraphUpdateRecordingStatusRequestBuilder';
 import {CommsOperationItemRequestBuilder} from './operations/item/commsOperationItemRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {ParticipantItemRequestBuilder} from './participants/item/participantItemRequestBuilder';
 import {ParticipantsRequestBuilder} from './participants/participantsRequestBuilder';
-import {PlayPromptRequestBuilder} from './playPrompt/playPromptRequestBuilder';
-import {RecordResponseRequestBuilder} from './recordResponse/recordResponseRequestBuilder';
-import {RedirectRequestBuilder} from './redirect/redirectRequestBuilder';
-import {RejectRequestBuilder} from './reject/rejectRequestBuilder';
-import {SubscribeToToneRequestBuilder} from './subscribeToTone/subscribeToToneRequestBuilder';
-import {TransferRequestBuilder} from './transfer/transferRequestBuilder';
-import {UnmuteRequestBuilder} from './unmute/unmuteRequestBuilder';
-import {UpdateRecordingStatusRequestBuilder} from './updateRecordingStatus/updateRecordingStatusRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
  */
 export class CallItemRequestBuilder {
-    /** Provides operations to call the addLargeGalleryView method. */
-    public get addLargeGalleryView(): AddLargeGalleryViewRequestBuilder {
-        return new AddLargeGalleryViewRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the answer method. */
-    public get answer(): AnswerRequestBuilder {
-        return new AnswerRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity. */
     public get audioRoutingGroups(): AudioRoutingGroupsRequestBuilder {
         return new AudioRoutingGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the cancelMediaProcessing method. */
-    public get cancelMediaProcessing(): CancelMediaProcessingRequestBuilder {
-        return new CancelMediaProcessingRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the changeScreenSharingRole method. */
-    public get changeScreenSharingRole(): ChangeScreenSharingRoleRequestBuilder {
-        return new ChangeScreenSharingRoleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity. */
     public get contentSharingSessions(): ContentSharingSessionsRequestBuilder {
         return new ContentSharingSessionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the addLargeGalleryView method. */
+    public get microsoftGraphAddLargeGalleryView(): MicrosoftGraphAddLargeGalleryViewRequestBuilder {
+        return new MicrosoftGraphAddLargeGalleryViewRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the answer method. */
+    public get microsoftGraphAnswer(): MicrosoftGraphAnswerRequestBuilder {
+        return new MicrosoftGraphAnswerRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the cancelMediaProcessing method. */
+    public get microsoftGraphCancelMediaProcessing(): MicrosoftGraphCancelMediaProcessingRequestBuilder {
+        return new MicrosoftGraphCancelMediaProcessingRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the changeScreenSharingRole method. */
+    public get microsoftGraphChangeScreenSharingRole(): MicrosoftGraphChangeScreenSharingRoleRequestBuilder {
+        return new MicrosoftGraphChangeScreenSharingRoleRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the keepAlive method. */
-    public get keepAlive(): KeepAliveRequestBuilder {
-        return new KeepAliveRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphKeepAlive(): MicrosoftGraphKeepAliveRequestBuilder {
+        return new MicrosoftGraphKeepAliveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the mute method. */
-    public get mute(): MuteRequestBuilder {
-        return new MuteRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphMute(): MicrosoftGraphMuteRequestBuilder {
+        return new MicrosoftGraphMuteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the playPrompt method. */
+    public get microsoftGraphPlayPrompt(): MicrosoftGraphPlayPromptRequestBuilder {
+        return new MicrosoftGraphPlayPromptRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the recordResponse method. */
+    public get microsoftGraphRecordResponse(): MicrosoftGraphRecordResponseRequestBuilder {
+        return new MicrosoftGraphRecordResponseRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the redirect method. */
+    public get microsoftGraphRedirect(): MicrosoftGraphRedirectRequestBuilder {
+        return new MicrosoftGraphRedirectRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the reject method. */
+    public get microsoftGraphReject(): MicrosoftGraphRejectRequestBuilder {
+        return new MicrosoftGraphRejectRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the subscribeToTone method. */
+    public get microsoftGraphSubscribeToTone(): MicrosoftGraphSubscribeToToneRequestBuilder {
+        return new MicrosoftGraphSubscribeToToneRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the transfer method. */
+    public get microsoftGraphTransfer(): MicrosoftGraphTransferRequestBuilder {
+        return new MicrosoftGraphTransferRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the unmute method. */
+    public get microsoftGraphUnmute(): MicrosoftGraphUnmuteRequestBuilder {
+        return new MicrosoftGraphUnmuteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the updateRecordingStatus method. */
+    public get microsoftGraphUpdateRecordingStatus(): MicrosoftGraphUpdateRecordingStatusRequestBuilder {
+        return new MicrosoftGraphUpdateRecordingStatusRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the operations property of the microsoft.graph.call entity. */
     public get operations(): OperationsRequestBuilder {
@@ -75,40 +107,8 @@ export class CallItemRequestBuilder {
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
-    /** Provides operations to call the playPrompt method. */
-    public get playPrompt(): PlayPromptRequestBuilder {
-        return new PlayPromptRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the recordResponse method. */
-    public get recordResponse(): RecordResponseRequestBuilder {
-        return new RecordResponseRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the redirect method. */
-    public get redirect(): RedirectRequestBuilder {
-        return new RedirectRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the reject method. */
-    public get reject(): RejectRequestBuilder {
-        return new RejectRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the subscribeToTone method. */
-    public get subscribeToTone(): SubscribeToToneRequestBuilder {
-        return new SubscribeToToneRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the transfer method. */
-    public get transfer(): TransferRequestBuilder {
-        return new TransferRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the unmute method. */
-    public get unmute(): UnmuteRequestBuilder {
-        return new UnmuteRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the updateRecordingStatus method. */
-    public get updateRecordingStatus(): UpdateRecordingStatusRequestBuilder {
-        return new UpdateRecordingStatusRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
