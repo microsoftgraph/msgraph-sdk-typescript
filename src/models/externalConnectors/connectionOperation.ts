@@ -5,7 +5,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class ConnectionOperation extends Entity implements Parsable {
     /** If status is failed, provides more information about the error that caused the failure. */
-    private _error_escaped?: PublicError | undefined;
+    private _errorEscaped?: PublicError | undefined;
     /** Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed, unknownFutureValue. */
     private _status?: ConnectionOperationStatus | undefined;
     /**
@@ -18,15 +18,15 @@ export class ConnectionOperation extends Entity implements Parsable {
      * Gets the error property value. If status is failed, provides more information about the error that caused the failure.
      * @returns a publicError
      */
-    public get error_escaped() {
-        return this._error_escaped;
+    public get errorEscaped() {
+        return this._errorEscaped;
     };
     /**
      * Sets the error property value. If status is failed, provides more information about the error that caused the failure.
-     * @param value Value to set for the error_escaped property.
+     * @param value Value to set for the errorEscaped property.
      */
-    public set error_escaped(value: PublicError | undefined) {
-        this._error_escaped = value;
+    public set errorEscaped(value: PublicError | undefined) {
+        this._errorEscaped = value;
     };
     /**
      * The deserialization information for the current model
@@ -34,7 +34,7 @@ export class ConnectionOperation extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "error": n => { this.error_escaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); },
+            "error": n => { this.errorEscaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); },
             "status": n => { this.status = n.getEnumValue<ConnectionOperationStatus>(ConnectionOperationStatus); },
         };
     };
@@ -45,7 +45,7 @@ export class ConnectionOperation extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<PublicError>("error", this.error_escaped);
+        writer.writeObjectValue<PublicError>("error", this.errorEscaped);
         writer.writeEnumValue<ConnectionOperationStatus>("status", this.status);
     };
     /**

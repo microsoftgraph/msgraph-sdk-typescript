@@ -5,7 +5,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class WorkbookOperation extends Entity implements Parsable {
     /** The error returned by the operation. */
-    private _error_escaped?: WorkbookOperationError | undefined;
+    private _errorEscaped?: WorkbookOperationError | undefined;
     /** The resource URI for the result. */
     private _resourceLocation?: string | undefined;
     /** The status property */
@@ -20,15 +20,15 @@ export class WorkbookOperation extends Entity implements Parsable {
      * Gets the error property value. The error returned by the operation.
      * @returns a workbookOperationError
      */
-    public get error_escaped() {
-        return this._error_escaped;
+    public get errorEscaped() {
+        return this._errorEscaped;
     };
     /**
      * Sets the error property value. The error returned by the operation.
-     * @param value Value to set for the error_escaped property.
+     * @param value Value to set for the errorEscaped property.
      */
-    public set error_escaped(value: WorkbookOperationError | undefined) {
-        this._error_escaped = value;
+    public set errorEscaped(value: WorkbookOperationError | undefined) {
+        this._errorEscaped = value;
     };
     /**
      * The deserialization information for the current model
@@ -36,7 +36,7 @@ export class WorkbookOperation extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "error": n => { this.error_escaped = n.getObjectValue<WorkbookOperationError>(createWorkbookOperationErrorFromDiscriminatorValue); },
+            "error": n => { this.errorEscaped = n.getObjectValue<WorkbookOperationError>(createWorkbookOperationErrorFromDiscriminatorValue); },
             "resourceLocation": n => { this.resourceLocation = n.getStringValue(); },
             "status": n => { this.status = n.getEnumValue<WorkbookOperationStatus>(WorkbookOperationStatus); },
         };
@@ -62,7 +62,7 @@ export class WorkbookOperation extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<WorkbookOperationError>("error", this.error_escaped);
+        writer.writeObjectValue<WorkbookOperationError>("error", this.errorEscaped);
         writer.writeStringValue("resourceLocation", this.resourceLocation);
         writer.writeEnumValue<WorkbookOperationStatus>("status", this.status);
     };

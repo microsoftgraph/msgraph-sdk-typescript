@@ -5,9 +5,10 @@ import {createAccessPackageAssignmentReviewSettingsFromDiscriminatorValue} from 
 import {createAccessPackageAutomaticRequestSettingsFromDiscriminatorValue} from './createAccessPackageAutomaticRequestSettingsFromDiscriminatorValue';
 import {createAccessPackageCatalogFromDiscriminatorValue} from './createAccessPackageCatalogFromDiscriminatorValue';
 import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
+import {createAccessPackageQuestionFromDiscriminatorValue} from './createAccessPackageQuestionFromDiscriminatorValue';
 import {createExpirationPatternFromDiscriminatorValue} from './createExpirationPatternFromDiscriminatorValue';
 import {createSubjectSetFromDiscriminatorValue} from './createSubjectSetFromDiscriminatorValue';
-import {AccessPackage, AccessPackageAssignmentApprovalSettings, AccessPackageAssignmentRequestorSettings, AccessPackageAssignmentReviewSettings, AccessPackageAutomaticRequestSettings, AccessPackageCatalog, Entity, ExpirationPattern, SubjectSet} from './index';
+import {AccessPackage, AccessPackageAssignmentApprovalSettings, AccessPackageAssignmentRequestorSettings, AccessPackageAssignmentReviewSettings, AccessPackageAutomaticRequestSettings, AccessPackageCatalog, AccessPackageQuestion, Entity, ExpirationPattern, SubjectSet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
@@ -29,6 +30,8 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
     private _expiration?: ExpirationPattern | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _modifiedDateTime?: Date | undefined;
+    /** The questions property */
+    private _questions?: AccessPackageQuestion[] | undefined;
     /** Specifies the settings for approval of requests for an access package assignment through this policy. For example, if approval is required for new requests. */
     private _requestApprovalSettings?: AccessPackageAssignmentApprovalSettings | undefined;
     /** Provides additional settings to select who can create a request for an access package assignment through this policy, and what they can include in their request. */
@@ -170,6 +173,7 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "expiration": n => { this.expiration = n.getObjectValue<ExpirationPattern>(createExpirationPatternFromDiscriminatorValue); },
             "modifiedDateTime": n => { this.modifiedDateTime = n.getDateValue(); },
+            "questions": n => { this.questions = n.getCollectionOfObjectValues<AccessPackageQuestion>(createAccessPackageQuestionFromDiscriminatorValue); },
             "requestApprovalSettings": n => { this.requestApprovalSettings = n.getObjectValue<AccessPackageAssignmentApprovalSettings>(createAccessPackageAssignmentApprovalSettingsFromDiscriminatorValue); },
             "requestorSettings": n => { this.requestorSettings = n.getObjectValue<AccessPackageAssignmentRequestorSettings>(createAccessPackageAssignmentRequestorSettingsFromDiscriminatorValue); },
             "reviewSettings": n => { this.reviewSettings = n.getObjectValue<AccessPackageAssignmentReviewSettings>(createAccessPackageAssignmentReviewSettingsFromDiscriminatorValue); },
@@ -189,6 +193,20 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
      */
     public set modifiedDateTime(value: Date | undefined) {
         this._modifiedDateTime = value;
+    };
+    /**
+     * Gets the questions property value. The questions property
+     * @returns a accessPackageQuestion
+     */
+    public get questions() {
+        return this._questions;
+    };
+    /**
+     * Sets the questions property value. The questions property
+     * @param value Value to set for the questions property.
+     */
+    public set questions(value: AccessPackageQuestion[] | undefined) {
+        this._questions = value;
     };
     /**
      * Gets the requestApprovalSettings property value. Specifies the settings for approval of requests for an access package assignment through this policy. For example, if approval is required for new requests.
@@ -248,6 +266,7 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeObjectValue<ExpirationPattern>("expiration", this.expiration);
         writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
+        writer.writeCollectionOfObjectValues<AccessPackageQuestion>("questions", this.questions);
         writer.writeObjectValue<AccessPackageAssignmentApprovalSettings>("requestApprovalSettings", this.requestApprovalSettings);
         writer.writeObjectValue<AccessPackageAssignmentRequestorSettings>("requestorSettings", this.requestorSettings);
         writer.writeObjectValue<AccessPackageAssignmentReviewSettings>("reviewSettings", this.reviewSettings);

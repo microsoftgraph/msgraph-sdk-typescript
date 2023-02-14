@@ -2,8 +2,8 @@ import {PhoneAuthenticationMethod} from '../../../../models/';
 import {createPhoneAuthenticationMethodFromDiscriminatorValue} from '../../../../models/createPhoneAuthenticationMethodFromDiscriminatorValue';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {DisableSmsSignInRequestBuilder} from './disableSmsSignIn/disableSmsSignInRequestBuilder';
-import {EnableSmsSignInRequestBuilder} from './enableSmsSignIn/enableSmsSignInRequestBuilder';
+import {MicrosoftGraphDisableSmsSignInRequestBuilder} from './microsoftGraphDisableSmsSignIn/microsoftGraphDisableSmsSignInRequestBuilder';
+import {MicrosoftGraphEnableSmsSignInRequestBuilder} from './microsoftGraphEnableSmsSignIn/microsoftGraphEnableSmsSignInRequestBuilder';
 import {PhoneAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration} from './phoneAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
 import {PhoneAuthenticationMethodItemRequestBuilderGetRequestConfiguration} from './phoneAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
 import {PhoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration} from './phoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration';
@@ -14,12 +14,12 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class PhoneAuthenticationMethodItemRequestBuilder {
     /** Provides operations to call the disableSmsSignIn method. */
-    public get disableSmsSignIn(): DisableSmsSignInRequestBuilder {
-        return new DisableSmsSignInRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphDisableSmsSignIn(): MicrosoftGraphDisableSmsSignInRequestBuilder {
+        return new MicrosoftGraphDisableSmsSignInRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the enableSmsSignIn method. */
-    public get enableSmsSignIn(): EnableSmsSignInRequestBuilder {
-        return new EnableSmsSignInRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphEnableSmsSignIn(): MicrosoftGraphEnableSmsSignInRequestBuilder {
+        return new MicrosoftGraphEnableSmsSignInRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

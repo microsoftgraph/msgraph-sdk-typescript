@@ -4,10 +4,10 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ConnectorsRequestBuilder} from './connectors/connectorsRequestBuilder';
 import {PrintConnectorItemRequestBuilder} from './connectors/item/printConnectorItemRequestBuilder';
+import {MicrosoftGraphRestoreFactoryDefaultsRequestBuilder} from './microsoftGraphRestoreFactoryDefaults/microsoftGraphRestoreFactoryDefaultsRequestBuilder';
 import {PrinterItemRequestBuilderDeleteRequestConfiguration} from './printerItemRequestBuilderDeleteRequestConfiguration';
 import {PrinterItemRequestBuilderGetRequestConfiguration} from './printerItemRequestBuilderGetRequestConfiguration';
 import {PrinterItemRequestBuilderPatchRequestConfiguration} from './printerItemRequestBuilderPatchRequestConfiguration';
-import {RestoreFactoryDefaultsRequestBuilder} from './restoreFactoryDefaults/restoreFactoryDefaultsRequestBuilder';
 import {PrinterShareItemRequestBuilder} from './shares/item/printerShareItemRequestBuilder';
 import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
 import {PrintTaskTriggerItemRequestBuilder} from './taskTriggers/item/printTaskTriggerItemRequestBuilder';
@@ -22,14 +22,14 @@ export class PrinterItemRequestBuilder {
     public get connectors(): ConnectorsRequestBuilder {
         return new ConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the restoreFactoryDefaults method. */
+    public get microsoftGraphRestoreFactoryDefaults(): MicrosoftGraphRestoreFactoryDefaultsRequestBuilder {
+        return new MicrosoftGraphRestoreFactoryDefaultsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the restoreFactoryDefaults method. */
-    public get restoreFactoryDefaults(): RestoreFactoryDefaultsRequestBuilder {
-        return new RestoreFactoryDefaultsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the shares property of the microsoft.graph.printer entity. */
     public get shares(): SharesRequestBuilder {
         return new SharesRequestBuilder(this.pathParameters, this.requestAdapter);

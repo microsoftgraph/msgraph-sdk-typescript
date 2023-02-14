@@ -2,9 +2,10 @@ import {createAggregationOptionFromDiscriminatorValue} from './createAggregation
 import {createResultTemplateOptionFromDiscriminatorValue} from './createResultTemplateOptionFromDiscriminatorValue';
 import {createSearchAlterationOptionsFromDiscriminatorValue} from './createSearchAlterationOptionsFromDiscriminatorValue';
 import {createSearchQueryFromDiscriminatorValue} from './createSearchQueryFromDiscriminatorValue';
+import {createSharePointOneDriveOptionsFromDiscriminatorValue} from './createSharePointOneDriveOptionsFromDiscriminatorValue';
 import {createSortPropertyFromDiscriminatorValue} from './createSortPropertyFromDiscriminatorValue';
 import {EntityType} from './entityType';
-import {AggregationOption, ResultTemplateOption, SearchAlterationOptions, SearchQuery, SortProperty} from './index';
+import {AggregationOption, ResultTemplateOption, SearchAlterationOptions, SearchQuery, SharePointOneDriveOptions, SortProperty} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchRequest implements AdditionalDataHolder, Parsable {
@@ -30,8 +31,12 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
     private _query?: SearchQuery | undefined;
     /** The queryAlterationOptions property */
     private _queryAlterationOptions?: SearchAlterationOptions | undefined;
+    /** The region property */
+    private _region?: string | undefined;
     /** The resultTemplateOptions property */
     private _resultTemplateOptions?: ResultTemplateOption | undefined;
+    /** The sharePointOneDriveOptions property */
+    private _sharePointOneDriveOptions?: SharePointOneDriveOptions | undefined;
     /** The size property */
     private _size?: number | undefined;
     /** The sortProperties property */
@@ -170,7 +175,9 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "query": n => { this.query = n.getObjectValue<SearchQuery>(createSearchQueryFromDiscriminatorValue); },
             "queryAlterationOptions": n => { this.queryAlterationOptions = n.getObjectValue<SearchAlterationOptions>(createSearchAlterationOptionsFromDiscriminatorValue); },
+            "region": n => { this.region = n.getStringValue(); },
             "resultTemplateOptions": n => { this.resultTemplateOptions = n.getObjectValue<ResultTemplateOption>(createResultTemplateOptionFromDiscriminatorValue); },
+            "sharePointOneDriveOptions": n => { this.sharePointOneDriveOptions = n.getObjectValue<SharePointOneDriveOptions>(createSharePointOneDriveOptionsFromDiscriminatorValue); },
             "size": n => { this.size = n.getNumberValue(); },
             "sortProperties": n => { this.sortProperties = n.getCollectionOfObjectValues<SortProperty>(createSortPropertyFromDiscriminatorValue); },
         };
@@ -218,6 +225,20 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
         this._queryAlterationOptions = value;
     };
     /**
+     * Gets the region property value. The region property
+     * @returns a string
+     */
+    public get region() {
+        return this._region;
+    };
+    /**
+     * Sets the region property value. The region property
+     * @param value Value to set for the region property.
+     */
+    public set region(value: string | undefined) {
+        this._region = value;
+    };
+    /**
      * Gets the resultTemplateOptions property value. The resultTemplateOptions property
      * @returns a resultTemplateOption
      */
@@ -247,10 +268,26 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<SearchQuery>("query", this.query);
         writer.writeObjectValue<SearchAlterationOptions>("queryAlterationOptions", this.queryAlterationOptions);
+        writer.writeStringValue("region", this.region);
         writer.writeObjectValue<ResultTemplateOption>("resultTemplateOptions", this.resultTemplateOptions);
+        writer.writeObjectValue<SharePointOneDriveOptions>("sharePointOneDriveOptions", this.sharePointOneDriveOptions);
         writer.writeNumberValue("size", this.size);
         writer.writeCollectionOfObjectValues<SortProperty>("sortProperties", this.sortProperties);
         writer.writeAdditionalData(this.additionalData);
+    };
+    /**
+     * Gets the sharePointOneDriveOptions property value. The sharePointOneDriveOptions property
+     * @returns a sharePointOneDriveOptions
+     */
+    public get sharePointOneDriveOptions() {
+        return this._sharePointOneDriveOptions;
+    };
+    /**
+     * Sets the sharePointOneDriveOptions property value. The sharePointOneDriveOptions property
+     * @param value Value to set for the sharePointOneDriveOptions property.
+     */
+    public set sharePointOneDriveOptions(value: SharePointOneDriveOptions | undefined) {
+        this._sharePointOneDriveOptions = value;
     };
     /**
      * Gets the size property value. The size property

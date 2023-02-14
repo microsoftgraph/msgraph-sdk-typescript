@@ -5,24 +5,23 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {ConversationThreadItemRequestBuilderDeleteRequestConfiguration} from './conversationThreadItemRequestBuilderDeleteRequestConfiguration';
 import {ConversationThreadItemRequestBuilderGetRequestConfiguration} from './conversationThreadItemRequestBuilderGetRequestConfiguration';
 import {ConversationThreadItemRequestBuilderPatchRequestConfiguration} from './conversationThreadItemRequestBuilderPatchRequestConfiguration';
-import {PostItemRequestBuilder} from './posts/item/postItemRequestBuilder';
+import {MicrosoftGraphReplyRequestBuilder} from './microsoftGraphReply/microsoftGraphReplyRequestBuilder';
 import {PostsRequestBuilder} from './posts/postsRequestBuilder';
-import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the threads property of the microsoft.graph.conversation entity.
  */
 export class ConversationThreadItemRequestBuilder {
+    /** Provides operations to call the reply method. */
+    public get microsoftGraphReply(): MicrosoftGraphReplyRequestBuilder {
+        return new MicrosoftGraphReplyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the posts property of the microsoft.graph.conversationThread entity. */
     public get posts(): PostsRequestBuilder {
         return new PostsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the reply method. */
-    public get reply(): ReplyRequestBuilder {
-        return new ReplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
@@ -93,13 +92,13 @@ export class ConversationThreadItemRequestBuilder {
     /**
      * Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
      * @param id Unique identifier of the item
-     * @returns a PostItemRequestBuilder
+     * @returns a PostPathItemRequestBuilder
      */
-    public postsById(id: string) : PostItemRequestBuilder {
+    public postsById(id: string) : PostPathItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["post%2Did"] = id
-        return new PostItemRequestBuilder(urlTplParams, this.requestAdapter);
+        return new PostPathItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property threads for groups

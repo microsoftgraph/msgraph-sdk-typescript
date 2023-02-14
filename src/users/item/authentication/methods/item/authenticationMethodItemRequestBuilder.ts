@@ -4,21 +4,21 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AuthenticationMethodItemRequestBuilderGetRequestConfiguration} from './authenticationMethodItemRequestBuilderGetRequestConfiguration';
 import {AuthenticationMethodItemRequestBuilderPatchRequestConfiguration} from './authenticationMethodItemRequestBuilderPatchRequestConfiguration';
-import {ResetPasswordRequestBuilder} from './resetPassword/resetPasswordRequestBuilder';
+import {MicrosoftGraphResetPasswordRequestBuilder} from './microsoftGraphResetPassword/microsoftGraphResetPasswordRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the methods property of the microsoft.graph.authentication entity.
  */
 export class AuthenticationMethodItemRequestBuilder {
+    /** Provides operations to call the resetPassword method. */
+    public get microsoftGraphResetPassword(): MicrosoftGraphResetPasswordRequestBuilder {
+        return new MicrosoftGraphResetPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the resetPassword method. */
-    public get resetPassword(): ResetPasswordRequestBuilder {
-        return new ResetPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

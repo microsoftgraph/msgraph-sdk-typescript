@@ -2,7 +2,7 @@ import {VppToken} from '../../../models/';
 import {createVppTokenFromDiscriminatorValue} from '../../../models/createVppTokenFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {SyncLicensesRequestBuilder} from './syncLicenses/syncLicensesRequestBuilder';
+import {MicrosoftGraphSyncLicensesRequestBuilder} from './microsoftGraphSyncLicenses/microsoftGraphSyncLicensesRequestBuilder';
 import {VppTokenItemRequestBuilderDeleteRequestConfiguration} from './vppTokenItemRequestBuilderDeleteRequestConfiguration';
 import {VppTokenItemRequestBuilderGetRequestConfiguration} from './vppTokenItemRequestBuilderGetRequestConfiguration';
 import {VppTokenItemRequestBuilderPatchRequestConfiguration} from './vppTokenItemRequestBuilderPatchRequestConfiguration';
@@ -12,14 +12,14 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity.
  */
 export class VppTokenItemRequestBuilder {
+    /** Provides operations to call the syncLicenses method. */
+    public get microsoftGraphSyncLicenses(): MicrosoftGraphSyncLicensesRequestBuilder {
+        return new MicrosoftGraphSyncLicensesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the syncLicenses method. */
-    public get syncLicenses(): SyncLicensesRequestBuilder {
-        return new SyncLicensesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

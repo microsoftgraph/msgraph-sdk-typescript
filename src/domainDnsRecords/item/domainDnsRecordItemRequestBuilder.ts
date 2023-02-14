@@ -31,7 +31,7 @@ export class DomainDnsRecordItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from domainDnsRecords by key (id)
+     * Delete entity from domainDnsRecords
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -46,7 +46,7 @@ export class DomainDnsRecordItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get entity from domainDnsRecords by key (id)
+     * Get entity from domainDnsRecords by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DomainDnsRecord
@@ -62,7 +62,7 @@ export class DomainDnsRecordItemRequestBuilder {
         return this.requestAdapter?.sendAsync<DomainDnsRecord>(requestInfo, createDomainDnsRecordFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update entity in domainDnsRecords by key (id)
+     * Update entity in domainDnsRecords
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -80,7 +80,7 @@ export class DomainDnsRecordItemRequestBuilder {
         return this.requestAdapter?.sendAsync<DomainDnsRecord>(requestInfo, createDomainDnsRecordFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from domainDnsRecords by key (id)
+     * Delete entity from domainDnsRecords
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -96,7 +96,7 @@ export class DomainDnsRecordItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from domainDnsRecords by key (id)
+     * Get entity from domainDnsRecords by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -114,7 +114,7 @@ export class DomainDnsRecordItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in domainDnsRecords by key (id)
+     * Update entity in domainDnsRecords
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,5 +1,5 @@
 export enum LocationType {
-    Default_escaped = "default",
+    DefaultEscaped = "default",
     ConferenceRoom = "conferenceRoom",
     HomeAddress = "homeAddress",
     BusinessAddress = "businessAddress",

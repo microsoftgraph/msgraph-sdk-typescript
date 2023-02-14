@@ -2,7 +2,7 @@ import {AttachmentBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TaskFileAttachment extends AttachmentBase implements Parsable {
-    /** The contentBytes property */
+    /** The base64-encoded contents of the file. */
     private _contentBytes?: string | undefined;
     /**
      * Instantiates a new TaskFileAttachment and sets the default values.
@@ -12,14 +12,14 @@ export class TaskFileAttachment extends AttachmentBase implements Parsable {
         this.odataType = "#microsoft.graph.taskFileAttachment";
     };
     /**
-     * Gets the contentBytes property value. The contentBytes property
+     * Gets the contentBytes property value. The base64-encoded contents of the file.
      * @returns a binary
      */
     public get contentBytes() {
         return this._contentBytes;
     };
     /**
-     * Sets the contentBytes property value. The contentBytes property
+     * Sets the contentBytes property value. The base64-encoded contents of the file.
      * @param value Value to set for the contentBytes property.
      */
     public set contentBytes(value: string | undefined) {

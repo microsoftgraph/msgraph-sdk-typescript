@@ -6,7 +6,7 @@ export class ActionResultPart implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
     /** The error that occurred, if any, during the course of the bulk operation. */
-    private _error_escaped?: PublicError | undefined;
+    private _errorEscaped?: PublicError | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /**
@@ -33,15 +33,15 @@ export class ActionResultPart implements AdditionalDataHolder, Parsable {
      * Gets the error property value. The error that occurred, if any, during the course of the bulk operation.
      * @returns a publicError
      */
-    public get error_escaped() {
-        return this._error_escaped;
+    public get errorEscaped() {
+        return this._errorEscaped;
     };
     /**
      * Sets the error property value. The error that occurred, if any, during the course of the bulk operation.
-     * @param value Value to set for the error_escaped property.
+     * @param value Value to set for the errorEscaped property.
      */
-    public set error_escaped(value: PublicError | undefined) {
-        this._error_escaped = value;
+    public set errorEscaped(value: PublicError | undefined) {
+        this._errorEscaped = value;
     };
     /**
      * The deserialization information for the current model
@@ -49,7 +49,7 @@ export class ActionResultPart implements AdditionalDataHolder, Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "error": n => { this.error_escaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); },
+            "error": n => { this.errorEscaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
         };
     };
@@ -73,7 +73,7 @@ export class ActionResultPart implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<PublicError>("error", this.error_escaped);
+        writer.writeObjectValue<PublicError>("error", this.errorEscaped);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeAdditionalData(this.additionalData);
     };

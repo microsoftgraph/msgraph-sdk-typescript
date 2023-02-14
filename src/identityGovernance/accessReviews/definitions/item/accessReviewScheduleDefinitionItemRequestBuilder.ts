@@ -7,7 +7,7 @@ import {AccessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration}
 import {AccessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration} from './accessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration';
 import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
 import {AccessReviewInstanceItemRequestBuilder} from './instances/item/accessReviewInstanceItemRequestBuilder';
-import {StopRequestBuilder} from './stop/stopRequestBuilder';
+import {MicrosoftGraphStopRequestBuilder} from './microsoftGraphStop/microsoftGraphStopRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,14 +18,14 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder {
     public get instances(): InstancesRequestBuilder {
         return new InstancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the stop method. */
+    public get microsoftGraphStop(): MicrosoftGraphStopRequestBuilder {
+        return new MicrosoftGraphStopRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Provides operations to call the stop method. */
-    public get stop(): StopRequestBuilder {
-        return new StopRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

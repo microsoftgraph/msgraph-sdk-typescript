@@ -1,6 +1,6 @@
 
 /**
- * Get attachments from users
+ * A collection of file attachments for the task.
  */
 export class AttachmentBaseItemRequestBuilderGetQueryParameters {
     /** Select properties to be returned */

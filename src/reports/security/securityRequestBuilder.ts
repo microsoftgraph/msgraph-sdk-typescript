@@ -2,9 +2,9 @@ import {SecurityReportsRoot} from '../../models/';
 import {createSecurityReportsRootFromDiscriminatorValue} from '../../models/createSecurityReportsRootFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {GetAttackSimulationRepeatOffendersRequestBuilder} from './getAttackSimulationRepeatOffenders/getAttackSimulationRepeatOffendersRequestBuilder';
-import {GetAttackSimulationSimulationUserCoverageRequestBuilder} from './getAttackSimulationSimulationUserCoverage/getAttackSimulationSimulationUserCoverageRequestBuilder';
-import {GetAttackSimulationTrainingUserCoverageRequestBuilder} from './getAttackSimulationTrainingUserCoverage/getAttackSimulationTrainingUserCoverageRequestBuilder';
+import {MicrosoftGraphGetAttackSimulationRepeatOffendersRequestBuilder} from './microsoftGraphGetAttackSimulationRepeatOffenders/microsoftGraphGetAttackSimulationRepeatOffendersRequestBuilder';
+import {MicrosoftGraphGetAttackSimulationSimulationUserCoverageRequestBuilder} from './microsoftGraphGetAttackSimulationSimulationUserCoverage/microsoftGraphGetAttackSimulationSimulationUserCoverageRequestBuilder';
+import {MicrosoftGraphGetAttackSimulationTrainingUserCoverageRequestBuilder} from './microsoftGraphGetAttackSimulationTrainingUserCoverage/microsoftGraphGetAttackSimulationTrainingUserCoverageRequestBuilder';
 import {SecurityRequestBuilderDeleteRequestConfiguration} from './securityRequestBuilderDeleteRequestConfiguration';
 import {SecurityRequestBuilderGetRequestConfiguration} from './securityRequestBuilderGetRequestConfiguration';
 import {SecurityRequestBuilderPatchRequestConfiguration} from './securityRequestBuilderPatchRequestConfiguration';
@@ -14,6 +14,18 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the security property of the microsoft.graph.reportRoot entity.
  */
 export class SecurityRequestBuilder {
+    /** Provides operations to call the getAttackSimulationRepeatOffenders method. */
+    public get microsoftGraphGetAttackSimulationRepeatOffenders(): MicrosoftGraphGetAttackSimulationRepeatOffendersRequestBuilder {
+        return new MicrosoftGraphGetAttackSimulationRepeatOffendersRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getAttackSimulationSimulationUserCoverage method. */
+    public get microsoftGraphGetAttackSimulationSimulationUserCoverage(): MicrosoftGraphGetAttackSimulationSimulationUserCoverageRequestBuilder {
+        return new MicrosoftGraphGetAttackSimulationSimulationUserCoverageRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getAttackSimulationTrainingUserCoverage method. */
+    public get microsoftGraphGetAttackSimulationTrainingUserCoverage(): MicrosoftGraphGetAttackSimulationTrainingUserCoverageRequestBuilder {
+        return new MicrosoftGraphGetAttackSimulationTrainingUserCoverageRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
@@ -63,27 +75,6 @@ export class SecurityRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<SecurityReportsRoot>(requestInfo, createSecurityReportsRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to call the getAttackSimulationRepeatOffenders method.
-     * @returns a getAttackSimulationRepeatOffendersRequestBuilder
-     */
-    public getAttackSimulationRepeatOffenders() : GetAttackSimulationRepeatOffendersRequestBuilder {
-        return new GetAttackSimulationRepeatOffendersRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
-     * Provides operations to call the getAttackSimulationSimulationUserCoverage method.
-     * @returns a getAttackSimulationSimulationUserCoverageRequestBuilder
-     */
-    public getAttackSimulationSimulationUserCoverage() : GetAttackSimulationSimulationUserCoverageRequestBuilder {
-        return new GetAttackSimulationSimulationUserCoverageRequestBuilder(this.pathParameters, this.requestAdapter);
-    };
-    /**
-     * Provides operations to call the getAttackSimulationTrainingUserCoverage method.
-     * @returns a getAttackSimulationTrainingUserCoverageRequestBuilder
-     */
-    public getAttackSimulationTrainingUserCoverage() : GetAttackSimulationTrainingUserCoverageRequestBuilder {
-        return new GetAttackSimulationTrainingUserCoverageRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Update the navigation property security in reports

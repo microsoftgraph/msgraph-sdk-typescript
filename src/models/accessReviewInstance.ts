@@ -26,7 +26,7 @@ export class AccessReviewInstance extends Entity implements Parsable {
     /** Specifies the status of an accessReview. Possible values: Initializing, NotStarted, Starting, InProgress, Completing, Completed, AutoReviewing, and AutoReviewed. Supports $select, $orderby, and $filter (eq only). Read-only. */
     private _status?: string | undefined;
     /**
-     * Instantiates a new AccessReviewInstance and sets the default values.
+     * Instantiates a new accessReviewInstance and sets the default values.
      */
     public constructor() {
         super();

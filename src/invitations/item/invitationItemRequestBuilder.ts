@@ -36,7 +36,7 @@ export class InvitationItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from invitations by key (id)
+     * Delete entity from invitations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -51,7 +51,7 @@ export class InvitationItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get entity from invitations by key (id)
+     * Get entity from invitations by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Invitation
@@ -67,7 +67,7 @@ export class InvitationItemRequestBuilder {
         return this.requestAdapter?.sendAsync<Invitation>(requestInfo, createInvitationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update entity in invitations by key (id)
+     * Update entity in invitations
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -85,7 +85,7 @@ export class InvitationItemRequestBuilder {
         return this.requestAdapter?.sendAsync<Invitation>(requestInfo, createInvitationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from invitations by key (id)
+     * Delete entity from invitations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -101,7 +101,7 @@ export class InvitationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from invitations by key (id)
+     * Get entity from invitations by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -119,7 +119,7 @@ export class InvitationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in invitations by key (id)
+     * Update entity in invitations
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

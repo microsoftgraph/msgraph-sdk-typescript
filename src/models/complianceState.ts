@@ -9,7 +9,7 @@ export enum ComplianceState {
     /** Conflict with other rules. */
     Conflict = "conflict",
     /** Error. */
-    Error_escaped = "error",
+    ErrorEscaped = "error",
     /** Device is non-compliant but still has access to corporate resources */
     InGracePeriod = "inGracePeriod",
     /** Managed by Config Manager */

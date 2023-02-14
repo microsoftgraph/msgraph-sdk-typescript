@@ -4,9 +4,9 @@ import {createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ImportRequestBuilder} from './import_escaped/importRequestBuilder';
 import {ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration} from './importedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration';
 import {ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration} from './importedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration';
+import {MicrosoftGraphImportRequestBuilder} from './microsoftGraphImport/microsoftGraphImportRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,8 +18,8 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the import method. */
-    public get import_escaped(): ImportRequestBuilder {
-        return new ImportRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphImport(): MicrosoftGraphImportRequestBuilder {
+        return new MicrosoftGraphImportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

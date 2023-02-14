@@ -10,7 +10,7 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
     /** Time when the operation was created. */
     private _createdDateTime?: Date | undefined;
     /** Any error that causes the async operation to fail. */
-    private _error_escaped?: OperationError | undefined;
+    private _errorEscaped?: OperationError | undefined;
     /** Time when the async operation was last updated. */
     private _lastActionDateTime?: Date | undefined;
     /** The operationType property */
@@ -59,15 +59,15 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
      * Gets the error property value. Any error that causes the async operation to fail.
      * @returns a operationError
      */
-    public get error_escaped() {
-        return this._error_escaped;
+    public get errorEscaped() {
+        return this._errorEscaped;
     };
     /**
      * Sets the error property value. Any error that causes the async operation to fail.
-     * @param value Value to set for the error_escaped property.
+     * @param value Value to set for the errorEscaped property.
      */
-    public set error_escaped(value: OperationError | undefined) {
-        this._error_escaped = value;
+    public set errorEscaped(value: OperationError | undefined) {
+        this._errorEscaped = value;
     };
     /**
      * The deserialization information for the current model
@@ -77,7 +77,7 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "attemptsCount": n => { this.attemptsCount = n.getNumberValue(); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
-            "error": n => { this.error_escaped = n.getObjectValue<OperationError>(createOperationErrorFromDiscriminatorValue); },
+            "error": n => { this.errorEscaped = n.getObjectValue<OperationError>(createOperationErrorFromDiscriminatorValue); },
             "lastActionDateTime": n => { this.lastActionDateTime = n.getDateValue(); },
             "operationType": n => { this.operationType = n.getEnumValue<TeamsAsyncOperationType>(TeamsAsyncOperationType); },
             "status": n => { this.status = n.getEnumValue<TeamsAsyncOperationStatus>(TeamsAsyncOperationStatus); },
@@ -122,7 +122,7 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeNumberValue("attemptsCount", this.attemptsCount);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
-        writer.writeObjectValue<OperationError>("error", this.error_escaped);
+        writer.writeObjectValue<OperationError>("error", this.errorEscaped);
         writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
         writer.writeEnumValue<TeamsAsyncOperationType>("operationType", this.operationType);
         writer.writeEnumValue<TeamsAsyncOperationStatus>("status", this.status);

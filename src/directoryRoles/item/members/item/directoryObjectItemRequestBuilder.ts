@@ -1,10 +1,10 @@
-import {ApplicationRequestBuilder} from './application/applicationRequestBuilder';
-import {DeviceRequestBuilder} from './device/deviceRequestBuilder';
-import {GroupRequestBuilder} from './group/groupRequestBuilder';
-import {OrgContactRequestBuilder} from './orgContact/orgContactRequestBuilder';
+import {MicrosoftGraphApplicationRequestBuilder} from './microsoftGraphApplication/microsoftGraphApplicationRequestBuilder';
+import {MicrosoftGraphDeviceRequestBuilder} from './microsoftGraphDevice/microsoftGraphDeviceRequestBuilder';
+import {MicrosoftGraphGroupRequestBuilder} from './microsoftGraphGroup/microsoftGraphGroupRequestBuilder';
+import {MicrosoftGraphOrgContactRequestBuilder} from './microsoftGraphOrgContact/microsoftGraphOrgContactRequestBuilder';
+import {MicrosoftGraphServicePrincipalRequestBuilder} from './microsoftGraphServicePrincipal/microsoftGraphServicePrincipalRequestBuilder';
+import {MicrosoftGraphUserRequestBuilder} from './microsoftGraphUser/microsoftGraphUserRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {ServicePrincipalRequestBuilder} from './servicePrincipal/servicePrincipalRequestBuilder';
-import {UserRequestBuilder} from './user/userRequestBuilder';
 import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
 /**
@@ -12,20 +12,28 @@ import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
  */
 export class DirectoryObjectItemRequestBuilder {
     /** Casts the previous resource to application. */
-    public get application(): ApplicationRequestBuilder {
-        return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphApplication(): MicrosoftGraphApplicationRequestBuilder {
+        return new MicrosoftGraphApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to device. */
-    public get device(): DeviceRequestBuilder {
-        return new DeviceRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphDevice(): MicrosoftGraphDeviceRequestBuilder {
+        return new MicrosoftGraphDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to group. */
-    public get group(): GroupRequestBuilder {
-        return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphGroup(): MicrosoftGraphGroupRequestBuilder {
+        return new MicrosoftGraphGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to orgContact. */
-    public get orgContact(): OrgContactRequestBuilder {
-        return new OrgContactRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphOrgContact(): MicrosoftGraphOrgContactRequestBuilder {
+        return new MicrosoftGraphOrgContactRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Casts the previous resource to servicePrincipal. */
+    public get microsoftGraphServicePrincipal(): MicrosoftGraphServicePrincipalRequestBuilder {
+        return new MicrosoftGraphServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Casts the previous resource to user. */
+    public get microsoftGraphUser(): MicrosoftGraphUserRequestBuilder {
+        return new MicrosoftGraphUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -35,16 +43,8 @@ export class DirectoryObjectItemRequestBuilder {
     }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
-    /** Casts the previous resource to servicePrincipal. */
-    public get servicePrincipal(): ServicePrincipalRequestBuilder {
-        return new ServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
-    /** Casts the previous resource to user. */
-    public get user(): UserRequestBuilder {
-        return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /**
      * Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -3,29 +3,33 @@ import {createContentTypeCollectionResponseFromDiscriminatorValue} from '../../.
 import {createContentTypeFromDiscriminatorValue} from '../../../../../models/createContentTypeFromDiscriminatorValue';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AddCopyRequestBuilder} from './addCopy/addCopyRequestBuilder';
-import {AddCopyFromContentTypeHubRequestBuilder} from './addCopyFromContentTypeHub/addCopyFromContentTypeHubRequestBuilder';
 import {ContentTypesRequestBuilderGetRequestConfiguration} from './contentTypesRequestBuilderGetRequestConfiguration';
 import {ContentTypesRequestBuilderPostRequestConfiguration} from './contentTypesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetCompatibleHubContentTypesRequestBuilder} from './getCompatibleHubContentTypes/getCompatibleHubContentTypesRequestBuilder';
+import {MicrosoftGraphAddCopyRequestBuilder} from './microsoftGraphAddCopy/microsoftGraphAddCopyRequestBuilder';
+import {MicrosoftGraphAddCopyFromContentTypeHubRequestBuilder} from './microsoftGraphAddCopyFromContentTypeHub/microsoftGraphAddCopyFromContentTypeHubRequestBuilder';
+import {MicrosoftGraphGetCompatibleHubContentTypesRequestBuilder} from './microsoftGraphGetCompatibleHubContentTypes/microsoftGraphGetCompatibleHubContentTypesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
  */
 export class ContentTypesRequestBuilder {
-    /** Provides operations to call the addCopy method. */
-    public get addCopy(): AddCopyRequestBuilder {
-        return new AddCopyRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the addCopyFromContentTypeHub method. */
-    public get addCopyFromContentTypeHub(): AddCopyFromContentTypeHubRequestBuilder {
-        return new AddCopyFromContentTypeHubRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the addCopy method. */
+    public get microsoftGraphAddCopy(): MicrosoftGraphAddCopyRequestBuilder {
+        return new MicrosoftGraphAddCopyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the addCopyFromContentTypeHub method. */
+    public get microsoftGraphAddCopyFromContentTypeHub(): MicrosoftGraphAddCopyFromContentTypeHubRequestBuilder {
+        return new MicrosoftGraphAddCopyFromContentTypeHubRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getCompatibleHubContentTypes method. */
+    public get microsoftGraphGetCompatibleHubContentTypes(): MicrosoftGraphGetCompatibleHubContentTypesRequestBuilder {
+        return new MicrosoftGraphGetCompatibleHubContentTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -62,13 +66,6 @@ export class ContentTypesRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<ContentTypeCollectionResponse>(requestInfo, createContentTypeCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to call the getCompatibleHubContentTypes method.
-     * @returns a getCompatibleHubContentTypesRequestBuilder
-     */
-    public getCompatibleHubContentTypes() : GetCompatibleHubContentTypesRequestBuilder {
-        return new GetCompatibleHubContentTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Create a new [contentType][] in a [site][].

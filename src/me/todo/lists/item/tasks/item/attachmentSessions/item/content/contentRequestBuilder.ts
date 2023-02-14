@@ -28,7 +28,7 @@ export class ContentRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get content for the navigation property attachmentSessions from me
+     * The content streams that are uploaded.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ArrayBuffer
@@ -44,7 +44,7 @@ export class ContentRequestBuilder {
         return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update content for the navigation property attachmentSessions in me
+     * The content streams that are uploaded.
      * @param body Binary request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -61,7 +61,7 @@ export class ContentRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get content for the navigation property attachmentSessions from me
+     * The content streams that are uploaded.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -77,7 +77,7 @@ export class ContentRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update content for the navigation property attachmentSessions in me
+     * The content streams that are uploaded.
      * @param body Binary request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

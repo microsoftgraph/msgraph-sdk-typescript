@@ -1,15 +1,18 @@
 import {AccessPackageRequestState} from './accessPackageRequestState';
 import {AccessPackageRequestType} from './accessPackageRequestType';
+import {createAccessPackageAnswerFromDiscriminatorValue} from './createAccessPackageAnswerFromDiscriminatorValue';
 import {createAccessPackageAssignmentFromDiscriminatorValue} from './createAccessPackageAssignmentFromDiscriminatorValue';
 import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
 import {createAccessPackageSubjectFromDiscriminatorValue} from './createAccessPackageSubjectFromDiscriminatorValue';
 import {createEntitlementManagementScheduleFromDiscriminatorValue} from './createEntitlementManagementScheduleFromDiscriminatorValue';
-import {AccessPackage, AccessPackageAssignment, AccessPackageSubject, EntitlementManagementSchedule, Entity} from './index';
+import {AccessPackage, AccessPackageAnswer, AccessPackageAssignment, AccessPackageSubject, EntitlementManagementSchedule, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageAssignmentRequest extends Entity implements Parsable {
     /** The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand. */
     private _accessPackage?: AccessPackage | undefined;
+    /** Answers provided by the requestor to accessPackageQuestions asked of them at the time of request. */
+    private _answers?: AccessPackageAnswer[] | undefined;
     /** For a requestType of userAdd or adminAdd, this is an access package assignment requested to be created.  For a requestType of userRemove, adminRemove or systemRemove, this has the id property of an existing assignment to be removed.   Supports $expand. */
     private _assignment?: AccessPackageAssignment | undefined;
     /** The date of the end of processing, either successful or failure, of a request. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
@@ -39,6 +42,20 @@ export class AccessPackageAssignmentRequest extends Entity implements Parsable {
      */
     public set accessPackage(value: AccessPackage | undefined) {
         this._accessPackage = value;
+    };
+    /**
+     * Gets the answers property value. Answers provided by the requestor to accessPackageQuestions asked of them at the time of request.
+     * @returns a accessPackageAnswer
+     */
+    public get answers() {
+        return this._answers;
+    };
+    /**
+     * Sets the answers property value. Answers provided by the requestor to accessPackageQuestions asked of them at the time of request.
+     * @param value Value to set for the answers property.
+     */
+    public set answers(value: AccessPackageAnswer[] | undefined) {
+        this._answers = value;
     };
     /**
      * Gets the assignment property value. For a requestType of userAdd or adminAdd, this is an access package assignment requested to be created.  For a requestType of userRemove, adminRemove or systemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.
@@ -95,6 +112,7 @@ export class AccessPackageAssignmentRequest extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "accessPackage": n => { this.accessPackage = n.getObjectValue<AccessPackage>(createAccessPackageFromDiscriminatorValue); },
+            "answers": n => { this.answers = n.getCollectionOfObjectValues<AccessPackageAnswer>(createAccessPackageAnswerFromDiscriminatorValue); },
             "assignment": n => { this.assignment = n.getObjectValue<AccessPackageAssignment>(createAccessPackageAssignmentFromDiscriminatorValue); },
             "completedDateTime": n => { this.completedDateTime = n.getDateValue(); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
@@ -155,6 +173,7 @@ export class AccessPackageAssignmentRequest extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeObjectValue<AccessPackage>("accessPackage", this.accessPackage);
+        writer.writeCollectionOfObjectValues<AccessPackageAnswer>("answers", this.answers);
         writer.writeObjectValue<AccessPackageAssignment>("assignment", this.assignment);
         writer.writeDateValue("completedDateTime", this.completedDateTime);
         writer.writeDateValue("createdDateTime", this.createdDateTime);

@@ -2,7 +2,7 @@ import {ConversationMember} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SkypeUserConversationMember extends ConversationMember implements Parsable {
-    /** The skypeId property */
+    /** Skype ID of the user. */
     private _skypeId?: string | undefined;
     /**
      * Instantiates a new SkypeUserConversationMember and sets the default values.
@@ -30,14 +30,14 @@ export class SkypeUserConversationMember extends ConversationMember implements P
         writer.writeStringValue("skypeId", this.skypeId);
     };
     /**
-     * Gets the skypeId property value. The skypeId property
+     * Gets the skypeId property value. Skype ID of the user.
      * @returns a string
      */
     public get skypeId() {
         return this._skypeId;
     };
     /**
-     * Sets the skypeId property value. The skypeId property
+     * Sets the skypeId property value. Skype ID of the user.
      * @param value Value to set for the skypeId property.
      */
     public set skypeId(value: string | undefined) {

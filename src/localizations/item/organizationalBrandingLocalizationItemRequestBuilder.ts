@@ -46,7 +46,7 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from localizations by key (id)
+     * Delete entity from localizations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -61,7 +61,7 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get entity from localizations by key (id)
+     * Get entity from localizations by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OrganizationalBrandingLocalization
@@ -77,7 +77,7 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder {
         return this.requestAdapter?.sendAsync<OrganizationalBrandingLocalization>(requestInfo, createOrganizationalBrandingLocalizationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update entity in localizations by key (id)
+     * Update entity in localizations
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -95,7 +95,7 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder {
         return this.requestAdapter?.sendAsync<OrganizationalBrandingLocalization>(requestInfo, createOrganizationalBrandingLocalizationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete entity from localizations by key (id)
+     * Delete entity from localizations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -111,7 +111,7 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from localizations by key (id)
+     * Get entity from localizations by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -129,7 +129,7 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in localizations by key (id)
+     * Update entity in localizations
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

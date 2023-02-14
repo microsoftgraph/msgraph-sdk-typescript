@@ -63,7 +63,7 @@ export class AssignedToTaskBoardFormatRequestBuilder {
         return this.requestAdapter?.sendAsync<PlannerAssignedToTaskBoardTaskFormat>(requestInfo, createPlannerAssignedToTaskBoardTaskFormatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the properties of **plannerAssignedToTaskBoardTaskFormat** object.
+     * Update the navigation property assignedToTaskBoardFormat in planner
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -116,7 +116,7 @@ export class AssignedToTaskBoardFormatRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of **plannerAssignedToTaskBoardTaskFormat** object.
+     * Update the navigation property assignedToTaskBoardFormat in planner
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

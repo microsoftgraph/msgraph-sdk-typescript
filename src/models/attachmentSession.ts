@@ -2,11 +2,11 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AttachmentSession extends Entity implements Parsable {
-    /** The content property */
+    /** The content streams that are uploaded. */
     private _content?: string | undefined;
-    /** The expirationDateTime property */
+    /** The date and time in UTC when the upload session will expire. The complete file must be uploaded before this expiration time is reached. */
     private _expirationDateTime?: Date | undefined;
-    /** The nextExpectedRanges property */
+    /** Indicates a single value {start} that represents the location in the file where the next upload should begin. */
     private _nextExpectedRanges?: string[] | undefined;
     /**
      * Instantiates a new attachmentSession and sets the default values.
@@ -15,28 +15,28 @@ export class AttachmentSession extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the content property value. The content property
+     * Gets the content property value. The content streams that are uploaded.
      * @returns a binary
      */
     public get content() {
         return this._content;
     };
     /**
-     * Sets the content property value. The content property
+     * Sets the content property value. The content streams that are uploaded.
      * @param value Value to set for the content property.
      */
     public set content(value: string | undefined) {
         this._content = value;
     };
     /**
-     * Gets the expirationDateTime property value. The expirationDateTime property
+     * Gets the expirationDateTime property value. The date and time in UTC when the upload session will expire. The complete file must be uploaded before this expiration time is reached.
      * @returns a Date
      */
     public get expirationDateTime() {
         return this._expirationDateTime;
     };
     /**
-     * Sets the expirationDateTime property value. The expirationDateTime property
+     * Sets the expirationDateTime property value. The date and time in UTC when the upload session will expire. The complete file must be uploaded before this expiration time is reached.
      * @param value Value to set for the expirationDateTime property.
      */
     public set expirationDateTime(value: Date | undefined) {
@@ -54,14 +54,14 @@ export class AttachmentSession extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the nextExpectedRanges property value. The nextExpectedRanges property
+     * Gets the nextExpectedRanges property value. Indicates a single value {start} that represents the location in the file where the next upload should begin.
      * @returns a string
      */
     public get nextExpectedRanges() {
         return this._nextExpectedRanges;
     };
     /**
-     * Sets the nextExpectedRanges property value. The nextExpectedRanges property
+     * Sets the nextExpectedRanges property value. Indicates a single value {start} that represents the location in the file where the next upload should begin.
      * @param value Value to set for the nextExpectedRanges property.
      */
     public set nextExpectedRanges(value: string[] | undefined) {

@@ -8,4 +8,6 @@ export enum DeviceManagementExchangeConnectorType {
     ServiceToService = "serviceToService",
     /** Connects to O365 Dedicated Exchange environment. */
     Dedicated = "dedicated",
+    /** Evolvable enumeration sentinel value. Do not use. */
+    UnknownFutureValue = "unknownFutureValue",
 }

@@ -1,0 +1,7 @@
+import {AccessPackageTextInputQuestion} from './index';
+import {ParseNode} from '@microsoft/kiota-abstractions';
+
+export function createAccessPackageTextInputQuestionFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessPackageTextInputQuestion {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return new AccessPackageTextInputQuestion();
+}

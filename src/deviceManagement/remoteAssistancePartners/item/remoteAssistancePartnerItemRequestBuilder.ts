@@ -2,8 +2,8 @@ import {RemoteAssistancePartner} from '../../../models/';
 import {createRemoteAssistancePartnerFromDiscriminatorValue} from '../../../models/createRemoteAssistancePartnerFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {BeginOnboardingRequestBuilder} from './beginOnboarding/beginOnboardingRequestBuilder';
-import {DisconnectRequestBuilder} from './disconnect/disconnectRequestBuilder';
+import {MicrosoftGraphBeginOnboardingRequestBuilder} from './microsoftGraphBeginOnboarding/microsoftGraphBeginOnboardingRequestBuilder';
+import {MicrosoftGraphDisconnectRequestBuilder} from './microsoftGraphDisconnect/microsoftGraphDisconnectRequestBuilder';
 import {RemoteAssistancePartnerItemRequestBuilderDeleteRequestConfiguration} from './remoteAssistancePartnerItemRequestBuilderDeleteRequestConfiguration';
 import {RemoteAssistancePartnerItemRequestBuilderGetRequestConfiguration} from './remoteAssistancePartnerItemRequestBuilderGetRequestConfiguration';
 import {RemoteAssistancePartnerItemRequestBuilderPatchRequestConfiguration} from './remoteAssistancePartnerItemRequestBuilderPatchRequestConfiguration';
@@ -14,12 +14,12 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class RemoteAssistancePartnerItemRequestBuilder {
     /** Provides operations to call the beginOnboarding method. */
-    public get beginOnboarding(): BeginOnboardingRequestBuilder {
-        return new BeginOnboardingRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphBeginOnboarding(): MicrosoftGraphBeginOnboardingRequestBuilder {
+        return new MicrosoftGraphBeginOnboardingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the disconnect method. */
-    public get disconnect(): DisconnectRequestBuilder {
-        return new DisconnectRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphDisconnect(): MicrosoftGraphDisconnectRequestBuilder {
+        return new MicrosoftGraphDisconnectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

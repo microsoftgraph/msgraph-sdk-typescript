@@ -2,9 +2,9 @@ import {ConversationMember} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SkypeForBusinessUserConversationMember extends ConversationMember implements Parsable {
-    /** The tenantId property */
+    /** ID of the tenant that the user belongs to. */
     private _tenantId?: string | undefined;
-    /** The userId property */
+    /** Azure Active Directory ID of the user. */
     private _userId?: string | undefined;
     /**
      * Instantiates a new SkypeForBusinessUserConversationMember and sets the default values.
@@ -34,28 +34,28 @@ export class SkypeForBusinessUserConversationMember extends ConversationMember i
         writer.writeStringValue("userId", this.userId);
     };
     /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. ID of the tenant that the user belongs to.
      * @returns a string
      */
     public get tenantId() {
         return this._tenantId;
     };
     /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. ID of the tenant that the user belongs to.
      * @param value Value to set for the tenantId property.
      */
     public set tenantId(value: string | undefined) {
         this._tenantId = value;
     };
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. Azure Active Directory ID of the user.
      * @returns a string
      */
     public get userId() {
         return this._userId;
     };
     /**
-     * Sets the userId property value. The userId property
+     * Sets the userId property value. Azure Active Directory ID of the user.
      * @param value Value to set for the userId property.
      */
     public set userId(value: string | undefined) {

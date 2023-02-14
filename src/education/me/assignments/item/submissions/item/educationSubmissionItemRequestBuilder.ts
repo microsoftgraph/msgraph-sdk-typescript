@@ -5,58 +5,58 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {EducationSubmissionItemRequestBuilderDeleteRequestConfiguration} from './educationSubmissionItemRequestBuilderDeleteRequestConfiguration';
 import {EducationSubmissionItemRequestBuilderGetRequestConfiguration} from './educationSubmissionItemRequestBuilderGetRequestConfiguration';
 import {EducationSubmissionItemRequestBuilderPatchRequestConfiguration} from './educationSubmissionItemRequestBuilderPatchRequestConfiguration';
+import {MicrosoftGraphReassignRequestBuilder} from './microsoftGraphReassign/microsoftGraphReassignRequestBuilder';
+import {MicrosoftGraphReturnRequestBuilder} from './microsoftGraphReturn/microsoftGraphReturnRequestBuilder';
+import {MicrosoftGraphSetUpResourcesFolderRequestBuilder} from './microsoftGraphSetUpResourcesFolder/microsoftGraphSetUpResourcesFolderRequestBuilder';
+import {MicrosoftGraphSubmitRequestBuilder} from './microsoftGraphSubmit/microsoftGraphSubmitRequestBuilder';
+import {MicrosoftGraphUnsubmitRequestBuilder} from './microsoftGraphUnsubmit/microsoftGraphUnsubmitRequestBuilder';
 import {EducationOutcomeItemRequestBuilder} from './outcomes/item/educationOutcomeItemRequestBuilder';
 import {OutcomesRequestBuilder} from './outcomes/outcomesRequestBuilder';
-import {ReassignRequestBuilder} from './reassign/reassignRequestBuilder';
 import {EducationSubmissionResourceItemRequestBuilder as Ie6e240bf6d2125d4ac92291b6d932203325a569b5806e7039f13fd9954c22f62} from './resources/item/educationSubmissionResourceItemRequestBuilder';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
-import {ReturnRequestBuilder} from './return_escaped/returnRequestBuilder';
-import {SetUpResourcesFolderRequestBuilder} from './setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
-import {SubmitRequestBuilder} from './submit/submitRequestBuilder';
 import {EducationSubmissionResourceItemRequestBuilder as I2613a71cf08facb0dc7897f83d5c2867ab86bf3e35f7eb4c0a1ad857df67e052} from './submittedResources/item/educationSubmissionResourceItemRequestBuilder';
 import {SubmittedResourcesRequestBuilder} from './submittedResources/submittedResourcesRequestBuilder';
-import {UnsubmitRequestBuilder} from './unsubmit/unsubmitRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
  */
 export class EducationSubmissionItemRequestBuilder {
+    /** Provides operations to call the reassign method. */
+    public get microsoftGraphReassign(): MicrosoftGraphReassignRequestBuilder {
+        return new MicrosoftGraphReassignRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the return method. */
+    public get microsoftGraphReturn(): MicrosoftGraphReturnRequestBuilder {
+        return new MicrosoftGraphReturnRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the setUpResourcesFolder method. */
+    public get microsoftGraphSetUpResourcesFolder(): MicrosoftGraphSetUpResourcesFolderRequestBuilder {
+        return new MicrosoftGraphSetUpResourcesFolderRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the submit method. */
+    public get microsoftGraphSubmit(): MicrosoftGraphSubmitRequestBuilder {
+        return new MicrosoftGraphSubmitRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the unsubmit method. */
+    public get microsoftGraphUnsubmit(): MicrosoftGraphUnsubmitRequestBuilder {
+        return new MicrosoftGraphUnsubmitRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity. */
     public get outcomes(): OutcomesRequestBuilder {
         return new OutcomesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
-    /** Provides operations to call the reassign method. */
-    public get reassign(): ReassignRequestBuilder {
-        return new ReassignRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the resources property of the microsoft.graph.educationSubmission entity. */
     public get resources(): ResourcesRequestBuilder {
         return new ResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the return method. */
-    public get return_escaped(): ReturnRequestBuilder {
-        return new ReturnRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the setUpResourcesFolder method. */
-    public get setUpResourcesFolder(): SetUpResourcesFolderRequestBuilder {
-        return new SetUpResourcesFolderRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the submit method. */
-    public get submit(): SubmitRequestBuilder {
-        return new SubmitRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity. */
     public get submittedResources(): SubmittedResourcesRequestBuilder {
         return new SubmittedResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the unsubmit method. */
-    public get unsubmit(): UnsubmitRequestBuilder {
-        return new UnsubmitRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;

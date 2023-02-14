@@ -31,7 +31,7 @@ export class Site extends BaseItem implements Parsable {
     /** The collection of drives (document libraries) under this site. */
     private _drives?: Drive[] | undefined;
     /** The error property */
-    private _error_escaped?: PublicError | undefined;
+    private _errorEscaped?: PublicError | undefined;
     /** The externalColumns property */
     private _externalColumns?: ColumnDefinition[] | undefined;
     /** Used to address any item contained in this site. This collection can't be enumerated. */
@@ -151,15 +151,15 @@ export class Site extends BaseItem implements Parsable {
      * Gets the error property value. The error property
      * @returns a publicError
      */
-    public get error_escaped() {
-        return this._error_escaped;
+    public get errorEscaped() {
+        return this._errorEscaped;
     };
     /**
      * Sets the error property value. The error property
-     * @param value Value to set for the error_escaped property.
+     * @param value Value to set for the errorEscaped property.
      */
-    public set error_escaped(value: PublicError | undefined) {
-        this._error_escaped = value;
+    public set errorEscaped(value: PublicError | undefined) {
+        this._errorEscaped = value;
     };
     /**
      * Gets the externalColumns property value. The externalColumns property
@@ -187,7 +187,7 @@ export class Site extends BaseItem implements Parsable {
             "displayName": n => { this.displayName = n.getStringValue(); },
             "drive": n => { this.drive = n.getObjectValue<Drive>(createDriveFromDiscriminatorValue); },
             "drives": n => { this.drives = n.getCollectionOfObjectValues<Drive>(createDriveFromDiscriminatorValue); },
-            "error": n => { this.error_escaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); },
+            "error": n => { this.errorEscaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); },
             "externalColumns": n => { this.externalColumns = n.getCollectionOfObjectValues<ColumnDefinition>(createColumnDefinitionFromDiscriminatorValue); },
             "items": n => { this.items = n.getCollectionOfObjectValues<BaseItem>(createBaseItemFromDiscriminatorValue); },
             "lists": n => { this.lists = n.getCollectionOfObjectValues<List>(createListFromDiscriminatorValue); },
@@ -299,7 +299,7 @@ export class Site extends BaseItem implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeObjectValue<Drive>("drive", this.drive);
         writer.writeCollectionOfObjectValues<Drive>("drives", this.drives);
-        writer.writeObjectValue<PublicError>("error", this.error_escaped);
+        writer.writeObjectValue<PublicError>("error", this.errorEscaped);
         writer.writeCollectionOfObjectValues<ColumnDefinition>("externalColumns", this.externalColumns);
         writer.writeCollectionOfObjectValues<BaseItem>("items", this.items);
         writer.writeCollectionOfObjectValues<List>("lists", this.lists);

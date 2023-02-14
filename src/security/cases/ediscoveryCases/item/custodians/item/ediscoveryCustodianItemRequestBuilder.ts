@@ -2,19 +2,19 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EdiscoveryCustodian} from '../../../../../../models/security/';
 import {createEdiscoveryCustodianFromDiscriminatorValue} from '../../../../../../models/security/createEdiscoveryCustodianFromDiscriminatorValue';
-import {ActivateRequestBuilder} from './activate/activateRequestBuilder';
-import {ApplyHoldRequestBuilder} from './applyHold/applyHoldRequestBuilder';
 import {EdiscoveryCustodianItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryCustodianItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoveryCustodianItemRequestBuilderGetRequestConfiguration} from './ediscoveryCustodianItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryCustodianItemRequestBuilderPatchRequestConfiguration} from './ediscoveryCustodianItemRequestBuilderPatchRequestConfiguration';
 import {LastIndexOperationRequestBuilder} from './lastIndexOperation/lastIndexOperationRequestBuilder';
-import {ReleaseRequestBuilder} from './release/releaseRequestBuilder';
-import {RemoveHoldRequestBuilder} from './removeHold/removeHoldRequestBuilder';
+import {MicrosoftGraphSecurityActivateRequestBuilder} from './microsoftGraphSecurityActivate/microsoftGraphSecurityActivateRequestBuilder';
+import {MicrosoftGraphSecurityApplyHoldRequestBuilder} from './microsoftGraphSecurityApplyHold/microsoftGraphSecurityApplyHoldRequestBuilder';
+import {MicrosoftGraphSecurityReleaseRequestBuilder} from './microsoftGraphSecurityRelease/microsoftGraphSecurityReleaseRequestBuilder';
+import {MicrosoftGraphSecurityRemoveHoldRequestBuilder} from './microsoftGraphSecurityRemoveHold/microsoftGraphSecurityRemoveHoldRequestBuilder';
+import {MicrosoftGraphSecurityUpdateIndexRequestBuilder} from './microsoftGraphSecurityUpdateIndex/microsoftGraphSecurityUpdateIndexRequestBuilder';
 import {SiteSourceItemRequestBuilder} from './siteSources/item/siteSourceItemRequestBuilder';
 import {SiteSourcesRequestBuilder} from './siteSources/siteSourcesRequestBuilder';
 import {UnifiedGroupSourceItemRequestBuilder} from './unifiedGroupSources/item/unifiedGroupSourceItemRequestBuilder';
 import {UnifiedGroupSourcesRequestBuilder} from './unifiedGroupSources/unifiedGroupSourcesRequestBuilder';
-import {UpdateIndexRequestBuilder} from './updateIndex/updateIndexRequestBuilder';
 import {UserSourceItemRequestBuilder} from './userSources/item/userSourceItemRequestBuilder';
 import {UserSourcesRequestBuilder} from './userSources/userSourcesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -23,28 +23,32 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
  */
 export class EdiscoveryCustodianItemRequestBuilder {
-    /** Provides operations to call the activate method. */
-    public get activate(): ActivateRequestBuilder {
-        return new ActivateRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the applyHold method. */
-    public get applyHold(): ApplyHoldRequestBuilder {
-        return new ApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the lastIndexOperation property of the microsoft.graph.security.ediscoveryCustodian entity. */
     public get lastIndexOperation(): LastIndexOperationRequestBuilder {
         return new LastIndexOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the activate method. */
+    public get microsoftGraphSecurityActivate(): MicrosoftGraphSecurityActivateRequestBuilder {
+        return new MicrosoftGraphSecurityActivateRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the applyHold method. */
+    public get microsoftGraphSecurityApplyHold(): MicrosoftGraphSecurityApplyHoldRequestBuilder {
+        return new MicrosoftGraphSecurityApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the release method. */
-    public get release(): ReleaseRequestBuilder {
-        return new ReleaseRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphSecurityRelease(): MicrosoftGraphSecurityReleaseRequestBuilder {
+        return new MicrosoftGraphSecurityReleaseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the removeHold method. */
-    public get removeHold(): RemoveHoldRequestBuilder {
-        return new RemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphSecurityRemoveHold(): MicrosoftGraphSecurityRemoveHoldRequestBuilder {
+        return new MicrosoftGraphSecurityRemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the updateIndex method. */
+    public get microsoftGraphSecurityUpdateIndex(): MicrosoftGraphSecurityUpdateIndexRequestBuilder {
+        return new MicrosoftGraphSecurityUpdateIndexRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Path parameters for the request */
+    private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity. */
@@ -54,10 +58,6 @@ export class EdiscoveryCustodianItemRequestBuilder {
     /** Provides operations to manage the unifiedGroupSources property of the microsoft.graph.security.ediscoveryCustodian entity. */
     public get unifiedGroupSources(): UnifiedGroupSourcesRequestBuilder {
         return new UnifiedGroupSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the updateIndex method. */
-    public get updateIndex(): UpdateIndexRequestBuilder {
-        return new UpdateIndexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
