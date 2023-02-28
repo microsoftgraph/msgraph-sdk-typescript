@@ -42,7 +42,7 @@ export class Group extends DirectoryObject implements Parsable {
     private _classification?: string | undefined;
     /** The group's conversations. */
     private _conversations?: Conversation[] | undefined;
-    /** Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only. */
+    /** Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Read-only. */
     private _createdDateTime?: Date | undefined;
     /** The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only. */
     private _createdOnBehalfOf?: DirectoryObject | undefined;
@@ -279,7 +279,7 @@ export class Group extends DirectoryObject implements Parsable {
         this._classification = value;
     };
     /**
-     * Instantiates a new group and sets the default values.
+     * Instantiates a new Group and sets the default values.
      */
     public constructor() {
         super();
@@ -300,14 +300,14 @@ export class Group extends DirectoryObject implements Parsable {
         this._conversations = value;
     };
     /**
-     * Gets the createdDateTime property value. Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.
+     * Gets the createdDateTime property value. Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Read-only.
      * @returns a Date
      */
     public get createdDateTime() {
         return this._createdDateTime;
     };
     /**
-     * Sets the createdDateTime property value. Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.
+     * Sets the createdDateTime property value. Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Read-only.
      * @param value Value to set for the createdDateTime property.
      */
     public set createdDateTime(value: Date | undefined) {

@@ -5,6 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/crea
 import {ActivityBasedTimeoutPoliciesRequestBuilder} from './activityBasedTimeoutPolicies/activityBasedTimeoutPoliciesRequestBuilder';
 import {ActivityBasedTimeoutPolicyItemRequestBuilder} from './activityBasedTimeoutPolicies/item/activityBasedTimeoutPolicyItemRequestBuilder';
 import {AdminConsentRequestPolicyRequestBuilder} from './adminConsentRequestPolicy/adminConsentRequestPolicyRequestBuilder';
+import {AppManagementPoliciesRequestBuilder} from './appManagementPolicies/appManagementPoliciesRequestBuilder';
+import {AppManagementPolicyItemRequestBuilder} from './appManagementPolicies/item/appManagementPolicyItemRequestBuilder';
 import {AuthenticationFlowsPolicyRequestBuilder} from './authenticationFlowsPolicy/authenticationFlowsPolicyRequestBuilder';
 import {AuthenticationMethodsPolicyRequestBuilder} from './authenticationMethodsPolicy/authenticationMethodsPolicyRequestBuilder';
 import {AuthorizationPolicyRequestBuilder} from './authorizationPolicy/authorizationPolicyRequestBuilder';
@@ -13,6 +15,7 @@ import {ClaimsMappingPolicyItemRequestBuilder} from './claimsMappingPolicies/ite
 import {ConditionalAccessPoliciesRequestBuilder} from './conditionalAccessPolicies/conditionalAccessPoliciesRequestBuilder';
 import {ConditionalAccessPolicyItemRequestBuilder} from './conditionalAccessPolicies/item/conditionalAccessPolicyItemRequestBuilder';
 import {CrossTenantAccessPolicyRequestBuilder} from './crossTenantAccessPolicy/crossTenantAccessPolicyRequestBuilder';
+import {DefaultAppManagementPolicyRequestBuilder} from './defaultAppManagementPolicy/defaultAppManagementPolicyRequestBuilder';
 import {FeatureRolloutPoliciesRequestBuilder} from './featureRolloutPolicies/featureRolloutPoliciesRequestBuilder';
 import {FeatureRolloutPolicyItemRequestBuilder} from './featureRolloutPolicies/item/featureRolloutPolicyItemRequestBuilder';
 import {HomeRealmDiscoveryPoliciesRequestBuilder} from './homeRealmDiscoveryPolicies/homeRealmDiscoveryPoliciesRequestBuilder';
@@ -44,6 +47,10 @@ export class PoliciesRequestBuilder {
     public get adminConsentRequestPolicy(): AdminConsentRequestPolicyRequestBuilder {
         return new AdminConsentRequestPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity. */
+    public get appManagementPolicies(): AppManagementPoliciesRequestBuilder {
+        return new AppManagementPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the authenticationFlowsPolicy property of the microsoft.graph.policyRoot entity. */
     public get authenticationFlowsPolicy(): AuthenticationFlowsPolicyRequestBuilder {
         return new AuthenticationFlowsPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -67,6 +74,10 @@ export class PoliciesRequestBuilder {
     /** Provides operations to manage the crossTenantAccessPolicy property of the microsoft.graph.policyRoot entity. */
     public get crossTenantAccessPolicy(): CrossTenantAccessPolicyRequestBuilder {
         return new CrossTenantAccessPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the defaultAppManagementPolicy property of the microsoft.graph.policyRoot entity. */
+    public get defaultAppManagementPolicy(): DefaultAppManagementPolicyRequestBuilder {
+        return new DefaultAppManagementPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity. */
     public get featureRolloutPolicies(): FeatureRolloutPoliciesRequestBuilder {
@@ -116,6 +127,17 @@ export class PoliciesRequestBuilder {
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["activityBasedTimeoutPolicy%2Did"] = id
         return new ActivityBasedTimeoutPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity.
+     * @param id Unique identifier of the item
+     * @returns a AppManagementPolicyItemRequestBuilder
+     */
+    public appManagementPoliciesById(id: string) : AppManagementPolicyItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["appManagementPolicy%2Did"] = id
+        return new AppManagementPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.

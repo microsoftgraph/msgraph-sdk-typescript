@@ -4,7 +4,7 @@ import {createTeamFromDiscriminatorValue} from '../models/createTeamFromDiscrimi
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphGetAllMessagesRequestBuilder} from './microsoftGraphGetAllMessages/microsoftGraphGetAllMessagesRequestBuilder';
+import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
 import {TeamsRequestBuilderGetRequestConfiguration} from './teamsRequestBuilderGetRequestConfiguration';
 import {TeamsRequestBuilderPostRequestConfiguration} from './teamsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -18,8 +18,8 @@ export class TeamsRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getAllMessages method. */
-    public get microsoftGraphGetAllMessages(): MicrosoftGraphGetAllMessagesRequestBuilder {
-        return new MicrosoftGraphGetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get getAllMessages(): GetAllMessagesRequestBuilder {
+        return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

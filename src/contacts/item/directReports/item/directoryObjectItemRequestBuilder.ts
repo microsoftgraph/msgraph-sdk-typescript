@@ -3,8 +3,8 @@ import {createDirectoryObjectFromDiscriminatorValue} from '../../../../models/cr
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DirectoryObjectItemRequestBuilderGetRequestConfiguration} from './directoryObjectItemRequestBuilderGetRequestConfiguration';
-import {MicrosoftGraphOrgContactRequestBuilder} from './microsoftGraphOrgContact/microsoftGraphOrgContactRequestBuilder';
-import {MicrosoftGraphUserRequestBuilder} from './microsoftGraphUser/microsoftGraphUserRequestBuilder';
+import {GraphOrgContactRequestBuilder} from './graphOrgContact/graphOrgContactRequestBuilder';
+import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -12,12 +12,12 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class DirectoryObjectItemRequestBuilder {
     /** Casts the previous resource to orgContact. */
-    public get microsoftGraphOrgContact(): MicrosoftGraphOrgContactRequestBuilder {
-        return new MicrosoftGraphOrgContactRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphOrgContact(): GraphOrgContactRequestBuilder {
+        return new GraphOrgContactRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to user. */
-    public get microsoftGraphUser(): MicrosoftGraphUserRequestBuilder {
-        return new MicrosoftGraphUserRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphUser(): GraphUserRequestBuilder {
+        return new GraphUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

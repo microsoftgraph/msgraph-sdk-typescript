@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {ApplicationRequestBuilderDeleteRequestConfiguration} from './applicationRequestBuilderDeleteRequestConfiguration';
 import {ApplicationRequestBuilderGetRequestConfiguration} from './applicationRequestBuilderGetRequestConfiguration';
 import {ApplicationRequestBuilderPatchRequestConfiguration} from './applicationRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphCalculateRequestBuilder} from './microsoftGraphCalculate/microsoftGraphCalculateRequestBuilder';
+import {CalculateRequestBuilder} from './calculate/calculateRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -13,8 +13,8 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class ApplicationRequestBuilder {
     /** Provides operations to call the calculate method. */
-    public get microsoftGraphCalculate(): MicrosoftGraphCalculateRequestBuilder {
-        return new MicrosoftGraphCalculateRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get calculate(): CalculateRequestBuilder {
+        return new CalculateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

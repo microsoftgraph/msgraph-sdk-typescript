@@ -3,7 +3,7 @@ import {createApplicationTemplateFromDiscriminatorValue} from '../../models/crea
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ApplicationTemplateItemRequestBuilderGetRequestConfiguration} from './applicationTemplateItemRequestBuilderGetRequestConfiguration';
-import {MicrosoftGraphInstantiateRequestBuilder} from './microsoftGraphInstantiate/microsoftGraphInstantiateRequestBuilder';
+import {InstantiateRequestBuilder} from './instantiate/instantiateRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -11,8 +11,8 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class ApplicationTemplateItemRequestBuilder {
     /** Provides operations to call the instantiate method. */
-    public get microsoftGraphInstantiate(): MicrosoftGraphInstantiateRequestBuilder {
-        return new MicrosoftGraphInstantiateRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get instantiate(): InstantiateRequestBuilder {
+        return new InstantiateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

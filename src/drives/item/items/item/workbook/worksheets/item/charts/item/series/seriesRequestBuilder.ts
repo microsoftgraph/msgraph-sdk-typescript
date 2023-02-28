@@ -4,8 +4,7 @@ import {createWorkbookChartSeriesFromDiscriminatorValue} from '../../../../../..
 import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphCountRequestBuilder} from './microsoftGraphCount/microsoftGraphCountRequestBuilder';
-import {MicrosoftGraphItemAtWithIndexRequestBuilder} from './microsoftGraphItemAtWithIndex/microsoftGraphItemAtWithIndexRequestBuilder';
+import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {SeriesRequestBuilderGetRequestConfiguration} from './seriesRequestBuilderGetRequestConfiguration';
 import {SeriesRequestBuilderPostRequestConfiguration} from './seriesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -14,13 +13,9 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
  */
 export class SeriesRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /** Provides operations to call the count method. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the count method. */
-    public get microsoftGraphCount(): MicrosoftGraphCountRequestBuilder {
-        return new MicrosoftGraphCountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -61,11 +56,11 @@ export class SeriesRequestBuilder {
     /**
      * Provides operations to call the itemAt method.
      * @param index Usage: index={index}
-     * @returns a microsoftGraphItemAtWithIndexRequestBuilder
+     * @returns a itemAtWithIndexRequestBuilder
      */
-    public microsoftGraphItemAtWithIndex(index: number | undefined) : MicrosoftGraphItemAtWithIndexRequestBuilder {
+    public itemAtWithIndex(index: number | undefined) : ItemAtWithIndexRequestBuilder {
         if(!index) throw new Error("index cannot be undefined");
-        return new MicrosoftGraphItemAtWithIndexRequestBuilder(this.pathParameters, this.requestAdapter, index);
+        return new ItemAtWithIndexRequestBuilder(this.pathParameters, this.requestAdapter, index);
     };
     /**
      * Use this API to create a new ChartSeries.

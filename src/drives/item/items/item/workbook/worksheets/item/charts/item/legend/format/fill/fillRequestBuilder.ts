@@ -2,11 +2,11 @@ import {WorkbookChartFill} from '../../../../../../../../../../../../models/';
 import {createWorkbookChartFillFromDiscriminatorValue} from '../../../../../../../../../../../../models/createWorkbookChartFillFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ClearRequestBuilder} from './clear/clearRequestBuilder';
 import {FillRequestBuilderDeleteRequestConfiguration} from './fillRequestBuilderDeleteRequestConfiguration';
 import {FillRequestBuilderGetRequestConfiguration} from './fillRequestBuilderGetRequestConfiguration';
 import {FillRequestBuilderPatchRequestConfiguration} from './fillRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphClearRequestBuilder} from './microsoftGraphClear/microsoftGraphClearRequestBuilder';
-import {MicrosoftGraphSetSolidColorRequestBuilder} from './microsoftGraphSetSolidColor/microsoftGraphSetSolidColorRequestBuilder';
+import {SetSolidColorRequestBuilder} from './setSolidColor/setSolidColorRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -14,17 +14,17 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class FillRequestBuilder {
     /** Provides operations to call the clear method. */
-    public get microsoftGraphClear(): MicrosoftGraphClearRequestBuilder {
-        return new MicrosoftGraphClearRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the setSolidColor method. */
-    public get microsoftGraphSetSolidColor(): MicrosoftGraphSetSolidColorRequestBuilder {
-        return new MicrosoftGraphSetSolidColorRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get clear(): ClearRequestBuilder {
+        return new ClearRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the setSolidColor method. */
+    public get setSolidColor(): SetSolidColorRequestBuilder {
+        return new SetSolidColorRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

@@ -2,11 +2,11 @@ import {WorkbookTableColumn} from '../../../../../../../../../models/';
 import {createWorkbookTableColumnFromDiscriminatorValue} from '../../../../../../../../../models/createWorkbookTableColumnFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {DataBodyRangeRequestBuilder} from './dataBodyRange/dataBodyRangeRequestBuilder';
 import {FilterRequestBuilder} from './filter/filterRequestBuilder';
-import {MicrosoftGraphDataBodyRangeRequestBuilder} from './microsoftGraphDataBodyRange/microsoftGraphDataBodyRangeRequestBuilder';
-import {MicrosoftGraphHeaderRowRangeRequestBuilder} from './microsoftGraphHeaderRowRange/microsoftGraphHeaderRowRangeRequestBuilder';
-import {MicrosoftGraphRangeRequestBuilder} from './microsoftGraphRange/microsoftGraphRangeRequestBuilder';
-import {MicrosoftGraphTotalRowRangeRequestBuilder} from './microsoftGraphTotalRowRange/microsoftGraphTotalRowRangeRequestBuilder';
+import {HeaderRowRangeRequestBuilder} from './headerRowRange/headerRowRangeRequestBuilder';
+import {RangeRequestBuilder} from './range/rangeRequestBuilder';
+import {TotalRowRangeRequestBuilder} from './totalRowRange/totalRowRangeRequestBuilder';
 import {WorkbookTableColumnItemRequestBuilderDeleteRequestConfiguration} from './workbookTableColumnItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookTableColumnItemRequestBuilderGetRequestConfiguration} from './workbookTableColumnItemRequestBuilderGetRequestConfiguration';
 import {WorkbookTableColumnItemRequestBuilderPatchRequestConfiguration} from './workbookTableColumnItemRequestBuilderPatchRequestConfiguration';
@@ -16,30 +16,30 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
  */
 export class WorkbookTableColumnItemRequestBuilder {
+    /** Provides operations to call the dataBodyRange method. */
+    public get dataBodyRange(): DataBodyRangeRequestBuilder {
+        return new DataBodyRangeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the filter property of the microsoft.graph.workbookTableColumn entity. */
     public get filter(): FilterRequestBuilder {
         return new FilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dataBodyRange method. */
-    public get microsoftGraphDataBodyRange(): MicrosoftGraphDataBodyRangeRequestBuilder {
-        return new MicrosoftGraphDataBodyRangeRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to call the headerRowRange method. */
-    public get microsoftGraphHeaderRowRange(): MicrosoftGraphHeaderRowRangeRequestBuilder {
-        return new MicrosoftGraphHeaderRowRangeRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the range method. */
-    public get microsoftGraphRange(): MicrosoftGraphRangeRequestBuilder {
-        return new MicrosoftGraphRangeRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the totalRowRange method. */
-    public get microsoftGraphTotalRowRange(): MicrosoftGraphTotalRowRangeRequestBuilder {
-        return new MicrosoftGraphTotalRowRangeRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get headerRowRange(): HeaderRowRangeRequestBuilder {
+        return new HeaderRowRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the range method. */
+    public get range(): RangeRequestBuilder {
+        return new RangeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the totalRowRange method. */
+    public get totalRowRange(): TotalRowRangeRequestBuilder {
+        return new TotalRowRangeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

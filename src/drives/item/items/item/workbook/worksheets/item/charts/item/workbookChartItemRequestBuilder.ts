@@ -5,15 +5,15 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {AxesRequestBuilder} from './axes/axesRequestBuilder';
 import {DataLabelsRequestBuilder} from './dataLabels/dataLabelsRequestBuilder';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
+import {ImageRequestBuilder} from './image/imageRequestBuilder';
+import {ImageWithWidthRequestBuilder} from './imageWithWidth/imageWithWidthRequestBuilder';
+import {ImageWithWidthWithHeightRequestBuilder} from './imageWithWidthWithHeight/imageWithWidthWithHeightRequestBuilder';
+import {ImageWithWidthWithHeightWithFittingModeRequestBuilder} from './imageWithWidthWithHeightWithFittingMode/imageWithWidthWithHeightWithFittingModeRequestBuilder';
 import {LegendRequestBuilder} from './legend/legendRequestBuilder';
-import {MicrosoftGraphImageRequestBuilder} from './microsoftGraphImage/microsoftGraphImageRequestBuilder';
-import {MicrosoftGraphImageWithWidthRequestBuilder} from './microsoftGraphImageWithWidth/microsoftGraphImageWithWidthRequestBuilder';
-import {MicrosoftGraphImageWithWidthWithHeightRequestBuilder} from './microsoftGraphImageWithWidthWithHeight/microsoftGraphImageWithWidthWithHeightRequestBuilder';
-import {MicrosoftGraphImageWithWidthWithHeightWithFittingModeRequestBuilder} from './microsoftGraphImageWithWidthWithHeightWithFittingMode/microsoftGraphImageWithWidthWithHeightWithFittingModeRequestBuilder';
-import {MicrosoftGraphSetDataRequestBuilder} from './microsoftGraphSetData/microsoftGraphSetDataRequestBuilder';
-import {MicrosoftGraphSetPositionRequestBuilder} from './microsoftGraphSetPosition/microsoftGraphSetPositionRequestBuilder';
 import {WorkbookChartSeriesItemRequestBuilder} from './series/item/workbookChartSeriesItemRequestBuilder';
 import {SeriesRequestBuilder} from './series/seriesRequestBuilder';
+import {SetDataRequestBuilder} from './setData/setDataRequestBuilder';
+import {SetPositionRequestBuilder} from './setPosition/setPositionRequestBuilder';
 import {TitleRequestBuilder} from './title/titleRequestBuilder';
 import {WorkbookChartItemRequestBuilderDeleteRequestConfiguration} from './workbookChartItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookChartItemRequestBuilderGetRequestConfiguration} from './workbookChartItemRequestBuilderGetRequestConfiguration';
@@ -37,21 +37,13 @@ export class WorkbookChartItemRequestBuilder {
     public get format(): FormatRequestBuilder {
         return new FormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the image method. */
+    public get image(): ImageRequestBuilder {
+        return new ImageRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the legend property of the microsoft.graph.workbookChart entity. */
     public get legend(): LegendRequestBuilder {
         return new LegendRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the image method. */
-    public get microsoftGraphImage(): MicrosoftGraphImageRequestBuilder {
-        return new MicrosoftGraphImageRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the setData method. */
-    public get microsoftGraphSetData(): MicrosoftGraphSetDataRequestBuilder {
-        return new MicrosoftGraphSetDataRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the setPosition method. */
-    public get microsoftGraphSetPosition(): MicrosoftGraphSetPositionRequestBuilder {
-        return new MicrosoftGraphSetPositionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -60,6 +52,14 @@ export class WorkbookChartItemRequestBuilder {
     /** Provides operations to manage the series property of the microsoft.graph.workbookChart entity. */
     public get series(): SeriesRequestBuilder {
         return new SeriesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the setData method. */
+    public get setData(): SetDataRequestBuilder {
+        return new SetDataRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the setPosition method. */
+    public get setPosition(): SetPositionRequestBuilder {
+        return new SetPositionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the title property of the microsoft.graph.workbookChart entity. */
     public get title(): TitleRequestBuilder {
@@ -118,35 +118,35 @@ export class WorkbookChartItemRequestBuilder {
     /**
      * Provides operations to call the image method.
      * @param width Usage: width={width}
-     * @returns a microsoftGraphImageWithWidthRequestBuilder
+     * @returns a imageWithWidthRequestBuilder
      */
-    public microsoftGraphImageWithWidth(width: number | undefined) : MicrosoftGraphImageWithWidthRequestBuilder {
+    public imageWithWidth(width: number | undefined) : ImageWithWidthRequestBuilder {
         if(!width) throw new Error("width cannot be undefined");
-        return new MicrosoftGraphImageWithWidthRequestBuilder(this.pathParameters, this.requestAdapter, width);
+        return new ImageWithWidthRequestBuilder(this.pathParameters, this.requestAdapter, width);
     };
     /**
      * Provides operations to call the image method.
      * @param height Usage: height={height}
      * @param width Usage: width={width}
-     * @returns a microsoftGraphImageWithWidthWithHeightRequestBuilder
+     * @returns a imageWithWidthWithHeightRequestBuilder
      */
-    public microsoftGraphImageWithWidthWithHeight(height: number | undefined, width: number | undefined) : MicrosoftGraphImageWithWidthWithHeightRequestBuilder {
+    public imageWithWidthWithHeight(height: number | undefined, width: number | undefined) : ImageWithWidthWithHeightRequestBuilder {
         if(!height) throw new Error("height cannot be undefined");
         if(!width) throw new Error("width cannot be undefined");
-        return new MicrosoftGraphImageWithWidthWithHeightRequestBuilder(this.pathParameters, this.requestAdapter, height, width);
+        return new ImageWithWidthWithHeightRequestBuilder(this.pathParameters, this.requestAdapter, height, width);
     };
     /**
      * Provides operations to call the image method.
      * @param fittingMode Usage: fittingMode='{fittingMode}'
      * @param height Usage: height={height}
      * @param width Usage: width={width}
-     * @returns a microsoftGraphImageWithWidthWithHeightWithFittingModeRequestBuilder
+     * @returns a imageWithWidthWithHeightWithFittingModeRequestBuilder
      */
-    public microsoftGraphImageWithWidthWithHeightWithFittingMode(fittingMode: string | undefined, height: number | undefined, width: number | undefined) : MicrosoftGraphImageWithWidthWithHeightWithFittingModeRequestBuilder {
+    public imageWithWidthWithHeightWithFittingMode(fittingMode: string | undefined, height: number | undefined, width: number | undefined) : ImageWithWidthWithHeightWithFittingModeRequestBuilder {
         if(!fittingMode) throw new Error("fittingMode cannot be undefined");
         if(!height) throw new Error("height cannot be undefined");
         if(!width) throw new Error("width cannot be undefined");
-        return new MicrosoftGraphImageWithWidthWithHeightWithFittingModeRequestBuilder(this.pathParameters, this.requestAdapter, fittingMode, height, width);
+        return new ImageWithWidthWithHeightWithFittingModeRequestBuilder(this.pathParameters, this.requestAdapter, fittingMode, height, width);
     };
     /**
      * Update the navigation property charts in drives

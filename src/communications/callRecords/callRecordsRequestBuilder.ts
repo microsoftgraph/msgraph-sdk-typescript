@@ -3,11 +3,11 @@ import {createCallRecordCollectionResponseFromDiscriminatorValue} from '../../mo
 import {createCallRecordFromDiscriminatorValue} from '../../models/callRecords/createCallRecordFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './callRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime/callRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder';
+import {CallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './callRecordsGetPstnCallsWithFromDateTimeWithToDateTime/callRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder';
 import {CallRecordsRequestBuilderGetRequestConfiguration} from './callRecordsRequestBuilderGetRequestConfiguration';
 import {CallRecordsRequestBuilderPostRequestConfiguration} from './callRecordsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime/microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder';
-import {MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTime/microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -24,6 +24,28 @@ export class CallRecordsRequestBuilder {
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
+    /**
+     * Provides operations to call the getDirectRoutingCalls method.
+     * @param fromDateTime Usage: fromDateTime={fromDateTime}
+     * @param toDateTime Usage: toDateTime={toDateTime}
+     * @returns a callRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder
+     */
+    public callRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime(fromDateTime: Date | undefined, toDateTime: Date | undefined) : CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder {
+        if(!fromDateTime) throw new Error("fromDateTime cannot be undefined");
+        if(!toDateTime) throw new Error("toDateTime cannot be undefined");
+        return new CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, fromDateTime, toDateTime);
+    };
+    /**
+     * Provides operations to call the getPstnCalls method.
+     * @param fromDateTime Usage: fromDateTime={fromDateTime}
+     * @param toDateTime Usage: toDateTime={toDateTime}
+     * @returns a callRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder
+     */
+    public callRecordsGetPstnCallsWithFromDateTimeWithToDateTime(fromDateTime: Date | undefined, toDateTime: Date | undefined) : CallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder {
+        if(!fromDateTime) throw new Error("fromDateTime cannot be undefined");
+        if(!toDateTime) throw new Error("toDateTime cannot be undefined");
+        return new CallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, fromDateTime, toDateTime);
+    };
     /**
      * Instantiates a new CallRecordsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -52,28 +74,6 @@ export class CallRecordsRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<CallRecordCollectionResponse>(requestInfo, createCallRecordCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to call the getDirectRoutingCalls method.
-     * @param fromDateTime Usage: fromDateTime={fromDateTime}
-     * @param toDateTime Usage: toDateTime={toDateTime}
-     * @returns a microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder
-     */
-    public microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime(fromDateTime: Date | undefined, toDateTime: Date | undefined) : MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder {
-        if(!fromDateTime) throw new Error("fromDateTime cannot be undefined");
-        if(!toDateTime) throw new Error("toDateTime cannot be undefined");
-        return new MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, fromDateTime, toDateTime);
-    };
-    /**
-     * Provides operations to call the getPstnCalls method.
-     * @param fromDateTime Usage: fromDateTime={fromDateTime}
-     * @param toDateTime Usage: toDateTime={toDateTime}
-     * @returns a microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder
-     */
-    public microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTime(fromDateTime: Date | undefined, toDateTime: Date | undefined) : MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder {
-        if(!fromDateTime) throw new Error("fromDateTime cannot be undefined");
-        if(!toDateTime) throw new Error("toDateTime cannot be undefined");
-        return new MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, fromDateTime, toDateTime);
     };
     /**
      * Create new navigation property to callRecords for communications

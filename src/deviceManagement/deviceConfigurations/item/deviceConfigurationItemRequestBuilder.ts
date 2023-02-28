@@ -2,6 +2,7 @@ import {DeviceConfiguration} from '../../../models/';
 import {createDeviceConfigurationFromDiscriminatorValue} from '../../../models/createDeviceConfigurationFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
 import {DeviceConfigurationAssignmentItemRequestBuilder} from './assignments/item/deviceConfigurationAssignmentItemRequestBuilder';
 import {DeviceConfigurationItemRequestBuilderDeleteRequestConfiguration} from './deviceConfigurationItemRequestBuilderDeleteRequestConfiguration';
@@ -12,8 +13,7 @@ import {SettingStateDeviceSummaryItemRequestBuilder} from './deviceSettingStateS
 import {DeviceStatusesRequestBuilder} from './deviceStatuses/deviceStatusesRequestBuilder';
 import {DeviceConfigurationDeviceStatusItemRequestBuilder} from './deviceStatuses/item/deviceConfigurationDeviceStatusItemRequestBuilder';
 import {DeviceStatusOverviewRequestBuilder} from './deviceStatusOverview/deviceStatusOverviewRequestBuilder';
-import {MicrosoftGraphAssignRequestBuilder} from './microsoftGraphAssign/microsoftGraphAssignRequestBuilder';
-import {MicrosoftGraphGetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder} from './microsoftGraphGetOmaSettingPlainTextValueWithSecretReferenceValueId/microsoftGraphGetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder';
+import {GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder} from './getOmaSettingPlainTextValueWithSecretReferenceValueId/getOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder';
 import {DeviceConfigurationUserStatusItemRequestBuilder} from './userStatuses/item/deviceConfigurationUserStatusItemRequestBuilder';
 import {UserStatusesRequestBuilder} from './userStatuses/userStatusesRequestBuilder';
 import {UserStatusOverviewRequestBuilder} from './userStatusOverview/userStatusOverviewRequestBuilder';
@@ -23,6 +23,10 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
  */
 export class DeviceConfigurationItemRequestBuilder {
+    /** Provides operations to call the assign method. */
+    public get assign(): AssignRequestBuilder {
+        return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the assignments property of the microsoft.graph.deviceConfiguration entity. */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -38,10 +42,6 @@ export class DeviceConfigurationItemRequestBuilder {
     /** Provides operations to manage the deviceStatusOverview property of the microsoft.graph.deviceConfiguration entity. */
     public get deviceStatusOverview(): DeviceStatusOverviewRequestBuilder {
         return new DeviceStatusOverviewRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the assign method. */
-    public get microsoftGraphAssign(): MicrosoftGraphAssignRequestBuilder {
-        return new MicrosoftGraphAssignRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -137,11 +137,11 @@ export class DeviceConfigurationItemRequestBuilder {
     /**
      * Provides operations to call the getOmaSettingPlainTextValue method.
      * @param secretReferenceValueId Usage: secretReferenceValueId='{secretReferenceValueId}'
-     * @returns a microsoftGraphGetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder
+     * @returns a getOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder
      */
-    public microsoftGraphGetOmaSettingPlainTextValueWithSecretReferenceValueId(secretReferenceValueId: string | undefined) : MicrosoftGraphGetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder {
+    public getOmaSettingPlainTextValueWithSecretReferenceValueId(secretReferenceValueId: string | undefined) : GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder {
         if(!secretReferenceValueId) throw new Error("secretReferenceValueId cannot be undefined");
-        return new MicrosoftGraphGetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder(this.pathParameters, this.requestAdapter, secretReferenceValueId);
+        return new GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder(this.pathParameters, this.requestAdapter, secretReferenceValueId);
     };
     /**
      * Update the navigation property deviceConfigurations in deviceManagement

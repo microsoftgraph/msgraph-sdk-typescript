@@ -3,10 +3,10 @@ import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphAppRoleAssignmentRequestBuilder} from './microsoftGraphAppRoleAssignment/microsoftGraphAppRoleAssignmentRequestBuilder';
-import {MicrosoftGraphEndpointRequestBuilder} from './microsoftGraphEndpoint/microsoftGraphEndpointRequestBuilder';
-import {MicrosoftGraphServicePrincipalRequestBuilder} from './microsoftGraphServicePrincipal/microsoftGraphServicePrincipalRequestBuilder';
-import {MicrosoftGraphUserRequestBuilder} from './microsoftGraphUser/microsoftGraphUserRequestBuilder';
+import {GraphAppRoleAssignmentRequestBuilder} from './graphAppRoleAssignment/graphAppRoleAssignmentRequestBuilder';
+import {GraphEndpointRequestBuilder} from './graphEndpoint/graphEndpointRequestBuilder';
+import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
+import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
 import {RegisteredUsersRequestBuilderGetRequestConfiguration} from './registeredUsersRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -19,20 +19,20 @@ export class RegisteredUsersRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to appRoleAssignment. */
-    public get microsoftGraphAppRoleAssignment(): MicrosoftGraphAppRoleAssignmentRequestBuilder {
-        return new MicrosoftGraphAppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphAppRoleAssignment(): GraphAppRoleAssignmentRequestBuilder {
+        return new GraphAppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to endpoint. */
-    public get microsoftGraphEndpoint(): MicrosoftGraphEndpointRequestBuilder {
-        return new MicrosoftGraphEndpointRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphEndpoint(): GraphEndpointRequestBuilder {
+        return new GraphEndpointRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to servicePrincipal. */
-    public get microsoftGraphServicePrincipal(): MicrosoftGraphServicePrincipalRequestBuilder {
-        return new MicrosoftGraphServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphServicePrincipal(): GraphServicePrincipalRequestBuilder {
+        return new GraphServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to user. */
-    public get microsoftGraphUser(): MicrosoftGraphUserRequestBuilder {
-        return new MicrosoftGraphUserRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphUser(): GraphUserRequestBuilder {
+        return new GraphUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

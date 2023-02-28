@@ -5,21 +5,21 @@ import {createEdiscoveryReviewSetQueryFromDiscriminatorValue} from '../../../../
 import {EdiscoveryReviewSetQueryItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryReviewSetQueryItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration} from './ediscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration} from './ediscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphSecurityApplyTagsRequestBuilder} from './microsoftGraphSecurityApplyTags/microsoftGraphSecurityApplyTagsRequestBuilder';
+import {SecurityApplyTagsRequestBuilder} from './securityApplyTags/securityApplyTagsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
  */
 export class EdiscoveryReviewSetQueryItemRequestBuilder {
-    /** Provides operations to call the applyTags method. */
-    public get microsoftGraphSecurityApplyTags(): MicrosoftGraphSecurityApplyTagsRequestBuilder {
-        return new MicrosoftGraphSecurityApplyTagsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the applyTags method. */
+    public get securityApplyTags(): SecurityApplyTagsRequestBuilder {
+        return new SecurityApplyTagsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

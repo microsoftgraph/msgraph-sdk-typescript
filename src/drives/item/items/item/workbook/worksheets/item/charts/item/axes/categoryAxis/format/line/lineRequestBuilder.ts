@@ -2,10 +2,10 @@ import {WorkbookChartLineFormat} from '../../../../../../../../../../../../../mo
 import {createWorkbookChartLineFormatFromDiscriminatorValue} from '../../../../../../../../../../../../../models/createWorkbookChartLineFormatFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ClearRequestBuilder} from './clear/clearRequestBuilder';
 import {LineRequestBuilderDeleteRequestConfiguration} from './lineRequestBuilderDeleteRequestConfiguration';
 import {LineRequestBuilderGetRequestConfiguration} from './lineRequestBuilderGetRequestConfiguration';
 import {LineRequestBuilderPatchRequestConfiguration} from './lineRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphClearRequestBuilder} from './microsoftGraphClear/microsoftGraphClearRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -13,8 +13,8 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class LineRequestBuilder {
     /** Provides operations to call the clear method. */
-    public get microsoftGraphClear(): MicrosoftGraphClearRequestBuilder {
-        return new MicrosoftGraphClearRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get clear(): ClearRequestBuilder {
+        return new ClearRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

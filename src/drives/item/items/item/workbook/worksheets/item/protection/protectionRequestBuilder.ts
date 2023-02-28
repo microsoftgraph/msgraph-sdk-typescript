@@ -2,29 +2,29 @@ import {WorkbookWorksheetProtection} from '../../../../../../../../models/';
 import {createWorkbookWorksheetProtectionFromDiscriminatorValue} from '../../../../../../../../models/createWorkbookWorksheetProtectionFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {MicrosoftGraphProtectRequestBuilder} from './microsoftGraphProtect/microsoftGraphProtectRequestBuilder';
-import {MicrosoftGraphUnprotectRequestBuilder} from './microsoftGraphUnprotect/microsoftGraphUnprotectRequestBuilder';
+import {ProtectRequestBuilder} from './protect/protectRequestBuilder';
 import {ProtectionRequestBuilderDeleteRequestConfiguration} from './protectionRequestBuilderDeleteRequestConfiguration';
 import {ProtectionRequestBuilderGetRequestConfiguration} from './protectionRequestBuilderGetRequestConfiguration';
 import {ProtectionRequestBuilderPatchRequestConfiguration} from './protectionRequestBuilderPatchRequestConfiguration';
+import {UnprotectRequestBuilder} from './unprotect/unprotectRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the protection property of the microsoft.graph.workbookWorksheet entity.
  */
 export class ProtectionRequestBuilder {
-    /** Provides operations to call the protect method. */
-    public get microsoftGraphProtect(): MicrosoftGraphProtectRequestBuilder {
-        return new MicrosoftGraphProtectRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the unprotect method. */
-    public get microsoftGraphUnprotect(): MicrosoftGraphUnprotectRequestBuilder {
-        return new MicrosoftGraphUnprotectRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the protect method. */
+    public get protect(): ProtectRequestBuilder {
+        return new ProtectRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the unprotect method. */
+    public get unprotect(): UnprotectRequestBuilder {
+        return new UnprotectRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

@@ -1,5 +1,6 @@
 import {createActivityBasedTimeoutPolicyFromDiscriminatorValue} from './createActivityBasedTimeoutPolicyFromDiscriminatorValue';
 import {createAdminConsentRequestPolicyFromDiscriminatorValue} from './createAdminConsentRequestPolicyFromDiscriminatorValue';
+import {createAppManagementPolicyFromDiscriminatorValue} from './createAppManagementPolicyFromDiscriminatorValue';
 import {createAuthenticationFlowsPolicyFromDiscriminatorValue} from './createAuthenticationFlowsPolicyFromDiscriminatorValue';
 import {createAuthenticationMethodsPolicyFromDiscriminatorValue} from './createAuthenticationMethodsPolicyFromDiscriminatorValue';
 import {createAuthorizationPolicyFromDiscriminatorValue} from './createAuthorizationPolicyFromDiscriminatorValue';
@@ -10,11 +11,12 @@ import {createFeatureRolloutPolicyFromDiscriminatorValue} from './createFeatureR
 import {createHomeRealmDiscoveryPolicyFromDiscriminatorValue} from './createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
 import {createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue} from './createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue';
 import {createPermissionGrantPolicyFromDiscriminatorValue} from './createPermissionGrantPolicyFromDiscriminatorValue';
+import {createTenantAppManagementPolicyFromDiscriminatorValue} from './createTenantAppManagementPolicyFromDiscriminatorValue';
 import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssuancePolicyFromDiscriminatorValue';
 import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
 import {createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue} from './createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue';
 import {createUnifiedRoleManagementPolicyFromDiscriminatorValue} from './createUnifiedRoleManagementPolicyFromDiscriminatorValue';
-import {ActivityBasedTimeoutPolicy, AdminConsentRequestPolicy, AuthenticationFlowsPolicy, AuthenticationMethodsPolicy, AuthorizationPolicy, ClaimsMappingPolicy, ConditionalAccessPolicy, CrossTenantAccessPolicy, Entity, FeatureRolloutPolicy, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, PermissionGrantPolicy, TokenIssuancePolicy, TokenLifetimePolicy, UnifiedRoleManagementPolicy, UnifiedRoleManagementPolicyAssignment} from './index';
+import {ActivityBasedTimeoutPolicy, AdminConsentRequestPolicy, AppManagementPolicy, AuthenticationFlowsPolicy, AuthenticationMethodsPolicy, AuthorizationPolicy, ClaimsMappingPolicy, ConditionalAccessPolicy, CrossTenantAccessPolicy, Entity, FeatureRolloutPolicy, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, PermissionGrantPolicy, TenantAppManagementPolicy, TokenIssuancePolicy, TokenLifetimePolicy, UnifiedRoleManagementPolicy, UnifiedRoleManagementPolicyAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PolicyRoot extends Entity implements Parsable {
@@ -22,6 +24,8 @@ export class PolicyRoot extends Entity implements Parsable {
     private _activityBasedTimeoutPolicies?: ActivityBasedTimeoutPolicy[] | undefined;
     /** The policy by which consent requests are created and managed for the entire tenant. */
     private _adminConsentRequestPolicy?: AdminConsentRequestPolicy | undefined;
+    /** The appManagementPolicies property */
+    private _appManagementPolicies?: AppManagementPolicy[] | undefined;
     /** The policy configuration of the self-service sign-up experience of external users. */
     private _authenticationFlowsPolicy?: AuthenticationFlowsPolicy | undefined;
     /** The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD). */
@@ -34,6 +38,8 @@ export class PolicyRoot extends Entity implements Parsable {
     private _conditionalAccessPolicies?: ConditionalAccessPolicy[] | undefined;
     /** The custom rules that define an access scenario when interacting with external Azure AD tenants. */
     private _crossTenantAccessPolicy?: CrossTenantAccessPolicy | undefined;
+    /** The defaultAppManagementPolicy property */
+    private _defaultAppManagementPolicy?: TenantAppManagementPolicy | undefined;
     /** The feature rollout policy associated with a directory object. */
     private _featureRolloutPolicies?: FeatureRolloutPolicy[] | undefined;
     /** The policy to control Azure AD authentication behavior for federated users. */
@@ -77,6 +83,20 @@ export class PolicyRoot extends Entity implements Parsable {
      */
     public set adminConsentRequestPolicy(value: AdminConsentRequestPolicy | undefined) {
         this._adminConsentRequestPolicy = value;
+    };
+    /**
+     * Gets the appManagementPolicies property value. The appManagementPolicies property
+     * @returns a appManagementPolicy
+     */
+    public get appManagementPolicies() {
+        return this._appManagementPolicies;
+    };
+    /**
+     * Sets the appManagementPolicies property value. The appManagementPolicies property
+     * @param value Value to set for the appManagementPolicies property.
+     */
+    public set appManagementPolicies(value: AppManagementPolicy[] | undefined) {
+        this._appManagementPolicies = value;
     };
     /**
      * Gets the authenticationFlowsPolicy property value. The policy configuration of the self-service sign-up experience of external users.
@@ -169,6 +189,20 @@ export class PolicyRoot extends Entity implements Parsable {
         this._crossTenantAccessPolicy = value;
     };
     /**
+     * Gets the defaultAppManagementPolicy property value. The defaultAppManagementPolicy property
+     * @returns a tenantAppManagementPolicy
+     */
+    public get defaultAppManagementPolicy() {
+        return this._defaultAppManagementPolicy;
+    };
+    /**
+     * Sets the defaultAppManagementPolicy property value. The defaultAppManagementPolicy property
+     * @param value Value to set for the defaultAppManagementPolicy property.
+     */
+    public set defaultAppManagementPolicy(value: TenantAppManagementPolicy | undefined) {
+        this._defaultAppManagementPolicy = value;
+    };
+    /**
      * Gets the featureRolloutPolicies property value. The feature rollout policy associated with a directory object.
      * @returns a featureRolloutPolicy
      */
@@ -190,12 +224,14 @@ export class PolicyRoot extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "activityBasedTimeoutPolicies": n => { this.activityBasedTimeoutPolicies = n.getCollectionOfObjectValues<ActivityBasedTimeoutPolicy>(createActivityBasedTimeoutPolicyFromDiscriminatorValue); },
             "adminConsentRequestPolicy": n => { this.adminConsentRequestPolicy = n.getObjectValue<AdminConsentRequestPolicy>(createAdminConsentRequestPolicyFromDiscriminatorValue); },
+            "appManagementPolicies": n => { this.appManagementPolicies = n.getCollectionOfObjectValues<AppManagementPolicy>(createAppManagementPolicyFromDiscriminatorValue); },
             "authenticationFlowsPolicy": n => { this.authenticationFlowsPolicy = n.getObjectValue<AuthenticationFlowsPolicy>(createAuthenticationFlowsPolicyFromDiscriminatorValue); },
             "authenticationMethodsPolicy": n => { this.authenticationMethodsPolicy = n.getObjectValue<AuthenticationMethodsPolicy>(createAuthenticationMethodsPolicyFromDiscriminatorValue); },
             "authorizationPolicy": n => { this.authorizationPolicy = n.getObjectValue<AuthorizationPolicy>(createAuthorizationPolicyFromDiscriminatorValue); },
             "claimsMappingPolicies": n => { this.claimsMappingPolicies = n.getCollectionOfObjectValues<ClaimsMappingPolicy>(createClaimsMappingPolicyFromDiscriminatorValue); },
             "conditionalAccessPolicies": n => { this.conditionalAccessPolicies = n.getCollectionOfObjectValues<ConditionalAccessPolicy>(createConditionalAccessPolicyFromDiscriminatorValue); },
             "crossTenantAccessPolicy": n => { this.crossTenantAccessPolicy = n.getObjectValue<CrossTenantAccessPolicy>(createCrossTenantAccessPolicyFromDiscriminatorValue); },
+            "defaultAppManagementPolicy": n => { this.defaultAppManagementPolicy = n.getObjectValue<TenantAppManagementPolicy>(createTenantAppManagementPolicyFromDiscriminatorValue); },
             "featureRolloutPolicies": n => { this.featureRolloutPolicies = n.getCollectionOfObjectValues<FeatureRolloutPolicy>(createFeatureRolloutPolicyFromDiscriminatorValue); },
             "homeRealmDiscoveryPolicies": n => { this.homeRealmDiscoveryPolicies = n.getCollectionOfObjectValues<HomeRealmDiscoveryPolicy>(createHomeRealmDiscoveryPolicyFromDiscriminatorValue); },
             "identitySecurityDefaultsEnforcementPolicy": n => { this.identitySecurityDefaultsEnforcementPolicy = n.getObjectValue<IdentitySecurityDefaultsEnforcementPolicy>(createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue); },
@@ -285,12 +321,14 @@ export class PolicyRoot extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<ActivityBasedTimeoutPolicy>("activityBasedTimeoutPolicies", this.activityBasedTimeoutPolicies);
         writer.writeObjectValue<AdminConsentRequestPolicy>("adminConsentRequestPolicy", this.adminConsentRequestPolicy);
+        writer.writeCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", this.appManagementPolicies);
         writer.writeObjectValue<AuthenticationFlowsPolicy>("authenticationFlowsPolicy", this.authenticationFlowsPolicy);
         writer.writeObjectValue<AuthenticationMethodsPolicy>("authenticationMethodsPolicy", this.authenticationMethodsPolicy);
         writer.writeObjectValue<AuthorizationPolicy>("authorizationPolicy", this.authorizationPolicy);
         writer.writeCollectionOfObjectValues<ClaimsMappingPolicy>("claimsMappingPolicies", this.claimsMappingPolicies);
         writer.writeCollectionOfObjectValues<ConditionalAccessPolicy>("conditionalAccessPolicies", this.conditionalAccessPolicies);
         writer.writeObjectValue<CrossTenantAccessPolicy>("crossTenantAccessPolicy", this.crossTenantAccessPolicy);
+        writer.writeObjectValue<TenantAppManagementPolicy>("defaultAppManagementPolicy", this.defaultAppManagementPolicy);
         writer.writeCollectionOfObjectValues<FeatureRolloutPolicy>("featureRolloutPolicies", this.featureRolloutPolicies);
         writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", this.homeRealmDiscoveryPolicies);
         writer.writeObjectValue<IdentitySecurityDefaultsEnforcementPolicy>("identitySecurityDefaultsEnforcementPolicy", this.identitySecurityDefaultsEnforcementPolicy);

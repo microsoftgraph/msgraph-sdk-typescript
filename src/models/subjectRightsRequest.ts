@@ -80,7 +80,7 @@ export class SubjectRightsRequest extends Entity implements Parsable {
         this._closedDateTime = value;
     };
     /**
-     * Instantiates a new subjectRightsRequest and sets the default values.
+     * Instantiates a new SubjectRightsRequest and sets the default values.
      */
     public constructor() {
         super();

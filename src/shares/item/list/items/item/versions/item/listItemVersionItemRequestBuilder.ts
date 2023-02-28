@@ -6,7 +6,7 @@ import {FieldsRequestBuilder} from './fields/fieldsRequestBuilder';
 import {ListItemVersionItemRequestBuilderDeleteRequestConfiguration} from './listItemVersionItemRequestBuilderDeleteRequestConfiguration';
 import {ListItemVersionItemRequestBuilderGetRequestConfiguration} from './listItemVersionItemRequestBuilderGetRequestConfiguration';
 import {ListItemVersionItemRequestBuilderPatchRequestConfiguration} from './listItemVersionItemRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphRestoreVersionRequestBuilder} from './microsoftGraphRestoreVersion/microsoftGraphRestoreVersionRequestBuilder';
+import {RestoreVersionRequestBuilder} from './restoreVersion/restoreVersionRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -17,14 +17,14 @@ export class ListItemVersionItemRequestBuilder {
     public get fields(): FieldsRequestBuilder {
         return new FieldsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the restoreVersion method. */
-    public get microsoftGraphRestoreVersion(): MicrosoftGraphRestoreVersionRequestBuilder {
-        return new MicrosoftGraphRestoreVersionRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the restoreVersion method. */
+    public get restoreVersion(): RestoreVersionRequestBuilder {
+        return new RestoreVersionRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

@@ -3,7 +3,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class PlayPromptOperation extends CommsOperation implements Parsable {
     /**
-     * Instantiates a new PlayPromptOperation and sets the default values.
+     * Instantiates a new playPromptOperation and sets the default values.
      */
     public constructor() {
         super();

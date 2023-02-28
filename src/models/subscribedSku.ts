@@ -47,7 +47,7 @@ export class SubscribedSku extends Entity implements Parsable {
         this._capabilityStatus = value;
     };
     /**
-     * Instantiates a new SubscribedSku and sets the default values.
+     * Instantiates a new subscribedSku and sets the default values.
      */
     public constructor() {
         super();

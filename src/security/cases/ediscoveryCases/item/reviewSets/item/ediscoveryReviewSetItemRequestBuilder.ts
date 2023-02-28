@@ -5,19 +5,15 @@ import {createEdiscoveryReviewSetFromDiscriminatorValue} from '../../../../../..
 import {EdiscoveryReviewSetItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryReviewSetItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoveryReviewSetItemRequestBuilderGetRequestConfiguration} from './ediscoveryReviewSetItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryReviewSetItemRequestBuilderPatchRequestConfiguration} from './ediscoveryReviewSetItemRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphSecurityAddToReviewSetRequestBuilder} from './microsoftGraphSecurityAddToReviewSet/microsoftGraphSecurityAddToReviewSetRequestBuilder';
 import {EdiscoveryReviewSetQueryItemRequestBuilder} from './queries/item/ediscoveryReviewSetQueryItemRequestBuilder';
 import {QueriesRequestBuilder} from './queries/queriesRequestBuilder';
+import {SecurityAddToReviewSetRequestBuilder} from './securityAddToReviewSet/securityAddToReviewSetRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
  */
 export class EdiscoveryReviewSetItemRequestBuilder {
-    /** Provides operations to call the addToReviewSet method. */
-    public get microsoftGraphSecurityAddToReviewSet(): MicrosoftGraphSecurityAddToReviewSetRequestBuilder {
-        return new MicrosoftGraphSecurityAddToReviewSetRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity. */
@@ -26,6 +22,10 @@ export class EdiscoveryReviewSetItemRequestBuilder {
     }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the addToReviewSet method. */
+    public get securityAddToReviewSet(): SecurityAddToReviewSetRequestBuilder {
+        return new SecurityAddToReviewSetRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

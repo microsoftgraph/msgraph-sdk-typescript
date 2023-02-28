@@ -36,11 +36,11 @@ export class HistoryRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Read the properties and relationships of a riskyUserHistoryItem object.
+     * Get the riskyUserHistoryItems from the history navigation property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RiskyUserHistoryItemCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/riskyuser-get-riskyuserhistoryitem?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/riskyuser-list-history?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HistoryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskyUserHistoryItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class HistoryRequestBuilder {
         return this.requestAdapter?.sendAsync<RiskyUserHistoryItem>(requestInfo, createRiskyUserHistoryItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Read the properties and relationships of a riskyUserHistoryItem object.
+     * Get the riskyUserHistoryItems from the history navigation property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

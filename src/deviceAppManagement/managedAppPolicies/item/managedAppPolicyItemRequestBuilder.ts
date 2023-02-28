@@ -5,21 +5,21 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {ManagedAppPolicyItemRequestBuilderDeleteRequestConfiguration} from './managedAppPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedAppPolicyItemRequestBuilderGetRequestConfiguration} from './managedAppPolicyItemRequestBuilderGetRequestConfiguration';
 import {ManagedAppPolicyItemRequestBuilderPatchRequestConfiguration} from './managedAppPolicyItemRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphTargetAppsRequestBuilder} from './microsoftGraphTargetApps/microsoftGraphTargetAppsRequestBuilder';
+import {TargetAppsRequestBuilder} from './targetApps/targetAppsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppPolicies property of the microsoft.graph.deviceAppManagement entity.
  */
 export class ManagedAppPolicyItemRequestBuilder {
-    /** Provides operations to call the targetApps method. */
-    public get microsoftGraphTargetApps(): MicrosoftGraphTargetAppsRequestBuilder {
-        return new MicrosoftGraphTargetAppsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the targetApps method. */
+    public get targetApps(): TargetAppsRequestBuilder {
+        return new TargetAppsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

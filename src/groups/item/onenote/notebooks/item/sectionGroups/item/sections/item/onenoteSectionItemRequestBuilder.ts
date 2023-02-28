@@ -2,8 +2,8 @@ import {OnenoteSection} from '../../../../../../../../../models/';
 import {createOnenoteSectionFromDiscriminatorValue} from '../../../../../../../../../models/createOnenoteSectionFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {MicrosoftGraphCopyToNotebookRequestBuilder} from './microsoftGraphCopyToNotebook/microsoftGraphCopyToNotebookRequestBuilder';
-import {MicrosoftGraphCopyToSectionGroupRequestBuilder} from './microsoftGraphCopyToSectionGroup/microsoftGraphCopyToSectionGroupRequestBuilder';
+import {CopyToNotebookRequestBuilder} from './copyToNotebook/copyToNotebookRequestBuilder';
+import {CopyToSectionGroupRequestBuilder} from './copyToSectionGroup/copyToSectionGroupRequestBuilder';
 import {OnenoteSectionItemRequestBuilderDeleteRequestConfiguration} from './onenoteSectionItemRequestBuilderDeleteRequestConfiguration';
 import {OnenoteSectionItemRequestBuilderGetRequestConfiguration} from './onenoteSectionItemRequestBuilderGetRequestConfiguration';
 import {OnenoteSectionItemRequestBuilderPatchRequestConfiguration} from './onenoteSectionItemRequestBuilderPatchRequestConfiguration';
@@ -18,12 +18,12 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class OnenoteSectionItemRequestBuilder {
     /** Provides operations to call the copyToNotebook method. */
-    public get microsoftGraphCopyToNotebook(): MicrosoftGraphCopyToNotebookRequestBuilder {
-        return new MicrosoftGraphCopyToNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get copyToNotebook(): CopyToNotebookRequestBuilder {
+        return new CopyToNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the copyToSectionGroup method. */
-    public get microsoftGraphCopyToSectionGroup(): MicrosoftGraphCopyToSectionGroupRequestBuilder {
-        return new MicrosoftGraphCopyToSectionGroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get copyToSectionGroup(): CopyToSectionGroupRequestBuilder {
+        return new CopyToSectionGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity. */
     public get pages(): PagesRequestBuilder {

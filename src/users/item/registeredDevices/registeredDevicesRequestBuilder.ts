@@ -3,9 +3,9 @@ import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphAppRoleAssignmentRequestBuilder} from './microsoftGraphAppRoleAssignment/microsoftGraphAppRoleAssignmentRequestBuilder';
-import {MicrosoftGraphDeviceRequestBuilder} from './microsoftGraphDevice/microsoftGraphDeviceRequestBuilder';
-import {MicrosoftGraphEndpointRequestBuilder} from './microsoftGraphEndpoint/microsoftGraphEndpointRequestBuilder';
+import {GraphAppRoleAssignmentRequestBuilder} from './graphAppRoleAssignment/graphAppRoleAssignmentRequestBuilder';
+import {GraphDeviceRequestBuilder} from './graphDevice/graphDeviceRequestBuilder';
+import {GraphEndpointRequestBuilder} from './graphEndpoint/graphEndpointRequestBuilder';
 import {RegisteredDevicesRequestBuilderGetRequestConfiguration} from './registeredDevicesRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -18,16 +18,16 @@ export class RegisteredDevicesRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to appRoleAssignment. */
-    public get microsoftGraphAppRoleAssignment(): MicrosoftGraphAppRoleAssignmentRequestBuilder {
-        return new MicrosoftGraphAppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphAppRoleAssignment(): GraphAppRoleAssignmentRequestBuilder {
+        return new GraphAppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to device. */
-    public get microsoftGraphDevice(): MicrosoftGraphDeviceRequestBuilder {
-        return new MicrosoftGraphDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphDevice(): GraphDeviceRequestBuilder {
+        return new GraphDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to endpoint. */
-    public get microsoftGraphEndpoint(): MicrosoftGraphEndpointRequestBuilder {
-        return new MicrosoftGraphEndpointRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphEndpoint(): GraphEndpointRequestBuilder {
+        return new GraphEndpointRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

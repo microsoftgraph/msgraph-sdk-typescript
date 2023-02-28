@@ -2,7 +2,7 @@ import {WorkbookTableRow} from '../../../../../../../../../models/';
 import {createWorkbookTableRowFromDiscriminatorValue} from '../../../../../../../../../models/createWorkbookTableRowFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {MicrosoftGraphRangeRequestBuilder} from './microsoftGraphRange/microsoftGraphRangeRequestBuilder';
+import {RangeRequestBuilder} from './range/rangeRequestBuilder';
 import {WorkbookTableRowItemRequestBuilderDeleteRequestConfiguration} from './workbookTableRowItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookTableRowItemRequestBuilderGetRequestConfiguration} from './workbookTableRowItemRequestBuilderGetRequestConfiguration';
 import {WorkbookTableRowItemRequestBuilderPatchRequestConfiguration} from './workbookTableRowItemRequestBuilderPatchRequestConfiguration';
@@ -12,12 +12,12 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
  */
 export class WorkbookTableRowItemRequestBuilder {
-    /** Provides operations to call the range method. */
-    public get microsoftGraphRange(): MicrosoftGraphRangeRequestBuilder {
-        return new MicrosoftGraphRangeRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the range method. */
+    public get range(): RangeRequestBuilder {
+        return new RangeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */

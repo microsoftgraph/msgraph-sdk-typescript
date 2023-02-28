@@ -4,12 +4,12 @@ import {createUserFromDiscriminatorValue} from '../models/createUserFromDiscrimi
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphDeltaRequestBuilder} from './microsoftGraphDelta/microsoftGraphDeltaRequestBuilder';
-import {MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder} from './microsoftGraphGetAvailableExtensionProperties/microsoftGraphGetAvailableExtensionPropertiesRequestBuilder';
-import {MicrosoftGraphGetByIdsRequestBuilder} from './microsoftGraphGetByIds/microsoftGraphGetByIdsRequestBuilder';
-import {MicrosoftGraphValidatePropertiesRequestBuilder} from './microsoftGraphValidateProperties/microsoftGraphValidatePropertiesRequestBuilder';
+import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
+import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
+import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {UsersRequestBuilderGetRequestConfiguration} from './usersRequestBuilderGetRequestConfiguration';
 import {UsersRequestBuilderPostRequestConfiguration} from './usersRequestBuilderPostRequestConfiguration';
+import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -21,20 +21,16 @@ export class UsersRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the delta method. */
-    public get microsoftGraphDelta(): MicrosoftGraphDeltaRequestBuilder {
-        return new MicrosoftGraphDeltaRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get delta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getAvailableExtensionProperties method. */
-    public get microsoftGraphGetAvailableExtensionProperties(): MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder {
-        return new MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {
+        return new GetAvailableExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getByIds method. */
-    public get microsoftGraphGetByIds(): MicrosoftGraphGetByIdsRequestBuilder {
-        return new MicrosoftGraphGetByIdsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the validateProperties method. */
-    public get microsoftGraphValidateProperties(): MicrosoftGraphValidatePropertiesRequestBuilder {
-        return new MicrosoftGraphValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get getByIds(): GetByIdsRequestBuilder {
+        return new GetByIdsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -42,6 +38,10 @@ export class UsersRequestBuilder {
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
+    /** Provides operations to call the validateProperties method. */
+    public get validateProperties(): ValidatePropertiesRequestBuilder {
+        return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new UsersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -50,17 +50,17 @@ export class UsersRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/users{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
+        this.urlTemplate = "{+baseurl}/users{?%24top,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Retrieve the properties and relationships of user object.
+     * Retrieve a list of user objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/user-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UsersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -92,7 +92,7 @@ export class UsersRequestBuilder {
         return this.requestAdapter?.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties and relationships of user object.
+     * Retrieve a list of user objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

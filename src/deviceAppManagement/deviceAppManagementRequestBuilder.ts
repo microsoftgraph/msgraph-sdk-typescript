@@ -20,13 +20,13 @@ import {ManagedEBookItemRequestBuilder} from './managedEBooks/item/managedEBookI
 import {ManagedEBooksRequestBuilder} from './managedEBooks/managedEBooksRequestBuilder';
 import {MdmWindowsInformationProtectionPolicyItemRequestBuilder} from './mdmWindowsInformationProtectionPolicies/item/mdmWindowsInformationProtectionPolicyItemRequestBuilder';
 import {MdmWindowsInformationProtectionPoliciesRequestBuilder} from './mdmWindowsInformationProtectionPolicies/mdmWindowsInformationProtectionPoliciesRequestBuilder';
-import {MicrosoftGraphSyncMicrosoftStoreForBusinessAppsRequestBuilder} from './microsoftGraphSyncMicrosoftStoreForBusinessApps/microsoftGraphSyncMicrosoftStoreForBusinessAppsRequestBuilder';
 import {MobileAppCategoryItemRequestBuilder} from './mobileAppCategories/item/mobileAppCategoryItemRequestBuilder';
 import {MobileAppCategoriesRequestBuilder} from './mobileAppCategories/mobileAppCategoriesRequestBuilder';
 import {ManagedDeviceMobileAppConfigurationItemRequestBuilder} from './mobileAppConfigurations/item/managedDeviceMobileAppConfigurationItemRequestBuilder';
 import {MobileAppConfigurationsRequestBuilder} from './mobileAppConfigurations/mobileAppConfigurationsRequestBuilder';
 import {MobileAppItemRequestBuilder} from './mobileApps/item/mobileAppItemRequestBuilder';
 import {MobileAppsRequestBuilder} from './mobileApps/mobileAppsRequestBuilder';
+import {SyncMicrosoftStoreForBusinessAppsRequestBuilder} from './syncMicrosoftStoreForBusinessApps/syncMicrosoftStoreForBusinessAppsRequestBuilder';
 import {TargetedManagedAppConfigurationItemRequestBuilder} from './targetedManagedAppConfigurations/item/targetedManagedAppConfigurationItemRequestBuilder';
 import {TargetedManagedAppConfigurationsRequestBuilder} from './targetedManagedAppConfigurations/targetedManagedAppConfigurationsRequestBuilder';
 import {VppTokenItemRequestBuilder} from './vppTokens/item/vppTokenItemRequestBuilder';
@@ -71,10 +71,6 @@ export class DeviceAppManagementRequestBuilder {
     public get mdmWindowsInformationProtectionPolicies(): MdmWindowsInformationProtectionPoliciesRequestBuilder {
         return new MdmWindowsInformationProtectionPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the syncMicrosoftStoreForBusinessApps method. */
-    public get microsoftGraphSyncMicrosoftStoreForBusinessApps(): MicrosoftGraphSyncMicrosoftStoreForBusinessAppsRequestBuilder {
-        return new MicrosoftGraphSyncMicrosoftStoreForBusinessAppsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the mobileAppCategories property of the microsoft.graph.deviceAppManagement entity. */
     public get mobileAppCategories(): MobileAppCategoriesRequestBuilder {
         return new MobileAppCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -91,6 +87,10 @@ export class DeviceAppManagementRequestBuilder {
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the syncMicrosoftStoreForBusinessApps method. */
+    public get syncMicrosoftStoreForBusinessApps(): SyncMicrosoftStoreForBusinessAppsRequestBuilder {
+        return new SyncMicrosoftStoreForBusinessAppsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity. */
     public get targetedManagedAppConfigurations(): TargetedManagedAppConfigurationsRequestBuilder {
         return new TargetedManagedAppConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);

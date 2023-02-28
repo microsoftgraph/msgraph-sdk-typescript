@@ -3,10 +3,9 @@ import {createWorkbookTableCollectionResponseFromDiscriminatorValue} from '../..
 import {createWorkbookTableFromDiscriminatorValue} from '../../../../../../models/createWorkbookTableFromDiscriminatorValue';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AddRequestBuilder} from './add/addRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphAddRequestBuilder} from './microsoftGraphAdd/microsoftGraphAddRequestBuilder';
-import {MicrosoftGraphCountRequestBuilder} from './microsoftGraphCount/microsoftGraphCountRequestBuilder';
-import {MicrosoftGraphItemAtWithIndexRequestBuilder} from './microsoftGraphItemAtWithIndex/microsoftGraphItemAtWithIndexRequestBuilder';
+import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {TablesRequestBuilderGetRequestConfiguration} from './tablesRequestBuilderGetRequestConfiguration';
 import {TablesRequestBuilderPostRequestConfiguration} from './tablesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -15,17 +14,13 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the tables property of the microsoft.graph.workbook entity.
  */
 export class TablesRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
-    public get count(): CountRequestBuilder {
-        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to call the add method. */
-    public get microsoftGraphAdd(): MicrosoftGraphAddRequestBuilder {
-        return new MicrosoftGraphAddRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get add(): AddRequestBuilder {
+        return new AddRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the count method. */
-    public get microsoftGraphCount(): MicrosoftGraphCountRequestBuilder {
-        return new MicrosoftGraphCountRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -66,11 +61,11 @@ export class TablesRequestBuilder {
     /**
      * Provides operations to call the itemAt method.
      * @param index Usage: index={index}
-     * @returns a microsoftGraphItemAtWithIndexRequestBuilder
+     * @returns a itemAtWithIndexRequestBuilder
      */
-    public microsoftGraphItemAtWithIndex(index: number | undefined) : MicrosoftGraphItemAtWithIndexRequestBuilder {
+    public itemAtWithIndex(index: number | undefined) : ItemAtWithIndexRequestBuilder {
         if(!index) throw new Error("index cannot be undefined");
-        return new MicrosoftGraphItemAtWithIndexRequestBuilder(this.pathParameters, this.requestAdapter, index);
+        return new ItemAtWithIndexRequestBuilder(this.pathParameters, this.requestAdapter, index);
     };
     /**
      * Create new navigation property to tables for drives

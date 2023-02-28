@@ -4,9 +4,9 @@ import {createWorkbookPivotTableFromDiscriminatorValue} from '../../../../../../
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphRefreshAllRequestBuilder} from './microsoftGraphRefreshAll/microsoftGraphRefreshAllRequestBuilder';
 import {PivotTablesRequestBuilderGetRequestConfiguration} from './pivotTablesRequestBuilderGetRequestConfiguration';
 import {PivotTablesRequestBuilderPostRequestConfiguration} from './pivotTablesRequestBuilderPostRequestConfiguration';
+import {RefreshAllRequestBuilder} from './refreshAll/refreshAllRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -17,12 +17,12 @@ export class PivotTablesRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the refreshAll method. */
-    public get microsoftGraphRefreshAll(): MicrosoftGraphRefreshAllRequestBuilder {
-        return new MicrosoftGraphRefreshAllRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the refreshAll method. */
+    public get refreshAll(): RefreshAllRequestBuilder {
+        return new RefreshAllRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */

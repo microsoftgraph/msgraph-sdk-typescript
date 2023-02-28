@@ -2,9 +2,9 @@ import {WindowsAutopilotDeviceIdentity} from '../../../models/';
 import {createWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from '../../../models/createWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {MicrosoftGraphAssignUserToDeviceRequestBuilder} from './microsoftGraphAssignUserToDevice/microsoftGraphAssignUserToDeviceRequestBuilder';
-import {MicrosoftGraphUnassignUserFromDeviceRequestBuilder} from './microsoftGraphUnassignUserFromDevice/microsoftGraphUnassignUserFromDeviceRequestBuilder';
-import {MicrosoftGraphUpdateDevicePropertiesRequestBuilder} from './microsoftGraphUpdateDeviceProperties/microsoftGraphUpdateDevicePropertiesRequestBuilder';
+import {AssignUserToDeviceRequestBuilder} from './assignUserToDevice/assignUserToDeviceRequestBuilder';
+import {UnassignUserFromDeviceRequestBuilder} from './unassignUserFromDevice/unassignUserFromDeviceRequestBuilder';
+import {UpdateDevicePropertiesRequestBuilder} from './updateDeviceProperties/updateDevicePropertiesRequestBuilder';
 import {WindowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration} from './windowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration';
 import {WindowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration} from './windowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration';
 import {WindowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration} from './windowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration';
@@ -15,21 +15,21 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class WindowsAutopilotDeviceIdentityItemRequestBuilder {
     /** Provides operations to call the assignUserToDevice method. */
-    public get microsoftGraphAssignUserToDevice(): MicrosoftGraphAssignUserToDeviceRequestBuilder {
-        return new MicrosoftGraphAssignUserToDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the unassignUserFromDevice method. */
-    public get microsoftGraphUnassignUserFromDevice(): MicrosoftGraphUnassignUserFromDeviceRequestBuilder {
-        return new MicrosoftGraphUnassignUserFromDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the updateDeviceProperties method. */
-    public get microsoftGraphUpdateDeviceProperties(): MicrosoftGraphUpdateDevicePropertiesRequestBuilder {
-        return new MicrosoftGraphUpdateDevicePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get assignUserToDevice(): AssignUserToDeviceRequestBuilder {
+        return new AssignUserToDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the unassignUserFromDevice method. */
+    public get unassignUserFromDevice(): UnassignUserFromDeviceRequestBuilder {
+        return new UnassignUserFromDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the updateDeviceProperties method. */
+    public get updateDeviceProperties(): UpdateDevicePropertiesRequestBuilder {
+        return new UpdateDevicePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

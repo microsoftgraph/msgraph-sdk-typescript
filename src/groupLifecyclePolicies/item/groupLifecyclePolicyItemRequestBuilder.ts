@@ -2,11 +2,11 @@ import {GroupLifecyclePolicy} from '../../models/';
 import {createGroupLifecyclePolicyFromDiscriminatorValue} from '../../models/createGroupLifecyclePolicyFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AddGroupRequestBuilder} from './addGroup/addGroupRequestBuilder';
 import {GroupLifecyclePolicyItemRequestBuilderDeleteRequestConfiguration} from './groupLifecyclePolicyItemRequestBuilderDeleteRequestConfiguration';
 import {GroupLifecyclePolicyItemRequestBuilderGetRequestConfiguration} from './groupLifecyclePolicyItemRequestBuilderGetRequestConfiguration';
 import {GroupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration} from './groupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphAddGroupRequestBuilder} from './microsoftGraphAddGroup/microsoftGraphAddGroupRequestBuilder';
-import {MicrosoftGraphRemoveGroupRequestBuilder} from './microsoftGraphRemoveGroup/microsoftGraphRemoveGroupRequestBuilder';
+import {RemoveGroupRequestBuilder} from './removeGroup/removeGroupRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -14,15 +14,15 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class GroupLifecyclePolicyItemRequestBuilder {
     /** Provides operations to call the addGroup method. */
-    public get microsoftGraphAddGroup(): MicrosoftGraphAddGroupRequestBuilder {
-        return new MicrosoftGraphAddGroupRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the removeGroup method. */
-    public get microsoftGraphRemoveGroup(): MicrosoftGraphRemoveGroupRequestBuilder {
-        return new MicrosoftGraphRemoveGroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get addGroup(): AddGroupRequestBuilder {
+        return new AddGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the removeGroup method. */
+    public get removeGroup(): RemoveGroupRequestBuilder {
+        return new RemoveGroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */

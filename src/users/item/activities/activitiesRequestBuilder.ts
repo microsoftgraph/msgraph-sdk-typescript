@@ -6,7 +6,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {ActivitiesRequestBuilderGetRequestConfiguration} from './activitiesRequestBuilderGetRequestConfiguration';
 import {ActivitiesRequestBuilderPostRequestConfiguration} from './activitiesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphRecentRequestBuilder} from './microsoftGraphRecent/microsoftGraphRecentRequestBuilder';
+import {RecentRequestBuilder} from './recent/recentRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -17,12 +17,12 @@ export class ActivitiesRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the recent method. */
-    public get microsoftGraphRecent(): MicrosoftGraphRecentRequestBuilder {
-        return new MicrosoftGraphRecentRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the recent method. */
+    public get recent(): RecentRequestBuilder {
+        return new RecentRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */

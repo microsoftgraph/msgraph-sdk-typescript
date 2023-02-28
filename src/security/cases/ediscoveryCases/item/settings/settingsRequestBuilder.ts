@@ -2,7 +2,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EdiscoveryCaseSettings} from '../../../../../models/security/';
 import {createEdiscoveryCaseSettingsFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryCaseSettingsFromDiscriminatorValue';
-import {MicrosoftGraphSecurityResetToDefaultRequestBuilder} from './microsoftGraphSecurityResetToDefault/microsoftGraphSecurityResetToDefaultRequestBuilder';
+import {SecurityResetToDefaultRequestBuilder} from './securityResetToDefault/securityResetToDefaultRequestBuilder';
 import {SettingsRequestBuilderDeleteRequestConfiguration} from './settingsRequestBuilderDeleteRequestConfiguration';
 import {SettingsRequestBuilderGetRequestConfiguration} from './settingsRequestBuilderGetRequestConfiguration';
 import {SettingsRequestBuilderPatchRequestConfiguration} from './settingsRequestBuilderPatchRequestConfiguration';
@@ -12,14 +12,14 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the settings property of the microsoft.graph.security.ediscoveryCase entity.
  */
 export class SettingsRequestBuilder {
-    /** Provides operations to call the resetToDefault method. */
-    public get microsoftGraphSecurityResetToDefault(): MicrosoftGraphSecurityResetToDefaultRequestBuilder {
-        return new MicrosoftGraphSecurityResetToDefaultRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the resetToDefault method. */
+    public get securityResetToDefault(): SecurityResetToDefaultRequestBuilder {
+        return new SecurityResetToDefaultRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

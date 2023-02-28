@@ -1,4 +1,3 @@
-import {LobbyBypassScope} from './lobbyBypassScope';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LobbyBypassSettings implements AdditionalDataHolder, Parsable {
@@ -8,8 +7,6 @@ export class LobbyBypassSettings implements AdditionalDataHolder, Parsable {
     private _isDialInBypassEnabled?: boolean | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional. */
-    private _scope?: LobbyBypassScope | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -38,7 +35,6 @@ export class LobbyBypassSettings implements AdditionalDataHolder, Parsable {
         return {
             "isDialInBypassEnabled": n => { this.isDialInBypassEnabled = n.getBooleanValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
-            "scope": n => { this.scope = n.getEnumValue<LobbyBypassScope>(LobbyBypassScope); },
         };
     };
     /**
@@ -70,20 +66,6 @@ export class LobbyBypassSettings implements AdditionalDataHolder, Parsable {
         this._odataType = value;
     };
     /**
-     * Gets the scope property value. Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
-     * @returns a lobbyBypassScope
-     */
-    public get scope() {
-        return this._scope;
-    };
-    /**
-     * Sets the scope property value. Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
-     * @param value Value to set for the scope property.
-     */
-    public set scope(value: LobbyBypassScope | undefined) {
-        this._scope = value;
-    };
-    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -91,7 +73,6 @@ export class LobbyBypassSettings implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("isDialInBypassEnabled", this.isDialInBypassEnabled);
         writer.writeStringValue("@odata.type", this.odataType);
-        writer.writeEnumValue<LobbyBypassScope>("scope", this.scope);
         writer.writeAdditionalData(this.additionalData);
     };
 }

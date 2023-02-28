@@ -4,10 +4,10 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {LocalizedNotificationMessageItemRequestBuilder} from './localizedNotificationMessages/item/localizedNotificationMessageItemRequestBuilder';
 import {LocalizedNotificationMessagesRequestBuilder} from './localizedNotificationMessages/localizedNotificationMessagesRequestBuilder';
-import {MicrosoftGraphSendTestMessageRequestBuilder} from './microsoftGraphSendTestMessage/microsoftGraphSendTestMessageRequestBuilder';
 import {NotificationMessageTemplateItemRequestBuilderDeleteRequestConfiguration} from './notificationMessageTemplateItemRequestBuilderDeleteRequestConfiguration';
 import {NotificationMessageTemplateItemRequestBuilderGetRequestConfiguration} from './notificationMessageTemplateItemRequestBuilderGetRequestConfiguration';
 import {NotificationMessageTemplateItemRequestBuilderPatchRequestConfiguration} from './notificationMessageTemplateItemRequestBuilderPatchRequestConfiguration';
+import {SendTestMessageRequestBuilder} from './sendTestMessage/sendTestMessageRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,14 +18,14 @@ export class NotificationMessageTemplateItemRequestBuilder {
     public get localizedNotificationMessages(): LocalizedNotificationMessagesRequestBuilder {
         return new LocalizedNotificationMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sendTestMessage method. */
-    public get microsoftGraphSendTestMessage(): MicrosoftGraphSendTestMessageRequestBuilder {
-        return new MicrosoftGraphSendTestMessageRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the sendTestMessage method. */
+    public get sendTestMessage(): SendTestMessageRequestBuilder {
+        return new SendTestMessageRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

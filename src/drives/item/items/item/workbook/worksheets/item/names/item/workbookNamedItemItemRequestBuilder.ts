@@ -2,7 +2,7 @@ import {WorkbookNamedItem} from '../../../../../../../../../models/';
 import {createWorkbookNamedItemFromDiscriminatorValue} from '../../../../../../../../../models/createWorkbookNamedItemFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {MicrosoftGraphRangeRequestBuilder} from './microsoftGraphRange/microsoftGraphRangeRequestBuilder';
+import {RangeRequestBuilder} from './range/rangeRequestBuilder';
 import {WorkbookNamedItemItemRequestBuilderDeleteRequestConfiguration} from './workbookNamedItemItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookNamedItemItemRequestBuilderGetRequestConfiguration} from './workbookNamedItemItemRequestBuilderGetRequestConfiguration';
 import {WorkbookNamedItemItemRequestBuilderPatchRequestConfiguration} from './workbookNamedItemItemRequestBuilderPatchRequestConfiguration';
@@ -13,12 +13,12 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the names property of the microsoft.graph.workbookWorksheet entity.
  */
 export class WorkbookNamedItemItemRequestBuilder {
-    /** Provides operations to call the range method. */
-    public get microsoftGraphRange(): MicrosoftGraphRangeRequestBuilder {
-        return new MicrosoftGraphRangeRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the range method. */
+    public get range(): RangeRequestBuilder {
+        return new RangeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */

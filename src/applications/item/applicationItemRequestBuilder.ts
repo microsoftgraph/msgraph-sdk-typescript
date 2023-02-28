@@ -2,40 +2,62 @@ import {Application} from '../../models/';
 import {createApplicationFromDiscriminatorValue} from '../../models/createApplicationFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AddKeyRequestBuilder} from './addKey/addKeyRequestBuilder';
+import {AddPasswordRequestBuilder} from './addPassword/addPasswordRequestBuilder';
 import {ApplicationItemRequestBuilderDeleteRequestConfiguration} from './applicationItemRequestBuilderDeleteRequestConfiguration';
 import {ApplicationItemRequestBuilderGetRequestConfiguration} from './applicationItemRequestBuilderGetRequestConfiguration';
 import {ApplicationItemRequestBuilderPatchRequestConfiguration} from './applicationItemRequestBuilderPatchRequestConfiguration';
+import {AppManagementPoliciesRequestBuilder} from './appManagementPolicies/appManagementPoliciesRequestBuilder';
+import {AppManagementPolicyItemRequestBuilder} from './appManagementPolicies/item/appManagementPolicyItemRequestBuilder';
+import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {CreatedOnBehalfOfRequestBuilder} from './createdOnBehalfOf/createdOnBehalfOfRequestBuilder';
 import {ExtensionPropertiesRequestBuilder} from './extensionProperties/extensionPropertiesRequestBuilder';
 import {ExtensionPropertyItemRequestBuilder} from './extensionProperties/item/extensionPropertyItemRequestBuilder';
 import {FederatedIdentityCredentialsRequestBuilder} from './federatedIdentityCredentials/federatedIdentityCredentialsRequestBuilder';
 import {FederatedIdentityCredentialItemRequestBuilder} from './federatedIdentityCredentials/item/federatedIdentityCredentialItemRequestBuilder';
+import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
 import {HomeRealmDiscoveryPoliciesRequestBuilder} from './homeRealmDiscoveryPolicies/homeRealmDiscoveryPoliciesRequestBuilder';
 import {HomeRealmDiscoveryPolicyItemRequestBuilder} from './homeRealmDiscoveryPolicies/item/homeRealmDiscoveryPolicyItemRequestBuilder';
 import {LogoRequestBuilder} from './logo/logoRequestBuilder';
-import {MicrosoftGraphAddKeyRequestBuilder} from './microsoftGraphAddKey/microsoftGraphAddKeyRequestBuilder';
-import {MicrosoftGraphAddPasswordRequestBuilder} from './microsoftGraphAddPassword/microsoftGraphAddPasswordRequestBuilder';
-import {MicrosoftGraphCheckMemberGroupsRequestBuilder} from './microsoftGraphCheckMemberGroups/microsoftGraphCheckMemberGroupsRequestBuilder';
-import {MicrosoftGraphCheckMemberObjectsRequestBuilder} from './microsoftGraphCheckMemberObjects/microsoftGraphCheckMemberObjectsRequestBuilder';
-import {MicrosoftGraphGetMemberGroupsRequestBuilder} from './microsoftGraphGetMemberGroups/microsoftGraphGetMemberGroupsRequestBuilder';
-import {MicrosoftGraphGetMemberObjectsRequestBuilder} from './microsoftGraphGetMemberObjects/microsoftGraphGetMemberObjectsRequestBuilder';
-import {MicrosoftGraphRemoveKeyRequestBuilder} from './microsoftGraphRemoveKey/microsoftGraphRemoveKeyRequestBuilder';
-import {MicrosoftGraphRemovePasswordRequestBuilder} from './microsoftGraphRemovePassword/microsoftGraphRemovePasswordRequestBuilder';
-import {MicrosoftGraphRestoreRequestBuilder} from './microsoftGraphRestore/microsoftGraphRestoreRequestBuilder';
-import {MicrosoftGraphSetVerifiedPublisherRequestBuilder} from './microsoftGraphSetVerifiedPublisher/microsoftGraphSetVerifiedPublisherRequestBuilder';
-import {MicrosoftGraphUnsetVerifiedPublisherRequestBuilder} from './microsoftGraphUnsetVerifiedPublisher/microsoftGraphUnsetVerifiedPublisherRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './owners/item/directoryObjectItemRequestBuilder';
 import {OwnersRequestBuilder} from './owners/ownersRequestBuilder';
+import {RemoveKeyRequestBuilder} from './removeKey/removeKeyRequestBuilder';
+import {RemovePasswordRequestBuilder} from './removePassword/removePasswordRequestBuilder';
+import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
+import {SetVerifiedPublisherRequestBuilder} from './setVerifiedPublisher/setVerifiedPublisherRequestBuilder';
 import {TokenIssuancePolicyItemRequestBuilder} from './tokenIssuancePolicies/item/tokenIssuancePolicyItemRequestBuilder';
 import {TokenIssuancePoliciesRequestBuilder} from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
 import {TokenLifetimePolicyItemRequestBuilder} from './tokenLifetimePolicies/item/tokenLifetimePolicyItemRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilder} from './tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
+import {UnsetVerifiedPublisherRequestBuilder} from './unsetVerifiedPublisher/unsetVerifiedPublisherRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of application entities.
  */
 export class ApplicationItemRequestBuilder {
+    /** Provides operations to call the addKey method. */
+    public get addKey(): AddKeyRequestBuilder {
+        return new AddKeyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the addPassword method. */
+    public get addPassword(): AddPasswordRequestBuilder {
+        return new AddPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the appManagementPolicies property of the microsoft.graph.application entity. */
+    public get appManagementPolicies(): AppManagementPoliciesRequestBuilder {
+        return new AppManagementPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the checkMemberGroups method. */
+    public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the checkMemberObjects method. */
+    public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the createdOnBehalfOf property of the microsoft.graph.application entity. */
     public get createdOnBehalfOf(): CreatedOnBehalfOfRequestBuilder {
         return new CreatedOnBehalfOfRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -48,6 +70,14 @@ export class ApplicationItemRequestBuilder {
     public get federatedIdentityCredentials(): FederatedIdentityCredentialsRequestBuilder {
         return new FederatedIdentityCredentialsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the getMemberGroups method. */
+    public get getMemberGroups(): GetMemberGroupsRequestBuilder {
+        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getMemberObjects method. */
+    public get getMemberObjects(): GetMemberObjectsRequestBuilder {
+        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.application entity. */
     public get homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
         return new HomeRealmDiscoveryPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -56,58 +86,30 @@ export class ApplicationItemRequestBuilder {
     public get logo(): LogoRequestBuilder {
         return new LogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the addKey method. */
-    public get microsoftGraphAddKey(): MicrosoftGraphAddKeyRequestBuilder {
-        return new MicrosoftGraphAddKeyRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the addPassword method. */
-    public get microsoftGraphAddPassword(): MicrosoftGraphAddPasswordRequestBuilder {
-        return new MicrosoftGraphAddPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the checkMemberGroups method. */
-    public get microsoftGraphCheckMemberGroups(): MicrosoftGraphCheckMemberGroupsRequestBuilder {
-        return new MicrosoftGraphCheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the checkMemberObjects method. */
-    public get microsoftGraphCheckMemberObjects(): MicrosoftGraphCheckMemberObjectsRequestBuilder {
-        return new MicrosoftGraphCheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the getMemberGroups method. */
-    public get microsoftGraphGetMemberGroups(): MicrosoftGraphGetMemberGroupsRequestBuilder {
-        return new MicrosoftGraphGetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the getMemberObjects method. */
-    public get microsoftGraphGetMemberObjects(): MicrosoftGraphGetMemberObjectsRequestBuilder {
-        return new MicrosoftGraphGetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the removeKey method. */
-    public get microsoftGraphRemoveKey(): MicrosoftGraphRemoveKeyRequestBuilder {
-        return new MicrosoftGraphRemoveKeyRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the removePassword method. */
-    public get microsoftGraphRemovePassword(): MicrosoftGraphRemovePasswordRequestBuilder {
-        return new MicrosoftGraphRemovePasswordRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the restore method. */
-    public get microsoftGraphRestore(): MicrosoftGraphRestoreRequestBuilder {
-        return new MicrosoftGraphRestoreRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the setVerifiedPublisher method. */
-    public get microsoftGraphSetVerifiedPublisher(): MicrosoftGraphSetVerifiedPublisherRequestBuilder {
-        return new MicrosoftGraphSetVerifiedPublisherRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the unsetVerifiedPublisher method. */
-    public get microsoftGraphUnsetVerifiedPublisher(): MicrosoftGraphUnsetVerifiedPublisherRequestBuilder {
-        return new MicrosoftGraphUnsetVerifiedPublisherRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the owners property of the microsoft.graph.application entity. */
     public get owners(): OwnersRequestBuilder {
         return new OwnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the removeKey method. */
+    public get removeKey(): RemoveKeyRequestBuilder {
+        return new RemoveKeyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the removePassword method. */
+    public get removePassword(): RemovePasswordRequestBuilder {
+        return new RemovePasswordRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the restore method. */
+    public get restore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the setVerifiedPublisher method. */
+    public get setVerifiedPublisher(): SetVerifiedPublisherRequestBuilder {
+        return new SetVerifiedPublisherRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.application entity. */
     public get tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {
         return new TokenIssuancePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -116,8 +118,23 @@ export class ApplicationItemRequestBuilder {
     public get tokenLifetimePolicies(): TokenLifetimePoliciesRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the unsetVerifiedPublisher method. */
+    public get unsetVerifiedPublisher(): UnsetVerifiedPublisherRequestBuilder {
+        return new UnsetVerifiedPublisherRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.appManagementPolicies.item collection
+     * @param id Unique identifier of the item
+     * @returns a AppManagementPolicyItemRequestBuilder
+     */
+    public appManagementPoliciesById(id: string) : AppManagementPolicyItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["appManagementPolicy%2Did"] = id
+        return new AppManagementPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ApplicationItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

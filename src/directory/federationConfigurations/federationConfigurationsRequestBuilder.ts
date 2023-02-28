@@ -3,23 +3,23 @@ import {createIdentityProviderBaseCollectionResponseFromDiscriminatorValue} from
 import {createIdentityProviderBaseFromDiscriminatorValue} from '../../models/createIdentityProviderBaseFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AvailableProviderTypesRequestBuilder} from './availableProviderTypes/availableProviderTypesRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FederationConfigurationsRequestBuilderGetRequestConfiguration} from './federationConfigurationsRequestBuilderGetRequestConfiguration';
 import {FederationConfigurationsRequestBuilderPostRequestConfiguration} from './federationConfigurationsRequestBuilderPostRequestConfiguration';
-import {MicrosoftGraphAvailableProviderTypesRequestBuilder} from './microsoftGraphAvailableProviderTypes/microsoftGraphAvailableProviderTypesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.
  */
 export class FederationConfigurationsRequestBuilder {
+    /** Provides operations to call the availableProviderTypes method. */
+    public get availableProviderTypes(): AvailableProviderTypesRequestBuilder {
+        return new AvailableProviderTypesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the availableProviderTypes method. */
-    public get microsoftGraphAvailableProviderTypes(): MicrosoftGraphAvailableProviderTypesRequestBuilder {
-        return new MicrosoftGraphAvailableProviderTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

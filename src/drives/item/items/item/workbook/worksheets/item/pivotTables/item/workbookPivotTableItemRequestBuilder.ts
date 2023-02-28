@@ -2,7 +2,7 @@ import {WorkbookPivotTable} from '../../../../../../../../../models/';
 import {createWorkbookPivotTableFromDiscriminatorValue} from '../../../../../../../../../models/createWorkbookPivotTableFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {MicrosoftGraphRefreshRequestBuilder} from './microsoftGraphRefresh/microsoftGraphRefreshRequestBuilder';
+import {RefreshRequestBuilder} from './refresh/refreshRequestBuilder';
 import {WorkbookPivotTableItemRequestBuilderDeleteRequestConfiguration} from './workbookPivotTableItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookPivotTableItemRequestBuilderGetRequestConfiguration} from './workbookPivotTableItemRequestBuilderGetRequestConfiguration';
 import {WorkbookPivotTableItemRequestBuilderPatchRequestConfiguration} from './workbookPivotTableItemRequestBuilderPatchRequestConfiguration';
@@ -13,12 +13,12 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
  */
 export class WorkbookPivotTableItemRequestBuilder {
-    /** Provides operations to call the refresh method. */
-    public get microsoftGraphRefresh(): MicrosoftGraphRefreshRequestBuilder {
-        return new MicrosoftGraphRefreshRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the refresh method. */
+    public get refresh(): RefreshRequestBuilder {
+        return new RefreshRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */

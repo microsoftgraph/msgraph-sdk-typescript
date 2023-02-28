@@ -1,4 +1,4 @@
-import {ActivityBasedTimeoutPolicy, AuthorizationPolicy, ClaimsMappingPolicy, CrossTenantAccessPolicy, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, PermissionGrantPolicy, PolicyBase, StsPolicy, TokenIssuancePolicy, TokenLifetimePolicy} from './index';
+import {ActivityBasedTimeoutPolicy, AppManagementPolicy, AuthorizationPolicy, ClaimsMappingPolicy, CrossTenantAccessPolicy, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, PermissionGrantPolicy, PolicyBase, StsPolicy, TenantAppManagementPolicy, TokenIssuancePolicy, TokenLifetimePolicy} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createPolicyBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : PolicyBase {
@@ -10,6 +10,8 @@ export function createPolicyBaseFromDiscriminatorValue(parseNode: ParseNode | un
             switch (mappingValue) {
                 case "#microsoft.graph.activityBasedTimeoutPolicy":
                     return new ActivityBasedTimeoutPolicy();
+                case "#microsoft.graph.appManagementPolicy":
+                    return new AppManagementPolicy();
                 case "#microsoft.graph.authorizationPolicy":
                     return new AuthorizationPolicy();
                 case "#microsoft.graph.claimsMappingPolicy":
@@ -24,6 +26,8 @@ export function createPolicyBaseFromDiscriminatorValue(parseNode: ParseNode | un
                     return new PermissionGrantPolicy();
                 case "#microsoft.graph.stsPolicy":
                     return new StsPolicy();
+                case "#microsoft.graph.tenantAppManagementPolicy":
+                    return new TenantAppManagementPolicy();
                 case "#microsoft.graph.tokenIssuancePolicy":
                     return new TokenIssuancePolicy();
                 case "#microsoft.graph.tokenLifetimePolicy":

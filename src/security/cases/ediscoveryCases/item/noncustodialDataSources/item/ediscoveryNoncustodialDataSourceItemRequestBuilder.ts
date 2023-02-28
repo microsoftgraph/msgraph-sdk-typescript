@@ -7,10 +7,10 @@ import {EdiscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfigura
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration';
 import {LastIndexOperationRequestBuilder} from './lastIndexOperation/lastIndexOperationRequestBuilder';
-import {MicrosoftGraphSecurityApplyHoldRequestBuilder} from './microsoftGraphSecurityApplyHold/microsoftGraphSecurityApplyHoldRequestBuilder';
-import {MicrosoftGraphSecurityReleaseRequestBuilder} from './microsoftGraphSecurityRelease/microsoftGraphSecurityReleaseRequestBuilder';
-import {MicrosoftGraphSecurityRemoveHoldRequestBuilder} from './microsoftGraphSecurityRemoveHold/microsoftGraphSecurityRemoveHoldRequestBuilder';
-import {MicrosoftGraphSecurityUpdateIndexRequestBuilder} from './microsoftGraphSecurityUpdateIndex/microsoftGraphSecurityUpdateIndexRequestBuilder';
+import {SecurityApplyHoldRequestBuilder} from './securityApplyHold/securityApplyHoldRequestBuilder';
+import {SecurityReleaseRequestBuilder} from './securityRelease/securityReleaseRequestBuilder';
+import {SecurityRemoveHoldRequestBuilder} from './securityRemoveHold/securityRemoveHoldRequestBuilder';
+import {SecurityUpdateIndexRequestBuilder} from './securityUpdateIndex/securityUpdateIndexRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -25,26 +25,26 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
     public get lastIndexOperation(): LastIndexOperationRequestBuilder {
         return new LastIndexOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyHold method. */
-    public get microsoftGraphSecurityApplyHold(): MicrosoftGraphSecurityApplyHoldRequestBuilder {
-        return new MicrosoftGraphSecurityApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the release method. */
-    public get microsoftGraphSecurityRelease(): MicrosoftGraphSecurityReleaseRequestBuilder {
-        return new MicrosoftGraphSecurityReleaseRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the removeHold method. */
-    public get microsoftGraphSecurityRemoveHold(): MicrosoftGraphSecurityRemoveHoldRequestBuilder {
-        return new MicrosoftGraphSecurityRemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the updateIndex method. */
-    public get microsoftGraphSecurityUpdateIndex(): MicrosoftGraphSecurityUpdateIndexRequestBuilder {
-        return new MicrosoftGraphSecurityUpdateIndexRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the applyHold method. */
+    public get securityApplyHold(): SecurityApplyHoldRequestBuilder {
+        return new SecurityApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the release method. */
+    public get securityRelease(): SecurityReleaseRequestBuilder {
+        return new SecurityReleaseRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the removeHold method. */
+    public get securityRemoveHold(): SecurityRemoveHoldRequestBuilder {
+        return new SecurityRemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the updateIndex method. */
+    public get securityUpdateIndex(): SecurityUpdateIndexRequestBuilder {
+        return new SecurityUpdateIndexRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

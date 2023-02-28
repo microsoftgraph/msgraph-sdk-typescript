@@ -2,7 +2,9 @@ import {Teamwork} from '../models/';
 import {createTeamworkFromDiscriminatorValue} from '../models/createTeamworkFromDiscriminatorValue';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {MicrosoftGraphSendActivityNotificationToRecipientsRequestBuilder} from './microsoftGraphSendActivityNotificationToRecipients/microsoftGraphSendActivityNotificationToRecipientsRequestBuilder';
+import {DeletedTeamsRequestBuilder} from './deletedTeams/deletedTeamsRequestBuilder';
+import {DeletedTeamItemRequestBuilder} from './deletedTeams/item/deletedTeamItemRequestBuilder';
+import {SendActivityNotificationToRecipientsRequestBuilder} from './sendActivityNotificationToRecipients/sendActivityNotificationToRecipientsRequestBuilder';
 import {TeamworkRequestBuilderGetRequestConfiguration} from './teamworkRequestBuilderGetRequestConfiguration';
 import {TeamworkRequestBuilderPatchRequestConfiguration} from './teamworkRequestBuilderPatchRequestConfiguration';
 import {WorkforceIntegrationItemRequestBuilder} from './workforceIntegrations/item/workforceIntegrationItemRequestBuilder';
@@ -13,14 +15,18 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the teamwork singleton.
  */
 export class TeamworkRequestBuilder {
-    /** Provides operations to call the sendActivityNotificationToRecipients method. */
-    public get microsoftGraphSendActivityNotificationToRecipients(): MicrosoftGraphSendActivityNotificationToRecipientsRequestBuilder {
-        return new MicrosoftGraphSendActivityNotificationToRecipientsRequestBuilder(this.pathParameters, this.requestAdapter);
+    /** Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity. */
+    public get deletedTeams(): DeletedTeamsRequestBuilder {
+        return new DeletedTeamsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the sendActivityNotificationToRecipients method. */
+    public get sendActivityNotificationToRecipients(): SendActivityNotificationToRecipientsRequestBuilder {
+        return new SendActivityNotificationToRecipientsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /** Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity. */
@@ -39,6 +45,17 @@ export class TeamworkRequestBuilder {
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
+    };
+    /**
+     * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
+     * @param id Unique identifier of the item
+     * @returns a DeletedTeamItemRequestBuilder
+     */
+    public deletedTeamsById(id: string) : DeletedTeamItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deletedTeam%2Did"] = id
+        return new DeletedTeamItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get teamwork

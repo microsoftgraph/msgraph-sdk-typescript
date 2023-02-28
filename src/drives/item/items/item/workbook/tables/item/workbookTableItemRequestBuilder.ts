@@ -2,18 +2,18 @@ import {WorkbookTable} from '../../../../../../../models/';
 import {createWorkbookTableFromDiscriminatorValue} from '../../../../../../../models/createWorkbookTableFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ClearFiltersRequestBuilder} from './clearFilters/clearFiltersRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
 import {WorkbookTableColumnItemRequestBuilder} from './columns/item/workbookTableColumnItemRequestBuilder';
-import {MicrosoftGraphClearFiltersRequestBuilder} from './microsoftGraphClearFilters/microsoftGraphClearFiltersRequestBuilder';
-import {MicrosoftGraphConvertToRangeRequestBuilder} from './microsoftGraphConvertToRange/microsoftGraphConvertToRangeRequestBuilder';
-import {MicrosoftGraphDataBodyRangeRequestBuilder} from './microsoftGraphDataBodyRange/microsoftGraphDataBodyRangeRequestBuilder';
-import {MicrosoftGraphHeaderRowRangeRequestBuilder} from './microsoftGraphHeaderRowRange/microsoftGraphHeaderRowRangeRequestBuilder';
-import {MicrosoftGraphRangeRequestBuilder} from './microsoftGraphRange/microsoftGraphRangeRequestBuilder';
-import {MicrosoftGraphReapplyFiltersRequestBuilder} from './microsoftGraphReapplyFilters/microsoftGraphReapplyFiltersRequestBuilder';
-import {MicrosoftGraphTotalRowRangeRequestBuilder} from './microsoftGraphTotalRowRange/microsoftGraphTotalRowRangeRequestBuilder';
+import {ConvertToRangeRequestBuilder} from './convertToRange/convertToRangeRequestBuilder';
+import {DataBodyRangeRequestBuilder} from './dataBodyRange/dataBodyRangeRequestBuilder';
+import {HeaderRowRangeRequestBuilder} from './headerRowRange/headerRowRangeRequestBuilder';
+import {RangeRequestBuilder} from './range/rangeRequestBuilder';
+import {ReapplyFiltersRequestBuilder} from './reapplyFilters/reapplyFiltersRequestBuilder';
 import {WorkbookTableRowItemRequestBuilder} from './rows/item/workbookTableRowItemRequestBuilder';
 import {RowsRequestBuilder} from './rows/rowsRequestBuilder';
 import {SortRequestBuilder} from './sort/sortRequestBuilder';
+import {TotalRowRangeRequestBuilder} from './totalRowRange/totalRowRangeRequestBuilder';
 import {WorkbookTableItemRequestBuilderDeleteRequestConfiguration} from './workbookTableItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookTableItemRequestBuilderGetRequestConfiguration} from './workbookTableItemRequestBuilderGetRequestConfiguration';
 import {WorkbookTableItemRequestBuilderPatchRequestConfiguration} from './workbookTableItemRequestBuilderPatchRequestConfiguration';
@@ -24,40 +24,36 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the tables property of the microsoft.graph.workbook entity.
  */
 export class WorkbookTableItemRequestBuilder {
+    /** Provides operations to call the clearFilters method. */
+    public get clearFilters(): ClearFiltersRequestBuilder {
+        return new ClearFiltersRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the columns property of the microsoft.graph.workbookTable entity. */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the clearFilters method. */
-    public get microsoftGraphClearFilters(): MicrosoftGraphClearFiltersRequestBuilder {
-        return new MicrosoftGraphClearFiltersRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to call the convertToRange method. */
-    public get microsoftGraphConvertToRange(): MicrosoftGraphConvertToRangeRequestBuilder {
-        return new MicrosoftGraphConvertToRangeRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get convertToRange(): ConvertToRangeRequestBuilder {
+        return new ConvertToRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dataBodyRange method. */
-    public get microsoftGraphDataBodyRange(): MicrosoftGraphDataBodyRangeRequestBuilder {
-        return new MicrosoftGraphDataBodyRangeRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dataBodyRange(): DataBodyRangeRequestBuilder {
+        return new DataBodyRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the headerRowRange method. */
-    public get microsoftGraphHeaderRowRange(): MicrosoftGraphHeaderRowRangeRequestBuilder {
-        return new MicrosoftGraphHeaderRowRangeRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the range method. */
-    public get microsoftGraphRange(): MicrosoftGraphRangeRequestBuilder {
-        return new MicrosoftGraphRangeRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the reapplyFilters method. */
-    public get microsoftGraphReapplyFilters(): MicrosoftGraphReapplyFiltersRequestBuilder {
-        return new MicrosoftGraphReapplyFiltersRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the totalRowRange method. */
-    public get microsoftGraphTotalRowRange(): MicrosoftGraphTotalRowRangeRequestBuilder {
-        return new MicrosoftGraphTotalRowRangeRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get headerRowRange(): HeaderRowRangeRequestBuilder {
+        return new HeaderRowRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the range method. */
+    public get range(): RangeRequestBuilder {
+        return new RangeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the reapplyFilters method. */
+    public get reapplyFilters(): ReapplyFiltersRequestBuilder {
+        return new ReapplyFiltersRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the rows property of the microsoft.graph.workbookTable entity. */
@@ -67,6 +63,10 @@ export class WorkbookTableItemRequestBuilder {
     /** Provides operations to manage the sort property of the microsoft.graph.workbookTable entity. */
     public get sort(): SortRequestBuilder {
         return new SortRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the totalRowRange method. */
+    public get totalRowRange(): TotalRowRangeRequestBuilder {
+        return new TotalRowRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;

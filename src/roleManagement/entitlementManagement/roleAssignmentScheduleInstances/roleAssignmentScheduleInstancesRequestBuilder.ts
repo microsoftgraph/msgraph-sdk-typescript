@@ -4,7 +4,7 @@ import {createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue} from 
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphFilterByCurrentUserWithOnRequestBuilder} from './microsoftGraphFilterByCurrentUserWithOn/microsoftGraphFilterByCurrentUserWithOnRequestBuilder';
+import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {RoleAssignmentScheduleInstancesRequestBuilderGetRequestConfiguration} from './roleAssignmentScheduleInstancesRequestBuilderGetRequestConfiguration';
 import {RoleAssignmentScheduleInstancesRequestBuilderPostRequestConfiguration} from './roleAssignmentScheduleInstancesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -37,6 +37,15 @@ export class RoleAssignmentScheduleInstancesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
+     * Provides operations to call the filterByCurrentUser method.
+     * @param on Usage: on='{on}'
+     * @returns a filterByCurrentUserWithOnRequestBuilder
+     */
+    public filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder {
+        if(!on) throw new Error("on cannot be undefined");
+        return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
+    };
+    /**
      * Get the instances of active role assignments in your tenant. The active assignments include those made through assignments and activation requests, and directly through the role assignments API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -52,15 +61,6 @@ export class RoleAssignmentScheduleInstancesRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<UnifiedRoleAssignmentScheduleInstanceCollectionResponse>(requestInfo, createUnifiedRoleAssignmentScheduleInstanceCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to call the filterByCurrentUser method.
-     * @param on Usage: on='{on}'
-     * @returns a microsoftGraphFilterByCurrentUserWithOnRequestBuilder
-     */
-    public microsoftGraphFilterByCurrentUserWithOn(on: string | undefined) : MicrosoftGraphFilterByCurrentUserWithOnRequestBuilder {
-        if(!on) throw new Error("on cannot be undefined");
-        return new MicrosoftGraphFilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
      * Create new navigation property to roleAssignmentScheduleInstances for roleManagement

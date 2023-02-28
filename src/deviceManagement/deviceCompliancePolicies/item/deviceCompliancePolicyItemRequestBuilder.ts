@@ -2,6 +2,7 @@ import {DeviceCompliancePolicy} from '../../../models/';
 import {createDeviceCompliancePolicyFromDiscriminatorValue} from '../../../models/createDeviceCompliancePolicyFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
 import {DeviceCompliancePolicyAssignmentItemRequestBuilder} from './assignments/item/deviceCompliancePolicyAssignmentItemRequestBuilder';
 import {DeviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration} from './deviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration';
@@ -12,8 +13,7 @@ import {SettingStateDeviceSummaryItemRequestBuilder} from './deviceSettingStateS
 import {DeviceStatusesRequestBuilder} from './deviceStatuses/deviceStatusesRequestBuilder';
 import {DeviceComplianceDeviceStatusItemRequestBuilder} from './deviceStatuses/item/deviceComplianceDeviceStatusItemRequestBuilder';
 import {DeviceStatusOverviewRequestBuilder} from './deviceStatusOverview/deviceStatusOverviewRequestBuilder';
-import {MicrosoftGraphAssignRequestBuilder} from './microsoftGraphAssign/microsoftGraphAssignRequestBuilder';
-import {MicrosoftGraphScheduleActionsForRulesRequestBuilder} from './microsoftGraphScheduleActionsForRules/microsoftGraphScheduleActionsForRulesRequestBuilder';
+import {ScheduleActionsForRulesRequestBuilder} from './scheduleActionsForRules/scheduleActionsForRulesRequestBuilder';
 import {DeviceComplianceScheduledActionForRuleItemRequestBuilder} from './scheduledActionsForRule/item/deviceComplianceScheduledActionForRuleItemRequestBuilder';
 import {ScheduledActionsForRuleRequestBuilder} from './scheduledActionsForRule/scheduledActionsForRuleRequestBuilder';
 import {DeviceComplianceUserStatusItemRequestBuilder} from './userStatuses/item/deviceComplianceUserStatusItemRequestBuilder';
@@ -25,6 +25,10 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
  */
 export class DeviceCompliancePolicyItemRequestBuilder {
+    /** Provides operations to call the assign method. */
+    public get assign(): AssignRequestBuilder {
+        return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the assignments property of the microsoft.graph.deviceCompliancePolicy entity. */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -41,18 +45,14 @@ export class DeviceCompliancePolicyItemRequestBuilder {
     public get deviceStatusOverview(): DeviceStatusOverviewRequestBuilder {
         return new DeviceStatusOverviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the assign method. */
-    public get microsoftGraphAssign(): MicrosoftGraphAssignRequestBuilder {
-        return new MicrosoftGraphAssignRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the scheduleActionsForRules method. */
-    public get microsoftGraphScheduleActionsForRules(): MicrosoftGraphScheduleActionsForRulesRequestBuilder {
-        return new MicrosoftGraphScheduleActionsForRulesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the scheduleActionsForRules method. */
+    public get scheduleActionsForRules(): ScheduleActionsForRulesRequestBuilder {
+        return new ScheduleActionsForRulesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity. */
     public get scheduledActionsForRule(): ScheduledActionsForRuleRequestBuilder {
         return new ScheduledActionsForRuleRequestBuilder(this.pathParameters, this.requestAdapter);

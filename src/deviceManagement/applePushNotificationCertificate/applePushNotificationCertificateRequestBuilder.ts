@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {ApplePushNotificationCertificateRequestBuilderDeleteRequestConfiguration} from './applePushNotificationCertificateRequestBuilderDeleteRequestConfiguration';
 import {ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration} from './applePushNotificationCertificateRequestBuilderGetRequestConfiguration';
 import {ApplePushNotificationCertificateRequestBuilderPatchRequestConfiguration} from './applePushNotificationCertificateRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphDownloadApplePushNotificationCertificateSigningRequestRequestBuilder} from './microsoftGraphDownloadApplePushNotificationCertificateSigningRequest/microsoftGraphDownloadApplePushNotificationCertificateSigningRequestRequestBuilder';
+import {DownloadApplePushNotificationCertificateSigningRequestRequestBuilder} from './downloadApplePushNotificationCertificateSigningRequest/downloadApplePushNotificationCertificateSigningRequestRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -13,8 +13,8 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class ApplePushNotificationCertificateRequestBuilder {
     /** Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method. */
-    public get microsoftGraphDownloadApplePushNotificationCertificateSigningRequest(): MicrosoftGraphDownloadApplePushNotificationCertificateSigningRequestRequestBuilder {
-        return new MicrosoftGraphDownloadApplePushNotificationCertificateSigningRequestRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get downloadApplePushNotificationCertificateSigningRequest(): DownloadApplePushNotificationCertificateSigningRequestRequestBuilder {
+        return new DownloadApplePushNotificationCertificateSigningRequestRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

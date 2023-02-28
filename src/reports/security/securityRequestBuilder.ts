@@ -2,9 +2,9 @@ import {SecurityReportsRoot} from '../../models/';
 import {createSecurityReportsRootFromDiscriminatorValue} from '../../models/createSecurityReportsRootFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {MicrosoftGraphGetAttackSimulationRepeatOffendersRequestBuilder} from './microsoftGraphGetAttackSimulationRepeatOffenders/microsoftGraphGetAttackSimulationRepeatOffendersRequestBuilder';
-import {MicrosoftGraphGetAttackSimulationSimulationUserCoverageRequestBuilder} from './microsoftGraphGetAttackSimulationSimulationUserCoverage/microsoftGraphGetAttackSimulationSimulationUserCoverageRequestBuilder';
-import {MicrosoftGraphGetAttackSimulationTrainingUserCoverageRequestBuilder} from './microsoftGraphGetAttackSimulationTrainingUserCoverage/microsoftGraphGetAttackSimulationTrainingUserCoverageRequestBuilder';
+import {GetAttackSimulationRepeatOffendersRequestBuilder} from './getAttackSimulationRepeatOffenders/getAttackSimulationRepeatOffendersRequestBuilder';
+import {GetAttackSimulationSimulationUserCoverageRequestBuilder} from './getAttackSimulationSimulationUserCoverage/getAttackSimulationSimulationUserCoverageRequestBuilder';
+import {GetAttackSimulationTrainingUserCoverageRequestBuilder} from './getAttackSimulationTrainingUserCoverage/getAttackSimulationTrainingUserCoverageRequestBuilder';
 import {SecurityRequestBuilderDeleteRequestConfiguration} from './securityRequestBuilderDeleteRequestConfiguration';
 import {SecurityRequestBuilderGetRequestConfiguration} from './securityRequestBuilderGetRequestConfiguration';
 import {SecurityRequestBuilderPatchRequestConfiguration} from './securityRequestBuilderPatchRequestConfiguration';
@@ -15,16 +15,16 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class SecurityRequestBuilder {
     /** Provides operations to call the getAttackSimulationRepeatOffenders method. */
-    public get microsoftGraphGetAttackSimulationRepeatOffenders(): MicrosoftGraphGetAttackSimulationRepeatOffendersRequestBuilder {
-        return new MicrosoftGraphGetAttackSimulationRepeatOffendersRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get getAttackSimulationRepeatOffenders(): GetAttackSimulationRepeatOffendersRequestBuilder {
+        return new GetAttackSimulationRepeatOffendersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getAttackSimulationSimulationUserCoverage method. */
-    public get microsoftGraphGetAttackSimulationSimulationUserCoverage(): MicrosoftGraphGetAttackSimulationSimulationUserCoverageRequestBuilder {
-        return new MicrosoftGraphGetAttackSimulationSimulationUserCoverageRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get getAttackSimulationSimulationUserCoverage(): GetAttackSimulationSimulationUserCoverageRequestBuilder {
+        return new GetAttackSimulationSimulationUserCoverageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getAttackSimulationTrainingUserCoverage method. */
-    public get microsoftGraphGetAttackSimulationTrainingUserCoverage(): MicrosoftGraphGetAttackSimulationTrainingUserCoverageRequestBuilder {
-        return new MicrosoftGraphGetAttackSimulationTrainingUserCoverageRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get getAttackSimulationTrainingUserCoverage(): GetAttackSimulationTrainingUserCoverageRequestBuilder {
+        return new GetAttackSimulationTrainingUserCoverageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

@@ -295,7 +295,7 @@ export class GraphBaseServiceClient {
     public get permissionGrants(): PermissionGrantsRequestBuilder {
         return new PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of place entities. */
+    /** The places property */
     public get places(): PlacesRequestBuilder {
         return new PlacesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

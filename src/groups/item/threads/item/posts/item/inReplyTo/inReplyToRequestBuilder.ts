@@ -6,11 +6,11 @@ import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder
 import {AttachmentItemRequestBuilder} from './attachments/item/attachmentItemRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
+import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
 import {InReplyToRequestBuilderGetRequestConfiguration} from './inReplyToRequestBuilderGetRequestConfiguration';
-import {MicrosoftGraphForwardRequestBuilder} from './microsoftGraphForward/microsoftGraphForwardRequestBuilder';
-import {MicrosoftGraphReplyRequestBuilder} from './microsoftGraphReply/microsoftGraphReplyRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
+import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
 import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyItemRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -28,12 +28,8 @@ export class InReplyToRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the forward method. */
-    public get microsoftGraphForward(): MicrosoftGraphForwardRequestBuilder {
-        return new MicrosoftGraphForwardRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the reply method. */
-    public get microsoftGraphReply(): MicrosoftGraphReplyRequestBuilder {
-        return new MicrosoftGraphReplyRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get forward(): ForwardRequestBuilder {
+        return new ForwardRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.post entity. */
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
@@ -41,6 +37,10 @@ export class InReplyToRequestBuilder {
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the reply method. */
+    public get reply(): ReplyRequestBuilder {
+        return new ReplyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.post entity. */

@@ -3,8 +3,8 @@ import {createWorkbookWorksheetCollectionResponseFromDiscriminatorValue} from '.
 import {createWorkbookWorksheetFromDiscriminatorValue} from '../../../../../../models/createWorkbookWorksheetFromDiscriminatorValue';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AddRequestBuilder} from './add/addRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphAddRequestBuilder} from './microsoftGraphAdd/microsoftGraphAddRequestBuilder';
 import {WorksheetsRequestBuilderGetRequestConfiguration} from './worksheetsRequestBuilderGetRequestConfiguration';
 import {WorksheetsRequestBuilderPostRequestConfiguration} from './worksheetsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -13,13 +13,13 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
  */
 export class WorksheetsRequestBuilder {
+    /** Provides operations to call the add method. */
+    public get add(): AddRequestBuilder {
+        return new AddRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the add method. */
-    public get microsoftGraphAdd(): MicrosoftGraphAddRequestBuilder {
-        return new MicrosoftGraphAddRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

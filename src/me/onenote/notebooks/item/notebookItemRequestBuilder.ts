@@ -2,7 +2,7 @@ import {Notebook} from '../../../../models/';
 import {createNotebookFromDiscriminatorValue} from '../../../../models/createNotebookFromDiscriminatorValue';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {MicrosoftGraphCopyNotebookRequestBuilder} from './microsoftGraphCopyNotebook/microsoftGraphCopyNotebookRequestBuilder';
+import {CopyNotebookRequestBuilder} from './copyNotebook/copyNotebookRequestBuilder';
 import {NotebookItemRequestBuilderDeleteRequestConfiguration} from './notebookItemRequestBuilderDeleteRequestConfiguration';
 import {NotebookItemRequestBuilderGetRequestConfiguration} from './notebookItemRequestBuilderGetRequestConfiguration';
 import {NotebookItemRequestBuilderPatchRequestConfiguration} from './notebookItemRequestBuilderPatchRequestConfiguration';
@@ -17,8 +17,8 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class NotebookItemRequestBuilder {
     /** Provides operations to call the copyNotebook method. */
-    public get microsoftGraphCopyNotebook(): MicrosoftGraphCopyNotebookRequestBuilder {
-        return new MicrosoftGraphCopyNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get copyNotebook(): CopyNotebookRequestBuilder {
+        return new CopyNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

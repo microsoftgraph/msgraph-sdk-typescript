@@ -2,9 +2,9 @@ import {WorkbookTableSort} from '../../../../../../../../models/';
 import {createWorkbookTableSortFromDiscriminatorValue} from '../../../../../../../../models/createWorkbookTableSortFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {MicrosoftGraphApplyRequestBuilder} from './microsoftGraphApply/microsoftGraphApplyRequestBuilder';
-import {MicrosoftGraphClearRequestBuilder} from './microsoftGraphClear/microsoftGraphClearRequestBuilder';
-import {MicrosoftGraphReapplyRequestBuilder} from './microsoftGraphReapply/microsoftGraphReapplyRequestBuilder';
+import {ApplyRequestBuilder} from './apply/applyRequestBuilder';
+import {ClearRequestBuilder} from './clear/clearRequestBuilder';
+import {ReapplyRequestBuilder} from './reapply/reapplyRequestBuilder';
 import {SortRequestBuilderDeleteRequestConfiguration} from './sortRequestBuilderDeleteRequestConfiguration';
 import {SortRequestBuilderGetRequestConfiguration} from './sortRequestBuilderGetRequestConfiguration';
 import {SortRequestBuilderPatchRequestConfiguration} from './sortRequestBuilderPatchRequestConfiguration';
@@ -15,19 +15,19 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class SortRequestBuilder {
     /** Provides operations to call the apply method. */
-    public get microsoftGraphApply(): MicrosoftGraphApplyRequestBuilder {
-        return new MicrosoftGraphApplyRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get apply(): ApplyRequestBuilder {
+        return new ApplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the clear method. */
-    public get microsoftGraphClear(): MicrosoftGraphClearRequestBuilder {
-        return new MicrosoftGraphClearRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the reapply method. */
-    public get microsoftGraphReapply(): MicrosoftGraphReapplyRequestBuilder {
-        return new MicrosoftGraphReapplyRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get clear(): ClearRequestBuilder {
+        return new ClearRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the reapply method. */
+    public get reapply(): ReapplyRequestBuilder {
+        return new ReapplyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */

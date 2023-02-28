@@ -1,4 +1,3 @@
-import {CountRequestBuilderGetQueryParameters} from './countRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
@@ -9,6 +8,4 @@ export class CountRequestBuilderGetRequestConfiguration {
     public headers?: Record<string, string[]> | undefined;
     /** Request options */
     public options?: RequestOption[] | undefined;
-    /** Request query parameters */
-    public queryParameters?: CountRequestBuilderGetQueryParameters | undefined;
 }

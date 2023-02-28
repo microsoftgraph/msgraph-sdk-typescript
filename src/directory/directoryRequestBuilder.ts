@@ -10,6 +10,8 @@ import {DirectoryRequestBuilderGetRequestConfiguration} from './directoryRequest
 import {DirectoryRequestBuilderPatchRequestConfiguration} from './directoryRequestBuilderPatchRequestConfiguration';
 import {FederationConfigurationsRequestBuilder} from './federationConfigurations/federationConfigurationsRequestBuilder';
 import {IdentityProviderBaseItemRequestBuilder} from './federationConfigurations/item/identityProviderBaseItemRequestBuilder';
+import {OnPremisesDirectorySynchronizationItemRequestBuilder} from './onPremisesSynchronization/item/onPremisesDirectorySynchronizationItemRequestBuilder';
+import {OnPremisesSynchronizationRequestBuilder} from './onPremisesSynchronization/onPremisesSynchronizationRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -27,6 +29,10 @@ export class DirectoryRequestBuilder {
     /** Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity. */
     public get federationConfigurations(): FederationConfigurationsRequestBuilder {
         return new FederationConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity. */
+    public get onPremisesSynchronization(): OnPremisesSynchronizationRequestBuilder {
+        return new OnPremisesSynchronizationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -95,6 +101,17 @@ export class DirectoryRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Directory>(requestInfo, createDirectoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
+     * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
+     * @param id Unique identifier of the item
+     * @returns a OnPremisesDirectorySynchronizationItemRequestBuilder
+     */
+    public onPremisesSynchronizationById(id: string) : OnPremisesDirectorySynchronizationItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["onPremisesDirectorySynchronization%2Did"] = id
+        return new OnPremisesDirectorySynchronizationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update directory

@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {AccessReviewHistoryInstanceItemRequestBuilderDeleteRequestConfiguration} from './accessReviewHistoryInstanceItemRequestBuilderDeleteRequestConfiguration';
 import {AccessReviewHistoryInstanceItemRequestBuilderGetRequestConfiguration} from './accessReviewHistoryInstanceItemRequestBuilderGetRequestConfiguration';
 import {AccessReviewHistoryInstanceItemRequestBuilderPatchRequestConfiguration} from './accessReviewHistoryInstanceItemRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphGenerateDownloadUriRequestBuilder} from './microsoftGraphGenerateDownloadUri/microsoftGraphGenerateDownloadUriRequestBuilder';
+import {GenerateDownloadUriRequestBuilder} from './generateDownloadUri/generateDownloadUriRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -13,8 +13,8 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class AccessReviewHistoryInstanceItemRequestBuilder {
     /** Provides operations to call the generateDownloadUri method. */
-    public get microsoftGraphGenerateDownloadUri(): MicrosoftGraphGenerateDownloadUriRequestBuilder {
-        return new MicrosoftGraphGenerateDownloadUriRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get generateDownloadUri(): GenerateDownloadUriRequestBuilder {
+        return new GenerateDownloadUriRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
